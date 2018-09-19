@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd", "TestCallingBot\FrontEnd\FrontEnd.csproj", "{6DC2FC25-DB22-4E1C-A79E-E0B41C8FD8DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerRole", "TestCallingBot\WorkerRole\WorkerRole.csproj", "{619FA8B8-F7C2-4005-AB26-A6A80AA6E8B4}"
+EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "TestCallingBot", "TestCallingBot\TestCallingBot.ccproj", "{A0FAB93B-E2C5-4D60-8CA3-ED32FD4EB622}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6DC2FC25-DB22-4E1C-A79E-E0B41C8FD8DE} = {6DC2FC25-DB22-4E1C-A79E-E0B41C8FD8DE}
+		{619FA8B8-F7C2-4005-AB26-A6A80AA6E8B4} = {619FA8B8-F7C2-4005-AB26-A6A80AA6E8B4}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6661DAB8-CA52-427B-8450-BEDD78400F38}"
+	ProjectSection(SolutionItems) = preProject
+		configure_cloud.ps1 = configure_cloud.ps1
+		E-SDK Samples.postman_collection.json = E-SDK Samples.postman_collection.json
+		Getting Started with the Local Media Samples.md = Getting Started with the Local Media Samples.md
+		..\Graph.props = ..\Graph.props
+		..\nuget.config = ..\nuget.config
+		TestCallingBot\README Release Notes.md = TestCallingBot\README Release Notes.md
+		..\stylecop.json = ..\stylecop.json
+		..\StyleCop.ruleset = ..\StyleCop.ruleset
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Common", "..\Common\Sample.Common\Sample.Common.csproj", "{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6DC2FC25-DB22-4E1C-A79E-E0B41C8FD8DE}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{6DC2FC25-DB22-4E1C-A79E-E0B41C8FD8DE}.Debug|Any CPU.Build.0 = Debug|x64
+		{6DC2FC25-DB22-4E1C-A79E-E0B41C8FD8DE}.Release|Any CPU.ActiveCfg = Release|x64
+		{6DC2FC25-DB22-4E1C-A79E-E0B41C8FD8DE}.Release|Any CPU.Build.0 = Release|x64
+		{619FA8B8-F7C2-4005-AB26-A6A80AA6E8B4}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{619FA8B8-F7C2-4005-AB26-A6A80AA6E8B4}.Debug|Any CPU.Build.0 = Debug|x64
+		{619FA8B8-F7C2-4005-AB26-A6A80AA6E8B4}.Release|Any CPU.ActiveCfg = Release|x64
+		{619FA8B8-F7C2-4005-AB26-A6A80AA6E8B4}.Release|Any CPU.Build.0 = Release|x64
+		{A0FAB93B-E2C5-4D60-8CA3-ED32FD4EB622}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0FAB93B-E2C5-4D60-8CA3-ED32FD4EB622}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0FAB93B-E2C5-4D60-8CA3-ED32FD4EB622}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0FAB93B-E2C5-4D60-8CA3-ED32FD4EB622}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {40C46BA5-FFE7-414A-89C4-F7EE1F3055DC}
+	EndGlobalSection
+EndGlobal
