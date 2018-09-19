@@ -9,7 +9,7 @@
   <Import Project="$(MSBuildThisFileDirectory)..\..\Graph.props" />
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.$(PkgPrefix)Graph.CoreSDK" Version="201809.1.3" />
+    <PackageReference Include="Microsoft.$(PkgPrefix)Graph.CoreSDK" Version="1.0.0.12" />
     <PackageReference Include="Microsoft.IdentityModel.Clients.ActiveDirectory" Version="3.19.8" />
   </ItemGroup>
 
