@@ -16,13 +16,13 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
     using Microsoft.Graph.Calls.Media;
     using Microsoft.Graph.Core.Common;
     using Microsoft.Graph.Core.Telemetry;
-    using Microsoft.Graph.Meetings;
     using Microsoft.Graph.StatefulClient;
     using Microsoft.Skype.Bots.Media;
     using Sample.AudioVideoPlaybackBot.FrontEnd;
     using Sample.AudioVideoPlaybackBot.FrontEnd.Http;
     using Sample.Common.Authentication;
     using Sample.Common.Logging;
+    using Sample.Common.OnlineMeetings;
     using CallerInfo = Sample.Common.Logging.CallerInfo;
 
     /// <summary>
@@ -37,11 +37,12 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         {
             var logger = new GraphLogger(nameof(Bot));
             var builder = new StatefulClientBuilder("AudioVideoPlaybackBot", Service.Instance.Configuration.AadAppId, logger);
-            builder.SetAuthenticationProvider(
-                new AuthenticationProvider(
+            var authProvider = new AuthenticationProvider(
                     Service.Instance.Configuration.AadAppId,
                     Service.Instance.Configuration.AadAppSecret,
-                    logger));
+                    logger);
+
+            builder.SetAuthenticationProvider(authProvider);
             builder.SetNotificationUrl(Service.Instance.Configuration.CallControlBaseUrl);
             builder.SetMediaPlatformSettings(Service.Instance.Configuration.MediaPlatformSettings);
             builder.SetServiceBaseUrl(Service.Instance.Configuration.PlaceCallEndpointUrl);
@@ -49,6 +50,8 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             this.Client = builder.Build();
             this.Client.Calls().OnIncoming += this.CallsOnIncoming;
             this.Client.Calls().OnUpdated += this.CallsOnUpdated;
+
+            this.OnlineMeetings = new OnlineMeetingHelper(authProvider, Service.Instance.Configuration.PlaceCallEndpointUrl);
         }
 
         /// <summary>
@@ -67,6 +70,14 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         public IStatefulClient Client { get; }
 
         /// <summary>
+        /// Gets the online meeting.
+        /// </summary>
+        /// <value>
+        /// The online meeting.
+        /// </value>
+        public OnlineMeetingHelper OnlineMeetings { get; }
+
+        /// <summary>
         /// Joins the call asynchronously.
         /// </summary>
         /// <param name="joinCallBody">The join call body.</param>
@@ -80,8 +91,8 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             ChatInfo chatInfo = joinCallBody.ChatInfo;
             if (!string.IsNullOrWhiteSpace(joinCallBody.MeetingId))
             {
-                var onlineMeeting = await this.Client.Meetings()
-                    .GetAsync(joinCallBody.MeetingId, joinCallBody.TenantId, correlationId)
+                var onlineMeeting = await this.OnlineMeetings
+                    .GetOnlineMeetingAsync(joinCallBody.TenantId, joinCallBody.MeetingId, correlationId)
                     .ConfigureAwait(false);
 
                 meetingInfo = onlineMeeting.MeetingInfo;

@@ -21,11 +21,11 @@ namespace Sample.HueBot.Bot
     using Microsoft.Graph.Core.Common;
     using Microsoft.Graph.Core.Telemetry;
     using Microsoft.Graph.CoreSDK.Exceptions;
-    using Microsoft.Graph.Meetings;
     using Microsoft.Graph.StatefulClient;
     using Microsoft.Skype.Bots.Media;
     using Sample.Common.Authentication;
     using Sample.Common.Meetings;
+    using Sample.Common.OnlineMeetings;
     using Sample.HueBot;
     using Sample.HueBot.Controllers;
     using Sample.HueBot.Extensions;
@@ -51,12 +51,13 @@ namespace Sample.HueBot.Bot
             this.Options = options;
             this.logger = graphLogger;
 
-            var builder = new StatefulClientBuilder("HueBot", options.AppId, this.logger);
-            builder.SetAuthenticationProvider(
-                new AuthenticationProvider(
+            var authProvider = new AuthenticationProvider(
                     options.AppId,
                     options.AppSecret,
-                    this.logger));
+                    this.logger);
+            var builder = new StatefulClientBuilder("HueBot", options.AppId, this.logger);
+
+            builder.SetAuthenticationProvider(authProvider);
             builder.SetNotificationUrl(options.BotBaseUrl);
             builder.SetMediaPlatformSettings(this.MediaInit(options, serviceContext));
             builder.SetServiceBaseUrl(options.PlaceCallEndpointUrl);
@@ -65,6 +66,8 @@ namespace Sample.HueBot.Bot
 
             this.Client.Calls().OnIncoming += this.CallsOnIncoming;
             this.Client.Calls().OnUpdated += this.CallsOnUpdated;
+
+            this.OnlineMeetings = new OnlineMeetingHelper(authProvider, options.PlaceCallEndpointUrl);
         }
 
         /// <summary>
@@ -89,6 +92,14 @@ namespace Sample.HueBot.Bot
         public IStatefulClient Client { get; }
 
         /// <summary>
+        /// Gets the online meeting.
+        /// </summary>
+        /// <value>
+        /// The online meeting.
+        /// </value>
+        public OnlineMeetingHelper OnlineMeetings { get; }
+
+        /// <summary>
         /// Joins the call asynchronously.
         /// </summary>
         /// <param name="joinCallBody">The join call body.</param>
@@ -102,8 +113,8 @@ namespace Sample.HueBot.Bot
             ChatInfo chatInfo;
             if (!string.IsNullOrWhiteSpace(joinCallBody.MeetingId))
             {
-                var onlineMeeting = await this.Client.Meetings()
-                    .GetAsync(joinCallBody.MeetingId, joinCallBody.TenantId, correlationId)
+                var onlineMeeting = await this.OnlineMeetings
+                    .GetOnlineMeetingAsync(joinCallBody.TenantId, joinCallBody.MeetingId, correlationId)
                     .ConfigureAwait(false);
 
                 meetingInfo = onlineMeeting.MeetingInfo;

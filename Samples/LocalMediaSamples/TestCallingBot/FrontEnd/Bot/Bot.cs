@@ -19,11 +19,11 @@ namespace Sample.TestCallingBot.FrontEnd.Bot
     using Microsoft.Graph.Calls.Media;
     using Microsoft.Graph.Core.Telemetry;
     using Microsoft.Graph.CoreSDK.Exceptions;
-    using Microsoft.Graph.Meetings;
     using Microsoft.Graph.StatefulClient;
     using Microsoft.Skype.Bots.Media;
     using Sample.Common.Authentication;
     using Sample.Common.Logging;
+    using Sample.Common.OnlineMeetings;
     using Sample.TestCallingBot.FrontEnd;
     using Sample.TestCallingBot.FrontEnd.Http;
     using CallerInfo = Sample.Common.Logging.CallerInfo;
@@ -53,11 +53,12 @@ namespace Sample.TestCallingBot.FrontEnd.Bot
         {
             var logger = new GraphLogger(nameof(Bot));
             var builder = new StatefulClientBuilder("TestCallingBot", Service.Instance.Configuration.AadAppId, logger);
-            builder.SetAuthenticationProvider(
-                new AuthenticationProvider(
+            var authProvider = new AuthenticationProvider(
                     Service.Instance.Configuration.AadAppId,
                     Service.Instance.Configuration.AadAppSecret,
-                    logger));
+                    logger);
+
+            builder.SetAuthenticationProvider(authProvider);
             builder.SetNotificationUrl(Service.Instance.Configuration.CallControlBaseUrl);
             builder.SetMediaPlatformSettings(Service.Instance.Configuration.MediaPlatformSettings);
             builder.SetServiceBaseUrl(Service.Instance.Configuration.PlaceCallEndpointUrl);
@@ -69,6 +70,7 @@ namespace Sample.TestCallingBot.FrontEnd.Bot
 
             this.AnswerWithMediaType = CallMediaType.Local;
             this.JoinedMediaType = CallMediaType.Local;
+            this.OnlineMeetings = new OnlineMeetingHelper(authProvider, Service.Instance.Configuration.PlaceCallEndpointUrl);
 
             var promptsBaseUri = $"https://{Service.Instance.Configuration.ServiceDnsName}/prompts";
             this.MediaMap["welcome"] = new MediaPrompt
@@ -137,6 +139,14 @@ namespace Sample.TestCallingBot.FrontEnd.Bot
         public IStatefulClient Client { get; }
 
         /// <summary>
+        /// Gets the online meeting.
+        /// </summary>
+        /// <value>
+        /// The online meeting.
+        /// </value>
+        public OnlineMeetingHelper OnlineMeetings { get;  }
+
+        /// <summary>
         /// Gets or sets the type of the answer with media.
         /// </summary>
         /// <value>
@@ -200,8 +210,8 @@ namespace Sample.TestCallingBot.FrontEnd.Bot
             ChatInfo chatInfo = joinCallBody.ChatInfo;
             if (!string.IsNullOrWhiteSpace(joinCallBody.MeetingId))
             {
-                var onlineMeeting = await this.Client.Meetings()
-                    .GetAsync(joinCallBody.MeetingId, joinCallBody.TenantId, correlationId)
+                var onlineMeeting = await this.OnlineMeetings
+                    .GetOnlineMeetingAsync(joinCallBody.TenantId, joinCallBody.MeetingId, correlationId)
                     .ConfigureAwait(false);
 
                 meetingInfo = onlineMeeting.MeetingInfo;
