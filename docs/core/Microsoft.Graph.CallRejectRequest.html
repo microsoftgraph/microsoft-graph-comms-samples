@@ -1,0 +1,450 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class CallRejectRequest
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class CallRejectRequest
+   ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Microsoft.Graph.CallRejectRequest">
+  
+  
+  <h1 id="Microsoft_Graph_CallRejectRequest" data-uid="Microsoft.Graph.CallRejectRequest" class="text-break">Class CallRejectRequest
+  </h1>
+  <div class="markdown level0 summary"><p>The type CallRejectRequest.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="Microsoft.Graph.BaseRequest.html">BaseRequest</a></div>
+    <div class="level2"><span class="xref">CallRejectRequest</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Microsoft.Graph.ICallRejectRequest.html">ICallRejectRequest</a></div>
+    <div><a class="xref" href="Microsoft.Graph.IBaseRequest.html">IBaseRequest</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Microsoft.Graph.BaseRequest.html#Microsoft_Graph_BaseRequest_ContentType">BaseRequest.ContentType</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.Graph.BaseRequest.html#Microsoft_Graph_BaseRequest_Headers">BaseRequest.Headers</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.Graph.BaseRequest.html#Microsoft_Graph_BaseRequest_Client">BaseRequest.Client</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.Graph.BaseRequest.html#Microsoft_Graph_BaseRequest_Method">BaseRequest.Method</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.Graph.BaseRequest.html#Microsoft_Graph_BaseRequest_QueryOptions">BaseRequest.QueryOptions</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.Graph.BaseRequest.html#Microsoft_Graph_BaseRequest_RequestUrl">BaseRequest.RequestUrl</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.Graph.BaseRequest.html#Microsoft_Graph_BaseRequest_SdkVersionHeaderPrefix">BaseRequest.SdkVersionHeaderPrefix</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.Graph.BaseRequest.html#Microsoft_Graph_BaseRequest_SendAsync_System_Object_System_Threading_CancellationToken_System_Net_Http_HttpCompletionOption_">BaseRequest.SendAsync(Object, CancellationToken, HttpCompletionOption)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.Graph.BaseRequest.html#Microsoft_Graph_BaseRequest_SendAsync__1_System_Object_System_Threading_CancellationToken_System_Net_Http_HttpCompletionOption_">BaseRequest.SendAsync&lt;T&gt;(Object, CancellationToken, HttpCompletionOption)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.Graph.BaseRequest.html#Microsoft_Graph_BaseRequest_SendMultiPartAsync__1_System_Net_Http_MultipartContent_System_Threading_CancellationToken_System_Net_Http_HttpCompletionOption_">BaseRequest.SendMultiPartAsync&lt;T&gt;(MultipartContent, CancellationToken, HttpCompletionOption)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.Graph.BaseRequest.html#Microsoft_Graph_BaseRequest_SendStreamRequestAsync_System_Object_System_Threading_CancellationToken_System_Net_Http_HttpCompletionOption_">BaseRequest.SendStreamRequestAsync(Object, CancellationToken, HttpCompletionOption)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.Graph.BaseRequest.html#Microsoft_Graph_BaseRequest_SendMultiPartRequestAsync_System_Net_Http_MultipartContent_System_Threading_CancellationToken_System_Net_Http_HttpCompletionOption_">BaseRequest.SendMultiPartRequestAsync(MultipartContent, CancellationToken, HttpCompletionOption)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.Graph.BaseRequest.html#Microsoft_Graph_BaseRequest_SendRequestAsync_System_Object_System_Threading_CancellationToken_System_Net_Http_HttpCompletionOption_">BaseRequest.SendRequestAsync(Object, CancellationToken, HttpCompletionOption)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.Graph.BaseRequest.html#Microsoft_Graph_BaseRequest_GetHttpRequestMessage">BaseRequest.GetHttpRequestMessage()</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="../stateful/Microsoft.Graph.html">Microsoft.Graph</a></h6>
+  <h6><strong>Assembly</strong>: Microsoft.Graph.CoreSDK.dll</h6>
+  <h5 id="Microsoft_Graph_CallRejectRequest_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class CallRejectRequest : BaseRequest, ICallRejectRequest, IBaseRequest</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/CallRejectRequest.cs&amp;version=GBdevelop&amp;line=26">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_CallRejectRequest__ctor_" data-uid="Microsoft.Graph.CallRejectRequest.#ctor*"></a>
+  <h4 id="Microsoft_Graph_CallRejectRequest__ctor_System_String_Microsoft_Graph_IBaseClient_System_Collections_Generic_IEnumerable_Microsoft_Graph_Option__" data-uid="Microsoft.Graph.CallRejectRequest.#ctor(System.String,Microsoft.Graph.IBaseClient,System.Collections.Generic.IEnumerable{Microsoft.Graph.Option})">CallRejectRequest(String, IBaseClient, IEnumerable&lt;Option&gt;)</h4>
+  <div class="markdown level1 summary"><p>Constructs a new CallRejectRequest.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CallRejectRequest(string requestUrl, IBaseClient client, IEnumerable&lt;Option&gt; options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">requestUrl</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.IBaseClient.html">IBaseClient</a></td>
+        <td><span class="parametername">client</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Microsoft.Graph.Option.html">Option</a>&gt;</td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/CallRejectRequest.cs&amp;version=GBdevelop&amp;line=39">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_CallRejectRequest_RequestBody_" data-uid="Microsoft.Graph.CallRejectRequest.RequestBody*"></a>
+  <h4 id="Microsoft_Graph_CallRejectRequest_RequestBody" data-uid="Microsoft.Graph.CallRejectRequest.RequestBody">RequestBody</h4>
+  <div class="markdown level1 summary"><p>Gets the request body.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CallRejectRequestBody RequestBody { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.CallRejectRequestBody.html">CallRejectRequestBody</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/CallRejectRequest.cs&amp;version=GBdevelop&amp;line=69">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_CallRejectRequest_Expand_" data-uid="Microsoft.Graph.CallRejectRequest.Expand*"></a>
+  <h4 id="Microsoft_Graph_CallRejectRequest_Expand_System_String_" data-uid="Microsoft.Graph.CallRejectRequest.Expand(System.String)">Expand(String)</h4>
+  <div class="markdown level1 summary"><p>Adds the specified expand value to the request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICallRejectRequest Expand(string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The expand value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.ICallRejectRequest.html">ICallRejectRequest</a></td>
+        <td><p>The request object to send.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/CallRejectRequest.cs&amp;version=GBdevelop&amp;line=44">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_CallRejectRequest_PostAsync_" data-uid="Microsoft.Graph.CallRejectRequest.PostAsync*"></a>
+  <h4 id="Microsoft_Graph_CallRejectRequest_PostAsync" data-uid="Microsoft.Graph.CallRejectRequest.PostAsync">PostAsync()</h4>
+  <div class="markdown level1 summary"><p>Issues the POST request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task PostAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/CallRejectRequest.cs&amp;version=GBdevelop&amp;line=54">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_CallRejectRequest_PostAsync_" data-uid="Microsoft.Graph.CallRejectRequest.PostAsync*"></a>
+  <h4 id="Microsoft_Graph_CallRejectRequest_PostAsync_System_Threading_CancellationToken_" data-uid="Microsoft.Graph.CallRejectRequest.PostAsync(System.Threading.CancellationToken)">PostAsync(CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Issues the POST request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task PostAsync(CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The <span class="xref">System.Threading.CancellationToken</span> for the request.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>The task to await for async call.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/CallRejectRequest.cs&amp;version=GBdevelop&amp;line=80">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_CallRejectRequest_Select_" data-uid="Microsoft.Graph.CallRejectRequest.Select*"></a>
+  <h4 id="Microsoft_Graph_CallRejectRequest_Select_System_String_" data-uid="Microsoft.Graph.CallRejectRequest.Select(System.String)">Select(String)</h4>
+  <div class="markdown level1 summary"><p>Adds the specified select value to the request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICallRejectRequest Select(string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The select value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.ICallRejectRequest.html">ICallRejectRequest</a></td>
+        <td><p>The request object to send.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Microsoft.Graph.ICallRejectRequest.html">ICallRejectRequest</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.IBaseRequest.html">IBaseRequest</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/CallRejectRequest.cs&amp;version=GBdevelop&amp;line=21" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

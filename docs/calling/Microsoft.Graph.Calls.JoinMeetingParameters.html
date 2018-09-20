@@ -1,0 +1,529 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class JoinMeetingParameters
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class JoinMeetingParameters
+   ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Microsoft.Graph.Calls.JoinMeetingParameters">
+  
+  
+  <h1 id="Microsoft_Graph_Calls_JoinMeetingParameters" data-uid="Microsoft.Graph.Calls.JoinMeetingParameters" class="text-break">Class JoinMeetingParameters
+  </h1>
+  <div class="markdown level0 summary"><p>Class to define parameters required for joining a meeting.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">JoinMeetingParameters</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.Calls.html">Microsoft.Graph.Calls</a></h6>
+  <h6><strong>Assembly</strong>: Microsoft.Graph.Calls.dll</h6>
+  <h5 id="Microsoft_Graph_Calls_JoinMeetingParameters_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class JoinMeetingParameters : object</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Parameters/JoinMeetingParameters.cs&amp;version=GBdevelop&amp;line=42">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_JoinMeetingParameters__ctor_" data-uid="Microsoft.Graph.Calls.JoinMeetingParameters.#ctor*"></a>
+  <h4 id="Microsoft_Graph_Calls_JoinMeetingParameters__ctor_ChatInfo_MeetingInfo_IEnumerable_Modality__IEnumerable_MediaInfo__System_Boolean_" data-uid="Microsoft.Graph.Calls.JoinMeetingParameters.#ctor(ChatInfo,MeetingInfo,IEnumerable{Modality},IEnumerable{MediaInfo},System.Boolean)">JoinMeetingParameters(ChatInfo, MeetingInfo, IEnumerable&lt;Modality&gt;, IEnumerable&lt;MediaInfo&gt;, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Microsoft.Graph.Calls.JoinMeetingParameters.html">JoinMeetingParameters</a> class.
+Use this constructor for service hosted media.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JoinMeetingParameters(ChatInfo chatInfo, MeetingInfo meetingInfo, IEnumerable&lt;Modality&gt; requestedModalities, IEnumerable&lt;MediaInfo&gt; prefetchPrompts = null, bool removeFromDefaultAudioRoutingGroup = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ChatInfo</span></td>
+        <td><span class="parametername">chatInfo</span></td>
+        <td><p>The chat information.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">MeetingInfo</span></td>
+        <td><span class="parametername">meetingInfo</span></td>
+        <td><p>The meeting information.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">Modality</span>&gt;</td>
+        <td><span class="parametername">requestedModalities</span></td>
+        <td><p>The list of modalities for the call</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">MediaInfo</span>&gt;</td>
+        <td><span class="parametername">prefetchPrompts</span></td>
+        <td><p>The list of media files to prefetch</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">removeFromDefaultAudioRoutingGroup</span></td>
+        <td><p>Whether to remove it from the default audio route.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Parameters/JoinMeetingParameters.cs&amp;version=GBdevelop&amp;line=25">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_JoinMeetingParameters__ctor_" data-uid="Microsoft.Graph.Calls.JoinMeetingParameters.#ctor*"></a>
+  <h4 id="Microsoft_Graph_Calls_JoinMeetingParameters__ctor_ChatInfo_MeetingInfo_Microsoft_Graph_Calls_IMediaSession_System_Boolean_" data-uid="Microsoft.Graph.Calls.JoinMeetingParameters.#ctor(ChatInfo,MeetingInfo,Microsoft.Graph.Calls.IMediaSession,System.Boolean)">JoinMeetingParameters(ChatInfo, MeetingInfo, IMediaSession, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Microsoft.Graph.Calls.JoinMeetingParameters.html">JoinMeetingParameters</a> class.
+Use this constructor for app hosted media.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public JoinMeetingParameters(ChatInfo chatInfo, MeetingInfo meetingInfo, IMediaSession mediaSession, bool removeFromDefaultAudioRoutingGroup = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ChatInfo</span></td>
+        <td><span class="parametername">chatInfo</span></td>
+        <td><p>The chat information.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">MeetingInfo</span></td>
+        <td><span class="parametername">meetingInfo</span></td>
+        <td><p>The meeting information.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.Calls.IMediaSession.html">IMediaSession</a></td>
+        <td><span class="parametername">mediaSession</span></td>
+        <td><p>The media session.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">removeFromDefaultAudioRoutingGroup</span></td>
+        <td><p>Whether to remove it from the default audio route.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Parameters/JoinMeetingParameters.cs&amp;version=GBdevelop&amp;line=111">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_JoinMeetingParameters_ChatInfo_" data-uid="Microsoft.Graph.Calls.JoinMeetingParameters.ChatInfo*"></a>
+  <h4 id="Microsoft_Graph_Calls_JoinMeetingParameters_ChatInfo" data-uid="Microsoft.Graph.Calls.JoinMeetingParameters.ChatInfo">ChatInfo</h4>
+  <div class="markdown level1 summary"><p>Gets the chat information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ChatInfo ChatInfo { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ChatInfo</span></td>
+        <td><p>The chat information.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Parameters/JoinMeetingParameters.cs&amp;version=GBdevelop&amp;line=79">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_JoinMeetingParameters_CorrelationId_" data-uid="Microsoft.Graph.Calls.JoinMeetingParameters.CorrelationId*"></a>
+  <h4 id="Microsoft_Graph_Calls_JoinMeetingParameters_CorrelationId" data-uid="Microsoft.Graph.Calls.JoinMeetingParameters.CorrelationId">CorrelationId</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the correlation identifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Guid CorrelationId { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Guid</span></td>
+        <td><p>The correlation identifier.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Parameters/JoinMeetingParameters.cs&amp;version=GBdevelop&amp;line=95">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_JoinMeetingParameters_GuestIdentity_" data-uid="Microsoft.Graph.Calls.JoinMeetingParameters.GuestIdentity*"></a>
+  <h4 id="Microsoft_Graph_Calls_JoinMeetingParameters_GuestIdentity" data-uid="Microsoft.Graph.Calls.JoinMeetingParameters.GuestIdentity">GuestIdentity</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the guest identity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Identity GuestIdentity { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Identity</span></td>
+        <td><p>The identity.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Parameters/JoinMeetingParameters.cs&amp;version=GBdevelop&amp;line=127">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_JoinMeetingParameters_MediaSession_" data-uid="Microsoft.Graph.Calls.JoinMeetingParameters.MediaSession*"></a>
+  <h4 id="Microsoft_Graph_Calls_JoinMeetingParameters_MediaSession" data-uid="Microsoft.Graph.Calls.JoinMeetingParameters.MediaSession">MediaSession</h4>
+  <div class="markdown level1 summary"><p>Gets the media session.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IMediaSession MediaSession { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.Calls.IMediaSession.html">IMediaSession</a></td>
+        <td><p>The media session.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Parameters/JoinMeetingParameters.cs&amp;version=GBdevelop&amp;line=119">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_JoinMeetingParameters_MeetingInfo_" data-uid="Microsoft.Graph.Calls.JoinMeetingParameters.MeetingInfo*"></a>
+  <h4 id="Microsoft_Graph_Calls_JoinMeetingParameters_MeetingInfo" data-uid="Microsoft.Graph.Calls.JoinMeetingParameters.MeetingInfo">MeetingInfo</h4>
+  <div class="markdown level1 summary"><p>Gets the meeting information.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MeetingInfo MeetingInfo { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">MeetingInfo</span></td>
+        <td><p>The meeting information.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Parameters/JoinMeetingParameters.cs&amp;version=GBdevelop&amp;line=143">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_JoinMeetingParameters_PrefetchPrompts_" data-uid="Microsoft.Graph.Calls.JoinMeetingParameters.PrefetchPrompts*"></a>
+  <h4 id="Microsoft_Graph_Calls_JoinMeetingParameters_PrefetchPrompts" data-uid="Microsoft.Graph.Calls.JoinMeetingParameters.PrefetchPrompts">PrefetchPrompts</h4>
+  <div class="markdown level1 summary"><p>Gets the list of media files to prefetch.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;MediaInfo&gt; PrefetchPrompts { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">MediaInfo</span>&gt;</td>
+        <td><p>The list of media files.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Parameters/JoinMeetingParameters.cs&amp;version=GBdevelop&amp;line=103">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_JoinMeetingParameters_RemoveFromDefaultAudioRoutingGroup_" data-uid="Microsoft.Graph.Calls.JoinMeetingParameters.RemoveFromDefaultAudioRoutingGroup*"></a>
+  <h4 id="Microsoft_Graph_Calls_JoinMeetingParameters_RemoveFromDefaultAudioRoutingGroup" data-uid="Microsoft.Graph.Calls.JoinMeetingParameters.RemoveFromDefaultAudioRoutingGroup">RemoveFromDefaultAudioRoutingGroup</h4>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether to remove from default audio routing group.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RemoveFromDefaultAudioRoutingGroup { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>The RemoveFromDefaultAudioRoutingGroup.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Parameters/JoinMeetingParameters.cs&amp;version=GBdevelop&amp;line=135">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_JoinMeetingParameters_RequestedModalities_" data-uid="Microsoft.Graph.Calls.JoinMeetingParameters.RequestedModalities*"></a>
+  <h4 id="Microsoft_Graph_Calls_JoinMeetingParameters_RequestedModalities" data-uid="Microsoft.Graph.Calls.JoinMeetingParameters.RequestedModalities">RequestedModalities</h4>
+  <div class="markdown level1 summary"><p>Gets the list of modalities to join the call with.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;Modality&gt; RequestedModalities { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">Modality</span>&gt;</td>
+        <td><p>The list of modalities.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Parameters/JoinMeetingParameters.cs&amp;version=GBdevelop&amp;line=87">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_JoinMeetingParameters_Subject_" data-uid="Microsoft.Graph.Calls.JoinMeetingParameters.Subject*"></a>
+  <h4 id="Microsoft_Graph_Calls_JoinMeetingParameters_Subject" data-uid="Microsoft.Graph.Calls.JoinMeetingParameters.Subject">Subject</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the subject.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Subject { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The subject.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Parameters/JoinMeetingParameters.cs&amp;version=GBdevelop&amp;line=71">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_JoinMeetingParameters_TenantId_" data-uid="Microsoft.Graph.Calls.JoinMeetingParameters.TenantId*"></a>
+  <h4 id="Microsoft_Graph_Calls_JoinMeetingParameters_TenantId" data-uid="Microsoft.Graph.Calls.JoinMeetingParameters.TenantId">TenantId</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the tenant id.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string TenantId { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The tenant value in the form of a GUID or a UPN.
+This is a transient value that can be used for authentication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Parameters/JoinMeetingParameters.cs&amp;version=GBdevelop&amp;line=15" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

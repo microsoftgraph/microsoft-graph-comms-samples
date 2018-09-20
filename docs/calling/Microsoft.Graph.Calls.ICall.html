@@ -1,0 +1,1078 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface ICall
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface ICall
+   ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Microsoft.Graph.Calls.ICall">
+  
+  
+  <h1 id="Microsoft_Graph_Calls_ICall" data-uid="Microsoft.Graph.Calls.ICall" class="text-break">Interface ICall
+  </h1>
+  <div class="markdown level0 summary"><p>The stateful call interface.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IResource-2.html#Microsoft_Graph_StatefulClient_IResource_2_OnUpdated">IResource&lt;ICall, Call&gt;.OnUpdated</a>
+    </div>
+    <div>
+      <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IResource-2.html#Microsoft_Graph_StatefulClient_IResource_2_Resource">IResource&lt;ICall, Call&gt;.Resource</a>
+    </div>
+    <div>
+      <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IResource.html#Microsoft_Graph_StatefulClient_IResource_Id">IResource.Id</a>
+    </div>
+    <div>
+      <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IResourceBase.html#Microsoft_Graph_StatefulClient_IResourceBase_Client">IResourceBase.Client</a>
+    </div>
+    <div>
+      <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IResourceBase.html#Microsoft_Graph_StatefulClient_IResourceBase_GraphClient">IResourceBase.GraphClient</a>
+    </div>
+    <div>
+      <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IResourceBase.html#Microsoft_Graph_StatefulClient_IResourceBase_GraphLogger">IResourceBase.GraphLogger</a>
+    </div>
+    <div>
+      <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IResourceBase.html#Microsoft_Graph_StatefulClient_IResourceBase_ResourcePath">IResourceBase.ResourcePath</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.Calls.html">Microsoft.Graph.Calls</a></h6>
+  <h6><strong>Assembly</strong>: Microsoft.Graph.Calls.dll</h6>
+  <h5 id="Microsoft_Graph_Calls_ICall_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface ICall : IResource&lt;ICall, Call&gt;, IResource, IResourceBase, IDisposable</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Interfaces/ICall.cs&amp;version=GBdevelop&amp;line=69">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_ICall_AudioRoutingGroups_" data-uid="Microsoft.Graph.Calls.ICall.AudioRoutingGroups*"></a>
+  <h4 id="Microsoft_Graph_Calls_ICall_AudioRoutingGroups" data-uid="Microsoft.Graph.Calls.ICall.AudioRoutingGroups">AudioRoutingGroups</h4>
+  <div class="markdown level1 summary"><p>Gets the audio routing groups.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IAudioRoutingGroupCollection AudioRoutingGroups { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.Calls.IAudioRoutingGroupCollection.html">IAudioRoutingGroupCollection</a></td>
+        <td><p>The audio routing groups.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Interfaces/ICall.cs&amp;version=GBdevelop&amp;line=45">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_ICall_CorrelationId_" data-uid="Microsoft.Graph.Calls.ICall.CorrelationId*"></a>
+  <h4 id="Microsoft_Graph_Calls_ICall_CorrelationId" data-uid="Microsoft.Graph.Calls.ICall.CorrelationId">CorrelationId</h4>
+  <div class="markdown level1 summary"><p>Gets the correlation identifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Guid CorrelationId { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Guid</span></td>
+        <td><p>The correlation identifier.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Interfaces/ICall.cs&amp;version=GBdevelop&amp;line=53">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_ICall_MediaSession_" data-uid="Microsoft.Graph.Calls.ICall.MediaSession*"></a>
+  <h4 id="Microsoft_Graph_Calls_ICall_MediaSession" data-uid="Microsoft.Graph.Calls.ICall.MediaSession">MediaSession</h4>
+  <div class="markdown level1 summary"><p>Gets the media session.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IMediaSession MediaSession { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.Calls.IMediaSession.html">IMediaSession</a></td>
+        <td><p>The media session.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Interfaces/ICall.cs&amp;version=GBdevelop&amp;line=61">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_ICall_Participants_" data-uid="Microsoft.Graph.Calls.ICall.Participants*"></a>
+  <h4 id="Microsoft_Graph_Calls_ICall_Participants" data-uid="Microsoft.Graph.Calls.ICall.Participants">Participants</h4>
+  <div class="markdown level1 summary"><p>Gets the Participants.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICallParticipantCollection Participants { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.Calls.ICallParticipantCollection.html">ICallParticipantCollection</a></td>
+        <td><p>The participants.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Interfaces/ICall.cs&amp;version=GBdevelop&amp;line=29">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_ICall_Resource_" data-uid="Microsoft.Graph.Calls.ICall.Resource*"></a>
+  <h4 id="Microsoft_Graph_Calls_ICall_Resource" data-uid="Microsoft.Graph.Calls.ICall.Resource">Resource</h4>
+  <div class="markdown level1 summary"><p>Gets the call resource.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Call Resource { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Call</span></td>
+        <td><p>The call resource.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Interfaces/ICall.cs&amp;version=GBdevelop&amp;line=37">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_ICall_TenantId_" data-uid="Microsoft.Graph.Calls.ICall.TenantId*"></a>
+  <h4 id="Microsoft_Graph_Calls_ICall_TenantId" data-uid="Microsoft.Graph.Calls.ICall.TenantId">TenantId</h4>
+  <div class="markdown level1 summary"><p>Gets the tenant identifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string TenantId { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The tenant id.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Interfaces/ICall.cs&amp;version=GBdevelop&amp;line=81">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_ICall_AnswerAsync_" data-uid="Microsoft.Graph.Calls.ICall.AnswerAsync*"></a>
+  <h4 id="Microsoft_Graph_Calls_ICall_AnswerAsync_MediaConfig_IEnumerable_Modality__System_String_CancellationToken_" data-uid="Microsoft.Graph.Calls.ICall.AnswerAsync(MediaConfig,IEnumerable{Modality},System.String,CancellationToken)">AnswerAsync(MediaConfig, IEnumerable&lt;Modality&gt;, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Answer an incoming call asynchronously.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task AnswerAsync(MediaConfig mediaConfig, IEnumerable&lt;Modality&gt; acceptedModalities = null, string callbackUri = null, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">MediaConfig</span></td>
+        <td><span class="parametername">mediaConfig</span></td>
+        <td><p>The <see cref="!:MediaConfig"></see>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">Modality</span>&gt;</td>
+        <td><span class="parametername">acceptedModalities</span></td>
+        <td><p>The accepted <see cref="!:Modality"></see>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">callbackUri</span></td>
+        <td><p>The call back uri.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td><p>See <see cref="!:Task"></see></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Interfaces/ICall.cs&amp;version=GBdevelop&amp;line=151">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_ICall_CancelMediaProcessingAsync_" data-uid="Microsoft.Graph.Calls.ICall.CancelMediaProcessingAsync*"></a>
+  <h4 id="Microsoft_Graph_Calls_ICall_CancelMediaProcessingAsync_System_Boolean_CancellationToken_" data-uid="Microsoft.Graph.Calls.ICall.CancelMediaProcessingAsync(System.Boolean,CancellationToken)">CancelMediaProcessingAsync(Boolean, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Performs the CancelMediaProcessing operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task CancelMediaProcessingAsync(bool all = true, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">all</span></td>
+        <td><p>When true, cancels all the media operations.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td><p>See <see cref="!:Task"></see></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Interfaces/ICall.cs&amp;version=GBdevelop&amp;line=173">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_ICall_ChangeScreenSharingRoleAsync_" data-uid="Microsoft.Graph.Calls.ICall.ChangeScreenSharingRoleAsync*"></a>
+  <h4 id="Microsoft_Graph_Calls_ICall_ChangeScreenSharingRoleAsync_ScreenSharingRole_CancellationToken_" data-uid="Microsoft.Graph.Calls.ICall.ChangeScreenSharingRoleAsync(ScreenSharingRole,CancellationToken)">ChangeScreenSharingRoleAsync(ScreenSharingRole, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Changes own sharing role in a vbss session.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task ChangeScreenSharingRoleAsync(ScreenSharingRole role, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ScreenSharingRole</span></td>
+        <td><span class="parametername">role</span></td>
+        <td><p>The role to change to.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td><p>See <see cref="!:Task"></see></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Interfaces/ICall.cs&amp;version=GBdevelop&amp;line=238">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_ICall_DeleteAsync_" data-uid="Microsoft.Graph.Calls.ICall.DeleteAsync*"></a>
+  <h4 id="Microsoft_Graph_Calls_ICall_DeleteAsync_CancellationToken_" data-uid="Microsoft.Graph.Calls.ICall.DeleteAsync(CancellationToken)">DeleteAsync(CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Deletes this call asynchronously.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task DeleteAsync(CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The <see cref="!:CancellationToken"></see> for the request.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td><p>The <see cref="!:Task"></see> to await.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Interfaces/ICall.cs&amp;version=GBdevelop&amp;line=184">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_ICall_MuteAsync_" data-uid="Microsoft.Graph.Calls.ICall.MuteAsync*"></a>
+  <h4 id="Microsoft_Graph_Calls_ICall_MuteAsync_CancellationToken_" data-uid="Microsoft.Graph.Calls.ICall.MuteAsync(CancellationToken)">MuteAsync(CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Mutes the self participant asynchronously.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task MuteAsync(CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td><p>See <see cref="!:Task"></see></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Interfaces/ICall.cs&amp;version=GBdevelop&amp;line=139">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_ICall_PlayPromptAsync_" data-uid="Microsoft.Graph.Calls.ICall.PlayPromptAsync*"></a>
+  <h4 id="Microsoft_Graph_Calls_ICall_PlayPromptAsync_IEnumerable_MediaPrompt__CancellationToken_" data-uid="Microsoft.Graph.Calls.ICall.PlayPromptAsync(IEnumerable{MediaPrompt},CancellationToken)">PlayPromptAsync(IEnumerable&lt;MediaPrompt&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Performs the PlayPrompt operation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task PlayPromptAsync(IEnumerable&lt;MediaPrompt&gt; prompts, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">MediaPrompt</span>&gt;</td>
+        <td><span class="parametername">prompts</span></td>
+        <td><p>The list of <see cref="!:MediaPrompt"></see> to play</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td><p>The <see cref="!:Task"></see>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Interfaces/ICall.cs&amp;version=GBdevelop&amp;line=222">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_ICall_RecordAsync_" data-uid="Microsoft.Graph.Calls.ICall.RecordAsync*"></a>
+  <h4 id="Microsoft_Graph_Calls_ICall_RecordAsync_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Boolean__System_Nullable_System_Boolean__IEnumerable_Prompt__IEnumerable_System_String__Action_System_String__CancellationToken_" data-uid="Microsoft.Graph.Calls.ICall.RecordAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean},IEnumerable{Prompt},IEnumerable{System.String},Action{System.String},CancellationToken)">RecordAsync(Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, IEnumerable&lt;Prompt&gt;, IEnumerable&lt;String&gt;, Action&lt;String&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Records the call asynchronously.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;RecordOperationResult&gt; RecordAsync(int? maxRecordDurationInSeconds = null, int? initialSilenceTimeoutInSeconds = null, int? maxSilenceTimeoutInSeconds = null, bool? bargeInAllowed = null, bool? playBeep = null, IEnumerable&lt;Prompt&gt; prompts = null, IEnumerable&lt;string&gt; stopTones = null, Action&lt;string&gt; recordingStreamFile = null, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">maxRecordDurationInSeconds</span></td>
+        <td><p>Max duration for a record operation before stopping recording. Default = 5 minutes (300 seconds) </p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">initialSilenceTimeoutInSeconds</span></td>
+        <td><p>Time to wait for user to start speaking for the first time before timing out. If the timeout is reached the recorder will abort the operation. Default = 5 sec</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">maxSilenceTimeoutInSeconds</span></td>
+        <td><p>Max duration of a pause by a user before timing out the record operation Default = 5 sec</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">bargeInAllowed</span></td>
+        <td><p>Optional Boolean flag to determines if the request should be queued up or barge into existing requests. Default = false </p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">playBeep</span></td>
+        <td><p>If true, plays a beep to indicate to the user that they can start recording their message. Default = true  </p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">Prompt</span>&gt;</td>
+        <td><span class="parametername">prompts</span></td>
+        <td><p>Contains info needed to play prompt. </p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">stopTones</span></td>
+        <td><p>DTMF characters that can be specified to indicate record is complete. </p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Action</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">recordingStreamFile</span></td>
+        <td><p>If not null, calls this function with the link which could be used to retrieve the raw record stream in real-time while record is in progress. If false, gives a link after recording is complete to download the recorded stream. </p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span>&lt;<a class="xref" href="Microsoft.Graph.Calls.RecordOperationResult.html">RecordOperationResult</a>&gt;</td>
+        <td><p>See <see cref="!:IObservable&lt;RecordOperation>"></see> </p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Interfaces/ICall.cs&amp;version=GBdevelop&amp;line=99">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_ICall_RedirectAsync_" data-uid="Microsoft.Graph.Calls.ICall.RedirectAsync*"></a>
+  <h4 id="Microsoft_Graph_Calls_ICall_RedirectAsync_IEnumerable_InvitationParticipantInfo__System_Nullable_CallDisposition__System_Nullable_System_Int32__System_Nullable_System_Boolean__System_Nullable_System_Boolean__CancellationToken_" data-uid="Microsoft.Graph.Calls.ICall.RedirectAsync(IEnumerable{InvitationParticipantInfo},System.Nullable{CallDisposition},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean},CancellationToken)">RedirectAsync(IEnumerable&lt;InvitationParticipantInfo&gt;, Nullable&lt;CallDisposition&gt;, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Redirects the incoming call asynchronously.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task RedirectAsync(IEnumerable&lt;InvitationParticipantInfo&gt; targets, CallDisposition? targetDisposition = null, int? timeout = null, bool? maskCallee = null, bool? maskCaller = null, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">InvitationParticipantInfo</span>&gt;</td>
+        <td><span class="parametername">targets</span></td>
+        <td><p>The targets.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">CallDisposition</span>&gt;</td>
+        <td><span class="parametername">targetDisposition</span></td>
+        <td><p>The target disposition.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>The timeout.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">maskCallee</span></td>
+        <td><p>The mask callee.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">maskCaller</span></td>
+        <td><p>The mask caller.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td><p>See <see cref="!:Task"></see></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Interfaces/ICall.cs&amp;version=GBdevelop&amp;line=115">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_ICall_RejectAsync_" data-uid="Microsoft.Graph.Calls.ICall.RejectAsync*"></a>
+  <h4 id="Microsoft_Graph_Calls_ICall_RejectAsync_System_Nullable_RejectReason__CancellationToken_" data-uid="Microsoft.Graph.Calls.ICall.RejectAsync(System.Nullable{RejectReason},CancellationToken)">RejectAsync(Nullable&lt;RejectReason&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Rejects the incoming call asynchronously.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task RejectAsync(RejectReason? rejectReason = null, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">RejectReason</span>&gt;</td>
+        <td><span class="parametername">rejectReason</span></td>
+        <td><p>The reject reason.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td><p>See <see cref="!:Task"></see></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Interfaces/ICall.cs&amp;version=GBdevelop&amp;line=162">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_ICall_SubscribeToToneAsync_" data-uid="Microsoft.Graph.Calls.ICall.SubscribeToToneAsync*"></a>
+  <h4 id="Microsoft_Graph_Calls_ICall_SubscribeToToneAsync_CancellationToken_" data-uid="Microsoft.Graph.Calls.ICall.SubscribeToToneAsync(CancellationToken)">SubscribeToToneAsync(CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Subscribes to tone.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task SubscribeToToneAsync(CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td><p>See <see cref="!:Task"></see></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Interfaces/ICall.cs&amp;version=GBdevelop&amp;line=127">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_ICall_TransferAsync_" data-uid="Microsoft.Graph.Calls.ICall.TransferAsync*"></a>
+  <h4 id="Microsoft_Graph_Calls_ICall_TransferAsync_InvitationParticipantInfo_CancellationToken_" data-uid="Microsoft.Graph.Calls.ICall.TransferAsync(InvitationParticipantInfo,CancellationToken)">TransferAsync(InvitationParticipantInfo, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Transfer a call.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task TransferAsync(InvitationParticipantInfo target, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">InvitationParticipantInfo</span></td>
+        <td><span class="parametername">target</span></td>
+        <td><p>The target to transfer the call to.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td><p>See <see cref="!:Task"></see></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Interfaces/ICall.cs&amp;version=GBdevelop&amp;line=194">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_ICall_UnmuteAsync_" data-uid="Microsoft.Graph.Calls.ICall.UnmuteAsync*"></a>
+  <h4 id="Microsoft_Graph_Calls_ICall_UnmuteAsync_CancellationToken_" data-uid="Microsoft.Graph.Calls.ICall.UnmuteAsync(CancellationToken)">UnmuteAsync(CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Unmutes the self participant asynchronously.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task UnmuteAsync(CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td><p>See <see cref="!:Task"></see></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Interfaces/ICall.cs&amp;version=GBdevelop&amp;line=205">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Calls_ICall_UpdateMetadataAsync_" data-uid="Microsoft.Graph.Calls.ICall.UpdateMetadataAsync*"></a>
+  <h4 id="Microsoft_Graph_Calls_ICall_UpdateMetadataAsync_System_String_CancellationToken_" data-uid="Microsoft.Graph.Calls.ICall.UpdateMetadataAsync(System.String,CancellationToken)">UpdateMetadataAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Updates the self participant metadata asynchronously.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task UpdateMetadataAsync(string metadata, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">metadata</span></td>
+        <td><p>The metadata.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td><p>See <see cref="!:Task"></see></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Calls.CallExtensions.html#Microsoft_Graph_Calls_CallExtensions_AnswerAsync_Microsoft_Graph_Calls_ICall_Microsoft_Graph_Calls_IMediaSession_System_String_CancellationToken_">CallExtensions.AnswerAsync(ICall, IMediaSession, String, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Calls.CallExtensions.html#Microsoft_Graph_Calls_CallExtensions_AnswerAsync_Microsoft_Graph_Calls_ICall_IEnumerable_MediaInfo__IEnumerable_Modality__System_String_CancellationToken_">CallExtensions.AnswerAsync(ICall, IEnumerable&lt;MediaInfo&gt;, IEnumerable&lt;Modality&gt;, String, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Calls.CallExtensions.html#Microsoft_Graph_Calls_CallExtensions_AnswerAsync_Microsoft_Graph_Calls_ICall_System_String_CancellationToken_">CallExtensions.AnswerAsync(ICall, String, CancellationToken)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.Calls/Models/Interfaces/ICall.cs&amp;version=GBdevelop&amp;line=21" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

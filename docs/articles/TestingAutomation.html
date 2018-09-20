@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Automated Testing </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Automated Testing ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="automated-testing">Automated Testing</h1>
+
+<p>The <a href="Testing.html">testing</a> file explained how to use ngrok to setup your pipeline. This file explains how to automate the testing using the <code>Microsoft.Graph.Testing.Localhost</code> nuget.</p>
+<h2 id="the-library">The library</h2>
+<p>The <code>Microsoft.Graph.Testing.Localhost</code> library acts as an automation layer to run and manage the tunnels dynamically to your localhost. It provides support for ngrok out of the box.</p>
+<div class="NOTE"><h5>Note</h5><p>The current version of the library does not support end to end encrypted tunnels.</p>
+</div>
+<p>The <code>IProxyServiceProvider</code> wraps the implementation of different tunneling options to provide an unified mechanism to manage the tunnels. </p>
+<h2 id="ngrok">Ngrok</h2>
+<ul>
+<li><p>Follow the steps in <a href="Testing.html">testing</a> to get an authentication token for ngrok.</p>
+</li>
+<li><p>Create an instance of <code>NgrokProxyServiceProvider</code> by passing in the auth token.</p>
+</li>
+</ul>
+<pre><code>var ngrokProxy = new NgrokProxyServiceProvider(authToken);
+</code></pre><ul>
+<li>For the purposes of the bot, we require two tunnels. One for media and one for signaling. Add the following lines to setup the tunnels.</li>
+</ul>
+<pre><code>await ngrokProxy.RegisterServiceAsync(&quot;signaling&quot;, ProxyServiceMode.Http, localSignalingPort).ConfigureAwait(false);
+await ngrokProxy.RegisterServiceAsync(&quot;media&quot;, ProxyServiceMode.Tcp, localMediaPort).ConfigureAwait(false);
+</code></pre><ul>
+<li>Call the startup server method to finish setting up the tunnels</li>
+</ul>
+<pre><code>await NgrokServiceProvider.StartProxyAsync().ConfigureAwait(false);
+</code></pre><ul>
+<li>Retrieve the tunnel details for passing in to the SDK.</li>
+</ul>
+<pre><code>var serviceDetails = await ngrokProxy.GetServiceAsync(&quot;signaling&quot;).ConfigureAwait(false);
+var mediaServiceDetails = await ngrokProxy.GetServiceAsync(&quot;media&quot;).ConfigureAwait(false);
+</code></pre><ul>
+<li>The different service details objects have the values required to be passed in as mentioned in <a href="Testing.html">testing</a>.</li>
+</ul>
+<pre><code>// Setup the signaling
+var remoteUri = new UriBuilder(&quot;https&quot;, serviceDetails.RemoteAddress).Uri;
+builder.SetServiceBaseUrl(platformUri);
+
+// Setup media
+var ngrokTcpServerNumber = mediaServiceDetails.RemoteAddress.Split(&#39;.&#39;)[0];
+var mediaServiceFqdn = $&quot;{ngrokTcpServerNumber}.bot.contoso.com&quot;;
+
+// In media
+var mediaPlatform = new MediaPlatformSettings 
+{
+    ...
+    MediaPlatformInstanceSettings = new MediaPlatformInstanceSettings
+    {
+        ...
+        InstanceInternalPort = localMediaPort,
+        InstancePublicPort = mediaServiceDetails.RemotePort,
+        ...
+    },
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Documentation/articles/TestingAutomation.md&amp;version=GBdevelop&amp;line=1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
