@@ -1,0 +1,891 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class Call
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class Call
+   ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Microsoft.Graph.Call">
+  
+  
+  <h1 id="Microsoft_Graph_Call" data-uid="Microsoft.Graph.Call" class="text-break">Class Call
+  </h1>
+  <div class="markdown level0 summary"><p>The graph call object.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="Microsoft.Graph.Entity.html">Entity</a></div>
+    <div class="level2"><span class="xref">Call</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Microsoft.Graph.Entity.html#Microsoft_Graph_Entity_Id">Entity.Id</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.Graph.Entity.html#Microsoft_Graph_Entity_AdditionalData">Entity.AdditionalData</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="../stateful/Microsoft.Graph.html">Microsoft.Graph</a></h6>
+  <h6><strong>Assembly</strong>: Microsoft.Graph.CoreSDK.dll</h6>
+  <h5 id="Microsoft_Graph_Call_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonObject(MemberSerialization = MemberSerialization.OptIn)]
+public class Call : Entity</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/Call.cs&amp;version=GBdevelop&amp;line=100">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Call_ActiveModalities_" data-uid="Microsoft.Graph.Call.ActiveModalities*"></a>
+  <h4 id="Microsoft_Graph_Call_ActiveModalities" data-uid="Microsoft.Graph.Call.ActiveModalities">ActiveModalities</h4>
+  <div class="markdown level1 summary"><p>Gets or sets active modalities.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;activeModalities&quot;, Required = Required.Default)]
+public IEnumerable&lt;Modality&gt; ActiveModalities { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Microsoft.Graph.Modality.html">Modality</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/Call.cs&amp;version=GBdevelop&amp;line=88">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Call_AnsweredBy_" data-uid="Microsoft.Graph.Call.AnsweredBy*"></a>
+  <h4 id="Microsoft_Graph_Call_AnsweredBy" data-uid="Microsoft.Graph.Call.AnsweredBy">AnsweredBy</h4>
+  <div class="markdown level1 summary"><p>Gets or sets answered by.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;answeredBy&quot;, Required = Required.Default)]
+public ParticipantInfo AnsweredBy { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.ParticipantInfo.html">ParticipantInfo</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/Call.cs&amp;version=GBdevelop&amp;line=160">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Call_AudioRoutingGroups_" data-uid="Microsoft.Graph.Call.AudioRoutingGroups*"></a>
+  <h4 id="Microsoft_Graph_Call_AudioRoutingGroups" data-uid="Microsoft.Graph.Call.AudioRoutingGroups">AudioRoutingGroups</h4>
+  <div class="markdown level1 summary"><p>Gets or sets audio routing groups.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;audioRoutingGroups&quot;, Required = Required.Default)]
+public ICallAudioRoutingGroupsCollectionPage AudioRoutingGroups { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.ICallAudioRoutingGroupsCollectionPage.html">ICallAudioRoutingGroupsCollectionPage</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/Call.cs&amp;version=GBdevelop&amp;line=64">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Call_CallbackUri_" data-uid="Microsoft.Graph.Call.CallbackUri*"></a>
+  <h4 id="Microsoft_Graph_Call_CallbackUri" data-uid="Microsoft.Graph.Call.CallbackUri">CallbackUri</h4>
+  <div class="markdown level1 summary"><p>Gets or sets callback uri.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;callbackUri&quot;, Required = Required.Default)]
+public string CallbackUri { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/Call.cs&amp;version=GBdevelop&amp;line=70">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Call_CallRoutes_" data-uid="Microsoft.Graph.Call.CallRoutes*"></a>
+  <h4 id="Microsoft_Graph_Call_CallRoutes" data-uid="Microsoft.Graph.Call.CallRoutes">CallRoutes</h4>
+  <div class="markdown level1 summary"><p>Gets or sets call routes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;callRoutes&quot;, Required = Required.Default)]
+public IEnumerable&lt;CallRoute&gt; CallRoutes { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Microsoft.Graph.CallRoute.html">CallRoute</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/Call.cs&amp;version=GBdevelop&amp;line=112">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Call_ChatInfo_" data-uid="Microsoft.Graph.Call.ChatInfo*"></a>
+  <h4 id="Microsoft_Graph_Call_ChatInfo" data-uid="Microsoft.Graph.Call.ChatInfo">ChatInfo</h4>
+  <div class="markdown level1 summary"><p>Gets or sets chat info.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;chatInfo&quot;, Required = Required.Default)]
+public ChatInfo ChatInfo { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.ChatInfo.html">ChatInfo</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Call.cs&amp;version=GBdevelop&amp;line=19">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Call_CorrelationId_" data-uid="Microsoft.Graph.Call.CorrelationId*"></a>
+  <h4 id="Microsoft_Graph_Call_CorrelationId" data-uid="Microsoft.Graph.Call.CorrelationId">CorrelationId</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the correlation identifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public Guid CorrelationId { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Guid</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/Call.cs&amp;version=GBdevelop&amp;line=46">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Call_Direction_" data-uid="Microsoft.Graph.Call.Direction*"></a>
+  <h4 id="Microsoft_Graph_Call_Direction" data-uid="Microsoft.Graph.Call.Direction">Direction</h4>
+  <div class="markdown level1 summary"><p>Gets or sets direction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;direction&quot;, Required = Required.Default)]
+public CallDirection? Direction { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<a class="xref" href="Microsoft.Graph.CallDirection.html">CallDirection</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/Call.cs&amp;version=GBdevelop&amp;line=34">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Call_Error_" data-uid="Microsoft.Graph.Call.Error*"></a>
+  <h4 id="Microsoft_Graph_Call_Error" data-uid="Microsoft.Graph.Call.Error">Error</h4>
+  <div class="markdown level1 summary"><p>Gets or sets error.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;error&quot;, Required = Required.Default)]
+public ResultInfo Error { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.ResultInfo.html">ResultInfo</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/Call.cs&amp;version=GBdevelop&amp;line=106">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Call_MediaConfig_" data-uid="Microsoft.Graph.Call.MediaConfig*"></a>
+  <h4 id="Microsoft_Graph_Call_MediaConfig" data-uid="Microsoft.Graph.Call.MediaConfig">MediaConfig</h4>
+  <div class="markdown level1 summary"><p>Gets or sets media config.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;mediaConfig&quot;, Required = Required.Default)]
+public MediaConfig MediaConfig { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.MediaConfig.html">MediaConfig</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/Call.cs&amp;version=GBdevelop&amp;line=124">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Call_MeetingCapability_" data-uid="Microsoft.Graph.Call.MeetingCapability*"></a>
+  <h4 id="Microsoft_Graph_Call_MeetingCapability" data-uid="Microsoft.Graph.Call.MeetingCapability">MeetingCapability</h4>
+  <div class="markdown level1 summary"><p>Gets or sets meeting capability.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;meetingCapability&quot;, Required = Required.Default)]
+public MeetingCapability MeetingCapability { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.MeetingCapability.html">MeetingCapability</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/Call.cs&amp;version=GBdevelop&amp;line=118">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Call_MeetingInfo_" data-uid="Microsoft.Graph.Call.MeetingInfo*"></a>
+  <h4 id="Microsoft_Graph_Call_MeetingInfo" data-uid="Microsoft.Graph.Call.MeetingInfo">MeetingInfo</h4>
+  <div class="markdown level1 summary"><p>Gets or sets meeting info.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;meetingInfo&quot;, Required = Required.Default)]
+public MeetingInfo MeetingInfo { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.MeetingInfo.html">MeetingInfo</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/Call.cs&amp;version=GBdevelop&amp;line=142">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Call_MyParticipantId_" data-uid="Microsoft.Graph.Call.MyParticipantId*"></a>
+  <h4 id="Microsoft_Graph_Call_MyParticipantId" data-uid="Microsoft.Graph.Call.MyParticipantId">MyParticipantId</h4>
+  <div class="markdown level1 summary"><p>Gets or sets my participant id.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;myParticipantId&quot;, Required = Required.Default)]
+public string MyParticipantId { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/Call.cs&amp;version=GBdevelop&amp;line=166">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Call_Operations_" data-uid="Microsoft.Graph.Call.Operations*"></a>
+  <h4 id="Microsoft_Graph_Call_Operations" data-uid="Microsoft.Graph.Call.Operations">Operations</h4>
+  <div class="markdown level1 summary"><p>Gets or sets operations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;operations&quot;, Required = Required.Default)]
+public ICallOperationsCollectionPage Operations { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.ICallOperationsCollectionPage.html">ICallOperationsCollectionPage</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/Call.cs&amp;version=GBdevelop&amp;line=154">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Call_Participants_" data-uid="Microsoft.Graph.Call.Participants*"></a>
+  <h4 id="Microsoft_Graph_Call_Participants" data-uid="Microsoft.Graph.Call.Participants">Participants</h4>
+  <div class="markdown level1 summary"><p>Gets or sets participants.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;participants&quot;, Required = Required.Default)]
+public ICallParticipantsCollectionPage Participants { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.ICallParticipantsCollectionPage.html">ICallParticipantsCollectionPage</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/Call.cs&amp;version=GBdevelop&amp;line=94">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Call_RequestedModalities_" data-uid="Microsoft.Graph.Call.RequestedModalities*"></a>
+  <h4 id="Microsoft_Graph_Call_RequestedModalities" data-uid="Microsoft.Graph.Call.RequestedModalities">RequestedModalities</h4>
+  <div class="markdown level1 summary"><p>Gets or sets requested modalities.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;requestedModalities&quot;, Required = Required.Default)]
+public IEnumerable&lt;Modality&gt; RequestedModalities { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Microsoft.Graph.Modality.html">Modality</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/Call.cs&amp;version=GBdevelop&amp;line=52">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Call_RingingTimeoutInSeconds_" data-uid="Microsoft.Graph.Call.RingingTimeoutInSeconds*"></a>
+  <h4 id="Microsoft_Graph_Call_RingingTimeoutInSeconds" data-uid="Microsoft.Graph.Call.RingingTimeoutInSeconds">RingingTimeoutInSeconds</h4>
+  <div class="markdown level1 summary"><p>Gets or sets ringing timeout in seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;ringingTimeoutInSeconds&quot;, Required = Required.Default)]
+public int? RingingTimeoutInSeconds { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/Call.cs&amp;version=GBdevelop&amp;line=130">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Call_RoutingPolicies_" data-uid="Microsoft.Graph.Call.RoutingPolicies*"></a>
+  <h4 id="Microsoft_Graph_Call_RoutingPolicies" data-uid="Microsoft.Graph.Call.RoutingPolicies">RoutingPolicies</h4>
+  <div class="markdown level1 summary"><p>Gets or sets routing policies.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;routingPolicies&quot;, Required = Required.Default)]
+public IEnumerable&lt;RoutingPolicy&gt; RoutingPolicies { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Microsoft.Graph.RoutingPolicy.html">RoutingPolicy</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/Call.cs&amp;version=GBdevelop&amp;line=76">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Call_Source_" data-uid="Microsoft.Graph.Call.Source*"></a>
+  <h4 id="Microsoft_Graph_Call_Source" data-uid="Microsoft.Graph.Call.Source">Source</h4>
+  <div class="markdown level1 summary"><p>Gets or sets source.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;source&quot;, Required = Required.Default)]
+public ParticipantInfo Source { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.ParticipantInfo.html">ParticipantInfo</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/Call.cs&amp;version=GBdevelop&amp;line=28">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Call_State_" data-uid="Microsoft.Graph.Call.State*"></a>
+  <h4 id="Microsoft_Graph_Call_State" data-uid="Microsoft.Graph.Call.State">State</h4>
+  <div class="markdown level1 summary"><p>Gets or sets state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;state&quot;, Required = Required.Default)]
+public CallState? State { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<a class="xref" href="Microsoft.Graph.CallState.html">CallState</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/Call.cs&amp;version=GBdevelop&amp;line=58">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Call_Subject_" data-uid="Microsoft.Graph.Call.Subject*"></a>
+  <h4 id="Microsoft_Graph_Call_Subject" data-uid="Microsoft.Graph.Call.Subject">Subject</h4>
+  <div class="markdown level1 summary"><p>Gets or sets subject.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;subject&quot;, Required = Required.Default)]
+public string Subject { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/Call.cs&amp;version=GBdevelop&amp;line=82">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Call_Targets_" data-uid="Microsoft.Graph.Call.Targets*"></a>
+  <h4 id="Microsoft_Graph_Call_Targets" data-uid="Microsoft.Graph.Call.Targets">Targets</h4>
+  <div class="markdown level1 summary"><p>Gets or sets targets.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;targets&quot;, Required = Required.Default)]
+public IEnumerable&lt;ParticipantInfo&gt; Targets { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Microsoft.Graph.ParticipantInfo.html">ParticipantInfo</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/Call.cs&amp;version=GBdevelop&amp;line=136">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Call_TenantId_" data-uid="Microsoft.Graph.Call.TenantId*"></a>
+  <h4 id="Microsoft_Graph_Call_TenantId" data-uid="Microsoft.Graph.Call.TenantId">TenantId</h4>
+  <div class="markdown level1 summary"><p>Gets or sets tenant id.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;tenantId&quot;, Required = Required.Default)]
+public string TenantId { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/Call.cs&amp;version=GBdevelop&amp;line=40">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Call_TerminationReason_" data-uid="Microsoft.Graph.Call.TerminationReason*"></a>
+  <h4 id="Microsoft_Graph_Call_TerminationReason" data-uid="Microsoft.Graph.Call.TerminationReason">TerminationReason</h4>
+  <div class="markdown level1 summary"><p>Gets or sets termination reason.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;terminationReason&quot;, Required = Required.Default)]
+public string TerminationReason { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/Call.cs&amp;version=GBdevelop&amp;line=148">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_Call_ToneInfo_" data-uid="Microsoft.Graph.Call.ToneInfo*"></a>
+  <h4 id="Microsoft_Graph_Call_ToneInfo" data-uid="Microsoft.Graph.Call.ToneInfo">ToneInfo</h4>
+  <div class="markdown level1 summary"><p>Gets or sets tone info.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;toneInfo&quot;, Required = Required.Default)]
+public ToneInfo ToneInfo { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.ToneInfo.html">ToneInfo</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="Microsoft.Graph.Entity.html">Entity</a></div>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/Call.cs&amp;version=GBdevelop&amp;line=21" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

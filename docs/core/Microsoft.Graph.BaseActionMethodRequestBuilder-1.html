@@ -1,0 +1,520 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class BaseActionMethodRequestBuilder&lt;T&gt;
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class BaseActionMethodRequestBuilder&lt;T&gt;
+   ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Microsoft.Graph.BaseActionMethodRequestBuilder`1">
+  
+  
+  <h1 id="Microsoft_Graph_BaseActionMethodRequestBuilder_1" data-uid="Microsoft.Graph.BaseActionMethodRequestBuilder`1" class="text-break">Class BaseActionMethodRequestBuilder&lt;T&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>The base method request builder class used for POST actions.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="Microsoft.Graph.BaseRequestBuilder.html">BaseRequestBuilder</a></div>
+    <div class="level2"><span class="xref">BaseActionMethodRequestBuilder&lt;T&gt;</span></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.CallAnswerRequestBuilder.html">CallAnswerRequestBuilder</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.CallCancelMediaProcessingRequestBuilder.html">CallCancelMediaProcessingRequestBuilder</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.CallChangeScreenSharingRoleRequestBuilder.html">CallChangeScreenSharingRoleRequestBuilder</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.CallMuteRequestBuilder.html">CallMuteRequestBuilder</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.CallPlayPromptRequestBuilder.html">CallPlayPromptRequestBuilder</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.CallRecognizeRequestBuilder.html">CallRecognizeRequestBuilder</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.CallRecordRequestBuilder.html">CallRecordRequestBuilder</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.CallRedirectRequestBuilder.html">CallRedirectRequestBuilder</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.CallRejectRequestBuilder.html">CallRejectRequestBuilder</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.CallSubscribeToToneRequestBuilder.html">CallSubscribeToToneRequestBuilder</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.CallTransferRequestBuilder.html">CallTransferRequestBuilder</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.CallUnmuteRequestBuilder.html">CallUnmuteRequestBuilder</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.CallUpdateMetadataRequestBuilder.html">CallUpdateMetadataRequestBuilder</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.ChatCreateBridgeRequestBuilder.html">ChatCreateBridgeRequestBuilder</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.ChatDeleteBridgeRequestBuilder.html">ChatDeleteBridgeRequestBuilder</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.ChatParticipantAddRequestBuilder.html">ChatParticipantAddRequestBuilder</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.ChatParticipantRemoveRequestBuilder.html">ChatParticipantRemoveRequestBuilder</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.ChatSetIsTypingRequestBuilder.html">ChatSetIsTypingRequestBuilder</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.ParticipantConfigureMixerRequestBuilder.html">ParticipantConfigureMixerRequestBuilder</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.ParticipantInviteRequestBuilder.html">ParticipantInviteRequestBuilder</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.ParticipantMuteAllRequestBuilder.html">ParticipantMuteAllRequestBuilder</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.ParticipantMuteRequestBuilder.html">ParticipantMuteRequestBuilder</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.ParticipantSubscribeVideoRequestBuilder.html">ParticipantSubscribeVideoRequestBuilder</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.ParticipantUnmuteAllRequestBuilder.html">ParticipantUnmuteAllRequestBuilder</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.ParticipantUnmuteRequestBuilder.html">ParticipantUnmuteRequestBuilder</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Microsoft.Graph.BaseRequestBuilder.html#Microsoft_Graph_BaseRequestBuilder_Client">BaseRequestBuilder.Client</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.Graph.BaseRequestBuilder.html#Microsoft_Graph_BaseRequestBuilder_RequestUrl">BaseRequestBuilder.RequestUrl</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.Graph.BaseRequestBuilder.html#Microsoft_Graph_BaseRequestBuilder_AppendSegmentToRequestUrl_System_String_">BaseRequestBuilder.AppendSegmentToRequestUrl(String)</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="../stateful/Microsoft.Graph.html">Microsoft.Graph</a></h6>
+  <h6><strong>Assembly</strong>: Microsoft.Graph.CoreSDK.dll</h6>
+  <h5 id="Microsoft_Graph_BaseActionMethodRequestBuilder_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class BaseActionMethodRequestBuilder&lt;T&gt; : BaseRequestBuilder where T : IBaseRequest</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Type of request</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/BaseActionMethodRequestBuilder.cs&amp;version=GBdevelop&amp;line=26">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_BaseActionMethodRequestBuilder_1__ctor_" data-uid="Microsoft.Graph.BaseActionMethodRequestBuilder`1.#ctor*"></a>
+  <h4 id="Microsoft_Graph_BaseActionMethodRequestBuilder_1__ctor_System_String_Microsoft_Graph_IBaseClient_" data-uid="Microsoft.Graph.BaseActionMethodRequestBuilder`1.#ctor(System.String,Microsoft.Graph.IBaseClient)">BaseActionMethodRequestBuilder(String, IBaseClient)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Microsoft.Graph.BaseActionMethodRequestBuilder-1.html">BaseActionMethodRequestBuilder&lt;T&gt;</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BaseActionMethodRequestBuilder(string requestUrl, IBaseClient client)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">requestUrl</span></td>
+        <td><p>The URL for the request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.IBaseClient.html">IBaseClient</a></td>
+        <td><span class="parametername">client</span></td>
+        <td><p>The <a class="xref" href="Microsoft.Graph.IBaseClient.html">IBaseClient</a> for handling requests.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/BaseActionMethodRequestBuilder.cs&amp;version=GBdevelop&amp;line=50">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_BaseActionMethodRequestBuilder_1_CreateRequest_" data-uid="Microsoft.Graph.BaseActionMethodRequestBuilder`1.CreateRequest*"></a>
+  <h4 id="Microsoft_Graph_BaseActionMethodRequestBuilder_1_CreateRequest_System_String_System_Collections_Generic_IEnumerable_Microsoft_Graph_Option__" data-uid="Microsoft.Graph.BaseActionMethodRequestBuilder`1.CreateRequest(System.String,System.Collections.Generic.IEnumerable{Microsoft.Graph.Option})">CreateRequest(String, IEnumerable&lt;Option&gt;)</h4>
+  <div class="markdown level1 summary"><p>Derived classes implement this function to construct the specific request class instance
+when a request object is required.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract T CreateRequest(string functionUrl, IEnumerable&lt;Option&gt; options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">functionUrl</span></td>
+        <td><p>The URL to use for the request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Microsoft.Graph.Option.html">Option</a>&gt;</td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The query and header options for the request.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>An instance of the request class.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/BaseActionMethodRequestBuilder.cs&amp;version=GBdevelop&amp;line=96">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_BaseActionMethodRequestBuilder_1_GetParameter_" data-uid="Microsoft.Graph.BaseActionMethodRequestBuilder`1.GetParameter*"></a>
+  <h4 id="Microsoft_Graph_BaseActionMethodRequestBuilder_1_GetParameter__1_System_String_" data-uid="Microsoft.Graph.BaseActionMethodRequestBuilder`1.GetParameter``1(System.String)">GetParameter&lt;TU&gt;(String)</h4>
+  <div class="markdown level1 summary"><p>Gets the parameter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected TU GetParameter&lt;TU&gt;(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The name.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TU</span></td>
+        <td><p>The Parameter</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TU</span></td>
+        <td><p>The type of the parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/BaseActionMethodRequestBuilder.cs&amp;version=GBdevelop&amp;line=83">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_BaseActionMethodRequestBuilder_1_HasParameter_" data-uid="Microsoft.Graph.BaseActionMethodRequestBuilder`1.HasParameter*"></a>
+  <h4 id="Microsoft_Graph_BaseActionMethodRequestBuilder_1_HasParameter_System_String_" data-uid="Microsoft.Graph.BaseActionMethodRequestBuilder`1.HasParameter(System.String)">HasParameter(String)</h4>
+  <div class="markdown level1 summary"><p>Determines whether the instance has parameter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool HasParameter(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The name.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><code>true</code> if the specified name has parameter; otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/BaseActionMethodRequestBuilder.cs&amp;version=GBdevelop&amp;line=38">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_BaseActionMethodRequestBuilder_1_Request_" data-uid="Microsoft.Graph.BaseActionMethodRequestBuilder`1.Request*"></a>
+  <h4 id="Microsoft_Graph_BaseActionMethodRequestBuilder_1_Request_System_Collections_Generic_IEnumerable_Microsoft_Graph_Option__" data-uid="Microsoft.Graph.BaseActionMethodRequestBuilder`1.Request(System.Collections.Generic.IEnumerable{Microsoft.Graph.Option})">Request(IEnumerable&lt;Option&gt;)</h4>
+  <div class="markdown level1 summary"><p>Builds the request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T Request(IEnumerable&lt;Option&gt; options = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Microsoft.Graph.Option.html">Option</a>&gt;</td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The query and header options for the request.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>The built request.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <span class="small pull-right mobile-hide">
+    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/BaseActionMethodRequestBuilder.cs&amp;version=GBdevelop&amp;line=61">View Source</a>
+  </span>
+  <a id="Microsoft_Graph_BaseActionMethodRequestBuilder_1_SetParameter_" data-uid="Microsoft.Graph.BaseActionMethodRequestBuilder`1.SetParameter*"></a>
+  <h4 id="Microsoft_Graph_BaseActionMethodRequestBuilder_1_SetParameter__1_System_String___0_System_Boolean_" data-uid="Microsoft.Graph.BaseActionMethodRequestBuilder`1.SetParameter``1(System.String,``0,System.Boolean)">SetParameter&lt;TU&gt;(String, TU, Boolean)</h4>
+  <div class="markdown level1 summary"><p>A helper method for injecting a parameter string for a given name and value
+pair. This method handles the nullable case and properly wrapped and escaping
+string values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetParameter&lt;TU&gt;(string name, TU value, bool nullable)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The parameter name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">TU</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The parameter value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">nullable</span></td>
+        <td><p>A flag specifying whether the parameter is allowed to be null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TU</span></td>
+        <td><p>The type of the value parameter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="Microsoft.Graph.BaseRequestBuilder.html">BaseRequestBuilder</a></div>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/BaseActionMethodRequestBuilder.cs&amp;version=GBdevelop&amp;line=16" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

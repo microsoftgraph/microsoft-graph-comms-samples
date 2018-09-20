@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Setting up Stateful Bots with the Graph Calling SDK </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Setting up Stateful Bots with the Graph Calling SDK ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="setting-up-stateful-bots-with-the-graph-calling-sdk">Setting up Stateful Bots with the Graph Calling SDK</h1>
+
+<p>This document explains how to setup the Graph Calling SDK for using in other stateful projects. This documentation closely follows the samples available along with it.</p>
+<p>The Graph Calling SDK is exposed as the <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IStatefulClient.html">IStatefulClient</a> interface. Any bot created is an instance of the <code>IStatefulClient</code> interface.</p>
+<h2 id="stateful-calling-bots">Stateful Calling Bots</h2>
+<p>This Graph Calling SDK supports calling abilities for stateful scenarios. They are called <code>Local Media</code> bots.</p>
+<p>As the name suggests, <code>Local Media</code> bots media is hosted by the bot itself, i.e., the bot sends and receives raw Audio and Video frames as required.</p>
+<div class="IMPORTANT"><h5>Important</h5><p><code>Local Media</code> calls require that the further notifications and updates from the server always hit the same instance of the bot when multiple instances are present. Look at <a href="calling/StateManagement.html">State Management</a> to learn more</p>
+</div>
+<h2 id="create-a-new-bot">Create a New Bot</h2>
+<ul>
+<li>Register your bot in the <a href="https://dev.botframework.com">Bot framework</a> portal and save the Microsoft AppId and Password as entered in it.</li>
+<li>Add the Skype channel, Teams channel and the settings required for that. You would select your media type to be <code>Local Media - Real Time Media</code> in the settings. You also provide a webhook where Skype would contact you for the incoming notifications.</li>
+<li>After the setup is done, the bot now creates an <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IStatefulClientBuilder.html">IStatefulClientBuilder</a> object to which you can set all the required parameters for the Bot like the authentication provider (<a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IStatefulClientBuilder.html#Microsoft_Graph_StatefulClient_IStatefulClientBuilder_SetAuthenticationProvider_Microsoft_Graph_StatefulClient_Authentication_IRequestAuthenticationProvider_">SetAuthenticationProvider</a>, notification url (<a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IStatefulClientBuilder.html#Microsoft_Graph_StatefulClient_IStatefulClientBuilder_SetNotificationUrl_System_Uri_">SetNotificationUrl</a>) and others.</li>
+<li>Call <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IStatefulClientBuilder.html#Microsoft_Graph_StatefulClient_IStatefulClientBuilder_Build">StatefulClientBuilder.Build</a> method to create a <code>IStatefulClient</code> instance which represents the Graph Calling SDK.</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Documentation/articles/SettingUpStatefulBots.md&amp;version=GBdevelop&amp;line=1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
