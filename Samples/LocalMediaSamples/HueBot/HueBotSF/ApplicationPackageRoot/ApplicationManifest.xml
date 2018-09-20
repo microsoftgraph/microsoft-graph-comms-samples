@@ -12,8 +12,8 @@
     <ServiceManifestRef ServiceManifestName="HueBotPkg" ServiceManifestVersion="1.0.1" />
     <ConfigOverrides />
     <Policies>
-      <!-- Needed for installing media binaries -->
       <!--<EndpointBindingPolicy EndpointRef="ServiceEndpoint" CertificateRef="HueBotCert" />-->
+      <!-- Needed for installing media binaries -->
       <RunAsPolicy CodePackageRef="Code" UserRef="SetupAdminUser" EntryPointType="Setup" />
     </Policies>
   </ServiceManifestImport>
