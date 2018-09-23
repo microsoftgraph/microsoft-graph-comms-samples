@@ -1,3 +1,11 @@
+# Microsoft Graph Communications API and Samples
+
+The Microsoft Graph Communications API allows developers to programmatically interact with Microsoft's Communications Platform, which also powers Microsoft Teams, to create amazing experiences and products. Check out our samples in this repo for a taste of what is possible.
+
+## Get started
+
+- **[Review the documentation](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/)** to understand the concepts behind using our SDK (which is also used by the samples).
+- Get started quickly with our **[samples](https://github.com/microsoftgraph/microsoft-graph-comms-samples/tree/master/Samples)**.
 
 # Contributing
 
