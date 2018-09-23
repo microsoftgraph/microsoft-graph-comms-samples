@@ -1,0 +1,83 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Graph-SDK Samples",
+		"_postman_id": "f15065d1-2400-eb55-e29a-2b988296642e",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List Calls",
+			"request": {
+				"url": "https://<bot_service_name>.cloudapp.net/calls",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "Join Meeting by ID",
+			"request": {
+				"url": "https://<bot_service_name>.cloudapp.net/joinCall",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"MeetingId\": \"000000000\",\r\n    \"TenantId\": \"00000000-0000-0000-0000-000000000000\",\r\n    \"DisplayName\": \"(optional) xx\"\r\n}"
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "Join Meeting by Coordinates",
+			"request": {
+				"url": "https://<bot_service_name>.cloudapp.net/joinCall",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ChatInfo\": {\r\n    \t\"ThreadId\": \"00:xx@xx.xx\",\r\n    \t\"MessageId\": \"00000000\",\r\n    \t\"ReplyChainMessageId\": \"00000000\"\r\n    },\r\n    \"MeetingInfo\": {\r\n    \t\"Organizer\": {\r\n    \t\t\"User\": {\r\n    \t\t\t\"Id\": \"00000000-0000-0000-0000-000000000000\",\r\n    \t\t\t\"TenantId\": \"00000000-0000-0000-0000-000000000000\"\r\n    \t\t}\r\n    \t}\r\n    },\r\n    \"TenantId\": \"00000000-0000-0000-0000-000000000000\",\r\n    \"DisplayName\": \"(optional) xx\"\r\n}"
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "Change Screen Sharing Role",
+			"request": {
+				"url": "https://<bot_service_name>.cloudapp.net/calls/<call_leg_Id>/changeRole",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"role\": \"sharer/viewer\" \r\n}"
+				},
+				"description": null
+			},
+			"response": []
+		}
+	]
+}

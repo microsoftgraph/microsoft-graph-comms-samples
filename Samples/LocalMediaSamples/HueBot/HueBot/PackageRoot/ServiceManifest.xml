@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceManifest Name="HueBotPkg"
+                 Version="1.0.1"
+                 xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ServiceTypes>
+    <!-- This is the name of your ServiceType.
+         This name must match the string used in RegisterServiceType call in Program.cs. -->
+    <StatefulServiceType ServiceTypeName="HueBotType"  HasPersistedState="true" />
+  </ServiceTypes>
+
+  <!-- Code package is your service executable. -->
+  <CodePackage Name="Code" Version="1.0.1">
+    <SetupEntryPoint>
+      <ExeHost>
+        <Program>Startup.cmd</Program>
+        <Arguments>8000 ABC0000000000000000000000000000000000CBA</Arguments>
+        <WorkingFolder>CodePackage</WorkingFolder>
+      </ExeHost>
+    </SetupEntryPoint>
+    <EntryPoint>
+      <ExeHost>
+        <Program>HueBot.exe</Program>
+        <WorkingFolder>CodePackage</WorkingFolder>
+      </ExeHost>
+    </EntryPoint>
+  </CodePackage>
+
+  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+       independently-updateable and versioned set of custom configuration settings for your service. -->
+  <ConfigPackage Name="Config" Version="1.0.1" />
+
+  <Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+          listen. Please note that if your service is partitioned, this port is shared with 
+          replicas of different partitions that are placed in your code. -->
+      <Endpoint Name="ServiceEndpoint" Type="Input" Protocol="https" Port="9443" />
+    
+      <!-- Instance input port for Media; traffic to this is enabled by the NAT pool in Load Balancer settings. -->
+      <!-- If you update the port here, update the argument to Startup.cmd above. -->
+      <Endpoint Name="MediaPort" Type="Input" Protocol="tcp" Port="8000" />
+    </Endpoints>
+  </Resources>
+
+</ServiceManifest>
