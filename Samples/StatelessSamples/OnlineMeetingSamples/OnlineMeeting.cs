@@ -13,7 +13,7 @@ namespace Sample.OnlineMeeting
     /// </summary>
     public class OnlineMeeting
     {
-        private static string graphEndpointName = "https://graph.microsoft.com/teamsBeta/";
+        private static string graphEndpointName = "https://graph.microsoft.com/beta/";
         private IRequestAuthenticationProvider requestAuthenticationProvider;
 
         /// <summary>

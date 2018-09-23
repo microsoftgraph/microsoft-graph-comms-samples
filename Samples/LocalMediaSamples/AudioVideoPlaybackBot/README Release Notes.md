@@ -1,5 +1,10 @@
 # Release dates and notes:
 
+09/23/2018
+
+1. Updated to https://graph.microsoft.com/beta endpoint for Microsoft Ignite 2018 release.
+2. Updated to public nuget version of Graph Comms SDK. Note new version scheme: 1.0.0-prerelease.48
+
 08/21/2018
 
 1. Updated to /TeamsBeta for prod supported endpoint from Graph.
