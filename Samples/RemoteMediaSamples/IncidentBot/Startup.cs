@@ -5,6 +5,8 @@
 
 namespace Sample.IncidentBot
 {
+    using System;
+    using System.Threading.Tasks;
     using Microsoft.AspNetCore.Authentication;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Builder;
@@ -29,6 +31,11 @@ namespace Sample.IncidentBot
         public Startup(IConfiguration configuration)
         {
             this.graphLogger = new GraphLogger(nameof(Startup));
+
+            // Log unhandled exceptions.
+            AppDomain.CurrentDomain.UnhandledException += (_, e) => this.graphLogger.Error(e.ExceptionObject as Exception, $"Unhandled exception");
+            TaskScheduler.UnobservedTaskException += (_, e) => this.graphLogger.Error(e.Exception, "Unobserved task exception");
+
             this.Configuration = configuration;
         }
 

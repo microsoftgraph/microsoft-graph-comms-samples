@@ -20,7 +20,7 @@
     <!-- Although Bots.Media is implicitly imported by Calls.Media, this library requires an explicit reference for
     some scripts included within the nuget package. -->
     <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.9.0.146-alpha" />
-    <PackageReference Include="Microsoft.$(PkgPrefix)Graph.Calls.Media" Version="1.0.0.12" />
+    <PackageReference Include="Microsoft.Graph.Calls.Media" Version="1.0.0-prerelease.48" />
     <ProjectReference Include="..\..\..\Common\Sample.Common\Sample.Common.csproj" />
   </ItemGroup>
 

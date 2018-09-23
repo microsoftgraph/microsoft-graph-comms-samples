@@ -61,7 +61,7 @@
     <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.6" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Owin" Version="5.2.6" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.1.1" />
-    <PackageReference Include="Microsoft.$(PkgPrefix)Graph.Calls.Media" Version="1.0.0.12" />
+    <PackageReference Include="Microsoft.Graph.Calls.Media" Version="1.0.0-prerelease.48" />
     <PackageReference Include="Microsoft.Owin" Version="4.0.0" />
     <PackageReference Include="Microsoft.Owin.Hosting" Version="4.0.0" />
     <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.9.0.146-alpha" />

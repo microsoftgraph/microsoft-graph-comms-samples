@@ -36,6 +36,11 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         private Bot()
         {
             var logger = new GraphLogger(nameof(Bot));
+
+            // Log unhandled exceptions.
+            AppDomain.CurrentDomain.UnhandledException += (_, e) => logger.Error(e.ExceptionObject as Exception, $"Unhandled exception");
+            TaskScheduler.UnobservedTaskException += (_, e) => logger.Error(e.Exception, "Unobserved task exception");
+
             var builder = new StatefulClientBuilder("AudioVideoPlaybackBot", Service.Instance.Configuration.AadAppId, logger);
             var authProvider = new AuthenticationProvider(
                     Service.Instance.Configuration.AadAppId,
