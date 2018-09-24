@@ -17,7 +17,7 @@
     <meta property="docfx:navrel" content="toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
-    
+    <meta property="docfx:rel" content="">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -56,6 +56,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         <div class="article row grid">
           <div class="col-md-10">
@@ -63,14 +73,14 @@
 <h1 id="graph-calling-sdk">Graph Calling SDK</h1>
 
 <h2 id="introduction">Introduction</h2>
-<p>The Graph Calling SDK simplifies the creation of calling and meetings bots that use the Microsoft Graph Calling APIs.  The Graph Calling SDK provides the functionality to manage states of resources in memory and takes care of tasks like call setup and media session establishment. The Graph Calling SDK provides interfaces for bot service-to-service interactions with calls and meetings, including an optional Media Extension SDK that enables a bot developer to host media locally and gain access to low level Audio/Video sockets and media streams.</p>
+<p>The Graph Calling SDK simplifies the creation of calling and meetings bots that use the <a href="https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/calls-api-overview">Microsoft Graph Calling APIs</a>.  The SDK provides the functionality to manage states of resources in memory and simplify tasks like call setup and media session establishment. It provides interfaces for bot&#39;s service-to-service interactions with calls and meetings, including an optional Media Extension SDK that enables a bot developer to host media on their machines and gain access to low level Audio/Video sockets and media streams.</p>
 <h2 id="sdk">SDK</h2>
-<p>The Graph Calling SDK is built on top of the Microsoft Graph API and distributed as NuGet packages.  The <a href="articles/index.html">Core Concepts</a> article is designed to better explain all the constructs used by the SDKs.  To dive right in and deploy a Calling Bot refer to the <a href="articles/Samples.md">Graph Calling SDK Samples Overview</a> article for further instruction.</p>
+<p>The Graph Calling SDK is built on top of the Microsoft Graph API and distributed as NuGet packages.  The <a href="articles/index.html">Core Concepts</a> article is designed to better explain all the constructs used by the SDKs. To dive right in and deploy a Calling Bot refer to the README in each sample for further instructions.</p>
 <h2 id="example-scenarios">Example Scenarios</h2>
 <p>To illustrate functionality of the Graph Calling SDK, the below examples demonstrate 2 common scenarios: how to make an outbound call to a Microsoft Teams user and how to join an existing Microsoft Teams meeting.</p>
 <h4 id="making-an-outbound-call">Making an Outbound Call</h4>
 <p>Assuming a bot has been properly registered and deployed, the <a href="articles/index.html">IStatefulClient</a> configured and built.</p>
-<p>The bot needs to create the <a class="xref" href="core/Microsoft.Graph.Call.html">Call</a> object with the corresponding parameters and pass the object to the <a class="xref" href="calling/Microsoft.Graph.Calls.CallCollectionExtensions.html#Microsoft_Graph_Calls_CallCollectionExtensions_AddAsync_Microsoft_Graph_Calls_ICallCollection_Call_Microsoft_Graph_Calls_IMediaSession_System_Boolean_CancellationToken_">CallCollectionExtensions.AddAsync</a> method as follows:</p>
+<p>The bot needs to create the <a class="xref" href="core/Microsoft.Graph.Call.html">Call</a> object with the corresponding parameters and pass the object to the <a class="xref" href="calling/Microsoft.Graph.Calls.CallCollectionExtensions.html#Microsoft_Graph_Calls_CallCollectionExtensions_AddAsync_Microsoft_Graph_Calls_ICallCollection_Microsoft_Graph_Calls_JoinMeetingParameters_CancellationToken_">CallCollectionExtensions.AddAsync</a> method as follows:</p>
 <pre><code>var call = new Call
 {
     Subject = &quot;**Subject**&quot;,
@@ -92,10 +102,10 @@
 var mediaSession = this.Client.CreateMediaSession(**custom media session settings**);
 
 var statefulCall = await this.Client.Calls().AddAsync(call, mediaSession);
-</code></pre><p>SDK will store the state of the call in memory after calling <code>AddAsync</code>. The returned <code>statefulCall</code> above contains the call Id set by the service.</p>
+</code></pre><p>SDK will store the state of the call in memory after calling <code>AddAsync</code>. The returned <code>statefulCall</code> object above contains the call Id set by the service.</p>
 <h4 id="making-an-outbound-call-to-join-an-existing-microsoft-teams-meeting">Making an Outbound Call to Join an Existing Microsoft Teams Meeting</h4>
-<p>The above example shows how to create an outbound call to single or multiple participants to create a new conversation. If the bot needs to join an existing conversation, the SDK provides an overload of AddAsync that takes <a class="xref" href="calling/Microsoft.Graph.Calls.JoinMeetingParameters.html">JoinMeetingParameters</a> as input.
-The bot needs to create the <a class="xref" href="calling/Microsoft.Graph.Calls.JoinMeetingParameters.html">JoinMeetingParameters</a> object with the corresponding meeting parameters and pass the object to the <a class="xref" href="calling/Microsoft.Graph.Calls.CallCollectionExtensions.html#Microsoft_Graph_Calls_CallCollectionExtensions_AddAsync_Microsoft_Graph_Calls_ICallCollection_Microsoft_Graph_Calls_JoinMeetingParameters_CancellationToken_">CallCollectionExtensions.AddAsync</a> method as follows:</p>
+<p>The above example shows how to create an outbound call to single or multiple participants and create a new conversation. If the bot needs to join an existing conversation, the SDK provides an overload of AddAsync that takes <a class="xref" href="calling/Microsoft.Graph.Calls.JoinMeetingParameters.html">JoinMeetingParameters</a> as input.</p>
+<p>The bot needs to create the <a class="xref" href="calling/Microsoft.Graph.Calls.JoinMeetingParameters.html">JoinMeetingParameters</a> object with the corresponding meeting parameters and pass the object to the <a class="xref" href="calling/Microsoft.Graph.Calls.CallCollectionExtensions.html#Microsoft_Graph_Calls_CallCollectionExtensions_AddAsync_Microsoft_Graph_Calls_ICallCollection_Microsoft_Graph_Calls_JoinMeetingParameters_CancellationToken_">CallCollectionExtensions.AddAsync</a> method as follows:</p>
 <pre><code>var mediaSession = this.Client.CreateMediaSession(**custom media session settings**);
 var joinCallParameters = new JoinMeetingParameters(
 new ChatInfo
@@ -118,12 +128,12 @@ new OrganizerMeetingInfo
 mediaSession);
 
 var statefulCall = await this.Client.Calls().AddAsync(joinCallParameters);
-</code></pre><p>SDK will store the state of the call in memory after calling <code>AddAsync</code>. The returned <code>statefulCall</code> above contains the callId set by the service.</p>
+</code></pre><p>SDK will store the state of the call in memory after calling <code>AddAsync</code>. The returned <code>statefulCall</code> object above contains the callId set by the service.</p>
 <h2 id="state-management">State Management</h2>
 <p>Graph Calling SDK can be used to store state of all resources of the call in memory.  This has 2 implications:</p>
 <ol>
-<li>The instance hosting the call needs to be up throughout the lifetime of the call.</li>
-<li>Any subsequent asynchronous notifications triggered by the service need to be directed to the instance hosting the call.</li>
+<li>The instance hosting the call needs to be up throughout the lifetime of a call.</li>
+<li>Any subsequent asynchronous notifications delivered by the service need to be redirected to the instance hosting the call.</li>
 </ol>
 <p>Any bot that hosts its own media stack needs to be built using the Graph Calling SDK given that the media stream has a requirement that it needs to persist in memory throughout the lifetime of the call.</p>
 <p>More details can be found in the <a href="articles/calling/StateManagement.html">State Management</a> article.</p>
@@ -132,13 +142,6 @@ var statefulCall = await this.Client.Calls().AddAsync(joinCallParameters);
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Documentation/index.md&amp;version=GBdevelop&amp;line=1" class="contribution-link">Improve this Doc</a>
-                  </li>
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
@@ -154,8 +157,8 @@ var statefulCall = await this.Client.Calls().AddAsync(joinCallParameters);
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
             
-            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>

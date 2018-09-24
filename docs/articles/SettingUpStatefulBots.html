@@ -17,7 +17,7 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
-    
+    <meta property="docfx:rel" content="../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -56,6 +56,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -72,29 +82,24 @@
 <p>This document explains how to setup the Graph Calling SDK for using in other stateful projects. This documentation closely follows the samples available along with it.</p>
 <p>The Graph Calling SDK is exposed as the <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IStatefulClient.html">IStatefulClient</a> interface. Any bot created is an instance of the <code>IStatefulClient</code> interface.</p>
 <h2 id="stateful-calling-bots">Stateful Calling Bots</h2>
-<p>This Graph Calling SDK supports calling abilities for stateful scenarios. They are called <code>Local Media</code> bots.</p>
+<p>This Graph Calling SDK supports calling abilities to bots in stateful scenarios. They are called <code>Local Media</code> bots.</p>
 <p>As the name suggests, <code>Local Media</code> bots media is hosted by the bot itself, i.e., the bot sends and receives raw Audio and Video frames as required.</p>
 <div class="IMPORTANT"><h5>Important</h5><p><code>Local Media</code> calls require that the further notifications and updates from the server always hit the same instance of the bot when multiple instances are present. Look at <a href="calling/StateManagement.html">State Management</a> to learn more</p>
 </div>
 <h2 id="create-a-new-bot">Create a New Bot</h2>
+<div class="NOTE"><h5>Note</h5><p>Take a look at <a href="https://developer.microsoft.com/en-us/graph/docs/concepts/register-calling-bot.md">Register calling bots</a>.</p>
+</div>
 <ul>
 <li>Register your bot in the <a href="https://dev.botframework.com">Bot framework</a> portal and save the Microsoft AppId and Password as entered in it.</li>
 <li>Add the Skype channel, Teams channel and the settings required for that. You would select your media type to be <code>Local Media - Real Time Media</code> in the settings. You also provide a webhook where Skype would contact you for the incoming notifications.</li>
-<li>After the setup is done, the bot now creates an <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IStatefulClientBuilder.html">IStatefulClientBuilder</a> object to which you can set all the required parameters for the Bot like the authentication provider (<a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IStatefulClientBuilder.html#Microsoft_Graph_StatefulClient_IStatefulClientBuilder_SetAuthenticationProvider_Microsoft_Graph_StatefulClient_Authentication_IRequestAuthenticationProvider_">SetAuthenticationProvider</a>, notification url (<a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IStatefulClientBuilder.html#Microsoft_Graph_StatefulClient_IStatefulClientBuilder_SetNotificationUrl_System_Uri_">SetNotificationUrl</a>) and others.</li>
-<li>Call <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IStatefulClientBuilder.html#Microsoft_Graph_StatefulClient_IStatefulClientBuilder_Build">StatefulClientBuilder.Build</a> method to create a <code>IStatefulClient</code> instance which represents the Graph Calling SDK.</li>
+<li>After the setup is done, the bot should create an <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IStatefulClientBuilder.html">IStatefulClientBuilder</a> object on which you can set all the required parameters like the authentication provider (<a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IStatefulClientBuilder.html#Microsoft_Graph_StatefulClient_IStatefulClientBuilder_SetAuthenticationProvider_Microsoft_Graph_StatefulClient_Authentication_IRequestAuthenticationProvider_">SetAuthenticationProvider</a>), notification url (<a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IStatefulClientBuilder.html#Microsoft_Graph_StatefulClient_IStatefulClientBuilder_SetNotificationUrl_System_Uri_">SetNotificationUrl</a>) and others.</li>
+<li>Call <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IStatefulClientBuilder.html#Microsoft_Graph_StatefulClient_IStatefulClientBuilder_Build">StatefulClientBuilder.Build</a> method to create a <code>IStatefulClient</code> instance which represents the Graph Stateful SDK.</li>
 </ul>
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Documentation/articles/SettingUpStatefulBots.md&amp;version=GBdevelop&amp;line=1" class="contribution-link">Improve this Doc</a>
-                  </li>
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
@@ -110,8 +115,8 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
             
-            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>

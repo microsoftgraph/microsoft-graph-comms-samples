@@ -19,7 +19,7 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
-    
+    <meta property="docfx:rel" content="../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -58,6 +58,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -73,7 +83,14 @@
   
   <h1 id="Microsoft_Graph_StatefulClient_Authentication_IRequestAuthenticationProvider" data-uid="Microsoft.Graph.StatefulClient.Authentication.IRequestAuthenticationProvider" class="text-break">Interface IRequestAuthenticationProvider
   </h1>
-  <div class="markdown level0 summary"><p>The authentication provider interface.</p>
+  <div class="markdown level0 summary"><p>The authentication provider interface.
+This is used to authenticate <br></p>
+<ul>
+<li>Inbound requests from Microsoft Graph. It validates the request was issued by
+Microsoft Graph. <br></li>
+<li>Outbound requests to Microsoft Graph. Tenant token is acquired to provide
+Microsoft Graph the permissions the bot has been consented by the tenant admin</li>
+</ul>
 </div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.StatefulClient.Authentication.html">Microsoft.Graph.StatefulClient.Authentication</a></h6>
@@ -84,14 +101,11 @@
   </div>
   <h3 id="methods">Methods
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.StatefulClient/Core/Authentication/IRequestAuthenticationProvider.cs&amp;version=GBdevelop&amp;line=29">View Source</a>
-  </span>
   <a id="Microsoft_Graph_StatefulClient_Authentication_IRequestAuthenticationProvider_AuthenticateOutboundRequestAsync_" data-uid="Microsoft.Graph.StatefulClient.Authentication.IRequestAuthenticationProvider.AuthenticateOutboundRequestAsync*"></a>
   <h4 id="Microsoft_Graph_StatefulClient_Authentication_IRequestAuthenticationProvider_AuthenticateOutboundRequestAsync_System_Net_Http_HttpRequestMessage_System_String_" data-uid="Microsoft.Graph.StatefulClient.Authentication.IRequestAuthenticationProvider.AuthenticateOutboundRequestAsync(System.Net.Http.HttpRequestMessage,System.String)">AuthenticateOutboundRequestAsync(HttpRequestMessage, String)</h4>
   <div class="markdown level1 summary"><p>Authenticates the specified request message.
-This method will be called any time there is an outbound request.</p>
+This method will be called any time there is an outbound request. This
+method should add any required headers for authentication (eg: Authorization).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -111,13 +125,13 @@ This method will be called any time there is an outbound request.</p>
       <tr>
         <td><span class="xref">System.Net.Http.HttpRequestMessage</span></td>
         <td><span class="parametername">request</span></td>
-        <td><p>The request.</p>
+        <td><p>The outbound http request object.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">tenant</span></td>
-        <td><p>The tenant.</p>
+        <td><p>The tenant for which this request belongs to.</p>
 </td>
       </tr>
     </tbody>
@@ -133,20 +147,20 @@ This method will be called any time there is an outbound request.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.Threading.Tasks.Task</span></td>
-        <td><p>The <span class="xref">System.Threading.Tasks.Task</span>.</p>
+        <td><p>The <span class="xref">System.Threading.Tasks.Task</span>. SDK awaits on this task to make sure
+the bot has included the required headers.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.StatefulClient/Core/Authentication/IRequestAuthenticationProvider.cs&amp;version=GBdevelop&amp;line=40">View Source</a>
-  </span>
   <a id="Microsoft_Graph_StatefulClient_Authentication_IRequestAuthenticationProvider_ValidateInboundRequestAsync_" data-uid="Microsoft.Graph.StatefulClient.Authentication.IRequestAuthenticationProvider.ValidateInboundRequestAsync*"></a>
   <h4 id="Microsoft_Graph_StatefulClient_Authentication_IRequestAuthenticationProvider_ValidateInboundRequestAsync_System_Net_Http_HttpRequestMessage_" data-uid="Microsoft.Graph.StatefulClient.Authentication.IRequestAuthenticationProvider.ValidateInboundRequestAsync(System.Net.Http.HttpRequestMessage)">ValidateInboundRequestAsync(HttpRequestMessage)</h4>
-  <div class="markdown level1 summary"><p>Validates the request asynchronously.
+  <div class="markdown level1 summary"><p>Validates the inbound request.
 This method will be called any time we have an incoming request.
-Returning false will result in a Forbidden response being created.</p>
+Returning <a class="xref" href="Microsoft.Graph.StatefulClient.Authentication.RequestValidationResult.html#Microsoft_Graph_StatefulClient_Authentication_RequestValidationResult_IsValid">IsValid</a> false will result in
+a Forbidden response being created.
+SDK waits until a successful validation is returned along with tenant data in
+<a class="xref" href="Microsoft.Graph.StatefulClient.Authentication.RequestValidationResult.html">RequestValidationResult</a> to fire any events.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -166,7 +180,7 @@ Returning false will result in a Forbidden response being created.</p>
       <tr>
         <td><span class="xref">System.Net.Http.HttpRequestMessage</span></td>
         <td><span class="parametername">request</span></td>
-        <td><p>The request.</p>
+        <td><p>The incoming request.</p>
 </td>
       </tr>
     </tbody>
@@ -192,13 +206,6 @@ Returning false will result in a Forbidden response being created.</p>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.StatefulClient/Core/Authentication/IRequestAuthenticationProvider.cs&amp;version=GBdevelop&amp;line=18" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
@@ -214,8 +221,8 @@ Returning false will result in a Forbidden response being created.</p>
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
             
-            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>

@@ -17,7 +17,7 @@
     <meta property="docfx:navrel" content="../../toc.html">
     <meta property="docfx:tocrel" content="../toc.html">
     
-    
+    <meta property="docfx:rel" content="../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -56,6 +56,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -71,25 +81,18 @@
 
 <p>All states of resources associated with a Call in the Graph Calling SDK are handled internally in the SDK itself.</p>
 <ol>
-<li>The notifications and events for a particular ICall or a particular resource contained in ICall are always received on a single application instance. This means that the instance should be maintaining the state of a call in memory and a single <code>Call</code> object exists throughout the duration of the call. These are called <strong>Stateful</strong> bots.</li>
-<li>The notification or events for any call can hit any instance of the application. This means that everytime a notification comes to an instance, a new <code>Call</code> object is created by the Graph Calling Core SDK and is destroyed once the notification/event has been handled. Any state required for the call should be maintained by the bot logic. These are called <strong>Stateless</strong> bots signifying that the Graph Calling Core SDK itself does not maintain any state for the bot.</li>
+<li>The notifications and events for a particular <code>ICall</code> or a particular resource contained in ICall are always received on a single application instance. This means that the instance should be maintaining the state of a call in memory and a single <code>ICall</code> object exists throughout the duration of the call. These are called <strong>Stateful</strong> calls and the bots are called Stateful bots.</li>
+<li>The notification or events for any call can hit any instance of the application. This means that everytime a notification comes to an instance, a new <code>Call</code> object is created by the Graph Calling Core SDK and is destroyed once the notification/event has been handled. Any state required for the call should be maintained by the bot logic. These type of bots are called <strong>Stateless</strong> bots signifying that the Graph Calling Core SDK itself does not maintain any state for the bot.</li>
 </ol>
 <h2 id="differences-between-stateless-and-stateful-bots">Differences Between Stateless and Stateful Bots</h2>
 <p>The major difference betweeen Stateless and Stateful bots is that maintaining Stateful bots requires that the bot instance would not go down when a call is in progress. If the instance goes down, the call object is lost and no notifications or events are received by the Graph Calling SDK and the calls gets dropped by the server. On the contrast, in Stateless bots, even if the bot instance goes down, the events and notifications go to the other instances of the bot and the bot can continue its logic.</p>
-<div class="IMPORTANT"><h5>Important</h5><p>In <strong>Local Media Calls</strong>, the media is handled by a single instance of the bot. Therefore, all the notifications should reach the same instance of the bot for signaling of the media to be properly handled. Therefore Stateless scenarios for Local Media bots are not supported.</p>
+<div class="IMPORTANT"><h5>Important</h5><p>In <strong>Local Media Calls</strong>, the media is handled by a single instance of the bot. Therefore, all the notifications should reach the same instance of the bot for signaling of the media to be properly handled. Thus stateless scenarios for Local Media bots are not supported.</p>
 </div>
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Documentation/articles/calling/StateManagement.md&amp;version=GBdevelop&amp;line=1" class="contribution-link">Improve this Doc</a>
-                  </li>
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
@@ -105,8 +108,8 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
             
-            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>

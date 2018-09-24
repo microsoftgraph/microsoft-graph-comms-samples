@@ -19,7 +19,7 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
-    
+    <meta property="docfx:rel" content="../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -58,6 +58,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -91,7 +101,7 @@
       <a class="xref" href="Microsoft.Graph.IBaseRequest.html#Microsoft_Graph_IBaseRequest_QueryOptions">IBaseRequest.QueryOptions</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="../stateful/Microsoft.Graph.html">Microsoft.Graph</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.html">Microsoft.Graph</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.CoreSDK.dll</h6>
   <h5 id="Microsoft_Graph_IParticipantMuteRequest_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -99,10 +109,6 @@
   </div>
   <h3 id="properties">Properties
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/IParticipantMuteRequest.cs&amp;version=GBdevelop&amp;line=27">View Source</a>
-  </span>
   <a id="Microsoft_Graph_IParticipantMuteRequest_RequestBody_" data-uid="Microsoft.Graph.IParticipantMuteRequest.RequestBody*"></a>
   <h4 id="Microsoft_Graph_IParticipantMuteRequest_RequestBody" data-uid="Microsoft.Graph.IParticipantMuteRequest.RequestBody">RequestBody</h4>
   <div class="markdown level1 summary"><p>Gets the request body.</p>
@@ -129,10 +135,6 @@
   </table>
   <h3 id="methods">Methods
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/IParticipantMuteRequest.cs&amp;version=GBdevelop&amp;line=53">View Source</a>
-  </span>
   <a id="Microsoft_Graph_IParticipantMuteRequest_Expand_" data-uid="Microsoft.Graph.IParticipantMuteRequest.Expand*"></a>
   <h4 id="Microsoft_Graph_IParticipantMuteRequest_Expand_System_String_" data-uid="Microsoft.Graph.IParticipantMuteRequest.Expand(System.String)">Expand(String)</h4>
   <div class="markdown level1 summary"><p>Adds the specified expand value to the request.</p>
@@ -176,10 +178,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/IParticipantMuteRequest.cs&amp;version=GBdevelop&amp;line=33">View Source</a>
-  </span>
   <a id="Microsoft_Graph_IParticipantMuteRequest_PostAsync_" data-uid="Microsoft.Graph.IParticipantMuteRequest.PostAsync*"></a>
   <h4 id="Microsoft_Graph_IParticipantMuteRequest_PostAsync" data-uid="Microsoft.Graph.IParticipantMuteRequest.PostAsync">PostAsync()</h4>
   <div class="markdown level1 summary"><p>Issues the POST request.</p>
@@ -187,7 +185,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Operation&gt; PostAsync()</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;CommsOperation&gt; PostAsync()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -199,15 +197,11 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Microsoft.Graph.Operation.html">Operation</a>&gt;</td>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Microsoft.Graph.CommsOperation.html">CommsOperation</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/IParticipantMuteRequest.cs&amp;version=GBdevelop&amp;line=40">View Source</a>
-  </span>
   <a id="Microsoft_Graph_IParticipantMuteRequest_PostAsync_" data-uid="Microsoft.Graph.IParticipantMuteRequest.PostAsync*"></a>
   <h4 id="Microsoft_Graph_IParticipantMuteRequest_PostAsync_System_Threading_CancellationToken_" data-uid="Microsoft.Graph.IParticipantMuteRequest.PostAsync(System.Threading.CancellationToken)">PostAsync(CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Issues the POST request.</p>
@@ -215,7 +209,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;Operation&gt; PostAsync(CancellationToken cancellationToken)</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;CommsOperation&gt; PostAsync(CancellationToken cancellationToken)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -245,16 +239,12 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Microsoft.Graph.Operation.html">Operation</a>&gt;</td>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Microsoft.Graph.CommsOperation.html">CommsOperation</a>&gt;</td>
         <td><p>The task to await for async call.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/IParticipantMuteRequest.cs&amp;version=GBdevelop&amp;line=60">View Source</a>
-  </span>
   <a id="Microsoft_Graph_IParticipantMuteRequest_Select_" data-uid="Microsoft.Graph.IParticipantMuteRequest.Select*"></a>
   <h4 id="Microsoft_Graph_IParticipantMuteRequest_Select_System_String_" data-uid="Microsoft.Graph.IParticipantMuteRequest.Select(System.String)">Select(String)</h4>
   <div class="markdown level1 summary"><p>Adds the specified select value to the request.</p>
@@ -303,13 +293,6 @@
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/IParticipantMuteRequest.cs&amp;version=GBdevelop&amp;line=21" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
@@ -325,8 +308,8 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
             
-            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>

@@ -19,7 +19,7 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
-    
+    <meta property="docfx:rel" content="../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -58,6 +58,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -80,10 +90,6 @@
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">BaseRequest</span></div>
-      <div class="level2"><a class="xref" href="Microsoft.Graph.ApplicationCallsCollectionRequest.html">ApplicationCallsCollectionRequest</a></div>
-      <div class="level2"><a class="xref" href="Microsoft.Graph.ApplicationChatsCollectionRequest.html">ApplicationChatsCollectionRequest</a></div>
-      <div class="level2"><a class="xref" href="Microsoft.Graph.ApplicationOnlineMeetingsCollectionRequest.html">ApplicationOnlineMeetingsCollectionRequest</a></div>
-      <div class="level2"><a class="xref" href="Microsoft.Graph.ApplicationRequest.html">ApplicationRequest</a></div>
       <div class="level2"><a class="xref" href="Microsoft.Graph.AudioRoutingGroupRequest.html">AudioRoutingGroupRequest</a></div>
       <div class="level2"><a class="xref" href="Microsoft.Graph.CallAnswerRequest.html">CallAnswerRequest</a></div>
       <div class="level2"><a class="xref" href="Microsoft.Graph.CallAudioRoutingGroupsCollectionRequest.html">CallAudioRoutingGroupsCollectionRequest</a></div>
@@ -114,9 +120,12 @@
       <div class="level2"><a class="xref" href="Microsoft.Graph.ChatSetIsTypingRequest.html">ChatSetIsTypingRequest</a></div>
       <div class="level2"><a class="xref" href="Microsoft.Graph.ChatSubscriptionRequest.html">ChatSubscriptionRequest</a></div>
       <div class="level2"><a class="xref" href="Microsoft.Graph.ChatSubscriptionsCollectionRequest.html">ChatSubscriptionsCollectionRequest</a></div>
+      <div class="level2"><a class="xref" href="Microsoft.Graph.CommsApplicationCallsCollectionRequest.html">CommsApplicationCallsCollectionRequest</a></div>
+      <div class="level2"><a class="xref" href="Microsoft.Graph.CommsApplicationChatsCollectionRequest.html">CommsApplicationChatsCollectionRequest</a></div>
+      <div class="level2"><a class="xref" href="Microsoft.Graph.CommsApplicationOnlineMeetingsCollectionRequest.html">CommsApplicationOnlineMeetingsCollectionRequest</a></div>
+      <div class="level2"><a class="xref" href="Microsoft.Graph.CommsApplicationRequest.html">CommsApplicationRequest</a></div>
       <div class="level2"><a class="xref" href="Microsoft.Graph.CommsOperationRequest.html">CommsOperationRequest</a></div>
       <div class="level2"><a class="xref" href="Microsoft.Graph.ConfigureMixerOperationRequest.html">ConfigureMixerOperationRequest</a></div>
-      <div class="level2"><a class="xref" href="Microsoft.Graph.DefaultContainerOperationsCollectionRequest.html">DefaultContainerOperationsCollectionRequest</a></div>
       <div class="level2"><a class="xref" href="Microsoft.Graph.EntityRequest.html">EntityRequest</a></div>
       <div class="level2"><a class="xref" href="Microsoft.Graph.InviteParticipantsOperationRequest.html">InviteParticipantsOperationRequest</a></div>
       <div class="level2"><a class="xref" href="Microsoft.Graph.MentionRequest.html">MentionRequest</a></div>
@@ -125,7 +134,6 @@
       <div class="level2"><a class="xref" href="Microsoft.Graph.MuteParticipantOperationRequest.html">MuteParticipantOperationRequest</a></div>
       <div class="level2"><a class="xref" href="Microsoft.Graph.MuteParticipantsOperationRequest.html">MuteParticipantsOperationRequest</a></div>
       <div class="level2"><a class="xref" href="Microsoft.Graph.OnlineMeetingRequest.html">OnlineMeetingRequest</a></div>
-      <div class="level2"><a class="xref" href="Microsoft.Graph.OperationRequest.html">OperationRequest</a></div>
       <div class="level2"><a class="xref" href="Microsoft.Graph.ParticipantConfigureMixerRequest.html">ParticipantConfigureMixerRequest</a></div>
       <div class="level2"><a class="xref" href="Microsoft.Graph.ParticipantInviteRequest.html">ParticipantInviteRequest</a></div>
       <div class="level2"><a class="xref" href="Microsoft.Graph.ParticipantMuteAllRequest.html">ParticipantMuteAllRequest</a></div>
@@ -171,7 +179,7 @@
       <span class="xref">System.Object.ToString()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="../stateful/Microsoft.Graph.html">Microsoft.Graph</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.html">Microsoft.Graph</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.CoreSDK.dll</h6>
   <h5 id="Microsoft_Graph_BaseRequest_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -179,10 +187,6 @@
   </div>
   <h3 id="constructors">Constructors
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/BaseRequest.cs&amp;version=GBdevelop&amp;line=60">View Source</a>
-  </span>
   <a id="Microsoft_Graph_BaseRequest__ctor_" data-uid="Microsoft.Graph.BaseRequest.#ctor*"></a>
   <h4 id="Microsoft_Graph_BaseRequest__ctor_System_String_Microsoft_Graph_IBaseClient_System_Collections_Generic_IEnumerable_Microsoft_Graph_Option__" data-uid="Microsoft.Graph.BaseRequest.#ctor(System.String,Microsoft.Graph.IBaseClient,System.Collections.Generic.IEnumerable{Microsoft.Graph.Option})">BaseRequest(String, IBaseClient, IEnumerable&lt;Option&gt;)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Microsoft.Graph.BaseRequest.html">BaseRequest</a> class.</p>
@@ -224,10 +228,6 @@
   </table>
   <h3 id="properties">Properties
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/BaseRequest.cs&amp;version=GBdevelop&amp;line=104">View Source</a>
-  </span>
   <a id="Microsoft_Graph_BaseRequest_Client_" data-uid="Microsoft.Graph.BaseRequest.Client*"></a>
   <h4 id="Microsoft_Graph_BaseRequest_Client" data-uid="Microsoft.Graph.BaseRequest.Client">Client</h4>
   <div class="markdown level1 summary"><p>Gets the <a class="xref" href="Microsoft.Graph.IBaseClient.html">IBaseClient</a> for handling requests.</p>
@@ -252,10 +252,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/BaseRequest.cs&amp;version=GBdevelop&amp;line=94">View Source</a>
-  </span>
   <a id="Microsoft_Graph_BaseRequest_ContentType_" data-uid="Microsoft.Graph.BaseRequest.ContentType*"></a>
   <h4 id="Microsoft_Graph_BaseRequest_ContentType" data-uid="Microsoft.Graph.BaseRequest.ContentType">ContentType</h4>
   <div class="markdown level1 summary"><p>Gets or sets the content type for the request.</p>
@@ -280,10 +276,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/BaseRequest.cs&amp;version=GBdevelop&amp;line=99">View Source</a>
-  </span>
   <a id="Microsoft_Graph_BaseRequest_Headers_" data-uid="Microsoft.Graph.BaseRequest.Headers*"></a>
   <h4 id="Microsoft_Graph_BaseRequest_Headers" data-uid="Microsoft.Graph.BaseRequest.Headers">Headers</h4>
   <div class="markdown level1 summary"><p>Gets the <a class="xref" href="Microsoft.Graph.HeaderOption.html">HeaderOption</a> collection for the request.</p>
@@ -308,10 +300,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/BaseRequest.cs&amp;version=GBdevelop&amp;line=109">View Source</a>
-  </span>
   <a id="Microsoft_Graph_BaseRequest_Method_" data-uid="Microsoft.Graph.BaseRequest.Method*"></a>
   <h4 id="Microsoft_Graph_BaseRequest_Method" data-uid="Microsoft.Graph.BaseRequest.Method">Method</h4>
   <div class="markdown level1 summary"><p>Gets or sets the HTTP method string for the request.</p>
@@ -336,10 +324,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/BaseRequest.cs&amp;version=GBdevelop&amp;line=114">View Source</a>
-  </span>
   <a id="Microsoft_Graph_BaseRequest_QueryOptions_" data-uid="Microsoft.Graph.BaseRequest.QueryOptions*"></a>
   <h4 id="Microsoft_Graph_BaseRequest_QueryOptions" data-uid="Microsoft.Graph.BaseRequest.QueryOptions">QueryOptions</h4>
   <div class="markdown level1 summary"><p>Gets or sets the <a class="xref" href="Microsoft.Graph.QueryOption.html">QueryOption</a> collection for the request.</p>
@@ -364,10 +348,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/BaseRequest.cs&amp;version=GBdevelop&amp;line=119">View Source</a>
-  </span>
   <a id="Microsoft_Graph_BaseRequest_RequestUrl_" data-uid="Microsoft.Graph.BaseRequest.RequestUrl*"></a>
   <h4 id="Microsoft_Graph_BaseRequest_RequestUrl" data-uid="Microsoft.Graph.BaseRequest.RequestUrl">RequestUrl</h4>
   <div class="markdown level1 summary"><p>Gets the URL for the request, without query string.</p>
@@ -392,10 +372,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/BaseRequest.cs&amp;version=GBdevelop&amp;line=124">View Source</a>
-  </span>
   <a id="Microsoft_Graph_BaseRequest_SdkVersionHeaderPrefix_" data-uid="Microsoft.Graph.BaseRequest.SdkVersionHeaderPrefix*"></a>
   <h4 id="Microsoft_Graph_BaseRequest_SdkVersionHeaderPrefix" data-uid="Microsoft.Graph.BaseRequest.SdkVersionHeaderPrefix">SdkVersionHeaderPrefix</h4>
   <div class="markdown level1 summary"><p>Gets or sets the telemetry header prefix for requests.</p>
@@ -422,10 +398,6 @@
   </table>
   <h3 id="methods">Methods
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/BaseRequest.cs&amp;version=GBdevelop&amp;line=381">View Source</a>
-  </span>
   <a id="Microsoft_Graph_BaseRequest_GetHttpRequestMessage_" data-uid="Microsoft.Graph.BaseRequest.GetHttpRequestMessage*"></a>
   <h4 id="Microsoft_Graph_BaseRequest_GetHttpRequestMessage" data-uid="Microsoft.Graph.BaseRequest.GetHttpRequestMessage">GetHttpRequestMessage()</h4>
   <div class="markdown level1 summary"><p>Gets the <span class="xref">System.Net.Http.HttpRequestMessage</span> representation of the request.</p>
@@ -451,10 +423,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/BaseRequest.cs&amp;version=GBdevelop&amp;line=133">View Source</a>
-  </span>
   <a id="Microsoft_Graph_BaseRequest_SendAsync_" data-uid="Microsoft.Graph.BaseRequest.SendAsync*"></a>
   <h4 id="Microsoft_Graph_BaseRequest_SendAsync_System_Object_System_Threading_CancellationToken_System_Net_Http_HttpCompletionOption_" data-uid="Microsoft.Graph.BaseRequest.SendAsync(System.Object,System.Threading.CancellationToken,System.Net.Http.HttpCompletionOption)">SendAsync(Object, CancellationToken, HttpCompletionOption)</h4>
   <div class="markdown level1 summary"><p>Sends the request.</p>
@@ -510,10 +478,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/BaseRequest.cs&amp;version=GBdevelop&amp;line=163">View Source</a>
-  </span>
   <a id="Microsoft_Graph_BaseRequest_SendAsync_" data-uid="Microsoft.Graph.BaseRequest.SendAsync*"></a>
   <h4 id="Microsoft_Graph_BaseRequest_SendAsync__1_System_Object_System_Threading_CancellationToken_System_Net_Http_HttpCompletionOption_" data-uid="Microsoft.Graph.BaseRequest.SendAsync``1(System.Object,System.Threading.CancellationToken,System.Net.Http.HttpCompletionOption)">SendAsync&lt;T&gt;(Object, CancellationToken, HttpCompletionOption)</h4>
   <div class="markdown level1 summary"><p>Sends the request.</p>
@@ -585,10 +549,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/BaseRequest.cs&amp;version=GBdevelop&amp;line=237">View Source</a>
-  </span>
   <a id="Microsoft_Graph_BaseRequest_SendMultiPartAsync_" data-uid="Microsoft.Graph.BaseRequest.SendMultiPartAsync*"></a>
   <h4 id="Microsoft_Graph_BaseRequest_SendMultiPartAsync__1_System_Net_Http_MultipartContent_System_Threading_CancellationToken_System_Net_Http_HttpCompletionOption_" data-uid="Microsoft.Graph.BaseRequest.SendMultiPartAsync``1(System.Net.Http.MultipartContent,System.Threading.CancellationToken,System.Net.Http.HttpCompletionOption)">SendMultiPartAsync&lt;T&gt;(MultipartContent, CancellationToken, HttpCompletionOption)</h4>
   <div class="markdown level1 summary"><p>Sends the multipart request.</p>
@@ -660,10 +620,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/BaseRequest.cs&amp;version=GBdevelop&amp;line=277">View Source</a>
-  </span>
   <a id="Microsoft_Graph_BaseRequest_SendMultiPartRequestAsync_" data-uid="Microsoft.Graph.BaseRequest.SendMultiPartRequestAsync*"></a>
   <h4 id="Microsoft_Graph_BaseRequest_SendMultiPartRequestAsync_System_Net_Http_MultipartContent_System_Threading_CancellationToken_System_Net_Http_HttpCompletionOption_" data-uid="Microsoft.Graph.BaseRequest.SendMultiPartRequestAsync(System.Net.Http.MultipartContent,System.Threading.CancellationToken,System.Net.Http.HttpCompletionOption)">SendMultiPartRequestAsync(MultipartContent, CancellationToken, HttpCompletionOption)</h4>
   <div class="markdown level1 summary"><p>Sends the multipart request.</p>
@@ -719,10 +675,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/BaseRequest.cs&amp;version=GBdevelop&amp;line=326">View Source</a>
-  </span>
   <a id="Microsoft_Graph_BaseRequest_SendRequestAsync_" data-uid="Microsoft.Graph.BaseRequest.SendRequestAsync*"></a>
   <h4 id="Microsoft_Graph_BaseRequest_SendRequestAsync_System_Object_System_Threading_CancellationToken_System_Net_Http_HttpCompletionOption_" data-uid="Microsoft.Graph.BaseRequest.SendRequestAsync(System.Object,System.Threading.CancellationToken,System.Net.Http.HttpCompletionOption)">SendRequestAsync(Object, CancellationToken, HttpCompletionOption)</h4>
   <div class="markdown level1 summary"><p>Sends the request.</p>
@@ -778,10 +730,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/BaseRequest.cs&amp;version=GBdevelop&amp;line=261">View Source</a>
-  </span>
   <a id="Microsoft_Graph_BaseRequest_SendStreamRequestAsync_" data-uid="Microsoft.Graph.BaseRequest.SendStreamRequestAsync*"></a>
   <h4 id="Microsoft_Graph_BaseRequest_SendStreamRequestAsync_System_Object_System_Threading_CancellationToken_System_Net_Http_HttpCompletionOption_" data-uid="Microsoft.Graph.BaseRequest.SendStreamRequestAsync(System.Object,System.Threading.CancellationToken,System.Net.Http.HttpCompletionOption)">SendStreamRequestAsync(Object, CancellationToken, HttpCompletionOption)</h4>
   <div class="markdown level1 summary"><p>Sends the request.</p>
@@ -846,13 +794,6 @@
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/BaseRequest.cs&amp;version=GBdevelop&amp;line=31" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
@@ -868,8 +809,8 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
             
-            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>

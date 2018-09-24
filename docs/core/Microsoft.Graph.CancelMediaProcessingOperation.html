@@ -19,7 +19,7 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
-    
+    <meta property="docfx:rel" content="../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -58,6 +58,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -80,26 +90,25 @@
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><a class="xref" href="Microsoft.Graph.Entity.html">Entity</a></div>
-    <div class="level2"><a class="xref" href="Microsoft.Graph.Operation.html">Operation</a></div>
-    <div class="level3"><a class="xref" href="Microsoft.Graph.CommsOperation.html">CommsOperation</a></div>
-    <div class="level4"><span class="xref">CancelMediaProcessingOperation</span></div>
+    <div class="level2"><a class="xref" href="Microsoft.Graph.CommsOperation.html">CommsOperation</a></div>
+    <div class="level3"><span class="xref">CancelMediaProcessingOperation</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Microsoft.Graph.CommsOperation.html#Microsoft_Graph_CommsOperation_Status">CommsOperation.Status</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.Graph.CommsOperation.html#Microsoft_Graph_CommsOperation_CreatedDateTime">CommsOperation.CreatedDateTime</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.Graph.CommsOperation.html#Microsoft_Graph_CommsOperation_LastActionDateTime">CommsOperation.LastActionDateTime</a>
+    </div>
     <div>
       <a class="xref" href="Microsoft.Graph.CommsOperation.html#Microsoft_Graph_CommsOperation_ClientContext">CommsOperation.ClientContext</a>
     </div>
     <div>
       <a class="xref" href="Microsoft.Graph.CommsOperation.html#Microsoft_Graph_CommsOperation_ErrorInfo">CommsOperation.ErrorInfo</a>
-    </div>
-    <div>
-      <a class="xref" href="Microsoft.Graph.Operation.html#Microsoft_Graph_Operation_Status">Operation.Status</a>
-    </div>
-    <div>
-      <a class="xref" href="Microsoft.Graph.Operation.html#Microsoft_Graph_Operation_CreatedDateTime">Operation.CreatedDateTime</a>
-    </div>
-    <div>
-      <a class="xref" href="Microsoft.Graph.Operation.html#Microsoft_Graph_Operation_LastActionDateTime">Operation.LastActionDateTime</a>
     </div>
     <div>
       <a class="xref" href="Microsoft.Graph.Entity.html#Microsoft_Graph_Entity_Id">Entity.Id</a>
@@ -129,7 +138,7 @@
       <span class="xref">System.Object.ToString()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="../stateful/Microsoft.Graph.html">Microsoft.Graph</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.html">Microsoft.Graph</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.CoreSDK.dll</h6>
   <h5 id="Microsoft_Graph_CancelMediaProcessingOperation_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -138,10 +147,6 @@ public class CancelMediaProcessingOperation : CommsOperation</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/CancelMediaProcessingOperation.cs&amp;version=GBdevelop&amp;line=28">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CancelMediaProcessingOperation_All_" data-uid="Microsoft.Graph.CancelMediaProcessingOperation.All*"></a>
   <h4 id="Microsoft_Graph_CancelMediaProcessingOperation_All" data-uid="Microsoft.Graph.CancelMediaProcessingOperation.All">All</h4>
   <div class="markdown level1 summary"><p>Gets or sets all.</p>
@@ -172,13 +177,6 @@ public bool? All { get; set; }</code></pre>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/CancelMediaProcessingOperation.cs&amp;version=GBdevelop&amp;line=21" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
@@ -194,8 +192,8 @@ public bool? All { get; set; }</code></pre>
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
             
-            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>

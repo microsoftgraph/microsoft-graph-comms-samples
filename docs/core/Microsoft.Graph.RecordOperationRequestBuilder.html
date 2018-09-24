@@ -19,7 +19,7 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
-    
+    <meta property="docfx:rel" content="../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -58,6 +58,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -81,15 +91,13 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><a class="xref" href="Microsoft.Graph.BaseRequestBuilder.html">BaseRequestBuilder</a></div>
     <div class="level2"><a class="xref" href="Microsoft.Graph.EntityRequestBuilder.html">EntityRequestBuilder</a></div>
-    <div class="level3"><a class="xref" href="Microsoft.Graph.OperationRequestBuilder.html">OperationRequestBuilder</a></div>
-    <div class="level4"><a class="xref" href="Microsoft.Graph.CommsOperationRequestBuilder.html">CommsOperationRequestBuilder</a></div>
-    <div class="level5"><span class="xref">RecordOperationRequestBuilder</span></div>
+    <div class="level3"><a class="xref" href="Microsoft.Graph.CommsOperationRequestBuilder.html">CommsOperationRequestBuilder</a></div>
+    <div class="level4"><span class="xref">RecordOperationRequestBuilder</span></div>
   </div>
   <div classs="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="Microsoft.Graph.IRecordOperationRequestBuilder.html">IRecordOperationRequestBuilder</a></div>
     <div><a class="xref" href="Microsoft.Graph.ICommsOperationRequestBuilder.html">ICommsOperationRequestBuilder</a></div>
-    <div><a class="xref" href="Microsoft.Graph.IOperationRequestBuilder.html">IOperationRequestBuilder</a></div>
     <div><a class="xref" href="Microsoft.Graph.IEntityRequestBuilder.html">IEntityRequestBuilder</a></div>
     <div><a class="xref" href="Microsoft.Graph.IBaseRequestBuilder.html">IBaseRequestBuilder</a></div>
   </div>
@@ -126,18 +134,14 @@
       <span class="xref">System.Object.ToString()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="../stateful/Microsoft.Graph.html">Microsoft.Graph</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.html">Microsoft.Graph</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.CoreSDK.dll</h6>
   <h5 id="Microsoft_Graph_RecordOperationRequestBuilder_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class RecordOperationRequestBuilder : CommsOperationRequestBuilder, IRecordOperationRequestBuilder, ICommsOperationRequestBuilder, IOperationRequestBuilder, IEntityRequestBuilder, IBaseRequestBuilder</code></pre>
+    <pre><code class="lang-csharp hljs">public class RecordOperationRequestBuilder : CommsOperationRequestBuilder, IRecordOperationRequestBuilder, ICommsOperationRequestBuilder, IEntityRequestBuilder, IBaseRequestBuilder</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/RecordOperationRequestBuilder.cs&amp;version=GBdevelop&amp;line=27">View Source</a>
-  </span>
   <a id="Microsoft_Graph_RecordOperationRequestBuilder__ctor_" data-uid="Microsoft.Graph.RecordOperationRequestBuilder.#ctor*"></a>
   <h4 id="Microsoft_Graph_RecordOperationRequestBuilder__ctor_System_String_Microsoft_Graph_IBaseClient_" data-uid="Microsoft.Graph.RecordOperationRequestBuilder.#ctor(System.String,Microsoft.Graph.IBaseClient)">RecordOperationRequestBuilder(String, IBaseClient)</h4>
   <div class="markdown level1 summary"><p>Constructs a new RecordOperationRequestBuilder.</p>
@@ -173,10 +177,6 @@
   </table>
   <h3 id="methods">Methods
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/RecordOperationRequestBuilder.cs&amp;version=GBdevelop&amp;line=38">View Source</a>
-  </span>
   <a id="Microsoft_Graph_RecordOperationRequestBuilder_Request_" data-uid="Microsoft.Graph.RecordOperationRequestBuilder.Request*"></a>
   <h4 id="Microsoft_Graph_RecordOperationRequestBuilder_Request" data-uid="Microsoft.Graph.RecordOperationRequestBuilder.Request">Request()</h4>
   <div class="markdown level1 summary"><p>Builds the request.</p>
@@ -202,10 +202,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/RecordOperationRequestBuilder.cs&amp;version=GBdevelop&amp;line=48">View Source</a>
-  </span>
   <a id="Microsoft_Graph_RecordOperationRequestBuilder_Request_" data-uid="Microsoft.Graph.RecordOperationRequestBuilder.Request*"></a>
   <h4 id="Microsoft_Graph_RecordOperationRequestBuilder_Request_System_Collections_Generic_IEnumerable_Microsoft_Graph_Option__" data-uid="Microsoft.Graph.RecordOperationRequestBuilder.Request(System.Collections.Generic.IEnumerable{Microsoft.Graph.Option})">Request(IEnumerable&lt;Option&gt;)</h4>
   <div class="markdown level1 summary"><p>Builds the request.</p>
@@ -257,9 +253,6 @@
       <a class="xref" href="Microsoft.Graph.ICommsOperationRequestBuilder.html">ICommsOperationRequestBuilder</a>
   </div>
   <div>
-      <a class="xref" href="Microsoft.Graph.IOperationRequestBuilder.html">IOperationRequestBuilder</a>
-  </div>
-  <div>
       <a class="xref" href="Microsoft.Graph.IEntityRequestBuilder.html">IEntityRequestBuilder</a>
   </div>
   <div>
@@ -270,13 +263,6 @@
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/RecordOperationRequestBuilder.cs&amp;version=GBdevelop&amp;line=19" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
@@ -292,8 +278,8 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
             
-            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>

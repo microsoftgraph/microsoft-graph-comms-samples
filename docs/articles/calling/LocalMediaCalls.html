@@ -17,7 +17,7 @@
     <meta property="docfx:navrel" content="../../toc.html">
     <meta property="docfx:tocrel" content="../toc.html">
     
-    
+    <meta property="docfx:rel" content="../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -56,6 +56,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -74,23 +84,16 @@
 <ol>
 <li>Create the an instance of the <a class="xref" href="../../stateful/Microsoft.Graph.StatefulClient.IStatefulClientBuilder.html">IStatefulClientBuilder</a>.</li>
 <li>Create an instance of MediaPlatformSettings and use <a class="xref" href="../../media/Microsoft.Graph.Calls.Media.StatefulClientBuilderExtensions.html#Microsoft_Graph_Calls_Media_StatefulClientBuilderExtensions_SetMediaPlatformSettings_IStatefulClientBuilder_Microsoft_Skype_Bots_Media_MediaPlatformSettings_">StatefulClientExtension.SetMediaPlatformSettings</a> method to pass the MediaPlatformSettings to build the <a class="xref" href="../../stateful/Microsoft.Graph.StatefulClient.IStatefulClient.html">IStatefulClient</a></li>
-<li>Once the builder builds the @Microsoft.Graph.Calls.IStatefulClient, a media session can be created using either <a class="xref" href="../../media/Microsoft.Graph.Calls.Media.StatefulClientExtensions.html#Microsoft_Graph_Calls_Media_StatefulClientExtensions_CreateMediaSession_IStatefulClient_Microsoft_Skype_Bots_Media_AudioSocketSettings_Microsoft_Skype_Bots_Media_VideoSocketSettings_Microsoft_Skype_Bots_Media_VideoSocketSettings_System_Guid_">StatefulClientExtension.CreateMediaSession</a> or <a class="xref" href="../../media/Microsoft.Graph.Calls.Media.StatefulClientExtensions.html#Microsoft_Graph_Calls_Media_StatefulClientExtensions_CreateMediaSession_IStatefulClient_Microsoft_Skype_Bots_Media_AudioSocketSettings_System_Collections_Generic_IEnumerable_Microsoft_Skype_Bots_Media_VideoSocketSettings__Microsoft_Skype_Bots_Media_VideoSocketSettings_System_Guid_">StatefulClientExtension.CreateMediaSession</a> depending on how many video sockets are required.</li>
+<li>Once the builder builds the <a class="xref" href="../../stateful/Microsoft.Graph.StatefulClient.IStatefulClient.html">IStatefulClient</a>, a media session can be created using either <a class="xref" href="../../media/Microsoft.Graph.Calls.Media.StatefulClientExtensions.html#Microsoft_Graph_Calls_Media_StatefulClientExtensions_CreateMediaSession_IStatefulClient_Microsoft_Skype_Bots_Media_AudioSocketSettings_Microsoft_Skype_Bots_Media_VideoSocketSettings_Microsoft_Skype_Bots_Media_VideoSocketSettings_System_Guid_">StatefulClientExtension.CreateMediaSession</a> or <a class="xref" href="../../media/Microsoft.Graph.Calls.Media.StatefulClientExtensions.html#Microsoft_Graph_Calls_Media_StatefulClientExtensions_CreateMediaSession_IStatefulClient_Microsoft_Skype_Bots_Media_AudioSocketSettings_System_Collections_Generic_IEnumerable_Microsoft_Skype_Bots_Media_VideoSocketSettings__Microsoft_Skype_Bots_Media_VideoSocketSettings_System_Guid_">StatefulClientExtension.CreateMediaSession</a> depending on how many video sockets are required.</li>
 <li>When creating an object of the <a class="xref" href="../../core/Microsoft.Graph.Call.html">Call</a> resource, <a class="xref" href="../../core/Microsoft.Graph.MediaConfig.html">MediaConfig</a> needs to be set to <a class="xref" href="../../core/Microsoft.Graph.AppHostedMediaConfig.html">AppHostedMediaConfig</a>.</li>
 </ol>
-<div class="IMPORTANT"><h5>Important</h5><p>When creating a new call that uses local media, an instance of <a class="xref" href="../../calling/Microsoft.Graph.Calls.IMediaSession.html">IMediaSession</a> needs to be passed into <a class="xref" href="../../calling/Microsoft.Graph.Calls.CallCollectionExtensions.html#Microsoft_Graph_Calls_CallCollectionExtensions_AddAsync_Microsoft_Graph_Calls_ICallCollection_Call_Microsoft_Graph_Calls_IMediaSession_System_Boolean_CancellationToken_">CallCollectionExtensions.AddAsync</a></p>
+<div class="IMPORTANT"><h5>Important</h5><p>When creating a new call that uses local media, an instance of <a class="xref" href="../../calling/Microsoft.Graph.Calls.IMediaSession.html">IMediaSession</a> needs to be passed into <a class="xref" href="../../calling/Microsoft.Graph.Calls.ICallCollection.html#Microsoft_Graph_Calls_ICallCollection_AddAsync_Call_Microsoft_Graph_Calls_IMediaSession_System_Nullable_System_Boolean__CancellationToken_">CallCollectionExtensions.AddAsync</a></p>
 </div>
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Documentation/articles/calling/LocalMediaCalls.md&amp;version=GBdevelop&amp;line=1" class="contribution-link">Improve this Doc</a>
-                  </li>
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
@@ -106,8 +109,8 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
             
-            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>

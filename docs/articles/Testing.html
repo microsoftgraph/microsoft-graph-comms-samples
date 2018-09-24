@@ -17,7 +17,7 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
-    
+    <meta property="docfx:rel" content="../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -56,6 +56,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -90,12 +100,14 @@
 <p>Local Media uses certificates and TCP tunnels to properly work. The following steps are required in order for proper media establishment.</p>
 <ul>
 <li>Ngrok&#39;s public TCP endpoints have fixed urls. They are <code>0.tcp.ngrok.io</code>, <code>1.tcp.ngrok.io</code>, etc. You should have a dns CNAME entry for your service that points to these urls. In this example, let&#39;s say <code>0.bot.contoso.com</code> is pointing to <code>0.tcp.ngrok.io</code>, and similarly for other urls.</li>
-<li>Now you require an SSL certificate for the url you own. To make it easy, use an SSL certificate issued to a wild card domain. In this case, it would be <code>*.bot.contoso.com</code>. This ssl certificate is validated by Media flow so should match your media flow&#39;s public url. Note down the thumbprint and install the thumbprint in your machine certificates.</li>
+<li>Now you require an SSL certificate for the url you own. To make it easy, use an SSL certificate issued to a wild card domain. In this case, it would be <code>*.bot.contoso.com</code>. This ssl certificate is validated by Media flow so should match your media flow&#39;s public url. Note down the thumbprint and install the certificate in your machine certificates.</li>
 <li>Now, we setup a TCP tunnel to forward the traffic to localhost. Write the following lines into your ngrok config.
   <code>media:
       addr: &lt;Localhost Media Port&gt;
       proto: tcp</code></li>
 </ul>
+<div class="IMPORTANT"><h5>Important</h5><p>Because ngrok&#39;s tcp urls can be same for multiple users (just differing in ports), it is possible for a third party to look like your service. This is a security issue. Therefore this document should be followed only for testing and also using a separate domain that is not linked to your production services.</p>
+</div>
 <h2 id="start-ngok">Start Ngok</h2>
 <p>Now that ngrok configuration is ready, start it up. Download the ngrok executable and run the following command</p>
 <pre><code>ngrok.exe start -all -config &lt;Path to your ngrok.yml&gt;
@@ -116,7 +128,7 @@ Forwarding  tcp://1.tcp.ngrok.io:12332 -&gt; localhost:8445
 </div>
 <div class="IMPORTANT"><h5>Important</h5><p>The url in <code>SetNotificationUrl</code> must be HTTPS.</p>
 </div>
-<div class="IMPORTANT"><h5>Important</h5><p>Your local instance must be listening to http traffic on the signaling port. The requests made by Platform will reach the bot as localhost http traffic when End to End encryption is not setup.</p>
+<div class="IMPORTANT"><h5>Important</h5><p>Your local instance must be listening to http traffic on the signaling port. The requests made by Graph Platform will reach the bot as localhost http traffic when End to End encryption is not setup.</p>
 </div>
 <h4 id="update-media">Update Media</h4>
 <p>Update your <code>MediaPlatformSettings</code> to the following.</p>
@@ -134,8 +146,6 @@ Forwarding  tcp://1.tcp.ngrok.io:12332 -&gt; localhost:8445
 }
 </code></pre><div class="CAUTION"><h5>Caution</h5><p>The Certificate Thumbprint provided above should match the Service FQDN. That is why the DNS entries are required.</p>
 </div>
-<h2 id="next-steps">Next Steps</h2>
-<p>Your bot can now run locally and all the flows work from your localhost. The code steps and running of ngrok can be automated by using the <code>Microsoft.Graph.Testing.Localhost</code> library. Take a look at <a href="TestingAutomation.html">Testing automation</a></p>
 <h2 id="caveats">Caveats</h2>
 <ul>
 <li><p>The free accounts of ngrok do <strong>NOT</strong> provide End to End encryption. The HTTPS data ends at the ngrok url and the data flows unencrypted from ngrok to localhost. You require paid ngrok account and configuration update to use End to End encryption. See <a href="http://ngrok.com/docs">ngrok docs</a> for steps on setting up secure E2E tunnels.</p>
@@ -148,13 +158,6 @@ Forwarding  tcp://1.tcp.ngrok.io:12332 -&gt; localhost:8445
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Documentation/articles/Testing.md&amp;version=GBdevelop&amp;line=1" class="contribution-link">Improve this Doc</a>
-                  </li>
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
@@ -170,8 +173,8 @@ Forwarding  tcp://1.tcp.ngrok.io:12332 -&gt; localhost:8445
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
             
-            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>

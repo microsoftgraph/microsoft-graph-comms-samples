@@ -19,7 +19,7 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
-    
+    <meta property="docfx:rel" content="../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -58,6 +58,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -80,33 +90,23 @@
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><a class="xref" href="Microsoft.Graph.Entity.html">Entity</a></div>
-    <div class="level2"><a class="xref" href="Microsoft.Graph.Operation.html">Operation</a></div>
-    <div class="level3"><span class="xref">CommsOperation</span></div>
-      <div class="level4"><a class="xref" href="Microsoft.Graph.CancelMediaProcessingOperation.html">CancelMediaProcessingOperation</a></div>
-      <div class="level4"><a class="xref" href="Microsoft.Graph.ConfigureMixerOperation.html">ConfigureMixerOperation</a></div>
-      <div class="level4"><a class="xref" href="Microsoft.Graph.InviteParticipantsOperation.html">InviteParticipantsOperation</a></div>
-      <div class="level4"><a class="xref" href="Microsoft.Graph.MuteParticipantOperation.html">MuteParticipantOperation</a></div>
-      <div class="level4"><a class="xref" href="Microsoft.Graph.MuteParticipantsOperation.html">MuteParticipantsOperation</a></div>
-      <div class="level4"><a class="xref" href="Microsoft.Graph.PlayPromptOperation.html">PlayPromptOperation</a></div>
-      <div class="level4"><a class="xref" href="Microsoft.Graph.RecognizeOperation.html">RecognizeOperation</a></div>
-      <div class="level4"><a class="xref" href="Microsoft.Graph.RecordOperation.html">RecordOperation</a></div>
-      <div class="level4"><a class="xref" href="Microsoft.Graph.SubscribeToToneOperation.html">SubscribeToToneOperation</a></div>
-      <div class="level4"><a class="xref" href="Microsoft.Graph.SubscribeVideoOperation.html">SubscribeVideoOperation</a></div>
-      <div class="level4"><a class="xref" href="Microsoft.Graph.UnmuteParticipantOperation.html">UnmuteParticipantOperation</a></div>
-      <div class="level4"><a class="xref" href="Microsoft.Graph.UnmuteParticipantsOperation.html">UnmuteParticipantsOperation</a></div>
-      <div class="level4"><a class="xref" href="Microsoft.Graph.UpdateMetadataOperation.html">UpdateMetadataOperation</a></div>
+    <div class="level2"><span class="xref">CommsOperation</span></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.CancelMediaProcessingOperation.html">CancelMediaProcessingOperation</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.ConfigureMixerOperation.html">ConfigureMixerOperation</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.InviteParticipantsOperation.html">InviteParticipantsOperation</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.MuteParticipantOperation.html">MuteParticipantOperation</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.MuteParticipantsOperation.html">MuteParticipantsOperation</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.PlayPromptOperation.html">PlayPromptOperation</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.RecognizeOperation.html">RecognizeOperation</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.RecordOperation.html">RecordOperation</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.SubscribeToToneOperation.html">SubscribeToToneOperation</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.SubscribeVideoOperation.html">SubscribeVideoOperation</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.UnmuteParticipantOperation.html">UnmuteParticipantOperation</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.UnmuteParticipantsOperation.html">UnmuteParticipantsOperation</a></div>
+      <div class="level3"><a class="xref" href="Microsoft.Graph.UpdateMetadataOperation.html">UpdateMetadataOperation</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
-    <div>
-      <a class="xref" href="Microsoft.Graph.Operation.html#Microsoft_Graph_Operation_Status">Operation.Status</a>
-    </div>
-    <div>
-      <a class="xref" href="Microsoft.Graph.Operation.html#Microsoft_Graph_Operation_CreatedDateTime">Operation.CreatedDateTime</a>
-    </div>
-    <div>
-      <a class="xref" href="Microsoft.Graph.Operation.html#Microsoft_Graph_Operation_LastActionDateTime">Operation.LastActionDateTime</a>
-    </div>
     <div>
       <a class="xref" href="Microsoft.Graph.Entity.html#Microsoft_Graph_Entity_Id">Entity.Id</a>
     </div>
@@ -135,19 +135,15 @@
       <span class="xref">System.Object.ToString()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="../stateful/Microsoft.Graph.html">Microsoft.Graph</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.html">Microsoft.Graph</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.CoreSDK.dll</h6>
   <h5 id="Microsoft_Graph_CommsOperation_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[JsonObject(MemberSerialization = MemberSerialization.OptIn)]
-public class CommsOperation : Operation</code></pre>
+public class CommsOperation : Entity</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/CommsOperation.cs&amp;version=GBdevelop&amp;line=28">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CommsOperation__ctor_" data-uid="Microsoft.Graph.CommsOperation.#ctor*"></a>
   <h4 id="Microsoft_Graph_CommsOperation__ctor" data-uid="Microsoft.Graph.CommsOperation.#ctor">CommsOperation()</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Microsoft.Graph.CommsOperation.html">CommsOperation</a> class.</p>
@@ -159,10 +155,6 @@ public class CommsOperation : Operation</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/CommsOperation.cs&amp;version=GBdevelop&amp;line=36">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CommsOperation_ClientContext_" data-uid="Microsoft.Graph.CommsOperation.ClientContext*"></a>
   <h4 id="Microsoft_Graph_CommsOperation_ClientContext" data-uid="Microsoft.Graph.CommsOperation.ClientContext">ClientContext</h4>
   <div class="markdown level1 summary"><p>Gets or sets client context.</p>
@@ -188,10 +180,31 @@ public string ClientContext { get; set; }</code></pre>
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/CommsOperation.cs&amp;version=GBdevelop&amp;line=42">View Source</a>
-  </span>
+  <a id="Microsoft_Graph_CommsOperation_CreatedDateTime_" data-uid="Microsoft.Graph.CommsOperation.CreatedDateTime*"></a>
+  <h4 id="Microsoft_Graph_CommsOperation_CreatedDateTime" data-uid="Microsoft.Graph.CommsOperation.CreatedDateTime">CreatedDateTime</h4>
+  <div class="markdown level1 summary"><p>Gets or sets created date time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;createdDateTime&quot;, Required = Required.Default)]
+public DateTimeOffset? CreatedDateTime { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTimeOffset</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <a id="Microsoft_Graph_CommsOperation_ErrorInfo_" data-uid="Microsoft.Graph.CommsOperation.ErrorInfo*"></a>
   <h4 id="Microsoft_Graph_CommsOperation_ErrorInfo" data-uid="Microsoft.Graph.CommsOperation.ErrorInfo">ErrorInfo</h4>
   <div class="markdown level1 summary"><p>Gets or sets error info.</p>
@@ -217,18 +230,61 @@ public ResultInfo ErrorInfo { get; set; }</code></pre>
       </tr>
     </tbody>
   </table>
+  <a id="Microsoft_Graph_CommsOperation_LastActionDateTime_" data-uid="Microsoft.Graph.CommsOperation.LastActionDateTime*"></a>
+  <h4 id="Microsoft_Graph_CommsOperation_LastActionDateTime" data-uid="Microsoft.Graph.CommsOperation.LastActionDateTime">LastActionDateTime</h4>
+  <div class="markdown level1 summary"><p>Gets or sets last action date time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;lastActionDateTime&quot;, Required = Required.Default)]
+public DateTimeOffset? LastActionDateTime { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTimeOffset</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_CommsOperation_Status_" data-uid="Microsoft.Graph.CommsOperation.Status*"></a>
+  <h4 id="Microsoft_Graph_CommsOperation_Status" data-uid="Microsoft.Graph.CommsOperation.Status">Status</h4>
+  <div class="markdown level1 summary"><p>Gets or sets status.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;status&quot;, Required = Required.Default)]
+public OperationStatus? Status { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<a class="xref" href="Microsoft.Graph.OperationStatus.html">OperationStatus</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/CommsOperation.cs&amp;version=GBdevelop&amp;line=21" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
@@ -244,8 +300,8 @@ public ResultInfo ErrorInfo { get; set; }</code></pre>
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
             
-            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>

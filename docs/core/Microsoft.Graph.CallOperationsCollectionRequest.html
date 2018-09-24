@@ -19,7 +19,7 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
-    
+    <meta property="docfx:rel" content="../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -58,6 +58,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -153,7 +163,7 @@
       <span class="xref">System.Object.ToString()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="../stateful/Microsoft.Graph.html">Microsoft.Graph</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.html">Microsoft.Graph</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.CoreSDK.dll</h6>
   <h5 id="Microsoft_Graph_CallOperationsCollectionRequest_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -161,10 +171,6 @@
   </div>
   <h3 id="constructors">Constructors
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/CallOperationsCollectionRequest.cs&amp;version=GBdevelop&amp;line=29">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CallOperationsCollectionRequest__ctor_" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.#ctor*"></a>
   <h4 id="Microsoft_Graph_CallOperationsCollectionRequest__ctor_System_String_Microsoft_Graph_IBaseClient_System_Collections_Generic_IEnumerable_Microsoft_Graph_Option__" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.#ctor(System.String,Microsoft.Graph.IBaseClient,System.Collections.Generic.IEnumerable{Microsoft.Graph.Option})">CallOperationsCollectionRequest(String, IBaseClient, IEnumerable&lt;Option&gt;)</h4>
   <div class="markdown level1 summary"><p>Constructs a new CallOperationsCollectionRequest.</p>
@@ -206,18 +212,14 @@
   </table>
   <h3 id="methods">Methods
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/CallOperationsCollectionRequest.cs&amp;version=GBdevelop&amp;line=42">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CallOperationsCollectionRequest_AddAsync_" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.AddAsync*"></a>
-  <h4 id="Microsoft_Graph_CallOperationsCollectionRequest_AddAsync_Microsoft_Graph_Operation_" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.AddAsync(Microsoft.Graph.Operation)">AddAsync(Operation)</h4>
-  <div class="markdown level1 summary"><p>Adds the specified Operation to the collection via POST.</p>
+  <h4 id="Microsoft_Graph_CallOperationsCollectionRequest_AddAsync_Microsoft_Graph_CommsOperation_" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.AddAsync(Microsoft.Graph.CommsOperation)">AddAsync(CommsOperation)</h4>
+  <div class="markdown level1 summary"><p>Adds the specified CommsOperation to the collection via POST.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;Operation&gt; AddAsync(Operation Operation)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;CommsOperation&gt; AddAsync(CommsOperation CommsOperation)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -230,9 +232,9 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Microsoft.Graph.Operation.html">Operation</a></td>
-        <td><span class="parametername">Operation</span></td>
-        <td><p>The Operation to add.</p>
+        <td><a class="xref" href="Microsoft.Graph.CommsOperation.html">CommsOperation</a></td>
+        <td><span class="parametername">CommsOperation</span></td>
+        <td><p>The CommsOperation to add.</p>
 </td>
       </tr>
     </tbody>
@@ -247,24 +249,20 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Microsoft.Graph.Operation.html">Operation</a>&gt;</td>
-        <td><p>The created Operation.</p>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Microsoft.Graph.CommsOperation.html">CommsOperation</a>&gt;</td>
+        <td><p>The created CommsOperation.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/CallOperationsCollectionRequest.cs&amp;version=GBdevelop&amp;line=53">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CallOperationsCollectionRequest_AddAsync_" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.AddAsync*"></a>
-  <h4 id="Microsoft_Graph_CallOperationsCollectionRequest_AddAsync_Microsoft_Graph_Operation_System_Threading_CancellationToken_" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.AddAsync(Microsoft.Graph.Operation,System.Threading.CancellationToken)">AddAsync(Operation, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Adds the specified Operation to the collection via POST.</p>
+  <h4 id="Microsoft_Graph_CallOperationsCollectionRequest_AddAsync_Microsoft_Graph_CommsOperation_System_Threading_CancellationToken_" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.AddAsync(Microsoft.Graph.CommsOperation,System.Threading.CancellationToken)">AddAsync(CommsOperation, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Adds the specified CommsOperation to the collection via POST.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;Operation&gt; AddAsync(Operation Operation, CancellationToken cancellationToken)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;CommsOperation&gt; AddAsync(CommsOperation CommsOperation, CancellationToken cancellationToken)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -277,9 +275,9 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Microsoft.Graph.Operation.html">Operation</a></td>
-        <td><span class="parametername">Operation</span></td>
-        <td><p>The Operation to add.</p>
+        <td><a class="xref" href="Microsoft.Graph.CommsOperation.html">CommsOperation</a></td>
+        <td><span class="parametername">CommsOperation</span></td>
+        <td><p>The CommsOperation to add.</p>
 </td>
       </tr>
       <tr>
@@ -300,24 +298,20 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Microsoft.Graph.Operation.html">Operation</a>&gt;</td>
-        <td><p>The created Operation.</p>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Microsoft.Graph.CommsOperation.html">CommsOperation</a>&gt;</td>
+        <td><p>The created CommsOperation.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/CallOperationsCollectionRequest.cs&amp;version=GBdevelop&amp;line=120">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CallOperationsCollectionRequest_Expand_" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.Expand*"></a>
-  <h4 id="Microsoft_Graph_CallOperationsCollectionRequest_Expand_System_Linq_Expressions_Expression_System_Func_Microsoft_Graph_Operation_System_Object___" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.Expand(System.Linq.Expressions.Expression{System.Func{Microsoft.Graph.Operation,System.Object}})">Expand(Expression&lt;Func&lt;Operation, Object&gt;&gt;)</h4>
+  <h4 id="Microsoft_Graph_CallOperationsCollectionRequest_Expand_System_Linq_Expressions_Expression_System_Func_Microsoft_Graph_CommsOperation_System_Object___" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.Expand(System.Linq.Expressions.Expression{System.Func{Microsoft.Graph.CommsOperation,System.Object}})">Expand(Expression&lt;Func&lt;CommsOperation, Object&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Adds the specified expand value to the request.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ICallOperationsCollectionRequest Expand(Expression&lt;Func&lt;Operation, object&gt;&gt; expandExpression)</code></pre>
+    <pre><code class="lang-csharp hljs">public ICallOperationsCollectionRequest Expand(Expression&lt;Func&lt;CommsOperation, object&gt;&gt; expandExpression)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -330,7 +324,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;<a class="xref" href="Microsoft.Graph.Operation.html">Operation</a>, <span class="xref">System.Object</span>&gt;&gt;</td>
+        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;<a class="xref" href="Microsoft.Graph.CommsOperation.html">CommsOperation</a>, <span class="xref">System.Object</span>&gt;&gt;</td>
         <td><span class="parametername">expandExpression</span></td>
         <td><p>The expression from which to calculate the expand value.</p>
 </td>
@@ -353,10 +347,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/CallOperationsCollectionRequest.cs&amp;version=GBdevelop&amp;line=109">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CallOperationsCollectionRequest_Expand_" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.Expand*"></a>
   <h4 id="Microsoft_Graph_CallOperationsCollectionRequest_Expand_System_String_" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.Expand(System.String)">Expand(String)</h4>
   <div class="markdown level1 summary"><p>Adds the specified expand value to the request.</p>
@@ -400,10 +390,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/CallOperationsCollectionRequest.cs&amp;version=GBdevelop&amp;line=190">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CallOperationsCollectionRequest_Filter_" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.Filter*"></a>
   <h4 id="Microsoft_Graph_CallOperationsCollectionRequest_Filter_System_String_" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.Filter(System.String)">Filter(String)</h4>
   <div class="markdown level1 summary"><p>Adds the specified filter value to the request.</p>
@@ -447,10 +433,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/CallOperationsCollectionRequest.cs&amp;version=GBdevelop&amp;line=64">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CallOperationsCollectionRequest_GetAsync_" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.GetAsync*"></a>
   <h4 id="Microsoft_Graph_CallOperationsCollectionRequest_GetAsync" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.GetAsync">GetAsync()</h4>
   <div class="markdown level1 summary"><p>Gets the collection page.</p>
@@ -476,10 +458,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/CallOperationsCollectionRequest.cs&amp;version=GBdevelop&amp;line=74">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CallOperationsCollectionRequest_GetAsync_" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.GetAsync*"></a>
   <h4 id="Microsoft_Graph_CallOperationsCollectionRequest_GetAsync_System_Threading_CancellationToken_" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.GetAsync(System.Threading.CancellationToken)">GetAsync(CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Gets the collection page.</p>
@@ -523,10 +501,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/CallOperationsCollectionRequest.cs&amp;version=GBdevelop&amp;line=212">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CallOperationsCollectionRequest_OrderBy_" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.OrderBy*"></a>
   <h4 id="Microsoft_Graph_CallOperationsCollectionRequest_OrderBy_System_String_" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.OrderBy(System.String)">OrderBy(String)</h4>
   <div class="markdown level1 summary"><p>Adds the specified orderby value to the request.</p>
@@ -570,18 +544,14 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/CallOperationsCollectionRequest.cs&amp;version=GBdevelop&amp;line=155">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CallOperationsCollectionRequest_Select_" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.Select*"></a>
-  <h4 id="Microsoft_Graph_CallOperationsCollectionRequest_Select_System_Linq_Expressions_Expression_System_Func_Microsoft_Graph_Operation_System_Object___" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.Select(System.Linq.Expressions.Expression{System.Func{Microsoft.Graph.Operation,System.Object}})">Select(Expression&lt;Func&lt;Operation, Object&gt;&gt;)</h4>
+  <h4 id="Microsoft_Graph_CallOperationsCollectionRequest_Select_System_Linq_Expressions_Expression_System_Func_Microsoft_Graph_CommsOperation_System_Object___" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.Select(System.Linq.Expressions.Expression{System.Func{Microsoft.Graph.CommsOperation,System.Object}})">Select(Expression&lt;Func&lt;CommsOperation, Object&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Adds the specified select value to the request.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ICallOperationsCollectionRequest Select(Expression&lt;Func&lt;Operation, object&gt;&gt; selectExpression)</code></pre>
+    <pre><code class="lang-csharp hljs">public ICallOperationsCollectionRequest Select(Expression&lt;Func&lt;CommsOperation, object&gt;&gt; selectExpression)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -594,7 +564,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;<a class="xref" href="Microsoft.Graph.Operation.html">Operation</a>, <span class="xref">System.Object</span>&gt;&gt;</td>
+        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;<a class="xref" href="Microsoft.Graph.CommsOperation.html">CommsOperation</a>, <span class="xref">System.Object</span>&gt;&gt;</td>
         <td><span class="parametername">selectExpression</span></td>
         <td><p>The expression from which to calculate the select value.</p>
 </td>
@@ -617,10 +587,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/CallOperationsCollectionRequest.cs&amp;version=GBdevelop&amp;line=144">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CallOperationsCollectionRequest_Select_" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.Select*"></a>
   <h4 id="Microsoft_Graph_CallOperationsCollectionRequest_Select_System_String_" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.Select(System.String)">Select(String)</h4>
   <div class="markdown level1 summary"><p>Adds the specified select value to the request.</p>
@@ -664,10 +630,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/CallOperationsCollectionRequest.cs&amp;version=GBdevelop&amp;line=201">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CallOperationsCollectionRequest_Skip_" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.Skip*"></a>
   <h4 id="Microsoft_Graph_CallOperationsCollectionRequest_Skip_System_Int32_" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.Skip(System.Int32)">Skip(Int32)</h4>
   <div class="markdown level1 summary"><p>Adds the specified skip value to the request.</p>
@@ -711,10 +673,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/CallOperationsCollectionRequest.cs&amp;version=GBdevelop&amp;line=179">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CallOperationsCollectionRequest_Top_" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.Top*"></a>
   <h4 id="Microsoft_Graph_CallOperationsCollectionRequest_Top_System_Int32_" data-uid="Microsoft.Graph.CallOperationsCollectionRequest.Top(System.Int32)">Top(Int32)</h4>
   <div class="markdown level1 summary"><p>Adds the specified top value to the request.</p>
@@ -770,13 +728,6 @@
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/CallOperationsCollectionRequest.cs&amp;version=GBdevelop&amp;line=21" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
@@ -792,8 +743,8 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
             
-            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>

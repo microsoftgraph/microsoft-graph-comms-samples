@@ -19,7 +19,7 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
-    
+    <meta property="docfx:rel" content="../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -58,6 +58,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -80,9 +90,6 @@
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">BaseRequestBuilder</span></div>
-      <div class="level2"><a class="xref" href="Microsoft.Graph.ApplicationCallsCollectionRequestBuilder.html">ApplicationCallsCollectionRequestBuilder</a></div>
-      <div class="level2"><a class="xref" href="Microsoft.Graph.ApplicationChatsCollectionRequestBuilder.html">ApplicationChatsCollectionRequestBuilder</a></div>
-      <div class="level2"><a class="xref" href="Microsoft.Graph.ApplicationOnlineMeetingsCollectionRequestBuilder.html">ApplicationOnlineMeetingsCollectionRequestBuilder</a></div>
       <div class="level2"><a class="xref" href="Microsoft.Graph.BaseActionMethodRequestBuilder-1.html">BaseActionMethodRequestBuilder&lt;T&gt;</a></div>
       <div class="level2"><a class="xref" href="Microsoft.Graph.BaseFunctionMethodRequestBuilder-1.html">BaseFunctionMethodRequestBuilder&lt;T&gt;</a></div>
       <div class="level2"><a class="xref" href="Microsoft.Graph.CallAudioRoutingGroupsCollectionRequestBuilder.html">CallAudioRoutingGroupsCollectionRequestBuilder</a></div>
@@ -91,7 +98,9 @@
       <div class="level2"><a class="xref" href="Microsoft.Graph.ChatMessagesCollectionRequestBuilder.html">ChatMessagesCollectionRequestBuilder</a></div>
       <div class="level2"><a class="xref" href="Microsoft.Graph.ChatParticipantsCollectionRequestBuilder.html">ChatParticipantsCollectionRequestBuilder</a></div>
       <div class="level2"><a class="xref" href="Microsoft.Graph.ChatSubscriptionsCollectionRequestBuilder.html">ChatSubscriptionsCollectionRequestBuilder</a></div>
-      <div class="level2"><a class="xref" href="Microsoft.Graph.DefaultContainerOperationsCollectionRequestBuilder.html">DefaultContainerOperationsCollectionRequestBuilder</a></div>
+      <div class="level2"><a class="xref" href="Microsoft.Graph.CommsApplicationCallsCollectionRequestBuilder.html">CommsApplicationCallsCollectionRequestBuilder</a></div>
+      <div class="level2"><a class="xref" href="Microsoft.Graph.CommsApplicationChatsCollectionRequestBuilder.html">CommsApplicationChatsCollectionRequestBuilder</a></div>
+      <div class="level2"><a class="xref" href="Microsoft.Graph.CommsApplicationOnlineMeetingsCollectionRequestBuilder.html">CommsApplicationOnlineMeetingsCollectionRequestBuilder</a></div>
       <div class="level2"><a class="xref" href="Microsoft.Graph.EntityRequestBuilder.html">EntityRequestBuilder</a></div>
       <div class="level2"><a class="xref" href="Microsoft.Graph.MessageMentionsCollectionRequestBuilder.html">MessageMentionsCollectionRequestBuilder</a></div>
   </div>
@@ -119,7 +128,7 @@
       <span class="xref">System.Object.ToString()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="../stateful/Microsoft.Graph.html">Microsoft.Graph</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.html">Microsoft.Graph</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.CoreSDK.dll</h6>
   <h5 id="Microsoft_Graph_BaseRequestBuilder_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -127,10 +136,6 @@
   </div>
   <h3 id="constructors">Constructors
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/BaseRequestBuilder.cs&amp;version=GBdevelop&amp;line=21">View Source</a>
-  </span>
   <a id="Microsoft_Graph_BaseRequestBuilder__ctor_" data-uid="Microsoft.Graph.BaseRequestBuilder.#ctor*"></a>
   <h4 id="Microsoft_Graph_BaseRequestBuilder__ctor_System_String_Microsoft_Graph_IBaseClient_" data-uid="Microsoft.Graph.BaseRequestBuilder.#ctor(System.String,Microsoft.Graph.IBaseClient)">BaseRequestBuilder(String, IBaseClient)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Microsoft.Graph.BaseRequestBuilder.html">BaseRequestBuilder</a> class.</p>
@@ -166,10 +171,6 @@
   </table>
   <h3 id="properties">Properties
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/BaseRequestBuilder.cs&amp;version=GBdevelop&amp;line=33">View Source</a>
-  </span>
   <a id="Microsoft_Graph_BaseRequestBuilder_Client_" data-uid="Microsoft.Graph.BaseRequestBuilder.Client*"></a>
   <h4 id="Microsoft_Graph_BaseRequestBuilder_Client" data-uid="Microsoft.Graph.BaseRequestBuilder.Client">Client</h4>
   <div class="markdown level1 summary"><p>Gets the <a class="xref" href="Microsoft.Graph.IBaseClient.html">IBaseClient</a> for handling requests.</p>
@@ -195,10 +196,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/BaseRequestBuilder.cs&amp;version=GBdevelop&amp;line=41">View Source</a>
-  </span>
   <a id="Microsoft_Graph_BaseRequestBuilder_RequestUrl_" data-uid="Microsoft.Graph.BaseRequestBuilder.RequestUrl*"></a>
   <h4 id="Microsoft_Graph_BaseRequestBuilder_RequestUrl" data-uid="Microsoft.Graph.BaseRequestBuilder.RequestUrl">RequestUrl</h4>
   <div class="markdown level1 summary"><p>Gets the URL for the built request, without query string.</p>
@@ -226,10 +223,6 @@
   </table>
   <h3 id="methods">Methods
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/BaseRequestBuilder.cs&amp;version=GBdevelop&amp;line=48">View Source</a>
-  </span>
   <a id="Microsoft_Graph_BaseRequestBuilder_AppendSegmentToRequestUrl_" data-uid="Microsoft.Graph.BaseRequestBuilder.AppendSegmentToRequestUrl*"></a>
   <h4 id="Microsoft_Graph_BaseRequestBuilder_AppendSegmentToRequestUrl_System_String_" data-uid="Microsoft.Graph.BaseRequestBuilder.AppendSegmentToRequestUrl(System.String)">AppendSegmentToRequestUrl(String)</h4>
   <div class="markdown level1 summary"><p>Gets a URL that is the request builder&apos;s request URL with the segment appended.</p>
@@ -278,13 +271,6 @@
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/BaseRequestBuilder.cs&amp;version=GBdevelop&amp;line=10" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
@@ -300,8 +286,8 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
             
-            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>
