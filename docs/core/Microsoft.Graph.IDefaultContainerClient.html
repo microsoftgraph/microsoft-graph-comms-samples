@@ -19,7 +19,7 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
-    
+    <meta property="docfx:rel" content="../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -58,6 +58,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -88,7 +98,7 @@
       <a class="xref" href="Microsoft.Graph.IBaseClient.html#Microsoft_Graph_IBaseClient_HttpProvider">IBaseClient.HttpProvider</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="../stateful/Microsoft.Graph.html">Microsoft.Graph</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.html">Microsoft.Graph</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.CoreSDK.dll</h6>
   <h5 id="Microsoft_Graph_IDefaultContainerClient_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -96,10 +106,6 @@
   </div>
   <h3 id="properties">Properties
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/IDefaultContainerClient.cs&amp;version=GBdevelop&amp;line=27">View Source</a>
-  </span>
   <a id="Microsoft_Graph_IDefaultContainerClient_App_" data-uid="Microsoft.Graph.IDefaultContainerClient.App*"></a>
   <h4 id="Microsoft_Graph_IDefaultContainerClient_App" data-uid="Microsoft.Graph.IDefaultContainerClient.App">App</h4>
   <div class="markdown level1 summary"><p>Gets the DefaultContainerApp request builder.</p>
@@ -107,7 +113,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IApplicationRequestBuilder App { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">ICommsApplicationRequestBuilder App { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -119,35 +125,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Microsoft.Graph.IApplicationRequestBuilder.html">IApplicationRequestBuilder</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/IDefaultContainerClient.cs&amp;version=GBdevelop&amp;line=22">View Source</a>
-  </span>
-  <a id="Microsoft_Graph_IDefaultContainerClient_Operations_" data-uid="Microsoft.Graph.IDefaultContainerClient.Operations*"></a>
-  <h4 id="Microsoft_Graph_IDefaultContainerClient_Operations" data-uid="Microsoft.Graph.IDefaultContainerClient.Operations">Operations</h4>
-  <div class="markdown level1 summary"><p>Gets the DefaultContainerOperations request builder.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IDefaultContainerOperationsCollectionRequestBuilder Operations { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Microsoft.Graph.IDefaultContainerOperationsCollectionRequestBuilder.html">IDefaultContainerOperationsCollectionRequestBuilder</a></td>
+        <td><a class="xref" href="Microsoft.Graph.ICommsApplicationRequestBuilder.html">ICommsApplicationRequestBuilder</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -157,13 +135,6 @@
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/IDefaultContainerClient.cs&amp;version=GBdevelop&amp;line=16" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
@@ -179,8 +150,8 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
             
-            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>

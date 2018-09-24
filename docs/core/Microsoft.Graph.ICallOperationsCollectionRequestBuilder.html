@@ -19,7 +19,7 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
-    
+    <meta property="docfx:rel" content="../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -58,6 +58,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -88,7 +98,7 @@
       <a class="xref" href="Microsoft.Graph.IBaseRequestBuilder.html#Microsoft_Graph_IBaseRequestBuilder_AppendSegmentToRequestUrl_System_String_">IBaseRequestBuilder.AppendSegmentToRequestUrl(String)</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="../stateful/Microsoft.Graph.html">Microsoft.Graph</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.html">Microsoft.Graph</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.CoreSDK.dll</h6>
   <h5 id="Microsoft_Graph_ICallOperationsCollectionRequestBuilder_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -96,18 +106,14 @@
   </div>
   <h3 id="properties">Properties
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/ICallOperationsCollectionRequestBuilder.cs&amp;version=GBdevelop&amp;line=37">View Source</a>
-  </span>
   <a id="Microsoft_Graph_ICallOperationsCollectionRequestBuilder_Item_" data-uid="Microsoft.Graph.ICallOperationsCollectionRequestBuilder.Item*"></a>
   <h4 id="Microsoft_Graph_ICallOperationsCollectionRequestBuilder_Item_System_String_" data-uid="Microsoft.Graph.ICallOperationsCollectionRequestBuilder.Item(System.String)">Item[String]</h4>
-  <div class="markdown level1 summary"><p>Gets an <a class="xref" href="Microsoft.Graph.IOperationRequestBuilder.html">IOperationRequestBuilder</a> for the specified Operation.</p>
+  <div class="markdown level1 summary"><p>Gets an <a class="xref" href="Microsoft.Graph.ICommsOperationRequestBuilder.html">ICommsOperationRequestBuilder</a> for the specified CommsOperation.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IOperationRequestBuilder this[string id] { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">ICommsOperationRequestBuilder this[string id] { get; }</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -122,7 +128,7 @@
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">id</span></td>
-        <td><p>The ID for the Operation.</p>
+        <td><p>The ID for the CommsOperation.</p>
 </td>
       </tr>
     </tbody>
@@ -137,18 +143,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Microsoft.Graph.IOperationRequestBuilder.html">IOperationRequestBuilder</a></td>
-        <td><p>The <a class="xref" href="Microsoft.Graph.IOperationRequestBuilder.html">IOperationRequestBuilder</a>.</p>
+        <td><a class="xref" href="Microsoft.Graph.ICommsOperationRequestBuilder.html">ICommsOperationRequestBuilder</a></td>
+        <td><p>The <a class="xref" href="Microsoft.Graph.ICommsOperationRequestBuilder.html">ICommsOperationRequestBuilder</a>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h3 id="methods">Methods
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/ICallOperationsCollectionRequestBuilder.cs&amp;version=GBdevelop&amp;line=23">View Source</a>
-  </span>
   <a id="Microsoft_Graph_ICallOperationsCollectionRequestBuilder_Request_" data-uid="Microsoft.Graph.ICallOperationsCollectionRequestBuilder.Request*"></a>
   <h4 id="Microsoft_Graph_ICallOperationsCollectionRequestBuilder_Request" data-uid="Microsoft.Graph.ICallOperationsCollectionRequestBuilder.Request">Request()</h4>
   <div class="markdown level1 summary"><p>Builds the request.</p>
@@ -174,10 +176,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/ICallOperationsCollectionRequestBuilder.cs&amp;version=GBdevelop&amp;line=30">View Source</a>
-  </span>
   <a id="Microsoft_Graph_ICallOperationsCollectionRequestBuilder_Request_" data-uid="Microsoft.Graph.ICallOperationsCollectionRequestBuilder.Request*"></a>
   <h4 id="Microsoft_Graph_ICallOperationsCollectionRequestBuilder_Request_System_Collections_Generic_IEnumerable_Microsoft_Graph_Option__" data-uid="Microsoft.Graph.ICallOperationsCollectionRequestBuilder.Request(System.Collections.Generic.IEnumerable{Microsoft.Graph.Option})">Request(IEnumerable&lt;Option&gt;)</h4>
   <div class="markdown level1 summary"><p>Builds the request.</p>
@@ -226,13 +224,6 @@
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/ICallOperationsCollectionRequestBuilder.cs&amp;version=GBdevelop&amp;line=17" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
@@ -248,8 +239,8 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
             
-            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>

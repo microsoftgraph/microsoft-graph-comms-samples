@@ -19,7 +19,7 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
-    
+    <meta property="docfx:rel" content="../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -58,6 +58,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -118,10 +128,6 @@
   </div>
   <h3 id="constructors">Constructors
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Notifications/NotificationProcessor.cs&amp;version=GBdevelop&amp;line=42">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CoreSDK_Notifications_NotificationProcessor__ctor_" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationProcessor.#ctor*"></a>
   <h4 id="Microsoft_Graph_CoreSDK_Notifications_NotificationProcessor__ctor_Microsoft_Graph_IAuthenticationProvider_" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationProcessor.#ctor(Microsoft.Graph.IAuthenticationProvider)">NotificationProcessor(IAuthenticationProvider)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Microsoft.Graph.CoreSDK.Notifications.NotificationProcessor.html">NotificationProcessor</a> class.</p>
@@ -167,10 +173,6 @@
   </table>
   <h3 id="properties">Properties
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Notifications/NotificationProcessor.cs&amp;version=GBdevelop&amp;line=57">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CoreSDK_Notifications_NotificationProcessor_AuthenticationProvider_" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationProcessor.AuthenticationProvider*"></a>
   <h4 id="Microsoft_Graph_CoreSDK_Notifications_NotificationProcessor_AuthenticationProvider" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationProcessor.AuthenticationProvider">AuthenticationProvider</h4>
   <div class="markdown level1 summary"><p>Gets the authentication provider.
@@ -203,10 +205,6 @@ This means that
   </table>
   <h3 id="methods">Methods
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Notifications/NotificationProcessor.cs&amp;version=GBdevelop&amp;line=236">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CoreSDK_Notifications_NotificationProcessor_Dispose_" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationProcessor.Dispose*"></a>
   <h4 id="Microsoft_Graph_CoreSDK_Notifications_NotificationProcessor_Dispose" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationProcessor.Dispose">Dispose()</h4>
   <div class="markdown level1 summary"><p>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</p>
@@ -216,10 +214,6 @@ This means that
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
   </div>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Notifications/NotificationProcessor.cs&amp;version=GBdevelop&amp;line=66">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CoreSDK_Notifications_NotificationProcessor_ExtractNotifications_" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationProcessor.ExtractNotifications*"></a>
   <h4 id="Microsoft_Graph_CoreSDK_Notifications_NotificationProcessor_ExtractNotifications_System_String_Newtonsoft_Json_JsonSerializerSettings_" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationProcessor.ExtractNotifications(System.String,Newtonsoft.Json.JsonSerializerSettings)">ExtractNotifications(String, JsonSerializerSettings)</h4>
   <div class="markdown level1 summary"><p>Extracts the notifications from the specified content string.</p>
@@ -227,7 +221,7 @@ This means that
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Notifications ExtractNotifications(string content, JsonSerializerSettings serializerSettings)</code></pre>
+    <pre><code class="lang-csharp hljs">public static CommsNotifications ExtractNotifications(string content, JsonSerializerSettings serializerSettings)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -263,8 +257,8 @@ This means that
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Microsoft.Graph.Notifications.html">Notifications</a></td>
-        <td><p>The deserialized <a class="xref" href="Microsoft.Graph.Notifications.html">Notifications</a>.</p>
+        <td><a class="xref" href="Microsoft.Graph.CommsNotifications.html">CommsNotifications</a></td>
+        <td><p>The deserialized <a class="xref" href="Microsoft.Graph.CommsNotifications.html">CommsNotifications</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -285,10 +279,6 @@ This means that
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Notifications/NotificationProcessor.cs&amp;version=GBdevelop&amp;line=170">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CoreSDK_Notifications_NotificationProcessor_ProcessNotification_" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationProcessor.ProcessNotification*"></a>
   <h4 id="Microsoft_Graph_CoreSDK_Notifications_NotificationProcessor_ProcessNotification_Microsoft_Graph_CoreSDK_Transport_IGraphRequest_" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationProcessor.ProcessNotification(Microsoft.Graph.CoreSDK.Transport.IGraphRequest)">ProcessNotification(IGraphRequest)</h4>
   <div class="markdown level1 summary"><p>Process the incoming notification</p>
@@ -334,10 +324,6 @@ This means that
   </table>
   <h3 id="events">Events
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Notifications/NotificationProcessor.cs&amp;version=GBdevelop&amp;line=54">View Source</a>
-  </span>
   <h4 id="Microsoft_Graph_CoreSDK_Notifications_NotificationProcessor_OnCollectionNotificationReceived" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationProcessor.OnCollectionNotificationReceived">OnCollectionNotificationReceived</h4>
   <div class="markdown level1 summary"><p>Occurs when a collection notification is received.</p>
 </div>
@@ -361,10 +347,6 @@ This means that
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Notifications/NotificationProcessor.cs&amp;version=GBdevelop&amp;line=48">View Source</a>
-  </span>
   <h4 id="Microsoft_Graph_CoreSDK_Notifications_NotificationProcessor_OnNotificationReceived" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationProcessor.OnNotificationReceived">OnNotificationReceived</h4>
   <div class="markdown level1 summary"><p>Occurs when a notification is received.
 This is a global hook for all notifications.</p>
@@ -389,10 +371,6 @@ This is a global hook for all notifications.</p>
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Notifications/NotificationProcessor.cs&amp;version=GBdevelop&amp;line=51">View Source</a>
-  </span>
   <h4 id="Microsoft_Graph_CoreSDK_Notifications_NotificationProcessor_OnResourceNotificationReceived" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationProcessor.OnResourceNotificationReceived">OnResourceNotificationReceived</h4>
   <div class="markdown level1 summary"><p>Occurs when a single resource notification is received.</p>
 </div>
@@ -436,13 +414,6 @@ This is a global hook for all notifications.</p>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Notifications/NotificationProcessor.cs&amp;version=GBdevelop&amp;line=24" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
@@ -458,8 +429,8 @@ This is a global hook for all notifications.</p>
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
             
-            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>

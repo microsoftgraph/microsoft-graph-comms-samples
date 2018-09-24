@@ -19,7 +19,7 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
-    
+    <meta property="docfx:rel" content="../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -58,6 +58,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -79,61 +89,57 @@
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="Microsoft.Graph.ICollectionPage-1.html#Microsoft_Graph_ICollectionPage_1_CurrentPage">ICollectionPage&lt;Operation&gt;.CurrentPage</a>
+      <a class="xref" href="Microsoft.Graph.ICollectionPage-1.html#Microsoft_Graph_ICollectionPage_1_CurrentPage">ICollectionPage&lt;CommsOperation&gt;.CurrentPage</a>
     </div>
     <div>
-      <a class="xref" href="Microsoft.Graph.ICollectionPage-1.html#Microsoft_Graph_ICollectionPage_1_AdditionalData">ICollectionPage&lt;Operation&gt;.AdditionalData</a>
+      <a class="xref" href="Microsoft.Graph.ICollectionPage-1.html#Microsoft_Graph_ICollectionPage_1_AdditionalData">ICollectionPage&lt;CommsOperation&gt;.AdditionalData</a>
     </div>
     <div>
-      <span class="xref">System.Collections.Generic.IList&lt;Microsoft.Graph.Operation&gt;.IndexOf(Microsoft.Graph.Operation)</span>
+      <span class="xref">System.Collections.Generic.IList&lt;Microsoft.Graph.CommsOperation&gt;.IndexOf(Microsoft.Graph.CommsOperation)</span>
     </div>
     <div>
-      <span class="xref">System.Collections.Generic.IList&lt;Microsoft.Graph.Operation&gt;.Insert(System.Int32, Microsoft.Graph.Operation)</span>
+      <span class="xref">System.Collections.Generic.IList&lt;Microsoft.Graph.CommsOperation&gt;.Insert(System.Int32, Microsoft.Graph.CommsOperation)</span>
     </div>
     <div>
-      <span class="xref">System.Collections.Generic.IList&lt;Microsoft.Graph.Operation&gt;.RemoveAt(System.Int32)</span>
+      <span class="xref">System.Collections.Generic.IList&lt;Microsoft.Graph.CommsOperation&gt;.RemoveAt(System.Int32)</span>
     </div>
     <div>
-      <span class="xref">System.Collections.Generic.IList&lt;Microsoft.Graph.Operation&gt;.Item[System.Int32]</span>
+      <span class="xref">System.Collections.Generic.IList&lt;Microsoft.Graph.CommsOperation&gt;.Item[System.Int32]</span>
     </div>
     <div>
-      <span class="xref">System.Collections.Generic.ICollection&lt;Microsoft.Graph.Operation&gt;.Add(Microsoft.Graph.Operation)</span>
+      <span class="xref">System.Collections.Generic.ICollection&lt;Microsoft.Graph.CommsOperation&gt;.Add(Microsoft.Graph.CommsOperation)</span>
     </div>
     <div>
-      <span class="xref">System.Collections.Generic.ICollection&lt;Microsoft.Graph.Operation&gt;.Clear()</span>
+      <span class="xref">System.Collections.Generic.ICollection&lt;Microsoft.Graph.CommsOperation&gt;.Clear()</span>
     </div>
     <div>
-      <span class="xref">System.Collections.Generic.ICollection&lt;Microsoft.Graph.Operation&gt;.Contains(Microsoft.Graph.Operation)</span>
+      <span class="xref">System.Collections.Generic.ICollection&lt;Microsoft.Graph.CommsOperation&gt;.Contains(Microsoft.Graph.CommsOperation)</span>
     </div>
     <div>
-      <span class="xref">System.Collections.Generic.ICollection&lt;Microsoft.Graph.Operation&gt;.CopyTo(Microsoft.Graph.Operation[], System.Int32)</span>
+      <span class="xref">System.Collections.Generic.ICollection&lt;Microsoft.Graph.CommsOperation&gt;.CopyTo(Microsoft.Graph.CommsOperation[], System.Int32)</span>
     </div>
     <div>
-      <span class="xref">System.Collections.Generic.ICollection&lt;Microsoft.Graph.Operation&gt;.Remove(Microsoft.Graph.Operation)</span>
+      <span class="xref">System.Collections.Generic.ICollection&lt;Microsoft.Graph.CommsOperation&gt;.Remove(Microsoft.Graph.CommsOperation)</span>
     </div>
     <div>
-      <span class="xref">System.Collections.Generic.ICollection&lt;Microsoft.Graph.Operation&gt;.Count</span>
+      <span class="xref">System.Collections.Generic.ICollection&lt;Microsoft.Graph.CommsOperation&gt;.Count</span>
     </div>
     <div>
-      <span class="xref">System.Collections.Generic.ICollection&lt;Microsoft.Graph.Operation&gt;.IsReadOnly</span>
+      <span class="xref">System.Collections.Generic.ICollection&lt;Microsoft.Graph.CommsOperation&gt;.IsReadOnly</span>
     </div>
     <div>
-      <span class="xref">System.Collections.Generic.IEnumerable&lt;Microsoft.Graph.Operation&gt;.GetEnumerator()</span>
+      <span class="xref">System.Collections.Generic.IEnumerable&lt;Microsoft.Graph.CommsOperation&gt;.GetEnumerator()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="../stateful/Microsoft.Graph.html">Microsoft.Graph</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.html">Microsoft.Graph</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.CoreSDK.dll</h6>
   <h5 id="Microsoft_Graph_ICallOperationsCollectionPage_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[JsonConverter(typeof(InterfaceConverter&lt;CallOperationsCollectionPage&gt;))]
-public interface ICallOperationsCollectionPage : ICollectionPage&lt;Operation&gt;, IList&lt;Operation&gt;, ICollection&lt;Operation&gt;, IEnumerable&lt;Operation&gt;, IEnumerable</code></pre>
+public interface ICallOperationsCollectionPage : ICollectionPage&lt;CommsOperation&gt;, IList&lt;CommsOperation&gt;, ICollection&lt;CommsOperation&gt;, IEnumerable&lt;CommsOperation&gt;, IEnumerable</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/ICallOperationsCollectionPage.cs&amp;version=GBdevelop&amp;line=25">View Source</a>
-  </span>
   <a id="Microsoft_Graph_ICallOperationsCollectionPage_NextPageRequest_" data-uid="Microsoft.Graph.ICallOperationsCollectionPage.NextPageRequest*"></a>
   <h4 id="Microsoft_Graph_ICallOperationsCollectionPage_NextPageRequest" data-uid="Microsoft.Graph.ICallOperationsCollectionPage.NextPageRequest">NextPageRequest</h4>
   <div class="markdown level1 summary"><p>Gets the next page <a class="xref" href="Microsoft.Graph.ICallOperationsCollectionRequest.html">ICallOperationsCollectionRequest</a> instance.</p>
@@ -160,10 +166,6 @@ public interface ICallOperationsCollectionPage : ICollectionPage&lt;Operation&gt
   </table>
   <h3 id="methods">Methods
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/ICallOperationsCollectionPage.cs&amp;version=GBdevelop&amp;line=30">View Source</a>
-  </span>
   <a id="Microsoft_Graph_ICallOperationsCollectionPage_InitializeNextPageRequest_" data-uid="Microsoft.Graph.ICallOperationsCollectionPage.InitializeNextPageRequest*"></a>
   <h4 id="Microsoft_Graph_ICallOperationsCollectionPage_InitializeNextPageRequest_Microsoft_Graph_IBaseClient_System_String_" data-uid="Microsoft.Graph.ICallOperationsCollectionPage.InitializeNextPageRequest(Microsoft.Graph.IBaseClient,System.String)">InitializeNextPageRequest(IBaseClient, String)</h4>
   <div class="markdown level1 summary"><p>Initializes the NextPageRequest property.</p>
@@ -200,13 +202,6 @@ public interface ICallOperationsCollectionPage : ICollectionPage&lt;Operation&gt
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Generated/ICallOperationsCollectionPage.cs&amp;version=GBdevelop&amp;line=19" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
@@ -222,8 +217,8 @@ public interface ICallOperationsCollectionPage : ICollectionPage&lt;Operation&gt
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
             
-            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>

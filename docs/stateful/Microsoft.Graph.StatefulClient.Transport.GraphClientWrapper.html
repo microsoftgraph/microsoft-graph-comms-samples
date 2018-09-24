@@ -19,7 +19,7 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
-    
+    <meta property="docfx:rel" content="../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -58,6 +58,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -118,10 +128,6 @@
   </div>
   <h3 id="constructors">Constructors
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.StatefulClient/Core/Transport/GraphClientWrapper.cs&amp;version=GBdevelop&amp;line=33">View Source</a>
-  </span>
   <a id="Microsoft_Graph_StatefulClient_Transport_GraphClientWrapper__ctor_" data-uid="Microsoft.Graph.StatefulClient.Transport.GraphClientWrapper.#ctor*"></a>
   <h4 id="Microsoft_Graph_StatefulClient_Transport_GraphClientWrapper__ctor_Microsoft_Graph_Core_Transport_IGraphClient_Microsoft_Graph_StatefulClient_Transport_GraphClientContext_" data-uid="Microsoft.Graph.StatefulClient.Transport.GraphClientWrapper.#ctor(Microsoft.Graph.Core.Transport.IGraphClient,Microsoft.Graph.StatefulClient.Transport.GraphClientContext)">GraphClientWrapper(IGraphClient, GraphClientContext)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Microsoft.Graph.StatefulClient.Transport.GraphClientWrapper.html">GraphClientWrapper</a> class.</p>
@@ -157,10 +163,6 @@
   </table>
   <h3 id="properties">Properties
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.StatefulClient/Core/Transport/GraphClientWrapper.cs&amp;version=GBdevelop&amp;line=43">View Source</a>
-  </span>
   <a id="Microsoft_Graph_StatefulClient_Transport_GraphClientWrapper_Context_" data-uid="Microsoft.Graph.StatefulClient.Transport.GraphClientWrapper.Context*"></a>
   <h4 id="Microsoft_Graph_StatefulClient_Transport_GraphClientWrapper_Context" data-uid="Microsoft.Graph.StatefulClient.Transport.GraphClientWrapper.Context">Context</h4>
   <div class="markdown level1 summary"><p>Gets the context.</p>
@@ -185,10 +187,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.StatefulClient/Core/Transport/GraphClientWrapper.cs&amp;version=GBdevelop&amp;line=46">View Source</a>
-  </span>
   <a id="Microsoft_Graph_StatefulClient_Transport_GraphClientWrapper_GraphLogger_" data-uid="Microsoft.Graph.StatefulClient.Transport.GraphClientWrapper.GraphLogger*"></a>
   <h4 id="Microsoft_Graph_StatefulClient_Transport_GraphClientWrapper_GraphLogger" data-uid="Microsoft.Graph.StatefulClient.Transport.GraphClientWrapper.GraphLogger">GraphLogger</h4>
   <div class="markdown level1 summary"></div>
@@ -214,10 +212,6 @@
   </table>
   <h3 id="methods">Methods
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.StatefulClient/Core/Transport/GraphClientWrapper.cs&amp;version=GBdevelop&amp;line=49">View Source</a>
-  </span>
   <a id="Microsoft_Graph_StatefulClient_Transport_GraphClientWrapper_SendAsync_" data-uid="Microsoft.Graph.StatefulClient.Transport.GraphClientWrapper.SendAsync*"></a>
   <h4 id="Microsoft_Graph_StatefulClient_Transport_GraphClientWrapper_SendAsync__1_Microsoft_Graph_Core_Transport_IGraphRequest___0__System_Threading_CancellationToken_" data-uid="Microsoft.Graph.StatefulClient.Transport.GraphClientWrapper.SendAsync``1(Microsoft.Graph.Core.Transport.IGraphRequest{``0},System.Threading.CancellationToken)">SendAsync&lt;T&gt;(IGraphRequest&lt;T&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
@@ -279,10 +273,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.StatefulClient/Core/Transport/GraphClientWrapper.cs&amp;version=GBdevelop&amp;line=65">View Source</a>
-  </span>
   <a id="Microsoft_Graph_StatefulClient_Transport_GraphClientWrapper_SendAsync_" data-uid="Microsoft.Graph.StatefulClient.Transport.GraphClientWrapper.SendAsync*"></a>
   <h4 id="Microsoft_Graph_StatefulClient_Transport_GraphClientWrapper_SendAsync__2_Microsoft_Graph_Core_Transport_IGraphRequest___0__System_Threading_CancellationToken_" data-uid="Microsoft.Graph.StatefulClient.Transport.GraphClientWrapper.SendAsync``2(Microsoft.Graph.Core.Transport.IGraphRequest{``0},System.Threading.CancellationToken)">SendAsync&lt;T1, T2&gt;(IGraphRequest&lt;T1&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"></div>
@@ -357,13 +347,6 @@
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.StatefulClient/Core/Transport/GraphClientWrapper.cs&amp;version=GBdevelop&amp;line=21" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
@@ -379,8 +362,8 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
             
-            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>

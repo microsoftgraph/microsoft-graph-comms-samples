@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Namespace Microsoft.Graph.CoreSDK.Exceptions.Error
+    <title>Class Error
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Namespace Microsoft.Graph.CoreSDK.Exceptions.Error
+    <meta name="title" content="Class Error
    ">
     <meta name="generator" content="docfx 2.39.2.0">
     
@@ -19,7 +19,7 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
-    
+    <meta property="docfx:rel" content="../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -58,6 +58,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -70,37 +80,211 @@
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="Microsoft.Graph.CoreSDK.Exceptions.Error">
   
-  <h1 id="Microsoft_Graph_CoreSDK_Exceptions_Error" data-uid="Microsoft.Graph.CoreSDK.Exceptions.Error" class="text-break">Namespace Microsoft.Graph.CoreSDK.Exceptions.Error
+  
+  <h1 id="Microsoft_Graph_CoreSDK_Exceptions_Error" data-uid="Microsoft.Graph.CoreSDK.Exceptions.Error" class="text-break">Class Error
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Class for errors.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
-  <div class="markdown level0 remarks"></div>
-    <h3 id="classes">Classes
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Error</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.CoreSDK.Exceptions.html">Microsoft.Graph.CoreSDK.Exceptions</a></h6>
+  <h6><strong>Assembly</strong>: Microsoft.Graph.CoreSDK.dll</h6>
+  <h5 id="Microsoft_Graph_CoreSDK_Exceptions_Error_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonObject(MemberSerialization = MemberSerialization.OptIn)]
+public class Error</code></pre>
+  </div>
+  <h3 id="properties">Properties
   </h3>
-      <h4><a class="xref" href="Microsoft.Graph.CoreSDK.Exceptions.Error.Error.html">Error</a></h4>
-      <section><p>Class for errors.</p>
-</section>
-      <h4><a class="xref" href="Microsoft.Graph.CoreSDK.Exceptions.Error.ErrorConstants.html">ErrorConstants</a></h4>
-      <section><p>Error Constants</p>
-</section>
-      <h4><a class="xref" href="Microsoft.Graph.CoreSDK.Exceptions.Error.ErrorConstants.Codes.html">ErrorConstants.Codes</a></h4>
-      <section><p>Error Codes</p>
-</section>
-      <h4><a class="xref" href="Microsoft.Graph.CoreSDK.Exceptions.Error.ErrorConstants.Messages.html">ErrorConstants.Messages</a></h4>
-      <section><p>Error Messages</p>
-</section>
-      <h4><a class="xref" href="Microsoft.Graph.CoreSDK.Exceptions.Error.ErrorResponse.html">ErrorResponse</a></h4>
-      <section><p>The error response type</p>
-</section>
+  <a id="Microsoft_Graph_CoreSDK_Exceptions_Error_AdditionalData_" data-uid="Microsoft.Graph.CoreSDK.Exceptions.Error.AdditionalData*"></a>
+  <h4 id="Microsoft_Graph_CoreSDK_Exceptions_Error_AdditionalData" data-uid="Microsoft.Graph.CoreSDK.Exceptions.Error.AdditionalData">AdditionalData</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the additional data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonExtensionData(ReadData = true)]
+public IDictionary&lt;string, object&gt; AdditionalData { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
+        <td><p>The additional data.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_CoreSDK_Exceptions_Error_Code_" data-uid="Microsoft.Graph.CoreSDK.Exceptions.Error.Code*"></a>
+  <h4 id="Microsoft_Graph_CoreSDK_Exceptions_Error_Code" data-uid="Microsoft.Graph.CoreSDK.Exceptions.Error.Code">Code</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the error code.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;code&quot;, Required = Required.Default)]
+public string Code { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The error code.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_CoreSDK_Exceptions_Error_InnerError_" data-uid="Microsoft.Graph.CoreSDK.Exceptions.Error.InnerError*"></a>
+  <h4 id="Microsoft_Graph_CoreSDK_Exceptions_Error_InnerError" data-uid="Microsoft.Graph.CoreSDK.Exceptions.Error.InnerError">InnerError</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the inner error.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;innererror&quot;, Required = Required.Default)]
+public Error InnerError { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.CoreSDK.Exceptions.Error.html">Error</a></td>
+        <td><p>The inner error.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_CoreSDK_Exceptions_Error_Message_" data-uid="Microsoft.Graph.CoreSDK.Exceptions.Error.Message*"></a>
+  <h4 id="Microsoft_Graph_CoreSDK_Exceptions_Error_Message" data-uid="Microsoft.Graph.CoreSDK.Exceptions.Error.Message">Message</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the error message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;message&quot;, Required = Required.Default)]
+public string Message { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The error message.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_CoreSDK_Exceptions_Error_ThrowSite_" data-uid="Microsoft.Graph.CoreSDK.Exceptions.Error.ThrowSite*"></a>
+  <h4 id="Microsoft_Graph_CoreSDK_Exceptions_Error_ThrowSite" data-uid="Microsoft.Graph.CoreSDK.Exceptions.Error.ThrowSite">ThrowSite</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the throw site.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;throwSite&quot;, Required = Required.Default)]
+public string ThrowSite { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The throw site.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Microsoft_Graph_CoreSDK_Exceptions_Error_ToString_" data-uid="Microsoft.Graph.CoreSDK.Exceptions.Error.ToString*"></a>
+  <h4 id="Microsoft_Graph_CoreSDK_Exceptions_Error_ToString" data-uid="Microsoft.Graph.CoreSDK.Exceptions.Error.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Returns a <span class="xref">System.String</span> that represents this instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A <span class="xref">System.String</span> that represents this instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.ToString()</span></div>
 </article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
@@ -116,8 +300,8 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
             
-            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>

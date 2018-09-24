@@ -19,7 +19,7 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
-    
+    <meta property="docfx:rel" content="../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -58,6 +58,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -113,18 +123,14 @@
   </div>
   <h3 id="methods">Methods
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Notifications/Extensions/NotificationProcessorExtensions.cs&amp;version=GBdevelop&amp;line=130">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CoreSDK_Notifications_NotificationProcessorExtensions_ExtractResouceData_" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationProcessorExtensions.ExtractResouceData*"></a>
-  <h4 id="Microsoft_Graph_CoreSDK_Notifications_NotificationProcessorExtensions_ExtractResouceData_Microsoft_Graph_Notification_" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationProcessorExtensions.ExtractResouceData(Microsoft.Graph.Notification)">ExtractResouceData(Notification)</h4>
+  <h4 id="Microsoft_Graph_CoreSDK_Notifications_NotificationProcessorExtensions_ExtractResouceData_Microsoft_Graph_CommsNotification_" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationProcessorExtensions.ExtractResouceData(Microsoft.Graph.CommsNotification)">ExtractResouceData(CommsNotification)</h4>
   <div class="markdown level1 summary"><p>Extracts the resource data from the specified notification.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static object ExtractResouceData(this Notification notification)</code></pre>
+    <pre><code class="lang-csharp hljs">public static object ExtractResouceData(this CommsNotification notification)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -137,7 +143,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Microsoft.Graph.Notification.html">Notification</a></td>
+        <td><a class="xref" href="Microsoft.Graph.CommsNotification.html">CommsNotification</a></td>
         <td><span class="parametername">notification</span></td>
         <td><p>The notification.</p>
 </td>
@@ -176,10 +182,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Notifications/Extensions/NotificationProcessorExtensions.cs&amp;version=GBdevelop&amp;line=81">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CoreSDK_Notifications_NotificationProcessorExtensions_ProcessNotificationAsync_" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationProcessorExtensions.ProcessNotificationAsync*"></a>
   <h4 id="Microsoft_Graph_CoreSDK_Notifications_NotificationProcessorExtensions_ProcessNotificationAsync_Microsoft_Graph_CoreSDK_Notifications_INotificationProcessor_System_Net_Http_HttpRequestMessage_" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationProcessorExtensions.ProcessNotificationAsync(Microsoft.Graph.CoreSDK.Notifications.INotificationProcessor,System.Net.Http.HttpRequestMessage)">ProcessNotificationAsync(INotificationProcessor, HttpRequestMessage)</h4>
   <div class="markdown level1 summary"><p>Processes the notification sent from the server to the client.
@@ -230,10 +232,6 @@ This overload accepts the type of HttpRequest.</p>
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Notifications/Extensions/NotificationProcessorExtensions.cs&amp;version=GBdevelop&amp;line=33">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CoreSDK_Notifications_NotificationProcessorExtensions_SanitizeResource_" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationProcessorExtensions.SanitizeResource*"></a>
   <h4 id="Microsoft_Graph_CoreSDK_Notifications_NotificationProcessorExtensions_SanitizeResource_System_String_System_String_" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationProcessorExtensions.SanitizeResource(System.String,System.String)">SanitizeResource(String, String)</h4>
   <div class="markdown level1 summary"><p>Gets the model URI.</p>
@@ -304,13 +302,6 @@ This overload accepts the type of HttpRequest.</p>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Notifications/Extensions/NotificationProcessorExtensions.cs&amp;version=GBdevelop&amp;line=22" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
@@ -326,8 +317,8 @@ This overload accepts the type of HttpRequest.</p>
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
             
-            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>

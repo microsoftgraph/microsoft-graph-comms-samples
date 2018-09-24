@@ -19,7 +19,7 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
-    
+    <meta property="docfx:rel" content="../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -58,6 +58,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -80,26 +90,25 @@
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><a class="xref" href="Microsoft.Graph.Entity.html">Entity</a></div>
-    <div class="level2"><a class="xref" href="Microsoft.Graph.Operation.html">Operation</a></div>
-    <div class="level3"><a class="xref" href="Microsoft.Graph.CommsOperation.html">CommsOperation</a></div>
-    <div class="level4"><span class="xref">RecordOperation</span></div>
+    <div class="level2"><a class="xref" href="Microsoft.Graph.CommsOperation.html">CommsOperation</a></div>
+    <div class="level3"><span class="xref">RecordOperation</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Microsoft.Graph.CommsOperation.html#Microsoft_Graph_CommsOperation_Status">CommsOperation.Status</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.Graph.CommsOperation.html#Microsoft_Graph_CommsOperation_CreatedDateTime">CommsOperation.CreatedDateTime</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.Graph.CommsOperation.html#Microsoft_Graph_CommsOperation_LastActionDateTime">CommsOperation.LastActionDateTime</a>
+    </div>
     <div>
       <a class="xref" href="Microsoft.Graph.CommsOperation.html#Microsoft_Graph_CommsOperation_ClientContext">CommsOperation.ClientContext</a>
     </div>
     <div>
       <a class="xref" href="Microsoft.Graph.CommsOperation.html#Microsoft_Graph_CommsOperation_ErrorInfo">CommsOperation.ErrorInfo</a>
-    </div>
-    <div>
-      <a class="xref" href="Microsoft.Graph.Operation.html#Microsoft_Graph_Operation_Status">Operation.Status</a>
-    </div>
-    <div>
-      <a class="xref" href="Microsoft.Graph.Operation.html#Microsoft_Graph_Operation_CreatedDateTime">Operation.CreatedDateTime</a>
-    </div>
-    <div>
-      <a class="xref" href="Microsoft.Graph.Operation.html#Microsoft_Graph_Operation_LastActionDateTime">Operation.LastActionDateTime</a>
     </div>
     <div>
       <a class="xref" href="Microsoft.Graph.Entity.html#Microsoft_Graph_Entity_Id">Entity.Id</a>
@@ -129,7 +138,7 @@
       <span class="xref">System.Object.ToString()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="../stateful/Microsoft.Graph.html">Microsoft.Graph</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.html">Microsoft.Graph</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.CoreSDK.dll</h6>
   <h5 id="Microsoft_Graph_RecordOperation_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -138,10 +147,6 @@ public class RecordOperation : CommsOperation</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/RecordOperation.cs&amp;version=GBdevelop&amp;line=34">View Source</a>
-  </span>
   <a id="Microsoft_Graph_RecordOperation_BargeInAllowed_" data-uid="Microsoft.Graph.RecordOperation.BargeInAllowed*"></a>
   <h4 id="Microsoft_Graph_RecordOperation_BargeInAllowed" data-uid="Microsoft.Graph.RecordOperation.BargeInAllowed">BargeInAllowed</h4>
   <div class="markdown level1 summary"><p>Gets or sets barge in allowed.</p>
@@ -167,10 +172,6 @@ public bool? BargeInAllowed { get; set; }</code></pre>
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/RecordOperation.cs&amp;version=GBdevelop&amp;line=82">View Source</a>
-  </span>
   <a id="Microsoft_Graph_RecordOperation_CompletionReason_" data-uid="Microsoft.Graph.RecordOperation.CompletionReason*"></a>
   <h4 id="Microsoft_Graph_RecordOperation_CompletionReason" data-uid="Microsoft.Graph.RecordOperation.CompletionReason">CompletionReason</h4>
   <div class="markdown level1 summary"><p>Gets or sets completion reason.</p>
@@ -196,10 +197,6 @@ public RecordCompletionReason? CompletionReason { get; set; }</code></pre>
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/RecordOperation.cs&amp;version=GBdevelop&amp;line=40">View Source</a>
-  </span>
   <a id="Microsoft_Graph_RecordOperation_InitialSilenceTimeoutInSeconds_" data-uid="Microsoft.Graph.RecordOperation.InitialSilenceTimeoutInSeconds*"></a>
   <h4 id="Microsoft_Graph_RecordOperation_InitialSilenceTimeoutInSeconds" data-uid="Microsoft.Graph.RecordOperation.InitialSilenceTimeoutInSeconds">InitialSilenceTimeoutInSeconds</h4>
   <div class="markdown level1 summary"><p>Gets or sets initial silence timeout in seconds.</p>
@@ -225,10 +222,6 @@ public int? InitialSilenceTimeoutInSeconds { get; set; }</code></pre>
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/RecordOperation.cs&amp;version=GBdevelop&amp;line=52">View Source</a>
-  </span>
   <a id="Microsoft_Graph_RecordOperation_MaxRecordDurationInSeconds_" data-uid="Microsoft.Graph.RecordOperation.MaxRecordDurationInSeconds*"></a>
   <h4 id="Microsoft_Graph_RecordOperation_MaxRecordDurationInSeconds" data-uid="Microsoft.Graph.RecordOperation.MaxRecordDurationInSeconds">MaxRecordDurationInSeconds</h4>
   <div class="markdown level1 summary"><p>Gets or sets max record duration in seconds.</p>
@@ -254,10 +247,6 @@ public int? MaxRecordDurationInSeconds { get; set; }</code></pre>
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/RecordOperation.cs&amp;version=GBdevelop&amp;line=46">View Source</a>
-  </span>
   <a id="Microsoft_Graph_RecordOperation_MaxSilenceTimeoutInSeconds_" data-uid="Microsoft.Graph.RecordOperation.MaxSilenceTimeoutInSeconds*"></a>
   <h4 id="Microsoft_Graph_RecordOperation_MaxSilenceTimeoutInSeconds" data-uid="Microsoft.Graph.RecordOperation.MaxSilenceTimeoutInSeconds">MaxSilenceTimeoutInSeconds</h4>
   <div class="markdown level1 summary"><p>Gets or sets max silence timeout in seconds.</p>
@@ -283,10 +272,6 @@ public int? MaxSilenceTimeoutInSeconds { get; set; }</code></pre>
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/RecordOperation.cs&amp;version=GBdevelop&amp;line=58">View Source</a>
-  </span>
   <a id="Microsoft_Graph_RecordOperation_PlayBeep_" data-uid="Microsoft.Graph.RecordOperation.PlayBeep*"></a>
   <h4 id="Microsoft_Graph_RecordOperation_PlayBeep" data-uid="Microsoft.Graph.RecordOperation.PlayBeep">PlayBeep</h4>
   <div class="markdown level1 summary"><p>Gets or sets play beep.</p>
@@ -312,10 +297,6 @@ public bool? PlayBeep { get; set; }</code></pre>
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/RecordOperation.cs&amp;version=GBdevelop&amp;line=28">View Source</a>
-  </span>
   <a id="Microsoft_Graph_RecordOperation_Prompts_" data-uid="Microsoft.Graph.RecordOperation.Prompts*"></a>
   <h4 id="Microsoft_Graph_RecordOperation_Prompts" data-uid="Microsoft.Graph.RecordOperation.Prompts">Prompts</h4>
   <div class="markdown level1 summary"><p>Gets or sets prompts.</p>
@@ -341,10 +322,6 @@ public IEnumerable&lt;Prompt&gt; Prompts { get; set; }</code></pre>
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/RecordOperation.cs&amp;version=GBdevelop&amp;line=76">View Source</a>
-  </span>
   <a id="Microsoft_Graph_RecordOperation_RecordResourceLocation_" data-uid="Microsoft.Graph.RecordOperation.RecordResourceLocation*"></a>
   <h4 id="Microsoft_Graph_RecordOperation_RecordResourceLocation" data-uid="Microsoft.Graph.RecordOperation.RecordResourceLocation">RecordResourceLocation</h4>
   <div class="markdown level1 summary"><p>Gets or sets record resource location.</p>
@@ -370,10 +347,6 @@ public string RecordResourceLocation { get; set; }</code></pre>
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/RecordOperation.cs&amp;version=GBdevelop&amp;line=70">View Source</a>
-  </span>
   <a id="Microsoft_Graph_RecordOperation_StopTones_" data-uid="Microsoft.Graph.RecordOperation.StopTones*"></a>
   <h4 id="Microsoft_Graph_RecordOperation_StopTones" data-uid="Microsoft.Graph.RecordOperation.StopTones">StopTones</h4>
   <div class="markdown level1 summary"><p>Gets or sets stop tones.</p>
@@ -399,10 +372,6 @@ public IEnumerable&lt;string&gt; StopTones { get; set; }</code></pre>
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/RecordOperation.cs&amp;version=GBdevelop&amp;line=64">View Source</a>
-  </span>
   <a id="Microsoft_Graph_RecordOperation_StreamWhileRecording_" data-uid="Microsoft.Graph.RecordOperation.StreamWhileRecording*"></a>
   <h4 id="Microsoft_Graph_RecordOperation_StreamWhileRecording" data-uid="Microsoft.Graph.RecordOperation.StreamWhileRecording">StreamWhileRecording</h4>
   <div class="markdown level1 summary"><p>Gets or sets stream while recording.</p>
@@ -433,13 +402,6 @@ public bool? StreamWhileRecording { get; set; }</code></pre>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Models/Generated/RecordOperation.cs&amp;version=GBdevelop&amp;line=21" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
@@ -455,8 +417,8 @@ public bool? StreamWhileRecording { get; set; }</code></pre>
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
             
-            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>

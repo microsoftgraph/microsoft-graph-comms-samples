@@ -19,7 +19,7 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
-    
+    <meta property="docfx:rel" content="../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -58,6 +58,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -131,10 +141,6 @@ This object is responsible for storing the resources in memory.</p>
   </table>
   <h3 id="properties">Properties
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.StatefulClient/Core/Interfaces/IStateManager.cs&amp;version=GBdevelop&amp;line=24">View Source</a>
-  </span>
   <a id="Microsoft_Graph_StatefulClient_IStateManager_1_Item_" data-uid="Microsoft.Graph.StatefulClient.IStateManager`1.Item*"></a>
   <h4 id="Microsoft_Graph_StatefulClient_IStateManager_1_Item_System_String_" data-uid="Microsoft.Graph.StatefulClient.IStateManager`1.Item(System.String)">Item[String]</h4>
   <div class="markdown level1 summary"><p>Gets the <a class="xref" href="Microsoft.Graph.StatefulClient.IResource-2.html">IResource&lt;TSelf, TEntity&gt;</a> with the specified identifier.</p>
@@ -180,10 +186,6 @@ This object is responsible for storing the resources in memory.</p>
   </table>
   <h3 id="methods">Methods
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.StatefulClient/Core/Interfaces/IStateManager.cs&amp;version=GBdevelop&amp;line=47">View Source</a>
-  </span>
   <a id="Microsoft_Graph_StatefulClient_IStateManager_1_CopyContent_" data-uid="Microsoft.Graph.StatefulClient.IStateManager`1.CopyContent*"></a>
   <h4 id="Microsoft_Graph_StatefulClient_IStateManager_1_CopyContent" data-uid="Microsoft.Graph.StatefulClient.IStateManager`1.CopyContent">CopyContent()</h4>
   <div class="markdown level1 summary"><p>Copies the content contained by this instance.</p>
@@ -209,10 +211,6 @@ This object is responsible for storing the resources in memory.</p>
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.StatefulClient/Core/Interfaces/IStateManager.cs&amp;version=GBdevelop&amp;line=56">View Source</a>
-  </span>
   <a id="Microsoft_Graph_StatefulClient_IStateManager_1_GetOrAddAsync_" data-uid="Microsoft.Graph.StatefulClient.IStateManager`1.GetOrAddAsync*"></a>
   <h4 id="Microsoft_Graph_StatefulClient_IStateManager_1_GetOrAddAsync_System_String_System_Func_System_Threading_Tasks_Task__0___" data-uid="Microsoft.Graph.StatefulClient.IStateManager`1.GetOrAddAsync(System.String,System.Func{System.Threading.Tasks.Task{`0}})">GetOrAddAsync(String, Func&lt;Task&lt;TResource&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Gets the resource with the specified id if it exists in the collection,
@@ -263,10 +261,6 @@ otherwise executes the resource factory to create the resource.</p>
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.StatefulClient/Core/Interfaces/IStateManager.cs&amp;version=GBdevelop&amp;line=33">View Source</a>
-  </span>
   <a id="Microsoft_Graph_StatefulClient_IStateManager_1_Remove_" data-uid="Microsoft.Graph.StatefulClient.IStateManager`1.Remove*"></a>
   <h4 id="Microsoft_Graph_StatefulClient_IStateManager_1_Remove_System_String_" data-uid="Microsoft.Graph.StatefulClient.IStateManager`1.Remove(System.String)">Remove(String)</h4>
   <div class="markdown level1 summary"><p>Removes the resource with the specified id from the state manager.</p>
@@ -310,13 +304,9 @@ otherwise executes the resource factory to create the resource.</p>
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.StatefulClient/Core/Interfaces/IStateManager.cs&amp;version=GBdevelop&amp;line=41">View Source</a>
-  </span>
   <a id="Microsoft_Graph_StatefulClient_IStateManager_1_TryRemove_" data-uid="Microsoft.Graph.StatefulClient.IStateManager`1.TryRemove*"></a>
   <h4 id="Microsoft_Graph_StatefulClient_IStateManager_1_TryRemove_System_String__0__" data-uid="Microsoft.Graph.StatefulClient.IStateManager`1.TryRemove(System.String,`0@)">TryRemove(String, out TResource)</h4>
-  <div class="markdown level1 summary"><p>Tries the remove the resource with the specified id.</p>
+  <div class="markdown level1 summary"><p>Tries to remove the resource with the specified id.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -368,13 +358,6 @@ otherwise executes the resource factory to create the resource.</p>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.StatefulClient/Core/Interfaces/IStateManager.cs&amp;version=GBdevelop&amp;line=16" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
@@ -390,8 +373,8 @@ otherwise executes the resource factory to create the resource.</p>
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
             
-            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>

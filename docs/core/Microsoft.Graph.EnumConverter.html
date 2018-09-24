@@ -19,7 +19,7 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
-    
+    <meta property="docfx:rel" content="../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -58,6 +58,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -118,7 +128,7 @@
       <span class="xref">System.Object.ToString()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="../stateful/Microsoft.Graph.html">Microsoft.Graph</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.html">Microsoft.Graph</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.CoreSDK.dll</h6>
   <h5 id="Microsoft_Graph_EnumConverter_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -126,10 +136,6 @@
   </div>
   <h3 id="constructors">Constructors
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Serialization/EnumConverter.cs&amp;version=GBdevelop&amp;line=17">View Source</a>
-  </span>
   <a id="Microsoft_Graph_EnumConverter__ctor_" data-uid="Microsoft.Graph.EnumConverter.#ctor*"></a>
   <h4 id="Microsoft_Graph_EnumConverter__ctor" data-uid="Microsoft.Graph.EnumConverter.#ctor">EnumConverter()</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Microsoft.Graph.EnumConverter.html">EnumConverter</a> class.</p>
@@ -141,10 +147,6 @@
   </div>
   <h3 id="properties">Properties
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Serialization/EnumConverter.cs&amp;version=GBdevelop&amp;line=24">View Source</a>
-  </span>
   <a id="Microsoft_Graph_EnumConverter_CanWrite_" data-uid="Microsoft.Graph.EnumConverter.CanWrite*"></a>
   <h4 id="Microsoft_Graph_EnumConverter_CanWrite" data-uid="Microsoft.Graph.EnumConverter.CanWrite">CanWrite</h4>
   <div class="markdown level1 summary"></div>
@@ -172,10 +174,6 @@
   <div><span class="xref">Newtonsoft.Json.JsonConverter.CanWrite</span></div>
   <h3 id="methods">Methods
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Serialization/EnumConverter.cs&amp;version=GBdevelop&amp;line=27">View Source</a>
-  </span>
   <a id="Microsoft_Graph_EnumConverter_CanConvert_" data-uid="Microsoft.Graph.EnumConverter.CanConvert*"></a>
   <h4 id="Microsoft_Graph_EnumConverter_CanConvert_System_Type_" data-uid="Microsoft.Graph.EnumConverter.CanConvert(System.Type)">CanConvert(Type)</h4>
   <div class="markdown level1 summary"></div>
@@ -218,10 +216,6 @@
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">Newtonsoft.Json.Converters.StringEnumConverter.CanConvert(System.Type)</span></div>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Serialization/EnumConverter.cs&amp;version=GBdevelop&amp;line=33">View Source</a>
-  </span>
   <a id="Microsoft_Graph_EnumConverter_ReadJson_" data-uid="Microsoft.Graph.EnumConverter.ReadJson*"></a>
   <h4 id="Microsoft_Graph_EnumConverter_ReadJson_Newtonsoft_Json_JsonReader_System_Type_System_Object_Newtonsoft_Json_JsonSerializer_" data-uid="Microsoft.Graph.EnumConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">ReadJson(JsonReader, Type, Object, JsonSerializer)</h4>
   <div class="markdown level1 summary"></div>
@@ -279,10 +273,6 @@
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><span class="xref">Newtonsoft.Json.Converters.StringEnumConverter.ReadJson(Newtonsoft.Json.JsonReader, System.Type, System.Object, Newtonsoft.Json.JsonSerializer)</span></div>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Serialization/EnumConverter.cs&amp;version=GBdevelop&amp;line=55">View Source</a>
-  </span>
   <a id="Microsoft_Graph_EnumConverter_WriteJson_" data-uid="Microsoft.Graph.EnumConverter.WriteJson*"></a>
   <h4 id="Microsoft_Graph_EnumConverter_WriteJson_Newtonsoft_Json_JsonWriter_System_Object_Newtonsoft_Json_JsonSerializer_" data-uid="Microsoft.Graph.EnumConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">WriteJson(JsonWriter, Object, JsonSerializer)</h4>
   <div class="markdown level1 summary"><p>Writes the JSON representation of the object.</p>
@@ -329,13 +319,6 @@
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Requests/Serialization/EnumConverter.cs&amp;version=GBdevelop&amp;line=12" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
@@ -351,8 +334,8 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
             
-            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>

@@ -19,7 +19,7 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
-    
+    <meta property="docfx:rel" content="../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -58,6 +58,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -114,18 +124,14 @@
   </div>
   <h3 id="constructors">Constructors
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Notifications/NotificationEventArgs.cs&amp;version=GBdevelop&amp;line=21">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CoreSDK_Notifications_NotificationEventArgs__ctor_" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationEventArgs.#ctor*"></a>
-  <h4 id="Microsoft_Graph_CoreSDK_Notifications_NotificationEventArgs__ctor_System_Uri_Microsoft_Graph_Notification_Microsoft_Graph_ChangeType_System_Object_" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationEventArgs.#ctor(System.Uri,Microsoft.Graph.Notification,Microsoft.Graph.ChangeType,System.Object)">NotificationEventArgs(Uri, Notification, ChangeType, Object)</h4>
+  <h4 id="Microsoft_Graph_CoreSDK_Notifications_NotificationEventArgs__ctor_System_Uri_Microsoft_Graph_CommsNotification_Microsoft_Graph_ChangeType_System_Object_" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationEventArgs.#ctor(System.Uri,Microsoft.Graph.CommsNotification,Microsoft.Graph.ChangeType,System.Object)">NotificationEventArgs(Uri, CommsNotification, ChangeType, Object)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Microsoft.Graph.CoreSDK.Notifications.NotificationEventArgs.html">NotificationEventArgs</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NotificationEventArgs(Uri callbackUri, Notification notification, ChangeType changeType, object resourceData)</code></pre>
+    <pre><code class="lang-csharp hljs">public NotificationEventArgs(Uri callbackUri, CommsNotification notification, ChangeType changeType, object resourceData)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -144,7 +150,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="Microsoft.Graph.Notification.html">Notification</a></td>
+        <td><a class="xref" href="Microsoft.Graph.CommsNotification.html">CommsNotification</a></td>
         <td><span class="parametername">notification</span></td>
         <td><p>The notification.</p>
 </td>
@@ -165,10 +171,6 @@
   </table>
   <h3 id="properties">Properties
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Notifications/NotificationEventArgs.cs&amp;version=GBdevelop&amp;line=37">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CoreSDK_Notifications_NotificationEventArgs_CallbackUri_" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationEventArgs.CallbackUri*"></a>
   <h4 id="Microsoft_Graph_CoreSDK_Notifications_NotificationEventArgs_CallbackUri" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationEventArgs.CallbackUri">CallbackUri</h4>
   <div class="markdown level1 summary"><p>Gets the callback URI.</p>
@@ -193,10 +195,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Notifications/NotificationEventArgs.cs&amp;version=GBdevelop&amp;line=62">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CoreSDK_Notifications_NotificationEventArgs_ChangeType_" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationEventArgs.ChangeType*"></a>
   <h4 id="Microsoft_Graph_CoreSDK_Notifications_NotificationEventArgs_ChangeType" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationEventArgs.ChangeType">ChangeType</h4>
   <div class="markdown level1 summary"><p>Gets the type of the change.</p>
@@ -221,10 +219,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Notifications/NotificationEventArgs.cs&amp;version=GBdevelop&amp;line=57">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CoreSDK_Notifications_NotificationEventArgs_CorrelationId_" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationEventArgs.CorrelationId*"></a>
   <h4 id="Microsoft_Graph_CoreSDK_Notifications_NotificationEventArgs_CorrelationId" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationEventArgs.CorrelationId">CorrelationId</h4>
   <div class="markdown level1 summary"><p>Gets or sets the correlation Id.</p>
@@ -249,10 +243,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Notifications/NotificationEventArgs.cs&amp;version=GBdevelop&amp;line=42">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CoreSDK_Notifications_NotificationEventArgs_Notification_" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationEventArgs.Notification*"></a>
   <h4 id="Microsoft_Graph_CoreSDK_Notifications_NotificationEventArgs_Notification" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationEventArgs.Notification">Notification</h4>
   <div class="markdown level1 summary"><p>Gets the notification.</p>
@@ -260,7 +250,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Notification Notification { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public CommsNotification Notification { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -272,15 +262,11 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Microsoft.Graph.Notification.html">Notification</a></td>
+        <td><a class="xref" href="Microsoft.Graph.CommsNotification.html">CommsNotification</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Notifications/NotificationEventArgs.cs&amp;version=GBdevelop&amp;line=32">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CoreSDK_Notifications_NotificationEventArgs_NotificationId_" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationEventArgs.NotificationId*"></a>
   <h4 id="Microsoft_Graph_CoreSDK_Notifications_NotificationEventArgs_NotificationId" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationEventArgs.NotificationId">NotificationId</h4>
   <div class="markdown level1 summary"><p>Gets the notification identifier.</p>
@@ -305,10 +291,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Notifications/NotificationEventArgs.cs&amp;version=GBdevelop&amp;line=52">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CoreSDK_Notifications_NotificationEventArgs_RequestId_" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationEventArgs.RequestId*"></a>
   <h4 id="Microsoft_Graph_CoreSDK_Notifications_NotificationEventArgs_RequestId" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationEventArgs.RequestId">RequestId</h4>
   <div class="markdown level1 summary"><p>Gets or sets the request identifier.</p>
@@ -333,10 +315,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Notifications/NotificationEventArgs.cs&amp;version=GBdevelop&amp;line=67">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CoreSDK_Notifications_NotificationEventArgs_ResourceData_" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationEventArgs.ResourceData*"></a>
   <h4 id="Microsoft_Graph_CoreSDK_Notifications_NotificationEventArgs_ResourceData" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationEventArgs.ResourceData">ResourceData</h4>
   <div class="markdown level1 summary"><p>Gets the resource data.</p>
@@ -361,10 +339,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Notifications/NotificationEventArgs.cs&amp;version=GBdevelop&amp;line=47">View Source</a>
-  </span>
   <a id="Microsoft_Graph_CoreSDK_Notifications_NotificationEventArgs_TenantId_" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationEventArgs.TenantId*"></a>
   <h4 id="Microsoft_Graph_CoreSDK_Notifications_NotificationEventArgs_TenantId" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationEventArgs.TenantId">TenantId</h4>
   <div class="markdown level1 summary"><p>Gets or sets the tenant.</p>
@@ -394,13 +368,6 @@
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.CoreSDK/Notifications/NotificationEventArgs.cs&amp;version=GBdevelop&amp;line=12" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
@@ -416,8 +383,8 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
             
-            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>

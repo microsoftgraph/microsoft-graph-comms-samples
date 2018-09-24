@@ -19,7 +19,7 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
-    
+    <meta property="docfx:rel" content="../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -58,6 +58,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -73,7 +83,9 @@
   
   <h1 id="Microsoft_Graph_StatefulClient_IStatefulClient" data-uid="Microsoft.Graph.StatefulClient.IStatefulClient" class="text-break">Interface IStatefulClient
   </h1>
-  <div class="markdown level0 summary"><p>The StatefulClient interface.</p>
+  <div class="markdown level0 summary"><p>The StatefulClient interface. This is the entry point of
+the SDK and a reference to this instance must be held
+for the duration of the session.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritedMembers">
@@ -90,10 +102,6 @@
   </div>
   <h3 id="properties">Properties
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.StatefulClient/Core/Interfaces/IStatefulClient.cs&amp;version=GBdevelop&amp;line=47">View Source</a>
-  </span>
   <a id="Microsoft_Graph_StatefulClient_IStatefulClient_AppId_" data-uid="Microsoft.Graph.StatefulClient.IStatefulClient.AppId*"></a>
   <h4 id="Microsoft_Graph_StatefulClient_IStatefulClient_AppId" data-uid="Microsoft.Graph.StatefulClient.IStatefulClient.AppId">AppId</h4>
   <div class="markdown level1 summary"><p>Gets the application identifier.</p>
@@ -118,10 +126,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.StatefulClient/Core/Interfaces/IStatefulClient.cs&amp;version=GBdevelop&amp;line=42">View Source</a>
-  </span>
   <a id="Microsoft_Graph_StatefulClient_IStatefulClient_AppName_" data-uid="Microsoft.Graph.StatefulClient.IStatefulClient.AppName*"></a>
   <h4 id="Microsoft_Graph_StatefulClient_IStatefulClient_AppName" data-uid="Microsoft.Graph.StatefulClient.IStatefulClient.AppName">AppName</h4>
   <div class="markdown level1 summary"><p>Gets the name of the application.</p>
@@ -146,13 +150,10 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.StatefulClient/Core/Interfaces/IStatefulClient.cs&amp;version=GBdevelop&amp;line=67">View Source</a>
-  </span>
   <a id="Microsoft_Graph_StatefulClient_IStatefulClient_AuthenticationProvider_" data-uid="Microsoft.Graph.StatefulClient.IStatefulClient.AuthenticationProvider*"></a>
   <h4 id="Microsoft_Graph_StatefulClient_IStatefulClient_AuthenticationProvider" data-uid="Microsoft.Graph.StatefulClient.IStatefulClient.AuthenticationProvider">AuthenticationProvider</h4>
-  <div class="markdown level1 summary"><p>Gets the authentication provider.</p>
+  <div class="markdown level1 summary"><p>Gets the authentication provider used to authenticate
+both inbound and outbound requests.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -174,13 +175,9 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.StatefulClient/Core/Interfaces/IStatefulClient.cs&amp;version=GBdevelop&amp;line=52">View Source</a>
-  </span>
   <a id="Microsoft_Graph_StatefulClient_IStatefulClient_BaseUrl_" data-uid="Microsoft.Graph.StatefulClient.IStatefulClient.BaseUrl*"></a>
   <h4 id="Microsoft_Graph_StatefulClient_IStatefulClient_BaseUrl" data-uid="Microsoft.Graph.StatefulClient.IStatefulClient.BaseUrl">BaseUrl</h4>
-  <div class="markdown level1 summary"><p>Gets the base URL.</p>
+  <div class="markdown level1 summary"><p>Gets the Graph service&apos;s base URL.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -202,13 +199,11 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.StatefulClient/Core/Interfaces/IStatefulClient.cs&amp;version=GBdevelop&amp;line=62">View Source</a>
-  </span>
   <a id="Microsoft_Graph_StatefulClient_IStatefulClient_GraphClient_" data-uid="Microsoft.Graph.StatefulClient.IStatefulClient.GraphClient*"></a>
   <h4 id="Microsoft_Graph_StatefulClient_IStatefulClient_GraphClient" data-uid="Microsoft.Graph.StatefulClient.IStatefulClient.GraphClient">GraphClient</h4>
-  <div class="markdown level1 summary"><p>Gets the graph client.</p>
+  <div class="markdown level1 summary"><p>Gets the graph client.
+This is the Client used to communicate with
+the service.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -230,13 +225,10 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.StatefulClient/Core/Interfaces/IStatefulClient.cs&amp;version=GBdevelop&amp;line=57">View Source</a>
-  </span>
   <a id="Microsoft_Graph_StatefulClient_IStatefulClient_GraphLogger_" data-uid="Microsoft.Graph.StatefulClient.IStatefulClient.GraphLogger*"></a>
   <h4 id="Microsoft_Graph_StatefulClient_IStatefulClient_GraphLogger" data-uid="Microsoft.Graph.StatefulClient.IStatefulClient.GraphLogger">GraphLogger</h4>
-  <div class="markdown level1 summary"><p>Gets the graph logger.</p>
+  <div class="markdown level1 summary"><p>Gets the graph logger.
+This is the logger used within the SDK.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -258,10 +250,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.StatefulClient/Core/Interfaces/IStatefulClient.cs&amp;version=GBdevelop&amp;line=37">View Source</a>
-  </span>
   <a id="Microsoft_Graph_StatefulClient_IStatefulClient_Id_" data-uid="Microsoft.Graph.StatefulClient.IStatefulClient.Id*"></a>
   <h4 id="Microsoft_Graph_StatefulClient_IStatefulClient_Id" data-uid="Microsoft.Graph.StatefulClient.IStatefulClient.Id">Id</h4>
   <div class="markdown level1 summary"><p>Gets the client identifier.</p>
@@ -288,18 +276,16 @@
   </table>
   <h3 id="methods">Methods
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.StatefulClient/Core/Interfaces/IStatefulClient.cs&amp;version=GBdevelop&amp;line=77">View Source</a>
-  </span>
   <a id="Microsoft_Graph_StatefulClient_IStatefulClient_ProcessNotifications_" data-uid="Microsoft.Graph.StatefulClient.IStatefulClient.ProcessNotifications*"></a>
-  <h4 id="Microsoft_Graph_StatefulClient_IStatefulClient_ProcessNotifications_System_Uri_Microsoft_Graph_Notifications_System_String_System_Guid_System_Guid_" data-uid="Microsoft.Graph.StatefulClient.IStatefulClient.ProcessNotifications(System.Uri,Microsoft.Graph.Notifications,System.String,System.Guid,System.Guid)">ProcessNotifications(Uri, Notifications, String, Guid, Guid)</h4>
-  <div class="markdown level1 summary"><p>Processes the notifications.</p>
+  <h4 id="Microsoft_Graph_StatefulClient_IStatefulClient_ProcessNotifications_System_Uri_Microsoft_Graph_CommsNotifications_System_String_System_Guid_System_Guid_" data-uid="Microsoft.Graph.StatefulClient.IStatefulClient.ProcessNotifications(System.Uri,Microsoft.Graph.CommsNotifications,System.String,System.Guid,System.Guid)">ProcessNotifications(Uri, CommsNotifications, String, Guid, Guid)</h4>
+  <div class="markdown level1 summary"><p>Processes the notifications and raise the required callbacks.
+This function should be called in order for the SDK to raise
+any required events and process state changes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void ProcessNotifications(Uri callbackUri, Notifications notifications, string tenantId, Guid requestId, Guid correlationId)</code></pre>
+    <pre><code class="lang-csharp hljs">void ProcessNotifications(Uri callbackUri, CommsNotifications notifications, string tenantId, Guid requestId, Guid correlationId)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -318,7 +304,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="../core/Microsoft.Graph.Notifications.html">Notifications</a></td>
+        <td><a class="xref" href="../core/Microsoft.Graph.CommsNotifications.html">CommsNotifications</a></td>
         <td><span class="parametername">notifications</span></td>
         <td><p>The notifications.</p>
 </td>
@@ -343,10 +329,6 @@
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.StatefulClient/Core/Interfaces/IStatefulClient.cs&amp;version=GBdevelop&amp;line=92">View Source</a>
-  </span>
   <a id="Microsoft_Graph_StatefulClient_IStatefulClient_TerminateAsync_" data-uid="Microsoft.Graph.StatefulClient.IStatefulClient.TerminateAsync*"></a>
   <h4 id="Microsoft_Graph_StatefulClient_IStatefulClient_TerminateAsync_System_TimeSpan_" data-uid="Microsoft.Graph.StatefulClient.IStatefulClient.TerminateAsync(System.TimeSpan)">TerminateAsync(TimeSpan)</h4>
   <div class="markdown level1 summary"><p>Terminates this client asynchronously.
@@ -393,10 +375,6 @@ This terminates all the calls, waits for dispose events, and disposes everything
   </table>
   <h3 id="events">Events
   </h3>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.StatefulClient/Core/Interfaces/IStatefulClient.cs&amp;version=GBdevelop&amp;line=32">View Source</a>
-  </span>
   <h4 id="Microsoft_Graph_StatefulClient_IStatefulClient_OnNotificationException" data-uid="Microsoft.Graph.StatefulClient.IStatefulClient.OnNotificationException">OnNotificationException</h4>
   <div class="markdown level1 summary"><p>Occurs when exceptions are raised on notification callbacks.</p>
 </div>
@@ -420,10 +398,6 @@ This terminates all the calls, waits for dispose events, and disposes everything
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.StatefulClient/Core/Interfaces/IStatefulClient.cs&amp;version=GBdevelop&amp;line=22">View Source</a>
-  </span>
   <h4 id="Microsoft_Graph_StatefulClient_IStatefulClient_OnNotificationProcessed" data-uid="Microsoft.Graph.StatefulClient.IStatefulClient.OnNotificationProcessed">OnNotificationProcessed</h4>
   <div class="markdown level1 summary"><p>Occurs when the notification has been processed by all callbacks.</p>
 </div>
@@ -447,10 +421,6 @@ This terminates all the calls, waits for dispose events, and disposes everything
       </tr>
     </tbody>
   </table>
-  
-  <span class="small pull-right mobile-hide">
-    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.StatefulClient/Core/Interfaces/IStatefulClient.cs&amp;version=GBdevelop&amp;line=27">View Source</a>
-  </span>
   <h4 id="Microsoft_Graph_StatefulClient_IStatefulClient_OnNotificationQueued" data-uid="Microsoft.Graph.StatefulClient.IStatefulClient.OnNotificationQueued">OnNotificationQueued</h4>
   <div class="markdown level1 summary"><p>Occurs when the notification has been queued into the backlog.</p>
 </div>
@@ -483,13 +453,6 @@ This terminates all the calls, waits for dispose events, and disposes everything
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://skype.visualstudio.com/DefaultCollection/SBS/_git/service-shared_platform_core?path=SDK/Microsoft.Graph.StatefulClient/Core/Interfaces/IStatefulClient.cs&amp;version=GBdevelop&amp;line=17" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
@@ -505,8 +468,8 @@ This terminates all the calls, waits for dispose events, and disposes everything
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
             
-            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>
