@@ -125,7 +125,7 @@
   </h3>
   <a id="Microsoft_Graph_Calls_Media_CallExtensions_GetLocalMediaSession_" data-uid="Microsoft.Graph.Calls.Media.CallExtensions.GetLocalMediaSession*"></a>
   <h4 id="Microsoft_Graph_Calls_Media_CallExtensions_GetLocalMediaSession_ICall_" data-uid="Microsoft.Graph.Calls.Media.CallExtensions.GetLocalMediaSession(ICall)">GetLocalMediaSession(ICall)</h4>
-  <div class="markdown level1 summary"><p>Gets the media session.</p>
+  <div class="markdown level1 summary"><p>Gets the local media session for this call object.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -162,6 +162,23 @@
       <tr>
         <td><a class="xref" href="Microsoft.Graph.Calls.Media.ILocalMediaSession.html">ILocalMediaSession</a></td>
         <td><p>Local media session object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.InvalidCastException</span></td>
+        <td><p>This call does not have a
+valid <a class="xref" href="Microsoft.Graph.Calls.Media.ILocalMediaSession.html">ILocalMediaSession</a> object.</p>
 </td>
       </tr>
     </tbody>

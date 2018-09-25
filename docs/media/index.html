@@ -81,8 +81,15 @@
 
 <p>The Media components can be found in the <a class="xref" href="Microsoft.Graph.Calls.Media.html">Microsoft.Graph.Calls.Media</a> namespace.</p>
 <p>More information of utilizing Real-time Media Calling functionality in bots can be found <a href="https://docs.microsoft.com/en-us/bot-framework/dotnet/bot-builder-dotnet-real-time-media-concepts">here</a></p>
-<p>This is presented as an extension on top of the Graph Calling SDK to provide extra functionalities with <code>Microsoft.Skype.Bots.Media</code> library.</p>
-<p>Select a class on the left to dive into the docs</p>
+<p>This is presented as an extension on top of the Graph Calling SDK to provide extra functionalities with <a href="https://www.nuget.org/packages/Microsoft.Skype.Bots.Media/">Microsoft.Skype.Bots.Media</a> library.</p>
+<h2 id="imediasession">IMediaSession</h2>
+<p>The Media SDK provides very light integration with the <a href="https://www.nuget.org/packages/Microsoft.Skype.Bots.Media/">Microsoft.Skype.Bots.Media</a> library.  There are only a few pieces of data that the signaling SDK requires to integrate with the media libraries.  As a convenience the Media SDK provides an <a class="xref" href="Microsoft.Graph.Calls.Media.StatefulClientExtensions.html#Microsoft_Graph_Calls_Media_StatefulClientExtensions_CreateMediaSession_IStatefulClient_Microsoft_Skype_Bots_Media_AudioSocketSettings_Microsoft_Skype_Bots_Media_VideoSocketSettings_Microsoft_Skype_Bots_Media_VideoSocketSettings_System_Guid_">IMediaSession generator</a>. For greater customization of media libraries developers are welcome to exclude this package and implement their own <a class="xref" href="../calling/Microsoft.Graph.Calls.IMediaSession.html">IMediaSession</a>.</p>
+<h2 id="media-requirements">Media Requirements</h2>
+<p>The stateful SDK is quite flexible, however, the media library has it&#39;s own set of <a href="https://docs.microsoft.com/en-us/azure/bot-service/dotnet/bot-builder-dotnet-real-time-media-requirements">Requirements</a>.</p>
+<h2 id="local-testing">Local Testing</h2>
+<p>Local testing of Application Hosted Media scenarios is possible in some environments.  Please refer to the <a href="../articles/Testing.html">testing guide</a> to enable local testing.</p>
+<hr>
+<p>Select a class on the left to dive into the reference docs</p>
 </article>
           </div>
           

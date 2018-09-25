@@ -83,7 +83,7 @@
   
   <h1 id="Microsoft_Graph_Calls_CallExtensions" data-uid="Microsoft.Graph.Calls.CallExtensions" class="text-break">Class CallExtensions
   </h1>
-  <div class="markdown level0 summary"><p>Extensions for call collections.</p>
+  <div class="markdown level0 summary"><p>Extensions for calls.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -121,13 +121,14 @@
       <tr>
         <td><a class="xref" href="Microsoft.Graph.Calls.ICall.html">ICall</a></td>
         <td><span class="parametername">call</span></td>
-        <td><p>The call.</p>
+        <td><p>The call to be answered.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">IEnumerable</span>&lt;<span class="xref">MediaInfo</span>&gt;</td>
         <td><span class="parametername">preFetchMedia</span></td>
-        <td><p>The pre-fetch media.</p>
+        <td><p>List of media files that service will cache,
+so that when playing these media files; the latency is lower.</p>
 </td>
       </tr>
       <tr>
@@ -139,7 +140,9 @@
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">callbackUri</span></td>
-        <td><p>The callback uri.</p>
+        <td><p>The optional callback uri. Specifying this
+will override the default callback uri set when creating the
+<a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IStatefulClient.html">IStatefulClient</a></p>
 </td>
       </tr>
       <tr>
@@ -161,7 +164,76 @@
     <tbody>
       <tr>
         <td><span class="xref">Task</span></td>
-        <td><p>The <see cref="!:Task"></see>.</p>
+        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.
+This does not guarantee that the call has been answered. Any updates
+on call will be delivered via notification and can be observed using
+ICall.OnUpdated</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Calls_CallExtensions_AnswerAsync_" data-uid="Microsoft.Graph.Calls.CallExtensions.AnswerAsync*"></a>
+  <h4 id="Microsoft_Graph_Calls_CallExtensions_AnswerAsync_Microsoft_Graph_Calls_ICall_IEnumerable_Modality__System_String_CancellationToken_" data-uid="Microsoft.Graph.Calls.CallExtensions.AnswerAsync(Microsoft.Graph.Calls.ICall,IEnumerable{Modality},System.String,CancellationToken)">AnswerAsync(ICall, IEnumerable&lt;Modality&gt;, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Answers a call with service hosted media configuration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task AnswerAsync(this ICall call, IEnumerable&lt;Modality&gt; acceptedModalities, string callbackUri = null, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.Calls.ICall.html">ICall</a></td>
+        <td><span class="parametername">call</span></td>
+        <td><p>The call to be answered.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">Modality</span>&gt;</td>
+        <td><span class="parametername">acceptedModalities</span></td>
+        <td><p>The modalities to accept.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">callbackUri</span></td>
+        <td><p>The optional callback uri. Specifying this
+will override the default callback uri set when creating the
+<a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IStatefulClient.html">IStatefulClient</a></p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Task</span></td>
+        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.
+This does not guarantee that the call has been answered. Any updates
+on call will be delivered via notification and can be observed using
+ICall.OnUpdated</p>
 </td>
       </tr>
     </tbody>
@@ -188,19 +260,22 @@
       <tr>
         <td><a class="xref" href="Microsoft.Graph.Calls.ICall.html">ICall</a></td>
         <td><span class="parametername">call</span></td>
-        <td><p>The call.</p>
+        <td><p>The call to be answered.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="Microsoft.Graph.Calls.IMediaSession.html">IMediaSession</a></td>
         <td><span class="parametername">mediaSession</span></td>
-        <td><p>The media session.</p>
+        <td><p>The media session object which defines
+the media configuration.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">callbackUri</span></td>
-        <td><p>The callback uri.</p>
+        <td><p>The optional callback uri. Specifying this
+will override the default callback uri set when creating the
+<a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IStatefulClient.html">IStatefulClient</a></p>
 </td>
       </tr>
       <tr>
@@ -222,14 +297,17 @@
     <tbody>
       <tr>
         <td><span class="xref">Task</span></td>
-        <td><p>The <see cref="!:Task"></see>.</p>
+        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.
+This does not guarantee that the call has been answered. Any updates
+on call will be delivered via notification and can be observed using
+ICall.OnUpdated</p>
 </td>
       </tr>
     </tbody>
   </table>
   <a id="Microsoft_Graph_Calls_CallExtensions_AnswerAsync_" data-uid="Microsoft.Graph.Calls.CallExtensions.AnswerAsync*"></a>
   <h4 id="Microsoft_Graph_Calls_CallExtensions_AnswerAsync_Microsoft_Graph_Calls_ICall_System_String_CancellationToken_" data-uid="Microsoft.Graph.Calls.CallExtensions.AnswerAsync(Microsoft.Graph.Calls.ICall,System.String,CancellationToken)">AnswerAsync(ICall, String, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Answers a call with no media configuration.</p>
+  <div class="markdown level1 summary"><p>Answers a call without any media configuration.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -249,13 +327,15 @@
       <tr>
         <td><a class="xref" href="Microsoft.Graph.Calls.ICall.html">ICall</a></td>
         <td><span class="parametername">call</span></td>
-        <td><p>The call.</p>
+        <td><p>The call to be answered.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">callbackUri</span></td>
-        <td><p>The callback uri.</p>
+        <td><p>The optional callback uri. Specifying this
+will override the default callback uri set when creating the
+<a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IStatefulClient.html">IStatefulClient</a></p>
 </td>
       </tr>
       <tr>
@@ -277,7 +357,10 @@
     <tbody>
       <tr>
         <td><span class="xref">Task</span></td>
-        <td><p>The <see cref="!:Task"></see>.</p>
+        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.
+This does not guarantee that the call has been answered. Any updates
+on call will be delivered via notification and can be observed using
+ICall.OnUpdated</p>
 </td>
       </tr>
     </tbody>

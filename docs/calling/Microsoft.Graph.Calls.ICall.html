@@ -120,7 +120,7 @@
   </h3>
   <a id="Microsoft_Graph_Calls_ICall_AudioRoutingGroups_" data-uid="Microsoft.Graph.Calls.ICall.AudioRoutingGroups*"></a>
   <h4 id="Microsoft_Graph_Calls_ICall_AudioRoutingGroups" data-uid="Microsoft.Graph.Calls.ICall.AudioRoutingGroups">AudioRoutingGroups</h4>
-  <div class="markdown level1 summary"><p>Gets the audio routing groups.</p>
+  <div class="markdown level1 summary"><p>Gets the audio routing groups for this call.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -138,8 +138,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="Microsoft.Graph.Calls.IAudioRoutingGroupCollection.html">IAudioRoutingGroupCollection</a></td>
-        <td><p>The audio routing groups.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -163,14 +162,14 @@
     <tbody>
       <tr>
         <td><span class="xref">Guid</span></td>
-        <td><p>The correlation identifier.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
   <a id="Microsoft_Graph_Calls_ICall_MediaSession_" data-uid="Microsoft.Graph.Calls.ICall.MediaSession*"></a>
   <h4 id="Microsoft_Graph_Calls_ICall_MediaSession" data-uid="Microsoft.Graph.Calls.ICall.MediaSession">MediaSession</h4>
-  <div class="markdown level1 summary"><p>Gets the media session.</p>
+  <div class="markdown level1 summary"><p>Gets the media session, if any.
+This is used only for Local Media Scenarios.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -188,14 +187,13 @@
     <tbody>
       <tr>
         <td><a class="xref" href="Microsoft.Graph.Calls.IMediaSession.html">IMediaSession</a></td>
-        <td><p>The media session.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
   <a id="Microsoft_Graph_Calls_ICall_Participants_" data-uid="Microsoft.Graph.Calls.ICall.Participants*"></a>
   <h4 id="Microsoft_Graph_Calls_ICall_Participants" data-uid="Microsoft.Graph.Calls.ICall.Participants">Participants</h4>
-  <div class="markdown level1 summary"><p>Gets the Participants.</p>
+  <div class="markdown level1 summary"><p>Gets the Participants collection for this call.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -213,8 +211,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="Microsoft.Graph.Calls.ICallParticipantCollection.html">ICallParticipantCollection</a></td>
-        <td><p>The participants.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -238,8 +235,7 @@
     <tbody>
       <tr>
         <td><span class="xref">Call</span></td>
-        <td><p>The call resource.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -263,8 +259,7 @@
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><p>The tenant id.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -298,13 +293,15 @@
       <tr>
         <td><span class="xref">IEnumerable</span>&lt;<span class="xref">Modality</span>&gt;</td>
         <td><span class="parametername">acceptedModalities</span></td>
-        <td><p>The accepted <see cref="!:Modality"></see>.</p>
+        <td><p>The accepted list of <see cref="!:Modality"></see>.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">callbackUri</span></td>
-        <td><p>The call back uri.</p>
+        <td><p>The optional callback uri. Specifying this
+will override the default callback uri set when creating the
+<a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IStatefulClient.html">IStatefulClient</a></p>
 </td>
       </tr>
       <tr>
@@ -326,14 +323,18 @@
     <tbody>
       <tr>
         <td><span class="xref">Task</span></td>
-        <td><p>See <see cref="!:Task"></see></p>
+        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.
+This does not guarantee that the call has been answered. Any updates
+on call will be delivered via notification and can be observed using
+ICall.OnUpdated</p>
 </td>
       </tr>
     </tbody>
   </table>
   <a id="Microsoft_Graph_Calls_ICall_CancelMediaProcessingAsync_" data-uid="Microsoft.Graph.Calls.ICall.CancelMediaProcessingAsync*"></a>
   <h4 id="Microsoft_Graph_Calls_ICall_CancelMediaProcessingAsync_System_Boolean_CancellationToken_" data-uid="Microsoft.Graph.Calls.ICall.CancelMediaProcessingAsync(System.Boolean,CancellationToken)">CancelMediaProcessingAsync(Boolean, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Performs the CancelMediaProcessing operation.</p>
+  <div class="markdown level1 summary"><p>Performs the CancelMediaProcessing operation. This cancels all or one of
+the ongoing media operations.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -353,7 +354,8 @@
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">all</span></td>
-        <td><p>When true, cancels all the media operations.</p>
+        <td><p>When true, cancels all the media operations, otherwise
+cancel the current one.</p>
 </td>
       </tr>
       <tr>
@@ -375,7 +377,9 @@
     <tbody>
       <tr>
         <td><span class="xref">Task</span></td>
-        <td><p>See <see cref="!:Task"></see></p>
+        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent. <br>
+Canceling the media processing here will be reflected by a failure in the
+specific operation (PlayPromptAsync, etc).</p>
 </td>
       </tr>
     </tbody>
@@ -424,7 +428,7 @@
     <tbody>
       <tr>
         <td><span class="xref">Task</span></td>
-        <td><p>See <see cref="!:Task"></see></p>
+        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.</p>
 </td>
       </tr>
     </tbody>
@@ -467,7 +471,10 @@
     <tbody>
       <tr>
         <td><span class="xref">Task</span></td>
-        <td><p>The <see cref="!:Task"></see> to await.</p>
+        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.
+The completion of this task does not guarantee deletion. Confirmation of
+deletion comes as a notification and can be subscribed by ICall.OnUpdated and
+ICallCollection.OnUpdated</p>
 </td>
       </tr>
     </tbody>
@@ -510,14 +517,15 @@
     <tbody>
       <tr>
         <td><span class="xref">Task</span></td>
-        <td><p>See <see cref="!:Task"></see></p>
+        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.
+The mute notification will come in on ICallParticipant.OnUpdated</p>
 </td>
       </tr>
     </tbody>
   </table>
   <a id="Microsoft_Graph_Calls_ICall_PlayPromptAsync_" data-uid="Microsoft.Graph.Calls.ICall.PlayPromptAsync*"></a>
   <h4 id="Microsoft_Graph_Calls_ICall_PlayPromptAsync_IEnumerable_MediaPrompt__CancellationToken_" data-uid="Microsoft.Graph.Calls.ICall.PlayPromptAsync(IEnumerable{MediaPrompt},CancellationToken)">PlayPromptAsync(IEnumerable&lt;MediaPrompt&gt;, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Performs the PlayPrompt operation.</p>
+  <div class="markdown level1 summary"><p>Plays the specified media prompts.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -559,7 +567,7 @@
     <tbody>
       <tr>
         <td><span class="xref">Task</span></td>
-        <td><p>The <see cref="!:Task"></see>.</p>
+        <td><p>The <see cref="!:Task"></see> that completes after the prompts have been played.</p>
 </td>
       </tr>
     </tbody>
@@ -677,31 +685,34 @@
       <tr>
         <td><span class="xref">IEnumerable</span>&lt;<span class="xref">InvitationParticipantInfo</span>&gt;</td>
         <td><span class="parametername">targets</span></td>
-        <td><p>The targets.</p>
+        <td><p>The targets to whom the call should
+be redirected to.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Nullable</span>&lt;<span class="xref">CallDisposition</span>&gt;</td>
         <td><span class="parametername">targetDisposition</span></td>
-        <td><p>The target disposition.</p>
+        <td><p>The disposition that describes
+how multiple targets are reached.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
         <td><span class="parametername">timeout</span></td>
-        <td><p>The timeout.</p>
+        <td><p>The timeout after which the redirect is
+canceled.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
         <td><span class="parametername">maskCallee</span></td>
-        <td><p>The mask callee.</p>
+        <td><p>If true, the callee is masked.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
         <td><span class="parametername">maskCaller</span></td>
-        <td><p>The mask caller.</p>
+        <td><p>If true, the caller is masked.</p>
 </td>
       </tr>
       <tr>
@@ -723,7 +734,7 @@
     <tbody>
       <tr>
         <td><span class="xref">Task</span></td>
-        <td><p>See <see cref="!:Task"></see></p>
+        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.</p>
 </td>
       </tr>
     </tbody>
@@ -750,7 +761,7 @@
       <tr>
         <td><span class="xref">System.Nullable</span>&lt;<span class="xref">RejectReason</span>&gt;</td>
         <td><span class="parametername">rejectReason</span></td>
-        <td><p>The reject reason.</p>
+        <td><p>The reason for call rejection.</p>
 </td>
       </tr>
       <tr>
@@ -772,14 +783,16 @@
     <tbody>
       <tr>
         <td><span class="xref">Task</span></td>
-        <td><p>See <see cref="!:Task"></see></p>
+        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <a id="Microsoft_Graph_Calls_ICall_SubscribeToToneAsync_" data-uid="Microsoft.Graph.Calls.ICall.SubscribeToToneAsync*"></a>
   <h4 id="Microsoft_Graph_Calls_ICall_SubscribeToToneAsync_CancellationToken_" data-uid="Microsoft.Graph.Calls.ICall.SubscribeToToneAsync(CancellationToken)">SubscribeToToneAsync(CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Subscribes to tone.</p>
+  <div class="markdown level1 summary"><p>Subscribe to DTMF (dual-tone multi-frequency signaling).
+This allows you to be notified when the user presses keys on a
+&quot;touchtone&quot; phone.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -815,14 +828,15 @@
     <tbody>
       <tr>
         <td><span class="xref">Task</span></td>
-        <td><p>See <see cref="!:Task"></see></p>
+        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent. <br>
+The DTMF notifications will come on ICall.OnUpdated</p>
 </td>
       </tr>
     </tbody>
   </table>
   <a id="Microsoft_Graph_Calls_ICall_TransferAsync_" data-uid="Microsoft.Graph.Calls.ICall.TransferAsync*"></a>
   <h4 id="Microsoft_Graph_Calls_ICall_TransferAsync_InvitationParticipantInfo_CancellationToken_" data-uid="Microsoft.Graph.Calls.ICall.TransferAsync(InvitationParticipantInfo,CancellationToken)">TransferAsync(InvitationParticipantInfo, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Transfer a call.</p>
+  <div class="markdown level1 summary"><p>Transfer a call to a given target.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -864,7 +878,10 @@
     <tbody>
       <tr>
         <td><span class="xref">Task</span></td>
-        <td><p>See <see cref="!:Task"></see></p>
+        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.
+This does not guarantee that the call has been answered. Any updates
+on call will be delivered via notification and can be observed using
+ICall.OnUpdated</p>
 </td>
       </tr>
     </tbody>
@@ -907,14 +924,16 @@
     <tbody>
       <tr>
         <td><span class="xref">Task</span></td>
-        <td><p>See <see cref="!:Task"></see></p>
+        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.
+The unmute notification will come in on ICallParticipant.OnUpdated</p>
 </td>
       </tr>
     </tbody>
   </table>
   <a id="Microsoft_Graph_Calls_ICall_UpdateMetadataAsync_" data-uid="Microsoft.Graph.Calls.ICall.UpdateMetadataAsync*"></a>
   <h4 id="Microsoft_Graph_Calls_ICall_UpdateMetadataAsync_System_String_CancellationToken_" data-uid="Microsoft.Graph.Calls.ICall.UpdateMetadataAsync(System.String,CancellationToken)">UpdateMetadataAsync(String, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Updates the self participant metadata asynchronously.</p>
+  <div class="markdown level1 summary"><p>Updates the self participant metadata (a blob of developer-defined data)
+asynchronously. This metadata is visible to all participants.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -956,7 +975,8 @@
     <tbody>
       <tr>
         <td><span class="xref">Task</span></td>
-        <td><p>See <see cref="!:Task"></see></p>
+        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.
+The update metadata notification will come in on ICallParticipant.OnUpdated</p>
 </td>
       </tr>
     </tbody>
@@ -967,6 +987,9 @@
   </div>
   <div>
       <a class="xref" href="Microsoft.Graph.Calls.CallExtensions.html#Microsoft_Graph_Calls_CallExtensions_AnswerAsync_Microsoft_Graph_Calls_ICall_IEnumerable_MediaInfo__IEnumerable_Modality__System_String_CancellationToken_">CallExtensions.AnswerAsync(ICall, IEnumerable&lt;MediaInfo&gt;, IEnumerable&lt;Modality&gt;, String, CancellationToken)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Calls.CallExtensions.html#Microsoft_Graph_Calls_CallExtensions_AnswerAsync_Microsoft_Graph_Calls_ICall_IEnumerable_Modality__System_String_CancellationToken_">CallExtensions.AnswerAsync(ICall, IEnumerable&lt;Modality&gt;, String, CancellationToken)</a>
   </div>
   <div>
       <a class="xref" href="Microsoft.Graph.Calls.CallExtensions.html#Microsoft_Graph_Calls_CallExtensions_AnswerAsync_Microsoft_Graph_Calls_ICall_System_String_CancellationToken_">CallExtensions.AnswerAsync(ICall, String, CancellationToken)</a>

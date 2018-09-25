@@ -79,93 +79,58 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="interactive-voice-response-ivr">Interactive Voice Response (IVR)</h1>
 
-<p>Graph Calling SDK and Core SDK can be used to make and manage IVR calls. Core SDK does not store any state for calls where as the Calling SDK provides a wrapper over Core SDK which manages the state of different resources for the bot. (See <a href="StateManagement.html">State Management</a>)</p>
+<p>Graph Calling SDK and Core SDK can be used to make and manage IVR calls.</p>
 <h2 id="features">Features</h2>
 <ul>
+<li>Join exiting calls</li>
 <li>Answer incoming calls</li>
 <li>Subscribe to tones</li>
 <li>Transfer call</li>
-<li>Play and stop media</li>
+<li>Play media</li>
 <li>Record</li>
-<li>Recognize*</li>
+<li>Cancel media operations</li>
 </ul>
 <h2 id="calling-sdk-snippets">Calling SDK Snippets</h2>
-<h3 id="answering-incoming-call-with-local-media">Answering incoming call with local media</h3>
-<p>First, subscibe to incoming calls.</p>
-<pre><code>this.Client.Calls().OnIncoming += this.CallsOnIncoming;
-</code></pre><p>When incoming call comes, the bot needs to answer with a session.</p>
-<pre><code>private void CallsOnIncoming(ICallCollection sender, CollectionEventArgs&lt;ICall&gt; collectionEventArgs)
+<h2 id="join-existing-call-and-answer-incoming-call">Join Existing Call and Answer Incoming Call</h2>
+<p>Please refer to the <a href="../index.html">concept articles</a></p>
+<h2 id="redirect-and-transfer">Redirect and Transfer</h2>
+<p>In order to do a redirect or transfer, you need to create an invitation object.</p>
+<p>This invitation target is the transferee in blind transfer and the original caller in consultative transfer.</p>
+<pre><code class="lang-cs">var target = new InvitationParticipantInfo
 {
-    var mediaSession = this.Client.CreateMediaSession(
-        new AudioSocketSettings
-        {
-            StreamDirections = StreamDirection.Recvonly,
-            SupportedAudioFormat = AudioFormat.Pcm16K
-        },
-        new VideoSocketSettings
-        {
-            StreamDirections = StreamDirection.Sendrecv,
-            ReceiveColorFormat = VideoColorFormat.NV12,
-            SupportedSendVideoFormats = new List&lt;VideoFormat&gt;
-            {                
-                VideoFormat.NV12_720x1280_30Fps,
-                VideoFormat.NV12_1280x720_30Fps
-            }
-        });
-    Task.Run(async () =&gt;
-    {
-        await collectionEventArgs
-            .AddedResources
-            .FirstOrDefault()
-            .AnswerAsync(
-                *BotCallbackURI*, 
-                new List&lt;Modality&gt; { Modality.Audio },
-                mediaSession)
-            .ConfigureAwait(false);
-    });
-}
-</code></pre><h2 id="answer-incoming-call-with-remote-media">Answer incoming call with remote media</h2>
-<p>First subscibe to incoming calls.</p>
-<pre><code>this.Client.Calls().OnIncoming += this.CallsOnIncoming;
-</code></pre><p>When incoming call comes, the bot will answer with a <code>ServiceHostedMediaConfig</code>.</p>
-<pre><code>private void CallsOnIncoming(ICallCollection sender, CollectionEventArgs&lt;ICall&gt; collectionEventArgs)
-{
-    var mediaConfig = new ServiceHostedMediaConfig();
-    Task.Run(async () =&gt;
-    {
-        await collectionEventArgs
-            .AddedResources
-            .FirstOrDefault()
-            .AnswerAsync(
-                *BotCallbackURI*, 
-                new List&lt;Modality&gt; { Modality.Audio },
-                mediaConfig)
-            .ConfigureAwait(false);
-    });
-}
-</code></pre><div class="IMPORTANT"><h5>Important</h5><p>For both incoming call scenarios, the initial incoming call notification will still be received from Call Controller using the old Calling protocol, SDK automatically returns 204 No Content to the initial notification to invoke the new protocol.</p>
-</div>
-<h2 id="transfer">Transfer</h2>
-<p>In order to do a transfer, you need to create a target object.</p>
-<p>This target is the transferee in blind transfer and the original caller in consultative transfer.</p>
-<pre><code> var target = new DirectoryParticipantDetails
-            {
-                EndpointId = *Target&#39;s Endpoint Id*,
-                Id = *Target&#39;s object Id*,
-            };
+  Identity = new IdentitySet
+  {
+    User = new Identity {
+      Id = &quot;**The Target&#39;s AAD ID**&quot;,
+      DisplayName = &quot;**(optional) The Target&#39;s Display Name**&quot;,
+    }
+  }
+};
+
+ICall call = this.GetIncomingCall();
+await call.RedirectAsync(new[] { target }).ConfigureAwait(false);
 </code></pre><h3 id="blind-transfer">Blind transfer</h3>
 <p>To make a blind transfer, only the target needs to be specified.</p>
-<pre><code>await this.Client.Calls[*call id to transfer*].TransferAsync(target).ConfigureAwait(false);
+<pre><code class="lang-cs">ICall oritinalCall = this.Client.Calls[&quot;*call id to transfer*&quot;];
+await oritinalCall.TransferAsync(target).ConfigureAwait(false);
 </code></pre><h3 id="consultative-transfer">Consultative transfer</h3>
-<pre><code>await this.Client.Calls[*call id of second call*].TransferAsync(target, *id of the original call*).ConfigureAwait(false);
+<pre><code class="lang-cs">ICall newCall = this.Client.Calls[&quot;*call id of second call*&quot;];
+await newCall.TransferAsync(target, &quot;*id of the original call*&quot;).ConfigureAwait(false);
 </code></pre><h2 id="subscribe-to-tones">Subscribe to tones</h2>
-<pre><code>await this.Client.Calls[*id of the call*].SubscribeToToneAsync().ConfigureAwait(false);
+<pre><code class="lang-cs">ICall call = this.Client.Calls[&quot;*id of the call*&quot;];
+await call.SubscribeToToneAsync().ConfigureAwait(false);
 </code></pre><p>Any tones that are received are sent as part of a call update in <code>ToneInfo</code> property of the call resource.</p>
 <h2 id="play-media-prompts">Play media prompts</h2>
-<pre><code>await this.Client.Calls[*id of the call*].PlayPromptAsync(*A list of media prompts to play*).ConfigureAwait(false);
+<pre><code class="lang-cs">ICall call = this.Client.Calls[&quot;*id of the call*&quot;];
+await call.PlayPromptAsync(*A list of media prompts to play*).ConfigureAwait(false);
+</code></pre><h2 id="record">Record</h2>
+<pre><code class="lang-cs">ICall call = this.Client.Calls[&quot;*id of the call*&quot;];
+RecordOperationResult result = await call.RecordAsync(*record options*).ConfigureAwait(false);
+string location = result.RecordResourceLocation;
 </code></pre><h2 id="cancel-media-processing">Cancel media processing</h2>
 <p>This API will cancel all prompts that are queued to be played.</p>
-<pre><code>await this.Client.Calls[*id of the call*].CancelMediaProcessingAsync().ConfigureAwait(false);
+<pre><code class="lang-cs">ICall call = this.Client.Calls[&quot;*id of the call*&quot;];
+await call.CancelMediaProcessingAsync().ConfigureAwait(false);
 </code></pre></article>
           </div>
           

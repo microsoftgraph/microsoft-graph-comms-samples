@@ -101,12 +101,12 @@
   </h3>
   <a id="Microsoft_Graph_Calls_ParticipantExtensions_ConfigureMixerAsync_" data-uid="Microsoft.Graph.Calls.ParticipantExtensions.ConfigureMixerAsync*"></a>
   <h4 id="Microsoft_Graph_Calls_ParticipantExtensions_ConfigureMixerAsync_Microsoft_Graph_Calls_ICallParticipantCollection_Participant_AudioDuckingConfiguration_System_Nullable_System_Boolean__IEnumerable_AudioSourceLevel__CancellationToken_" data-uid="Microsoft.Graph.Calls.ParticipantExtensions.ConfigureMixerAsync(Microsoft.Graph.Calls.ICallParticipantCollection,Participant,AudioDuckingConfiguration,System.Nullable{System.Boolean},IEnumerable{AudioSourceLevel},CancellationToken)">ConfigureMixerAsync(ICallParticipantCollection, Participant, AudioDuckingConfiguration, Nullable&lt;Boolean&gt;, IEnumerable&lt;AudioSourceLevel&gt;, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Configures the mixer level asynchronously.</p>
+  <div class="markdown level1 summary"><p>Configure a participant&apos;s mixer settings.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task ConfigureMixerAsync(this ICallParticipantCollection participantCollection, Participant participant, AudioDuckingConfiguration ducking = null, bool? exclusive = null, IEnumerable&lt;AudioSourceLevel&gt; sourceLevels = null, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task ConfigureMixerAsync(this ICallParticipantCollection participantCollection, Participant participant, AudioDuckingConfiguration ducking = null, bool? exclusiveMode = null, IEnumerable&lt;AudioSourceLevel&gt; sourceLevels = null, CancellationToken cancellationToken = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -127,25 +127,26 @@
       <tr>
         <td><span class="xref">Participant</span></td>
         <td><span class="parametername">participant</span></td>
-        <td><p>The participant.</p>
+        <td><p>The participant to be updated.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">AudioDuckingConfiguration</span></td>
         <td><span class="parametername">ducking</span></td>
-        <td><p>The ducking.</p>
+        <td><p>The ducking configuration.
+This is the audio setting level for the participant</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
-        <td><span class="parametername">exclusive</span></td>
-        <td><p>The exclusive.</p>
+        <td><span class="parametername">exclusiveMode</span></td>
+        <td><p>The exclusive mode for participant.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">IEnumerable</span>&lt;<span class="xref">AudioSourceLevel</span>&gt;</td>
         <td><span class="parametername">sourceLevels</span></td>
-        <td><p>The source levels.</p>
+        <td><p>The audio source level for the participant.</p>
 </td>
       </tr>
       <tr>
@@ -167,14 +168,14 @@
     <tbody>
       <tr>
         <td><span class="xref">Task</span></td>
-        <td><p>The <see cref="!:Task"></see>.</p>
+        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <a id="Microsoft_Graph_Calls_ParticipantExtensions_InviteAsync_" data-uid="Microsoft.Graph.Calls.ParticipantExtensions.InviteAsync*"></a>
   <h4 id="Microsoft_Graph_Calls_ParticipantExtensions_InviteAsync_Microsoft_Graph_Calls_ICallParticipantCollection_IdentitySet_System_String_System_String_CancellationToken_" data-uid="Microsoft.Graph.Calls.ParticipantExtensions.InviteAsync(Microsoft.Graph.Calls.ICallParticipantCollection,IdentitySet,System.String,System.String,CancellationToken)">InviteAsync(ICallParticipantCollection, IdentitySet, String, String, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Invites the asynchronous.</p>
+  <div class="markdown level1 summary"><p>Invite a participant into the existing call.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -194,19 +195,22 @@
       <tr>
         <td><a class="xref" href="Microsoft.Graph.Calls.ICallParticipantCollection.html">ICallParticipantCollection</a></td>
         <td><span class="parametername">participantCollection</span></td>
-        <td><p>The participant collection.</p>
+        <td><p>The participant collection into
+which a new participant is being invited.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">IdentitySet</span></td>
         <td><span class="parametername">identitySet</span></td>
-        <td><p>The identity set.</p>
+        <td><p>The identity set of the invited participant.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">replacesCallId</span></td>
-        <td><p>The replaces call identifier.</p>
+        <td><p>The replaces call identifier. This is an optional
+field used for consultative transfer. This is used to bring a participant
+from an existing call.</p>
 </td>
       </tr>
       <tr>
@@ -234,7 +238,10 @@
     <tbody>
       <tr>
         <td><span class="xref">Task</span></td>
-        <td><p>The <see cref="!:Task"></see></p>
+        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.
+This does not guarantee that the participant has joined. Any updates
+on the participant collection will be delivered via notification and
+can be observed using ICallParticipantCollection.OnUpdated</p>
 </td>
       </tr>
     </tbody>

@@ -83,7 +83,8 @@
   
   <h1 id="Microsoft_Graph_Calls_ICallParticipant" data-uid="Microsoft.Graph.Calls.ICallParticipant" class="text-break">Interface ICallParticipant
   </h1>
-  <div class="markdown level0 summary"><p>The stateful participant interface.</p>
+  <div class="markdown level0 summary"><p>The stateful participant interface. This represents
+a single participant in a call.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritedMembers">
@@ -182,7 +183,8 @@
     <tbody>
       <tr>
         <td><span class="xref">Task</span></td>
-        <td><p>The <see cref="!:Task"></see>.</p>
+        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.
+The mute notification will come in on ICallParticipant.OnUpdated</p>
 </td>
       </tr>
     </tbody>
@@ -288,7 +290,8 @@ The service will reject any requests for other participants.</p>
     <tbody>
       <tr>
         <td><span class="xref">Task</span></td>
-        <td><p>The <see cref="!:Task"></see>.</p>
+        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.
+The unmute notification will come in on ICallParticipant.OnUpdated</p>
 </td>
       </tr>
     </tbody>
