@@ -22,6 +22,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
     using Sample.AudioVideoPlaybackBot.FrontEnd.Http;
     using Sample.Common.Authentication;
     using Sample.Common.Logging;
+    using Sample.Common.Meetings;
     using Sample.Common.OnlineMeetings;
     using CallerInfo = Sample.Common.Logging.CallerInfo;
 
@@ -92,8 +93,8 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             // A tracking id for logging purposes.  Helps identify this call in logs.
             var correlationId = Guid.NewGuid();
 
-            MeetingInfo meetingInfo = joinCallBody.MeetingInfo;
-            ChatInfo chatInfo = joinCallBody.ChatInfo;
+            MeetingInfo meetingInfo;
+            ChatInfo chatInfo;
             if (!string.IsNullOrWhiteSpace(joinCallBody.MeetingId))
             {
                 var onlineMeeting = await this.OnlineMeetings
@@ -101,8 +102,11 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                     .ConfigureAwait(false);
 
                 meetingInfo = onlineMeeting.MeetingInfo;
-                meetingInfo.AllowConversationWithoutHost = joinCallBody.MeetingInfo?.AllowConversationWithoutHost;
                 chatInfo = onlineMeeting.ChatInfo;
+            }
+            else
+            {
+                (chatInfo, meetingInfo) = JoinInfo.ParseJoinURL(joinCallBody.JoinURL);
             }
 
             var mediaSession = this.CreateLocalMediaSession(correlationId);

@@ -15,7 +15,6 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
     using System.Net.Http;
     using System.Threading.Tasks;
     using System.Web.Http;
-    using Microsoft.Graph;
     using Microsoft.Graph.CoreSDK.Exceptions;
     using Sample.AudioVideoPlaybackBot.FrontEnd.Bot;
 
@@ -85,14 +84,9 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
             public string TenantId { get; set; }
 
             /// <summary>
-            /// Gets or sets the chat info.
+            /// Gets or sets the Teams meeting join URL.
             /// </summary>
-            public ChatInfo ChatInfo { get; set; }
-
-            /// <summary>
-            /// Gets or sets the organizer meeting info.
-            /// </summary>
-            public OrganizerMeetingInfo MeetingInfo { get; set; }
+            public string JoinURL { get; set; }
 
             /// <summary>
             /// Gets or sets the display name.

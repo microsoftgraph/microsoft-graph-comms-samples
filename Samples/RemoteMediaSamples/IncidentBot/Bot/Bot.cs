@@ -16,6 +16,7 @@ namespace Sample.IncidentBot.Bot
     using Microsoft.Graph.Core.Telemetry;
     using Microsoft.Graph.StatefulClient;
     using Sample.Common.Authentication;
+    using Sample.Common.Meetings;
     using Sample.IncidentBot.Data;
     using Sample.IncidentBot.IncidentStatus;
 
@@ -205,25 +206,8 @@ namespace Sample.IncidentBot.Bot
             // A tracking id for logging purposes. Helps identify this call in logs.
             var correlationId = Guid.NewGuid();
 
-            var chatInfo = new ChatInfo
-            {
-                MessageId = joinCallBody.MeetingInfo.ThreadMessageId,
-                ThreadId = joinCallBody.MeetingInfo.ThreadId,
-                ReplyChainMessageId = joinCallBody.MeetingInfo.ReplyChainMessageId,
-            };
-
-            var meetingInfo = new OrganizerMeetingInfo
-            {
-                Organizer = new IdentitySet
-                {
-                    User = new Identity
-                    {
-                        Id = joinCallBody.MeetingInfo.OrganizerId,
-                    },
-                },
-                AllowConversationWithoutHost = joinCallBody.MeetingInfo.AllowConversationWithoutHost,
-            };
-            meetingInfo.Organizer.User.SetTenantId(joinCallBody.TenantId);
+            (var chatInfo, var meetingInfo) = JoinInfo.ParseJoinURL(joinCallBody.MeetingInfo.JoinURL);
+            meetingInfo.AllowConversationWithoutHost = joinCallBody.MeetingInfo.AllowConversationWithoutHost;
 
             var mediaToPrefetch = new List<MediaInfo>();
             foreach (var m in this.MediaMap)

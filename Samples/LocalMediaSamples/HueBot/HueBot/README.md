@@ -1,7 +1,7 @@
-﻿# Introduction
+﻿# Media bot on Azure Service Fabric
 
 ## About
-The Hue Bot sample guides you through building, deploying and testing an application hosted media bot. This sample demonstrates how bots can interact with users by enabling real-time video capabilities.
+The Hue Bot sample guides you through building, deploying and testing an application hosted media bot on Service Fabric. This sample demonstrates how bots can interact with users by enabling real-time video capabilities.
 
 ## Getting Started
 
