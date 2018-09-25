@@ -79,9 +79,26 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="graph-bot-builder-stateful-sdk">Graph Bot Builder Stateful SDK</h1>
 
-<p>This SDK is the core component of Calling SDK. This contains all the standard features and functionality available in the Graph Stateful SDK.</p>
-<p>The main SDK components can be found in the <a class="xref" href="Microsoft.Graph.StatefulClient.html">Microsoft.Graph.StatefulClient</a> namespace.</p>
-<p>Select a class on the left to dive into the docs</p>
+<p>This SDK is the core component of Stateful SDK. This contains all the standard features and functionality available in the Graph Stateful SDK.</p>
+<h2 id="authentication-provider">Authentication Provider</h2>
+<p>All calls made and received by the SDK must be authenticated by the bot developers. The SDK requires the developers to implement the <a class="xref" href="Microsoft.Graph.StatefulClient.Authentication.IRequestAuthenticationProvider.html">IRequestAuthenticationProvider</a> interface and specify it when building the <a class="xref" href="Microsoft.Graph.StatefulClient.IStatefulClient.html">IStatefulClient</a>.</p>
+<p>There are two parts to the interface.</p>
+<ul>
+<li><code>AuthenticateOutboundRequestAsync</code>: This method should add the Authorization header to the outbound HTTP requests from the SDK.</li>
+<li><code>AuthenticateOutboundRequestAsync</code>: This method should validate the Authorization header for incoming HTTP requests from Graph, extract the Tenant ID from that header and provide it to the SDK.</li>
+</ul>
+<p>Examples of the Authentication Provider can be found in <a href="https://github.com/microsoftgraph/microsoft-graph-comms-samples/blob/master/Samples/Common/Sample.Common/Authentication/AuthenticationProvider.cs">samples</a>.</p>
+<h2 id="notification-handling">Notification Handling</h2>
+<ol>
+<li>The Graph Platform sends out notifications via HTTP that need to be handled by the Bot Developers. The Platform sends out notifications on the notification url, and the bot developers should listen to HTTP messages on that url. </li>
+<li>Once the HTTP message has been received by the developer, they need to forward the message to <a class="xref" href="Microsoft.Graph.StatefulClient.IStatefulClient.html">IStatefulClient</a> using the <a class="xref" href="Microsoft.Graph.StatefulClientExtensions.html#Microsoft_Graph_StatefulClientExtensions_ProcessNotificationAsync_Microsoft_Graph_StatefulClient_IStatefulClient_System_Net_Http_HttpRequestMessage_">ProcessNotificationAsync</a> method.</li>
+<li>The SDK processes the notification, calls the <code>IRequestAuthenticationProvider</code> and raises any corresponding events asynchronously.</li>
+<li>The SDK then returns a <code>HttpResponseMessage</code> that needs to be sent out as a response to the Graph Platform.</li>
+</ol>
+<div class="NOTE"><h5>Note</h5><p>Developers using ASP.NET Core should convert the <code>HttpRequest</code> object into <code>HttpRequestMessage</code> before passing it to the SDK. Also, they need to convert the resulting <code>HttpResponseMessage</code> into <code>HttpResponse</code>.</p>
+</div>
+<hr>
+<p>Select a class on the left to dive into the reference docs</p>
 </article>
           </div>
           

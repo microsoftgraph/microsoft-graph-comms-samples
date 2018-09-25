@@ -94,10 +94,10 @@
     signaling:
         addr: &lt;Localhost Signaling Port&gt;
         proto: http
-</code></pre><h2 id="setting-up-local-media">Setting up Local Media</h2>
-<div class="NOTE"><h5>Note</h5><p>This section is only required for Local Media bots and can be skipped if you do not host media yourself.</p>
+</code></pre><h2 id="setting-up-application-hosted-media">Setting up Application Hosted Media</h2>
+<div class="NOTE"><h5>Note</h5><p>This section is only required for Application Hosted Media bots and can be skipped if you do not host media yourself.</p>
 </div>
-<p>Local Media uses certificates and TCP tunnels to properly work. The following steps are required in order for proper media establishment.</p>
+<p>Application Hosted Media uses certificates and TCP tunnels to properly work. The following steps are required in order for proper media establishment.</p>
 <ul>
 <li>Ngrok&#39;s public TCP endpoints have fixed urls. They are <code>0.tcp.ngrok.io</code>, <code>1.tcp.ngrok.io</code>, etc. You should have a dns CNAME entry for your service that points to these urls. In this example, let&#39;s say <code>0.bot.contoso.com</code> is pointing to <code>0.tcp.ngrok.io</code>, and similarly for other urls.</li>
 <li>Now you require an SSL certificate for the url you own. To make it easy, use an SSL certificate issued to a wild card domain. In this case, it would be <code>*.bot.contoso.com</code>. This ssl certificate is validated by Media flow so should match your media flow&#39;s public url. Note down the thumbprint and install the certificate in your machine certificates.</li>

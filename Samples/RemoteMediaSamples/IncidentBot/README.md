@@ -57,28 +57,23 @@ The sample demostrate an incident process workflow. When a incident raised (thro
 3. Install Teams client.
 
 4. Login Teams with user1. Create a teams channel and add a meeting there. 
-  * Meeting uri should be in format https://teams.microsoft.com/l/meetup-join/{ThreadId}/{ThreadMessageId}?oid:{OrganizerObjectId}&tid:{TenantId}. 
-  * Write down the values \{ThreadId}, \{ThreadMessageId}, \{OrganizerObjectId} and \{TenantId} from the meeting uri. 
+  * Meeting uri should be in format https://teams.microsoft.com/l/meetup-join/... 
 
 5. Use the postman to send request to "\{WebSiteRootUri\}/incidents/raise", with header "Content-Type:application/json" and the json content in body as below:
 ```json
 {
-	"name": "<name-of-incident>", 
-	"time": "<start-time-of-the-incident>", 
-  
-	"tenantId": "{TenantId}",
-	"objectIds": [
-	"{UserObjectId-1}",
-	"{UserObjectId-2}"
-	],
-
-	"meetingInfo": {
-	"organizerId": "{OrganizerObjectId}", 
-	"threadId": "{ThreadId}",
-	"threadMessageId": "{ThreadMessageId}", 
-	"removeFromDefaultRoutingGroup": true,
-	"allowConversationWithoutHost": true
-	}
+  "name": "<name-of-incident>", 
+  "time": "<start-time-of-the-incident-in-ISO-8601-format>", 
+  "tenantId": "{TenantId}",
+  "objectIds": [
+    "{UserObjectId-1}",
+    "{UserObjectId-2}"
+  ],
+  "meetingInfo: {
+    "joinURL": "https://teams.microsoft.com/l/meetup-join/...",
+    "removeFromDefaultRoutingGroup": true,
+    "allowConversationWithoutHost": true
+  }
 }
 ```
 

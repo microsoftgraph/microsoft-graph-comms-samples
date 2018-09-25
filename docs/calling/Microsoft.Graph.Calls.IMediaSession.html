@@ -83,7 +83,9 @@
   
   <h1 id="Microsoft_Graph_Calls_IMediaSession" data-uid="Microsoft.Graph.Calls.IMediaSession" class="text-break">Interface IMediaSession
   </h1>
-  <div class="markdown level0 summary"><p>The IMediaSession interface.</p>
+  <div class="markdown level0 summary"><p>The IMediaSession interface. For local media scenarios,
+this session object represents the modalities and the
+media configuration.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.Calls.html">Microsoft.Graph.Calls</a></h6>
@@ -96,7 +98,7 @@
   </h3>
   <a id="Microsoft_Graph_Calls_IMediaSession_MediaSessionId_" data-uid="Microsoft.Graph.Calls.IMediaSession.MediaSessionId*"></a>
   <h4 id="Microsoft_Graph_Calls_IMediaSession_MediaSessionId" data-uid="Microsoft.Graph.Calls.IMediaSession.MediaSessionId">MediaSessionId</h4>
-  <div class="markdown level1 summary"><p>Gets the id of this media session</p>
+  <div class="markdown level1 summary"><p>Gets the id of this media session.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -114,8 +116,7 @@
     <tbody>
       <tr>
         <td><span class="xref">Guid</span></td>
-        <td><p>The media session id.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -139,8 +140,7 @@
     <tbody>
       <tr>
         <td><span class="xref">Modality</span>[]</td>
-        <td><p>The media session id.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -148,7 +148,7 @@
   </h3>
   <a id="Microsoft_Graph_Calls_IMediaSession_GetMediaConfiguration_" data-uid="Microsoft.Graph.Calls.IMediaSession.GetMediaConfiguration*"></a>
   <h4 id="Microsoft_Graph_Calls_IMediaSession_GetMediaConfiguration" data-uid="Microsoft.Graph.Calls.IMediaSession.GetMediaConfiguration">GetMediaConfiguration()</h4>
-  <div class="markdown level1 summary"><p>returns the media configuration</p>
+  <div class="markdown level1 summary"><p>Get the media configuration</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -166,7 +166,7 @@
     <tbody>
       <tr>
         <td><span class="xref">JObject</span></td>
-        <td><p>The <see cref="!:JObject"></see>.</p>
+        <td><p>A <see cref="!:JObject"></see> produced by the Media library.</p>
 </td>
       </tr>
     </tbody>

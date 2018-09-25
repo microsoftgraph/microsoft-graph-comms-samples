@@ -123,7 +123,7 @@
   </h3>
   <a id="Microsoft_Graph_Calls_ICallParticipantCollection_ConfigureMixerAsync_" data-uid="Microsoft.Graph.Calls.ICallParticipantCollection.ConfigureMixerAsync*"></a>
   <h4 id="Microsoft_Graph_Calls_ICallParticipantCollection_ConfigureMixerAsync_IEnumerable_ParticipantMixerLevel__CancellationToken_" data-uid="Microsoft.Graph.Calls.ICallParticipantCollection.ConfigureMixerAsync(IEnumerable{ParticipantMixerLevel},CancellationToken)">ConfigureMixerAsync(IEnumerable&lt;ParticipantMixerLevel&gt;, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Configures the mixer level asynchronously.</p>
+  <div class="markdown level1 summary"><p>Configures the mixer level for the call asynchronously.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -143,7 +143,7 @@
       <tr>
         <td><span class="xref">IEnumerable</span>&lt;<span class="xref">ParticipantMixerLevel</span>&gt;</td>
         <td><span class="parametername">participantMixerLevels</span></td>
-        <td><p>The participant mixer levels.</p>
+        <td><p>The list of participant mixer levels.</p>
 </td>
       </tr>
       <tr>
@@ -165,7 +165,7 @@
     <tbody>
       <tr>
         <td><span class="xref">Task</span></td>
-        <td><p>The <see cref="!:Task"></see>.</p>
+        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.</p>
 </td>
       </tr>
     </tbody>
@@ -192,7 +192,7 @@
       <tr>
         <td><span class="xref">IEnumerable</span>&lt;<span class="xref">InvitationParticipantInfo</span>&gt;</td>
         <td><span class="parametername">participants</span></td>
-        <td><p>The list of InvitationParticipants to invite.</p>
+        <td><p>The list of <see cref="!:InvitationParticipantInfo"></see> to invite.</p>
 </td>
       </tr>
       <tr>
@@ -214,14 +214,16 @@
     <tbody>
       <tr>
         <td><span class="xref">Task</span></td>
-        <td><p>The <see cref="!:Task"></see>.</p>
+        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.
+The invite updates will come in on ICallParticipantCollection.OnUpdated</p>
 </td>
       </tr>
     </tbody>
   </table>
   <a id="Microsoft_Graph_Calls_ICallParticipantCollection_MuteAllAsync_" data-uid="Microsoft.Graph.Calls.ICallParticipantCollection.MuteAllAsync*"></a>
   <h4 id="Microsoft_Graph_Calls_ICallParticipantCollection_MuteAllAsync_IEnumerable_System_String__CancellationToken_" data-uid="Microsoft.Graph.Calls.ICallParticipantCollection.MuteAllAsync(IEnumerable{System.String},CancellationToken)">MuteAllAsync(IEnumerable&lt;String&gt;, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>The mute async.</p>
+  <div class="markdown level1 summary"><p>Mute all the specified participants in a call. If none are provided,
+all the participants are muted including the bot.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -241,7 +243,7 @@
       <tr>
         <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td><span class="parametername">participantIds</span></td>
-        <td><p>The list of participant ids.</p>
+        <td><p>The list of participant ids to mute.</p>
 </td>
       </tr>
       <tr>
@@ -263,14 +265,16 @@
     <tbody>
       <tr>
         <td><span class="xref">Task</span></td>
-        <td><p>The <see cref="!:Task"></see>.</p>
+        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.
+The mute notifications will come in on ICallParticipant.OnUpdated</p>
 </td>
       </tr>
     </tbody>
   </table>
   <a id="Microsoft_Graph_Calls_ICallParticipantCollection_UnmuteAllAsync_" data-uid="Microsoft.Graph.Calls.ICallParticipantCollection.UnmuteAllAsync*"></a>
   <h4 id="Microsoft_Graph_Calls_ICallParticipantCollection_UnmuteAllAsync_IEnumerable_System_String__CancellationToken_" data-uid="Microsoft.Graph.Calls.ICallParticipantCollection.UnmuteAllAsync(IEnumerable{System.String},CancellationToken)">UnmuteAllAsync(IEnumerable&lt;String&gt;, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>The unmute async.</p>
+  <div class="markdown level1 summary"><p>Unmute all the specified participants in a call. If none are provided,
+all the participants are unmuted including the bot.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -312,7 +316,8 @@
     <tbody>
       <tr>
         <td><span class="xref">Task</span></td>
-        <td><p>The <see cref="!:Task"></see>.</p>
+        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.
+The unmute notifications will come in on ICallParticipant.OnUpdated</p>
 </td>
       </tr>
     </tbody>

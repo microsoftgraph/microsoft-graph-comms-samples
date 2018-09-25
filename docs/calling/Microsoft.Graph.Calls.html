@@ -91,7 +91,7 @@
       <section><p>Extensions for call collections.</p>
 </section>
       <h4><a class="xref" href="Microsoft.Graph.Calls.CallExtensions.html">CallExtensions</a></h4>
-      <section><p>Extensions for call collections.</p>
+      <section><p>Extensions for calls.</p>
 </section>
       <h4><a class="xref" href="Microsoft.Graph.Calls.JoinMeetingParameters.html">JoinMeetingParameters</a></h4>
       <section><p>Class to define parameters required for joining a meeting.</p>
@@ -108,10 +108,18 @@
     <h3 id="interfaces">Interfaces
   </h3>
       <h4><a class="xref" href="Microsoft.Graph.Calls.IAudioRoutingGroup.html">IAudioRoutingGroup</a></h4>
-      <section><p>The stateful audio routing group interface.</p>
+      <section><p>The stateful audio routing group interface.
+The audio routing group stores a private audio route between
+participants in a multiparty conversation. Source is the
+participant itself and the receivers are a subset of other
+participants in the multiparty conversation</p>
 </section>
       <h4><a class="xref" href="Microsoft.Graph.Calls.IAudioRoutingGroupCollection.html">IAudioRoutingGroupCollection</a></h4>
-      <section><p>The stateful audio routing group collection interface.</p>
+      <section><p>The stateful audio routing group collection interface.
+The audio routing group stores a private audio route between
+participants in a multiparty conversation. Source is the participant
+itself and the receivers are a subset of other participants in the
+multiparty conversation</p>
 </section>
       <h4><a class="xref" href="Microsoft.Graph.Calls.ICall.html">ICall</a></h4>
       <section><p>The stateful call interface.</p>
@@ -120,13 +128,16 @@
       <section><p>The stateful call collection interface.</p>
 </section>
       <h4><a class="xref" href="Microsoft.Graph.Calls.ICallParticipant.html">ICallParticipant</a></h4>
-      <section><p>The stateful participant interface.</p>
+      <section><p>The stateful participant interface. This represents
+a single participant in a call.</p>
 </section>
       <h4><a class="xref" href="Microsoft.Graph.Calls.ICallParticipantCollection.html">ICallParticipantCollection</a></h4>
       <section><p>The stateful participant collection interface.</p>
 </section>
       <h4><a class="xref" href="Microsoft.Graph.Calls.IMediaSession.html">IMediaSession</a></h4>
-      <section><p>The IMediaSession interface.</p>
+      <section><p>The IMediaSession interface. For local media scenarios,
+this session object represents the modalities and the
+media configuration.</p>
 </section>
 </article>
           </div>

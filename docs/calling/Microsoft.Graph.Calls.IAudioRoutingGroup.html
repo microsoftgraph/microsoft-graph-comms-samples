@@ -83,7 +83,11 @@
   
   <h1 id="Microsoft_Graph_Calls_IAudioRoutingGroup" data-uid="Microsoft.Graph.Calls.IAudioRoutingGroup" class="text-break">Interface IAudioRoutingGroup
   </h1>
-  <div class="markdown level0 summary"><p>The stateful audio routing group interface.</p>
+  <div class="markdown level0 summary"><p>The stateful audio routing group interface.
+The audio routing group stores a private audio route between
+participants in a multiparty conversation. Source is the
+participant itself and the receivers are a subset of other
+participants in the multiparty conversation</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritedMembers">
@@ -182,14 +186,14 @@
     <tbody>
       <tr>
         <td><span class="xref">Task</span></td>
-        <td><p>The <see cref="!:Task"></see> to await.</p>
+        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <a id="Microsoft_Graph_Calls_IAudioRoutingGroup_UpdateAsync_" data-uid="Microsoft.Graph.Calls.IAudioRoutingGroup.UpdateAsync*"></a>
   <h4 id="Microsoft_Graph_Calls_IAudioRoutingGroup_UpdateAsync_AudioRoutingGroup_CancellationToken_" data-uid="Microsoft.Graph.Calls.IAudioRoutingGroup.UpdateAsync(AudioRoutingGroup,CancellationToken)">UpdateAsync(AudioRoutingGroup, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Updates this instance asynchronously.</p>
+  <div class="markdown level1 summary"><p>Update the audio routing group resource.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -209,7 +213,7 @@
       <tr>
         <td><span class="xref">AudioRoutingGroup</span></td>
         <td><span class="parametername">resource</span></td>
-        <td><p>The resource.</p>
+        <td><p>The updated resource.</p>
 </td>
       </tr>
       <tr>
@@ -231,7 +235,7 @@
     <tbody>
       <tr>
         <td><span class="xref">Task</span></td>
-        <td><p>The <see cref="!:Task"></see> to await.</p>
+        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.</p>
 </td>
       </tr>
     </tbody>

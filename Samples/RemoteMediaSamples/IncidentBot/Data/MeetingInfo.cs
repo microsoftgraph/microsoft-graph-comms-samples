@@ -11,24 +11,9 @@ namespace Sample.IncidentBot.Data
     public class MeetingInfo
     {
         /// <summary>
-        /// Gets or sets the thread id.
+        /// Gets or sets the join URL of the meeting.
         /// </summary>
-        public string ThreadId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the thread message id.
-        /// </summary>
-        public string ThreadMessageId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the reply chain message id.
-        /// </summary>
-        public string ReplyChainMessageId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the organizer id.
-        /// </summary>
-        public string OrganizerId { get; set; }
+        public string JoinURL { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether to remove the bot from default routing group.
