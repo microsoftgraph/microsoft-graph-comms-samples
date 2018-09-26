@@ -69,11 +69,10 @@ The sample demostrate an incident process workflow. When a incident raised (thro
     "{UserObjectId-1}",
     "{UserObjectId-2}"
   ],
-  "meetingInfo: {
-    "joinURL": "https://teams.microsoft.com/l/meetup-join/...",
-    "removeFromDefaultRoutingGroup": true,
-    "allowConversationWithoutHost": true
-  }
+  "meetingId": "{MeetingId}",
+  "joinURL": "https://teams.microsoft.com/l/meetup-join/...",
+  "removeFromDefaultRoutingGroup": true,
+  "allowConversationWithoutHost": true
 }
 ```
 

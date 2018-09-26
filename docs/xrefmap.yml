@@ -3,7 +3,7 @@ sorted: true
 references:
 - uid: Microsoft.Graph
   name: Microsoft.Graph
-  href: core_stateful/Microsoft.Graph.html
+  href: core/Microsoft.Graph.html
   commentId: N:Microsoft.Graph
   fullName: Microsoft.Graph
   nameWithType: Microsoft.Graph
@@ -15848,6 +15848,12 @@ references:
   commentId: F:Microsoft.Graph.Core.Telemetry.TransactionDirection.Outgoing
   fullName: Microsoft.Graph.Core.Telemetry.TransactionDirection.Outgoing
   nameWithType: TransactionDirection.Outgoing
+- uid: Microsoft.Graph.Core.Telemetry2
+  name: Microsoft.Graph.Core.Telemetry
+  href: stateful/Microsoft.Graph.Core.Telemetry.html
+  commentId: N:Microsoft.Graph.Core.Telemetry
+  fullName: Microsoft.Graph.Core.Telemetry
+  nameWithType: Microsoft.Graph.Core.Telemetry
 - uid: Microsoft.Graph.Core.Transport
   name: Microsoft.Graph.Core.Transport
   href: core_stateful/Microsoft.Graph.Core.Transport.html
@@ -16322,6 +16328,12 @@ references:
   commentId: M:Microsoft.Graph.Core.Transport.GraphResponse.#ctor(Microsoft.Graph.Core.Transport.ResponseStatus)
   fullName: Microsoft.Graph.Core.Transport.GraphResponse.GraphResponse(Microsoft.Graph.Core.Transport.ResponseStatus)
   nameWithType: GraphResponse.GraphResponse(ResponseStatus)
+- uid: Microsoft.Graph.Core.Transport.GraphResponse.#ctor(System.String,Microsoft.Graph.Core.Transport.ResponseStatus,System.String)
+  name: GraphResponse(String, ResponseStatus, String)
+  href: core_stateful/Microsoft.Graph.Core.Transport.GraphResponse.html#Microsoft_Graph_Core_Transport_GraphResponse__ctor_System_String_Microsoft_Graph_Core_Transport_ResponseStatus_System_String_
+  commentId: M:Microsoft.Graph.Core.Transport.GraphResponse.#ctor(System.String,Microsoft.Graph.Core.Transport.ResponseStatus,System.String)
+  fullName: Microsoft.Graph.Core.Transport.GraphResponse.GraphResponse(System.String, Microsoft.Graph.Core.Transport.ResponseStatus, System.String)
+  nameWithType: GraphResponse.GraphResponse(String, ResponseStatus, String)
 - uid: Microsoft.Graph.Core.Transport.GraphResponse.#ctor*
   name: GraphResponse
   href: core_stateful/Microsoft.Graph.Core.Transport.GraphResponse.html#Microsoft_Graph_Core_Transport_GraphResponse__ctor_
@@ -16346,6 +16358,14 @@ references:
   fullName.vb: Microsoft.Graph.Core.Transport.GraphResponse(Of T).GraphResponse(T, Microsoft.Graph.Core.Transport.ResponseStatus)
   nameWithType: GraphResponse<T>.GraphResponse(T, ResponseStatus)
   nameWithType.vb: GraphResponse(Of T).GraphResponse(T, ResponseStatus)
+- uid: Microsoft.Graph.Core.Transport.GraphResponse`1.#ctor(System.String,Microsoft.Graph.Core.Transport.ResponseStatus,System.String)
+  name: GraphResponse(String, ResponseStatus, String)
+  href: core_stateful/Microsoft.Graph.Core.Transport.GraphResponse-1.html#Microsoft_Graph_Core_Transport_GraphResponse_1__ctor_System_String_Microsoft_Graph_Core_Transport_ResponseStatus_System_String_
+  commentId: M:Microsoft.Graph.Core.Transport.GraphResponse`1.#ctor(System.String,Microsoft.Graph.Core.Transport.ResponseStatus,System.String)
+  fullName: Microsoft.Graph.Core.Transport.GraphResponse<T>.GraphResponse(System.String, Microsoft.Graph.Core.Transport.ResponseStatus, System.String)
+  fullName.vb: Microsoft.Graph.Core.Transport.GraphResponse(Of T).GraphResponse(System.String, Microsoft.Graph.Core.Transport.ResponseStatus, System.String)
+  nameWithType: GraphResponse<T>.GraphResponse(String, ResponseStatus, String)
+  nameWithType.vb: GraphResponse(Of T).GraphResponse(String, ResponseStatus, String)
 - uid: Microsoft.Graph.Core.Transport.GraphResponse`1.#ctor*
   name: GraphResponse
   href: core_stateful/Microsoft.Graph.Core.Transport.GraphResponse-1.html#Microsoft_Graph_Core_Transport_GraphResponse_1__ctor_
@@ -16372,6 +16392,23 @@ references:
   fullName.vb: Microsoft.Graph.Core.Transport.GraphResponse(Of T).Content
   nameWithType: GraphResponse<T>.Content
   nameWithType.vb: GraphResponse(Of T).Content
+- uid: Microsoft.Graph.Core.Transport.GraphResponse`1.ErrorContent
+  name: ErrorContent
+  href: core_stateful/Microsoft.Graph.Core.Transport.GraphResponse-1.html#Microsoft_Graph_Core_Transport_GraphResponse_1_ErrorContent
+  commentId: P:Microsoft.Graph.Core.Transport.GraphResponse`1.ErrorContent
+  fullName: Microsoft.Graph.Core.Transport.GraphResponse<T>.ErrorContent
+  fullName.vb: Microsoft.Graph.Core.Transport.GraphResponse(Of T).ErrorContent
+  nameWithType: GraphResponse<T>.ErrorContent
+  nameWithType.vb: GraphResponse(Of T).ErrorContent
+- uid: Microsoft.Graph.Core.Transport.GraphResponse`1.ErrorContent*
+  name: ErrorContent
+  href: core_stateful/Microsoft.Graph.Core.Transport.GraphResponse-1.html#Microsoft_Graph_Core_Transport_GraphResponse_1_ErrorContent_
+  commentId: Overload:Microsoft.Graph.Core.Transport.GraphResponse`1.ErrorContent
+  isSpec: "True"
+  fullName: Microsoft.Graph.Core.Transport.GraphResponse<T>.ErrorContent
+  fullName.vb: Microsoft.Graph.Core.Transport.GraphResponse(Of T).ErrorContent
+  nameWithType: GraphResponse<T>.ErrorContent
+  nameWithType.vb: GraphResponse(Of T).ErrorContent
 - uid: Microsoft.Graph.Core.Transport.GraphResponse`1.Properties
   name: Properties
   href: core_stateful/Microsoft.Graph.Core.Transport.GraphResponse-1.html#Microsoft_Graph_Core_Transport_GraphResponse_1_Properties
@@ -16389,6 +16426,23 @@ references:
   fullName.vb: Microsoft.Graph.Core.Transport.GraphResponse(Of T).Properties
   nameWithType: GraphResponse<T>.Properties
   nameWithType.vb: GraphResponse(Of T).Properties
+- uid: Microsoft.Graph.Core.Transport.GraphResponse`1.ReasonPhrase
+  name: ReasonPhrase
+  href: core_stateful/Microsoft.Graph.Core.Transport.GraphResponse-1.html#Microsoft_Graph_Core_Transport_GraphResponse_1_ReasonPhrase
+  commentId: P:Microsoft.Graph.Core.Transport.GraphResponse`1.ReasonPhrase
+  fullName: Microsoft.Graph.Core.Transport.GraphResponse<T>.ReasonPhrase
+  fullName.vb: Microsoft.Graph.Core.Transport.GraphResponse(Of T).ReasonPhrase
+  nameWithType: GraphResponse<T>.ReasonPhrase
+  nameWithType.vb: GraphResponse(Of T).ReasonPhrase
+- uid: Microsoft.Graph.Core.Transport.GraphResponse`1.ReasonPhrase*
+  name: ReasonPhrase
+  href: core_stateful/Microsoft.Graph.Core.Transport.GraphResponse-1.html#Microsoft_Graph_Core_Transport_GraphResponse_1_ReasonPhrase_
+  commentId: Overload:Microsoft.Graph.Core.Transport.GraphResponse`1.ReasonPhrase
+  isSpec: "True"
+  fullName: Microsoft.Graph.Core.Transport.GraphResponse<T>.ReasonPhrase
+  fullName.vb: Microsoft.Graph.Core.Transport.GraphResponse(Of T).ReasonPhrase
+  nameWithType: GraphResponse<T>.ReasonPhrase
+  nameWithType.vb: GraphResponse(Of T).ReasonPhrase
 - uid: Microsoft.Graph.Core.Transport.GraphResponse`1.Status
   name: Status
   href: core_stateful/Microsoft.Graph.Core.Transport.GraphResponse-1.html#Microsoft_Graph_Core_Transport_GraphResponse_1_Status
@@ -16423,6 +16477,38 @@ references:
   fullName.vb: Microsoft.Graph.Core.Transport.GraphResponse(Of T).ToString
   nameWithType: GraphResponse<T>.ToString
   nameWithType.vb: GraphResponse(Of T).ToString
+- uid: Microsoft.Graph.Core.Transport.GraphResponseException
+  name: GraphResponseException
+  href: core_stateful/Microsoft.Graph.Core.Transport.GraphResponseException.html
+  commentId: T:Microsoft.Graph.Core.Transport.GraphResponseException
+  fullName: Microsoft.Graph.Core.Transport.GraphResponseException
+  nameWithType: GraphResponseException
+- uid: Microsoft.Graph.Core.Transport.GraphResponseException.#ctor(Microsoft.Graph.Core.Transport.IGraphResponse)
+  name: GraphResponseException(IGraphResponse)
+  href: core_stateful/Microsoft.Graph.Core.Transport.GraphResponseException.html#Microsoft_Graph_Core_Transport_GraphResponseException__ctor_Microsoft_Graph_Core_Transport_IGraphResponse_
+  commentId: M:Microsoft.Graph.Core.Transport.GraphResponseException.#ctor(Microsoft.Graph.Core.Transport.IGraphResponse)
+  fullName: Microsoft.Graph.Core.Transport.GraphResponseException.GraphResponseException(Microsoft.Graph.Core.Transport.IGraphResponse)
+  nameWithType: GraphResponseException.GraphResponseException(IGraphResponse)
+- uid: Microsoft.Graph.Core.Transport.GraphResponseException.#ctor*
+  name: GraphResponseException
+  href: core_stateful/Microsoft.Graph.Core.Transport.GraphResponseException.html#Microsoft_Graph_Core_Transport_GraphResponseException__ctor_
+  commentId: Overload:Microsoft.Graph.Core.Transport.GraphResponseException.#ctor
+  isSpec: "True"
+  fullName: Microsoft.Graph.Core.Transport.GraphResponseException.GraphResponseException
+  nameWithType: GraphResponseException.GraphResponseException
+- uid: Microsoft.Graph.Core.Transport.GraphResponseException.Response
+  name: Response
+  href: core_stateful/Microsoft.Graph.Core.Transport.GraphResponseException.html#Microsoft_Graph_Core_Transport_GraphResponseException_Response
+  commentId: P:Microsoft.Graph.Core.Transport.GraphResponseException.Response
+  fullName: Microsoft.Graph.Core.Transport.GraphResponseException.Response
+  nameWithType: GraphResponseException.Response
+- uid: Microsoft.Graph.Core.Transport.GraphResponseException.Response*
+  name: Response
+  href: core_stateful/Microsoft.Graph.Core.Transport.GraphResponseException.html#Microsoft_Graph_Core_Transport_GraphResponseException_Response_
+  commentId: Overload:Microsoft.Graph.Core.Transport.GraphResponseException.Response
+  isSpec: "True"
+  fullName: Microsoft.Graph.Core.Transport.GraphResponseException.Response
+  nameWithType: GraphResponseException.Response
 - uid: Microsoft.Graph.Core.Transport.Http
   name: Microsoft.Graph.Core.Transport.Http
   href: core_stateful/Microsoft.Graph.Core.Transport.Http.html
@@ -16645,6 +16731,23 @@ references:
   fullName.vb: Microsoft.Graph.Core.Transport.IGraphResponse(Of T).Content
   nameWithType: IGraphResponse<T>.Content
   nameWithType.vb: IGraphResponse(Of T).Content
+- uid: Microsoft.Graph.Core.Transport.IGraphResponse`1.ErrorContent
+  name: ErrorContent
+  href: core_stateful/Microsoft.Graph.Core.Transport.IGraphResponse-1.html#Microsoft_Graph_Core_Transport_IGraphResponse_1_ErrorContent
+  commentId: P:Microsoft.Graph.Core.Transport.IGraphResponse`1.ErrorContent
+  fullName: Microsoft.Graph.Core.Transport.IGraphResponse<T>.ErrorContent
+  fullName.vb: Microsoft.Graph.Core.Transport.IGraphResponse(Of T).ErrorContent
+  nameWithType: IGraphResponse<T>.ErrorContent
+  nameWithType.vb: IGraphResponse(Of T).ErrorContent
+- uid: Microsoft.Graph.Core.Transport.IGraphResponse`1.ErrorContent*
+  name: ErrorContent
+  href: core_stateful/Microsoft.Graph.Core.Transport.IGraphResponse-1.html#Microsoft_Graph_Core_Transport_IGraphResponse_1_ErrorContent_
+  commentId: Overload:Microsoft.Graph.Core.Transport.IGraphResponse`1.ErrorContent
+  isSpec: "True"
+  fullName: Microsoft.Graph.Core.Transport.IGraphResponse<T>.ErrorContent
+  fullName.vb: Microsoft.Graph.Core.Transport.IGraphResponse(Of T).ErrorContent
+  nameWithType: IGraphResponse<T>.ErrorContent
+  nameWithType.vb: IGraphResponse(Of T).ErrorContent
 - uid: Microsoft.Graph.Core.Transport.IGraphResponse`1.Properties
   name: Properties
   href: core_stateful/Microsoft.Graph.Core.Transport.IGraphResponse-1.html#Microsoft_Graph_Core_Transport_IGraphResponse_1_Properties
@@ -16662,6 +16765,23 @@ references:
   fullName.vb: Microsoft.Graph.Core.Transport.IGraphResponse(Of T).Properties
   nameWithType: IGraphResponse<T>.Properties
   nameWithType.vb: IGraphResponse(Of T).Properties
+- uid: Microsoft.Graph.Core.Transport.IGraphResponse`1.ReasonPhrase
+  name: ReasonPhrase
+  href: core_stateful/Microsoft.Graph.Core.Transport.IGraphResponse-1.html#Microsoft_Graph_Core_Transport_IGraphResponse_1_ReasonPhrase
+  commentId: P:Microsoft.Graph.Core.Transport.IGraphResponse`1.ReasonPhrase
+  fullName: Microsoft.Graph.Core.Transport.IGraphResponse<T>.ReasonPhrase
+  fullName.vb: Microsoft.Graph.Core.Transport.IGraphResponse(Of T).ReasonPhrase
+  nameWithType: IGraphResponse<T>.ReasonPhrase
+  nameWithType.vb: IGraphResponse(Of T).ReasonPhrase
+- uid: Microsoft.Graph.Core.Transport.IGraphResponse`1.ReasonPhrase*
+  name: ReasonPhrase
+  href: core_stateful/Microsoft.Graph.Core.Transport.IGraphResponse-1.html#Microsoft_Graph_Core_Transport_IGraphResponse_1_ReasonPhrase_
+  commentId: Overload:Microsoft.Graph.Core.Transport.IGraphResponse`1.ReasonPhrase
+  isSpec: "True"
+  fullName: Microsoft.Graph.Core.Transport.IGraphResponse<T>.ReasonPhrase
+  fullName.vb: Microsoft.Graph.Core.Transport.IGraphResponse(Of T).ReasonPhrase
+  nameWithType: IGraphResponse<T>.ReasonPhrase
+  nameWithType.vb: IGraphResponse(Of T).ReasonPhrase
 - uid: Microsoft.Graph.Core.Transport.IGraphResponse`1.Status
   name: Status
   href: core_stateful/Microsoft.Graph.Core.Transport.IGraphResponse-1.html#Microsoft_Graph_Core_Transport_IGraphResponse_1_Status
@@ -16757,6 +16877,12 @@ references:
   commentId: F:Microsoft.Graph.Core.Transport.ResponseStatus.InternalServerError
   fullName: Microsoft.Graph.Core.Transport.ResponseStatus.InternalServerError
   nameWithType: ResponseStatus.InternalServerError
+- uid: Microsoft.Graph.Core.Transport.ResponseStatus.NoContent
+  name: NoContent
+  href: core_stateful/Microsoft.Graph.Core.Transport.ResponseStatus.html#Microsoft_Graph_Core_Transport_ResponseStatus_NoContent
+  commentId: F:Microsoft.Graph.Core.Transport.ResponseStatus.NoContent
+  fullName: Microsoft.Graph.Core.Transport.ResponseStatus.NoContent
+  nameWithType: ResponseStatus.NoContent
 - uid: Microsoft.Graph.Core.Transport.ResponseStatus.NotFound
   name: NotFound
   href: core_stateful/Microsoft.Graph.Core.Transport.ResponseStatus.html#Microsoft_Graph_Core_Transport_ResponseStatus_NotFound
@@ -16769,6 +16895,18 @@ references:
   commentId: F:Microsoft.Graph.Core.Transport.ResponseStatus.Ok
   fullName: Microsoft.Graph.Core.Transport.ResponseStatus.Ok
   nameWithType: ResponseStatus.Ok
+- uid: Microsoft.Graph.Core.Transport.ResponseStatus.RequestTimeout
+  name: RequestTimeout
+  href: core_stateful/Microsoft.Graph.Core.Transport.ResponseStatus.html#Microsoft_Graph_Core_Transport_ResponseStatus_RequestTimeout
+  commentId: F:Microsoft.Graph.Core.Transport.ResponseStatus.RequestTimeout
+  fullName: Microsoft.Graph.Core.Transport.ResponseStatus.RequestTimeout
+  nameWithType: ResponseStatus.RequestTimeout
+- uid: Microsoft.Graph.Core.Transport.ResponseStatus.ServiceUnavailable
+  name: ServiceUnavailable
+  href: core_stateful/Microsoft.Graph.Core.Transport.ResponseStatus.html#Microsoft_Graph_Core_Transport_ResponseStatus_ServiceUnavailable
+  commentId: F:Microsoft.Graph.Core.Transport.ResponseStatus.ServiceUnavailable
+  fullName: Microsoft.Graph.Core.Transport.ResponseStatus.ServiceUnavailable
+  nameWithType: ResponseStatus.ServiceUnavailable
 - uid: Microsoft.Graph.Core.Transport.ResponseStatus.Unauthorized
   name: Unauthorized
   href: core_stateful/Microsoft.Graph.Core.Transport.ResponseStatus.html#Microsoft_Graph_Core_Transport_ResponseStatus_Unauthorized
@@ -36891,3 +37029,15 @@ references:
   commentId: F:Microsoft.Graph.VoiceGender.Male
   fullName: Microsoft.Graph.VoiceGender.Male
   nameWithType: VoiceGender.Male
+- uid: Microsoft.Graph2
+  name: Microsoft.Graph
+  href: core_stateful/Microsoft.Graph.html
+  commentId: N:Microsoft.Graph
+  fullName: Microsoft.Graph
+  nameWithType: Microsoft.Graph
+- uid: Microsoft.Graph3
+  name: Microsoft.Graph
+  href: stateful/Microsoft.Graph.html
+  commentId: N:Microsoft.Graph
+  fullName: Microsoft.Graph
+  nameWithType: Microsoft.Graph

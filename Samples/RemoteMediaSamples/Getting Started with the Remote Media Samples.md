@@ -69,7 +69,7 @@ Once your App Service is published and running, you will need to send a POST req
     * From User 1 or 2's Teams client, create a Channel and add a Teams meeting to this Channel. 
     * Open this meeting in Teams, and right click the "Join Microsoft Teams Meeting" and copy the meeting hyperlink
     * Meeting uri should be in format https://teams.microsoft.com/l/meetup-join/{ThreadId}/{ThreadMessageId}?oid:{OrganizerObjectId}&tid:{TenantId}. 
-    * Copy the values \{ThreadId}, \{ThreadMessageId}, \{OrganizerObjectId} and \{TenantId} from the Meeting URL. 
+    * Copy the Meeting URL. 
 
 * Teams User ObjectID Information
 
@@ -90,13 +90,10 @@ Once your App Service is published and running, you will need to send a POST req
 	"{UserObjectId-2}"
 	],
 
-	"meetingInfo": {
-	    "organizerId": "{OrganizerObjectId}", 
-	    "threadId": "{ThreadId}",
-	    "threadMessageId": "{ThreadMessageId}", 
-	    "removeFromDefaultRoutingGroup": true,
-	    "allowConversationWithoutHost": true
-	}
+  "meetingId": "{MeetingId}",
+  "joinURL": "https://teams.microsoft.com/l/meetup-join/...",
+  "removeFromDefaultRoutingGroup": true,
+  "allowConversationWithoutHost": true
 }
 ```
 

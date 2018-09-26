@@ -11,22 +11,14 @@ namespace Sample.IncidentBot.Data
     public class JoinCallRequestData
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="JoinCallRequestData"/> class.
+        /// Gets or sets the join URL.
         /// </summary>
-        /// <param name="tenantId">The tenant id.</param>
-        /// <param name="meetingInfo">The meeting information.</param>
-        public JoinCallRequestData(string tenantId, MeetingInfo meetingInfo)
-        {
-            this.TenantId = tenantId;
-            this.MeetingInfo = meetingInfo;
-        }
+        public string JoinURL { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="JoinCallRequestData"/> class.
+        /// Gets or sets the meeting identifier.
         /// </summary>
-        private JoinCallRequestData()
-        {
-        }
+        public string MeetingId { get; set; }
 
         /// <summary>
         /// Gets or sets the tenant id.
@@ -34,8 +26,18 @@ namespace Sample.IncidentBot.Data
         public string TenantId { get; set; }
 
         /// <summary>
-        /// Gets or sets the meeting info.
+        /// Gets or sets the correlation id.
         /// </summary>
-        public MeetingInfo MeetingInfo { get; set; }
+        public string CorrelationId { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether to remove the bot from default routing group.
+        /// </summary>
+        public bool RemoveFromDefaultRoutingGroup { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether allow conversation without host.
+        /// </summary>
+        public bool AllowConversationWithoutHost { get; set; }
     }
 }

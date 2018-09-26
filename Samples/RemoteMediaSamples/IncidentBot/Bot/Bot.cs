@@ -17,6 +17,7 @@ namespace Sample.IncidentBot.Bot
     using Microsoft.Graph.StatefulClient;
     using Sample.Common.Authentication;
     using Sample.Common.Meetings;
+    using Sample.Common.OnlineMeetings;
     using Sample.IncidentBot.Data;
     using Sample.IncidentBot.IncidentStatus;
 
@@ -58,8 +59,6 @@ namespace Sample.IncidentBot.Bot
         public const string BotEndpointIncomingPromptName = "BotEndpointIncomingPrompt";
 
         private readonly IGraphLogger graphLogger;
-
-        private readonly ConcurrentDictionary<string, CallHandler> callHandlers = new ConcurrentDictionary<string, CallHandler>();
 
         private readonly LinkedList<string> callbackLogs = new LinkedList<string>();
 
@@ -130,7 +129,14 @@ namespace Sample.IncidentBot.Bot
                 },
                 Loop = 1,
             };
+
+            this.OnlineMeetings = new OnlineMeetingHelper(authProvider, options.PlaceCallEndpointUrl);
         }
+
+        /// <summary>
+        /// Gets the collection of call handlers.
+        /// </summary>
+        public ConcurrentDictionary<string, CallHandler> CallHandlers { get; } = new ConcurrentDictionary<string, CallHandler>();
 
         /// <summary>
         /// Gets the prompts dictionary.
@@ -144,6 +150,14 @@ namespace Sample.IncidentBot.Bot
         /// The client.
         /// </value>
         public IStatefulClient Client { get; }
+
+        /// <summary>
+        /// Gets the online meeting.
+        /// </summary>
+        /// <value>
+        /// The online meeting.
+        /// </value>
+        public OnlineMeetingHelper OnlineMeetings { get; }
 
         /// <summary>
         /// Gets the incident manager.
@@ -176,20 +190,25 @@ namespace Sample.IncidentBot.Bot
         /// <returns>The task for await.</returns>
         public async Task<ICall> RaiseIncidentAsync(IncidentRequestData incidentRequestData)
         {
+            // A tracking id for logging purposes. Helps identify this call in logs.
+            var correlationId = string.IsNullOrEmpty(incidentRequestData.CorrelationId) ? Guid.NewGuid() : new Guid(incidentRequestData.CorrelationId);
+
             string incidentId = Guid.NewGuid().ToString();
 
             var incidentStatusData = new IncidentStatusData(incidentId, incidentRequestData);
 
             var incident = this.IncidentStatusManager.AddIncident(incidentId, incidentStatusData);
 
-            var joinCallRequestData = new JoinCallRequestData(incidentRequestData.TenantId, incidentRequestData.MeetingInfo);
-            var botMeetingCall = await this.JoinCallAsync(joinCallRequestData).ConfigureAwait(false);
-            this.AddCallToHandlers(botMeetingCall, new IncidentCallContext(IncidentCallType.BotMeeting, incidentId));
+            var botMeetingCall = await this.JoinCallAsync(incidentRequestData, incidentId).ConfigureAwait(false);
 
             foreach (var objectId in incidentRequestData.ObjectIds)
             {
-                var makeCallRequestData = new MakeCallRequestData(incidentRequestData.TenantId, objectId);
-                var responderCall = await this.MakeCallAsync(makeCallRequestData).ConfigureAwait(false);
+                var makeCallRequestData =
+                    new MakeCallRequestData(
+                        incidentRequestData.TenantId,
+                        objectId,
+                        "Application".Equals(incidentRequestData.ResponderType, StringComparison.OrdinalIgnoreCase));
+                var responderCall = await this.MakeCallAsync(makeCallRequestData, correlationId).ConfigureAwait(false);
                 this.AddCallToHandlers(responderCall, new IncidentCallContext(IncidentCallType.ResponderNotification, incidentId));
             }
 
@@ -200,14 +219,30 @@ namespace Sample.IncidentBot.Bot
         /// Joins the call asynchronously.
         /// </summary>
         /// <param name="joinCallBody">The join call body.</param>
+        /// <param name="incidentId">Incident Id.</param>
         /// <returns>The <see cref="ICall"/> that was requested to join.</returns>
-        public async Task<ICall> JoinCallAsync(JoinCallRequestData joinCallBody)
+        public async Task<ICall> JoinCallAsync(JoinCallRequestData joinCallBody, string incidentId = "")
         {
             // A tracking id for logging purposes. Helps identify this call in logs.
-            var correlationId = Guid.NewGuid();
+            var correlationId = string.IsNullOrEmpty(joinCallBody.CorrelationId) ? Guid.NewGuid() : new Guid(joinCallBody.CorrelationId);
 
-            (var chatInfo, var meetingInfo) = JoinInfo.ParseJoinURL(joinCallBody.MeetingInfo.JoinURL);
-            meetingInfo.AllowConversationWithoutHost = joinCallBody.MeetingInfo.AllowConversationWithoutHost;
+            Microsoft.Graph.MeetingInfo meetingInfo;
+            ChatInfo chatInfo;
+            if (!string.IsNullOrWhiteSpace(joinCallBody.MeetingId))
+            {
+                var onlineMeeting = await this.OnlineMeetings
+                    .GetOnlineMeetingAsync(joinCallBody.TenantId, joinCallBody.MeetingId, correlationId)
+                    .ConfigureAwait(false);
+
+                meetingInfo = onlineMeeting.MeetingInfo;
+                meetingInfo.AllowConversationWithoutHost = joinCallBody.AllowConversationWithoutHost;
+                chatInfo = onlineMeeting.ChatInfo;
+            }
+            else
+            {
+                (chatInfo, meetingInfo) = JoinInfo.ParseJoinURL(joinCallBody.JoinURL);
+                meetingInfo.AllowConversationWithoutHost = joinCallBody.AllowConversationWithoutHost;
+            }
 
             var mediaToPrefetch = new List<MediaInfo>();
             foreach (var m in this.MediaMap)
@@ -217,12 +252,14 @@ namespace Sample.IncidentBot.Bot
 
             var joinParams = new JoinMeetingParameters(chatInfo, meetingInfo, new[] { Modality.Audio }, mediaToPrefetch)
             {
-                RemoveFromDefaultAudioRoutingGroup = joinCallBody.MeetingInfo.RemoveFromDefaultRoutingGroup,
+                RemoveFromDefaultAudioRoutingGroup = joinCallBody.RemoveFromDefaultRoutingGroup,
                 TenantId = joinCallBody.TenantId,
                 CorrelationId = correlationId,
             };
 
             var statefulCall = await this.Client.Calls().AddAsync(joinParams).ConfigureAwait(false);
+
+            this.AddCallToHandlers(statefulCall, new IncidentCallContext(IncidentCallType.BotMeeting, incidentId));
 
             this.graphLogger.Info($"Join Call complete: {statefulCall.Id}");
 
@@ -233,8 +270,9 @@ namespace Sample.IncidentBot.Bot
         /// Makes outgoing call asynchronously.
         /// </summary>
         /// <param name="makeCallBody">The outgoing call request body.</param>
+        /// <param name="correlationId">Correlation id.</param>
         /// <returns>The <see cref="Task"/>.</returns>
-        public async Task<ICall> MakeCallAsync(MakeCallRequestData makeCallBody)
+        public async Task<ICall> MakeCallAsync(MakeCallRequestData makeCallBody, Guid correlationId)
         {
             if (makeCallBody == null)
             {
@@ -251,19 +289,30 @@ namespace Sample.IncidentBot.Bot
                 throw new ArgumentNullException(nameof(makeCallBody.ObjectId));
             }
 
-            // A tracking id for logging purposes.  Helps identify this call in logs.
-            var correlationId = Guid.NewGuid();
-
-            var target = new ParticipantInfo
-            {
-                Identity = new IdentitySet
+            var target =
+                makeCallBody.IsApplication ?
+                new ParticipantInfo
                 {
-                    User = new Identity
+                    Identity = new IdentitySet
                     {
-                        Id = makeCallBody.ObjectId,
+                        Application = new Identity
+                        {
+                            Id = makeCallBody.ObjectId,
+                            DisplayName = $"Responder {makeCallBody.ObjectId}",
+                        },
                     },
-                },
-            };
+                }
+                :
+                new ParticipantInfo
+                {
+                    Identity = new IdentitySet
+                    {
+                        User = new Identity
+                        {
+                            Id = makeCallBody.ObjectId,
+                        },
+                    },
+                };
 
             var mediaToPrefetch = new List<MediaInfo>();
             foreach (var m in this.MediaMap)
@@ -329,7 +378,7 @@ namespace Sample.IncidentBot.Bot
         /// </returns>
         public async Task TryDeleteCallAsync(string callLegId)
         {
-            this.callHandlers.TryGetValue(callLegId, out CallHandler handler);
+            this.CallHandlers.TryGetValue(callLegId, out CallHandler handler);
 
             if (handler == null)
             {
@@ -435,7 +484,7 @@ namespace Sample.IncidentBot.Bot
         {
             foreach (var call in args.RemovedResources)
             {
-                if (this.callHandlers.TryRemove(call.Id, out CallHandler handler))
+                if (this.CallHandlers.TryRemove(call.Id, out CallHandler handler))
                 {
                     handler.Dispose();
                 }
@@ -481,7 +530,7 @@ namespace Sample.IncidentBot.Bot
                     throw new NotSupportedException($"Invalid call type in incident call context: {incidentCallContext.CallType}");
             }
 
-            this.callHandlers[call.Id] = callHandler;
+            this.CallHandlers[call.Id] = callHandler;
         }
 
         /// <summary>
@@ -498,7 +547,7 @@ namespace Sample.IncidentBot.Bot
         /// </exception>
         private CallHandler GetHandlerOrThrow(string callLegId)
         {
-            if (!this.callHandlers.TryGetValue(callLegId, out CallHandler handler))
+            if (!this.CallHandlers.TryGetValue(callLegId, out CallHandler handler))
             {
                 throw new KeyNotFoundException($"call ({callLegId}) not found");
             }

@@ -1,7 +1,7 @@
-﻿# Media bot on Azure Service Fabric
+﻿# Introduction
 
 ## About
-The Hue Bot sample guides you through building, deploying and testing an application hosted media bot on Service Fabric. This sample demonstrates how bots can interact with users by enabling real-time video capabilities.
+The Hue Bot sample guides you through building, deploying and testing an application hosted media bot. This sample demonstrates how bots can interact with users by enabling real-time video capabilities.
 
 ## Getting Started
 
@@ -17,40 +17,16 @@ The Hue Bot sample guides you through building, deploying and testing an applica
 
 ### Prerequisites
 
-1. Install the prerequisites.
+* Install the prerequisites:
     * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
     * [Azure Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started)
     * [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
     * [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.8.1)
     * [PostMan](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop)
 
-1. Open the HueBotSF.sln in Visual Studio 2017 and search/replace these values:
-    * `%AppId%` and `%AppSecret%` that you obtained during application registration.
-    * `huebotsf02.westus.cloudapp.azure.com` with your service URL
-    * Certificate thumbprint `ABC0000000000000000000000000000000000CBA` with your certificate.
+* Set up SSL certificate:
 
-### Setup Cluster
-
-1. Right-click HueBotSF and select "Publish".
-
-    Connection Endpoint, select "&lt;Create new cluster&gt;"
-    
-    ![Publish](Images/Publish.png)
-
-    For initial bootstrap, use only 1 node. For production, you need at least 3 nodes.
-
-    ![Cluster1](Images/Cluster1.png)
-
-    Media bots require a minimum of 2 cores.
-
-    ![Cluster2](Images/Cluster2.png)
-
-    Open ports 8000 (media) and 9443 (signaling).
-
-    ![Cluster3](Images/Cluster3.png)
-
-1. Setup SSL certificate.
-    Create a certificate for your service.  This certificate should not be a self-signed certificate.
+    Create a certificate for your service. This certificate should not be a self-signed certificate.
 
     Upload the certificate to your key-vault instance.
 
@@ -58,19 +34,42 @@ The Hue Bot sample guides you through building, deploying and testing an applica
 
     ![ConfigureCert1](Images/ConfigureCert2.png)
 
-    Copy the Secret Identifier
+    Copy the Secret Identifier to be used later.
 
     ![ConfigureCert1](Images/ConfigureCert3.png)
 
-    Provision the SSL certificate as a secondary certificate to your cluster.  Please note that this step takes a long time to complete.
+    Install the certificate to the LocalMachine/My certificate folder on your dev machine.
 
+### Code
+
+* Open the HueBot.sln in Visual Studio 2017 and search/replace these values:
+    * `%AppId%` and `%AppSecret%` that you obtained during application registration.
+    * `huebotsf02` with your cluster name.
+    * Certificate thumbprint `ABC0000000000000000000000000000000000CBA` with your certificate.
+
+### Deploy
+
+
+1. Set up SF cluster:
+
+    Replace the strings marked with %replace_with_<*>%, and then run the following script.
     ```cmd
-     PS C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.9> Connect-AzureRmAccount
-     PS C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.9> Select-AzureRmSubscription -SubscriptionId "<your-Azure-Subscription-id>"
-     PS C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.9> Add-AzureRmServiceFabricClusterCertificate -ResourceGroupName 'huebotsf02_RG' -Name 'huebotsf02' -SecretIdentifier 'https://huebotsf02...'
+        $subscriptionName="%replace_with_azure_subscription_name%"
+        $resourceGroupName="huebotsf02"
+        $keyvaultName="%replace_with_azure_keyvault_name%"
+        $parameterFilePath="%replace_with_path_to_repos_folder%\service-shared_platform_samples\LocalMediaSamples\HueBot\HueBot\ARM_Deployment\AzureDeploy.Parameters.json"
+        $templateFilePath="%replace_with_path_to_repos_folder%\service-shared_platform_samples\LocalMediaSamples\HueBot\HueBot\ARM_Deployment\AzureDeploy.json"
+        $secretID="%replace_with_secret_id_of_certificate_from_keyvault%"
+
+        Connect-AzureRmAccount
+        Select-AzureRmSubscription -SubscriptionName $subscriptionName
+
+        Set-AzureRmKeyVaultAccessPolicy -VaultName $keyvaultName -EnabledForDeployment
+        New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -SecretIdentifier $secretId -TemplateFile $templateFilePath -ParameterFile $parameterFilePath
     ```
 
-1. Update the code to the new SSL certificate and publish.
+
+1. Publish HueBot from VS:
 
     ![Publish](Images/Publish.png)
 
@@ -90,7 +89,7 @@ The Hue Bot sample guides you through building, deploying and testing an applica
 
 1. Open HueBot.postman_collection.json in PostMan.  Edit the variables and set ServiceName to your bot service URL.
 
-    1. Edit the `Join Meeting` payload with the join URL.  The bot will join the call and show up on the Teams client.
-    1. Run `List Calls` to find out the currently active calls.  If the previous step failed for any reason, this will be empty.
+    1. Edit the `Join Meeting` payload with the join URL.  The bot will join the call and show up on the Teams client. Note the `callHandlerPort` in the response.
+    1. Open the `List Calls` request and change the port in the URL to the one returned in `callHandlerPort` to find out the currently active calls on that VM.  If the previous step failed for any reason, this will be empty.
     1. Click on the `hue` link in the List Calls output, edit it to be a `Put`, mark it as JSON body and put "green" as the payload. That will change the hue.
     1. Click on the `call` link and do a `GET` on it to get the state of the call. Calling `DELETE` on that link will remove the bot from the call.

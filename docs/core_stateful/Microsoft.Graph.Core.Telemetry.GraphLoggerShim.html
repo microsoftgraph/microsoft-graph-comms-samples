@@ -90,14 +90,14 @@ attaches some extra data to each log request.</p>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><a class="xref" href="Microsoft.Graph.Core.Common.ObjectRoot.html">ObjectRoot</a></div>
     <div class="level2"><span class="xref">GraphLoggerShim</span></div>
   </div>
   <div classs="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="Microsoft.Graph.Core.Telemetry.IGraphLogger.html">IGraphLogger</a></div>
-    <div><span class="xref">System.IObservable</span>&lt;<a class="xref" href="Microsoft.Graph.Core.Telemetry.LogEvent.html">LogEvent</a>&gt;</div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="Microsoft.Graph.Core.Telemetry.LogEvent.html">LogEvent</a>&gt;</div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -105,25 +105,25 @@ attaches some extra data to each log request.</p>
       <a class="xref" href="Microsoft.Graph.Core.Common.ObjectRoot.html#Microsoft_Graph_Core_Common_ObjectRoot_GraphLogger">ObjectRoot.GraphLogger</a>
     </div>
     <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
     </div>
     <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
     </div>
     <div>
-      <span class="xref">System.Object.GetHashCode()</span>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
     </div>
     <div>
-      <span class="xref">System.Object.GetType()</span>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
     </div>
     <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
     </div>
     <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
     </div>
     <div>
-      <span class="xref">System.Object.ToString()</span>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.Core.Telemetry.html">Microsoft.Graph.Core.Telemetry</a></h6>
@@ -160,25 +160,25 @@ attaches some extra data to each log request.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><span class="parametername">component</span></td>
         <td><p>The component.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Guid</span>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.guid">Guid</a>&gt;</td>
         <td><span class="parametername">correlationId</span></td>
         <td><p>The correlation identifier. If null, shim will use the correlationId from GraphLogger</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Object</span>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;</td>
         <td><span class="parametername">properties</span></td>
         <td><p>The properties.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Microsoft.Graph.Core.Telemetry.HttpLogging.Filters.BaseFilter.html">BaseFilter</a>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Microsoft.Graph.Core.Telemetry.HttpLogging.Filters.BaseFilter.html">BaseFilter</a>&gt;</td>
         <td><span class="parametername">obfuscationFilters</span></td>
         <td><p>The obfuscation filters</p>
 </td>
@@ -189,9 +189,7 @@ attaches some extra data to each log request.</p>
   </h3>
   <a id="Microsoft_Graph_Core_Telemetry_GraphLoggerShim_CorrelationId_" data-uid="Microsoft.Graph.Core.Telemetry.GraphLoggerShim.CorrelationId*"></a>
   <h4 id="Microsoft_Graph_Core_Telemetry_GraphLoggerShim_CorrelationId" data-uid="Microsoft.Graph.Core.Telemetry.GraphLoggerShim.CorrelationId">CorrelationId</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the correlation identifier. This is used
-to track correlation between multiple requests for one scenario.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -207,15 +205,14 @@ to track correlation between multiple requests for one scenario.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Guid</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.guid">Guid</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <a id="Microsoft_Graph_Core_Telemetry_GraphLoggerShim_DiagnosticLevel_" data-uid="Microsoft.Graph.Core.Telemetry.GraphLoggerShim.DiagnosticLevel*"></a>
   <h4 id="Microsoft_Graph_Core_Telemetry_GraphLoggerShim_DiagnosticLevel" data-uid="Microsoft.Graph.Core.Telemetry.GraphLoggerShim.DiagnosticLevel">DiagnosticLevel</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the diagnostic level for the logger.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -231,17 +228,14 @@ to track correlation between multiple requests for one scenario.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Diagnostics.TraceLevel</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracelevel">TraceLevel</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <a id="Microsoft_Graph_Core_Telemetry_GraphLoggerShim_LogicalThreadId_" data-uid="Microsoft.Graph.Core.Telemetry.GraphLoggerShim.LogicalThreadId*"></a>
   <h4 id="Microsoft_Graph_Core_Telemetry_GraphLoggerShim_LogicalThreadId" data-uid="Microsoft.Graph.Core.Telemetry.GraphLoggerShim.LogicalThreadId">LogicalThreadId</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the logical thread identifier.
-This id is used for tracking the flow of one request throughout
-the lifetime until it ends.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -257,16 +251,14 @@ the lifetime until it ends.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.UInt32</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uint32">UInt32</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <a id="Microsoft_Graph_Core_Telemetry_GraphLoggerShim_ObfuscationConfiguration_" data-uid="Microsoft.Graph.Core.Telemetry.GraphLoggerShim.ObfuscationConfiguration*"></a>
   <h4 id="Microsoft_Graph_Core_Telemetry_GraphLoggerShim_ObfuscationConfiguration" data-uid="Microsoft.Graph.Core.Telemetry.GraphLoggerShim.ObfuscationConfiguration">ObfuscationConfiguration</h4>
-  <div class="markdown level1 summary"><p>Gets the obfuscation configuration.
-This is used to obfuscate PII and other data.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -289,8 +281,7 @@ This is used to obfuscate PII and other data.</p>
   </table>
   <a id="Microsoft_Graph_Core_Telemetry_GraphLoggerShim_Properties_" data-uid="Microsoft.Graph.Core.Telemetry.GraphLoggerShim.Properties*"></a>
   <h4 id="Microsoft_Graph_Core_Telemetry_GraphLoggerShim_Properties" data-uid="Microsoft.Graph.Core.Telemetry.GraphLoggerShim.Properties">Properties</h4>
-  <div class="markdown level1 summary"><p>Gets the properties of the logger.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -306,7 +297,7 @@ This is used to obfuscate PII and other data.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IReadOnlyDictionary</span>&lt;<span class="xref">System.Type</span>, <span class="xref">System.Object</span>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.type">Type</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -315,8 +306,7 @@ This is used to obfuscate PII and other data.</p>
   </h3>
   <a id="Microsoft_Graph_Core_Telemetry_GraphLoggerShim_Log_" data-uid="Microsoft.Graph.Core.Telemetry.GraphLoggerShim.Log*"></a>
   <h4 id="Microsoft_Graph_Core_Telemetry_GraphLoggerShim_Log_System_Diagnostics_TraceLevel_System_String_System_String_System_Guid_System_Guid_Microsoft_Graph_Core_Telemetry_LogEventType_System_Collections_Generic_IEnumerable_System_Object__System_String_System_String_System_Int32_" data-uid="Microsoft.Graph.Core.Telemetry.GraphLoggerShim.Log(System.Diagnostics.TraceLevel,System.String,System.String,System.Guid,System.Guid,Microsoft.Graph.Core.Telemetry.LogEventType,System.Collections.Generic.IEnumerable{System.Object},System.String,System.String,System.Int32)">Log(TraceLevel, String, String, Guid, Guid, LogEventType, IEnumerable&lt;Object&gt;, String, String, Int32)</h4>
-  <div class="markdown level1 summary"><p>Log messages classified as the provided trace level.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -333,64 +323,54 @@ This is used to obfuscate PII and other data.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Diagnostics.TraceLevel</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracelevel">TraceLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The trace level.</p>
-</td>
+        <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><span class="parametername">message</span></td>
-        <td><p>A composite format string that includes one or more format items.</p>
-</td>
+        <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><span class="parametername">component</span></td>
-        <td><p>The component in which log is created</p>
-</td>
+        <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.Guid</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.guid">Guid</a></td>
         <td><span class="parametername">correlationId</span></td>
-        <td><p>The correlation identifier.</p>
-</td>
+        <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.Guid</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.guid">Guid</a></td>
         <td><span class="parametername">requestId</span></td>
-        <td><p>The request identifier.</p>
-</td>
+        <td></td>
       </tr>
       <tr>
         <td><a class="xref" href="Microsoft.Graph.Core.Telemetry.LogEventType.html">LogEventType</a></td>
         <td><span class="parametername">eventType</span></td>
-        <td><p>Log event type</p>
-</td>
+        <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Object</span>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;</td>
         <td><span class="parametername">properties</span></td>
-        <td><p>Extra properties for the log event</p>
-</td>
+        <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><span class="parametername">memberName</span></td>
-        <td><p>Calling function.</p>
-</td>
+        <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><span class="parametername">filePath</span></td>
-        <td><p>File name where code is located.</p>
-</td>
+        <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.Int32</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
         <td><span class="parametername">lineNumber</span></td>
-        <td><p>Line number where code is located.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -405,8 +385,7 @@ This is used to obfuscate PII and other data.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="Microsoft.Graph.Core.Telemetry.LogEvent.html">LogEvent</a></td>
-        <td><p>Log Event object.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -429,7 +408,7 @@ This is used to obfuscate PII and other data.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.IObserver</span>&lt;<a class="xref" href="Microsoft.Graph.Core.Telemetry.LogEvent.html">LogEvent</a>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iobserver-1">IObserver</a>&lt;<a class="xref" href="Microsoft.Graph.Core.Telemetry.LogEvent.html">LogEvent</a>&gt;</td>
         <td><span class="parametername">observer</span></td>
         <td></td>
       </tr>
@@ -445,7 +424,7 @@ This is used to obfuscate PII and other data.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.IDisposable</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -455,7 +434,7 @@ This is used to obfuscate PII and other data.</p>
       <a class="xref" href="Microsoft.Graph.Core.Telemetry.IGraphLogger.html">IGraphLogger</a>
   </div>
   <div>
-      <span class="xref">System.IObservable&lt;T&gt;</span>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iobservable-1">System.IObservable&lt;T&gt;</a>
   </div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
