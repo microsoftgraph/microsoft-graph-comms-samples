@@ -47,7 +47,7 @@ namespace Sample.IncidentBot.Http
 
             try
             {
-                await this.bot.MakeCallAsync(makeCallBody).ConfigureAwait(false);
+                await this.bot.MakeCallAsync(makeCallBody, Guid.NewGuid()).ConfigureAwait(false);
                 return this.Ok();
             }
             catch (Exception e)

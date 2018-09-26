@@ -6,9 +6,11 @@
 namespace Sample.IncidentBot.Http
 {
     using System;
+    using System.Collections.Generic;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Graph.Core;
+    using Microsoft.Graph.Core.Telemetry;
     using Sample.IncidentBot.Bot;
     using Sample.IncidentBot.Data;
 
@@ -17,6 +19,8 @@ namespace Sample.IncidentBot.Http
     /// </summary>
     public class JoinCallController : Controller
     {
+        private readonly IGraphLogger graphLogger;
+
         private Bot bot;
 
         /// <summary>
@@ -25,6 +29,8 @@ namespace Sample.IncidentBot.Http
         /// <param name="bot">The bot.</param>
         public JoinCallController(Bot bot)
         {
+            this.graphLogger = bot.Client.GraphLogger.CreateShim(nameof(JoinCallController));
+
             this.bot = bot;
         }
 
@@ -47,6 +53,65 @@ namespace Sample.IncidentBot.Http
             {
                 var call = await this.bot.JoinCallAsync(joinCallBody).ConfigureAwait(false);
                 return this.Ok(call.Id);
+            }
+            catch (Exception e)
+            {
+                return this.Exception(e);
+            }
+        }
+
+        /// <summary>
+        /// The on get calls.
+        /// </summary>
+        /// <returns>
+        /// The action result.
+        /// </returns>
+        [HttpGet]
+        [Route(HttpRouteConstants.CallsPrefix + "/")]
+        public ActionResult<List<Dictionary<string, string>>> OnGetCalls()
+        {
+            this.graphLogger.Info($"Getting calls");
+
+            if (this.bot.CallHandlers.IsEmpty)
+            {
+                return null;
+            }
+
+            var calls = new List<Dictionary<string, string>>();
+            foreach (var callHandler in this.bot.CallHandlers.Values)
+            {
+                var call = callHandler.Call;
+                var values = new Dictionary<string, string>
+                {
+                    { "legId", call.Id },
+                    { "correlationId", call.CorrelationId.ToString() },
+                };
+                calls.Add(values);
+            }
+
+            return calls;
+        }
+
+        /// <summary>
+        /// End the call.
+        /// </summary>
+        /// <param name="callLegId">
+        /// Id of the call to end.
+        /// </param>
+        /// <returns>
+        /// The action result.
+        /// </returns>
+        [HttpDelete]
+        [Route(HttpRouteConstants.CallRoutePrefix)]
+        public async Task<IActionResult> OnEndCallAsync(string callLegId)
+        {
+            this.graphLogger.Info($"Ending call {callLegId}");
+
+            try
+            {
+                await this.bot.TryDeleteCallAsync(callLegId).ConfigureAwait(false);
+
+                return this.Ok();
             }
             catch (Exception e)
             {

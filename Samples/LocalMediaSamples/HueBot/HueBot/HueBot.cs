@@ -26,6 +26,8 @@ namespace HueBot
     internal sealed class HueBot : StatefulService
     {
         private IGraphLogger logger;
+        private BotOptions botOptions;
+        private Bot bot;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HueBot"/> class.
@@ -49,6 +51,15 @@ namespace HueBot
         /// <returns>The collection of listeners.</returns>
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
         {
+            var config = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .Build();
+
+            this.botOptions = config.GetSection("Bot").Get<BotOptions>();
+
+            this.bot = new Bot(this.botOptions, this.logger, this.Context);
+
             return new[]
             {
                 new ServiceReplicaListener(
@@ -56,11 +67,6 @@ namespace HueBot
                     new HttpSysCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
                     {
                         ServiceEventSource.Current.ServiceMessage(serviceContext, $"Starting web listener on {url}");
-
-                        var config = new ConfigurationBuilder()
-                            .SetBasePath(Directory.GetCurrentDirectory())
-                            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                            .Build();
 
                         // Reference https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-communication-aspnetcore
                         return new WebHostBuilder()
@@ -77,8 +83,8 @@ namespace HueBot
                                     .AddSingleton(this.logger)
                                     .AddSingleton(this.StateManager)
                                     .AddSingleton(serviceContext)
-                                    .AddSingleton(config.GetSection("Bot").Get<BotOptions>())
-                                    .AddSingleton<Bot>()
+                                    .AddSingleton(this.botOptions)
+                                    .AddSingleton(this.bot)
                                     .AddMvc())
                             .Configure(app => app
                                     .UseDeveloperExceptionPage() // Disable this on production environments.
@@ -88,6 +94,38 @@ namespace HueBot
                             .Build();
                         }),
                     "ServiceEndpoint"),
+                new ServiceReplicaListener(
+                    serviceContext =>
+                    new HttpSysCommunicationListener(serviceContext, "SignalingPort", (url, listener) =>
+                    {
+                        ServiceEventSource.Current.ServiceMessage(serviceContext, $"Starting web listener on {url}");
+
+                        // Reference https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-communication-aspnetcore
+                        return new WebHostBuilder()
+                            .UseHttpSys(options =>
+                            {
+                                // Copied from https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/httpsys
+                                options.Authentication.Schemes = AuthenticationSchemes.None;
+                                options.Authentication.AllowAnonymous = true;
+                                options.MaxConnections = 1000;
+                                options.MaxRequestBodySize = 30000000;
+                            })
+                            .ConfigureServices(
+                                services => services
+                                    .AddSingleton(this.logger)
+                                    .AddSingleton(this.StateManager)
+                                    .AddSingleton(serviceContext)
+                                    .AddSingleton(this.botOptions)
+                                    .AddSingleton(this.bot)
+                                    .AddMvc())
+                            .Configure(app => app
+                                    .UseDeveloperExceptionPage() // Disable this on production environments.
+                                    .UseMvc())
+                            .UseConfiguration(config)
+                            .UseUrls(url)
+                            .Build();
+                        }),
+                    "SignalingPort"),
             };
         }
     }

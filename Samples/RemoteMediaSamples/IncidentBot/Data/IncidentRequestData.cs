@@ -11,7 +11,7 @@ namespace Sample.IncidentBot.Data
     /// <summary>
     /// The incident request data.
     /// </summary>
-    public class IncidentRequestData
+    public class IncidentRequestData : JoinCallRequestData
     {
         /// <summary>
         /// Gets or sets the incident name.
@@ -24,18 +24,15 @@ namespace Sample.IncidentBot.Data
         public DateTime Time { get; set; }
 
         /// <summary>
-        /// Gets or sets the tenant id.
-        /// </summary>
-        public string TenantId { get; set; }
-
-        /// <summary>
         /// Gets or sets the user object ids.
         /// </summary>
         public IEnumerable<string> ObjectIds { get; set; }
 
         /// <summary>
-        /// Gets or sets the meeting info.
+        /// Gets or sets a value indicating whether the responders are applications or users.
+        /// Value can be Application (For testing purpose) or User.
+        /// By default is User.
         /// </summary>
-        public MeetingInfo MeetingInfo { get; set; }
+        public string ResponderType { get; set; }
     }
 }

@@ -5,10 +5,11 @@
 
 namespace Sample.HueBot.Controllers
 {
-    using System;
+    using System.Fabric;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
     using Sample.HueBot.Bot;
+    using Sample.HueBot.Extensions;
 
     /// <summary>
     /// JoinCallController is a third-party controller that can be called directly by the client or test app to trigger the bot to join a call.
@@ -16,27 +17,39 @@ namespace Sample.HueBot.Controllers
     public class JoinCallController : Controller
     {
         private Bot bot;
+        private StatefulServiceContext statefulServiceContext;
+        private BotOptions botOptions;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="JoinCallController"/> class.
         /// </summary>
         /// <param name="bot">Bot instance.</param>
-        public JoinCallController(Bot bot)
+        /// <param name="statefulServiceContext">The service context.</param>
+        /// <param name="botOptions">The bot options.</param>
+        public JoinCallController(Bot bot, StatefulServiceContext statefulServiceContext, BotOptions botOptions)
         {
             this.bot = bot;
+            this.statefulServiceContext = statefulServiceContext;
+            this.botOptions = botOptions;
         }
 
         /// <summary>
         /// Joins the call asynchronously.
         /// </summary>
         /// <param name="joinCallBody">The join call body.</param>
-        /// <returns>A <see cref="Task{TResult}"/> representing the result of the asynchronous operation.</returns>
+        /// <returns>
+        /// A <see cref="Task{TResult}" /> representing the result of the asynchronous operation.
+        /// </returns>
         [HttpPost]
         [Route("joinCall")]
         public async Task<IActionResult> JoinCallAsync([FromBody] JoinCallBody joinCallBody)
         {
             var call = await this.bot.JoinCallAsync(joinCallBody).ConfigureAwait(false);
-            return this.Ok(call.Id);
+            return this.Ok(new JoinCallResponseBody
+            {
+                CallId = call.Id,
+                CallHandlerPort = this.botOptions.BotBaseUrl.Port + this.statefulServiceContext.NodeInstance(),
+            });
         }
 
         /// <summary>
@@ -77,6 +90,22 @@ namespace Sample.HueBot.Controllers
             /// Gets or sets a value indicating whether to remove the bot from default routing group.
             /// </summary>
             public bool RemoveFromDefaultRoutingGroup { get; set; }
+        }
+
+        /// <summary>
+        /// The join call response body.
+        /// </summary>
+        public class JoinCallResponseBody
+        {
+            /// <summary>
+            /// Gets or sets the call identifier for the newly created call.
+            /// </summary>
+            public string CallId { get; set; }
+
+            /// <summary>
+            /// Gets or sets the port to use to interact with this call (specific to this node).
+            /// </summary>
+            public int CallHandlerPort { get; set; }
         }
     }
 }

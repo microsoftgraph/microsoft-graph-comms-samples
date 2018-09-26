@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="HueBotSFType" ApplicationTypeVersion="2.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="HueBot_MinReplicaSetSize" DefaultValue="1" />
@@ -12,8 +12,9 @@
     <ServiceManifestRef ServiceManifestName="HueBotPkg" ServiceManifestVersion="1.0.1" />
     <ConfigOverrides />
     <Policies>
+      <EndpointBindingPolicy EndpointRef="ServiceEndpoint" CertificateRef="HueBotCert" />
+      <EndpointBindingPolicy EndpointRef="SignalingPort" CertificateRef="HueBotCert" />
       <!-- Needed for installing media binaries -->
-      <!--<EndpointBindingPolicy EndpointRef="ServiceEndpoint" CertificateRef="HueBotCert" />-->
       <RunAsPolicy CodePackageRef="Code" UserRef="SetupAdminUser" EntryPointType="Setup" />
     </Policies>
   </ServiceManifestImport>

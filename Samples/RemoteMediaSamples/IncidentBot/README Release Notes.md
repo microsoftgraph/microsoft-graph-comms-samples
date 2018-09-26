@@ -1,4 +1,11 @@
-﻿# Version 0.7
+﻿# Version 0.8
+- Updated to latest version of SDK, which brings in latest protocol changes.
+- Updated the approach to join a meeting.
+- Provide a way to query on going calls.
+- Provide a way to terminate the on going calls.
+- Provide a way to call/raise alert to application. It's for first party app only now.
+
+# Version 0.7
 - Updated to latest version of SDK, which brings in latest protocol changes.
 
 # Version 0.6
