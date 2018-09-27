@@ -1,0 +1,444 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class SerializationQueue&lt;T&gt;
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class SerializationQueue&lt;T&gt;
+   ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.SerializationQueue`1">
+  
+  
+  <h1 id="Microsoft_Rtc_Internal_MultiPointController_WorkItemQueue_SerializationQueue_1" data-uid="Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.SerializationQueue`1" class="text-break">Class SerializationQueue&lt;T&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>Ensures that all items in the queue are processed in a
+serialized manner. Not all items are necessarily processed 
+by the same thread.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">SerializationQueue&lt;T&gt;</span></div>
+      <div class="level2"><a class="xref" href="Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.WorkitemQueue.html">WorkitemQueue</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.html">Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue</a></h6>
+  <h6><strong>Assembly</strong>: Microsoft.Skype.Bots.Media.dll</h6>
+  <h5 id="Microsoft_Rtc_Internal_MultiPointController_WorkItemQueue_SerializationQueue_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class SerializationQueue&lt;T&gt;
+
+    where T : IWorkitem</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>A Workitem class</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="Microsoft_Rtc_Internal_MultiPointController_WorkItemQueue_SerializationQueue_1__ctor_" data-uid="Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.SerializationQueue`1.#ctor*"></a>
+  <h4 id="Microsoft_Rtc_Internal_MultiPointController_WorkItemQueue_SerializationQueue_1__ctor_System_Boolean_" data-uid="Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.SerializationQueue`1.#ctor(System.Boolean)">SerializationQueue(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the SerializationQueue class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SerializationQueue(bool processAsync)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">processAsync</span></td>
+        <td><p>true if processing should always use a thread pool thread; 
+false if processing should be attempted on the current thread.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="Microsoft_Rtc_Internal_MultiPointController_WorkItemQueue_SerializationQueue_1_Count_" data-uid="Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.SerializationQueue`1.Count*"></a>
+  <h4 id="Microsoft_Rtc_Internal_MultiPointController_WorkItemQueue_SerializationQueue_1_Count" data-uid="Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.SerializationQueue`1.Count">Count</h4>
+  <div class="markdown level1 summary"><p>Return count of items in the queue.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Rtc_Internal_MultiPointController_WorkItemQueue_SerializationQueue_1_ProcessAsync_" data-uid="Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.SerializationQueue`1.ProcessAsync*"></a>
+  <h4 id="Microsoft_Rtc_Internal_MultiPointController_WorkItemQueue_SerializationQueue_1_ProcessAsync" data-uid="Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.SerializationQueue`1.ProcessAsync">ProcessAsync</h4>
+  <div class="markdown level1 summary"><p>Returns whether the queue was configured to process
+async or not.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ProcessAsync { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p>Returns whether the queue was configured to process
+async or not.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Microsoft_Rtc_Internal_MultiPointController_WorkItemQueue_SerializationQueue_1_Enqueue_" data-uid="Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.SerializationQueue`1.Enqueue*"></a>
+  <h4 id="Microsoft_Rtc_Internal_MultiPointController_WorkItemQueue_SerializationQueue_1_Enqueue__0_" data-uid="Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.SerializationQueue`1.Enqueue(`0)">Enqueue(T)</h4>
+  <div class="markdown level1 summary"><p>Enqueues an item for later processing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Enqueue(T item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>The item to enqueue.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Rtc_Internal_MultiPointController_WorkItemQueue_SerializationQueue_1_EnqueueAndProcess_" data-uid="Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.SerializationQueue`1.EnqueueAndProcess*"></a>
+  <h4 id="Microsoft_Rtc_Internal_MultiPointController_WorkItemQueue_SerializationQueue_1_EnqueueAndProcess__0_" data-uid="Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.SerializationQueue`1.EnqueueAndProcess(`0)">EnqueueAndProcess(T)</h4>
+  <div class="markdown level1 summary"><p>Enqueues an item and starts the queue processing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void EnqueueAndProcess(T item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>The item to enqueue and process.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Rtc_Internal_MultiPointController_WorkItemQueue_SerializationQueue_1_Process_" data-uid="Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.SerializationQueue`1.Process*"></a>
+  <h4 id="Microsoft_Rtc_Internal_MultiPointController_WorkItemQueue_SerializationQueue_1_Process" data-uid="Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.SerializationQueue`1.Process">Process()</h4>
+  <div class="markdown level1 summary"><p>Processes the items in the queue. Items added while processing
+takes place will also be picked up, Start processing using the 
+queue processing flag.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Process()</code></pre>
+  </div>
+  <a id="Microsoft_Rtc_Internal_MultiPointController_WorkItemQueue_SerializationQueue_1_Process_" data-uid="Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.SerializationQueue`1.Process*"></a>
+  <h4 id="Microsoft_Rtc_Internal_MultiPointController_WorkItemQueue_SerializationQueue_1_Process_System_Boolean_" data-uid="Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.SerializationQueue`1.Process(System.Boolean)">Process(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Processes the items in the queue. Items added while processing
+takes place will also be picked up. Start process using the same 
+thread or work thread depends on processAsync.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Process(bool processAsync)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">processAsync</span></td>
+        <td><p>To override the queue processing flag to process the workitem.
+true if processing should always use a thread pool thread; 
+false if processing should be attempted on the current thread.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Rtc_Internal_MultiPointController_WorkItemQueue_SerializationQueue_1_ProcessItems_" data-uid="Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.SerializationQueue`1.ProcessItems*"></a>
+  <h4 id="Microsoft_Rtc_Internal_MultiPointController_WorkItemQueue_SerializationQueue_1_ProcessItems" data-uid="Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.SerializationQueue`1.ProcessItems">ProcessItems()</h4>
+  <div class="markdown level1 summary"><p>Processes the items in the queue.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract bool ProcessItems()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p>true if the processing is completed; false otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Rtc_Internal_MultiPointController_WorkItemQueue_SerializationQueue_1_ResumeProcessing_" data-uid="Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.SerializationQueue`1.ResumeProcessing*"></a>
+  <h4 id="Microsoft_Rtc_Internal_MultiPointController_WorkItemQueue_SerializationQueue_1_ResumeProcessing" data-uid="Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.SerializationQueue`1.ResumeProcessing">ResumeProcessing()</h4>
+  <div class="markdown level1 summary"><p>Resumes processing the items in the queue. Items added while processing
+takes place will also be processed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void ResumeProcessing()</code></pre>
+  </div>
+  <a id="Microsoft_Rtc_Internal_MultiPointController_WorkItemQueue_SerializationQueue_1_SetProcessingStateIdle_" data-uid="Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.SerializationQueue`1.SetProcessingStateIdle*"></a>
+  <h4 id="Microsoft_Rtc_Internal_MultiPointController_WorkItemQueue_SerializationQueue_1_SetProcessingStateIdle" data-uid="Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.SerializationQueue`1.SetProcessingStateIdle">SetProcessingStateIdle()</h4>
+  <div class="markdown level1 summary"><p>Sets the processing state to idle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetProcessingStateIdle()</code></pre>
+  </div>
+  <a id="Microsoft_Rtc_Internal_MultiPointController_WorkItemQueue_SerializationQueue_1_TryDequeue_" data-uid="Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.SerializationQueue`1.TryDequeue*"></a>
+  <h4 id="Microsoft_Rtc_Internal_MultiPointController_WorkItemQueue_SerializationQueue_1_TryDequeue__0__" data-uid="Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.SerializationQueue`1.TryDequeue(`0@)">TryDequeue(out T)</h4>
+  <div class="markdown level1 summary"><p>Tries to dequeue an item from the queue for processing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool TryDequeue(out T item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>The dequeued item.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p>true if the item was successfully dequeued; false otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

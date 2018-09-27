@@ -54,7 +54,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/calling/IVR.html",
-          "hash": "2Zaehd/Wm0uEeqbNERPddg=="
+          "hash": "Ec3ppKKDr6q+zaNH44mWRg=="
         }
       },
       "is_incremental": false,
@@ -122,6 +122,18 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "bot_media/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/index.html",
+          "hash": "4bjN/z/8uuowGo3HyKr7vA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "calling/index.md",
       "output": {
         ".html": {
@@ -138,7 +150,7 @@
       "output": {
         ".html": {
           "relative_path": "core/index.html",
-          "hash": "jc7W4aOfNUvs6Xky4QCwVw=="
+          "hash": "l0+rGVN1fhRbQgBQnGaxHA=="
         }
       },
       "is_incremental": false,
@@ -162,7 +174,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "7G6xlvzuKY+o/cP81xxs0Q=="
+          "hash": "0TdeYxd5Q6yq0ABAsAIIDw=="
         }
       },
       "is_incremental": false,
@@ -174,7 +186,1075 @@
       "output": {
         ".html": {
           "relative_path": "media/index.html",
-          "hash": "sCdyNlkqBzLxMEY5DQfbWQ=="
+          "hash": "OTj1a7xUo5WC45aUTBXAOg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.IWorkitem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.IWorkitem.html",
+          "hash": "SbLE/Mu18g/+dYbaMH/3ZA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.SerializationQueue-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.SerializationQueue-1.html",
+          "hash": "CUTFt/C3M0K26gcjKbTTXA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.WorkitemQueue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.WorkitemQueue.html",
+          "hash": "fY7Lwm1u0bwmc9pVYLlmeg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Rtc.Internal.MultiPointController.WorkItemQueue.html",
+          "hash": "KhUFIu7rklLNpIQx8i5XYw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.AudioFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioFormat.html",
+          "hash": "948xiuS4KWJCNcCBAYFa5Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.AudioLowOnFramesEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioLowOnFramesEventArgs.html",
+          "hash": "319jJHSbymYl8M1MpDUgZA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.AudioMediaBuffer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioMediaBuffer.html",
+          "hash": "p7OA+wDASll2eOYUJr/5Wg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.AudioMediaReceivedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioMediaReceivedEventArgs.html",
+          "hash": "Ifuo4HPVg6yhjFiFAj52Jg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.AudioSendStatusChangedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioSendStatusChangedEventArgs.html",
+          "hash": "NlnWlzQDP6IMo3Lks2ukcg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.AudioSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioSettings.html",
+          "hash": "aVeKCRuD6/9gaZxdZvXHaQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.AudioSocket.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioSocket.html",
+          "hash": "lTcK1EuU1rKTZfY4O6jpXw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.AudioSocketSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioSocketSettings.html",
+          "hash": "odbKsPg1eew3rwVC+gJbvw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.AudioVideoFramePlayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioVideoFramePlayer.html",
+          "hash": "Km08lLQg5RArQHWxF6ytQg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.AudioVideoFramePlayerSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioVideoFramePlayerSettings.html",
+          "hash": "GEh1UnsBTWvyDRbXH39s3w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.DataMediaBuffer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.DataMediaBuffer.html",
+          "hash": "fbW0r5vwSS4cYa2YRGf2xw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.DataMediaReceivedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.DataMediaReceivedEventArgs.html",
+          "hash": "2dBP2B0jFhMz/U94flTthg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.DataSendStatusChangedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.DataSendStatusChangedEventArgs.html",
+          "hash": "fzVZY8Ae8PXaiCAWj8MliQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.DataSocket.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.DataSocket.html",
+          "hash": "PB+hDwNZfMCJ8O1XPc++BA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.DataSocketSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.DataSocketSettings.html",
+          "hash": "3j6FtGo8gnjrKKMquKa0dQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.DataType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.DataType.html",
+          "hash": "7lXlJ5O0m25fK82inbkrpg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.DominantSpeakerChangedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.DominantSpeakerChangedEventArgs.html",
+          "hash": "v9/5oIPtoUOf9c/zVYZoJw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.IAudioSocket.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.IAudioSocket.html",
+          "hash": "bbVczd9ttqWMo86ceqxwEQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.IAudioVideoFramePlayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.IAudioVideoFramePlayer.html",
+          "hash": "RWokQMScv1d3gHTlVbMkGg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.IDataSocket.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.IDataSocket.html",
+          "hash": "OsdbiMtXQ8M+6uXTQEh9ow=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.IMediaPlatform.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.IMediaPlatform.html",
+          "hash": "LWYoMb5xWfU+1myaxjL6YQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.IVideoSocket.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.IVideoSocket.html",
+          "hash": "A7UhuwDudp4di144J+Y8Pg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.LowOnFramesEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.LowOnFramesEventArgs.html",
+          "hash": "geI9yYYYmfwNLw3Wpmr6tg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.MediaPlatform.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.MediaPlatform.html",
+          "hash": "QEmSpqDDvhGWqO5BwoJKGw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.MediaPlatformFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.MediaPlatformFactory.html",
+          "hash": "nCBmbLOEOz6t8w+22ae2xA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.MediaPlatformInstanceSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.MediaPlatformInstanceSettings.html",
+          "hash": "azUkNuvkQSKhZ+BpJo71Mw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.MediaPlatformSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.MediaPlatformSettings.html",
+          "hash": "rcFZtuaMLZWuOw7XBIK2mQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.MediaReceiveStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.MediaReceiveStatus.html",
+          "hash": "hm9b7qm79dIQcJ2tboCjiQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.MediaSendStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.MediaSendStatus.html",
+          "hash": "iNmcGgkm2ObSXri3S1MR1A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.MediaType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.MediaType.html",
+          "hash": "2Y01elXmXSwaiXqGI2fxQg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.PerfCounterConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.PerfCounterConfiguration.html",
+          "hash": "jiI9TC+WSr40KPT51607yA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.PortRange.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.PortRange.html",
+          "hash": "zYUEvDB9sOF7qOZKz7Dgbw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.SkypeMediaException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.SkypeMediaException.html",
+          "hash": "IG9V6SF+ebRJDpxCSg9E7g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.StreamDirection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.StreamDirection.html",
+          "hash": "pw/TS0PNJOd2MF1IvtElOg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.ToneId.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.ToneId.html",
+          "hash": "vynlIKHEy0mhnH3p3CVm8A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.ToneReceivedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.ToneReceivedEventArgs.html",
+          "hash": "vpG0Xd/A6ACUC2qCkFAJSQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoColorFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoColorFormat.html",
+          "hash": "+EON7NymUdYjXX56+k20gg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoFormat.html",
+          "hash": "8jnm4KQ7AyaMu6Rmv68mbQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoKeyFrameNeededEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoKeyFrameNeededEventArgs.html",
+          "hash": "+/pFjNG0bG0Vru/f5tmEbA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoLowOnFramesEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoLowOnFramesEventArgs.html",
+          "hash": "d0fvqK+VtAH6fsm/9u76Hg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoMediaBuffer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoMediaBuffer.html",
+          "hash": "FKuqYve0YSbe4LHBqTC2EA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoMediaReceivedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoMediaReceivedEventArgs.html",
+          "hash": "dGrYsRb1I3+S+DvCwl6qQA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoReceiveStatusChangedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoReceiveStatusChangedEventArgs.html",
+          "hash": "c4CfQ5YboMIwqiiWTB95xQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoResolution.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoResolution.html",
+          "hash": "/yE2dDZsz91msstgM+oNhg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoSendCapability.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoSendCapability.html",
+          "hash": "8Ld3tG+M148WcPTQwRdp8A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoSendStatusChangedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoSendStatusChangedEventArgs.html",
+          "hash": "sMcOLFsWZ7aI8Mr6xd3+aQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoSettings.html",
+          "hash": "mCSV8PX8Bbd98XALdhJrww=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoSinkEncodingFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoSinkEncodingFormat.html",
+          "hash": "FEop+oFvMspX0ayASvV4wg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoSocket.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoSocket.html",
+          "hash": "BORP9Gb0IsczMUxbLPrtOA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoSocketSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoSocketSettings.html",
+          "hash": "drDJf9P4IPE8Xkex8xPUOA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.html",
+          "hash": "n3ZUxbm9TPdBgYiiwDldoQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.AriaLoggingConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.AriaLoggingConfiguration.html",
+          "hash": "HAjgZy23rtUWELa2hOwhXA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.AudioFileSourcePlayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.AudioFileSourcePlayer.html",
+          "hash": "ev5b5RrEAq3yxMbJNG3iqQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.AudioFormatSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.AudioFormatSettings.html",
+          "hash": "aK6kvo2xxuJVG93UGTU5IQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.AudioPlaybackSpeed.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.AudioPlaybackSpeed.html",
+          "hash": "pQaKzKC6vcfRkdI4kI63Lw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.ClsLogger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.ClsLogger.html",
+          "hash": "goqc/v2zhncDUgR7HXcEvQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.ClsLoggingConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.ClsLoggingConfiguration.html",
+          "hash": "hq1UpL57E9KhD03Kd04zWw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.ConfigurationChangedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.ConfigurationChangedEventArgs.html",
+          "hash": "4dVFMRYWNdPKxFKK7SJrVQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.FileSource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.FileSource.html",
+          "hash": "fNK4eXqrO2P801/sOdV8BA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.FileSourceExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.FileSourceExtension.html",
+          "hash": "zoVsA1X2YZjZfB/MH0t4jQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.FileSourceFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.FileSourceFormat.html",
+          "hash": "ukfrZXyy7jKakIplw720Nw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.FileSourcePlayerEndOfFileEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.FileSourcePlayerEndOfFileEventArgs.html",
+          "hash": "Jf83BsBR2xIW9rgbgYgK6Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.FileSourceSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.FileSourceSettings.html",
+          "hash": "Bk0KhqDhnSObd2DbELU5fQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.FileSourceType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.FileSourceType.html",
+          "hash": "ctKiLAHZYxSWXGxZEHvI4g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.FormatOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.FormatOption.html",
+          "hash": "xiFcd/lSyk7+21vgPUyITA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.Helper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.Helper.html",
+          "hash": "y2OfE9WY0kS8Xs7zMLEB5g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.IConfigurationManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.IConfigurationManager.html",
+          "hash": "o1CfcictkQgPAF1NzKFHEQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.IFileSource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.IFileSource.html",
+          "hash": "7PMBl64rqAduw7nKYJxn1Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.IFileSourcePlayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.IFileSourcePlayer.html",
+          "hash": "n6G/KtSQRuuo275D21w8kg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.ILogger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.ILogger.html",
+          "hash": "2h+35MLG3zDRb7LCLLY/MQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.ITelemetryWriter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.ITelemetryWriter.html",
+          "hash": "nIcFGDy7Zw+mfB0xApK2hw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.InternalMediaPlatform.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.InternalMediaPlatform.html",
+          "hash": "5AQWlno5J6dBNDFMhPL+Mg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.LogLevel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.LogLevel.html",
+          "hash": "ktFQW2xuijRdpjU8hOozNA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.Logger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.Logger.html",
+          "hash": "hAJp0yQJ+bSPbKi2UknP4Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.LoggingConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.LoggingConfiguration.html",
+          "hash": "Nr2Rg2iIpDZjma//54og7g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.MediaConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.MediaConfiguration.html",
+          "hash": "VMcM+zEL58erbNPjSeHCVw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.PlaySettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.PlaySettings.html",
+          "hash": "YWvVDzr5WwMTw1c36nKRwA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.PlayerStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.PlayerStatus.html",
+          "hash": "ozdxkvNLsyeMKUGkr12/XQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.TelemetryConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.TelemetryConfiguration.html",
+          "hash": "DqMwqsOc2vX0f+09sVCm8w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.VideoFormatSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.VideoFormatSettings.html",
+          "hash": "tbaWkEma2D+WKeRB+EzV1w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.VideoFormatWithoutBitRateComparer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.VideoFormatWithoutBitRateComparer.html",
+          "hash": "UeyR4LWfkwKr9QkukIbhCg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Bots.Media.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Bots.Media.html",
+          "hash": "me8bwdfXKNxvzgKaA0A14w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Media.Services.Common.ArgumentVerifier.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Media.Services.Common.ArgumentVerifier.html",
+          "hash": "+VbFPnXnlfzZX+/l/k9vgw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Internal.Media.Services.Common.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Internal.Media.Services.Common.html",
+          "hash": "GKULipdeJ4HGAjKLntbRNA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "obj/bot_media/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/toc.html",
+          "hash": "wIZ1mt337EDxPugpamqLRg=="
         }
       },
       "is_incremental": false,
@@ -7182,7 +8262,7 @@
       "output": {
         ".html": {
           "relative_path": "media/Microsoft.Graph.Calls.Media.AudioSendBuffer.html",
-          "hash": "1ZMmuAVHVWLuRVIjn8O0NA=="
+          "hash": "xspEbw+Wf6zR1X4njnjB3A=="
         }
       },
       "is_incremental": false,
@@ -7206,7 +8286,7 @@
       "output": {
         ".html": {
           "relative_path": "media/Microsoft.Graph.Calls.Media.ILocalMediaSession.html",
-          "hash": "o2yUt2+kZVm8JEHCzl4lqQ=="
+          "hash": "wzKzmCIW0CUaN8U6xjfLfA=="
         }
       },
       "is_incremental": false,
@@ -7218,7 +8298,7 @@
       "output": {
         ".html": {
           "relative_path": "media/Microsoft.Graph.Calls.Media.StatefulClientBuilderExtensions.html",
-          "hash": "oTLUSaFKSEvM+jRyX105bw=="
+          "hash": "yAJqBFUOf/BPHbgXGCgKeA=="
         }
       },
       "is_incremental": false,
@@ -7230,7 +8310,7 @@
       "output": {
         ".html": {
           "relative_path": "media/Microsoft.Graph.Calls.Media.StatefulClientExtensions.html",
-          "hash": "uHVtMox/wCdMiD/fcw/hXw=="
+          "hash": "le0huOwI29WfDoBXEuvLUg=="
         }
       },
       "is_incremental": false,
@@ -7242,7 +8322,7 @@
       "output": {
         ".html": {
           "relative_path": "media/Microsoft.Graph.Calls.Media.VideoSendBuffer.html",
-          "hash": "KxmntfVpYOj+DynUT+/WBw=="
+          "hash": "MC6vV3WTPkQ9tsV2qm65mA=="
         }
       },
       "is_incremental": false,
@@ -7686,7 +8766,7 @@
       "output": {
         ".html": {
           "relative_path": "stateful/index.html",
-          "hash": "v6zJ9yAfJ1gP1m3816CeHw=="
+          "hash": "v/ZNmSzXdrJZfTgKKgprKw=="
         }
       },
       "is_incremental": false,
@@ -7698,7 +8778,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "Sa5H27RpwBZKoh/NjXPv2Q=="
+          "hash": "WF5jtKrcINPpzY0zRid8XQ=="
         }
       },
       "is_incremental": false,
