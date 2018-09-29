@@ -91,11 +91,35 @@
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">LoggingExtensions</span></div>
   </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.Core.Telemetry.html">Microsoft.Graph.Core.Telemetry</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.Core.Stateful.dll</h6>
   <h5 id="Microsoft_Graph_Core_Telemetry_LoggingExtensions_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class LoggingExtensions : Object</code></pre>
+    <pre><code class="lang-csharp hljs">public static class LoggingExtensions</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
@@ -210,7 +234,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ILogger CreateILogger(this IGraphLogger logger, string component = null, Guid correlationId = null, LogEventType eventType, IEnumerable&lt;object&gt; properties = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ILogger CreateILogger(this IGraphLogger logger, string component = null, Guid correlationId = default(Guid), LogEventType eventType = LogEventType.Trace, IEnumerable&lt;object&gt; properties = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -279,7 +303,7 @@ appends the specified content to each log request.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IGraphLogger CreateShim(this IGraphLogger logger, string component = null, Nullable&lt;Guid&gt; correlationId = null, IEnumerable&lt;object&gt; properties = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IGraphLogger CreateShim(this IGraphLogger logger, string component = null, Guid? correlationId = default(Guid? ), IEnumerable&lt;object&gt; properties = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -340,7 +364,7 @@ appends the specified content to each log request.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static LogEvent Error(this IGraphLogger logger, Exception exception, string message = &quot;&quot;, string component = null, Guid correlationId = null, string memberName = null, string filePath = null, int lineNumber = 0)</code></pre>
+    <pre><code class="lang-csharp hljs">public static LogEvent Error(this IGraphLogger logger, Exception exception, string message = &quot;&quot;, string component = null, Guid correlationId = default(Guid), string memberName = null, string filePath = null, int lineNumber = 0)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -425,7 +449,7 @@ appends the specified content to each log request.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static LogEvent Error(this IGraphLogger logger, string message, string component = null, Guid correlationId = null, string memberName = null, string filePath = null, int lineNumber = 0)</code></pre>
+    <pre><code class="lang-csharp hljs">public static LogEvent Error(this IGraphLogger logger, string message, string component = null, Guid correlationId = default(Guid), string memberName = null, string filePath = null, int lineNumber = 0)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -613,7 +637,6 @@ The flatten support one level property lookup only.</p>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static T GetTypedProperty&lt;T&gt;(this LogEvent logEvent)
-
     where T : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -673,7 +696,7 @@ The flatten support one level property lookup only.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static LogEvent Info(this IGraphLogger logger, string message, string component = null, Guid correlationId = null, string memberName = null, string filePath = null, int lineNumber = 0)</code></pre>
+    <pre><code class="lang-csharp hljs">public static LogEvent Info(this IGraphLogger logger, string message, string component = null, Guid correlationId = default(Guid), string memberName = null, string filePath = null, int lineNumber = 0)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -752,7 +775,7 @@ The flatten support one level property lookup only.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static LogEvent Log(this IGraphLogger logger, TraceLevel level, Exception exception, string message = null, string component = null, Guid correlationId = null, string memberName = null, string filePath = null, int lineNumber = 0)</code></pre>
+    <pre><code class="lang-csharp hljs">public static LogEvent Log(this IGraphLogger logger, TraceLevel level, Exception exception, string message = null, string component = null, Guid correlationId = default(Guid), string memberName = null, string filePath = null, int lineNumber = 0)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -843,7 +866,7 @@ The flatten support one level property lookup only.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static LogEvent LogHttpMessage(this IGraphLogger logger, TraceLevel level, TransactionDirection direction, HttpTraceType traceType, string url, string method, string obfuscatedContent, IEnumerable&lt;KeyValuePair&lt;string, IEnumerable&lt;string&gt;&gt;&gt; headers, int responseCode = 200, string component = null, Nullable&lt;long&gt; responseTime = null, Guid correlationId = null, Guid requestId = null, string memberName = null, string filePath = null, int lineNumber = 0)</code></pre>
+    <pre><code class="lang-csharp hljs">public static LogEvent LogHttpMessage(this IGraphLogger logger, TraceLevel level, TransactionDirection direction, HttpTraceType traceType, string url, string method, string obfuscatedContent, IEnumerable&lt;KeyValuePair&lt;string, IEnumerable&lt;string&gt;&gt;&gt; headers, int responseCode = 200, string component = null, long? responseTime = default(long? ), Guid correlationId = default(Guid), Guid requestId = default(Guid), string memberName = null, string filePath = null, int lineNumber = 0)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -976,7 +999,7 @@ The flatten support one level property lookup only.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static LogEvent Metric(this IGraphLogger logger, string metricNamespace, string metricName, long rawData, Dictionary&lt;string, string&gt; dimensions, bool addDefaultDimension = true, string component = null, Guid correlationId = null, string memberName = null, string filePath = null, int lineNumber = 0)</code></pre>
+    <pre><code class="lang-csharp hljs">public static LogEvent Metric(this IGraphLogger logger, string metricNamespace, string metricName, long rawData, Dictionary&lt;string, string&gt; dimensions, bool addDefaultDimension = true, string component = null, Guid correlationId = default(Guid), string memberName = null, string filePath = null, int lineNumber = 0)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1275,7 +1298,7 @@ The flatten support one level property lookup only.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static LogEvent Verbose(this IGraphLogger logger, string message, string component = null, Guid correlationId = null, string memberName = null, string filePath = null, int lineNumber = 0)</code></pre>
+    <pre><code class="lang-csharp hljs">public static LogEvent Verbose(this IGraphLogger logger, string message, string component = null, Guid correlationId = default(Guid), string memberName = null, string filePath = null, int lineNumber = 0)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1354,7 +1377,7 @@ The flatten support one level property lookup only.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static LogEvent Warn(this IGraphLogger logger, Exception exception, string message = &quot;&quot;, string component = null, Guid correlationId = null, string memberName = null, string filePath = null, int lineNumber = 0)</code></pre>
+    <pre><code class="lang-csharp hljs">public static LogEvent Warn(this IGraphLogger logger, Exception exception, string message = &quot;&quot;, string component = null, Guid correlationId = default(Guid), string memberName = null, string filePath = null, int lineNumber = 0)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1439,7 +1462,7 @@ The flatten support one level property lookup only.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static LogEvent Warn(this IGraphLogger logger, string message, string component = null, Guid correlationId = null, string memberName = null, string filePath = null, int lineNumber = 0)</code></pre>
+    <pre><code class="lang-csharp hljs">public static LogEvent Warn(this IGraphLogger logger, string message, string component = null, Guid correlationId = default(Guid), string memberName = null, string filePath = null, int lineNumber = 0)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">

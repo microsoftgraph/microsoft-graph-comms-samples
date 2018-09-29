@@ -115,7 +115,7 @@ The content sent using this is not parsed or logged.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;HttpResponseMessage&gt; SendRawHttpRequestAsync(HttpRequestMessage httpRequest, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;HttpResponseMessage&gt; SendRawHttpRequestAsync(HttpRequestMessage httpRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">

@@ -110,6 +110,27 @@
     <div>
       <a class="xref" href="Microsoft.Graph.BaseRequestBuilder.html#Microsoft_Graph_BaseRequestBuilder_RequestUrl">BaseRequestBuilder.RequestUrl</a>
     </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.html">Microsoft.Graph</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.CoreSDK.dll</h6>
@@ -290,7 +311,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ICallCancelMediaProcessingRequestBuilder CancelMediaProcessing(Nullable&lt;bool&gt; all = null, string clientContext = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public ICallCancelMediaProcessingRequestBuilder CancelMediaProcessing(bool? all = default(bool? ), string clientContext = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -468,7 +489,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ICallRecognizeRequestBuilder Recognize(IEnumerable&lt;Prompt&gt; prompts = null, Nullable&lt;bool&gt; bargeInAllowed = null, string culture = null, Nullable&lt;int&gt; initialSilenceTimeoutInSeconds = null, Nullable&lt;int&gt; interDigitTimeoutInSeconds = null, IEnumerable&lt;RecognitionOption&gt; choices = null, CollectDigits collectDigits = null, string clientContext = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public ICallRecognizeRequestBuilder Recognize(IEnumerable&lt;Prompt&gt; prompts = null, bool? bargeInAllowed = default(bool? ), string culture = null, int? initialSilenceTimeoutInSeconds = default(int? ), int? interDigitTimeoutInSeconds = default(int? ), IEnumerable&lt;RecognitionOption&gt; choices = null, CollectDigits collectDigits = null, string clientContext = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -545,7 +566,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ICallRecordRequestBuilder Record(IEnumerable&lt;Prompt&gt; prompts = null, Nullable&lt;bool&gt; bargeInAllowed = null, Nullable&lt;int&gt; initialSilenceTimeoutInSeconds = null, Nullable&lt;int&gt; maxSilenceTimeoutInSeconds = null, Nullable&lt;int&gt; maxRecordDurationInSeconds = null, Nullable&lt;bool&gt; playBeep = null, Nullable&lt;bool&gt; streamWhileRecording = null, IEnumerable&lt;string&gt; stopTones = null, string clientContext = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public ICallRecordRequestBuilder Record(IEnumerable&lt;Prompt&gt; prompts = null, bool? bargeInAllowed = default(bool? ), int? initialSilenceTimeoutInSeconds = default(int? ), int? maxSilenceTimeoutInSeconds = default(int? ), int? maxRecordDurationInSeconds = default(int? ), bool? playBeep = default(bool? ), bool? streamWhileRecording = default(bool? ), IEnumerable&lt;string&gt; stopTones = null, string clientContext = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -627,7 +648,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ICallRedirectRequestBuilder Redirect(IEnumerable&lt;InvitationParticipantInfo&gt; targets, Nullable&lt;CallDisposition&gt; targetDisposition = null, Nullable&lt;int&gt; timeout = null, Nullable&lt;bool&gt; maskCallee = null, Nullable&lt;bool&gt; maskCaller = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public ICallRedirectRequestBuilder Redirect(IEnumerable&lt;InvitationParticipantInfo&gt; targets, CallDisposition? targetDisposition = default(CallDisposition? ), int? timeout = default(int? ), bool? maskCallee = default(bool? ), bool? maskCaller = default(bool? ))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -689,7 +710,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ICallRejectRequestBuilder Reject(Nullable&lt;RejectReason&gt; reason = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public ICallRejectRequestBuilder Reject(RejectReason? reason = default(RejectReason? ))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">

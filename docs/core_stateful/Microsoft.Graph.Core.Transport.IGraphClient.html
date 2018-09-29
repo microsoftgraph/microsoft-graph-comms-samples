@@ -131,8 +131,7 @@ richer experience when working with complex objects.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;IGraphResponse&gt; SendAsync&lt;TRequest&gt;(IGraphRequest&lt;TRequest&gt; request, CancellationToken cancellationToken = null)
-
+    <pre><code class="lang-csharp hljs">Task&lt;IGraphResponse&gt; SendAsync&lt;TRequest&gt;(IGraphRequest&lt;TRequest&gt; request, CancellationToken cancellationToken = default(CancellationToken))
     where TRequest : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -198,8 +197,7 @@ richer experience when working with complex objects.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;IGraphResponse&lt;TResponse&gt;&gt; SendAsync&lt;TRequest, TResponse&gt;(IGraphRequest&lt;TRequest&gt; request, CancellationToken cancellationToken = null)
-
+    <pre><code class="lang-csharp hljs">Task&lt;IGraphResponse&lt;TResponse&gt;&gt; SendAsync&lt;TRequest, TResponse&gt;(IGraphRequest&lt;TRequest&gt; request, CancellationToken cancellationToken = default(CancellationToken))
     where TRequest : class where TResponse : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>

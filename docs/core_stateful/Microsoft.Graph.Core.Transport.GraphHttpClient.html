@@ -97,6 +97,30 @@
     <div><a class="xref" href="Microsoft.Graph.Core.Transport.IGraphHttpClient.html">IGraphHttpClient</a></div>
     <div><a class="xref" href="Microsoft.Graph.Core.Transport.IGraphClient.html">IGraphClient</a></div>
   </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.Core.Transport.html">Microsoft.Graph.Core.Transport</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.Core.Stateful.dll</h6>
   <h5 id="Microsoft_Graph_Core_Transport_GraphHttpClient_syntax">Syntax</h5>
@@ -410,8 +434,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;IGraphResponse&gt; SendAsync&lt;T&gt;(IGraphRequest&lt;T&gt; graphRequest, CancellationToken cancellationToken = null)
-
+    <pre><code class="lang-csharp hljs">public Task&lt;IGraphResponse&gt; SendAsync&lt;T&gt;(IGraphRequest&lt;T&gt; graphRequest, CancellationToken cancellationToken = default(CancellationToken))
     where T : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -472,8 +495,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;IGraphResponse&lt;T2&gt;&gt; SendAsync&lt;T1, T2&gt;(IGraphRequest&lt;T1&gt; graphRequest, CancellationToken cancellationToken = null)
-
+    <pre><code class="lang-csharp hljs">public Task&lt;IGraphResponse&lt;T2&gt;&gt; SendAsync&lt;T1, T2&gt;(IGraphRequest&lt;T1&gt; graphRequest, CancellationToken cancellationToken = default(CancellationToken))
     where T1 : class where T2 : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -542,7 +564,6 @@ not retry in case of error response returned from the request.</p>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual Task&lt;IGraphResponse&lt;T2&gt;&gt; SendHttpRequestAsync&lt;T1, T2&gt;(IGraphRequest&lt;T1&gt; graphRequest, CancellationToken cancellationToken)
-
     where T1 : class where T2 : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -614,7 +635,7 @@ The content sent using this is not parsed or logged.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;HttpResponseMessage&gt; SendRawHttpRequestAsync(HttpRequestMessage httpRequest, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;HttpResponseMessage&gt; SendRawHttpRequestAsync(HttpRequestMessage httpRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">

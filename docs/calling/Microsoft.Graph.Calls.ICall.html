@@ -86,6 +86,12 @@
   <div class="markdown level0 summary"><p>The stateful call interface.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable.dispose#System_IDisposable_Dispose">IDisposable.Dispose()</a>
+    </div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.Calls.html">Microsoft.Graph.Calls</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.Calls.dll</h6>
   <h5 id="Microsoft_Graph_Calls_ICall_syntax">Syntax</h5>
@@ -248,7 +254,7 @@ This is used only for Local Media Scenarios.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task AnswerAsync(MediaConfig mediaConfig, IEnumerable&lt;Modality&gt; acceptedModalities = null, string callbackUri = null, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">Task AnswerAsync(MediaConfig mediaConfig, IEnumerable&lt;Modality&gt; acceptedModalities = null, string callbackUri = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -315,7 +321,7 @@ the ongoing media operations.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task CancelMediaProcessingAsync(bool all = true, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">Task CancelMediaProcessingAsync(bool all = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -367,7 +373,7 @@ specific operation (PlayPromptAsync, etc).</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task ChangeScreenSharingRoleAsync(ScreenSharingRole role, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">Task ChangeScreenSharingRoleAsync(ScreenSharingRole role, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -416,7 +422,7 @@ specific operation (PlayPromptAsync, etc).</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task DeleteAsync(CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">Task DeleteAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -462,7 +468,7 @@ ICallCollection.OnUpdated</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task MuteAsync(CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">Task MuteAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -506,7 +512,7 @@ The mute notification will come in on ICallParticipant.OnUpdated</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task PlayPromptAsync(IEnumerable&lt;MediaPrompt&gt; prompts, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">Task PlayPromptAsync(IEnumerable&lt;MediaPrompt&gt; prompts, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -571,7 +577,7 @@ The mute notification will come in on ICallParticipant.OnUpdated</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;RecordOperationResult&gt; RecordAsync(Nullable&lt;int&gt; maxRecordDurationInSeconds = null, Nullable&lt;int&gt; initialSilenceTimeoutInSeconds = null, Nullable&lt;int&gt; maxSilenceTimeoutInSeconds = null, Nullable&lt;bool&gt; bargeInAllowed = null, Nullable&lt;bool&gt; playBeep = null, IEnumerable&lt;Prompt&gt; prompts = null, IEnumerable&lt;string&gt; stopTones = null, Action&lt;string&gt; recordingStreamFile = null, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;RecordOperationResult&gt; RecordAsync(int? maxRecordDurationInSeconds = default(int? ), int? initialSilenceTimeoutInSeconds = default(int? ), int? maxSilenceTimeoutInSeconds = default(int? ), bool? bargeInAllowed = default(bool? ), bool? playBeep = default(bool? ), IEnumerable&lt;Prompt&gt; prompts = null, IEnumerable&lt;string&gt; stopTones = null, Action&lt;string&gt; recordingStreamFile = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -662,7 +668,7 @@ The mute notification will come in on ICallParticipant.OnUpdated</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task RedirectAsync(IEnumerable&lt;InvitationParticipantInfo&gt; targets, Nullable&lt;CallDisposition&gt; targetDisposition = null, Nullable&lt;int&gt; timeout = null, Nullable&lt;bool&gt; maskCallee = null, Nullable&lt;bool&gt; maskCaller = null, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">Task RedirectAsync(IEnumerable&lt;InvitationParticipantInfo&gt; targets, CallDisposition? targetDisposition = default(CallDisposition? ), int? timeout = default(int? ), bool? maskCallee = default(bool? ), bool? maskCaller = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -738,7 +744,7 @@ canceled.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task RejectAsync(Nullable&lt;RejectReason&gt; rejectReason = null, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">Task RejectAsync(RejectReason? rejectReason = default(RejectReason? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -789,7 +795,7 @@ This allows you to be notified when the user presses keys on a
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task SubscribeToToneAsync(CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">Task SubscribeToToneAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -833,7 +839,7 @@ The DTMF notifications will come on ICall.OnUpdated</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task TransferAsync(InvitationParticipantInfo target, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">Task TransferAsync(InvitationParticipantInfo target, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -885,7 +891,7 @@ ICall.OnUpdated</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task UnmuteAsync(CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">Task UnmuteAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -930,7 +936,7 @@ asynchronously. This metadata is visible to all participants.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task UpdateMetadataAsync(string metadata, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">Task UpdateMetadataAsync(string metadata, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">

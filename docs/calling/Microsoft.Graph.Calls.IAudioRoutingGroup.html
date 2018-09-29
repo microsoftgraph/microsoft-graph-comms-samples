@@ -90,6 +90,12 @@ participant itself and the receivers are a subset of other
 participants in the multiparty conversation</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable.dispose#System_IDisposable_Dispose">IDisposable.Dispose()</a>
+    </div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.Calls.html">Microsoft.Graph.Calls</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.Calls.dll</h6>
   <h5 id="Microsoft_Graph_Calls_IAudioRoutingGroup_syntax">Syntax</h5>
@@ -131,7 +137,7 @@ participants in the multiparty conversation</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task DeleteAsync(CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">Task DeleteAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -174,7 +180,7 @@ participants in the multiparty conversation</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task UpdateAsync(AudioRoutingGroup resource, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">Task UpdateAsync(AudioRoutingGroup resource, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">

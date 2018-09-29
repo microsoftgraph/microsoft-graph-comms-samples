@@ -37,12 +37,6 @@ references:
   commentId: F:Microsoft.Graph.AccessLevel.SameEnterprise
   fullName: Microsoft.Graph.AccessLevel.SameEnterprise
   nameWithType: AccessLevel.SameEnterprise
-- uid: Microsoft.Graph.AccessLevel.value__
-  name: value__
-  href: core/Microsoft.Graph.AccessLevel.html#Microsoft_Graph_AccessLevel_value__
-  commentId: F:Microsoft.Graph.AccessLevel.value__
-  fullName: Microsoft.Graph.AccessLevel.value__
-  nameWithType: AccessLevel.value__
 - uid: Microsoft.Graph.AdditionalDataExtensions
   name: AdditionalDataExtensions
   href: core_stateful/Microsoft.Graph.AdditionalDataExtensions.html
@@ -760,12 +754,6 @@ references:
   commentId: F:Microsoft.Graph.AutoAdmittedUsersType.EveryoneInCompany
   fullName: Microsoft.Graph.AutoAdmittedUsersType.EveryoneInCompany
   nameWithType: AutoAdmittedUsersType.EveryoneInCompany
-- uid: Microsoft.Graph.AutoAdmittedUsersType.value__
-  name: value__
-  href: core/Microsoft.Graph.AutoAdmittedUsersType.html#Microsoft_Graph_AutoAdmittedUsersType_value__
-  commentId: F:Microsoft.Graph.AutoAdmittedUsersType.value__
-  fullName: Microsoft.Graph.AutoAdmittedUsersType.value__
-  nameWithType: AutoAdmittedUsersType.value__
 - uid: Microsoft.Graph.BaseActionMethodRequestBuilder`1
   name: BaseActionMethodRequestBuilder<T>
   href: core/Microsoft.Graph.BaseActionMethodRequestBuilder-1.html
@@ -2340,12 +2328,6 @@ references:
   commentId: F:Microsoft.Graph.CallDirection.Outgoing
   fullName: Microsoft.Graph.CallDirection.Outgoing
   nameWithType: CallDirection.Outgoing
-- uid: Microsoft.Graph.CallDirection.value__
-  name: value__
-  href: core/Microsoft.Graph.CallDirection.html#Microsoft_Graph_CallDirection_value__
-  commentId: F:Microsoft.Graph.CallDirection.value__
-  fullName: Microsoft.Graph.CallDirection.value__
-  nameWithType: CallDirection.value__
 - uid: Microsoft.Graph.CallDisposition
   name: CallDisposition
   href: core/Microsoft.Graph.CallDisposition.html
@@ -2370,12 +2352,6 @@ references:
   commentId: F:Microsoft.Graph.CallDisposition.SimultaneousRing
   fullName: Microsoft.Graph.CallDisposition.SimultaneousRing
   nameWithType: CallDisposition.SimultaneousRing
-- uid: Microsoft.Graph.CallDisposition.value__
-  name: value__
-  href: core/Microsoft.Graph.CallDisposition.html#Microsoft_Graph_CallDisposition_value__
-  commentId: F:Microsoft.Graph.CallDisposition.value__
-  fullName: Microsoft.Graph.CallDisposition.value__
-  nameWithType: CallDisposition.value__
 - uid: Microsoft.Graph.CallMuteRequest
   name: CallMuteRequest
   href: core/Microsoft.Graph.CallMuteRequest.html
@@ -5628,12 +5604,6 @@ references:
   commentId: F:Microsoft.Graph.CallState.Transferring
   fullName: Microsoft.Graph.CallState.Transferring
   nameWithType: CallState.Transferring
-- uid: Microsoft.Graph.CallState.value__
-  name: value__
-  href: core/Microsoft.Graph.CallState.html#Microsoft_Graph_CallState_value__
-  commentId: F:Microsoft.Graph.CallState.value__
-  fullName: Microsoft.Graph.CallState.value__
-  nameWithType: CallState.value__
 - uid: Microsoft.Graph.CallSubscribeToToneRequest
   name: CallSubscribeToToneRequest
   href: core/Microsoft.Graph.CallSubscribeToToneRequest.html
@@ -6450,12 +6420,6 @@ references:
   commentId: F:Microsoft.Graph.ChangeType.Updated
   fullName: Microsoft.Graph.ChangeType.Updated
   nameWithType: ChangeType.Updated
-- uid: Microsoft.Graph.ChangeType.value__
-  name: value__
-  href: core/Microsoft.Graph.ChangeType.html#Microsoft_Graph_ChangeType_value__
-  commentId: F:Microsoft.Graph.ChangeType.value__
-  fullName: Microsoft.Graph.ChangeType.value__
-  nameWithType: ChangeType.value__
 - uid: Microsoft.Graph.Chat
   name: Chat
   href: core/Microsoft.Graph.Chat.html
@@ -9333,12 +9297,6 @@ references:
   commentId: F:Microsoft.Graph.ChatType.Meeting
   fullName: Microsoft.Graph.ChatType.Meeting
   nameWithType: ChatType.Meeting
-- uid: Microsoft.Graph.ChatType.value__
-  name: value__
-  href: core/Microsoft.Graph.ChatType.html#Microsoft_Graph_ChatType_value__
-  commentId: F:Microsoft.Graph.ChatType.value__
-  fullName: Microsoft.Graph.ChatType.value__
-  nameWithType: ChatType.value__
 - uid: Microsoft.Graph.CollectDigits
   name: CollectDigits
   href: core/Microsoft.Graph.CollectDigits.html
@@ -9653,6 +9611,24 @@ references:
   fullName.vb: Microsoft.Graph.CollectionPage(Of T).RemoveAt
   nameWithType: CollectionPage<T>.RemoveAt
   nameWithType.vb: CollectionPage(Of T).RemoveAt
+- uid: Microsoft.Graph.CollectionPage`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: core/Microsoft.Graph.CollectionPage-1.html#Microsoft_Graph_CollectionPage_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Microsoft.Graph.CollectionPage`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Microsoft.Graph.CollectionPage<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Microsoft.Graph.CollectionPage(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: CollectionPage<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: CollectionPage(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Microsoft.Graph.CollectionPage`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: core/Microsoft.Graph.CollectionPage-1.html#Microsoft_Graph_CollectionPage_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Microsoft.Graph.CollectionPage`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Microsoft.Graph.CollectionPage<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Microsoft.Graph.CollectionPage(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: CollectionPage<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: CollectionPage(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Microsoft.Graph.CommsApplication
   name: CommsApplication
   href: core/Microsoft.Graph.CommsApplication.html
@@ -11144,12 +11120,6 @@ references:
   commentId: F:Microsoft.Graph.CompletionReason.Unknown
   fullName: Microsoft.Graph.CompletionReason.Unknown
   nameWithType: CompletionReason.Unknown
-- uid: Microsoft.Graph.CompletionReason.value__
-  name: value__
-  href: core/Microsoft.Graph.CompletionReason.html#Microsoft_Graph_CompletionReason_value__
-  commentId: F:Microsoft.Graph.CompletionReason.value__
-  fullName: Microsoft.Graph.CompletionReason.value__
-  nameWithType: CompletionReason.value__
 - uid: Microsoft.Graph.ConfigureMixerOperation
   name: ConfigureMixerOperation
   href: core/Microsoft.Graph.ConfigureMixerOperation.html
@@ -12466,6 +12436,60 @@ references:
   fullName.vb: Microsoft.Graph.Core.Common.Observer(Of T).Dispose
   nameWithType: Observer<T>.Dispose
   nameWithType.vb: Observer(Of T).Dispose
+- uid: Microsoft.Graph.Core.Common.Observer`1.System#IObserver{T}#OnCompleted
+  name: IObserver<T>.OnCompleted()
+  href: core_stateful/Microsoft.Graph.Core.Common.Observer-1.html#Microsoft_Graph_Core_Common_Observer_1_System_IObserver_T__OnCompleted
+  commentId: M:Microsoft.Graph.Core.Common.Observer`1.System#IObserver{T}#OnCompleted
+  name.vb: System.IObserver<T>.OnCompleted()
+  fullName: Microsoft.Graph.Core.Common.Observer<T>.System.IObserver<T>.OnCompleted()
+  fullName.vb: Microsoft.Graph.Core.Common.Observer(Of T).System.IObserver<T>.OnCompleted()
+  nameWithType: Observer<T>.IObserver<T>.OnCompleted()
+  nameWithType.vb: Observer(Of T).System.IObserver<T>.OnCompleted()
+- uid: Microsoft.Graph.Core.Common.Observer`1.System#IObserver{T}#OnCompleted*
+  name: IObserver<T>.OnCompleted
+  href: core_stateful/Microsoft.Graph.Core.Common.Observer-1.html#Microsoft_Graph_Core_Common_Observer_1_System_IObserver_T__OnCompleted_
+  commentId: Overload:Microsoft.Graph.Core.Common.Observer`1.System#IObserver{T}#OnCompleted
+  name.vb: System.IObserver<T>.OnCompleted
+  fullName: Microsoft.Graph.Core.Common.Observer<T>.System.IObserver<T>.OnCompleted
+  fullName.vb: Microsoft.Graph.Core.Common.Observer(Of T).System.IObserver<T>.OnCompleted
+  nameWithType: Observer<T>.IObserver<T>.OnCompleted
+  nameWithType.vb: Observer(Of T).System.IObserver<T>.OnCompleted
+- uid: Microsoft.Graph.Core.Common.Observer`1.System#IObserver{T}#OnError(System.Exception)
+  name: IObserver<T>.OnError(Exception)
+  href: core_stateful/Microsoft.Graph.Core.Common.Observer-1.html#Microsoft_Graph_Core_Common_Observer_1_System_IObserver_T__OnError_System_Exception_
+  commentId: M:Microsoft.Graph.Core.Common.Observer`1.System#IObserver{T}#OnError(System.Exception)
+  name.vb: System.IObserver<T>.OnError(Exception)
+  fullName: Microsoft.Graph.Core.Common.Observer<T>.System.IObserver<T>.OnError(System.Exception)
+  fullName.vb: Microsoft.Graph.Core.Common.Observer(Of T).System.IObserver<T>.OnError(System.Exception)
+  nameWithType: Observer<T>.IObserver<T>.OnError(Exception)
+  nameWithType.vb: Observer(Of T).System.IObserver<T>.OnError(Exception)
+- uid: Microsoft.Graph.Core.Common.Observer`1.System#IObserver{T}#OnError*
+  name: IObserver<T>.OnError
+  href: core_stateful/Microsoft.Graph.Core.Common.Observer-1.html#Microsoft_Graph_Core_Common_Observer_1_System_IObserver_T__OnError_
+  commentId: Overload:Microsoft.Graph.Core.Common.Observer`1.System#IObserver{T}#OnError
+  name.vb: System.IObserver<T>.OnError
+  fullName: Microsoft.Graph.Core.Common.Observer<T>.System.IObserver<T>.OnError
+  fullName.vb: Microsoft.Graph.Core.Common.Observer(Of T).System.IObserver<T>.OnError
+  nameWithType: Observer<T>.IObserver<T>.OnError
+  nameWithType.vb: Observer(Of T).System.IObserver<T>.OnError
+- uid: Microsoft.Graph.Core.Common.Observer`1.System#IObserver{T}#OnNext(`0)
+  name: IObserver<T>.OnNext(T)
+  href: core_stateful/Microsoft.Graph.Core.Common.Observer-1.html#Microsoft_Graph_Core_Common_Observer_1_System_IObserver_T__OnNext__0_
+  commentId: M:Microsoft.Graph.Core.Common.Observer`1.System#IObserver{T}#OnNext(`0)
+  name.vb: System.IObserver<T>.OnNext(T)
+  fullName: Microsoft.Graph.Core.Common.Observer<T>.System.IObserver<T>.OnNext(T)
+  fullName.vb: Microsoft.Graph.Core.Common.Observer(Of T).System.IObserver<T>.OnNext(T)
+  nameWithType: Observer<T>.IObserver<T>.OnNext(T)
+  nameWithType.vb: Observer(Of T).System.IObserver<T>.OnNext(T)
+- uid: Microsoft.Graph.Core.Common.Observer`1.System#IObserver{T}#OnNext*
+  name: IObserver<T>.OnNext
+  href: core_stateful/Microsoft.Graph.Core.Common.Observer-1.html#Microsoft_Graph_Core_Common_Observer_1_System_IObserver_T__OnNext_
+  commentId: Overload:Microsoft.Graph.Core.Common.Observer`1.System#IObserver{T}#OnNext
+  name.vb: System.IObserver<T>.OnNext
+  fullName: Microsoft.Graph.Core.Common.Observer<T>.System.IObserver<T>.OnNext
+  fullName.vb: Microsoft.Graph.Core.Common.Observer(Of T).System.IObserver<T>.OnNext
+  nameWithType: Observer<T>.IObserver<T>.OnNext
+  nameWithType.vb: Observer(Of T).System.IObserver<T>.OnNext
 - uid: Microsoft.Graph.Core.Common.ReflectionUtils
   name: ReflectionUtils
   href: core_stateful/Microsoft.Graph.Core.Common.ReflectionUtils.html
@@ -13590,12 +13614,6 @@ references:
   commentId: F:Microsoft.Graph.Core.Telemetry.ClientLogEventId.ClientTrace
   fullName: Microsoft.Graph.Core.Telemetry.ClientLogEventId.ClientTrace
   nameWithType: ClientLogEventId.ClientTrace
-- uid: Microsoft.Graph.Core.Telemetry.ClientLogEventId.value__
-  name: value__
-  href: core_stateful/Microsoft.Graph.Core.Telemetry.ClientLogEventId.html#Microsoft_Graph_Core_Telemetry_ClientLogEventId_value__
-  commentId: F:Microsoft.Graph.Core.Telemetry.ClientLogEventId.value__
-  fullName: Microsoft.Graph.Core.Telemetry.ClientLogEventId.value__
-  nameWithType: ClientLogEventId.value__
 - uid: Microsoft.Graph.Core.Telemetry.GraphLogger
   name: GraphLogger
   href: core_stateful/Microsoft.Graph.Core.Telemetry.GraphLogger.html
@@ -14319,12 +14337,6 @@ references:
   commentId: F:Microsoft.Graph.Core.Telemetry.HttpTraceType.HttpResponse
   fullName: Microsoft.Graph.Core.Telemetry.HttpTraceType.HttpResponse
   nameWithType: HttpTraceType.HttpResponse
-- uid: Microsoft.Graph.Core.Telemetry.HttpTraceType.value__
-  name: value__
-  href: core_stateful/Microsoft.Graph.Core.Telemetry.HttpTraceType.html#Microsoft_Graph_Core_Telemetry_HttpTraceType_value__
-  commentId: F:Microsoft.Graph.Core.Telemetry.HttpTraceType.value__
-  fullName: Microsoft.Graph.Core.Telemetry.HttpTraceType.value__
-  nameWithType: HttpTraceType.value__
 - uid: Microsoft.Graph.Core.Telemetry.IGraphLogger
   name: IGraphLogger
   href: core_stateful/Microsoft.Graph.Core.Telemetry.IGraphLogger.html
@@ -14784,12 +14796,6 @@ references:
   commentId: F:Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags.IncludesTimestamp
   fullName: Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags.IncludesTimestamp
   nameWithType: LogEventFormatterFlags.IncludesTimestamp
-- uid: Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags.value__
-  name: value__
-  href: core_stateful/Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags.html#Microsoft_Graph_Core_Telemetry_LogEventFormatterFlags_value__
-  commentId: F:Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags.value__
-  fullName: Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags.value__
-  nameWithType: LogEventFormatterFlags.value__
 - uid: Microsoft.Graph.Core.Telemetry.LogEventType
   name: LogEventType
   href: core_stateful/Microsoft.Graph.Core.Telemetry.LogEventType.html
@@ -14814,12 +14820,6 @@ references:
   commentId: F:Microsoft.Graph.Core.Telemetry.LogEventType.Trace
   fullName: Microsoft.Graph.Core.Telemetry.LogEventType.Trace
   nameWithType: LogEventType.Trace
-- uid: Microsoft.Graph.Core.Telemetry.LogEventType.value__
-  name: value__
-  href: core_stateful/Microsoft.Graph.Core.Telemetry.LogEventType.html#Microsoft_Graph_Core_Telemetry_LogEventType_value__
-  commentId: F:Microsoft.Graph.Core.Telemetry.LogEventType.value__
-  fullName: Microsoft.Graph.Core.Telemetry.LogEventType.value__
-  nameWithType: LogEventType.value__
 - uid: Microsoft.Graph.Core.Telemetry.LoggingConstants
   name: LoggingConstants
   href: core_stateful/Microsoft.Graph.Core.Telemetry.LoggingConstants.html
@@ -15873,12 +15873,6 @@ references:
   commentId: F:Microsoft.Graph.Core.Telemetry.Obfuscation.ObfuscationTag.Uri
   fullName: Microsoft.Graph.Core.Telemetry.Obfuscation.ObfuscationTag.Uri
   nameWithType: ObfuscationTag.Uri
-- uid: Microsoft.Graph.Core.Telemetry.Obfuscation.ObfuscationTag.value__
-  name: value__
-  href: core_stateful/Microsoft.Graph.Core.Telemetry.Obfuscation.ObfuscationTag.html#Microsoft_Graph_Core_Telemetry_Obfuscation_ObfuscationTag_value__
-  commentId: F:Microsoft.Graph.Core.Telemetry.Obfuscation.ObfuscationTag.value__
-  fullName: Microsoft.Graph.Core.Telemetry.Obfuscation.ObfuscationTag.value__
-  nameWithType: ObfuscationTag.value__
 - uid: Microsoft.Graph.Core.Telemetry.TransactionDirection
   name: TransactionDirection
   href: core_stateful/Microsoft.Graph.Core.Telemetry.TransactionDirection.html
@@ -15897,12 +15891,6 @@ references:
   commentId: F:Microsoft.Graph.Core.Telemetry.TransactionDirection.Outgoing
   fullName: Microsoft.Graph.Core.Telemetry.TransactionDirection.Outgoing
   nameWithType: TransactionDirection.Outgoing
-- uid: Microsoft.Graph.Core.Telemetry.TransactionDirection.value__
-  name: value__
-  href: core_stateful/Microsoft.Graph.Core.Telemetry.TransactionDirection.html#Microsoft_Graph_Core_Telemetry_TransactionDirection_value__
-  commentId: F:Microsoft.Graph.Core.Telemetry.TransactionDirection.value__
-  fullName: Microsoft.Graph.Core.Telemetry.TransactionDirection.value__
-  nameWithType: TransactionDirection.value__
 - uid: Microsoft.Graph.Core.Telemetry2
   name: Microsoft.Graph.Core.Telemetry
   href: stateful/Microsoft.Graph.Core.Telemetry.html
@@ -16860,12 +16848,6 @@ references:
   commentId: F:Microsoft.Graph.Core.Transport.RequestType.Update
   fullName: Microsoft.Graph.Core.Transport.RequestType.Update
   nameWithType: RequestType.Update
-- uid: Microsoft.Graph.Core.Transport.RequestType.value__
-  name: value__
-  href: core_stateful/Microsoft.Graph.Core.Transport.RequestType.html#Microsoft_Graph_Core_Transport_RequestType_value__
-  commentId: F:Microsoft.Graph.Core.Transport.RequestType.value__
-  fullName: Microsoft.Graph.Core.Transport.RequestType.value__
-  nameWithType: RequestType.value__
 - uid: Microsoft.Graph.Core.Transport.ResponseStatus
   name: ResponseStatus
   href: core_stateful/Microsoft.Graph.Core.Transport.ResponseStatus.html
@@ -16944,12 +16926,6 @@ references:
   commentId: F:Microsoft.Graph.Core.Transport.ResponseStatus.Unauthorized
   fullName: Microsoft.Graph.Core.Transport.ResponseStatus.Unauthorized
   nameWithType: ResponseStatus.Unauthorized
-- uid: Microsoft.Graph.Core.Transport.ResponseStatus.value__
-  name: value__
-  href: core_stateful/Microsoft.Graph.Core.Transport.ResponseStatus.html#Microsoft_Graph_Core_Transport_ResponseStatus_value__
-  commentId: F:Microsoft.Graph.Core.Transport.ResponseStatus.value__
-  fullName: Microsoft.Graph.Core.Transport.ResponseStatus.value__
-  nameWithType: ResponseStatus.value__
 - uid: Microsoft.Graph.Core.Validator
   name: Validator
   href: core_stateful/Microsoft.Graph.Core.Validator.html
@@ -17856,12 +17832,6 @@ references:
   commentId: F:Microsoft.Graph.CoreSDK.Logging.TraceLevel.Off
   fullName: Microsoft.Graph.CoreSDK.Logging.TraceLevel.Off
   nameWithType: TraceLevel.Off
-- uid: Microsoft.Graph.CoreSDK.Logging.TraceLevel.value__
-  name: value__
-  href: core/Microsoft.Graph.CoreSDK.Logging.TraceLevel.html#Microsoft_Graph_CoreSDK_Logging_TraceLevel_value__
-  commentId: F:Microsoft.Graph.CoreSDK.Logging.TraceLevel.value__
-  fullName: Microsoft.Graph.CoreSDK.Logging.TraceLevel.value__
-  nameWithType: TraceLevel.value__
 - uid: Microsoft.Graph.CoreSDK.Logging.TraceLevel.Verbose
   name: Verbose
   href: core/Microsoft.Graph.CoreSDK.Logging.TraceLevel.html#Microsoft_Graph_CoreSDK_Logging_TraceLevel_Verbose
@@ -18567,12 +18537,6 @@ references:
   commentId: F:Microsoft.Graph.CoreSDK.Transport.CallbackResponseType.Unauthorized
   fullName: Microsoft.Graph.CoreSDK.Transport.CallbackResponseType.Unauthorized
   nameWithType: CallbackResponseType.Unauthorized
-- uid: Microsoft.Graph.CoreSDK.Transport.CallbackResponseType.value__
-  name: value__
-  href: core/Microsoft.Graph.CoreSDK.Transport.CallbackResponseType.html#Microsoft_Graph_CoreSDK_Transport_CallbackResponseType_value__
-  commentId: F:Microsoft.Graph.CoreSDK.Transport.CallbackResponseType.value__
-  fullName: Microsoft.Graph.CoreSDK.Transport.CallbackResponseType.value__
-  nameWithType: CallbackResponseType.value__
 - uid: Microsoft.Graph.CoreSDK.Transport.HttpMessageExtensions
   name: HttpMessageExtensions
   href: core/Microsoft.Graph.CoreSDK.Transport.HttpMessageExtensions.html
@@ -18735,12 +18699,6 @@ references:
   commentId: F:Microsoft.Graph.Culture.EnUs
   fullName: Microsoft.Graph.Culture.EnUs
   nameWithType: Culture.EnUs
-- uid: Microsoft.Graph.Culture.value__
-  name: value__
-  href: core/Microsoft.Graph.Culture.html#Microsoft_Graph_Culture_value__
-  commentId: F:Microsoft.Graph.Culture.value__
-  fullName: Microsoft.Graph.Culture.value__
-  nameWithType: Culture.value__
 - uid: Microsoft.Graph.DefaultContainerClient
   name: DefaultContainerClient
   href: core/Microsoft.Graph.DefaultContainerClient.html
@@ -18927,12 +18885,6 @@ references:
   commentId: F:Microsoft.Graph.EndpointType.Default
   fullName: Microsoft.Graph.EndpointType.Default
   nameWithType: EndpointType.Default
-- uid: Microsoft.Graph.EndpointType.value__
-  name: value__
-  href: core/Microsoft.Graph.EndpointType.html#Microsoft_Graph_EndpointType_value__
-  commentId: F:Microsoft.Graph.EndpointType.value__
-  fullName: Microsoft.Graph.EndpointType.value__
-  nameWithType: EndpointType.value__
 - uid: Microsoft.Graph.EndpointType.Voicemail
   name: Voicemail
   href: core/Microsoft.Graph.EndpointType.html#Microsoft_Graph_EndpointType_Voicemail
@@ -28623,12 +28575,6 @@ references:
   commentId: F:Microsoft.Graph.MediaDirection.SendReceive
   fullName: Microsoft.Graph.MediaDirection.SendReceive
   nameWithType: MediaDirection.SendReceive
-- uid: Microsoft.Graph.MediaDirection.value__
-  name: value__
-  href: core/Microsoft.Graph.MediaDirection.html#Microsoft_Graph_MediaDirection_value__
-  commentId: F:Microsoft.Graph.MediaDirection.value__
-  fullName: Microsoft.Graph.MediaDirection.value__
-  nameWithType: MediaDirection.value__
 - uid: Microsoft.Graph.MediaInfo
   name: MediaInfo
   href: core/Microsoft.Graph.MediaInfo.html
@@ -28827,12 +28773,6 @@ references:
   commentId: F:Microsoft.Graph.MeetingCapabilities.QnA
   fullName: Microsoft.Graph.MeetingCapabilities.QnA
   nameWithType: MeetingCapabilities.QnA
-- uid: Microsoft.Graph.MeetingCapabilities.value__
-  name: value__
-  href: core/Microsoft.Graph.MeetingCapabilities.html#Microsoft_Graph_MeetingCapabilities_value__
-  commentId: F:Microsoft.Graph.MeetingCapabilities.value__
-  fullName: Microsoft.Graph.MeetingCapabilities.value__
-  nameWithType: MeetingCapabilities.value__
 - uid: Microsoft.Graph.MeetingCapabilities.VideoInterop
   name: VideoInterop
   href: core/Microsoft.Graph.MeetingCapabilities.html#Microsoft_Graph_MeetingCapabilities_VideoInterop
@@ -29097,12 +29037,6 @@ references:
   commentId: F:Microsoft.Graph.MeetingType.Recurring
   fullName: Microsoft.Graph.MeetingType.Recurring
   nameWithType: MeetingType.Recurring
-- uid: Microsoft.Graph.MeetingType.value__
-  name: value__
-  href: core/Microsoft.Graph.MeetingType.html#Microsoft_Graph_MeetingType_value__
-  commentId: F:Microsoft.Graph.MeetingType.value__
-  fullName: Microsoft.Graph.MeetingType.value__
-  nameWithType: MeetingType.value__
 - uid: Microsoft.Graph.Mention
   name: Mention
   href: core/Microsoft.Graph.Mention.html
@@ -29505,12 +29439,6 @@ references:
   commentId: F:Microsoft.Graph.MessageContentType.Text
   fullName: Microsoft.Graph.MessageContentType.Text
   nameWithType: MessageContentType.Text
-- uid: Microsoft.Graph.MessageContentType.value__
-  name: value__
-  href: core/Microsoft.Graph.MessageContentType.html#Microsoft_Graph_MessageContentType_value__
-  commentId: F:Microsoft.Graph.MessageContentType.value__
-  fullName: Microsoft.Graph.MessageContentType.value__
-  nameWithType: MessageContentType.value__
 - uid: Microsoft.Graph.MessageMentionsCollectionPage
   name: MessageMentionsCollectionPage
   href: core/Microsoft.Graph.MessageMentionsCollectionPage.html
@@ -30006,12 +29934,6 @@ references:
   commentId: F:Microsoft.Graph.Modality.Unknown
   fullName: Microsoft.Graph.Modality.Unknown
   nameWithType: Modality.Unknown
-- uid: Microsoft.Graph.Modality.value__
-  name: value__
-  href: core/Microsoft.Graph.Modality.html#Microsoft_Graph_Modality_value__
-  commentId: F:Microsoft.Graph.Modality.value__
-  fullName: Microsoft.Graph.Modality.value__
-  nameWithType: Modality.value__
 - uid: Microsoft.Graph.Modality.Video
   name: Video
   href: core/Microsoft.Graph.Modality.html#Microsoft_Graph_Modality_Video
@@ -30852,12 +30774,6 @@ references:
   commentId: F:Microsoft.Graph.OperationStatus.Running
   fullName: Microsoft.Graph.OperationStatus.Running
   nameWithType: OperationStatus.Running
-- uid: Microsoft.Graph.OperationStatus.value__
-  name: value__
-  href: core/Microsoft.Graph.OperationStatus.html#Microsoft_Graph_OperationStatus_value__
-  commentId: F:Microsoft.Graph.OperationStatus.value__
-  fullName: Microsoft.Graph.OperationStatus.value__
-  nameWithType: OperationStatus.value__
 - uid: Microsoft.Graph.Option
   name: Option
   href: core/Microsoft.Graph.Option.html
@@ -31038,12 +30954,6 @@ references:
   commentId: F:Microsoft.Graph.ParticipantActivityStatus.Inactive
   fullName: Microsoft.Graph.ParticipantActivityStatus.Inactive
   nameWithType: ParticipantActivityStatus.Inactive
-- uid: Microsoft.Graph.ParticipantActivityStatus.value__
-  name: value__
-  href: core/Microsoft.Graph.ParticipantActivityStatus.html#Microsoft_Graph_ParticipantActivityStatus_value__
-  commentId: F:Microsoft.Graph.ParticipantActivityStatus.value__
-  fullName: Microsoft.Graph.ParticipantActivityStatus.value__
-  nameWithType: ParticipantActivityStatus.value__
 - uid: Microsoft.Graph.ParticipantConfigureMixerRequest
   name: ParticipantConfigureMixerRequest
   href: core/Microsoft.Graph.ParticipantConfigureMixerRequest.html
@@ -33126,12 +33036,6 @@ references:
   commentId: F:Microsoft.Graph.RecordCompletionReason.UnspecifiedError
   fullName: Microsoft.Graph.RecordCompletionReason.UnspecifiedError
   nameWithType: RecordCompletionReason.UnspecifiedError
-- uid: Microsoft.Graph.RecordCompletionReason.value__
-  name: value__
-  href: core/Microsoft.Graph.RecordCompletionReason.html#Microsoft_Graph_RecordCompletionReason_value__
-  commentId: F:Microsoft.Graph.RecordCompletionReason.value__
-  fullName: Microsoft.Graph.RecordCompletionReason.value__
-  nameWithType: RecordCompletionReason.value__
 - uid: Microsoft.Graph.RecordingInfo
   name: RecordingInfo
   href: core/Microsoft.Graph.RecordingInfo.html
@@ -33210,12 +33114,6 @@ references:
   commentId: F:Microsoft.Graph.RecordingStatus.StartedRecording
   fullName: Microsoft.Graph.RecordingStatus.StartedRecording
   nameWithType: RecordingStatus.StartedRecording
-- uid: Microsoft.Graph.RecordingStatus.value__
-  name: value__
-  href: core/Microsoft.Graph.RecordingStatus.html#Microsoft_Graph_RecordingStatus_value__
-  commentId: F:Microsoft.Graph.RecordingStatus.value__
-  fullName: Microsoft.Graph.RecordingStatus.value__
-  nameWithType: RecordingStatus.value__
 - uid: Microsoft.Graph.RecordOperation
   name: RecordOperation
   href: core/Microsoft.Graph.RecordOperation.html
@@ -33582,12 +33480,6 @@ references:
   commentId: F:Microsoft.Graph.RejectReason.None
   fullName: Microsoft.Graph.RejectReason.None
   nameWithType: RejectReason.None
-- uid: Microsoft.Graph.RejectReason.value__
-  name: value__
-  href: core/Microsoft.Graph.RejectReason.html#Microsoft_Graph_RejectReason_value__
-  commentId: F:Microsoft.Graph.RejectReason.value__
-  fullName: Microsoft.Graph.RejectReason.value__
-  nameWithType: RejectReason.value__
 - uid: Microsoft.Graph.ResultInfo
   name: ResultInfo
   href: core/Microsoft.Graph.ResultInfo.html
@@ -33672,12 +33564,6 @@ references:
   commentId: F:Microsoft.Graph.RoutingMode.OneToOne
   fullName: Microsoft.Graph.RoutingMode.OneToOne
   nameWithType: RoutingMode.OneToOne
-- uid: Microsoft.Graph.RoutingMode.value__
-  name: value__
-  href: core/Microsoft.Graph.RoutingMode.html#Microsoft_Graph_RoutingMode_value__
-  commentId: F:Microsoft.Graph.RoutingMode.value__
-  fullName: Microsoft.Graph.RoutingMode.value__
-  nameWithType: RoutingMode.value__
 - uid: Microsoft.Graph.RoutingPolicy
   name: RoutingPolicy
   href: core/Microsoft.Graph.RoutingPolicy.html
@@ -33708,12 +33594,6 @@ references:
   commentId: F:Microsoft.Graph.RoutingPolicy.None
   fullName: Microsoft.Graph.RoutingPolicy.None
   nameWithType: RoutingPolicy.None
-- uid: Microsoft.Graph.RoutingPolicy.value__
-  name: value__
-  href: core/Microsoft.Graph.RoutingPolicy.html#Microsoft_Graph_RoutingPolicy_value__
-  commentId: F:Microsoft.Graph.RoutingPolicy.value__
-  fullName: Microsoft.Graph.RoutingPolicy.value__
-  nameWithType: RoutingPolicy.value__
 - uid: Microsoft.Graph.RoutingType
   name: RoutingType
   href: core/Microsoft.Graph.RoutingType.html
@@ -33738,12 +33618,6 @@ references:
   commentId: F:Microsoft.Graph.RoutingType.SelfFork
   fullName: Microsoft.Graph.RoutingType.SelfFork
   nameWithType: RoutingType.SelfFork
-- uid: Microsoft.Graph.RoutingType.value__
-  name: value__
-  href: core/Microsoft.Graph.RoutingType.html#Microsoft_Graph_RoutingType_value__
-  commentId: F:Microsoft.Graph.RoutingType.value__
-  fullName: Microsoft.Graph.RoutingType.value__
-  nameWithType: RoutingType.value__
 - uid: Microsoft.Graph.SayAs
   name: SayAs
   href: core/Microsoft.Graph.SayAs.html
@@ -33846,12 +33720,6 @@ references:
   commentId: F:Microsoft.Graph.SayAs.Unknown
   fullName: Microsoft.Graph.SayAs.Unknown
   nameWithType: SayAs.Unknown
-- uid: Microsoft.Graph.SayAs.value__
-  name: value__
-  href: core/Microsoft.Graph.SayAs.html#Microsoft_Graph_SayAs_value__
-  commentId: F:Microsoft.Graph.SayAs.value__
-  fullName: Microsoft.Graph.SayAs.value__
-  nameWithType: SayAs.value__
 - uid: Microsoft.Graph.SayAs.Year
   name: Year
   href: core/Microsoft.Graph.SayAs.html#Microsoft_Graph_SayAs_Year
@@ -33882,12 +33750,6 @@ references:
   commentId: F:Microsoft.Graph.ScreenSharingRole.Sharer
   fullName: Microsoft.Graph.ScreenSharingRole.Sharer
   nameWithType: ScreenSharingRole.Sharer
-- uid: Microsoft.Graph.ScreenSharingRole.value__
-  name: value__
-  href: core/Microsoft.Graph.ScreenSharingRole.html#Microsoft_Graph_ScreenSharingRole_value__
-  commentId: F:Microsoft.Graph.ScreenSharingRole.value__
-  fullName: Microsoft.Graph.ScreenSharingRole.value__
-  nameWithType: ScreenSharingRole.value__
 - uid: Microsoft.Graph.ScreenSharingRole.Viewer
   name: Viewer
   href: core/Microsoft.Graph.ScreenSharingRole.html#Microsoft_Graph_ScreenSharingRole_Viewer
@@ -34240,23 +34102,6 @@ references:
   fullName.vb: Microsoft.Graph.StatefulClient.IResource(Of TSelf, TEntity)
   nameWithType: IResource<TSelf, TEntity>
   nameWithType.vb: IResource(Of TSelf, TEntity)
-- uid: Microsoft.Graph.StatefulClient.IResource`2.add_OnUpdated(Microsoft.Graph.StatefulClient.ResourceEventHandler{`0,`1})
-  name: add_OnUpdated(ResourceEventHandler<TSelf, TEntity>)
-  href: stateful/Microsoft.Graph.StatefulClient.IResource-2.html#Microsoft_Graph_StatefulClient_IResource_2_add_OnUpdated_Microsoft_Graph_StatefulClient_ResourceEventHandler__0__1__
-  commentId: M:Microsoft.Graph.StatefulClient.IResource`2.add_OnUpdated(Microsoft.Graph.StatefulClient.ResourceEventHandler{`0,`1})
-  name.vb: add_OnUpdated(ResourceEventHandler(Of TSelf, TEntity))
-  fullName: Microsoft.Graph.StatefulClient.IResource<TSelf, TEntity>.add_OnUpdated(Microsoft.Graph.StatefulClient.ResourceEventHandler<TSelf, TEntity>)
-  fullName.vb: Microsoft.Graph.StatefulClient.IResource(Of TSelf, TEntity).add_OnUpdated(Microsoft.Graph.StatefulClient.ResourceEventHandler(Of TSelf, TEntity))
-  nameWithType: IResource<TSelf, TEntity>.add_OnUpdated(ResourceEventHandler<TSelf, TEntity>)
-  nameWithType.vb: IResource(Of TSelf, TEntity).add_OnUpdated(ResourceEventHandler(Of TSelf, TEntity))
-- uid: Microsoft.Graph.StatefulClient.IResource`2.add_OnUpdated*
-  name: add_OnUpdated
-  href: stateful/Microsoft.Graph.StatefulClient.IResource-2.html#Microsoft_Graph_StatefulClient_IResource_2_add_OnUpdated_
-  commentId: Overload:Microsoft.Graph.StatefulClient.IResource`2.add_OnUpdated
-  fullName: Microsoft.Graph.StatefulClient.IResource<TSelf, TEntity>.add_OnUpdated
-  fullName.vb: Microsoft.Graph.StatefulClient.IResource(Of TSelf, TEntity).add_OnUpdated
-  nameWithType: IResource<TSelf, TEntity>.add_OnUpdated
-  nameWithType.vb: IResource(Of TSelf, TEntity).add_OnUpdated
 - uid: Microsoft.Graph.StatefulClient.IResource`2.OnUpdated
   name: OnUpdated
   href: stateful/Microsoft.Graph.StatefulClient.IResource-2.html#Microsoft_Graph_StatefulClient_IResource_2_OnUpdated
@@ -34265,23 +34110,6 @@ references:
   fullName.vb: Microsoft.Graph.StatefulClient.IResource(Of TSelf, TEntity).OnUpdated
   nameWithType: IResource<TSelf, TEntity>.OnUpdated
   nameWithType.vb: IResource(Of TSelf, TEntity).OnUpdated
-- uid: Microsoft.Graph.StatefulClient.IResource`2.remove_OnUpdated(Microsoft.Graph.StatefulClient.ResourceEventHandler{`0,`1})
-  name: remove_OnUpdated(ResourceEventHandler<TSelf, TEntity>)
-  href: stateful/Microsoft.Graph.StatefulClient.IResource-2.html#Microsoft_Graph_StatefulClient_IResource_2_remove_OnUpdated_Microsoft_Graph_StatefulClient_ResourceEventHandler__0__1__
-  commentId: M:Microsoft.Graph.StatefulClient.IResource`2.remove_OnUpdated(Microsoft.Graph.StatefulClient.ResourceEventHandler{`0,`1})
-  name.vb: remove_OnUpdated(ResourceEventHandler(Of TSelf, TEntity))
-  fullName: Microsoft.Graph.StatefulClient.IResource<TSelf, TEntity>.remove_OnUpdated(Microsoft.Graph.StatefulClient.ResourceEventHandler<TSelf, TEntity>)
-  fullName.vb: Microsoft.Graph.StatefulClient.IResource(Of TSelf, TEntity).remove_OnUpdated(Microsoft.Graph.StatefulClient.ResourceEventHandler(Of TSelf, TEntity))
-  nameWithType: IResource<TSelf, TEntity>.remove_OnUpdated(ResourceEventHandler<TSelf, TEntity>)
-  nameWithType.vb: IResource(Of TSelf, TEntity).remove_OnUpdated(ResourceEventHandler(Of TSelf, TEntity))
-- uid: Microsoft.Graph.StatefulClient.IResource`2.remove_OnUpdated*
-  name: remove_OnUpdated
-  href: stateful/Microsoft.Graph.StatefulClient.IResource-2.html#Microsoft_Graph_StatefulClient_IResource_2_remove_OnUpdated_
-  commentId: Overload:Microsoft.Graph.StatefulClient.IResource`2.remove_OnUpdated
-  fullName: Microsoft.Graph.StatefulClient.IResource<TSelf, TEntity>.remove_OnUpdated
-  fullName.vb: Microsoft.Graph.StatefulClient.IResource(Of TSelf, TEntity).remove_OnUpdated
-  nameWithType: IResource<TSelf, TEntity>.remove_OnUpdated
-  nameWithType.vb: IResource(Of TSelf, TEntity).remove_OnUpdated
 - uid: Microsoft.Graph.StatefulClient.IResource`2.Resource
   name: Resource
   href: stateful/Microsoft.Graph.StatefulClient.IResource-2.html#Microsoft_Graph_StatefulClient_IResource_2_Resource
@@ -34379,23 +34207,6 @@ references:
   fullName.vb: Microsoft.Graph.StatefulClient.IResourceCollection(Of TSelf, TResource, TEntity)
   nameWithType: IResourceCollection<TSelf, TResource, TEntity>
   nameWithType.vb: IResourceCollection(Of TSelf, TResource, TEntity)
-- uid: Microsoft.Graph.StatefulClient.IResourceCollection`3.add_OnUpdated(Microsoft.Graph.StatefulClient.CollectionEventHandler{`0,`1})
-  name: add_OnUpdated(CollectionEventHandler<TSelf, TResource>)
-  href: stateful/Microsoft.Graph.StatefulClient.IResourceCollection-3.html#Microsoft_Graph_StatefulClient_IResourceCollection_3_add_OnUpdated_Microsoft_Graph_StatefulClient_CollectionEventHandler__0__1__
-  commentId: M:Microsoft.Graph.StatefulClient.IResourceCollection`3.add_OnUpdated(Microsoft.Graph.StatefulClient.CollectionEventHandler{`0,`1})
-  name.vb: add_OnUpdated(CollectionEventHandler(Of TSelf, TResource))
-  fullName: Microsoft.Graph.StatefulClient.IResourceCollection<TSelf, TResource, TEntity>.add_OnUpdated(Microsoft.Graph.StatefulClient.CollectionEventHandler<TSelf, TResource>)
-  fullName.vb: Microsoft.Graph.StatefulClient.IResourceCollection(Of TSelf, TResource, TEntity).add_OnUpdated(Microsoft.Graph.StatefulClient.CollectionEventHandler(Of TSelf, TResource))
-  nameWithType: IResourceCollection<TSelf, TResource, TEntity>.add_OnUpdated(CollectionEventHandler<TSelf, TResource>)
-  nameWithType.vb: IResourceCollection(Of TSelf, TResource, TEntity).add_OnUpdated(CollectionEventHandler(Of TSelf, TResource))
-- uid: Microsoft.Graph.StatefulClient.IResourceCollection`3.add_OnUpdated*
-  name: add_OnUpdated
-  href: stateful/Microsoft.Graph.StatefulClient.IResourceCollection-3.html#Microsoft_Graph_StatefulClient_IResourceCollection_3_add_OnUpdated_
-  commentId: Overload:Microsoft.Graph.StatefulClient.IResourceCollection`3.add_OnUpdated
-  fullName: Microsoft.Graph.StatefulClient.IResourceCollection<TSelf, TResource, TEntity>.add_OnUpdated
-  fullName.vb: Microsoft.Graph.StatefulClient.IResourceCollection(Of TSelf, TResource, TEntity).add_OnUpdated
-  nameWithType: IResourceCollection<TSelf, TResource, TEntity>.add_OnUpdated
-  nameWithType.vb: IResourceCollection(Of TSelf, TResource, TEntity).add_OnUpdated
 - uid: Microsoft.Graph.StatefulClient.IResourceCollection`3.Item(System.String)
   name: Item[String]
   href: stateful/Microsoft.Graph.StatefulClient.IResourceCollection-3.html#Microsoft_Graph_StatefulClient_IResourceCollection_3_Item_System_String_
@@ -34421,23 +34232,6 @@ references:
   fullName.vb: Microsoft.Graph.StatefulClient.IResourceCollection(Of TSelf, TResource, TEntity).OnUpdated
   nameWithType: IResourceCollection<TSelf, TResource, TEntity>.OnUpdated
   nameWithType.vb: IResourceCollection(Of TSelf, TResource, TEntity).OnUpdated
-- uid: Microsoft.Graph.StatefulClient.IResourceCollection`3.remove_OnUpdated(Microsoft.Graph.StatefulClient.CollectionEventHandler{`0,`1})
-  name: remove_OnUpdated(CollectionEventHandler<TSelf, TResource>)
-  href: stateful/Microsoft.Graph.StatefulClient.IResourceCollection-3.html#Microsoft_Graph_StatefulClient_IResourceCollection_3_remove_OnUpdated_Microsoft_Graph_StatefulClient_CollectionEventHandler__0__1__
-  commentId: M:Microsoft.Graph.StatefulClient.IResourceCollection`3.remove_OnUpdated(Microsoft.Graph.StatefulClient.CollectionEventHandler{`0,`1})
-  name.vb: remove_OnUpdated(CollectionEventHandler(Of TSelf, TResource))
-  fullName: Microsoft.Graph.StatefulClient.IResourceCollection<TSelf, TResource, TEntity>.remove_OnUpdated(Microsoft.Graph.StatefulClient.CollectionEventHandler<TSelf, TResource>)
-  fullName.vb: Microsoft.Graph.StatefulClient.IResourceCollection(Of TSelf, TResource, TEntity).remove_OnUpdated(Microsoft.Graph.StatefulClient.CollectionEventHandler(Of TSelf, TResource))
-  nameWithType: IResourceCollection<TSelf, TResource, TEntity>.remove_OnUpdated(CollectionEventHandler<TSelf, TResource>)
-  nameWithType.vb: IResourceCollection(Of TSelf, TResource, TEntity).remove_OnUpdated(CollectionEventHandler(Of TSelf, TResource))
-- uid: Microsoft.Graph.StatefulClient.IResourceCollection`3.remove_OnUpdated*
-  name: remove_OnUpdated
-  href: stateful/Microsoft.Graph.StatefulClient.IResourceCollection-3.html#Microsoft_Graph_StatefulClient_IResourceCollection_3_remove_OnUpdated_
-  commentId: Overload:Microsoft.Graph.StatefulClient.IResourceCollection`3.remove_OnUpdated
-  fullName: Microsoft.Graph.StatefulClient.IResourceCollection<TSelf, TResource, TEntity>.remove_OnUpdated
-  fullName.vb: Microsoft.Graph.StatefulClient.IResourceCollection(Of TSelf, TResource, TEntity).remove_OnUpdated
-  nameWithType: IResourceCollection<TSelf, TResource, TEntity>.remove_OnUpdated
-  nameWithType.vb: IResourceCollection(Of TSelf, TResource, TEntity).remove_OnUpdated
 - uid: Microsoft.Graph.StatefulClient.IResourceCollection`3.TryForceRemove(System.String,`1@)
   name: TryForceRemove(String, out TResource)
   href: stateful/Microsoft.Graph.StatefulClient.IResourceCollection-3.html#Microsoft_Graph_StatefulClient_IResourceCollection_3_TryForceRemove_System_String__1__
@@ -34855,6 +34649,24 @@ references:
   fullName.vb: Microsoft.Graph.StatefulClient.Notifications.FixedSizeQueue(Of T).Remove
   nameWithType: FixedSizeQueue<T>.Remove
   nameWithType.vb: FixedSizeQueue(Of T).Remove
+- uid: Microsoft.Graph.StatefulClient.Notifications.FixedSizeQueue`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: stateful/Microsoft.Graph.StatefulClient.Notifications.FixedSizeQueue-1.html#Microsoft_Graph_StatefulClient_Notifications_FixedSizeQueue_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Microsoft.Graph.StatefulClient.Notifications.FixedSizeQueue`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Microsoft.Graph.StatefulClient.Notifications.FixedSizeQueue<T>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Microsoft.Graph.StatefulClient.Notifications.FixedSizeQueue(Of T).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: FixedSizeQueue<T>.IEnumerable.GetEnumerator()
+  nameWithType.vb: FixedSizeQueue(Of T).System.Collections.IEnumerable.GetEnumerator()
+- uid: Microsoft.Graph.StatefulClient.Notifications.FixedSizeQueue`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: stateful/Microsoft.Graph.StatefulClient.Notifications.FixedSizeQueue-1.html#Microsoft_Graph_StatefulClient_Notifications_FixedSizeQueue_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Microsoft.Graph.StatefulClient.Notifications.FixedSizeQueue`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Microsoft.Graph.StatefulClient.Notifications.FixedSizeQueue<T>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Microsoft.Graph.StatefulClient.Notifications.FixedSizeQueue(Of T).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: FixedSizeQueue<T>.IEnumerable.GetEnumerator
+  nameWithType.vb: FixedSizeQueue(Of T).System.Collections.IEnumerable.GetEnumerator
 - uid: Microsoft.Graph.StatefulClient.PagedList`1
   name: PagedList<T>
   href: stateful/Microsoft.Graph.StatefulClient.PagedList-1.html
@@ -35413,6 +35225,24 @@ references:
   fullName.vb: Microsoft.Graph.StatefulClient.StateManager(Of TResource).Remove
   nameWithType: StateManager<TResource>.Remove
   nameWithType.vb: StateManager(Of TResource).Remove
+- uid: Microsoft.Graph.StatefulClient.StateManager`1.System#Collections#IEnumerable#GetEnumerator
+  name: IEnumerable.GetEnumerator()
+  href: stateful/Microsoft.Graph.StatefulClient.StateManager-1.html#Microsoft_Graph_StatefulClient_StateManager_1_System_Collections_IEnumerable_GetEnumerator
+  commentId: M:Microsoft.Graph.StatefulClient.StateManager`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator()
+  fullName: Microsoft.Graph.StatefulClient.StateManager<TResource>.System.Collections.IEnumerable.GetEnumerator()
+  fullName.vb: Microsoft.Graph.StatefulClient.StateManager(Of TResource).System.Collections.IEnumerable.GetEnumerator()
+  nameWithType: StateManager<TResource>.IEnumerable.GetEnumerator()
+  nameWithType.vb: StateManager(Of TResource).System.Collections.IEnumerable.GetEnumerator()
+- uid: Microsoft.Graph.StatefulClient.StateManager`1.System#Collections#IEnumerable#GetEnumerator*
+  name: IEnumerable.GetEnumerator
+  href: stateful/Microsoft.Graph.StatefulClient.StateManager-1.html#Microsoft_Graph_StatefulClient_StateManager_1_System_Collections_IEnumerable_GetEnumerator_
+  commentId: Overload:Microsoft.Graph.StatefulClient.StateManager`1.System#Collections#IEnumerable#GetEnumerator
+  name.vb: System.Collections.IEnumerable.GetEnumerator
+  fullName: Microsoft.Graph.StatefulClient.StateManager<TResource>.System.Collections.IEnumerable.GetEnumerator
+  fullName.vb: Microsoft.Graph.StatefulClient.StateManager(Of TResource).System.Collections.IEnumerable.GetEnumerator
+  nameWithType: StateManager<TResource>.IEnumerable.GetEnumerator
+  nameWithType.vb: StateManager(Of TResource).System.Collections.IEnumerable.GetEnumerator
 - uid: Microsoft.Graph.StatefulClient.StateManager`1.TryRemove(System.String,`0@)
   name: TryRemove(String, out TResource)
   href: stateful/Microsoft.Graph.StatefulClient.StateManager-1.html#Microsoft_Graph_StatefulClient_StateManager_1_TryRemove_System_String__0__
@@ -36252,12 +36082,6 @@ references:
   commentId: F:Microsoft.Graph.Tone.Tone9
   fullName: Microsoft.Graph.Tone.Tone9
   nameWithType: Tone.Tone9
-- uid: Microsoft.Graph.Tone.value__
-  name: value__
-  href: core/Microsoft.Graph.Tone.html#Microsoft_Graph_Tone_value__
-  commentId: F:Microsoft.Graph.Tone.value__
-  fullName: Microsoft.Graph.Tone.value__
-  nameWithType: Tone.value__
 - uid: Microsoft.Graph.ToneInfo
   name: ToneInfo
   href: core/Microsoft.Graph.ToneInfo.html
@@ -37032,12 +36856,6 @@ references:
   commentId: F:Microsoft.Graph.VideoResolutionFormat.Sd540p
   fullName: Microsoft.Graph.VideoResolutionFormat.Sd540p
   nameWithType: VideoResolutionFormat.Sd540p
-- uid: Microsoft.Graph.VideoResolutionFormat.value__
-  name: value__
-  href: core/Microsoft.Graph.VideoResolutionFormat.html#Microsoft_Graph_VideoResolutionFormat_value__
-  commentId: F:Microsoft.Graph.VideoResolutionFormat.value__
-  fullName: Microsoft.Graph.VideoResolutionFormat.value__
-  nameWithType: VideoResolutionFormat.value__
 - uid: Microsoft.Graph.VoiceGender
   name: VoiceGender
   href: core/Microsoft.Graph.VoiceGender.html
@@ -37056,12 +36874,6 @@ references:
   commentId: F:Microsoft.Graph.VoiceGender.Male
   fullName: Microsoft.Graph.VoiceGender.Male
   nameWithType: VoiceGender.Male
-- uid: Microsoft.Graph.VoiceGender.value__
-  name: value__
-  href: core/Microsoft.Graph.VoiceGender.html#Microsoft_Graph_VoiceGender_value__
-  commentId: F:Microsoft.Graph.VoiceGender.value__
-  fullName: Microsoft.Graph.VoiceGender.value__
-  nameWithType: VoiceGender.value__
 - uid: Microsoft.Graph2
   name: Microsoft.Graph
   href: core_stateful/Microsoft.Graph.html

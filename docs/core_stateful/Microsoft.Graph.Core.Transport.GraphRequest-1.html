@@ -95,11 +95,32 @@
     <h5>Implements</h5>
     <div><a class="xref" href="Microsoft.Graph.Core.Transport.IGraphRequest-1.html">IGraphRequest</a>&lt;T&gt;</div>
   </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.Core.Transport.html">Microsoft.Graph.Core.Transport</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.Core.Stateful.dll</h6>
   <h5 id="Microsoft_Graph_Core_Transport_GraphRequest_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class GraphRequest&lt;T&gt; : Object, IGraphRequest&lt;T&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public class GraphRequest&lt;T&gt; : IGraphRequest&lt;T&gt;</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -277,6 +298,8 @@ Create the graph request object</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a></div>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="Microsoft.Graph.Core.Transport.IGraphRequest-1.html">IGraphRequest&lt;T&gt;</a>
@@ -308,6 +331,9 @@ Create the graph request object</p>
   </div>
   <div>
       <a class="xref" href="Microsoft.Graph.Core.Common.Extensions.html#Microsoft_Graph_Core_Common_Extensions_TryDispose_System_Object_Microsoft_Graph_Core_Telemetry_IGraphLogger_">Extensions.TryDispose(Object, IGraphLogger)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Core.Transport.Extensions.GraphRequestExtensions.html#Microsoft_Graph_Core_Transport_Extensions_GraphRequestExtensions_ToHttpRequestMessage__1_Microsoft_Graph_Core_Transport_IGraphRequest___0__Newtonsoft_Json_JsonSerializerSettings_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_Object___">GraphRequestExtensions.ToHttpRequestMessage&lt;T&gt;(IGraphRequest&lt;T&gt;, JsonSerializerSettings, IEnumerable&lt;KeyValuePair&lt;String, Object&gt;&gt;)</a>
   </div>
 </article>
           </div>

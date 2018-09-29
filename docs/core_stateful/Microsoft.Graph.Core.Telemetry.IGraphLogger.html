@@ -88,6 +88,12 @@ logger emits logs that can be observed by different
 observers.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iobservable-1.subscribe#System_IObservable_1_Subscribe_System_IObserver__0__">IObservable&lt;LogEvent&gt;.Subscribe(IObserver&lt;LogEvent&gt;)</a>
+    </div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.Core.Telemetry.html">Microsoft.Graph.Core.Telemetry</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.Core.Stateful.dll</h6>
   <h5 id="Microsoft_Graph_Core_Telemetry_IGraphLogger_syntax">Syntax</h5>
@@ -229,7 +235,7 @@ This is used to obfuscate PII and other data.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">LogEvent Log(TraceLevel level, string message, string component = null, Guid correlationId = null, Guid requestId = null, LogEventType eventType, IEnumerable&lt;object&gt; properties = null, string memberName = null, string filePath = null, int lineNumber = 0)</code></pre>
+    <pre><code class="lang-csharp hljs">LogEvent Log(TraceLevel level, string message, string component = null, Guid correlationId = default(Guid), Guid requestId = default(Guid), LogEventType eventType = LogEventType.Trace, IEnumerable&lt;object&gt; properties = null, string memberName = null, string filePath = null, int lineNumber = 0)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -343,6 +349,9 @@ This is used to obfuscate PII and other data.</p>
   </div>
   <div>
       <a class="xref" href="Microsoft.Graph.Core.Common.Extensions.html#Microsoft_Graph_Core_Common_Extensions_ChangeType__1_System_Object_">Extensions.ChangeType&lt;T&gt;(Object)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Core.Common.Extensions.html#Microsoft_Graph_Core_Common_Extensions_CreateObserver__1_System_IObservable___0__System_Action___0__System_Action_System_Exception__System_Action_">Extensions.CreateObserver&lt;T&gt;(IObservable&lt;T&gt;, Action&lt;T&gt;, Action&lt;Exception&gt;, Action)</a>
   </div>
   <div>
       <a class="xref" href="Microsoft.Graph.Core.Common.Extensions.html#Microsoft_Graph_Core_Common_Extensions_TryDispose_System_Object_Microsoft_Graph_Core_Telemetry_IGraphLogger_">Extensions.TryDispose(Object, IGraphLogger)</a>

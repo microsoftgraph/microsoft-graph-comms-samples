@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class LogEventFormatterFlags
+    <title>Enum LogEventFormatterFlags
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class LogEventFormatterFlags
+    <meta name="title" content="Enum LogEventFormatterFlags
    ">
     <meta name="generator" content="docfx 2.39.2.0">
     
@@ -81,303 +81,109 @@
             <article class="content wrap" id="_content" data-uid="Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags">
   
   
-  <h1 id="Microsoft_Graph_Core_Telemetry_LogEventFormatterFlags" data-uid="Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags" class="text-break">Class LogEventFormatterFlags
+  <h1 id="Microsoft_Graph_Core_Telemetry_LogEventFormatterFlags" data-uid="Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags" class="text-break">Enum LogEventFormatterFlags
   </h1>
   <div class="markdown level0 summary"><p>The log event formatter enums</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><span class="xref">LogEventFormatterFlags</span></div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.Core.Telemetry.html">Microsoft.Graph.Core.Telemetry</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.Core.Stateful.dll</h6>
   <h5 id="Microsoft_Graph_Core_Telemetry_LogEventFormatterFlags_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class LogEventFormatterFlags : Enum</code></pre>
+    <pre><code class="lang-csharp hljs">public enum LogEventFormatterFlags</code></pre>
   </div>
   <h3 id="fields">Fields
   </h3>
-  <h4 id="Microsoft_Graph_Core_Telemetry_LogEventFormatterFlags_ForDefault" data-uid="Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags.ForDefault">ForDefault</h4>
-  <div class="markdown level1 summary"><p>For default case, which includes all fields.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const LogEventFormatterFlags ForDefault</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
-        <th>Type</th>
+        <th>Name</th>
         <th>Description</th>
       </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags.html">LogEventFormatterFlags</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h4 id="Microsoft_Graph_Core_Telemetry_LogEventFormatterFlags_ForILoggerFactory" data-uid="Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags.ForILoggerFactory">ForILoggerFactory</h4>
-  <div class="markdown level1 summary"><p>For ILoggerFactory binding format, which doesn&apos;t include component and level, as these fields are set in ILogger outside of message.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const LogEventFormatterFlags ForILoggerFactory</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
     <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags.html">LogEventFormatterFlags</a></td>
-        <td></td>
+        <td id="Microsoft_Graph_Core_Telemetry_LogEventFormatterFlags_ForDefault">ForDefault</td>
+        <td><p>For default case, which includes all fields.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Microsoft_Graph_Core_Telemetry_LogEventFormatterFlags_ForILoggerFactory">ForILoggerFactory</td>
+        <td><p>For ILoggerFactory binding format, which doesn&apos;t include component and level, as these fields are set in ILogger outside of message.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Microsoft_Graph_Core_Telemetry_LogEventFormatterFlags_IncludeManagedThreadId">IncludeManagedThreadId</td>
+        <td><p>Managed thread ID</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Microsoft_Graph_Core_Telemetry_LogEventFormatterFlags_IncludeProcessId">IncludeProcessId</td>
+        <td><p>Process ID</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Microsoft_Graph_Core_Telemetry_LogEventFormatterFlags_IncludesCallInfo">IncludesCallInfo</td>
+        <td><p>Call info</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Microsoft_Graph_Core_Telemetry_LogEventFormatterFlags_IncludesComponent">IncludesComponent</td>
+        <td><p>Component</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Microsoft_Graph_Core_Telemetry_LogEventFormatterFlags_IncludesCorrelationId">IncludesCorrelationId</td>
+        <td><p>Correlation ID</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Microsoft_Graph_Core_Telemetry_LogEventFormatterFlags_IncludesLevel">IncludesLevel</td>
+        <td><p>Level</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Microsoft_Graph_Core_Telemetry_LogEventFormatterFlags_IncludesProperties">IncludesProperties</td>
+        <td><p>Properties</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Microsoft_Graph_Core_Telemetry_LogEventFormatterFlags_IncludesTimestamp">IncludesTimestamp</td>
+        <td><p>Timestamp</p>
+</td>
       </tr>
     </tbody>
-  </table>
-  <h4 id="Microsoft_Graph_Core_Telemetry_LogEventFormatterFlags_IncludeManagedThreadId" data-uid="Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags.IncludeManagedThreadId">IncludeManagedThreadId</h4>
-  <div class="markdown level1 summary"><p>Managed thread ID</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const LogEventFormatterFlags IncludeManagedThreadId</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags.html">LogEventFormatterFlags</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h4 id="Microsoft_Graph_Core_Telemetry_LogEventFormatterFlags_IncludeProcessId" data-uid="Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags.IncludeProcessId">IncludeProcessId</h4>
-  <div class="markdown level1 summary"><p>Process ID</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const LogEventFormatterFlags IncludeProcessId</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags.html">LogEventFormatterFlags</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h4 id="Microsoft_Graph_Core_Telemetry_LogEventFormatterFlags_IncludesCallInfo" data-uid="Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags.IncludesCallInfo">IncludesCallInfo</h4>
-  <div class="markdown level1 summary"><p>Call info</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const LogEventFormatterFlags IncludesCallInfo</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags.html">LogEventFormatterFlags</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h4 id="Microsoft_Graph_Core_Telemetry_LogEventFormatterFlags_IncludesComponent" data-uid="Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags.IncludesComponent">IncludesComponent</h4>
-  <div class="markdown level1 summary"><p>Component</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const LogEventFormatterFlags IncludesComponent</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags.html">LogEventFormatterFlags</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h4 id="Microsoft_Graph_Core_Telemetry_LogEventFormatterFlags_IncludesCorrelationId" data-uid="Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags.IncludesCorrelationId">IncludesCorrelationId</h4>
-  <div class="markdown level1 summary"><p>Correlation ID</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const LogEventFormatterFlags IncludesCorrelationId</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags.html">LogEventFormatterFlags</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h4 id="Microsoft_Graph_Core_Telemetry_LogEventFormatterFlags_IncludesLevel" data-uid="Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags.IncludesLevel">IncludesLevel</h4>
-  <div class="markdown level1 summary"><p>Level</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const LogEventFormatterFlags IncludesLevel</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags.html">LogEventFormatterFlags</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h4 id="Microsoft_Graph_Core_Telemetry_LogEventFormatterFlags_IncludesProperties" data-uid="Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags.IncludesProperties">IncludesProperties</h4>
-  <div class="markdown level1 summary"><p>Properties</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const LogEventFormatterFlags IncludesProperties</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags.html">LogEventFormatterFlags</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h4 id="Microsoft_Graph_Core_Telemetry_LogEventFormatterFlags_IncludesTimestamp" data-uid="Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags.IncludesTimestamp">IncludesTimestamp</h4>
-  <div class="markdown level1 summary"><p>Timestamp</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const LogEventFormatterFlags IncludesTimestamp</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags.html">LogEventFormatterFlags</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h4 id="Microsoft_Graph_Core_Telemetry_LogEventFormatterFlags_value__" data-uid="Microsoft.Graph.Core.Telemetry.LogEventFormatterFlags.value__">value__</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int value__</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+  </thead></thead></table>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
-      <a class="xref" href="Microsoft.Graph.AdditionalDataExtensions.html#Microsoft_Graph_AdditionalDataExtensions_SetInAdditionalData_System_Object_System_String_System_Object_">AdditionalDataExtensions.SetInAdditionalData(Object, String, Object)</a>
+      <a class="xref" href="Microsoft.Graph.AdditionalDataExtensions.html#Microsoft_Graph_AdditionalDataExtensions_SetInAdditionalData_System_Object_System_String_System_Object_">AdditionalDataExtensions.SetInAdditionalData(String, Object)</a>
   </div>
   <div>
-      <a class="xref" href="Microsoft.Graph.Core.Validator.html#Microsoft_Graph_Core_Validator_IsNull_System_Object_System_String_System_String_">Validator.IsNull(Object, String, String)</a>
+      <a class="xref" href="Microsoft.Graph.Core.Validator.html#Microsoft_Graph_Core_Validator_IsNull_System_Object_System_String_System_String_">Validator.IsNull(String, String)</a>
   </div>
   <div>
-      <a class="xref" href="Microsoft.Graph.Core.Validator.html#Microsoft_Graph_Core_Validator_NotNull__1___0_System_String_System_String_">Validator.NotNull&lt;T&gt;(T, String, String)</a>
+      <a class="xref" href="Microsoft.Graph.Core.Validator.html#Microsoft_Graph_Core_Validator_NotNull__1___0_System_String_System_String_">Validator.NotNull&lt;LogEventFormatterFlags&gt;(String, String)</a>
   </div>
   <div>
-      <a class="xref" href="Microsoft.Graph.Core.Validator.html#Microsoft_Graph_Core_Validator_Equals__2___0___0_System_String_">Validator.Equals&lt;T, TE&gt;(T, T, String)</a>
+      <a class="xref" href="Microsoft.Graph.Core.Validator.html#Microsoft_Graph_Core_Validator_Equals__2___0___0_System_String_">Validator.Equals&lt;LogEventFormatterFlags, TE&gt;(LogEventFormatterFlags, String)</a>
   </div>
   <div>
-      <a class="xref" href="Microsoft.Graph.Core.Validator.html#Microsoft_Graph_Core_Validator_NotEquals__1___0___0_System_String_System_String_">Validator.NotEquals&lt;T&gt;(T, T, String, String)</a>
+      <a class="xref" href="Microsoft.Graph.Core.Validator.html#Microsoft_Graph_Core_Validator_NotEquals__1___0___0_System_String_System_String_">Validator.NotEquals&lt;LogEventFormatterFlags&gt;(LogEventFormatterFlags, String, String)</a>
   </div>
   <div>
-      <a class="xref" href="Microsoft.Graph.Core.Common.Extensions.html#Microsoft_Graph_Core_Common_Extensions_Pin_System_Object_">Extensions.Pin(Object)</a>
+      <a class="xref" href="Microsoft.Graph.Core.Common.Extensions.html#Microsoft_Graph_Core_Common_Extensions_Pin_System_Object_">Extensions.Pin()</a>
   </div>
   <div>
-      <a class="xref" href="Microsoft.Graph.Core.Common.Extensions.html#Microsoft_Graph_Core_Common_Extensions_ChangeType_System_Object_System_Type_">Extensions.ChangeType(Object, Type)</a>
+      <a class="xref" href="Microsoft.Graph.Core.Common.Extensions.html#Microsoft_Graph_Core_Common_Extensions_ChangeType_System_Object_System_Type_">Extensions.ChangeType(Type)</a>
   </div>
   <div>
-      <a class="xref" href="Microsoft.Graph.Core.Common.Extensions.html#Microsoft_Graph_Core_Common_Extensions_ChangeType__1_System_Object_">Extensions.ChangeType&lt;T&gt;(Object)</a>
+      <a class="xref" href="Microsoft.Graph.Core.Common.Extensions.html#Microsoft_Graph_Core_Common_Extensions_ChangeType__1_System_Object_">Extensions.ChangeType&lt;T&gt;()</a>
   </div>
   <div>
-      <a class="xref" href="Microsoft.Graph.Core.Common.Extensions.html#Microsoft_Graph_Core_Common_Extensions_TryDispose_System_Object_Microsoft_Graph_Core_Telemetry_IGraphLogger_">Extensions.TryDispose(Object, IGraphLogger)</a>
+      <a class="xref" href="Microsoft.Graph.Core.Common.Extensions.html#Microsoft_Graph_Core_Common_Extensions_TryDispose_System_Object_Microsoft_Graph_Core_Telemetry_IGraphLogger_">Extensions.TryDispose(IGraphLogger)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Core.Common.EnumUtils.html#Microsoft_Graph_Core_Common_EnumUtils_GetDescription_System_Enum_">EnumUtils.GetDescription()</a>
   </div>
 </article>
           </div>
