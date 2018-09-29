@@ -18,11 +18,11 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
     using System.Security.Cryptography.X509Certificates;
     using System.Text;
     using Microsoft.Azure;
+    using Microsoft.Graph.Core.Telemetry;
     using Microsoft.Skype.Bots.Media;
     using Microsoft.WindowsAzure.ServiceRuntime;
     using Sample.AudioVideoPlaybackBot.FrontEnd;
     using Sample.AudioVideoPlaybackBot.FrontEnd.Http;
-    using Sample.Common.Logging;
 
     /// <summary>
     /// Reads the Configuration from service Configuration.
@@ -123,23 +123,18 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         private const int DefaultPort = 9440;
 
         /// <summary>
-        /// The Configuration.
+        /// Graph logger.
         /// </summary>
-        private static readonly AzureConfiguration Configuration = new AzureConfiguration();
+        private IGraphLogger graphLogger;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AzureConfiguration"/> class.
         /// </summary>
-        private AzureConfiguration()
+        /// <param name="logger">Logger instance.</param>
+        public AzureConfiguration(IGraphLogger logger)
         {
-        }
-
-        /// <summary>
-        /// Gets the azure configuration.
-        /// </summary>
-        public static AzureConfiguration Instance
-        {
-            get { return Configuration; }
+            this.graphLogger = logger;
+            this.Initialize();
         }
 
         /// <inheritdoc/>
@@ -201,25 +196,25 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         public void Initialize()
         {
             // Collect config values from Azure config.
-            TraceEndpointInfo();
-            this.ServiceDnsName = GetString(ServiceDnsNameKey);
-            this.ServiceCname = GetString(ServiceCNameKey, true);
+            this.TraceEndpointInfo();
+            this.ServiceDnsName = this.GetString(ServiceDnsNameKey);
+            this.ServiceCname = this.GetString(ServiceCNameKey, true);
             if (string.IsNullOrEmpty(this.ServiceCname))
             {
                 this.ServiceCname = this.ServiceDnsName;
             }
 
-            var placeCallEndpointUrlStr = GetString(PlaceCallEndpointUrlKey, true);
+            var placeCallEndpointUrlStr = this.GetString(PlaceCallEndpointUrlKey, true);
             if (!string.IsNullOrEmpty(placeCallEndpointUrlStr))
             {
                 this.PlaceCallEndpointUrl = new Uri(placeCallEndpointUrlStr);
             }
 
-            X509Certificate2 defaultCertificate = GetCertificateFromStore(DefaultCertificateKey);
+            X509Certificate2 defaultCertificate = this.GetCertificateFromStore(DefaultCertificateKey);
 
-            RoleInstanceEndpoint instanceCallControlEndpoint = RoleEnvironment.IsEmulated ? null : GetEndpoint(InstanceCallControlEndpointKey);
-            RoleInstanceEndpoint defaultEndpoint = GetEndpoint(DefaultEndpointKey);
-            RoleInstanceEndpoint mediaControlEndpoint = RoleEnvironment.IsEmulated ? null : GetEndpoint(InstanceMediaControlEndpointKey);
+            RoleInstanceEndpoint instanceCallControlEndpoint = RoleEnvironment.IsEmulated ? null : this.GetEndpoint(InstanceCallControlEndpointKey);
+            RoleInstanceEndpoint defaultEndpoint = this.GetEndpoint(DefaultEndpointKey);
+            RoleInstanceEndpoint mediaControlEndpoint = RoleEnvironment.IsEmulated ? null : this.GetEndpoint(InstanceMediaControlEndpointKey);
 
             int instanceCallControlInternalPort = RoleEnvironment.IsEmulated ? DefaultPort : instanceCallControlEndpoint.IPEndpoint.Port;
             string instanceCallControlInternalIpAddress = RoleEnvironment.IsEmulated
@@ -284,7 +279,7 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
                 this.ServiceCname,
                 instanceCallControlPublicPort));
 
-            TraceConfigValue("CallControlCallbackUri", this.CallControlBaseUrl);
+            this.TraceConfigValue("CallControlCallbackUri", this.CallControlBaseUrl);
             List<Uri> controlListenUris = new List<Uri>();
 
             if (RoleEnvironment.IsEmulated)
@@ -301,12 +296,12 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
 
             foreach (Uri uri in this.CallControlListeningUrls)
             {
-                TraceConfigValue("Call control listening Uri", uri);
+                this.TraceConfigValue("Call control listening Uri", uri);
             }
 
             IPAddress publicInstanceIpAddress = RoleEnvironment.IsEmulated
                 ? IPAddress.Loopback
-                : GetInstancePublicIpAddress(this.ServiceDnsName);
+                : this.GetInstancePublicIpAddress(this.ServiceDnsName);
 
             this.MediaPlatformSettings = new MediaPlatformSettings()
             {
@@ -333,7 +328,7 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         /// <summary>
         /// Write endpoint info into the debug logs.
         /// </summary>
-        private static void TraceEndpointInfo()
+        private void TraceEndpointInfo()
         {
             string[] endpoints = RoleEnvironment.IsEmulated
                 ? new string[] { DefaultEndpointKey }
@@ -341,12 +336,12 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
 
             foreach (string endpointName in endpoints)
             {
-                RoleInstanceEndpoint endpoint = GetEndpoint(endpointName);
+                RoleInstanceEndpoint endpoint = this.GetEndpoint(endpointName);
                 StringBuilder info = new StringBuilder();
                 info.AppendFormat("Internal=https://{0}, ", endpoint.IPEndpoint);
                 string publicInfo = endpoint.PublicIPEndpoint == null ? "-" : endpoint.PublicIPEndpoint.Port.ToString();
                 info.AppendFormat("PublicPort={0}", publicInfo);
-                TraceConfigValue(endpointName, info);
+                this.TraceConfigValue(endpointName, info);
             }
         }
 
@@ -355,9 +350,9 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         /// </summary>
         /// <param name="key">Configuration key.</param>
         /// <param name="value">Configuration value.</param>
-        private static void TraceConfigValue(string key, object value)
+        private void TraceConfigValue(string key, object value)
         {
-            Log.Info(new CallerInfo(), LogContext.FrontEnd, $"{key} ->{value}");
+            this.graphLogger.Info($"{key} ->{value}");
         }
 
         /// <summary>
@@ -365,11 +360,11 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         /// </summary>
         /// <param name="name">Endpoint name.</param>
         /// <returns>Role instance endpoint.</returns>
-        private static RoleInstanceEndpoint GetEndpoint(string name)
+        private RoleInstanceEndpoint GetEndpoint(string name)
         {
             if (!RoleEnvironment.CurrentRoleInstance.InstanceEndpoints.TryGetValue(name, out RoleInstanceEndpoint endpoint))
             {
-                throw new ConfigurationException(name, "No endpoint with name '{0}' was found.", name);
+                throw new ConfigurationException(name, $"No endpoint with name '{name}' was found.");
             }
 
             return endpoint;
@@ -381,11 +376,11 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         /// <param name="key">Configuration key.</param>
         /// <param name="allowEmpty">If empty configurations are allowed.</param>
         /// <returns>Configuration value, if found.</returns>
-        private static string GetString(string key, bool allowEmpty = false)
+        private string GetString(string key, bool allowEmpty = false)
         {
             string s = CloudConfigurationManager.GetSetting(key);
 
-            TraceConfigValue(key, s);
+            this.TraceConfigValue(key, s);
 
             if (!allowEmpty && string.IsNullOrWhiteSpace(s))
             {
@@ -400,9 +395,9 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         /// </summary>
         /// <param name="key">Configuration key containing the setting.</param>
         /// <returns>Configuration value split into an array.</returns>
-        private static List<string> GetStringList(string key)
+        private List<string> GetStringList(string key)
         {
-            return GetString(key).Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            return this.GetString(key).Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
         }
 
         /// <summary>
@@ -410,9 +405,9 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         /// </summary>
         /// <param name="key">Configuration key containing the Thumbprint to search.</param>
         /// <returns>Certificate if found.</returns>
-        private static X509Certificate2 GetCertificateFromStore(string key)
+        private X509Certificate2 GetCertificateFromStore(string key)
         {
-            string thumbprint = GetString(key);
+            string thumbprint = this.GetString(key);
 
             X509Store store = new X509Store(StoreName.My, StoreLocation.LocalMachine);
             store.Open(OpenFlags.ReadOnly);
@@ -421,7 +416,7 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
                 X509Certificate2Collection certs = store.Certificates.Find(X509FindType.FindByThumbprint, thumbprint, validOnly: false);
                 if (certs.Count != 1)
                 {
-                    throw new ConfigurationException(key, "No certificate with thumbprint {0} was found in the machine store.", thumbprint);
+                    throw new ConfigurationException(key, $"No certificate with thumbprint {thumbprint} was found in the machine store.");
                 }
 
                 return certs[0];
@@ -437,7 +432,7 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         /// </summary>
         /// <param name="publicFqdn">DNS name for this service.</param>
         /// <returns>IPAddress.</returns>
-        private static IPAddress GetInstancePublicIpAddress(string publicFqdn)
+        private IPAddress GetInstancePublicIpAddress(string publicFqdn)
         {
             // get the instanceId for the current instance. It will be of the form  XXMediaBotRole_IN_0. Look for IN_ and then extract the number after it
             // Assumption: in_<instanceNumber> will the be the last in the instanceId
@@ -445,8 +440,9 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
             int instanceIdIndex = instanceId.IndexOf(InstanceIdToken, StringComparison.OrdinalIgnoreCase);
             if (!int.TryParse(instanceId.Substring(instanceIdIndex + InstanceIdToken.Length), out int instanceNumber))
             {
-                Log.Error(new CallerInfo(), LogContext.FrontEnd, "Couldn't extract Instance index from {0}", instanceId);
-                throw new Exception("Couldn't extract Instance index from " + instanceId);
+                var err = $"Couldn't extract Instance index from {instanceId}";
+                this.graphLogger.Error(err);
+                throw new Exception(err);
             }
 
             // for example: instance0 for fooservice.cloudapp.net will have hostname as pip.0.fooservice.cloudapp.net

@@ -83,7 +83,8 @@
   
   <h1 id="Microsoft_Graph_CoreSDK_Serialization_Serializer" data-uid="Microsoft.Graph.CoreSDK.Serialization.Serializer" class="text-break">Class Serializer
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>An interface for serializing and deserializing JSON objects.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -97,10 +98,16 @@
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+    </div>
+    <div>
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
     </div>
     <div>
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
     </div>
     <div>
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
@@ -110,12 +117,6 @@
     </div>
     <div>
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.CoreSDK.Serialization.html">Microsoft.Graph.CoreSDK.Serialization</a></h6>
@@ -183,7 +184,8 @@
   </h3>
   <a id="Microsoft_Graph_CoreSDK_Serialization_Serializer_DeserializeObject_" data-uid="Microsoft.Graph.CoreSDK.Serialization.Serializer.DeserializeObject*"></a>
   <h4 id="Microsoft_Graph_CoreSDK_Serialization_Serializer_DeserializeObject__1_System_IO_Stream_" data-uid="Microsoft.Graph.CoreSDK.Serialization.Serializer.DeserializeObject``1(System.IO.Stream)">DeserializeObject&lt;T&gt;(Stream)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Deserializes the stream to an object of the specified type.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -202,7 +204,8 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.io.stream">Stream</a></td>
         <td><span class="parametername">stream</span></td>
-        <td></td>
+        <td><p>The stream to deserialize.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -217,7 +220,8 @@
     <tbody>
       <tr>
         <td><span class="xref">T</span></td>
-        <td></td>
+        <td><p>The deserialized object.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -232,13 +236,15 @@
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td></td>
+        <td><p>The deserialization type.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <a id="Microsoft_Graph_CoreSDK_Serialization_Serializer_DeserializeObject_" data-uid="Microsoft.Graph.CoreSDK.Serialization.Serializer.DeserializeObject*"></a>
   <h4 id="Microsoft_Graph_CoreSDK_Serialization_Serializer_DeserializeObject__1_System_String_" data-uid="Microsoft.Graph.CoreSDK.Serialization.Serializer.DeserializeObject``1(System.String)">DeserializeObject&lt;T&gt;(String)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Deserializes the JSON string to an object of the specified type.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -257,7 +263,8 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><span class="parametername">inputString</span></td>
-        <td></td>
+        <td><p>The JSON string to deserialize.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -272,7 +279,8 @@
     <tbody>
       <tr>
         <td><span class="xref">T</span></td>
-        <td></td>
+        <td><p>The deserialized object.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -287,13 +295,15 @@
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td></td>
+        <td><p>The deserialization type.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <a id="Microsoft_Graph_CoreSDK_Serialization_Serializer_SerializeObject_" data-uid="Microsoft.Graph.CoreSDK.Serialization.Serializer.SerializeObject*"></a>
   <h4 id="Microsoft_Graph_CoreSDK_Serialization_Serializer_SerializeObject_System_Object_" data-uid="Microsoft.Graph.CoreSDK.Serialization.Serializer.SerializeObject(System.Object)">SerializeObject(Object)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Serializes the specified object into a JSON string.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -312,7 +322,8 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></td>
         <td><span class="parametername">serializeableObject</span></td>
-        <td></td>
+        <td><p>The object to serialize.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -327,7 +338,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td></td>
+        <td><p>The JSON string.</p>
+</td>
       </tr>
     </tbody>
   </table>

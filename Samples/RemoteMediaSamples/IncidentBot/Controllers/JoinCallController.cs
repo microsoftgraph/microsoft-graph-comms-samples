@@ -70,7 +70,7 @@ namespace Sample.IncidentBot.Http
         [Route(HttpRouteConstants.CallsPrefix + "/")]
         public ActionResult<List<Dictionary<string, string>>> OnGetCalls()
         {
-            this.graphLogger.Info($"Getting calls");
+            this.graphLogger.Info("Getting calls");
 
             if (this.bot.CallHandlers.IsEmpty)
             {

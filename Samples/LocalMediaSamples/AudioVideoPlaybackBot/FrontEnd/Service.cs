@@ -13,7 +13,7 @@
 namespace Sample.AudioVideoPlaybackBot.FrontEnd
 {
     using System;
-
+    using Microsoft.Graph.Core.Telemetry;
     using Microsoft.Owin.Hosting;
 
     using Sample.AudioVideoPlaybackBot.FrontEnd.Http;
@@ -46,6 +46,11 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
         private bool started;
 
         /// <summary>
+        /// Graph logger instance.
+        /// </summary>
+        private IGraphLogger logger;
+
+        /// <summary>
         /// Gets the configuration.
         /// </summary>
         public IConfiguration Configuration { get; private set; }
@@ -53,12 +58,14 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
         /// <summary>
         /// Instantiate a custom server (e.g. for testing).
         /// </summary>
-        /// <param name="config">
-        /// The configuration to initialize.
-        /// </param>
-        public void Initialize(IConfiguration config)
+        /// <param name="config">The configuration to initialize.</param>
+        /// <param name="logger">Graph logger instance.</param>
+        public void Initialize(IConfiguration config, IGraphLogger logger)
         {
             this.Configuration = config;
+            this.logger = logger;
+
+            Bot.Bot.Instance.Initialize(this, logger);
         }
 
         /// <summary>
@@ -85,7 +92,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
                     (appBuilder) =>
                     {
                         var startup = new HttpConfigurationInitializer();
-                        startup.ConfigureSettings(appBuilder);
+                        startup.ConfigureSettings(appBuilder, this.logger);
                     });
 
                 this.started = true;

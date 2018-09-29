@@ -93,46 +93,31 @@ multiparty conversation</p>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IResourceCollection-3.html#Microsoft_Graph_StatefulClient_IResourceCollection_3_OnUpdated">IResourceCollection&lt;IAudioRoutingGroupCollection, IAudioRoutingGroup, AudioRoutingGroup&gt;.OnUpdated</a>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable.dispose#System_IDisposable_Dispose">IDisposable.Dispose()</a>
     </div>
     <div>
-      <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IResourceCollection-3.html#Microsoft_Graph_StatefulClient_IResourceCollection_3_Item_System_String_">IResourceCollection&lt;IAudioRoutingGroupCollection, IAudioRoutingGroup, AudioRoutingGroup&gt;.Item[String]</a>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1.count#System_Collections_Generic_IReadOnlyCollection_1_Count">IReadOnlyCollection&lt;IAudioRoutingGroup&gt;.Count</a>
     </div>
     <div>
-      <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IResourceCollection-3.html#Microsoft_Graph_StatefulClient_IResourceCollection_3_TryForceRemove_System_String__1__">IResourceCollection&lt;IAudioRoutingGroupCollection, IAudioRoutingGroup, AudioRoutingGroup&gt;.TryForceRemove(String, IAudioRoutingGroup)</a>
-    </div>
-    <div>
-      <span class="xref">Microsoft.Graph.StatefulClient.IResourceCollection.TerminateAsync(TimeSpan)</span>
-    </div>
-    <div>
-      <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IResourceBase.html#Microsoft_Graph_StatefulClient_IResourceBase_Client">IResourceBase.Client</a>
-    </div>
-    <div>
-      <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IResourceBase.html#Microsoft_Graph_StatefulClient_IResourceBase_GraphClient">IResourceBase.GraphClient</a>
-    </div>
-    <div>
-      <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IResourceBase.html#Microsoft_Graph_StatefulClient_IResourceBase_GraphLogger">IResourceBase.GraphLogger</a>
-    </div>
-    <div>
-      <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IResourceBase.html#Microsoft_Graph_StatefulClient_IResourceBase_ResourcePath">IResourceBase.ResourcePath</a>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator#System_Collections_Generic_IEnumerable_1_GetEnumerator">IEnumerable&lt;IAudioRoutingGroup&gt;.GetEnumerator()</a>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.Calls.html">Microsoft.Graph.Calls</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.Calls.dll</h6>
   <h5 id="Microsoft_Graph_Calls_IAudioRoutingGroupCollection_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IAudioRoutingGroupCollection : IResourceCollection&lt;IAudioRoutingGroupCollection, IAudioRoutingGroup, AudioRoutingGroup&gt;, IResourceCollection, IResourceBase, IDisposable, IReadOnlyCollection&lt;IAudioRoutingGroup&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IAudioRoutingGroupCollection : IResourceCollection&lt;IAudioRoutingGroupCollection, IAudioRoutingGroup, AudioRoutingGroup&gt;, IResourceCollection, IResourceBase, IDisposable, IReadOnlyCollection&lt;IAudioRoutingGroup&gt;, IEnumerable&lt;IAudioRoutingGroup&gt;, IEnumerable</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   <a id="Microsoft_Graph_Calls_IAudioRoutingGroupCollection_AddAsync_" data-uid="Microsoft.Graph.Calls.IAudioRoutingGroupCollection.AddAsync*"></a>
-  <h4 id="Microsoft_Graph_Calls_IAudioRoutingGroupCollection_AddAsync_AudioRoutingGroup_CancellationToken_" data-uid="Microsoft.Graph.Calls.IAudioRoutingGroupCollection.AddAsync(AudioRoutingGroup,CancellationToken)">AddAsync(AudioRoutingGroup, CancellationToken)</h4>
+  <h4 id="Microsoft_Graph_Calls_IAudioRoutingGroupCollection_AddAsync_Microsoft_Graph_AudioRoutingGroup_System_Threading_CancellationToken_" data-uid="Microsoft.Graph.Calls.IAudioRoutingGroupCollection.AddAsync(Microsoft.Graph.AudioRoutingGroup,System.Threading.CancellationToken)">AddAsync(AudioRoutingGroup, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Adds the stateful audio routing group for the given resource.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;IAudioRoutingGroup&gt; AddAsync(AudioRoutingGroup resource, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;IAudioRoutingGroup&gt; AddAsync(AudioRoutingGroup resource, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -145,13 +130,13 @@ multiparty conversation</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">AudioRoutingGroup</span></td>
+        <td><a class="xref" href="../core/Microsoft.Graph.AudioRoutingGroup.html">AudioRoutingGroup</a></td>
         <td><span class="parametername">resource</span></td>
         <td><p>The audio routing group resource.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">CancellationToken</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>The cancellation token.</p>
 </td>
@@ -168,7 +153,7 @@ multiparty conversation</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Microsoft.Graph.Calls.IAudioRoutingGroup.html">IAudioRoutingGroup</a>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Microsoft.Graph.Calls.IAudioRoutingGroup.html">IAudioRoutingGroup</a>&gt;</td>
         <td><p>The <a class="xref" href="Microsoft.Graph.Calls.IAudioRoutingGroup.html">IAudioRoutingGroup</a>.</p>
 </td>
       </tr>

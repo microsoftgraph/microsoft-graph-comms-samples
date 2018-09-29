@@ -83,7 +83,8 @@
   
   <h1 id="Microsoft_Graph_HttpProvider" data-uid="Microsoft.Graph.HttpProvider" class="text-break">Class HttpProvider
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Interface for an HTTP provider to send requests.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -98,10 +99,16 @@
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+    </div>
+    <div>
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
     </div>
     <div>
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
     </div>
     <div>
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
@@ -111,12 +118,6 @@
     </div>
     <div>
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.html">Microsoft.Graph</a></h6>
@@ -245,7 +246,8 @@
   </table>
   <a id="Microsoft_Graph_HttpProvider_Serializer_" data-uid="Microsoft.Graph.HttpProvider.Serializer*"></a>
   <h4 id="Microsoft_Graph_HttpProvider_Serializer" data-uid="Microsoft.Graph.HttpProvider.Serializer">Serializer</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets a serializer for serializing and deserializing JSON objects.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -278,7 +280,8 @@
   </div>
   <a id="Microsoft_Graph_HttpProvider_SendAsync_" data-uid="Microsoft.Graph.HttpProvider.SendAsync*"></a>
   <h4 id="Microsoft_Graph_HttpProvider_SendAsync_System_Net_Http_HttpRequestMessage_" data-uid="Microsoft.Graph.HttpProvider.SendAsync(System.Net.Http.HttpRequestMessage)">SendAsync(HttpRequestMessage)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Sends the request.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -297,7 +300,8 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a></td>
         <td><span class="parametername">request</span></td>
-        <td></td>
+        <td><p>The <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a> to send.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -312,13 +316,15 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.httpresponsemessage">HttpResponseMessage</a>&gt;</td>
-        <td></td>
+        <td><p>The <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.httpresponsemessage">HttpResponseMessage</a>.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <a id="Microsoft_Graph_HttpProvider_SendAsync_" data-uid="Microsoft.Graph.HttpProvider.SendAsync*"></a>
   <h4 id="Microsoft_Graph_HttpProvider_SendAsync_System_Net_Http_HttpRequestMessage_System_Net_Http_HttpCompletionOption_System_Threading_CancellationToken_" data-uid="Microsoft.Graph.HttpProvider.SendAsync(System.Net.Http.HttpRequestMessage,System.Net.Http.HttpCompletionOption,System.Threading.CancellationToken)">SendAsync(HttpRequestMessage, HttpCompletionOption, CancellationToken)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Sends the request.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -337,17 +343,20 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a></td>
         <td><span class="parametername">request</span></td>
-        <td></td>
+        <td><p>The <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a> to send.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.httpcompletionoption">HttpCompletionOption</a></td>
         <td><span class="parametername">completionOption</span></td>
-        <td></td>
+        <td><p>The <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.httpcompletionoption">HttpCompletionOption</a> to pass to the <a class="xref" href="Microsoft.Graph.IHttpProvider.html">IHttpProvider</a> on send.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td></td>
+        <td><p>The <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a> for the request.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -362,7 +371,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.httpresponsemessage">HttpResponseMessage</a>&gt;</td>
-        <td></td>
+        <td><p>The <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.httpresponsemessage">HttpResponseMessage</a>.</p>
+</td>
       </tr>
     </tbody>
   </table>

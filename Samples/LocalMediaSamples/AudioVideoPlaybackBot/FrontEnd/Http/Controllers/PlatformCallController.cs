@@ -9,9 +9,9 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
     using System.Threading.Tasks;
     using System.Web.Http;
     using Microsoft.Graph;
+    using Microsoft.Graph.Core.Telemetry;
     using Microsoft.Graph.StatefulClient;
     using Sample.AudioVideoPlaybackBot.FrontEnd.Bot;
-    using Sample.Common.Logging;
 
     /// <summary>
     /// Entry point for handling call-related web hook requests from Skype Platform.
@@ -19,6 +19,11 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
     [RoutePrefix(HttpRouteConstants.CallSignalingRoutePrefix)]
     public class PlatformCallController : ApiController
     {
+        /// <summary>
+        /// Gets the logger instance.
+        /// </summary>
+        private IGraphLogger Logger => Bot.Instance.Logger;
+
         /// <summary>
         /// Gets a reference to singleton sample bot/client instance.
         /// </summary>
@@ -36,7 +41,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
         // [BotAuthentication]
         public async Task<HttpResponseMessage> OnIncomingRequestAsync()
         {
-            Log.Info(new CallerInfo(), LogContext.FrontEnd, $"Received HTTP {this.Request.Method}, {this.Request.RequestUri}");
+            this.Logger.Info($"Received HTTP {this.Request.Method}, {this.Request.RequestUri}");
 
             // Pass the incoming message to the sdk. The sdk takes care of what to do with it.
             var response = await this.Client.ProcessNotificationAsync(this.Request).ConfigureAwait(false);

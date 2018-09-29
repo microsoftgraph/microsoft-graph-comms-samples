@@ -11,13 +11,12 @@
 namespace Sample.AudioVideoPlaybackBot.WorkerRole
 {
     using System;
-    using System.Diagnostics;
     using System.Net;
     using System.Threading;
     using System.Threading.Tasks;
+    using Microsoft.Graph.Core.Telemetry;
     using Microsoft.WindowsAzure.ServiceRuntime;
     using Sample.AudioVideoPlaybackBot.FrontEnd;
-    using Sample.Common.Logging;
 
     /// <summary>
     /// The worker role.
@@ -35,11 +34,16 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         private readonly ManualResetEvent runCompleteEvent = new ManualResetEvent(false);
 
         /// <summary>
+        /// Graph Logger.
+        /// </summary>
+        private readonly GraphLogger logger = new GraphLogger(typeof(WorkerRole).Assembly.GetName().Name, redirectToTrace: true);
+
+        /// <summary>
         /// The run.
         /// </summary>
         public override void Run()
         {
-            Log.Info(new CallerInfo(), LogContext.FrontEnd, "WorkerRole is running");
+            this.logger.Info("WorkerRole is running");
 
             try
             {
@@ -61,27 +65,26 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         {
             try
             {
-                // Wire up exception handling for unhandled exceptions (bugs).
-                AppDomain.CurrentDomain.UnhandledException += this.OnAppDomainUnhandledException;
-                TaskScheduler.UnobservedTaskException += this.OnUnobservedTaskException;
+                // Log unhandled exceptions.
+                AppDomain.CurrentDomain.UnhandledException += (_, e) => this.logger.Error(e.ExceptionObject as Exception, $"Unhandled exception");
+                TaskScheduler.UnobservedTaskException += (_, e) => this.logger.Error(e.Exception, "Unobserved task exception");
 
                 // Set the maximum number of concurrent connections
                 ServicePointManager.DefaultConnectionLimit = 12;
-                AzureConfiguration.Instance.Initialize();
 
                 // Create and start the environment-independent service.
-                Service.Instance.Initialize(AzureConfiguration.Instance);
+                Service.Instance.Initialize(new AzureConfiguration(this.logger), this.logger);
                 Service.Instance.Start();
 
                 bool result = base.OnStart();
 
-                Log.Info(new CallerInfo(), LogContext.FrontEnd, "WorkerRole has been started");
+                this.logger.Info("WorkerRole has been started");
 
                 return result;
             }
             catch (Exception e)
             {
-                Log.Error(new CallerInfo(), LogContext.FrontEnd, "Exception on startup: {0}", e.ToString());
+                this.logger.Error(e, "Exception on startup");
                 throw;
             }
         }
@@ -91,14 +94,14 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         /// </summary>
         public override void OnStop()
         {
-            Trace.TraceInformation("WorkerRole is stopping");
+            this.logger.Info("WorkerRole is stopping");
 
             this.cancellationTokenSource.Cancel();
             this.runCompleteEvent.WaitOne();
 
             base.OnStop();
 
-            Trace.TraceInformation("WorkerRole has stopped");
+            this.logger.Info("WorkerRole has stopped");
         }
 
         /// <summary>
@@ -115,45 +118,9 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
             // TODO: Replace the following with your own logic.
             while (!cancellationToken.IsCancellationRequested)
             {
-                Trace.TraceInformation("Working");
+                this.logger.Info("Working");
                 await Task.Delay(1000).ConfigureAwait(false);
             }
-        }
-
-        /// <summary>
-        /// Log UnObservedTaskExceptions.
-        /// </summary>
-        /// <param name="sender">
-        /// The sender.
-        /// </param>
-        /// <param name="e">
-        /// The e.
-        /// </param>
-        private void OnUnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
-        {
-            Log.Error(
-                new CallerInfo(),
-                LogContext.FrontEnd,
-                "Unobserved task exception: " + e.Exception);
-        }
-
-        /// <summary>
-        /// Log any unhandled exceptions that are raised in the service.
-        /// </summary>
-        /// <param name="sender">
-        /// The sender.
-        /// </param>
-        /// <param name="e">
-        /// The e.
-        /// </param>
-        private void OnAppDomainUnhandledException(object sender, UnhandledExceptionEventArgs e)
-        {
-            Log.Error(
-                new CallerInfo(),
-                LogContext.FrontEnd,
-                "Unhandled exception: " + e.ExceptionObject);
-
-            Log.Flush(); // process may or may not be terminating so flush log just in case.
         }
     }
 }

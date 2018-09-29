@@ -91,22 +91,46 @@
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">ParticipantExtensions</span></div>
   </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.Calls.html">Microsoft.Graph.Calls</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.Calls.dll</h6>
   <h5 id="Microsoft_Graph_Calls_ParticipantExtensions_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class ParticipantExtensions : object</code></pre>
+    <pre><code class="lang-csharp hljs">public static class ParticipantExtensions</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   <a id="Microsoft_Graph_Calls_ParticipantExtensions_ConfigureMixerAsync_" data-uid="Microsoft.Graph.Calls.ParticipantExtensions.ConfigureMixerAsync*"></a>
-  <h4 id="Microsoft_Graph_Calls_ParticipantExtensions_ConfigureMixerAsync_Microsoft_Graph_Calls_ICallParticipantCollection_Participant_AudioDuckingConfiguration_System_Nullable_System_Boolean__IEnumerable_AudioSourceLevel__CancellationToken_" data-uid="Microsoft.Graph.Calls.ParticipantExtensions.ConfigureMixerAsync(Microsoft.Graph.Calls.ICallParticipantCollection,Participant,AudioDuckingConfiguration,System.Nullable{System.Boolean},IEnumerable{AudioSourceLevel},CancellationToken)">ConfigureMixerAsync(ICallParticipantCollection, Participant, AudioDuckingConfiguration, Nullable&lt;Boolean&gt;, IEnumerable&lt;AudioSourceLevel&gt;, CancellationToken)</h4>
+  <h4 id="Microsoft_Graph_Calls_ParticipantExtensions_ConfigureMixerAsync_Microsoft_Graph_Calls_ICallParticipantCollection_Microsoft_Graph_Participant_Microsoft_Graph_AudioDuckingConfiguration_System_Nullable_System_Boolean__System_Collections_Generic_IEnumerable_Microsoft_Graph_AudioSourceLevel__System_Threading_CancellationToken_" data-uid="Microsoft.Graph.Calls.ParticipantExtensions.ConfigureMixerAsync(Microsoft.Graph.Calls.ICallParticipantCollection,Microsoft.Graph.Participant,Microsoft.Graph.AudioDuckingConfiguration,System.Nullable{System.Boolean},System.Collections.Generic.IEnumerable{Microsoft.Graph.AudioSourceLevel},System.Threading.CancellationToken)">ConfigureMixerAsync(ICallParticipantCollection, Participant, AudioDuckingConfiguration, Nullable&lt;Boolean&gt;, IEnumerable&lt;AudioSourceLevel&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Configure a participant&apos;s mixer settings.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task ConfigureMixerAsync(this ICallParticipantCollection participantCollection, Participant participant, AudioDuckingConfiguration ducking = null, bool? exclusiveMode = null, IEnumerable&lt;AudioSourceLevel&gt; sourceLevels = null, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task ConfigureMixerAsync(this ICallParticipantCollection participantCollection, Participant participant, AudioDuckingConfiguration ducking = null, bool? exclusiveMode = default(bool? ), IEnumerable&lt;AudioSourceLevel&gt; sourceLevels = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -125,13 +149,13 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Participant</span></td>
+        <td><a class="xref" href="../core/Microsoft.Graph.Participant.html">Participant</a></td>
         <td><span class="parametername">participant</span></td>
         <td><p>The participant to be updated.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">AudioDuckingConfiguration</span></td>
+        <td><a class="xref" href="../core/Microsoft.Graph.AudioDuckingConfiguration.html">AudioDuckingConfiguration</a></td>
         <td><span class="parametername">ducking</span></td>
         <td><p>The ducking configuration.
 This is the audio setting level for the participant</p>
@@ -144,13 +168,13 @@ This is the audio setting level for the participant</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">AudioSourceLevel</span>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="../core/Microsoft.Graph.AudioSourceLevel.html">AudioSourceLevel</a>&gt;</td>
         <td><span class="parametername">sourceLevels</span></td>
         <td><p>The audio source level for the participant.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">CancellationToken</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>The cancellation token.</p>
 </td>
@@ -167,20 +191,36 @@ This is the audio setting level for the participant</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span></td>
-        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.</p>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>The <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> that completes after the request has been sent.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>If <a class="xref" href="../core/Microsoft.Graph.Participant.html">Participant</a> is null.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <a id="Microsoft_Graph_Calls_ParticipantExtensions_InviteAsync_" data-uid="Microsoft.Graph.Calls.ParticipantExtensions.InviteAsync*"></a>
-  <h4 id="Microsoft_Graph_Calls_ParticipantExtensions_InviteAsync_Microsoft_Graph_Calls_ICallParticipantCollection_IdentitySet_System_String_System_String_CancellationToken_" data-uid="Microsoft.Graph.Calls.ParticipantExtensions.InviteAsync(Microsoft.Graph.Calls.ICallParticipantCollection,IdentitySet,System.String,System.String,CancellationToken)">InviteAsync(ICallParticipantCollection, IdentitySet, String, String, CancellationToken)</h4>
+  <h4 id="Microsoft_Graph_Calls_ParticipantExtensions_InviteAsync_Microsoft_Graph_Calls_ICallParticipantCollection_Microsoft_Graph_IdentitySet_System_String_System_String_System_Threading_CancellationToken_" data-uid="Microsoft.Graph.Calls.ParticipantExtensions.InviteAsync(Microsoft.Graph.Calls.ICallParticipantCollection,Microsoft.Graph.IdentitySet,System.String,System.String,System.Threading.CancellationToken)">InviteAsync(ICallParticipantCollection, IdentitySet, String, String, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Invite a participant into the existing call.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task InviteAsync(this ICallParticipantCollection participantCollection, IdentitySet identitySet, string replacesCallId = null, string languageId = null, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task InviteAsync(this ICallParticipantCollection participantCollection, IdentitySet identitySet, string replacesCallId = null, string languageId = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -200,7 +240,7 @@ which a new participant is being invited.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">IdentitySet</span></td>
+        <td><a class="xref" href="../core/Microsoft.Graph.IdentitySet.html">IdentitySet</a></td>
         <td><span class="parametername">identitySet</span></td>
         <td><p>The identity set of the invited participant.</p>
 </td>
@@ -220,7 +260,7 @@ from an existing call.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">CancellationToken</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>The cancellation token.</p>
 </td>
@@ -237,8 +277,8 @@ from an existing call.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span></td>
-        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>The <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> that completes after the request has been sent.
 This does not guarantee that the participant has joined. Any updates
 on the participant collection will be delivered via notification and
 can be observed using ICallParticipantCollection.OnUpdated</p>
@@ -246,8 +286,24 @@ can be observed using ICallParticipantCollection.OnUpdated</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>If <a class="xref" href="../core/Microsoft.Graph.IdentitySet.html">IdentitySet</a> is null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <a id="Microsoft_Graph_Calls_ParticipantExtensions_SubscribeVideoAsync_" data-uid="Microsoft.Graph.Calls.ParticipantExtensions.SubscribeVideoAsync*"></a>
-  <h4 id="Microsoft_Graph_Calls_ParticipantExtensions_SubscribeVideoAsync_Microsoft_Graph_Calls_ICallParticipant_VideoResolutionFormat_System_Boolean_System_Int64_CancellationToken_" data-uid="Microsoft.Graph.Calls.ParticipantExtensions.SubscribeVideoAsync(Microsoft.Graph.Calls.ICallParticipant,VideoResolutionFormat,System.Boolean,System.Int64,CancellationToken)">SubscribeVideoAsync(ICallParticipant, VideoResolutionFormat, Boolean, Int64, CancellationToken)</h4>
+  <h4 id="Microsoft_Graph_Calls_ParticipantExtensions_SubscribeVideoAsync_Microsoft_Graph_Calls_ICallParticipant_Microsoft_Graph_VideoResolutionFormat_System_Boolean_System_Int64_System_Threading_CancellationToken_" data-uid="Microsoft.Graph.Calls.ParticipantExtensions.SubscribeVideoAsync(Microsoft.Graph.Calls.ICallParticipant,Microsoft.Graph.VideoResolutionFormat,System.Boolean,System.Int64,System.Threading.CancellationToken)">SubscribeVideoAsync(ICallParticipant, VideoResolutionFormat, Boolean, Int64, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Subscribes to the participants video stream asynchronously.
 This ensures that the given video socket supplies
 us with a given participants video stream.</p>
@@ -255,7 +311,7 @@ us with a given participants video stream.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task SubscribeVideoAsync(this ICallParticipant callParticipant, VideoResolutionFormat videoResolution = null, bool isScreenSharing = false, long socketId = null, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task SubscribeVideoAsync(this ICallParticipant callParticipant, VideoResolutionFormat videoResolution, bool isScreenSharing = false, long socketId = 0L, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -274,7 +330,7 @@ us with a given participants video stream.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">VideoResolutionFormat</span></td>
+        <td><a class="xref" href="../core/Microsoft.Graph.VideoResolutionFormat.html">VideoResolutionFormat</a></td>
         <td><span class="parametername">videoResolution</span></td>
         <td><p>The video resolution.</p>
 </td>
@@ -292,7 +348,7 @@ us with a given participants video stream.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">CancellationToken</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>The cancellation token.</p>
 </td>
@@ -309,8 +365,8 @@ us with a given participants video stream.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span></td>
-        <td><p>The <see cref="!:Task"></see></p>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>The <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></p>
 </td>
       </tr>
     </tbody>

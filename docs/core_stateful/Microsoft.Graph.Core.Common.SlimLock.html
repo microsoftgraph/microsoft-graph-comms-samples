@@ -102,10 +102,16 @@
       <a class="xref" href="Microsoft.Graph.Core.Common.Disposable.html#Microsoft_Graph_Core_Common_Disposable_Dispose">Disposable.Dispose()</a>
     </div>
     <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+    </div>
+    <div>
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
     </div>
     <div>
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
     </div>
     <div>
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
@@ -116,12 +122,6 @@
     <div>
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
     </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
-    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.Core.Common.html">Microsoft.Graph.Core.Common</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.Core.Stateful.dll</h6>
@@ -129,11 +129,22 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public sealed class SlimLock : Disposable, IDisposable</code></pre>
   </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="Microsoft_Graph_Core_Common_SlimLock__ctor_" data-uid="Microsoft.Graph.Core.Common.SlimLock.#ctor*"></a>
+  <h4 id="Microsoft_Graph_Core_Common_SlimLock__ctor" data-uid="Microsoft.Graph.Core.Common.SlimLock.#ctor">SlimLock()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SlimLock()</code></pre>
+  </div>
   <h3 id="methods">Methods
   </h3>
   <a id="Microsoft_Graph_Core_Common_SlimLock_Dispose_" data-uid="Microsoft.Graph.Core.Common.SlimLock.Dispose*"></a>
   <h4 id="Microsoft_Graph_Core_Common_SlimLock_Dispose_System_Boolean_" data-uid="Microsoft.Graph.Core.Common.SlimLock.Dispose(System.Boolean)">Dispose(Boolean)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Dispose resources.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -152,7 +163,8 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
         <td><span class="parametername">disposing</span></td>
-        <td></td>
+        <td><p><code>true</code> to release both managed and unmanaged resources; <code>false</code> to release only unmanaged resources.</p>
+</td>
       </tr>
     </tbody>
   </table>

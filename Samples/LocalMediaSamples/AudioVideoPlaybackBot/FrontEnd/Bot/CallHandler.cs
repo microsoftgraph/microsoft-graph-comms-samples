@@ -12,6 +12,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
     using Microsoft.Graph;
     using Microsoft.Graph.Calls;
     using Microsoft.Graph.Calls.Media;
+    using Microsoft.Graph.Core.Telemetry;
     using Microsoft.Graph.CoreSDK.Serialization;
     using Microsoft.Graph.StatefulClient;
     using Microsoft.Skype.Bots.Media;
@@ -41,15 +42,18 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         // This dictionnary helps maintaining a mapping of the sockets subscriptions
         private readonly ConcurrentDictionary<uint, uint> msiToSocketIdMapping = new ConcurrentDictionary<uint, uint>();
 
+        // Graph logger.
+        private readonly IGraphLogger logger;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="CallHandler"/> class.
         /// </summary>
-        /// <param name="statefulCall">
-        /// The stateful call.
-        /// </param>
-        public CallHandler(ICall statefulCall)
+        /// <param name="statefulCall">The stateful call.</param>
+        /// <param name="logger">Logger instance.</param>
+        public CallHandler(ICall statefulCall, IGraphLogger logger)
         {
             this.Call = statefulCall;
+            this.logger = logger;
 
             // subscribe to call updates
             this.Call.OnUpdated += this.CallOnUpdated;
@@ -72,7 +76,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             this.OutcomesLogMostRecentFirst.AddFirst("Call Created:\n" + outcome);
 
             // attach the botMediaStream
-            this.BotMediaStream = new BotMediaStream(this.Call.GetLocalMediaSession());
+            this.BotMediaStream = new BotMediaStream(this.Call.GetLocalMediaSession(), this.logger);
         }
 
         /// <summary>
@@ -107,7 +111,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                 participant.OnUpdated -= this.OnParticipantUpdated;
             }
 
-            this.BotMediaStream?.ShutdownAsync().ForgetAndLogExceptionAsync();
+            this.BotMediaStream?.ShutdownAsync().ForgetAndLogExceptionAsync(this.logger);
         }
 
         /// <summary>
@@ -236,10 +240,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                         }
 
                         updateMSICache = true;
-                        Log.Info(
-                            new CallerInfo(),
-                            LogContext.Media,
-                            $"[{this.Call.Id}:SubscribeToParticipant(socket {socketId} available, the number of remaining sockets is {this.availableSocketIds.Count}, subscribing to the participant {participant.Id})");
+                        this.logger.Info($"[{this.Call.Id}:SubscribeToParticipant(socket {socketId} available, the number of remaining sockets is {this.availableSocketIds.Count}, subscribing to the participant {participant.Id})");
                     }
                     else if (forceSubscribe)
                     {
@@ -264,10 +265,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                 {
                     this.msiToSocketIdMapping.AddOrUpdate(msi, socketId, (k, v) => socketId);
 
-                    Log.Info(
-                        new CallerInfo(),
-                        LogContext.Media,
-                        $"[{this.Call.Id}:SubscribeToParticipant(subscribing to the participant {participant.Id} on socket {socketId})");
+                    this.logger.Info($"[{this.Call.Id}:SubscribeToParticipant(subscribing to the participant {participant.Id} on socket {socketId})");
                     this.BotMediaStream.Subscribe(MediaType.Video, msi, VideoResolution.HD1080p, socketId);
                 }
             }
@@ -278,10 +276,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             if (vbssParticipant != null)
             {
                 // new sharer
-                Log.Info(
-                    new CallerInfo(),
-                    LogContext.Media,
-                    $"[{this.Call.Id}:SubscribeToParticipant(subscribing to the VBSS sharer {participant.Id})");
+                this.logger.Info($"[{this.Call.Id}:SubscribeToParticipant(subscribing to the VBSS sharer {participant.Id})");
                 this.BotMediaStream.Subscribe(MediaType.Vbss, uint.Parse(vbssParticipant.SourceId), VideoResolution.HD1080p, socketId);
             }
         }
@@ -297,11 +292,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         /// </param>
         private void OnDominantSpeakerChanged(object sender, DominantSpeakerChangedEventArgs e)
         {
-            CorrelationId.SetCurrentId(this.Call.Id);
-            Log.Info(
-                new CallerInfo(),
-                LogContext.Media,
-                $"[{this.Call.Id}:OnDominantSpeakerChanged(DominantSpeaker={e.CurrentDominantSpeaker})]");
+            this.logger.Info($"[{this.Call.Id}:OnDominantSpeakerChanged(DominantSpeaker={e.CurrentDominantSpeaker})]");
 
             if (e.CurrentDominantSpeaker != DominantSpeakerNone)
             {
@@ -327,18 +318,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         private void OnVideoMediaReceived(object sender, VideoMediaReceivedEventArgs e)
         {
             // leave only logging in here
-            Log.Info(
-                new CallerInfo(),
-                LogContext.Media,
-                "[{0}]: Capturing image: [VideoMediaReceivedEventArgs(Data=<{1}>, Length={2}, Timestamp={3}, Width={4}, Height={5}, ColorFormat={6}, FrameRate={7})]",
-                this.Call.Id,
-                e.Buffer.Data.ToString(),
-                e.Buffer.Length,
-                e.Buffer.Timestamp,
-                e.Buffer.VideoFormat.Width,
-                e.Buffer.VideoFormat.Height,
-                e.Buffer.VideoFormat.VideoColorFormat,
-                e.Buffer.VideoFormat.FrameRate);
+            this.logger.Info($"[{this.Call.Id}]: Capturing image: [VideoMediaReceivedEventArgs(Data=<{e.Buffer.Data.ToString()}>, Length={e.Buffer.Length}, Timestamp={e.Buffer.Timestamp}, Width={e.Buffer.VideoFormat.Width}, Height={e.Buffer.VideoFormat.Height}, ColorFormat={e.Buffer.VideoFormat.VideoColorFormat}, FrameRate={e.Buffer.VideoFormat.FrameRate})]");
 
             e.Buffer.Dispose();
         }

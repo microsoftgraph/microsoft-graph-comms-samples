@@ -91,7 +91,6 @@
   <h5 id="Microsoft_Graph_StatefulClient_ResourceEventHandler_2_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public delegate void ResourceEventHandler&lt;in TSender, TEntity&gt;(TSender sender, ResourceEventArgs&lt;TEntity&gt; e)
-
     where TEntity : Entity;</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -136,6 +135,150 @@
         <td><span class="parametername">TEntity</span></td>
         <td><p>The containing resource type. <a class="xref" href="../core/Microsoft.Graph.Entity.html">Entity</a></p>
 </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="Microsoft_Graph_StatefulClient_ResourceEventHandler_2__ctor_" data-uid="Microsoft.Graph.StatefulClient.ResourceEventHandler`2.#ctor*"></a>
+  <h4 id="Microsoft_Graph_StatefulClient_ResourceEventHandler_2__ctor_System_Object_System_IntPtr_" data-uid="Microsoft.Graph.StatefulClient.ResourceEventHandler`2.#ctor(System.Object,System.IntPtr)">ResourceEventHandler(Object, IntPtr)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ResourceEventHandler(object object, IntPtr method)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td><span class="parametername">object</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.intptr">IntPtr</a></td>
+        <td><span class="parametername">method</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Microsoft_Graph_StatefulClient_ResourceEventHandler_2_BeginInvoke_" data-uid="Microsoft.Graph.StatefulClient.ResourceEventHandler`2.BeginInvoke*"></a>
+  <h4 id="Microsoft_Graph_StatefulClient_ResourceEventHandler_2_BeginInvoke__0_Microsoft_Graph_StatefulClient_ResourceEventArgs__1__System_AsyncCallback_System_Object_" data-uid="Microsoft.Graph.StatefulClient.ResourceEventHandler`2.BeginInvoke(`0,Microsoft.Graph.StatefulClient.ResourceEventArgs{`1},System.AsyncCallback,System.Object)">BeginInvoke(TSender, ResourceEventArgs&lt;TEntity&gt;, AsyncCallback, Object)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IAsyncResult BeginInvoke(TSender sender, ResourceEventArgs&lt;TEntity&gt; e, AsyncCallback callback, object object)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TSender</span></td>
+        <td><span class="parametername">sender</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.StatefulClient.ResourceEventArgs-1.html">ResourceEventArgs</a>&lt;TEntity&gt;</td>
+        <td><span class="parametername">e</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.asynccallback">AsyncCallback</a></td>
+        <td><span class="parametername">callback</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td><span class="parametername">object</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iasyncresult">IAsyncResult</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_StatefulClient_ResourceEventHandler_2_EndInvoke_" data-uid="Microsoft.Graph.StatefulClient.ResourceEventHandler`2.EndInvoke*"></a>
+  <h4 id="Microsoft_Graph_StatefulClient_ResourceEventHandler_2_EndInvoke_System_IAsyncResult_" data-uid="Microsoft.Graph.StatefulClient.ResourceEventHandler`2.EndInvoke(System.IAsyncResult)">EndInvoke(IAsyncResult)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void EndInvoke(IAsyncResult result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iasyncresult">IAsyncResult</a></td>
+        <td><span class="parametername">result</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_StatefulClient_ResourceEventHandler_2_Invoke_" data-uid="Microsoft.Graph.StatefulClient.ResourceEventHandler`2.Invoke*"></a>
+  <h4 id="Microsoft_Graph_StatefulClient_ResourceEventHandler_2_Invoke__0_Microsoft_Graph_StatefulClient_ResourceEventArgs__1__" data-uid="Microsoft.Graph.StatefulClient.ResourceEventHandler`2.Invoke(`0,Microsoft.Graph.StatefulClient.ResourceEventArgs{`1})">Invoke(TSender, ResourceEventArgs&lt;TEntity&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Invoke(TSender sender, ResourceEventArgs&lt;TEntity&gt; e)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TSender</span></td>
+        <td><span class="parametername">sender</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.StatefulClient.ResourceEventArgs-1.html">ResourceEventArgs</a>&lt;TEntity&gt;</td>
+        <td><span class="parametername">e</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>

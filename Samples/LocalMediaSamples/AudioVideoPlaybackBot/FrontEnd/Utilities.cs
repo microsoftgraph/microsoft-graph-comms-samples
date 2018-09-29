@@ -13,13 +13,14 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
     using System;
     using System.Collections.Concurrent;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.IO;
     using System.Runtime.InteropServices;
     using System.Threading.Tasks;
     using Microsoft.Graph.Calls.Media;
+    using Microsoft.Graph.Core.Telemetry;
     using Microsoft.Skype.Bots.Media;
     using Microsoft.Skype.Internal.Media.H264;
-    using Sample.Common.Logging;
 
     /// <summary>
     /// The utility class.
@@ -48,7 +49,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
 
                 var listOfFrames = new List<H264Frame>();
                 var totalNumberOfFrames = fileReader.GetTotalNumberOfFrames();
-                Log.Info(new CallerInfo(), LogContext.Media, $"Found the fileReader for the format with id: {videoFormat.GetId()} and number of frames {totalNumberOfFrames}");
+                Trace.TraceInformation($"Found the fileReader for the format with id: {videoFormat.GetId()} and number of frames {totalNumberOfFrames}");
 
                 for (int i = 0; i < totalNumberOfFrames; i++)
                 {
@@ -65,9 +66,10 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
         /// Extension for Task to execute the task in background and log any exception.
         /// </summary>
         /// <param name="task">Task to execute and capture any exceptions.</param>
+        /// <param name="logger">Graph logger.</param>
         /// <param name="description">Friendly description of the task for debugging purposes.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-        public static async Task ForgetAndLogExceptionAsync(this Task task, string description = null)
+        public static async Task ForgetAndLogExceptionAsync(this Task task, IGraphLogger logger, string description = null)
         {
             try
             {
@@ -76,13 +78,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
             catch (Exception e)
             {
                 // ignore
-                Log.Error(
-                    new CallerInfo(),
-                    LogContext.FrontEnd,
-                    "Caught an Exception running the task: {0} {1}\n StackTrace: {2}",
-                    description ?? string.Empty,
-                    e.Message,
-                    e.StackTrace);
+                logger.Error(e, $"Caught an Exception running the task: {description ?? string.Empty} {e.Message}\n StackTrace: {e.StackTrace}");
             }
         }
 
@@ -92,11 +88,13 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
         /// <param name="currentTick">The number of ticks that represent the current date and time.</param>
         /// <param name="videoFormats">The encoded video source formats.</param>
         /// <param name="replayed">If the video frame is being replayed.</param>
+        /// <param name="logger">Graph logger.</param>
         /// <returns>The newly created list of <see cref="VideoMediaBuffer"/>.</returns>
         public static List<VideoMediaBuffer> CreateVideoMediaBuffers(
             long currentTick,
             List<VideoFormat> videoFormats,
-            bool replayed)
+            bool replayed,
+            IGraphLogger logger)
         {
             List<VideoMediaBuffer> videoMediaBuffers = new List<VideoMediaBuffer>();
             try
@@ -125,16 +123,16 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
                     }
                     else
                     {
-                        Log.Error(new CallerInfo(), LogContext.Media, $"h264FileReader not found for the videoFromat {videoFormat}");
+                        logger.Error($"h264FileReader not found for the videoFromat {videoFormat}");
                     }
                 }
 
-                Log.Info(new CallerInfo(), LogContext.Media, "created {0} VideoMediaBuffers", videoMediaBuffers.Count);
+                logger.Info($"created {videoMediaBuffers.Count} VideoMediaBuffers");
                 return videoMediaBuffers;
             }
             catch (Exception ex)
             {
-                Log.Error(new CallerInfo(), LogContext.Media, "Failed to create the videoMediaBuffers with exception {0}", ex);
+                logger.Error(ex, $"Failed to create the videoMediaBuffers with exception");
             }
 
             return videoMediaBuffers;
@@ -146,8 +144,9 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
         /// </summary>
         /// <param name="currentTick">The current clock tick.</param>
         /// <param name="replayed">Whether it's replayed.</param>
+        /// <param name="logger">Graph logger.</param>
         /// <returns>The newly created list of <see cref="AudioMediaBuffer"/>.</returns>
-        public static List<AudioMediaBuffer> CreateAudioMediaBuffers(long currentTick, bool replayed)
+        public static List<AudioMediaBuffer> CreateAudioMediaBuffers(long currentTick, bool replayed, IGraphLogger logger)
         {
             var audioMediaBuffers = new List<AudioMediaBuffer>();
             var referenceTime = currentTick;
@@ -176,11 +175,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
                 }
             }
 
-            Log.Info(
-                new CallerInfo(),
-                LogContext.Media,
-                "created {0} AudioMediaBuffers",
-                audioMediaBuffers.Count);
+            logger.Info($"created {audioMediaBuffers.Count} AudioMediaBuffers");
             return audioMediaBuffers;
         }
 

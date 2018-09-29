@@ -12,15 +12,12 @@ namespace Sample.HueBot.Bot
     using System.Fabric;
     using System.Linq;
     using System.Net;
-    using System.Net.Http;
     using System.Threading.Tasks;
-    using Microsoft.AspNetCore.Mvc;
     using Microsoft.Graph;
     using Microsoft.Graph.Calls;
     using Microsoft.Graph.Calls.Media;
     using Microsoft.Graph.Core.Common;
     using Microsoft.Graph.Core.Telemetry;
-    using Microsoft.Graph.CoreSDK.Exceptions;
     using Microsoft.Graph.StatefulClient;
     using Microsoft.Skype.Bots.Media;
     using Sample.Common.Authentication;

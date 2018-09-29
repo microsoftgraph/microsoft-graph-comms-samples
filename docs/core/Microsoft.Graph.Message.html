@@ -101,10 +101,16 @@
       <a class="xref" href="Microsoft.Graph.Entity.html#Microsoft_Graph_Entity_AdditionalData">Entity.AdditionalData</a>
     </div>
     <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+    </div>
+    <div>
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
     </div>
     <div>
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
     </div>
     <div>
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
@@ -115,19 +121,22 @@
     <div>
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
     </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
-    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.html">Microsoft.Graph</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.CoreSDK.dll</h6>
   <h5 id="Microsoft_Graph_Message_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonObject(MemberSerialization = MemberSerialization.OptIn)]
-public class Message : Entity</code></pre>
+    <pre><code class="lang-csharp hljs">public class Message : Entity</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="Microsoft_Graph_Message__ctor_" data-uid="Microsoft.Graph.Message.#ctor*"></a>
+  <h4 id="Microsoft_Graph_Message__ctor" data-uid="Microsoft.Graph.Message.#ctor">Message()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Message()</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
@@ -138,8 +147,7 @@ public class Message : Entity</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;attachments&quot;, Required = Required.Default)]
-public IEnumerable&lt;ChatAttachment&gt; Attachments { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;ChatAttachment&gt; Attachments { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -163,8 +171,7 @@ public IEnumerable&lt;ChatAttachment&gt; Attachments { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;content&quot;, Required = Required.Default)]
-public string Content { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string Content { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -188,8 +195,7 @@ public string Content { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;contentType&quot;, Required = Required.Default)]
-public MessageContentType? ContentType { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public MessageContentType? ContentType { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -213,8 +219,7 @@ public MessageContentType? ContentType { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;created&quot;, Required = Required.Default)]
-public DateTimeOffset? Created { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public DateTimeOffset? Created { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -238,8 +243,7 @@ public DateTimeOffset? Created { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;culture&quot;, Required = Required.Default)]
-public Culture? Culture { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Culture? Culture { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -263,8 +267,7 @@ public Culture? Culture { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;deleted&quot;, Required = Required.Default)]
-public bool? Deleted { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool? Deleted { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -288,8 +291,7 @@ public bool? Deleted { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;from&quot;, Required = Required.Default)]
-public IdentitySet From { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IdentitySet From { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -313,8 +315,7 @@ public IdentitySet From { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;important&quot;, Required = Required.Default)]
-public bool? Important { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool? Important { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -338,8 +339,7 @@ public bool? Important { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;likes&quot;, Required = Required.Default)]
-public IEnumerable&lt;IdentitySet&gt; Likes { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;IdentitySet&gt; Likes { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -363,8 +363,7 @@ public IEnumerable&lt;IdentitySet&gt; Likes { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;mentions&quot;, Required = Required.Default)]
-public IMessageMentionsCollectionPage Mentions { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IMessageMentionsCollectionPage Mentions { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -388,8 +387,7 @@ public IMessageMentionsCollectionPage Mentions { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;modified&quot;, Required = Required.Default)]
-public DateTimeOffset? Modified { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public DateTimeOffset? Modified { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">

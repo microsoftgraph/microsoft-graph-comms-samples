@@ -89,103 +89,13 @@
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><span class="xref">Newtonsoft.Json.Serialization.DefaultContractResolver</span></div>
-    <div class="level2"><span class="xref">Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver</span></div>
-    <div class="level3"><span class="xref">ODataResolver</span></div>
-  </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">Newtonsoft.Json.Serialization.IContractResolver</span></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">Newtonsoft.Json.Serialization.DefaultContractResolver.ResolveContract(System.Type)</span>
-    </div>
-    <div>
-      <span class="xref">Newtonsoft.Json.Serialization.DefaultContractResolver.GetSerializableMembers(System.Type)</span>
-    </div>
-    <div>
-      <span class="xref">Newtonsoft.Json.Serialization.DefaultContractResolver.CreateObjectContract(System.Type)</span>
-    </div>
-    <div>
-      <span class="xref">Newtonsoft.Json.Serialization.DefaultContractResolver.CreateConstructorParameters(System.Reflection.ConstructorInfo, Newtonsoft.Json.Serialization.JsonPropertyCollection)</span>
-    </div>
-    <div>
-      <span class="xref">Newtonsoft.Json.Serialization.DefaultContractResolver.CreatePropertyFromConstructorParameter(Newtonsoft.Json.Serialization.JsonProperty, System.Reflection.ParameterInfo)</span>
-    </div>
-    <div>
-      <span class="xref">Newtonsoft.Json.Serialization.DefaultContractResolver.CreateDictionaryContract(System.Type)</span>
-    </div>
-    <div>
-      <span class="xref">Newtonsoft.Json.Serialization.DefaultContractResolver.CreateArrayContract(System.Type)</span>
-    </div>
-    <div>
-      <span class="xref">Newtonsoft.Json.Serialization.DefaultContractResolver.CreatePrimitiveContract(System.Type)</span>
-    </div>
-    <div>
-      <span class="xref">Newtonsoft.Json.Serialization.DefaultContractResolver.CreateLinqContract(System.Type)</span>
-    </div>
-    <div>
-      <span class="xref">Newtonsoft.Json.Serialization.DefaultContractResolver.CreateDynamicContract(System.Type)</span>
-    </div>
-    <div>
-      <span class="xref">Newtonsoft.Json.Serialization.DefaultContractResolver.CreateStringContract(System.Type)</span>
-    </div>
-    <div>
-      <span class="xref">Newtonsoft.Json.Serialization.DefaultContractResolver.CreateContract(System.Type)</span>
-    </div>
-    <div>
-      <span class="xref">Newtonsoft.Json.Serialization.DefaultContractResolver.CreateMemberValueProvider(System.Reflection.MemberInfo)</span>
-    </div>
-    <div>
-      <span class="xref">Newtonsoft.Json.Serialization.DefaultContractResolver.CreateProperty(System.Reflection.MemberInfo, Newtonsoft.Json.MemberSerialization)</span>
-    </div>
-    <div>
-      <span class="xref">Newtonsoft.Json.Serialization.DefaultContractResolver.ResolvePropertyName(System.String)</span>
-    </div>
-    <div>
-      <span class="xref">Newtonsoft.Json.Serialization.DefaultContractResolver.ResolveDictionaryKey(System.String)</span>
-    </div>
-    <div>
-      <span class="xref">Newtonsoft.Json.Serialization.DefaultContractResolver.GetResolvedPropertyName(System.String)</span>
-    </div>
-    <div>
-      <span class="xref">Newtonsoft.Json.Serialization.DefaultContractResolver.DynamicCodeGeneration</span>
-    </div>
-    <div>
-      <span class="xref">Newtonsoft.Json.Serialization.DefaultContractResolver.SerializeCompilerGeneratedMembers</span>
-    </div>
-    <div>
-      <span class="xref">Newtonsoft.Json.Serialization.DefaultContractResolver.NamingStrategy</span>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
-    </div>
+    <div class="level1"><span class="xref">ODataResolver</span></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.CoreSDK.Serialization.html">Microsoft.Graph.CoreSDK.Serialization</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.CoreSDK.dll</h6>
   <h5 id="Microsoft_Graph_CoreSDK_Serialization_ODataResolver_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ODataResolver : CamelCasePropertyNamesContractResolver, IContractResolver</code></pre>
+    <pre><code class="lang-csharp hljs">public class ODataResolver : CamelCasePropertyNamesContractResolver</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -264,8 +174,6 @@ serialize/deserialize classes present in <code data-dev-comment-type="paramref" 
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">Newtonsoft.Json.Serialization.DefaultContractResolver.CreateProperties(System.Type, Newtonsoft.Json.MemberSerialization)</span></div>
   <a id="Microsoft_Graph_CoreSDK_Serialization_ODataResolver_ResolveContractConverter_" data-uid="Microsoft.Graph.CoreSDK.Serialization.ODataResolver.ResolveContractConverter*"></a>
   <h4 id="Microsoft_Graph_CoreSDK_Serialization_ODataResolver_ResolveContractConverter_System_Type_" data-uid="Microsoft.Graph.CoreSDK.Serialization.ODataResolver.ResolveContractConverter(System.Type)">ResolveContractConverter(Type)</h4>
   <div class="markdown level1 summary"></div>
@@ -306,12 +214,6 @@ serialize/deserialize classes present in <code data-dev-comment-type="paramref" 
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">Newtonsoft.Json.Serialization.DefaultContractResolver.ResolveContractConverter(System.Type)</span></div>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">Newtonsoft.Json.Serialization.IContractResolver</span>
-  </div>
 </article>
           </div>
           

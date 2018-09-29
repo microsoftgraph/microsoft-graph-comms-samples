@@ -124,7 +124,7 @@
   <h3 id="methods">Methods
   </h3>
   <a id="Microsoft_Graph_Calls_Media_StatefulClientBuilderExtensions_SetMediaPlatformSettings_" data-uid="Microsoft.Graph.Calls.Media.StatefulClientBuilderExtensions.SetMediaPlatformSettings*"></a>
-  <h4 id="Microsoft_Graph_Calls_Media_StatefulClientBuilderExtensions_SetMediaPlatformSettings_IStatefulClientBuilder_Microsoft_Skype_Bots_Media_MediaPlatformSettings_" data-uid="Microsoft.Graph.Calls.Media.StatefulClientBuilderExtensions.SetMediaPlatformSettings(IStatefulClientBuilder,Microsoft.Skype.Bots.Media.MediaPlatformSettings)">SetMediaPlatformSettings(IStatefulClientBuilder, MediaPlatformSettings)</h4>
+  <h4 id="Microsoft_Graph_Calls_Media_StatefulClientBuilderExtensions_SetMediaPlatformSettings_Microsoft_Graph_StatefulClient_IStatefulClientBuilder_Microsoft_Skype_Bots_Media_MediaPlatformSettings_" data-uid="Microsoft.Graph.Calls.Media.StatefulClientBuilderExtensions.SetMediaPlatformSettings(Microsoft.Graph.StatefulClient.IStatefulClientBuilder,Microsoft.Skype.Bots.Media.MediaPlatformSettings)">SetMediaPlatformSettings(IStatefulClientBuilder, MediaPlatformSettings)</h4>
   <div class="markdown level1 summary"><p>Set the local media platform settings. This function also initializes the local
 media platform.</p>
 </div>
@@ -144,7 +144,7 @@ media platform.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IStatefulClientBuilder</span></td>
+        <td><a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IStatefulClientBuilder.html">IStatefulClientBuilder</a></td>
         <td><span class="parametername">statefulClientBuilder</span></td>
         <td><p>The stateful client builder.</p>
 </td>
@@ -167,14 +167,30 @@ media platform.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IStatefulClientBuilder</span></td>
-        <td><p>The <see cref="!:IStatefulClientBuilder"></see>.</p>
+        <td><a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IStatefulClientBuilder.html">IStatefulClientBuilder</a></td>
+        <td><p>The <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IStatefulClientBuilder.html">IStatefulClientBuilder</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="../core/Microsoft.Graph.CoreSDK.Exceptions.ClientException.html">ClientException</a></td>
+        <td><p>When something fails while initializing the media platform.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <a id="Microsoft_Graph_Calls_Media_StatefulClientBuilderExtensions_TerminateAsync_" data-uid="Microsoft.Graph.Calls.Media.StatefulClientBuilderExtensions.TerminateAsync*"></a>
-  <h4 id="Microsoft_Graph_Calls_Media_StatefulClientBuilderExtensions_TerminateAsync_IStatefulClient_System_Boolean_System_TimeSpan_" data-uid="Microsoft.Graph.Calls.Media.StatefulClientBuilderExtensions.TerminateAsync(IStatefulClient,System.Boolean,System.TimeSpan)">TerminateAsync(IStatefulClient, Boolean, TimeSpan)</h4>
+  <h4 id="Microsoft_Graph_Calls_Media_StatefulClientBuilderExtensions_TerminateAsync_Microsoft_Graph_StatefulClient_IStatefulClient_System_Boolean_System_TimeSpan_" data-uid="Microsoft.Graph.Calls.Media.StatefulClientBuilderExtensions.TerminateAsync(Microsoft.Graph.StatefulClient.IStatefulClient,System.Boolean,System.TimeSpan)">TerminateAsync(IStatefulClient, Boolean, TimeSpan)</h4>
   <div class="markdown level1 summary"><p>Stops the specified stateful client. This would end all the calls and
 shuts down the media platform.
 This should only be used during shutdown.</p>
@@ -195,7 +211,7 @@ This should only be used during shutdown.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IStatefulClient</span></td>
+        <td><a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IStatefulClient.html">IStatefulClient</a></td>
         <td><span class="parametername">statefulClient</span></td>
         <td><p>The stateful client.</p>
 </td>

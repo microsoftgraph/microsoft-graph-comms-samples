@@ -121,7 +121,7 @@ namespace Sample.HueBot.Controllers
         [Route(HttpRouteConstants.Calls)]
         public IActionResult OnGetCalls()
         {
-            this.logger.Info($"Getting calls");
+            this.logger.Info("Getting calls");
 
             if (this.bot.CallHandlers.IsEmpty)
             {
