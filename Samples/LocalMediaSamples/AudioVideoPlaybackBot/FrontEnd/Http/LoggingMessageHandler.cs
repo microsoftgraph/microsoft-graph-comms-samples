@@ -22,8 +22,8 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
     using System.Text;
     using System.Threading;
     using System.Threading.Tasks;
+    using Microsoft.Graph.Core.Telemetry;
     using Newtonsoft.Json;
-    using Sample.Common.Logging;
 
     /// <summary>
     /// Helper class to log HTTP requests and responses and to set the CorrelationID based on the X-Microsoft-Skype-Chain-ID header
@@ -42,14 +42,14 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
         private readonly bool isIncomingMessageHandler;
 
         /// <summary>
-        /// The log context.
-        /// </summary>
-        private readonly LogContext logContext;
-
-        /// <summary>
         /// The URL ignorers.
         /// </summary>
         private readonly string[] urlIgnorers;
+
+        /// <summary>
+        /// Graph logger.
+        /// </summary>
+        private readonly IGraphLogger logger;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="LoggingMessageHandler"/> class.
@@ -58,16 +58,16 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
         /// <param name="isIncomingMessageHandler">
         /// The is Incoming Message Handler.
         /// </param>
-        /// <param name="logContext">
-        /// The log Context.
+        /// <param name="logger">
+        /// Graph logger.
         /// </param>
         /// <param name="urlIgnorers">
         /// The URL Ignorers.
         /// </param>
-        public LoggingMessageHandler(bool isIncomingMessageHandler, LogContext logContext, string[] urlIgnorers = null)
+        public LoggingMessageHandler(bool isIncomingMessageHandler, IGraphLogger logger, string[] urlIgnorers = null)
         {
             this.isIncomingMessageHandler = isIncomingMessageHandler;
-            this.logContext = logContext;
+            this.logger = logger;
             this.urlIgnorers = urlIgnorers;
         }
 
@@ -204,11 +204,11 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
 
             if (this.isIncomingMessageHandler)
             {
-                requestCid = AdoptCorrelationId(request.Headers);
+                requestCid = this.AdoptCorrelationId(request.Headers);
             }
             else
             {
-                requestCid = SetCorrelationId(request.Headers);
+                requestCid = this.SetCorrelationId(request.Headers);
             }
 
             bool ignore = this.urlIgnorers != null
@@ -235,39 +235,23 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
 
             string requestBodyText = await GetBodyTextAsync(request.Content).ConfigureAwait(false);
 
-            Log.Info(
-                new CallerInfo(),
-                this.logContext,
-                "|| correlationId={0} || local.msgid={1} ||{2}{3}:: {4} {5}{6}{7}{8}{9}{10}$$END$$",
-                requestCid,
-                localMessageId,
-                Environment.NewLine,
-                this.isIncomingMessageHandler ? "Incoming" : "Outgoing",
-                request.Method.ToString(),
-                requestUriText,
-                Environment.NewLine,
-                requestHeadersText,
-                Environment.NewLine,
-                requestBodyText,
-                Environment.NewLine);
+            this.logger.Info(
+                $"|| correlationId={requestCid} || local.msgid={localMessageId} ||\r\n" +
+                $"{(this.isIncomingMessageHandler ? "Incoming" : "Outgoing")}:: {request.Method.ToString()} {requestUriText}\r\n" +
+                $"{requestHeadersText}\r\n" +
+                $"{requestBodyText}\r\n$$END$$");
 
             Stopwatch stopwatch = Stopwatch.StartNew();
             HttpResponseMessage response = await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
-            Log.Info(
-                new CallerInfo(),
-                this.logContext,
-                "{0} HTTP request with Local id={1} took {2}ms.",
-                this.isIncomingMessageHandler ? "Incoming" : "Outgoing",
-                localMessageId,
-                stopwatch.ElapsedMilliseconds);
+            this.logger.Info($"{(this.isIncomingMessageHandler ? "Incoming" : "Outgoing")} HTTP request with Local id={localMessageId} took {stopwatch.ElapsedMilliseconds}ms.");
 
             if (this.isIncomingMessageHandler)
             {
-                responseCid = SetCorrelationId(response.Headers);
+                responseCid = this.SetCorrelationId(response.Headers);
             }
             else
             {
-                responseCid = AdoptCorrelationId(response.Headers);
+                responseCid = this.AdoptCorrelationId(response.Headers);
             }
 
             this.WarnIfDifferent(requestCid, responseCid);
@@ -287,25 +271,11 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
 
             string responseBodyText = await GetBodyTextAsync(response.Content).ConfigureAwait(false);
 
-            Log.Info(
-                new CallerInfo(),
-                this.logContext,
-                "|| correlationId={0} || statuscode={1} || local.msgid={2} ||{3}Response to {4}:: {5} {6}{7}{8} {9}{10}{11}{12}{13}{14}$$END$$",
-                CorrelationId.GetCurrentId(),
-                statusCode,
-                localMessageId,
-                Environment.NewLine,
-                this.isIncomingMessageHandler ? "incoming" : "outgoing",
-                request.Method.ToString(),
-                responseUriText,
-                Environment.NewLine,
-                ((int)response.StatusCode).ToString(),
-                response.StatusCode.ToString(),
-                Environment.NewLine,
-                responseHeadersText,
-                Environment.NewLine,
-                responseBodyText,
-                Environment.NewLine);
+            this.logger.Info($"|| correlationId={this.logger.CorrelationId} || statuscode={statusCode} || local.msgid={localMessageId}\r\n" +
+                             $"Response to {(this.isIncomingMessageHandler ? "incoming" : "outgoing")}:: {request.Method.ToString()} {responseUriText}\r\n" +
+                             $"{((int)response.StatusCode).ToString()}\r\n" +
+                             $"{responseHeadersText}\r\n" +
+                             $"{responseBodyText}\r\n$$END$$");
 
             return response;
         }
@@ -322,47 +292,6 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
         private static string GetHeaderText(KeyValuePair<string, IEnumerable<string>> header)
         {
             return $"{header.Key}: {string.Join(",", header.Value)}";
-        }
-
-        /// <summary>
-        /// adopt correlation id.
-        /// </summary>
-        /// <param name="headers">
-        /// The headers.
-        /// </param>
-        /// <returns>
-        /// The <see cref="string"/>.
-        /// </returns>
-        private static string AdoptCorrelationId(HttpHeaders headers)
-        {
-            string correlationId = null;
-            if (headers.TryGetValues(CidHeaderName, out IEnumerable<string> correlationIdHeaderValues))
-            {
-                correlationId = correlationIdHeaderValues.FirstOrDefault();
-                CorrelationId.SetCurrentId(correlationId);
-            }
-
-            return correlationId;
-        }
-
-        /// <summary>
-        /// The set correlation id.
-        /// </summary>
-        /// <param name="headers">
-        /// The headers.
-        /// </param>
-        /// <returns>
-        /// The <see cref="string"/>.
-        /// </returns>
-        private static string SetCorrelationId(HttpHeaders headers)
-        {
-            string correlationId = CorrelationId.GetCurrentId();
-            if (!string.IsNullOrWhiteSpace(correlationId))
-            {
-                headers.Add(CidHeaderName, correlationId);
-            }
-
-            return correlationId;
         }
 
         /// <summary>
@@ -405,6 +334,50 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
         }
 
         /// <summary>
+        /// adopt correlation id.
+        /// </summary>
+        /// <param name="headers">
+        /// The headers.
+        /// </param>
+        /// <returns>
+        /// The <see cref="string"/>.
+        /// </returns>
+        private string AdoptCorrelationId(HttpHeaders headers)
+        {
+            string correlationId = null;
+            if (headers.TryGetValues(CidHeaderName, out IEnumerable<string> correlationIdHeaderValues))
+            {
+                correlationId = correlationIdHeaderValues.FirstOrDefault();
+                if (Guid.TryParse(correlationId, out var correlationGuid))
+                {
+                    this.logger.CorrelationId = correlationGuid;
+                }
+            }
+
+            return correlationId;
+        }
+
+        /// <summary>
+        /// The set correlation id.
+        /// </summary>
+        /// <param name="headers">
+        /// The headers.
+        /// </param>
+        /// <returns>
+        /// The <see cref="string"/>.
+        /// </returns>
+        private string SetCorrelationId(HttpHeaders headers)
+        {
+            string correlationId = this.logger.CorrelationId.ToString();
+            if (!string.IsNullOrWhiteSpace(correlationId))
+            {
+                headers.Add(CidHeaderName, correlationId);
+            }
+
+            return correlationId;
+        }
+
+        /// <summary>
         /// The send and log async method.
         /// </summary>
         /// <param name="request">
@@ -426,11 +399,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
             }
             catch (Exception e)
             {
-                Log.Error(
-                    new CallerInfo(),
-                    LogContext.FrontEnd,
-                    "Exception occurred when calling SendAsync: {0}",
-                    e.ToString());
+                this.logger.Error(e, "Exception occurred when calling SendAsync");
                 throw;
             }
         }
@@ -453,14 +422,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
 
             if (!string.Equals(requestCid, responseCid))
             {
-                Log.Warning(
-                    new CallerInfo(),
-                    LogContext.FrontEnd,
-                    "The correlationId of the {0} request, {1}, is different from the {2} response, {3}.",
-                    this.isIncomingMessageHandler ? "incoming" : "outgoing",
-                    requestCid,
-                    "outgoing",
-                    responseCid);
+                this.logger.Warn($"The correlationId of the {(this.isIncomingMessageHandler ? "incoming" : "outgoing")} request, {requestCid}, is different from the outgoing response, {responseCid}.");
             }
         }
     }

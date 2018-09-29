@@ -92,34 +92,11 @@ Transitions are O(1).</p>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">StateMachine&lt;TStateEnum&gt;</span></div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.Core.Common.html">Microsoft.Graph.Core.Common</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.Core.Stateful.dll</h6>
   <h5 id="Microsoft_Graph_Core_Common_StateMachine_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class StateMachine&lt;TStateEnum&gt;
-
-    where TStateEnum : struct, IComparable, IFormattable, IConvertible</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class StateMachine&lt;TStateEnum&gt; : Object where TStateEnum : struct, IComparable, IFormattable, IConvertible, ValueType</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -226,8 +203,6 @@ Transitions are O(1).</p>
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a></div>
   <a id="Microsoft_Graph_Core_Common_StateMachine_1_TransitionState_" data-uid="Microsoft.Graph.Core.Common.StateMachine`1.TransitionState*"></a>
   <h4 id="Microsoft_Graph_Core_Common_StateMachine_1_TransitionState__0_" data-uid="Microsoft.Graph.Core.Common.StateMachine`1.TransitionState(`0)">TransitionState(TStateEnum)</h4>
   <div class="markdown level1 summary"><p>Transition to next state.
@@ -298,7 +273,7 @@ Non valid transition returns null.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TStateEnum? TransitionStateSafe(TStateEnum newState)</code></pre>
+    <pre><code class="lang-csharp hljs">public Nullable&lt;TStateEnum&gt; TransitionStateSafe(TStateEnum newState)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">

@@ -103,15 +103,6 @@
     <div>
       <a class="xref" href="Microsoft.Graph.StatefulClient.IResourceBase.html#Microsoft_Graph_StatefulClient_IResourceBase_ResourcePath">IResourceBase.ResourcePath</a>
     </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable.dispose#System_IDisposable_Dispose">IDisposable.Dispose()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1.count#System_Collections_Generic_IReadOnlyCollection_1_Count">IReadOnlyCollection&lt;TResource&gt;.Count</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator#System_Collections_Generic_IEnumerable_1_GetEnumerator">IEnumerable&lt;TResource&gt;.GetEnumerator()</a>
-    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.StatefulClient.html">Microsoft.Graph.StatefulClient</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.StatefulClient.dll</h6>
@@ -192,6 +183,56 @@
   </table>
   <h3 id="methods">Methods
   </h3>
+  <a id="Microsoft_Graph_StatefulClient_IResourceCollection_3_add_OnUpdated_" data-uid="Microsoft.Graph.StatefulClient.IResourceCollection`3.add_OnUpdated*"></a>
+  <h4 id="Microsoft_Graph_StatefulClient_IResourceCollection_3_add_OnUpdated_Microsoft_Graph_StatefulClient_CollectionEventHandler__0__1__" data-uid="Microsoft.Graph.StatefulClient.IResourceCollection`3.add_OnUpdated(Microsoft.Graph.StatefulClient.CollectionEventHandler{`0,`1})">add_OnUpdated(CollectionEventHandler&lt;TSelf, TResource&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void add_OnUpdated(CollectionEventHandler&lt;TSelf, TResource&gt; value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.StatefulClient.CollectionEventHandler-2.html">CollectionEventHandler</a>&lt;TSelf, TResource&gt;</td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_StatefulClient_IResourceCollection_3_remove_OnUpdated_" data-uid="Microsoft.Graph.StatefulClient.IResourceCollection`3.remove_OnUpdated*"></a>
+  <h4 id="Microsoft_Graph_StatefulClient_IResourceCollection_3_remove_OnUpdated_Microsoft_Graph_StatefulClient_CollectionEventHandler__0__1__" data-uid="Microsoft.Graph.StatefulClient.IResourceCollection`3.remove_OnUpdated(Microsoft.Graph.StatefulClient.CollectionEventHandler{`0,`1})">remove_OnUpdated(CollectionEventHandler&lt;TSelf, TResource&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void remove_OnUpdated(CollectionEventHandler&lt;TSelf, TResource&gt; value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.StatefulClient.CollectionEventHandler-2.html">CollectionEventHandler</a>&lt;TSelf, TResource&gt;</td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <a id="Microsoft_Graph_StatefulClient_IResourceCollection_3_TryForceRemove_" data-uid="Microsoft.Graph.StatefulClient.IResourceCollection`3.TryForceRemove*"></a>
   <h4 id="Microsoft_Graph_StatefulClient_IResourceCollection_3_TryForceRemove_System_String__1__" data-uid="Microsoft.Graph.StatefulClient.IResourceCollection`3.TryForceRemove(System.String,`1@)">TryForceRemove(String, out TResource)</h4>
   <div class="markdown level1 summary"><p>Attempts to remove and return the value that has the specified id from the <a class="xref" href="Microsoft.Graph.StatefulClient.IResourceCollection-3.html">IResourceCollection&lt;TSelf, TResource, TEntity&gt;</a>.
@@ -271,7 +312,7 @@ It should only be used as a last resort to clean up stale resources.</p>
   <h3 id="seealso">See Also</h3>
   <div class="seealso">
       <div><a class="xref" href="Microsoft.Graph.StatefulClient.IResourceCollection.html">IResourceCollection</a></div>
-      <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;T&gt;</div>
+      <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;&gt;</div>
   </div>
 </article>
           </div>

@@ -16,9 +16,9 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
     using System.Threading;
     using System.Threading.Tasks;
     using Microsoft.Graph.Calls.Media;
+    using Microsoft.Graph.Core.Telemetry;
     using Microsoft.Skype.Bots.Media;
     using Microsoft.Skype.Internal.Media.Services.Common;
-    using Sample.Common.Logging;
 
     /// <summary>
     /// Class responsible for streaming audio and video.
@@ -34,6 +34,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         private readonly TaskCompletionSource<bool> startVideoPlayerCompleted;
         private readonly object mLock = new object();
         private readonly ILocalMediaSession mediaSession;
+        private readonly IGraphLogger logger;
         private AudioVideoFramePlayerSettings audioVideoFramePlayerSettings;
         private AudioVideoFramePlayer audioVideoFramePlayer;
         private long audioTick;
@@ -48,12 +49,14 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         /// Initializes a new instance of the <see cref="BotMediaStream"/> class.
         /// </summary>
         /// <param name="mediaSession">The media session.</param>
+        /// <param name="logger">Graph logger.</param>
         /// <exception cref="InvalidOperationException">Throws when no audio socket is passed in.</exception>
-        public BotMediaStream(ILocalMediaSession mediaSession)
+        public BotMediaStream(ILocalMediaSession mediaSession, IGraphLogger logger)
         {
             ArgumentVerifier.ThrowOnNullArgument(mediaSession, "mediaSession");
 
             this.mediaSession = mediaSession;
+            this.logger = logger;
             this.audioSendStatusActive = new TaskCompletionSource<bool>();
             this.videoSendStatusActive = new TaskCompletionSource<bool>();
             this.startVideoPlayerCompleted = new TaskCompletionSource<bool>();
@@ -81,7 +84,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                 this.vbssSocket.VideoSendStatusChanged += this.OnVbssSocketSendStatusChanged;
             }
 
-            var ignoreTask = this.StartAudioVideoFramePlayerAsync().ForgetAndLogExceptionAsync("Failed to start the player");
+            var ignoreTask = this.StartAudioVideoFramePlayerAsync().ForgetAndLogExceptionAsync(this.logger, "Failed to start the player");
         }
 
         /// <summary>
@@ -97,12 +100,12 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             {
                 this.ValidateSubscriptionMediaType(mediaType);
 
-                Log.Info(new CallerInfo(), LogContext.FrontEnd, $"Subscribing to the video source: {mediaSourceId} on socket: {socketId} with the preferred resolution: {videoResolution} and mediaType: {mediaType}");
+                this.logger.Info($"Subscribing to the video source: {mediaSourceId} on socket: {socketId} with the preferred resolution: {videoResolution} and mediaType: {mediaType}");
                 if (mediaType == MediaType.Vbss)
                 {
                     if (this.vbssSocket == null)
                     {
-                        Log.Warning(new CallerInfo(), LogContext.FrontEnd, $"vbss socket not initialized");
+                        this.logger.Warn($"vbss socket not initialized");
                     }
                     else
                     {
@@ -113,7 +116,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                 {
                     if (this.videoSockets == null)
                     {
-                        Log.Warning(new CallerInfo(), LogContext.FrontEnd, $"video sockets were not created");
+                        this.logger.Warn($"video sockets were not created");
                     }
                     else
                     {
@@ -123,7 +126,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             }
             catch (Exception ex)
             {
-               Log.Error(new CallerInfo(), LogContext.FrontEnd, $"Video Subscription failed for the socket: {socketId} and MediaSourceId: {mediaSourceId} with exception: {ex}");
+                this.logger.Error(ex, $"Video Subscription failed for the socket: {socketId} and MediaSourceId: {mediaSourceId} with exception");
             }
         }
 
@@ -138,7 +141,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             {
                 this.ValidateSubscriptionMediaType(mediaType);
 
-                Log.Info(new CallerInfo(), LogContext.FrontEnd, $"Unsubscribing to video for the socket: {socketId} and mediaType: {mediaType}");
+                this.logger.Info($"Unsubscribing to video for the socket: {socketId} and mediaType: {mediaType}");
 
                 if (mediaType == MediaType.Vbss)
                 {
@@ -151,7 +154,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             }
             catch (Exception ex)
             {
-                Log.Error(new CallerInfo(), LogContext.FrontEnd, $"Unsubscribing to video failed for the socket: {socketId} with exception: {ex}");
+                this.logger.Error(ex, $"Unsubscribing to video failed for the socket: {socketId} with exception");
             }
         }
 
@@ -195,13 +198,13 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                 audioMediaBuffer.Dispose();
             }
 
-            Log.Info(new CallerInfo(), LogContext.FrontEnd, $"disposed {this.audioMediaBuffers.Count} audioMediaBUffers.");
+            this.logger.Info($"disposed {this.audioMediaBuffers.Count} audioMediaBUffers.");
             foreach (var videoMediaBuffer in this.videoMediaBuffers)
             {
                 videoMediaBuffer.Dispose();
             }
 
-            Log.Info(new CallerInfo(), LogContext.FrontEnd, $"disposed {this.videoMediaBuffers.Count} videoMediaBuffers");
+            this.logger.Info($"disposed {this.videoMediaBuffers.Count} videoMediaBuffers");
             this.audioMediaBuffers.Clear();
             this.videoMediaBuffers.Clear();
         }
@@ -227,22 +230,19 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         {
             if (this.shutdown != 1)
             {
-                Log.Info(new CallerInfo(), LogContext.Media, $"Low on frames event raised for {e.MediaType}, remaining lenght is {e.RemainingMediaLengthInMS} ms");
+                this.logger.Info($"Low on frames event raised for {e.MediaType}, remaining lenght is {e.RemainingMediaLengthInMS} ms");
 
                 // here we want to keep the AV creation in sync so we take as reference audio.
                 if (e.MediaType == MediaType.Audio)
                 {
                     // use the past tick as reference to avoid av out of sync
                     this.CreateAVBuffers(this.mediaTick, replayed: true);
-                    this.audioVideoFramePlayer?.EnqueueBuffersAsync(this.audioMediaBuffers, this.videoMediaBuffers).ForgetAndLogExceptionAsync("Failed to enqueue AV buffers");
+                    this.audioVideoFramePlayer?.EnqueueBuffersAsync(this.audioMediaBuffers, this.videoMediaBuffers).ForgetAndLogExceptionAsync(this.logger, "Failed to enqueue AV buffers");
 
-                    Log.Info(new CallerInfo(), LogContext.Media, $"Low on audio event raised, enqueued {this.audioMediaBuffers.Count} buffers last audio tick {this.audioTick} and mediatick {this.mediaTick}");
+                    this.logger.Info($"Low on audio event raised, enqueued {this.audioMediaBuffers.Count} buffers last audio tick {this.audioTick} and mediatick {this.mediaTick}");
                 }
 
-                Log.Info(
-                    new CallerInfo(),
-                    LogContext.Media,
-                    "enqueued more frames in the audioVideoPlayer");
+                this.logger.Info("enqueued more frames in the audioVideoPlayer");
             }
         }
 
@@ -256,10 +256,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             {
                 await Task.WhenAll(this.audioSendStatusActive.Task, this.videoSendStatusActive.Task).ConfigureAwait(false);
 
-                Log.Info(
-                    new CallerInfo(),
-                    LogContext.Media,
-                    "Send status active for audio and video Creating the audio video player");
+                this.logger.Info("Send status active for audio and video Creating the audio video player");
                 this.audioVideoFramePlayerSettings =
                     new AudioVideoFramePlayerSettings(new AudioSettings(20), new VideoSettings(), 1000);
                 this.audioVideoFramePlayer = new AudioVideoFramePlayer(
@@ -267,10 +264,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                     (VideoSocket)this.mainVideoSocket,
                     this.audioVideoFramePlayerSettings);
 
-                Log.Info(
-                    new CallerInfo(),
-                    LogContext.Media,
-                    "created the audio video player");
+                this.logger.Info("created the audio video player");
 
                 this.audioVideoFramePlayer.LowOnFrames += this.OnAudioVideoFramePlayerLowOnFrames;
 
@@ -282,7 +276,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             }
             catch (Exception ex)
             {
-                Log.Error(new CallerInfo(), LogContext.Media, "Failed to create the audioVideoFramePlayer with exception {0}", ex);
+                this.logger.Error(ex, "Failed to create the audioVideoFramePlayer with exception");
             }
             finally
             {
@@ -298,11 +292,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         /// <param name="e">Event arguments.</param>
         private void OnAudioSendStatusChanged(object sender, AudioSendStatusChangedEventArgs e)
         {
-            Log.Info(
-                new CallerInfo(),
-                LogContext.Media,
-                "[AudioSendStatusChangedEventArgs(MediaSendStatus={0})]",
-                e.MediaSendStatus);
+            this.logger.Info($"[AudioSendStatusChangedEventArgs(MediaSendStatus={e.MediaSendStatus})]");
 
             if (e.MediaSendStatus == MediaSendStatus.Active)
             {
@@ -318,20 +308,11 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         /// <param name="e">Event arguments.</param>
         private void OnVideoSendStatusChanged(object sender, VideoSendStatusChangedEventArgs e)
         {
-            Log.Info(
-                new CallerInfo(),
-                LogContext.Media,
-                "[VideoSendStatusChangedEventArgs(MediaSendStatus=<{0}>]",
-                e.MediaSendStatus);
+            this.logger.Info($"[VideoSendStatusChangedEventArgs(MediaSendStatus=<{e.MediaSendStatus}>]");
 
             if (e.MediaSendStatus == MediaSendStatus.Active)
             {
-                Log.Info(
-                new CallerInfo(),
-                LogContext.Media,
-                "[VideoSendStatusChangedEventArgs(MediaSendStatus=<{0}>;PreferredVideoSourceFormat=<{1}>]",
-                e.MediaSendStatus,
-                string.Join(";", e.PreferredEncodedVideoSourceFormats.ToList()));
+                this.logger.Info($"[VideoSendStatusChangedEventArgs(MediaSendStatus=<{e.MediaSendStatus}>;PreferredVideoSourceFormat=<{string.Join(";", e.PreferredEncodedVideoSourceFormats.ToList())}>]");
 
                 var previousSupportedFormats = (this.knownSupportedFormats != null && this.knownSupportedFormats.Any()) ? this.knownSupportedFormats :
                    new List<VideoFormat>();
@@ -348,20 +329,15 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                         this.knownSupportedFormats.Select(x => x.GetId()).Except(previousSupportedFormats.Select(y => y.GetId())).Any())
                     {
                         // we restart the player
-                        this.audioVideoFramePlayer?.ClearAsync().ForgetAndLogExceptionAsync();
+                        this.audioVideoFramePlayer?.ClearAsync().ForgetAndLogExceptionAsync(this.logger);
 
-                        Log.Info(
-                            new CallerInfo(),
-                            LogContext.Media,
-                            "[VideoSendStatusChangedEventArgs(MediaSendStatus=<{0}> enqueuing new formats: {1}]",
-                            e.MediaSendStatus,
-                            string.Join(";", this.knownSupportedFormats));
+                        this.logger.Info($"[VideoSendStatusChangedEventArgs(MediaSendStatus=<{e.MediaSendStatus}> enqueuing new formats: {string.Join(";", this.knownSupportedFormats)}]");
 
                         // Create the AV buffers
                         var currentTick = DateTime.Now.Ticks;
                         this.CreateAVBuffers(currentTick, replayed: false);
 
-                        this.audioVideoFramePlayer?.EnqueueBuffersAsync(this.audioMediaBuffers, this.videoMediaBuffers).ForgetAndLogExceptionAsync();
+                        this.audioVideoFramePlayer?.EnqueueBuffersAsync(this.audioMediaBuffers, this.videoMediaBuffers).ForgetAndLogExceptionAsync(this.logger);
                     }
                 }
             }
@@ -369,7 +345,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             {
                 if (this.videoSendStatusActive.Task.IsCompleted && this.audioVideoFramePlayer != null)
                 {
-                    this.audioVideoFramePlayer?.ClearAsync().ForgetAndLogExceptionAsync();
+                    this.audioVideoFramePlayer?.ClearAsync().ForgetAndLogExceptionAsync(this.logger);
                 }
             }
         }
@@ -383,13 +359,8 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         /// <param name="e">Event args specifying the socket id, media type and video formats for which key frame is being requested.</param>
         private void OnVideoKeyFrameNeeded(object sender, VideoKeyFrameNeededEventArgs e)
         {
-            Log.Info(
-                new CallerInfo(),
-                LogContext.Media,
-                "[VideoKeyFrameNeededEventArgs(MediaType=<{{0}}>;SocketId=<{{1}}>" + "VideoFormats=<{2}>] calling RequestKeyFrame on the videoSocket",
-                e.MediaType,
-                e.SocketId,
-                string.Join(";", e.VideoFormats.ToList()));
+            this.logger.Info($"[VideoKeyFrameNeededEventArgs(MediaType=<{{e.MediaType}}>;SocketId=<{{e.SocketId}}>" +
+                             $"VideoFormats=<{string.Join(";", e.VideoFormats.ToList())}>] calling RequestKeyFrame on the videoSocket");
         }
 
         /// <summary>
@@ -406,7 +377,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             if (e.MediaSendStatus == MediaSendStatus.Active)
             {
                 var currentTick = DateTime.Now.Ticks;
-                var videoBuffers = Utilities.CreateVideoMediaBuffers(currentTick, e.PreferredEncodedVideoSourceFormats?.ToList(), replayed: false);
+                var videoBuffers = Utilities.CreateVideoMediaBuffers(currentTick, e.PreferredEncodedVideoSourceFormats?.ToList(), replayed: false, logger: this.logger);
                 if (videoBuffers.Any())
                 {
                     try
@@ -418,11 +389,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                     }
                     catch (Exception ex)
                     {
-                        Log.Error(
-                            new CallerInfo(),
-                            LogContext.Media,
-                            $"Exception in sending video buffer.{0}",
-                            ex);
+                        this.logger.Error(ex, "Exception in sending video buffer.");
                     }
 
                     try
@@ -434,11 +401,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                     }
                     catch (Exception ex)
                     {
-                        Log.Error(
-                            new CallerInfo(),
-                            LogContext.Media,
-                            $"Exception in disposing video buffer.{0}",
-                            ex);
+                        this.logger.Error(ex, "Exception in disposing video buffer.");
                     }
                 }
             }
@@ -451,21 +414,20 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         /// <param name="replayed">If frame is replayed.</param>
         private void CreateAVBuffers(long referenceTick, bool replayed)
         {
-            Log.Info(
-                new CallerInfo(),
-                LogContext.Media,
-                "Creating AudioVideoBuffers");
+            this.logger.Info("Creating AudioVideoBuffers");
 
             lock (this.mLock)
             {
                 this.videoMediaBuffers = Utilities.CreateVideoMediaBuffers(
                     referenceTick,
                     this.knownSupportedFormats,
-                    replayed);
+                    replayed,
+                    this.logger);
 
                 this.audioMediaBuffers = Utilities.CreateAudioMediaBuffers(
                     referenceTick,
-                    replayed);
+                    replayed,
+                    this.logger);
 
                 // update the tick for next iteration
                 this.audioTick = this.audioMediaBuffers.Last().Timestamp;

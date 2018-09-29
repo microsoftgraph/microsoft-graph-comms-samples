@@ -96,35 +96,11 @@
     <div><a class="xref" href="Microsoft.Graph.CoreSDK.Notifications.INotificationProcessor.html">INotificationProcessor</a></div>
     <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.CoreSDK.Notifications.html">Microsoft.Graph.CoreSDK.Notifications</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.CoreSDK.dll</h6>
   <h5 id="Microsoft_Graph_CoreSDK_Notifications_NotificationProcessor_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class NotificationProcessor : INotificationProcessor, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public class NotificationProcessor : Object, INotificationProcessor, IDisposable</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -175,7 +151,13 @@
   </h3>
   <a id="Microsoft_Graph_CoreSDK_Notifications_NotificationProcessor_AuthenticationProvider_" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationProcessor.AuthenticationProvider*"></a>
   <h4 id="Microsoft_Graph_CoreSDK_Notifications_NotificationProcessor_AuthenticationProvider" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationProcessor.AuthenticationProvider">AuthenticationProvider</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the authentication provider.
+TODO: This should probably not be a part of the <a class="xref" href="Microsoft.Graph.CoreSDK.Notifications.INotificationProcessor.html">INotificationProcessor</a>.
+Ideally the request is already validated prior to making it in here.
+This means that
+1) Already sanitized by authentication provider and
+2) The tenant/correlation id parameters extracted into the IGraphRequest.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -192,7 +174,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="Microsoft.Graph.IAuthenticationProvider.html">IAuthenticationProvider</a></td>
-        <td></td>
+        <td><p>The authentication provider.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -318,7 +301,8 @@
   <h3 id="events">Events
   </h3>
   <h4 id="Microsoft_Graph_CoreSDK_Notifications_NotificationProcessor_OnCollectionNotificationReceived" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationProcessor.OnCollectionNotificationReceived">OnCollectionNotificationReceived</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Occurs when a collection notification is received.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -340,7 +324,9 @@
     </tbody>
   </table>
   <h4 id="Microsoft_Graph_CoreSDK_Notifications_NotificationProcessor_OnNotificationReceived" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationProcessor.OnNotificationReceived">OnNotificationReceived</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Occurs when a notification is received.
+This is a global hook for all notifications.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -362,7 +348,8 @@
     </tbody>
   </table>
   <h4 id="Microsoft_Graph_CoreSDK_Notifications_NotificationProcessor_OnResourceNotificationReceived" data-uid="Microsoft.Graph.CoreSDK.Notifications.NotificationProcessor.OnResourceNotificationReceived">OnResourceNotificationReceived</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Occurs when a single resource notification is received.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -389,10 +376,6 @@
   </div>
   <div>
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable">System.IDisposable</a>
-  </div>
-  <h3 id="extensionmethods">Extension Methods</h3>
-  <div>
-      <a class="xref" href="Microsoft.Graph.CoreSDK.Notifications.NotificationProcessorExtensions.html#Microsoft_Graph_CoreSDK_Notifications_NotificationProcessorExtensions_ProcessNotificationAsync_Microsoft_Graph_CoreSDK_Notifications_INotificationProcessor_System_Net_Http_HttpRequestMessage_">NotificationProcessorExtensions.ProcessNotificationAsync(INotificationProcessor, HttpRequestMessage)</a>
   </div>
   <h3 id="seealso">See Also</h3>
   <div class="seealso">

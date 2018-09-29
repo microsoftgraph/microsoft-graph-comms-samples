@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Delegate ValidateRequestAsyncDelegate
+    <title>Class ValidateRequestAsyncDelegate
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Delegate ValidateRequestAsyncDelegate
+    <meta name="title" content="Class ValidateRequestAsyncDelegate
    ">
     <meta name="generator" content="docfx 2.39.2.0">
     
@@ -81,16 +81,63 @@
             <article class="content wrap" id="_content" data-uid="Microsoft.Graph.ValidateRequestAsyncDelegate">
   
   
-  <h1 id="Microsoft_Graph_ValidateRequestAsyncDelegate" data-uid="Microsoft.Graph.ValidateRequestAsyncDelegate" class="text-break">Delegate ValidateRequestAsyncDelegate
+  <h1 id="Microsoft_Graph_ValidateRequestAsyncDelegate" data-uid="Microsoft.Graph.ValidateRequestAsyncDelegate" class="text-break">Class ValidateRequestAsyncDelegate
   </h1>
   <div class="markdown level0 summary"><p>Validation request delegate.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">ValidateRequestAsyncDelegate</span></div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.html">Microsoft.Graph</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.CoreSDK.dll</h6>
   <h5 id="Microsoft_Graph_ValidateRequestAsyncDelegate_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public delegate Task&lt;bool&gt; ValidateRequestAsyncDelegate(HttpRequestMessage request);</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class ValidateRequestAsyncDelegate : MulticastDelegate</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="Microsoft_Graph_ValidateRequestAsyncDelegate__ctor_" data-uid="Microsoft.Graph.ValidateRequestAsyncDelegate.#ctor*"></a>
+  <h4 id="Microsoft_Graph_ValidateRequestAsyncDelegate__ctor_System_Object_System_IntPtr_" data-uid="Microsoft.Graph.ValidateRequestAsyncDelegate.#ctor(System.Object,System.IntPtr)">ValidateRequestAsyncDelegate(Object, IntPtr)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ValidateRequestAsyncDelegate(object object, IntPtr method)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td><span class="parametername">object</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.intptr">IntPtr</a></td>
+        <td><span class="parametername">method</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Microsoft_Graph_ValidateRequestAsyncDelegate_BeginInvoke_" data-uid="Microsoft.Graph.ValidateRequestAsyncDelegate.BeginInvoke*"></a>
+  <h4 id="Microsoft_Graph_ValidateRequestAsyncDelegate_BeginInvoke_System_Net_Http_HttpRequestMessage_System_AsyncCallback_System_Object_" data-uid="Microsoft.Graph.ValidateRequestAsyncDelegate.BeginInvoke(System.Net.Http.HttpRequestMessage,System.AsyncCallback,System.Object)">BeginInvoke(HttpRequestMessage, AsyncCallback, Object)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IAsyncResult BeginInvoke(HttpRequestMessage request, AsyncCallback callback, object object)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -105,8 +152,57 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a></td>
         <td><span class="parametername">request</span></td>
-        <td><p>The request.</p>
-</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.asynccallback">AsyncCallback</a></td>
+        <td><span class="parametername">callback</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td><span class="parametername">object</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iasyncresult">IAsyncResult</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_ValidateRequestAsyncDelegate_EndInvoke_" data-uid="Microsoft.Graph.ValidateRequestAsyncDelegate.EndInvoke*"></a>
+  <h4 id="Microsoft_Graph_ValidateRequestAsyncDelegate_EndInvoke_System_IAsyncResult_" data-uid="Microsoft.Graph.ValidateRequestAsyncDelegate.EndInvoke(System.IAsyncResult)">EndInvoke(IAsyncResult)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;bool&gt; EndInvoke(IAsyncResult result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iasyncresult">IAsyncResult</a></td>
+        <td><span class="parametername">result</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -121,8 +217,47 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
-        <td><p>A <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> representing the asynchronous operation.</p>
-</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_ValidateRequestAsyncDelegate_Invoke_" data-uid="Microsoft.Graph.ValidateRequestAsyncDelegate.Invoke*"></a>
+  <h4 id="Microsoft_Graph_ValidateRequestAsyncDelegate_Invoke_System_Net_Http_HttpRequestMessage_" data-uid="Microsoft.Graph.ValidateRequestAsyncDelegate.Invoke(System.Net.Http.HttpRequestMessage)">Invoke(HttpRequestMessage)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;bool&gt; Invoke(HttpRequestMessage request)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a></td>
+        <td><span class="parametername">request</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
       </tr>
     </tbody>
   </table>

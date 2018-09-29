@@ -90,13 +90,13 @@ work with different instances of GraphClient through Dependency Injection.</p>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="Microsoft.Graph.Core.Transport.IGraphClient.html#Microsoft_Graph_Core_Transport_IGraphClient_GraphLogger">IGraphClient.GraphLogger</a>
-    </div>
-    <div>
       <a class="xref" href="Microsoft.Graph.Core.Transport.IGraphClient.html#Microsoft_Graph_Core_Transport_IGraphClient_SendAsync__1_Microsoft_Graph_Core_Transport_IGraphRequest___0__System_Threading_CancellationToken_">IGraphClient.SendAsync&lt;TRequest&gt;(IGraphRequest&lt;TRequest&gt;, CancellationToken)</a>
     </div>
     <div>
       <a class="xref" href="Microsoft.Graph.Core.Transport.IGraphClient.html#Microsoft_Graph_Core_Transport_IGraphClient_SendAsync__2_Microsoft_Graph_Core_Transport_IGraphRequest___0__System_Threading_CancellationToken_">IGraphClient.SendAsync&lt;TRequest, TResponse&gt;(IGraphRequest&lt;TRequest&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.Graph.Core.Transport.IGraphClient.html#Microsoft_Graph_Core_Transport_IGraphClient_GraphLogger">IGraphClient.GraphLogger</a>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.Core.Transport.html">Microsoft.Graph.Core.Transport</a></h6>
@@ -115,7 +115,7 @@ The content sent using this is not parsed or logged.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;HttpResponseMessage&gt; SendRawHttpRequestAsync(HttpRequestMessage httpRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;HttpResponseMessage&gt; SendRawHttpRequestAsync(HttpRequestMessage httpRequest, CancellationToken cancellationToken = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">

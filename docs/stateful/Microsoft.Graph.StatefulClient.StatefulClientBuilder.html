@@ -95,35 +95,11 @@
     <h5>Implements</h5>
     <div><a class="xref" href="Microsoft.Graph.StatefulClient.IStatefulClientBuilder.html">IStatefulClientBuilder</a></div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.StatefulClient.html">Microsoft.Graph.StatefulClient</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.StatefulClient.dll</h6>
   <h5 id="Microsoft_Graph_StatefulClient_StatefulClientBuilder_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class StatefulClientBuilder : IStatefulClientBuilder</code></pre>
+    <pre><code class="lang-csharp hljs">public class StatefulClientBuilder : Object, IStatefulClientBuilder</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -170,7 +146,8 @@
   </h3>
   <a id="Microsoft_Graph_StatefulClient_StatefulClientBuilder_Id_" data-uid="Microsoft.Graph.StatefulClient.StatefulClientBuilder.Id*"></a>
   <h4 id="Microsoft_Graph_StatefulClient_StatefulClientBuilder_Id" data-uid="Microsoft.Graph.StatefulClient.StatefulClientBuilder.Id">Id</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the client id.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -195,7 +172,8 @@
   </h3>
   <a id="Microsoft_Graph_StatefulClient_StatefulClientBuilder_Build_" data-uid="Microsoft.Graph.StatefulClient.StatefulClientBuilder.Build*"></a>
   <h4 id="Microsoft_Graph_StatefulClient_StatefulClientBuilder_Build" data-uid="Microsoft.Graph.StatefulClient.StatefulClientBuilder.Build">Build()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Build and return the stateful client object.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -212,7 +190,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="Microsoft.Graph.StatefulClient.IStatefulClient.html">IStatefulClient</a></td>
-        <td></td>
+        <td><p>The <a class="xref" href="Microsoft.Graph.StatefulClient.IStatefulClient.html">IStatefulClient</a>.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -234,7 +213,10 @@
   </table>
   <a id="Microsoft_Graph_StatefulClient_StatefulClientBuilder_SetAuthenticationProvider_" data-uid="Microsoft.Graph.StatefulClient.StatefulClientBuilder.SetAuthenticationProvider*"></a>
   <h4 id="Microsoft_Graph_StatefulClient_StatefulClientBuilder_SetAuthenticationProvider_Microsoft_Graph_StatefulClient_Authentication_IRequestAuthenticationProvider_" data-uid="Microsoft.Graph.StatefulClient.StatefulClientBuilder.SetAuthenticationProvider(Microsoft.Graph.StatefulClient.Authentication.IRequestAuthenticationProvider)">SetAuthenticationProvider(IRequestAuthenticationProvider)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Sets the custom authentication provider.
+The authentication provider would add authentication to outbound requests
+and validates any inbound requests. See <a class="xref" href="Microsoft.Graph.StatefulClient.Authentication.IRequestAuthenticationProvider.html">IRequestAuthenticationProvider</a></p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -268,13 +250,17 @@
     <tbody>
       <tr>
         <td><a class="xref" href="Microsoft.Graph.StatefulClient.IStatefulClientBuilder.html">IStatefulClientBuilder</a></td>
-        <td></td>
+        <td><p>The <a class="xref" href="Microsoft.Graph.StatefulClient.IStatefulClientBuilder.html">IStatefulClientBuilder</a>.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <a id="Microsoft_Graph_StatefulClient_StatefulClientBuilder_SetHttpClient_" data-uid="Microsoft.Graph.StatefulClient.StatefulClientBuilder.SetHttpClient*"></a>
   <h4 id="Microsoft_Graph_StatefulClient_StatefulClientBuilder_SetHttpClient_System_Net_Http_HttpClient_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___" data-uid="Microsoft.Graph.StatefulClient.StatefulClientBuilder.SetHttpClient(System.Net.Http.HttpClient,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">SetHttpClient(HttpClient, IEnumerable&lt;KeyValuePair&lt;String, String&gt;&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Sets the http client.
+Use a custom HTTP Client instead of the one generated
+by the SDK.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -293,12 +279,14 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a></td>
         <td><span class="parametername">httpClient</span></td>
-        <td></td>
+        <td><p>The place call endpoint URL.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;&gt;</td>
         <td><span class="parametername">defaultHeaders</span></td>
-        <td></td>
+        <td><p>The default headers.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -313,13 +301,17 @@
     <tbody>
       <tr>
         <td><a class="xref" href="Microsoft.Graph.StatefulClient.IStatefulClientBuilder.html">IStatefulClientBuilder</a></td>
-        <td></td>
+        <td><p>The <a class="xref" href="Microsoft.Graph.StatefulClient.IStatefulClientBuilder.html">IStatefulClientBuilder</a>.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <a id="Microsoft_Graph_StatefulClient_StatefulClientBuilder_SetNotificationUrl_" data-uid="Microsoft.Graph.StatefulClient.StatefulClientBuilder.SetNotificationUrl*"></a>
   <h4 id="Microsoft_Graph_StatefulClient_StatefulClientBuilder_SetNotificationUrl_System_Uri_" data-uid="Microsoft.Graph.StatefulClient.StatefulClientBuilder.SetNotificationUrl(System.Uri)">SetNotificationUrl(Uri)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Set the notification uri for your bot.
+This is the default notification url for the bot. This can
+be overriden on a per-resource basis depending on the API support.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -353,7 +345,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="Microsoft.Graph.StatefulClient.IStatefulClientBuilder.html">IStatefulClientBuilder</a></td>
-        <td></td>
+        <td><p>The <a class="xref" href="Microsoft.Graph.StatefulClient.IStatefulClientBuilder.html">IStatefulClientBuilder</a>.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -380,7 +373,8 @@
   </table>
   <a id="Microsoft_Graph_StatefulClient_StatefulClientBuilder_SetServiceBaseUrl_" data-uid="Microsoft.Graph.StatefulClient.StatefulClientBuilder.SetServiceBaseUrl*"></a>
   <h4 id="Microsoft_Graph_StatefulClient_StatefulClientBuilder_SetServiceBaseUrl_System_Uri_" data-uid="Microsoft.Graph.StatefulClient.StatefulClientBuilder.SetServiceBaseUrl(System.Uri)">SetServiceBaseUrl(Uri)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Sets the service base URL. This set&apos;s the Endpoint URL for the service.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -414,7 +408,29 @@
     <tbody>
       <tr>
         <td><a class="xref" href="Microsoft.Graph.StatefulClient.IStatefulClientBuilder.html">IStatefulClientBuilder</a></td>
-        <td></td>
+        <td><p>The <a class="xref" href="Microsoft.Graph.StatefulClient.IStatefulClientBuilder.html">IStatefulClientBuilder</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">serviceBaseUrl</code> is <span class="xref">null</span></p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>uri must be https</p>
+</td>
       </tr>
     </tbody>
   </table>

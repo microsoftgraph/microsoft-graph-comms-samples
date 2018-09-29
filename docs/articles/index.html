@@ -95,7 +95,7 @@
 <p>To illustrate functionality of the Graph Calling SDK, the below examples demonstrate 2 common scenarios: how to make an outbound call to a Microsoft Teams user and how to join an existing Microsoft Teams meeting.</p>
 <h4 id="making-an-outbound-call">Making an Outbound Call</h4>
 <p>Assuming a bot has been properly registered and deployed, the <code>IStatefulClient</code> configured and built.</p>
-<p>The bot needs to create the <a class="xref" href="../core/Microsoft.Graph.Call.html">Call</a> object with the corresponding parameters and pass the object to the <a class="xref" href="../calling/Microsoft.Graph.Calls.CallCollectionExtensions.html#Microsoft_Graph_Calls_CallCollectionExtensions_AddAsync_Microsoft_Graph_Calls_ICallCollection_Microsoft_Graph_Calls_JoinMeetingParameters_CancellationToken_">CallCollectionExtensions.AddAsync</a> method as follows:</p>
+<p>The bot needs to create the <a class="xref" href="../core/Microsoft.Graph.Call.html">Call</a> object with the corresponding parameters and pass the object to the <a class="xref" href="../calling/Microsoft.Graph.Calls.CallCollectionExtensions.html#Microsoft_Graph_Calls_CallCollectionExtensions_AddAsync_Microsoft_Graph_Calls_ICallCollection_Microsoft_Graph_Calls_JoinMeetingParameters_System_Threading_CancellationToken_">CallCollectionExtensions.AddAsync</a> method as follows:</p>
 <pre><code class="lang-cs">var callResource = new Call
 {
   Subject = &quot;**Subject**&quot;,
@@ -121,7 +121,7 @@ var statefulCall = await this.Client.Calls().AddAsync(callResource, mediaSession
 </code></pre><p>SDK will store the state of the call in memory after calling <code>AddAsync</code>. The returned <code>statefulCall</code> object above contains the call Id set by the service.</p>
 <h4 id="making-an-outbound-call-to-join-an-existing-microsoft-teams-meeting">Making an Outbound Call to Join an Existing Microsoft Teams Meeting</h4>
 <p>The above example shows how to create an outbound call to single or multiple participants and create a new conversation. If the bot needs to join an existing conversation, the SDK provides an overload of AddAsync that takes <a class="xref" href="../calling/Microsoft.Graph.Calls.JoinMeetingParameters.html">JoinMeetingParameters</a> as input.</p>
-<p>The bot needs to create the <a class="xref" href="../calling/Microsoft.Graph.Calls.JoinMeetingParameters.html">JoinMeetingParameters</a> object with the corresponding meeting parameters and pass the object to the <a class="xref" href="../calling/Microsoft.Graph.Calls.CallCollectionExtensions.html#Microsoft_Graph_Calls_CallCollectionExtensions_AddAsync_Microsoft_Graph_Calls_ICallCollection_Microsoft_Graph_Calls_JoinMeetingParameters_CancellationToken_">CallCollectionExtensions.AddAsync</a> method as follows:</p>
+<p>The bot needs to create the <a class="xref" href="../calling/Microsoft.Graph.Calls.JoinMeetingParameters.html">JoinMeetingParameters</a> object with the corresponding meeting parameters and pass the object to the <a class="xref" href="../calling/Microsoft.Graph.Calls.CallCollectionExtensions.html#Microsoft_Graph_Calls_CallCollectionExtensions_AddAsync_Microsoft_Graph_Calls_ICallCollection_Microsoft_Graph_Calls_JoinMeetingParameters_System_Threading_CancellationToken_">CallCollectionExtensions.AddAsync</a> method as follows:</p>
 <pre><code class="lang-cs">var chatInfo = new ChatInfo
 {
   MessageId = &quot;**Message Id**&quot;,
@@ -157,7 +157,7 @@ var statefulCall = await this.Client.Calls().AddAsync(joinCallParameters);
 <h4 id="answering-incoming-call-with-application-hosted-media">Answering incoming call with application hosted media</h4>
 <p>First, subscibe to incoming calls.</p>
 <pre><code class="lang-cs">this.Client.Calls().OnIncoming += this.CallsOnIncoming;
-</code></pre><p>When incoming call comes, the bot needs to answer with an <code>IMediaSession</code>.  This can be a media session created using the <a class="xref" href="../media/Microsoft.Graph.Calls.Media.StatefulClientExtensions.html#Microsoft_Graph_Calls_Media_StatefulClientExtensions_CreateMediaSession_IStatefulClient_Microsoft_Skype_Bots_Media_AudioSocketSettings_Microsoft_Skype_Bots_Media_VideoSocketSettings_Microsoft_Skype_Bots_Media_VideoSocketSettings_System_Guid_">IStatefulClient.CreateMediaSession()</a> extension or a custom <code>IMediaSession</code>.</p>
+</code></pre><p>When incoming call comes, the bot needs to answer with an <code>IMediaSession</code>.  This can be a media session created using the <a class="xref" href="../media/Microsoft.Graph.Calls.Media.StatefulClientExtensions.html#Microsoft_Graph_Calls_Media_StatefulClientExtensions_CreateMediaSession_Microsoft_Graph_StatefulClient_IStatefulClient_Microsoft_Skype_Bots_Media_AudioSocketSettings_Microsoft_Skype_Bots_Media_VideoSocketSettings_Microsoft_Skype_Bots_Media_VideoSocketSettings_System_Guid_">IStatefulClient.CreateMediaSession()</a> extension or a custom <code>IMediaSession</code>.</p>
 <pre><code class="lang-cs">private void CallsOnIncoming(ICallCollection sender, CollectionEventArgs&lt;ICall&gt; collectionEventArgs)
 {
   var mediaSession = this.Client.CreateMediaSession(

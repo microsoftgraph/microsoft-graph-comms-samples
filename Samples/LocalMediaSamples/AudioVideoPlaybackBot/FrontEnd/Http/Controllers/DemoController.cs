@@ -17,9 +17,9 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
     using System.Text;
     using System.Threading.Tasks;
     using System.Web.Http;
+    using Microsoft.Graph.Core.Telemetry;
     using Microsoft.Graph.CoreSDK.Serialization;
     using Sample.AudioVideoPlaybackBot.FrontEnd.Bot;
-    using Sample.Common.Logging;
 
     /// <summary>
     /// DemoController serves as the gateway to explore the bot.
@@ -27,6 +27,11 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
     /// </summary>
     public class DemoController : ApiController
     {
+        /// <summary>
+        /// Gets the logger instance.
+        /// </summary>
+        private IGraphLogger Logger => Bot.Instance.Logger;
+
         /// <summary>
         /// The on get calls.
         /// </summary>
@@ -37,7 +42,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
         [Route(HttpRouteConstants.Calls + "/")]
         public HttpResponseMessage OnGetCalls()
         {
-            Log.Info(new CallerInfo(), LogContext.FrontEnd, $"Getting calls");
+            this.Logger.Info("Getting calls");
 
             if (Bot.Instance.CallHandlers.IsEmpty)
             {
@@ -83,7 +88,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
         [Route(HttpRouteConstants.CallRoute)]
         public async Task<HttpResponseMessage> OnEndCallAsync(string callLegId)
         {
-            Log.Info(new CallerInfo(), LogContext.FrontEnd, $"Ending call {callLegId}");
+            this.Logger.Info($"Ending call {callLegId}");
 
             try
             {
@@ -115,7 +120,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
         [Route(HttpRouteConstants.CallRoute)]
         public HttpResponseMessage OnGetLog(string callLegId, int limit = 50)
         {
-            Log.Info(new CallerInfo(), LogContext.FrontEnd, $"Retrieving image for thread id {callLegId}");
+            this.Logger.Info($"Retrieving image for thread id {callLegId}");
 
             try
             {

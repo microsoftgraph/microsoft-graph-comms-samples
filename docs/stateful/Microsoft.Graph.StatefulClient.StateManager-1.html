@@ -99,35 +99,11 @@
     <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
     <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.StatefulClient.html">Microsoft.Graph.StatefulClient</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.StatefulClient.dll</h6>
   <h5 id="Microsoft_Graph_StatefulClient_StateManager_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class StateManager&lt;TResource&gt; : IStateManager&lt;TResource&gt;, ICollection&lt;TResource&gt;, IEnumerable&lt;TResource&gt;, IEnumerable, IDisposable where TResource : IResource</code></pre>
+    <pre><code class="lang-csharp hljs">public class StateManager&lt;TResource&gt; : Object, IStateManager&lt;TResource&gt;, ICollection&lt;TResource&gt;, IEnumerable&lt;TResource&gt;, IEnumerable, IDisposable where TResource : IResource</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -145,6 +121,16 @@
       </tr>
     </tbody>
   </table>
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="Microsoft_Graph_StatefulClient_StateManager_1__ctor_" data-uid="Microsoft.Graph.StatefulClient.StateManager`1.#ctor*"></a>
+  <h4 id="Microsoft_Graph_StatefulClient_StateManager_1__ctor" data-uid="Microsoft.Graph.StatefulClient.StateManager`1.#ctor">StateManager()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StateManager()</code></pre>
+  </div>
   <h3 id="properties">Properties
   </h3>
   <a id="Microsoft_Graph_StatefulClient_StateManager_1_Count_" data-uid="Microsoft.Graph.StatefulClient.StateManager`1.Count*"></a>
@@ -621,31 +607,6 @@ only once, so operations must be idempotent (I.E. GET, PUT, etc...)</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="eii">Explicit Interface Implementations
-  </h3>
-  <a id="Microsoft_Graph_StatefulClient_StateManager_1_System_Collections_IEnumerable_GetEnumerator_" data-uid="Microsoft.Graph.StatefulClient.StateManager`1.System#Collections#IEnumerable#GetEnumerator*"></a>
-  <h4 id="Microsoft_Graph_StatefulClient_StateManager_1_System_Collections_IEnumerable_GetEnumerator" data-uid="Microsoft.Graph.StatefulClient.StateManager`1.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerator">IEnumerator</a></td>
         <td></td>
       </tr>
     </tbody>

@@ -22,9 +22,8 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         /// </summary>
         /// <param name="parameter">The parameter.</param>
         /// <param name="message">The message.</param>
-        /// <param name="args">The list of arguments.</param>
-        internal ConfigurationException(string parameter, string message, params object[] args)
-            : base(string.Format(message, args))
+        internal ConfigurationException(string parameter, string message)
+            : base(message)
         {
             this.Parameter = parameter;
         }
@@ -38,24 +37,12 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         /// Gets helper to convert string.
         /// </summary>
         /// <returns><see cref="string" />.</returns>
-        public override string Message
-        {
-            get
-            {
-                return string.Format(
-                    "Parameter name: {0}\r\n{1}",
-                    this.Parameter,
-                    base.Message);
-            }
-        }
+        public override string Message => $"Parameter name: {this.Parameter}\r\n{base.Message}";
 
         /// <summary>
         /// Helper to convert string.
         /// </summary>
         /// <returns><see cref="string" />.</returns>
-        public override string ToString()
-        {
-            return string.Format("Parameter name: {0}\r\n{1}", this.Parameter, base.ToString());
-        }
+        public override string ToString() => $"Parameter name: {this.Parameter}\r\n{base.ToString()}";
     }
 }

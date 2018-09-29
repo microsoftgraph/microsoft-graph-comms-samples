@@ -14,6 +14,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
     using Microsoft.Graph;
     using Microsoft.Graph.Calls;
     using Microsoft.Graph.Calls.Media;
+    using Microsoft.Graph.Core;
     using Microsoft.Graph.Core.Common;
     using Microsoft.Graph.Core.Telemetry;
     using Microsoft.Graph.StatefulClient;
@@ -21,10 +22,8 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
     using Sample.AudioVideoPlaybackBot.FrontEnd;
     using Sample.AudioVideoPlaybackBot.FrontEnd.Http;
     using Sample.Common.Authentication;
-    using Sample.Common.Logging;
     using Sample.Common.Meetings;
     using Sample.Common.OnlineMeetings;
-    using CallerInfo = Sample.Common.Logging.CallerInfo;
 
     /// <summary>
     /// The core bot logic.
@@ -32,38 +31,14 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
     internal class Bot
     {
         /// <summary>
-        /// Prevents a default instance of the <see cref="Bot"/> class from being created.
-        /// </summary>
-        private Bot()
-        {
-            var logger = new GraphLogger(nameof(Bot));
-
-            // Log unhandled exceptions.
-            AppDomain.CurrentDomain.UnhandledException += (_, e) => logger.Error(e.ExceptionObject as Exception, $"Unhandled exception");
-            TaskScheduler.UnobservedTaskException += (_, e) => logger.Error(e.Exception, "Unobserved task exception");
-
-            var builder = new StatefulClientBuilder("AudioVideoPlaybackBot", Service.Instance.Configuration.AadAppId, logger);
-            var authProvider = new AuthenticationProvider(
-                    Service.Instance.Configuration.AadAppId,
-                    Service.Instance.Configuration.AadAppSecret,
-                    logger);
-
-            builder.SetAuthenticationProvider(authProvider);
-            builder.SetNotificationUrl(Service.Instance.Configuration.CallControlBaseUrl);
-            builder.SetMediaPlatformSettings(Service.Instance.Configuration.MediaPlatformSettings);
-            builder.SetServiceBaseUrl(Service.Instance.Configuration.PlaceCallEndpointUrl);
-
-            this.Client = builder.Build();
-            this.Client.Calls().OnIncoming += this.CallsOnIncoming;
-            this.Client.Calls().OnUpdated += this.CallsOnUpdated;
-
-            this.OnlineMeetings = new OnlineMeetingHelper(authProvider, Service.Instance.Configuration.PlaceCallEndpointUrl);
-        }
-
-        /// <summary>
         /// Gets the instance of the bot.
         /// </summary>
         public static Bot Instance { get; } = new Bot();
+
+        /// <summary>
+        /// Gets the Graph Logger instance.
+        /// </summary>
+        public IGraphLogger Logger { get; private set; }
 
         /// <summary>
         /// Gets the collection of call handlers.
@@ -73,7 +48,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         /// <summary>
         /// Gets the entry point for stateful bot.
         /// </summary>
-        public IStatefulClient Client { get; }
+        public IStatefulClient Client { get; private set; }
 
         /// <summary>
         /// Gets the online meeting.
@@ -81,7 +56,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         /// <value>
         /// The online meeting.
         /// </value>
-        public OnlineMeetingHelper OnlineMeetings { get; }
+        public OnlineMeetingHelper OnlineMeetings { get; private set; }
 
         /// <summary>
         /// Joins the call asynchronously.
@@ -134,7 +109,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             }
 
             var statefulCall = await this.Client.Calls().AddAsync(joinCallParameters).ConfigureAwait(false);
-            Log.Info(new CallerInfo(), LogContext.FrontEnd, $"Call creation complete: {statefulCall.Id}");
+            statefulCall.GraphLogger.Info($"Call creation complete: {statefulCall.Id}");
             return statefulCall;
         }
 
@@ -154,6 +129,35 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             await this.Client.Calls()[callLegId]
                 .ChangeScreenSharingRoleAsync(role)
                 .ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Initialize the instance.
+        /// </summary>
+        /// <param name="service">Service instance.</param>
+        /// <param name="logger">Graph logger.</param>
+        internal void Initialize(Service service, IGraphLogger logger)
+        {
+            Validator.IsNull(this.Logger, "Multiple initializations are not allowed.");
+
+            this.Logger = logger;
+
+            var builder = new StatefulClientBuilder("AudioVideoPlaybackBot", service.Configuration.AadAppId, this.Logger);
+            var authProvider = new AuthenticationProvider(
+                    service.Configuration.AadAppId,
+                    service.Configuration.AadAppSecret,
+                    this.Logger);
+
+            builder.SetAuthenticationProvider(authProvider);
+            builder.SetNotificationUrl(service.Configuration.CallControlBaseUrl);
+            builder.SetMediaPlatformSettings(service.Configuration.MediaPlatformSettings);
+            builder.SetServiceBaseUrl(service.Configuration.PlaceCallEndpointUrl);
+
+            this.Client = builder.Build();
+            this.Client.Calls().OnIncoming += this.CallsOnIncoming;
+            this.Client.Calls().OnUpdated += this.CallsOnUpdated;
+
+            this.OnlineMeetings = new OnlineMeetingHelper(authProvider, service.Configuration.PlaceCallEndpointUrl);
         }
 
         /// <summary>
@@ -268,7 +272,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             {
                 // Answer call and start video playback
                 var mediaSession = this.CreateLocalMediaSession(call?.CorrelationId ?? Guid.Empty);
-                call?.AnswerAsync(mediaSession).ForgetAndLogExceptionAsync($"Answering call {call.Id} with correlation {call.CorrelationId}.");
+                call?.AnswerAsync(mediaSession).ForgetAndLogExceptionAsync(call.GraphLogger, $"Answering call {call.Id} with correlation {call.CorrelationId}.");
             });
         }
 
@@ -281,7 +285,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         {
             foreach (var call in args.AddedResources)
             {
-                var callHandler = new CallHandler(call);
+                var callHandler = new CallHandler(call, call.GraphLogger);
                 this.CallHandlers[call.Id] = callHandler;
             }
 

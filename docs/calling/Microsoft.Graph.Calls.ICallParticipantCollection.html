@@ -86,43 +86,16 @@
   <div class="markdown level0 summary"><p>The stateful participant collection interface.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IResourceCollection-3.html#Microsoft_Graph_StatefulClient_IResourceCollection_3_OnUpdated">IResourceCollection&lt;ICallParticipantCollection, ICallParticipant, Participant&gt;.OnUpdated</a>
-    </div>
-    <div>
-      <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IResourceCollection-3.html#Microsoft_Graph_StatefulClient_IResourceCollection_3_Item_System_String_">IResourceCollection&lt;ICallParticipantCollection, ICallParticipant, Participant&gt;.Item[String]</a>
-    </div>
-    <div>
-      <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IResourceCollection-3.html#Microsoft_Graph_StatefulClient_IResourceCollection_3_TryForceRemove_System_String__1__">IResourceCollection&lt;ICallParticipantCollection, ICallParticipant, Participant&gt;.TryForceRemove(String, ICallParticipant)</a>
-    </div>
-    <div>
-      <span class="xref">Microsoft.Graph.StatefulClient.IResourceCollection.TerminateAsync(TimeSpan)</span>
-    </div>
-    <div>
-      <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IResourceBase.html#Microsoft_Graph_StatefulClient_IResourceBase_Client">IResourceBase.Client</a>
-    </div>
-    <div>
-      <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IResourceBase.html#Microsoft_Graph_StatefulClient_IResourceBase_GraphClient">IResourceBase.GraphClient</a>
-    </div>
-    <div>
-      <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IResourceBase.html#Microsoft_Graph_StatefulClient_IResourceBase_GraphLogger">IResourceBase.GraphLogger</a>
-    </div>
-    <div>
-      <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IResourceBase.html#Microsoft_Graph_StatefulClient_IResourceBase_ResourcePath">IResourceBase.ResourcePath</a>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.Calls.html">Microsoft.Graph.Calls</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.Calls.dll</h6>
   <h5 id="Microsoft_Graph_Calls_ICallParticipantCollection_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface ICallParticipantCollection : IResourceCollection&lt;ICallParticipantCollection, ICallParticipant, Participant&gt;, IResourceCollection, IResourceBase, IDisposable, IReadOnlyCollection&lt;ICallParticipant&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public interface ICallParticipantCollection : IResourceCollection&lt;ICallParticipantCollection, ICallParticipant, Participant&gt;, IResourceCollection, IResourceBase, IDisposable, IReadOnlyCollection&lt;ICallParticipant&gt;, IEnumerable&lt;ICallParticipant&gt;, IEnumerable</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   <a id="Microsoft_Graph_Calls_ICallParticipantCollection_ConfigureMixerAsync_" data-uid="Microsoft.Graph.Calls.ICallParticipantCollection.ConfigureMixerAsync*"></a>
-  <h4 id="Microsoft_Graph_Calls_ICallParticipantCollection_ConfigureMixerAsync_IEnumerable_ParticipantMixerLevel__CancellationToken_" data-uid="Microsoft.Graph.Calls.ICallParticipantCollection.ConfigureMixerAsync(IEnumerable{ParticipantMixerLevel},CancellationToken)">ConfigureMixerAsync(IEnumerable&lt;ParticipantMixerLevel&gt;, CancellationToken)</h4>
+  <h4 id="Microsoft_Graph_Calls_ICallParticipantCollection_ConfigureMixerAsync_System_Collections_Generic_IEnumerable_Microsoft_Graph_ParticipantMixerLevel__System_Threading_CancellationToken_" data-uid="Microsoft.Graph.Calls.ICallParticipantCollection.ConfigureMixerAsync(System.Collections.Generic.IEnumerable{Microsoft.Graph.ParticipantMixerLevel},System.Threading.CancellationToken)">ConfigureMixerAsync(IEnumerable&lt;ParticipantMixerLevel&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Configures the mixer level for the call asynchronously.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -141,13 +114,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">ParticipantMixerLevel</span>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="../core/Microsoft.Graph.ParticipantMixerLevel.html">ParticipantMixerLevel</a>&gt;</td>
         <td><span class="parametername">participantMixerLevels</span></td>
         <td><p>The list of participant mixer levels.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">CancellationToken</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>The cancellation token.</p>
 </td>
@@ -164,14 +137,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span></td>
-        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.</p>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>The <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> that completes after the request has been sent.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <a id="Microsoft_Graph_Calls_ICallParticipantCollection_InviteAsync_" data-uid="Microsoft.Graph.Calls.ICallParticipantCollection.InviteAsync*"></a>
-  <h4 id="Microsoft_Graph_Calls_ICallParticipantCollection_InviteAsync_IEnumerable_InvitationParticipantInfo__CancellationToken_" data-uid="Microsoft.Graph.Calls.ICallParticipantCollection.InviteAsync(IEnumerable{InvitationParticipantInfo},CancellationToken)">InviteAsync(IEnumerable&lt;InvitationParticipantInfo&gt;, CancellationToken)</h4>
+  <h4 id="Microsoft_Graph_Calls_ICallParticipantCollection_InviteAsync_System_Collections_Generic_IEnumerable_Microsoft_Graph_InvitationParticipantInfo__System_Threading_CancellationToken_" data-uid="Microsoft.Graph.Calls.ICallParticipantCollection.InviteAsync(System.Collections.Generic.IEnumerable{Microsoft.Graph.InvitationParticipantInfo},System.Threading.CancellationToken)">InviteAsync(IEnumerable&lt;InvitationParticipantInfo&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Invites a list of participants given their identities.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -190,13 +163,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">InvitationParticipantInfo</span>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="../core/Microsoft.Graph.InvitationParticipantInfo.html">InvitationParticipantInfo</a>&gt;</td>
         <td><span class="parametername">participants</span></td>
-        <td><p>The list of <see cref="!:InvitationParticipantInfo"></see> to invite.</p>
+        <td><p>The list of <a class="xref" href="../core/Microsoft.Graph.InvitationParticipantInfo.html">InvitationParticipantInfo</a> to invite.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">CancellationToken</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>The cancellation token.</p>
 </td>
@@ -213,15 +186,15 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span></td>
-        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>The <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> that completes after the request has been sent.
 The invite updates will come in on ICallParticipantCollection.OnUpdated</p>
 </td>
       </tr>
     </tbody>
   </table>
   <a id="Microsoft_Graph_Calls_ICallParticipantCollection_MuteAllAsync_" data-uid="Microsoft.Graph.Calls.ICallParticipantCollection.MuteAllAsync*"></a>
-  <h4 id="Microsoft_Graph_Calls_ICallParticipantCollection_MuteAllAsync_IEnumerable_System_String__CancellationToken_" data-uid="Microsoft.Graph.Calls.ICallParticipantCollection.MuteAllAsync(IEnumerable{System.String},CancellationToken)">MuteAllAsync(IEnumerable&lt;String&gt;, CancellationToken)</h4>
+  <h4 id="Microsoft_Graph_Calls_ICallParticipantCollection_MuteAllAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_" data-uid="Microsoft.Graph.Calls.ICallParticipantCollection.MuteAllAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">MuteAllAsync(IEnumerable&lt;String&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Mute all the specified participants in a call. If none are provided,
 all the participants are muted including the bot.</p>
 </div>
@@ -241,13 +214,13 @@ all the participants are muted including the bot.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
         <td><span class="parametername">participantIds</span></td>
         <td><p>The list of participant ids to mute.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">CancellationToken</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>The cancellation token.</p>
 </td>
@@ -264,15 +237,15 @@ all the participants are muted including the bot.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span></td>
-        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>The <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> that completes after the request has been sent.
 The mute notifications will come in on ICallParticipant.OnUpdated</p>
 </td>
       </tr>
     </tbody>
   </table>
   <a id="Microsoft_Graph_Calls_ICallParticipantCollection_UnmuteAllAsync_" data-uid="Microsoft.Graph.Calls.ICallParticipantCollection.UnmuteAllAsync*"></a>
-  <h4 id="Microsoft_Graph_Calls_ICallParticipantCollection_UnmuteAllAsync_IEnumerable_System_String__CancellationToken_" data-uid="Microsoft.Graph.Calls.ICallParticipantCollection.UnmuteAllAsync(IEnumerable{System.String},CancellationToken)">UnmuteAllAsync(IEnumerable&lt;String&gt;, CancellationToken)</h4>
+  <h4 id="Microsoft_Graph_Calls_ICallParticipantCollection_UnmuteAllAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_" data-uid="Microsoft.Graph.Calls.ICallParticipantCollection.UnmuteAllAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">UnmuteAllAsync(IEnumerable&lt;String&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Unmute all the specified participants in a call. If none are provided,
 all the participants are unmuted including the bot.</p>
 </div>
@@ -292,13 +265,13 @@ all the participants are unmuted including the bot.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
         <td><span class="parametername">participantIds</span></td>
         <td><p>The list of participant ids.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">CancellationToken</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>The cancellation token.</p>
 </td>
@@ -315,8 +288,8 @@ all the participants are unmuted including the bot.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span></td>
-        <td><p>The <see cref="!:Task"></see> that completes after the request has been sent.
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>The <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> that completes after the request has been sent.
 The unmute notifications will come in on ICallParticipant.OnUpdated</p>
 </td>
       </tr>
@@ -324,10 +297,10 @@ The unmute notifications will come in on ICallParticipant.OnUpdated</p>
   </table>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
-      <a class="xref" href="Microsoft.Graph.Calls.ParticipantExtensions.html#Microsoft_Graph_Calls_ParticipantExtensions_InviteAsync_Microsoft_Graph_Calls_ICallParticipantCollection_IdentitySet_System_String_System_String_CancellationToken_">ParticipantExtensions.InviteAsync(ICallParticipantCollection, IdentitySet, String, String, CancellationToken)</a>
+      <a class="xref" href="Microsoft.Graph.Calls.ParticipantExtensions.html#Microsoft_Graph_Calls_ParticipantExtensions_InviteAsync_Microsoft_Graph_Calls_ICallParticipantCollection_Microsoft_Graph_IdentitySet_System_String_System_String_System_Threading_CancellationToken_">ParticipantExtensions.InviteAsync(ICallParticipantCollection, IdentitySet, String, String, CancellationToken)</a>
   </div>
   <div>
-      <a class="xref" href="Microsoft.Graph.Calls.ParticipantExtensions.html#Microsoft_Graph_Calls_ParticipantExtensions_ConfigureMixerAsync_Microsoft_Graph_Calls_ICallParticipantCollection_Participant_AudioDuckingConfiguration_System_Nullable_System_Boolean__IEnumerable_AudioSourceLevel__CancellationToken_">ParticipantExtensions.ConfigureMixerAsync(ICallParticipantCollection, Participant, AudioDuckingConfiguration, Nullable&lt;Boolean&gt;, IEnumerable&lt;AudioSourceLevel&gt;, CancellationToken)</a>
+      <a class="xref" href="Microsoft.Graph.Calls.ParticipantExtensions.html#Microsoft_Graph_Calls_ParticipantExtensions_ConfigureMixerAsync_Microsoft_Graph_Calls_ICallParticipantCollection_Microsoft_Graph_Participant_Microsoft_Graph_AudioDuckingConfiguration_System_Nullable_System_Boolean__System_Collections_Generic_IEnumerable_Microsoft_Graph_AudioSourceLevel__System_Threading_CancellationToken_">ParticipantExtensions.ConfigureMixerAsync(ICallParticipantCollection, Participant, AudioDuckingConfiguration, Nullable&lt;Boolean&gt;, IEnumerable&lt;AudioSourceLevel&gt;, CancellationToken)</a>
   </div>
 </article>
           </div>

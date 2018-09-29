@@ -12,8 +12,8 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
 {
     using System.Web.Http;
     using System.Web.Http.ExceptionHandling;
+    using Microsoft.Graph.Core.Telemetry;
     using Owin;
-    using Sample.Common.Logging;
 
     /// <summary>
     /// Initialize the HttpConfiguration for OWIN.
@@ -24,16 +24,16 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
         /// Configuration settings like Authentication, Routes for OWIN.
         /// </summary>
         /// <param name="app">Builder to configure.</param>
-        public void ConfigureSettings(IAppBuilder app)
+        /// <param name="logger">Graph logger.</param>
+        public void ConfigureSettings(IAppBuilder app, IGraphLogger logger)
         {
             HttpConfiguration httpConfig = new HttpConfiguration();
             httpConfig.MapHttpAttributeRoutes();
-            httpConfig.MessageHandlers.Add(
-                new LoggingMessageHandler(isIncomingMessageHandler: true, logContext: LogContext.FrontEnd));
+            httpConfig.MessageHandlers.Add(new LoggingMessageHandler(isIncomingMessageHandler: true, logger: logger));
 
-            httpConfig.Services.Add(typeof(IExceptionLogger), new Common.Logging.ExceptionLogger());
+            httpConfig.Services.Add(typeof(IExceptionLogger), new Common.Logging.ExceptionLogger(logger));
 
-            // TODO vidommet: Provide serializer settings hooks
+            // TODO: Provide serializer settings hooks
             // httpConfig.Formatters.JsonFormatter.SerializerSettings = RealTimeMediaSerializer.GetSerializerSettings();
             httpConfig.EnsureInitialized();
 

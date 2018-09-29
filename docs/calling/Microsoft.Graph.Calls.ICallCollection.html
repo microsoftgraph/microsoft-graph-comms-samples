@@ -86,49 +86,22 @@
   <div class="markdown level0 summary"><p>The stateful call collection interface.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IResourceCollection-3.html#Microsoft_Graph_StatefulClient_IResourceCollection_3_OnUpdated">IResourceCollection&lt;ICallCollection, ICall, Call&gt;.OnUpdated</a>
-    </div>
-    <div>
-      <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IResourceCollection-3.html#Microsoft_Graph_StatefulClient_IResourceCollection_3_Item_System_String_">IResourceCollection&lt;ICallCollection, ICall, Call&gt;.Item[String]</a>
-    </div>
-    <div>
-      <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IResourceCollection-3.html#Microsoft_Graph_StatefulClient_IResourceCollection_3_TryForceRemove_System_String__1__">IResourceCollection&lt;ICallCollection, ICall, Call&gt;.TryForceRemove(String, ICall)</a>
-    </div>
-    <div>
-      <span class="xref">Microsoft.Graph.StatefulClient.IResourceCollection.TerminateAsync(TimeSpan)</span>
-    </div>
-    <div>
-      <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IResourceBase.html#Microsoft_Graph_StatefulClient_IResourceBase_Client">IResourceBase.Client</a>
-    </div>
-    <div>
-      <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IResourceBase.html#Microsoft_Graph_StatefulClient_IResourceBase_GraphClient">IResourceBase.GraphClient</a>
-    </div>
-    <div>
-      <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IResourceBase.html#Microsoft_Graph_StatefulClient_IResourceBase_GraphLogger">IResourceBase.GraphLogger</a>
-    </div>
-    <div>
-      <a class="xref" href="../stateful/Microsoft.Graph.StatefulClient.IResourceBase.html#Microsoft_Graph_StatefulClient_IResourceBase_ResourcePath">IResourceBase.ResourcePath</a>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.Calls.html">Microsoft.Graph.Calls</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.Calls.dll</h6>
   <h5 id="Microsoft_Graph_Calls_ICallCollection_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface ICallCollection : IResourceCollection&lt;ICallCollection, ICall, Call&gt;, IResourceCollection, IResourceBase, IDisposable, IReadOnlyCollection&lt;ICall&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public interface ICallCollection : IResourceCollection&lt;ICallCollection, ICall, Call&gt;, IResourceCollection, IResourceBase, IDisposable, IReadOnlyCollection&lt;ICall&gt;, IEnumerable&lt;ICall&gt;, IEnumerable</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   <a id="Microsoft_Graph_Calls_ICallCollection_AddAsync_" data-uid="Microsoft.Graph.Calls.ICallCollection.AddAsync*"></a>
-  <h4 id="Microsoft_Graph_Calls_ICallCollection_AddAsync_Call_Microsoft_Graph_Calls_IMediaSession_System_Nullable_System_Boolean__CancellationToken_" data-uid="Microsoft.Graph.Calls.ICallCollection.AddAsync(Call,Microsoft.Graph.Calls.IMediaSession,System.Nullable{System.Boolean},CancellationToken)">AddAsync(Call, IMediaSession, Nullable&lt;Boolean&gt;, CancellationToken)</h4>
+  <h4 id="Microsoft_Graph_Calls_ICallCollection_AddAsync_Microsoft_Graph_Call_Microsoft_Graph_Calls_IMediaSession_System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="Microsoft.Graph.Calls.ICallCollection.AddAsync(Microsoft.Graph.Call,Microsoft.Graph.Calls.IMediaSession,System.Nullable{System.Boolean},System.Threading.CancellationToken)">AddAsync(Call, IMediaSession, Nullable&lt;Boolean&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Create a new call and add to the collection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;ICall&gt; AddAsync(Call resource, IMediaSession mediaSession = null, bool? removeFromDefaultRoutingGroup, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;ICall&gt; AddAsync(Call resource, IMediaSession mediaSession = null, Nullable&lt;bool&gt; removeFromDefaultRoutingGroup, CancellationToken cancellationToken = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -141,7 +114,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Call</span></td>
+        <td><a class="xref" href="../core/Microsoft.Graph.Call.html">Call</a></td>
         <td><span class="parametername">resource</span></td>
         <td><p>The call resource to be added.</p>
 </td>
@@ -162,7 +135,7 @@ custom audio routing groups has been added.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">CancellationToken</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
         <td><p>The cancellation token.</p>
 </td>
@@ -179,7 +152,7 @@ custom audio routing groups has been added.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="Microsoft.Graph.Calls.ICall.html">ICall</a>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Microsoft.Graph.Calls.ICall.html">ICall</a>&gt;</td>
         <td><p>The <a class="xref" href="Microsoft.Graph.Calls.ICall.html">ICall</a> that has been created. This call has not
 yet been established and those notifications will fire on ICall.OnUpdated</p>
 </td>
@@ -214,7 +187,7 @@ a new call is being received by the bot.</p>
   </table>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
-      <a class="xref" href="Microsoft.Graph.Calls.CallCollectionExtensions.html#Microsoft_Graph_Calls_CallCollectionExtensions_AddAsync_Microsoft_Graph_Calls_ICallCollection_Microsoft_Graph_Calls_JoinMeetingParameters_CancellationToken_">CallCollectionExtensions.AddAsync(ICallCollection, JoinMeetingParameters, CancellationToken)</a>
+      <a class="xref" href="Microsoft.Graph.Calls.CallCollectionExtensions.html#Microsoft_Graph_Calls_CallCollectionExtensions_AddAsync_Microsoft_Graph_Calls_ICallCollection_Microsoft_Graph_Calls_JoinMeetingParameters_System_Threading_CancellationToken_">CallCollectionExtensions.AddAsync(ICallCollection, JoinMeetingParameters, CancellationToken)</a>
   </div>
 </article>
           </div>

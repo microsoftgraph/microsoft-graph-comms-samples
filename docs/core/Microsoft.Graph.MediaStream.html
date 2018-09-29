@@ -91,37 +91,21 @@
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">MediaStream</span></div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.html">Microsoft.Graph</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.CoreSDK.dll</h6>
   <h5 id="Microsoft_Graph_MediaStream_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonObject(MemberSerialization = MemberSerialization.OptIn)]
-[JsonConverter(typeof(DerivedTypeConverter))]
-public class MediaStream</code></pre>
+    <pre><code class="lang-csharp hljs">public class MediaStream : Object</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="Microsoft_Graph_MediaStream__ctor_" data-uid="Microsoft.Graph.MediaStream.#ctor*"></a>
+  <h4 id="Microsoft_Graph_MediaStream__ctor" data-uid="Microsoft.Graph.MediaStream.#ctor">MediaStream()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MediaStream()</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
@@ -132,8 +116,7 @@ public class MediaStream</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonExtensionData(ReadData = true)]
-public IDictionary&lt;string, object&gt; AdditionalData { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IDictionary&lt;string, object&gt; AdditionalData { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -157,8 +140,7 @@ public IDictionary&lt;string, object&gt; AdditionalData { get; set; }</code></pr
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;direction&quot;, Required = Required.Default)]
-public MediaDirection? Direction { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Nullable&lt;MediaDirection&gt; Direction { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -182,8 +164,7 @@ public MediaDirection? Direction { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;label&quot;, Required = Required.Default)]
-public string Label { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string Label { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -207,8 +188,7 @@ public string Label { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;mediaType&quot;, Required = Required.Default)]
-public Modality? MediaType { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Nullable&lt;Modality&gt; MediaType { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -232,8 +212,7 @@ public Modality? MediaType { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;serverMuted&quot;, Required = Required.Default)]
-public bool? ServerMuted { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Nullable&lt;bool&gt; ServerMuted { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -257,8 +236,7 @@ public bool? ServerMuted { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[JsonProperty(NullValueHandling = NullValueHandling.Ignore, PropertyName = &quot;sourceId&quot;, Required = Required.Default)]
-public string SourceId { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string SourceId { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
