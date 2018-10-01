@@ -324,7 +324,7 @@ namespace Sample.HueBot.Bot
                 MediaPlatformInstanceSettings = new MediaPlatformInstanceSettings()
                 {
                     CertificateThumbprint = options.Certificate,
-                    InstanceInternalPort = options.BotMediaProcessorUrl.Port,
+                    InstanceInternalPort = serviceContext.CodePackageActivationContext.GetEndpoint("MediaPort").Port,
                     InstancePublicIPAddress = new IPAddress(0x0), //// instanceAddresses[0],
                     InstancePublicPort = publicMediaUrl.Port + instanceNumber,
                     ServiceFqdn = publicMediaUrl.Host,

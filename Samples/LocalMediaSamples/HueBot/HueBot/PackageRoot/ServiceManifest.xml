@@ -15,7 +15,7 @@
     <SetupEntryPoint>
       <ExeHost>
         <Program>Startup.cmd</Program>
-        <Arguments>8000 ABC0000000000000000000000000000000000CBA</Arguments>
+        <Arguments></Arguments>
         <WorkingFolder>CodePackage</WorkingFolder>
       </ExeHost>
     </SetupEntryPoint>
@@ -44,6 +44,10 @@
       <!-- Instance input port for Media; traffic to this is enabled by the NAT pool in Load Balancer settings. -->
       <!-- If you update the port here, update the argument to Startup.cmd above. -->
       <Endpoint Name="MediaPort" Type="Input" Protocol="tcp" Port="8000" />
+
+      <!-- This http endpoint is used during local debugging with ngrok. 
+          During Azure deployment, access to this port is blocked by the Load Balancer. -->
+      <Endpoint Name="LocalEndpoint" Type="Input" Protocol="http" Port="9442" />
     </Endpoints>
   </Resources>
 
