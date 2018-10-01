@@ -1,4 +1,4 @@
-﻿// <copyright file="HueBot.cs" company="Microsoft Corporation">
+// <copyright file="HueBot.cs" company="Microsoft Corporation">
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT license.
 // </copyright>
@@ -26,6 +26,7 @@ namespace HueBot
     internal sealed class HueBot : StatefulService
     {
         private IGraphLogger logger;
+        private IConfiguration configuration;
         private BotOptions botOptions;
         private Bot bot;
 
@@ -51,82 +52,62 @@ namespace HueBot
         /// <returns>The collection of listeners.</returns>
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
         {
-            var config = new ConfigurationBuilder()
+            this.configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .Build();
 
-            this.botOptions = config.GetSection("Bot").Get<BotOptions>();
+            this.botOptions = this.configuration.GetSection("Bot").Get<BotOptions>();
 
             this.bot = new Bot(this.botOptions, this.logger, this.Context);
 
-            return new[]
+            var serviceReplicaListeners = new List<ServiceReplicaListener>();
+            foreach (string endpointName in new[] { "ServiceEndpoint", "SignalingPort", "LocalEndpoint" })
             {
-                new ServiceReplicaListener(
+                serviceReplicaListeners.Add(new ServiceReplicaListener(
                     serviceContext =>
-                    new HttpSysCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
-                    {
-                        ServiceEventSource.Current.ServiceMessage(serviceContext, $"Starting web listener on {url}");
-
-                        // Reference https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-communication-aspnetcore
-                        return new WebHostBuilder()
-                            .UseHttpSys(options =>
-                            {
-                                // Copied from https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/httpsys
-                                options.Authentication.Schemes = AuthenticationSchemes.None;
-                                options.Authentication.AllowAnonymous = true;
-                                options.MaxConnections = 1000;
-                                options.MaxRequestBodySize = 30000000;
-                            })
-                            .ConfigureServices(
-                                services => services
-                                    .AddSingleton(this.logger)
-                                    .AddSingleton(this.StateManager)
-                                    .AddSingleton(serviceContext)
-                                    .AddSingleton(this.botOptions)
-                                    .AddSingleton(this.bot)
-                                    .AddMvc())
-                            .Configure(app => app
-                                    .UseDeveloperExceptionPage() // Disable this on production environments.
-                                    .UseMvc())
-                            .UseConfiguration(config)
-                            .UseUrls(url)
-                            .Build();
+                        new HttpSysCommunicationListener(serviceContext, endpointName, (url, listener) =>
+                        {
+                            ServiceEventSource.Current.ServiceMessage(serviceContext, $"Starting web listener on {url}");
+                            return this.CreateHueBotWebHost(url);
                         }),
-                    "ServiceEndpoint"),
-                new ServiceReplicaListener(
-                    serviceContext =>
-                    new HttpSysCommunicationListener(serviceContext, "SignalingPort", (url, listener) =>
-                    {
-                        ServiceEventSource.Current.ServiceMessage(serviceContext, $"Starting web listener on {url}");
+                    endpointName));
+            }
 
-                        // Reference https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-communication-aspnetcore
-                        return new WebHostBuilder()
-                            .UseHttpSys(options =>
-                            {
-                                // Copied from https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/httpsys
-                                options.Authentication.Schemes = AuthenticationSchemes.None;
-                                options.Authentication.AllowAnonymous = true;
-                                options.MaxConnections = 1000;
-                                options.MaxRequestBodySize = 30000000;
-                            })
-                            .ConfigureServices(
-                                services => services
-                                    .AddSingleton(this.logger)
-                                    .AddSingleton(this.StateManager)
-                                    .AddSingleton(serviceContext)
-                                    .AddSingleton(this.botOptions)
-                                    .AddSingleton(this.bot)
-                                    .AddMvc())
-                            .Configure(app => app
-                                    .UseDeveloperExceptionPage() // Disable this on production environments.
-                                    .UseMvc())
-                            .UseConfiguration(config)
-                            .UseUrls(url)
-                            .Build();
-                        }),
-                    "SignalingPort"),
-            };
+            return serviceReplicaListeners.ToArray();
+        }
+
+        /// <summary>
+        /// Creates the hue bot web host.
+        /// </summary>
+        /// <param name="url">The URL to host at.</param>
+        /// <returns>web host.</returns>
+        private IWebHost CreateHueBotWebHost(string url)
+        {
+            // Reference https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-communication-aspnetcore
+            return new WebHostBuilder()
+                .UseHttpSys(options =>
+                {
+                    // Copied from https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/httpsys
+                    options.Authentication.Schemes = AuthenticationSchemes.None;
+                    options.Authentication.AllowAnonymous = true;
+                    options.MaxConnections = 1000;
+                    options.MaxRequestBodySize = 30000000;
+                })
+                .ConfigureServices(
+                    services => services
+                        .AddSingleton(this.logger)
+                        .AddSingleton(this.StateManager)
+                        .AddSingleton(this.Context)
+                        .AddSingleton(this.botOptions)
+                        .AddSingleton(this.bot)
+                        .AddMvc())
+                .Configure(app => app
+                    .UseDeveloperExceptionPage() // Disable this on production environments.
+                    .UseMvc())
+                .UseConfiguration(this.configuration)
+                .UseUrls(url)
+                .Build();
         }
     }
 }

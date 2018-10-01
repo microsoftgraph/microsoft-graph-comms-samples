@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="HueBotSFType" ApplicationTypeVersion="2.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="HueBot_MinReplicaSetSize" DefaultValue="1" />
@@ -31,6 +31,9 @@
   </DefaultServices>
   <Principals>
     <Users>
+      <!-- Define references to the LocalSystem and NetworkService accounts to be used elsewhere in this file -->
+      <User Name="LocalSystemAccount" AccountType="LocalSystem" />
+      <User Name="NetworkServiceAccount" AccountType="NetworkService" />
       <!-- Needed for installing media binaries -->
       <User Name="SetupAdminUser">
         <MemberOf>
@@ -39,7 +42,21 @@
       </User>
     </Users>
   </Principals>
+  <!-- By default, we want all services to be running as NetworkService. Fabric itself runs as NetworkService,
+       and would run our services as NetworkService as well. This declaration just makes it explicit. -->
+  <Policies>
+    <DefaultRunAsPolicy UserRef="NetworkServiceAccount" />
+    <SecurityAccessPolicies>
+      <!-- This is needed to give NetworkService permissions to access the private key for all certificates -->
+      <SecurityAccessPolicy ResourceRef="HueBotSecretCert" PrincipalRef="NetworkServiceAccount" ResourceType="Certificate" />
+    </SecurityAccessPolicies>
+  </Policies>
   <Certificates>
+    <!-- The declaration "SecretsCertificate" does not imply that it's needed to access secrets. Instead, the declaration
+         should be read as "Certificate for which the service needs access to the private key" which is true for accessing
+         secrets, using the certificate as a client certificate for MTLS, etc. -->
+    <SecretsCertificate X509StoreName="MY" X509FindValue="ABC0000000000000000000000000000000000CBA" Name="HueBotSecretCert" />
+    <!-- The declaration "EndpointCertificate" implies that it'll be bound to an endpoint -->
     <EndpointCertificate X509StoreName="MY" X509FindValue="ABC0000000000000000000000000000000000CBA" Name="HueBotCert" />
   </Certificates>
 </ApplicationManifest>
