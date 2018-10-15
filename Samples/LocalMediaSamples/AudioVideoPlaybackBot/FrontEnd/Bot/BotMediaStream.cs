@@ -296,7 +296,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
 
             if (e.MediaSendStatus == MediaSendStatus.Active)
             {
-                this.audioSendStatusActive.SetResult(true);
+                this.audioSendStatusActive.TrySetResult(true);
             }
         }
 
