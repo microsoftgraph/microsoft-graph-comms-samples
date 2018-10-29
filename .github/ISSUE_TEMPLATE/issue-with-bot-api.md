@@ -17,7 +17,7 @@ A clear and concise description of what you expected to happen.
  - Version [e.g. 22]
 
 **Call ID**
-Provide the list call ids that encountered this issue.
+Provide the list call ids that encountered this issue. Include the time in UTC/GMT when these call have occurred.
 
 **Logs**
 If required, please add [logs](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/Logging.html) from the SDK. (Please remove any PII from the logs before uploading)
