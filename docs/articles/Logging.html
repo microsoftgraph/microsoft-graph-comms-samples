@@ -18,7 +18,7 @@
     <meta property="docfx:tocrel" content="toc.html">
     
     <meta property="docfx:rel" content="../">
-    
+    <meta property="docfx:newtab" content="true">
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
@@ -35,7 +35,7 @@
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
+                <img id="logo" class="svg" src="../resources/logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -79,8 +79,8 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="logging-in-sdk">Logging in SDK</h1>
 
-<p>The Graph SDK uses a custom logger named <a class="xref" href="../core_stateful/Microsoft.Graph.Core.Telemetry.IGraphLogger.html">IGraphLogger</a> which allows custom subscribers for log events. These events can be observed and logged as required by the bot developers.</p>
-<p>You need to create an <code>IObserver</code> for log events (the <a class="xref" href="../core_stateful/Microsoft.Graph.Core.Telemetry.LogEvent.html">LogEvent</a> class).</p>
+<p>The Graph SDK uses a custom logger named <a class="xref" href="../common/Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger.html">IGraphLogger</a> which allows custom subscribers for log events. These events can be observed and logged as required by the bot developers.</p>
+<p>You need to create an <code>IObserver</code> for log events (the <a class="xref" href="../common/Microsoft.Graph.Communications.Common.Telemetry.LogEvent.html">LogEvent</a> class).</p>
 <pre><code class="lang-cs">private class LogObserver : IObserver&lt;LogEvent&gt;
 {
     private readonly LogEventFormatter formatter = new LogEventFormatter();
@@ -118,7 +118,7 @@
     }
 }
 </code></pre><p>After a class is ready, you need to subscribe to the log events.</p>
-<pre><code class="lang-cs">IStatefulClient client; // Substitute this with the instance of the SDK. 
+<pre><code class="lang-cs">ICommunicationsClient client; // Substitute this with the instance of the SDK. 
 var observer = new LogObserver();
 var disposableSubsription = client.GraphLogger.Subscribe(observer);
 </code></pre><div class="NOTE"><h5>Note</h5><p>The <code>disposableSubscription</code> object should be persisted, otherwise logging will not work once it is garbage collected.</p>

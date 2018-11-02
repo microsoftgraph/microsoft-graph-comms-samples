@@ -9,8 +9,8 @@ namespace Sample.IncidentBot.Http
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Graph.Core;
-    using Microsoft.Graph.Core.Telemetry;
+    using Microsoft.Graph.Communications.Common;
+    using Microsoft.Graph.Communications.Common.Telemetry;
     using Sample.IncidentBot.Bot;
     using Sample.IncidentBot.Data;
 

@@ -8,7 +8,7 @@ namespace Sample.OnlineMeeting
     using System;
     using System.Threading.Tasks;
     using Microsoft.Graph;
-    using Microsoft.Graph.CoreSDK;
+    using Microsoft.Graph.Communications.Core;
 
     /// <summary>
     /// Online meeting class to fetch meeting info based of meeting id (ex: vtckey).

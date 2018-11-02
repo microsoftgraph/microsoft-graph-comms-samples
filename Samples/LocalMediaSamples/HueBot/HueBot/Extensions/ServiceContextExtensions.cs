@@ -8,7 +8,7 @@ namespace Sample.HueBot.Extensions
     using System;
     using System.Fabric;
     using System.Threading.Tasks;
-    using Microsoft.Graph.Core;
+    using Microsoft.Graph.Communications.Common;
 
     /// <summary>
     /// Extensions for Service Context from Service Fabric.

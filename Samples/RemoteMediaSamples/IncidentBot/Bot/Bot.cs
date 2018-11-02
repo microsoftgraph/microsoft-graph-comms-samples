@@ -11,10 +11,11 @@ namespace Sample.IncidentBot.Bot
     using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.Graph;
-    using Microsoft.Graph.Calls;
-    using Microsoft.Graph.Core;
-    using Microsoft.Graph.Core.Telemetry;
-    using Microsoft.Graph.StatefulClient;
+    using Microsoft.Graph.Communications.Calls;
+    using Microsoft.Graph.Communications.Client;
+    using Microsoft.Graph.Communications.Common;
+    using Microsoft.Graph.Communications.Common.Telemetry;
+    using Microsoft.Graph.Communications.Resources;
     using Sample.Common.Authentication;
     using Sample.Common.Meetings;
     using Sample.Common.OnlineMeetings;
@@ -77,7 +78,7 @@ namespace Sample.IncidentBot.Bot
                 options.AppSecret,
                 this.graphLogger);
 
-            var builder = new StatefulClientBuilder("IcmBot", options.AppId, this.graphLogger);
+            var builder = new CommunicationsClientBuilder("IcmBot", options.AppId, this.graphLogger);
             builder.SetAuthenticationProvider(authProvider);
             builder.SetNotificationUrl(instanceNotificationUri);
             builder.SetServiceBaseUrl(options.PlaceCallEndpointUrl);
@@ -90,7 +91,7 @@ namespace Sample.IncidentBot.Bot
 
             var audioBaseUri = options.BotBaseUrl;
 
-            this.MediaMap[Bot.TransferingPromptName] = new MediaPrompt
+            this.MediaMap[TransferingPromptName] = new MediaPrompt
             {
                 MediaInfo = new MediaInfo
                 {
@@ -100,7 +101,7 @@ namespace Sample.IncidentBot.Bot
                 Loop = 1,
             };
 
-            this.MediaMap[Bot.NotificationPromptName] = new MediaPrompt
+            this.MediaMap[NotificationPromptName] = new MediaPrompt
             {
                 MediaInfo = new MediaInfo
                 {
@@ -110,7 +111,7 @@ namespace Sample.IncidentBot.Bot
                 Loop = 1,
             };
 
-            this.MediaMap[Bot.BotIncomingPromptName] = new MediaPrompt
+            this.MediaMap[BotIncomingPromptName] = new MediaPrompt
             {
                 MediaInfo = new MediaInfo
                 {
@@ -120,7 +121,7 @@ namespace Sample.IncidentBot.Bot
                 Loop = 1,
             };
 
-            this.MediaMap[Bot.BotEndpointIncomingPromptName] = new MediaPrompt
+            this.MediaMap[BotEndpointIncomingPromptName] = new MediaPrompt
             {
                 MediaInfo = new MediaInfo
                 {
@@ -149,7 +150,7 @@ namespace Sample.IncidentBot.Bot
         /// <value>
         /// The client.
         /// </value>
-        public IStatefulClient Client { get; }
+        public ICommunicationsClient Client { get; }
 
         /// <summary>
         /// Gets the online meeting.
@@ -438,7 +439,7 @@ namespace Sample.IncidentBot.Bot
         /// Incoming call handler.
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="args">The <see cref="CollectionEventArgs{ICall}"/> instance containing the event data.</param>
+        /// <param name="args">The <see cref="CollectionEventArgs{TEntity}"/> instance containing the event data.</param>
         private void CallsOnIncoming(ICallCollection sender, CollectionEventArgs<ICall> args)
         {
             Task answerTask;

@@ -73,7 +73,7 @@ Synced with latest signed binaries.
 
 1. CorrelationId is now a Guid.
 2. Added auto expiry of certificates in authentication provider.
-3. Added support for `IGraphLogger` as part of `IStatefulClient`.
+3. Added support for `IGraphLogger` as part of `ICommunicationsClient`.
 
 03/10/2018
 
@@ -83,10 +83,10 @@ Synced with latest signed binaries.
 03/07/2018
 
 New SDK drop.
-1. Added `IStatefulClient.TerminateAsync(bool onlyMedia, TimeSpan timeout);`  SDK supports couple flavors of cleanup:
+1. Added `ICommunicationsClient.TerminateAsync(bool onlyMedia, TimeSpan timeout);`  SDK supports couple flavors of cleanup:
    1. **Recommended:** `TerminateAsync(false, timeout)` will terminate all existing calls, terminate the media platform, shut down background threads, and dispose internal objects.  Setting `timeout` will still terminate the media platform, shut down background threads, and dispose internal objects, but it will limit the time spent waiting for calls to be terminated.
-   2. `IStatefulClient.TermianteAsync(true, timeout)` will only terminate the media platform.  In this instance the `timeout` parameter is ignored.
-   3. `IStatefulClient.TerminateAsync(timeout)` is used for media hosted on MSFT cloud, and not relevant in this drop.
+   2. `ICommunicationsClient.TermianteAsync(true, timeout)` will only terminate the media platform.  In this instance the `timeout` parameter is ignored.
+   3. `ICommunicationsClient.TerminateAsync(timeout)` is used for media hosted on MSFT cloud, and not relevant in this drop.
 2. The termination state now also bubbles up in the call.OnUpdated notification.
 
 If bots wish to shut down cleanly, we recommend the following:

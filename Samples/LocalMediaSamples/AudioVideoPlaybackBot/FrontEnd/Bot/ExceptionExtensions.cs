@@ -13,7 +13,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
     using System;
     using System.Net;
     using System.Net.Http;
-    using Microsoft.Graph.CoreSDK.Exceptions;
+    using Microsoft.Graph.Communications.Core.Exceptions;
 
     /// <summary>
     /// Extension methods for Exception.

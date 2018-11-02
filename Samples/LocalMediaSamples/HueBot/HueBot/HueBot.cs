@@ -14,7 +14,7 @@ namespace HueBot
     using Microsoft.AspNetCore.Server.HttpSys;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Graph.Core.Telemetry;
+    using Microsoft.Graph.Communications.Common.Telemetry;
     using Microsoft.ServiceFabric.Services.Communication.AspNetCore;
     using Microsoft.ServiceFabric.Services.Communication.Runtime;
     using Microsoft.ServiceFabric.Services.Runtime;

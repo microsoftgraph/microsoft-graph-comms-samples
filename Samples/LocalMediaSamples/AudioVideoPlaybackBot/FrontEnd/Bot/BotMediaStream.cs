@@ -15,8 +15,8 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
-    using Microsoft.Graph.Calls.Media;
-    using Microsoft.Graph.Core.Telemetry;
+    using Microsoft.Graph.Communications.Calls.Media;
+    using Microsoft.Graph.Communications.Common.Telemetry;
     using Microsoft.Skype.Bots.Media;
     using Microsoft.Skype.Internal.Media.Services.Common;
 

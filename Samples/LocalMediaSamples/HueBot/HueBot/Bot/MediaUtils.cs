@@ -14,7 +14,7 @@ namespace Sample.HueBot.Bot
     using System.Drawing;
     using System.Drawing.Imaging;
     using System.Runtime.InteropServices;
-    using Microsoft.Graph.Core.Telemetry;
+    using Microsoft.Graph.Communications.Common.Telemetry;
 
     /// <summary>
     /// The media utils class.

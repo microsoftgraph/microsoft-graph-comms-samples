@@ -22,7 +22,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
     using System.Text;
     using System.Threading;
     using System.Threading.Tasks;
-    using Microsoft.Graph.Core.Telemetry;
+    using Microsoft.Graph.Communications.Common.Telemetry;
     using Newtonsoft.Json;
 
     /// <summary>

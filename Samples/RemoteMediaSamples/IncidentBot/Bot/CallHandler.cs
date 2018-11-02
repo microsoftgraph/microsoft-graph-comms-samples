@@ -8,10 +8,10 @@ namespace Sample.IncidentBot.Bot
     using System;
     using System.Collections.Generic;
     using Microsoft.Graph;
-    using Microsoft.Graph.Calls;
-    using Microsoft.Graph.Core.Telemetry;
-    using Microsoft.Graph.CoreSDK.Serialization;
-    using Microsoft.Graph.StatefulClient;
+    using Microsoft.Graph.Communications.Calls;
+    using Microsoft.Graph.Communications.Common.Telemetry;
+    using Microsoft.Graph.Communications.Core.Serialization;
+    using Microsoft.Graph.Communications.Resources;
 
     /// <summary>
     /// Base class for call handler for event handling, logging and cleanup.

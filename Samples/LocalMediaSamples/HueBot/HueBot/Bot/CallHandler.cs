@@ -11,11 +11,11 @@ namespace Sample.HueBot.Bot
     using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.Graph;
-    using Microsoft.Graph.Calls;
-    using Microsoft.Graph.Calls.Media;
-    using Microsoft.Graph.Core.Telemetry;
-    using Microsoft.Graph.CoreSDK.Serialization;
-    using Microsoft.Graph.StatefulClient;
+    using Microsoft.Graph.Communications.Calls;
+    using Microsoft.Graph.Communications.Calls.Media;
+    using Microsoft.Graph.Communications.Common.Telemetry;
+    using Microsoft.Graph.Communications.Core.Serialization;
+    using Microsoft.Graph.Communications.Resources;
     using Microsoft.Skype.Bots.Media;
 
     /// <summary>

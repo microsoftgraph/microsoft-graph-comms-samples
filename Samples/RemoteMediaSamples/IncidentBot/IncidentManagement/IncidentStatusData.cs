@@ -97,7 +97,7 @@ namespace Sample.IncidentBot.IncidentStatus
         /// <summary>
         /// Gets the responder status.
         /// </summary>
-        public IEnumerable<IncidentResponderStatusData> ResponderStatus => this.responderStatusDictionary.Values;
+        public IEnumerable<IncidentResponderStatusData> ResponderStatus => responderStatusDictionary.Values;
 
         /// <summary>
         /// Gets the incident id.

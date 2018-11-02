@@ -13,9 +13,8 @@
 namespace Sample.AudioVideoPlaybackBot.FrontEnd
 {
     using System;
-    using Microsoft.Graph.Core.Telemetry;
+    using Microsoft.Graph.Communications.Common.Telemetry;
     using Microsoft.Owin.Hosting;
-
     using Sample.AudioVideoPlaybackBot.FrontEnd.Http;
 
     /// <summary>

@@ -18,7 +18,7 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
     using System.Security.Cryptography.X509Certificates;
     using System.Text;
     using Microsoft.Azure;
-    using Microsoft.Graph.Core.Telemetry;
+    using Microsoft.Graph.Communications.Common.Telemetry;
     using Microsoft.Skype.Bots.Media;
     using Microsoft.WindowsAzure.ServiceRuntime;
     using Sample.AudioVideoPlaybackBot.FrontEnd;

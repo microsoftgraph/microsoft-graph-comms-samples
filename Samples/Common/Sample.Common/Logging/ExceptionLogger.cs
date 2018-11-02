@@ -13,7 +13,7 @@ namespace Sample.Common.Logging
     using System.Threading;
     using System.Threading.Tasks;
     using System.Web.Http.ExceptionHandling;
-    using Microsoft.Graph.Core.Telemetry;
+    using Microsoft.Graph.Communications.Common.Telemetry;
 
     /// <summary>
     /// The exception logger.

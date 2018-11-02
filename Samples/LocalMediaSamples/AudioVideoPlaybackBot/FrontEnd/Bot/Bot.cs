@@ -12,12 +12,12 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
     using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.Graph;
-    using Microsoft.Graph.Calls;
-    using Microsoft.Graph.Calls.Media;
-    using Microsoft.Graph.Core;
-    using Microsoft.Graph.Core.Common;
-    using Microsoft.Graph.Core.Telemetry;
-    using Microsoft.Graph.StatefulClient;
+    using Microsoft.Graph.Communications.Calls;
+    using Microsoft.Graph.Communications.Calls.Media;
+    using Microsoft.Graph.Communications.Client;
+    using Microsoft.Graph.Communications.Common;
+    using Microsoft.Graph.Communications.Common.Telemetry;
+    using Microsoft.Graph.Communications.Resources;
     using Microsoft.Skype.Bots.Media;
     using Sample.AudioVideoPlaybackBot.FrontEnd;
     using Sample.AudioVideoPlaybackBot.FrontEnd.Http;
@@ -48,7 +48,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         /// <summary>
         /// Gets the entry point for stateful bot.
         /// </summary>
-        public IStatefulClient Client { get; private set; }
+        public ICommunicationsClient Client { get; private set; }
 
         /// <summary>
         /// Gets the online meeting.
@@ -142,7 +142,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
 
             this.Logger = logger;
 
-            var builder = new StatefulClientBuilder("AudioVideoPlaybackBot", service.Configuration.AadAppId, this.Logger);
+            var builder = new CommunicationsClientBuilder("AudioVideoPlaybackBot", service.Configuration.AadAppId, this.Logger);
             var authProvider = new AuthenticationProvider(
                     service.Configuration.AadAppId,
                     service.Configuration.AadAppSecret,
@@ -265,7 +265,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         /// Incoming call handler.
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="args">The <see cref="CollectionEventArgs{ICall}"/> instance containing the event data.</param>
+        /// <param name="args">The <see cref="CollectionEventArgs{TEntity}"/> instance containing the event data.</param>
         private void CallsOnIncoming(ICallCollection sender, CollectionEventArgs<ICall> args)
         {
             args.AddedResources.ForEach(call =>

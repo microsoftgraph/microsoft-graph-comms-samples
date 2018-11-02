@@ -14,7 +14,7 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
     using System.Net;
     using System.Threading;
     using System.Threading.Tasks;
-    using Microsoft.Graph.Core.Telemetry;
+    using Microsoft.Graph.Communications.Common.Telemetry;
     using Microsoft.WindowsAzure.ServiceRuntime;
     using Sample.AudioVideoPlaybackBot.FrontEnd;
 

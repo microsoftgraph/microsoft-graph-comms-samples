@@ -12,10 +12,9 @@ namespace Sample.Common.Authentication
     using System.Security.Claims;
     using System.Threading;
     using System.Threading.Tasks;
-
-    using Microsoft.Graph.Core;
-    using Microsoft.Graph.Core.Telemetry;
-    using Microsoft.Graph.StatefulClient.Authentication;
+    using Microsoft.Graph.Communications.Client.Authentication;
+    using Microsoft.Graph.Communications.Common;
+    using Microsoft.Graph.Communications.Common.Telemetry;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.IdentityModel.Protocols;
     using Microsoft.IdentityModel.Protocols.OpenIdConnect;

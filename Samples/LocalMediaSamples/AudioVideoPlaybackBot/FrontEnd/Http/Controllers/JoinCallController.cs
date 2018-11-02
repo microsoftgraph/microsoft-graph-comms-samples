@@ -15,7 +15,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
     using System.Net.Http;
     using System.Threading.Tasks;
     using System.Web.Http;
-    using Microsoft.Graph.CoreSDK.Exceptions;
+    using Microsoft.Graph.Communications.Core.Exceptions;
     using Sample.AudioVideoPlaybackBot.FrontEnd.Bot;
 
     /// <summary>

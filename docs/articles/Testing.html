@@ -18,7 +18,7 @@
     <meta property="docfx:tocrel" content="toc.html">
     
     <meta property="docfx:rel" content="../">
-    
+    <meta property="docfx:newtab" content="true">
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
@@ -35,7 +35,7 @@
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
+                <img id="logo" class="svg" src="../resources/logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -122,7 +122,7 @@ Forwarding  tcp://1.tcp.ngrok.io:12332 -&gt; localhost:8445
 <ul>
 <li>In the builder, change the <code>NotficationUrl</code> to the signaling url provided by ngrok.</li>
 </ul>
-<pre><code>statefulClientBuilder.SetNotificationUrl(
+<pre><code>clientBuilder.SetNotificationUrl(
     new Uri(&quot;https://signal.ngrok.io/notificationEndpoint&quot;))
 </code></pre><div class="IMPORTANT"><h5>Important</h5><p>Replace signal with the one provided by ngrok and the <code>NotificationEndpoint</code> with the controller path that receives notification.</p>
 </div>
