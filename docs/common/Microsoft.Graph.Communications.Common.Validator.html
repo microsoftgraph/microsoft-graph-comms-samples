@@ -183,6 +183,73 @@
     </tbody>
   </table>
   <a id="Microsoft_Graph_Communications_Common_Validator_Equals_" data-uid="Microsoft.Graph.Communications.Common.Validator.Equals*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_Validator_Equals__1___0___0_System_Collections_IComparer_System_String_System_String_" data-uid="Microsoft.Graph.Communications.Common.Validator.Equals``1(``0,``0,System.Collections.IComparer,System.String,System.String)">Equals&lt;T&gt;(T, T, IComparer, String, String)</h4>
+  <div class="markdown level1 summary"><p>Throw the ArgumentException if <code data-dev-comment-type="paramref" class="paramref">value</code>&gt; is not equal to <code data-dev-comment-type="paramref" class="paramref">expected</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Equals&lt;T&gt;(T value, T expected, IComparer comparer, string paramName = null, string message = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>value</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">expected</span></td>
+        <td><p>expected</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.icomparer">IComparer</a></td>
+        <td><span class="parametername">comparer</span></td>
+        <td><p>comparer</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">paramName</span></td>
+        <td><p>paramName</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>Optional message.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Type of the input value</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Common_Validator_Equals_" data-uid="Microsoft.Graph.Communications.Common.Validator.Equals*"></a>
   <h4 id="Microsoft_Graph_Communications_Common_Validator_Equals__1___0___0_System_String_System_String_" data-uid="Microsoft.Graph.Communications.Common.Validator.Equals``1(``0,``0,System.String,System.String)">Equals&lt;T&gt;(T, T, String, String)</h4>
   <div class="markdown level1 summary"><p>Throw the ArgumentException if <code data-dev-comment-type="paramref" class="paramref">value</code>&gt; is not equal to <code data-dev-comment-type="paramref" class="paramref">expected</code></p>
 </div>
@@ -251,6 +318,7 @@
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static void Equals&lt;T, TE&gt;(this T value, T expected, string message = null)
+
     where TE : Exception</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -313,6 +381,7 @@ defined by <code data-dev-comment-type="paramref" class="paramref">minValue</cod
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static void InRange&lt;T&gt;(this T value, T minValue, T maxValue, string paramName = null)
+
     where T : IComparable&lt;T&gt;</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -457,6 +526,7 @@ defined by <code data-dev-comment-type="paramref" class="paramref">minValue</cod
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static void IsFalse&lt;T&gt;(this bool condition, string message = null)
+
     where T : Exception</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -585,6 +655,7 @@ defined by <code data-dev-comment-type="paramref" class="paramref">minValue</cod
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static void IsTrue&lt;T&gt;(this bool condition, string message = null)
+
     where T : Exception</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -635,6 +706,7 @@ defined by <code data-dev-comment-type="paramref" class="paramref">minValue</cod
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static T NotEmpty&lt;T&gt;(this T obj, string paramName = null, string message = null)
+
     where T : IEnumerable</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>

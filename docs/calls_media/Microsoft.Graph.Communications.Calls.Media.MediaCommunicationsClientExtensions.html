@@ -124,14 +124,14 @@
   <h3 id="methods">Methods
   </h3>
   <a id="Microsoft_Graph_Communications_Calls_Media_MediaCommunicationsClientExtensions_CreateMediaSession_" data-uid="Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.CreateMediaSession*"></a>
-  <h4 id="Microsoft_Graph_Communications_Calls_Media_MediaCommunicationsClientExtensions_CreateMediaSession_Microsoft_Graph_Communications_Client_ICommunicationsClient_Microsoft_Skype_Bots_Media_AudioSocketSettings_Microsoft_Skype_Bots_Media_VideoSocketSettings_Microsoft_Skype_Bots_Media_VideoSocketSettings_System_Guid_" data-uid="Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.CreateMediaSession(Microsoft.Graph.Communications.Client.ICommunicationsClient,Microsoft.Skype.Bots.Media.AudioSocketSettings,Microsoft.Skype.Bots.Media.VideoSocketSettings,Microsoft.Skype.Bots.Media.VideoSocketSettings,System.Guid)">CreateMediaSession(ICommunicationsClient, AudioSocketSettings, VideoSocketSettings, VideoSocketSettings, Guid)</h4>
+  <h4 id="Microsoft_Graph_Communications_Calls_Media_MediaCommunicationsClientExtensions_CreateMediaSession_Microsoft_Graph_Communications_Client_ICommunicationsClient_Microsoft_Skype_Bots_Media_AudioSocketSettings_Microsoft_Skype_Bots_Media_VideoSocketSettings_Microsoft_Skype_Bots_Media_VideoSocketSettings_Microsoft_Skype_Bots_Media_DataSocketSettings_System_Guid_" data-uid="Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.CreateMediaSession(Microsoft.Graph.Communications.Client.ICommunicationsClient,Microsoft.Skype.Bots.Media.AudioSocketSettings,Microsoft.Skype.Bots.Media.VideoSocketSettings,Microsoft.Skype.Bots.Media.VideoSocketSettings,Microsoft.Skype.Bots.Media.DataSocketSettings,System.Guid)">CreateMediaSession(ICommunicationsClient, AudioSocketSettings, VideoSocketSettings, VideoSocketSettings, DataSocketSettings, Guid)</h4>
   <div class="markdown level1 summary"><p>Creates a local media session for the provided stateful client with
 a given socket configuration.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ILocalMediaSession CreateMediaSession(this ICommunicationsClient statefulClient, AudioSocketSettings audioSocketSettings, VideoSocketSettings videoSocketSettings, VideoSocketSettings vbssSocketSettings = null, Guid mediaSessionId = default(Guid))</code></pre>
+    <pre><code class="lang-csharp hljs">public static ILocalMediaSession CreateMediaSession(this ICommunicationsClient statefulClient, AudioSocketSettings audioSocketSettings, VideoSocketSettings videoSocketSettings, VideoSocketSettings vbssSocketSettings = null, DataSocketSettings dataSocketSettings = null, Guid mediaSessionId = default(Guid))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -168,6 +168,12 @@ a given socket configuration.</p>
 </td>
       </tr>
       <tr>
+        <td><a class="xref" href="../bot_media/Microsoft.Skype.Bots.Media.DataSocketSettings.html">DataSocketSettings</a></td>
+        <td><span class="parametername">dataSocketSettings</span></td>
+        <td><p>The data socket settings.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.guid">Guid</a></td>
         <td><span class="parametername">mediaSessionId</span></td>
         <td><p>The id for the media session.</p>
@@ -192,14 +198,14 @@ a given socket configuration.</p>
     </tbody>
   </table>
   <a id="Microsoft_Graph_Communications_Calls_Media_MediaCommunicationsClientExtensions_CreateMediaSession_" data-uid="Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.CreateMediaSession*"></a>
-  <h4 id="Microsoft_Graph_Communications_Calls_Media_MediaCommunicationsClientExtensions_CreateMediaSession_Microsoft_Graph_Communications_Client_ICommunicationsClient_Microsoft_Skype_Bots_Media_AudioSocketSettings_System_Collections_Generic_IEnumerable_Microsoft_Skype_Bots_Media_VideoSocketSettings__Microsoft_Skype_Bots_Media_VideoSocketSettings_System_Guid_" data-uid="Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.CreateMediaSession(Microsoft.Graph.Communications.Client.ICommunicationsClient,Microsoft.Skype.Bots.Media.AudioSocketSettings,System.Collections.Generic.IEnumerable{Microsoft.Skype.Bots.Media.VideoSocketSettings},Microsoft.Skype.Bots.Media.VideoSocketSettings,System.Guid)">CreateMediaSession(ICommunicationsClient, AudioSocketSettings, IEnumerable&lt;VideoSocketSettings&gt;, VideoSocketSettings, Guid)</h4>
+  <h4 id="Microsoft_Graph_Communications_Calls_Media_MediaCommunicationsClientExtensions_CreateMediaSession_Microsoft_Graph_Communications_Client_ICommunicationsClient_Microsoft_Skype_Bots_Media_AudioSocketSettings_System_Collections_Generic_IEnumerable_Microsoft_Skype_Bots_Media_VideoSocketSettings__Microsoft_Skype_Bots_Media_VideoSocketSettings_Microsoft_Skype_Bots_Media_DataSocketSettings_System_Guid_" data-uid="Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.CreateMediaSession(Microsoft.Graph.Communications.Client.ICommunicationsClient,Microsoft.Skype.Bots.Media.AudioSocketSettings,System.Collections.Generic.IEnumerable{Microsoft.Skype.Bots.Media.VideoSocketSettings},Microsoft.Skype.Bots.Media.VideoSocketSettings,Microsoft.Skype.Bots.Media.DataSocketSettings,System.Guid)">CreateMediaSession(ICommunicationsClient, AudioSocketSettings, IEnumerable&lt;VideoSocketSettings&gt;, VideoSocketSettings, DataSocketSettings, Guid)</h4>
   <div class="markdown level1 summary"><p>Creates a local media session for the provided stateful client with
 a given socket configuration.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ILocalMediaSession CreateMediaSession(this ICommunicationsClient statefulClient, AudioSocketSettings audioSocketSettings, IEnumerable&lt;VideoSocketSettings&gt; videoSocketSettings = null, VideoSocketSettings vbssSocketSettings = null, Guid mediaSessionId = default(Guid))</code></pre>
+    <pre><code class="lang-csharp hljs">public static ILocalMediaSession CreateMediaSession(this ICommunicationsClient statefulClient, AudioSocketSettings audioSocketSettings, IEnumerable&lt;VideoSocketSettings&gt; videoSocketSettings = null, VideoSocketSettings vbssSocketSettings = null, DataSocketSettings dataSocketSettings = null, Guid mediaSessionId = default(Guid))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -236,6 +242,12 @@ a given socket configuration.</p>
 </td>
       </tr>
       <tr>
+        <td><a class="xref" href="../bot_media/Microsoft.Skype.Bots.Media.DataSocketSettings.html">DataSocketSettings</a></td>
+        <td><span class="parametername">dataSocketSettings</span></td>
+        <td><p>The data socket settings.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.guid">Guid</a></td>
         <td><span class="parametername">mediaSessionId</span></td>
         <td><p>The id for the media session.</p>
@@ -255,6 +267,27 @@ a given socket configuration.</p>
       <tr>
         <td><a class="xref" href="Microsoft.Graph.Communications.Calls.Media.ILocalMediaSession.html">ILocalMediaSession</a></td>
         <td><p>A <a class="xref" href="Microsoft.Graph.Communications.Calls.Media.ILocalMediaSession.html">ILocalMediaSession</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p>statefulClient</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
+        <td><p>Id</p>
 </td>
       </tr>
     </tbody>

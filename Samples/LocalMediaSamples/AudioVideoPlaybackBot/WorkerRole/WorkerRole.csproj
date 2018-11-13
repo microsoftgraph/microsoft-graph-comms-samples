@@ -58,6 +58,10 @@
   <ItemGroup>
     <None Include="app.config">
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="mle1080p15vbss_2500Kbps.264">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="output180p.264">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

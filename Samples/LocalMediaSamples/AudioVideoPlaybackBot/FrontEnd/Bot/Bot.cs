@@ -72,11 +72,12 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             ChatInfo chatInfo;
             if (!string.IsNullOrWhiteSpace(joinCallBody.MeetingId))
             {
+                // Meeting id is a cloud-video-interop numeric meeting id.
                 var onlineMeeting = await this.OnlineMeetings
                     .GetOnlineMeetingAsync(joinCallBody.TenantId, joinCallBody.MeetingId, correlationId)
                     .ConfigureAwait(false);
 
-                meetingInfo = onlineMeeting.MeetingInfo;
+                meetingInfo = new OrganizerMeetingInfo { Organizer = onlineMeeting.Participants.Organizer.Identity, };
                 chatInfo = onlineMeeting.ChatInfo;
             }
             else
@@ -237,14 +238,12 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             var vbssSocketSettings = new VideoSocketSettings
             {
                 StreamDirections = StreamDirection.Recvonly,
-                ReceiveColorFormat = VideoColorFormat.NV12,
+                ReceiveColorFormat = VideoColorFormat.H264,
                 MediaType = MediaType.Vbss,
                 SupportedSendVideoFormats = new List<VideoFormat>
                 {
-                    // fps 1.875 is required for h264 in vbss scenario:
-                    // refer to Raw/Encoded Frame Format Recommendation - VbSS section in
-                    // http://msrtc/documentation/cloud_video_interop/#platform-capabilities-for-encodedecode
-                    VideoFormat.H264_320x180_1_875Fps,
+                    // fps 1.875 is required for h264 in vbss scenario.
+                    VideoFormat.H264_1920x1080_1_875Fps,
                 },
             };
 
@@ -257,6 +256,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                 },
                 videoSocketSettings,
                 vbssSocketSettings,
+                null,
                 correlationId);
             return mediaSession;
         }

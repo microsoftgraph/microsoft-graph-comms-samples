@@ -111,11 +111,12 @@ namespace Sample.HueBot.Bot
             ChatInfo chatInfo;
             if (!string.IsNullOrWhiteSpace(joinCallBody.MeetingId))
             {
+                // Meeting id is a cloud-video-interop numeric meeting id.
                 var onlineMeeting = await this.OnlineMeetings
                     .GetOnlineMeetingAsync(joinCallBody.TenantId, joinCallBody.MeetingId, correlationId)
                     .ConfigureAwait(false);
 
-                meetingInfo = onlineMeeting.MeetingInfo;
+                meetingInfo = new OrganizerMeetingInfo { Organizer = onlineMeeting.Participants.Organizer.Identity, };
                 chatInfo = onlineMeeting.ChatInfo;
                 //// meetingInfo.AllowConversationWithoutHost = joinCallBody.AllowConversationWithoutHost;
             }

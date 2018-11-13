@@ -311,7 +311,8 @@ us with a given participants video stream.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task SubscribeVideoAsync(this ICallParticipant callParticipant, VideoResolutionFormat videoResolution, bool isScreenSharing = false, long socketId = 0L, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method has been deprecated.  Please subscribe on the VideoSocket directly.&quot;)]
+public static Task SubscribeVideoAsync(this ICallParticipant callParticipant, VideoResolutionFormat videoResolution, bool isScreenSharing = false, long socketId = 0L, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">

@@ -105,6 +105,11 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         /// </summary>
         private const string H264320X18015FpsKey = "H264_320x180_15Fps";
 
+        /// <summary>
+        /// videoFile location for the specified resolution.
+        /// </summary>
+        private const string H2641920X1080VBSS15FpsKey = "H264_1920X1080_VBSS_15Fps";
+
         private const string AudioFileLocationKey = "AudioFileLocation";
 
         private const string AudioVideoFileLengthInSecKey = "AudioVideoFileLengthInSec";
@@ -181,6 +186,11 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         /// </summary>
         public string H264320X18015FpsFile { get; private set; }
 
+        /// <summary>
+        /// Gets the h264 1920 x 1080 vbss file location.
+        /// </summary>
+        public string H2641920X108015VBSSFpsFile { get; private set; }
+
         /// <inheritdoc/>
         public Dictionary<string, VideoFormat> H264FileLocations { get; private set; }
 
@@ -242,9 +252,11 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
             this.H2641280X72030FpsFile = ConfigurationManager.AppSettings[H2641280X72030FpsKey];
             this.H264320X18015FpsFile = ConfigurationManager.AppSettings[H264320X18015FpsKey];
             this.H264640X36030FpsFile = ConfigurationManager.AppSettings[H264640X36030FpsKey];
+            this.H2641920X108015VBSSFpsFile = ConfigurationManager.AppSettings[H2641920X1080VBSS15FpsKey];
             if (string.IsNullOrEmpty(this.H2641280X72030FpsFile) ||
                 string.IsNullOrEmpty(this.H264320X18015FpsFile) ||
-                string.IsNullOrEmpty(this.H264640X36030FpsFile))
+                string.IsNullOrEmpty(this.H264640X36030FpsFile) ||
+                string.IsNullOrEmpty(this.H2641920X108015VBSSFpsFile))
             {
                 throw new ConfigurationException("H264Files", "Update app.config in WorkerRole with all the h264 files with the specified resolutions");
             }
@@ -253,6 +265,7 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
             this.H264FileLocations.Add(this.H2641280X72030FpsFile, VideoFormat.H264_1280x720_30Fps);
             this.H264FileLocations.Add(this.H264320X18015FpsFile, VideoFormat.H264_320x180_15Fps);
             this.H264FileLocations.Add(this.H264640X36030FpsFile, VideoFormat.H264_640x360_30Fps);
+            this.H264FileLocations.Add(this.H2641920X108015VBSSFpsFile, VideoFormat.H264_1920x1080_15Fps);
 
             this.AudioFileLocation = ConfigurationManager.AppSettings[AudioFileLocationKey];
             if (string.IsNullOrEmpty(this.AudioFileLocation))

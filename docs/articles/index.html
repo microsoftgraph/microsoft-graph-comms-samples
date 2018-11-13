@@ -157,7 +157,7 @@ var call = await this.Client.Calls().AddAsync(joinCallParameters);
 <h4 id="answering-incoming-call-with-application-hosted-media">Answering incoming call with application hosted media</h4>
 <p>First, subscibe to incoming calls.</p>
 <pre><code class="lang-cs">this.Client.Calls().OnIncoming += this.CallsOnIncoming;
-</code></pre><p>When incoming call comes, the bot needs to answer with an <code>IMediaSession</code>.  This can be a media session created using the <a class="xref" href="../calls_media/Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.html#Microsoft_Graph_Communications_Calls_Media_MediaCommunicationsClientExtensions_CreateMediaSession_Microsoft_Graph_Communications_Client_ICommunicationsClient_Microsoft_Skype_Bots_Media_AudioSocketSettings_Microsoft_Skype_Bots_Media_VideoSocketSettings_Microsoft_Skype_Bots_Media_VideoSocketSettings_System_Guid_">ICommunicationsClient.CreateMediaSession()</a> extension or a custom <code>IMediaSession</code>.</p>
+</code></pre><p>When incoming call comes, the bot needs to answer with an <code>IMediaSession</code>.  This can be a media session created using the <a class="xref" href="../calls_media/Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.html#Microsoft_Graph_Communications_Calls_Media_MediaCommunicationsClientExtensions_CreateMediaSession_Microsoft_Graph_Communications_Client_ICommunicationsClient_Microsoft_Skype_Bots_Media_AudioSocketSettings_Microsoft_Skype_Bots_Media_VideoSocketSettings_Microsoft_Skype_Bots_Media_VideoSocketSettings_Microsoft_Skype_Bots_Media_DataSocketSettings_System_Guid_">ICommunicationsClient.CreateMediaSession()</a> extension or a custom <code>IMediaSession</code>.</p>
 <pre><code class="lang-cs">private void CallsOnIncoming(ICallCollection sender, CollectionEventArgs&lt;ICall&gt; collectionEventArgs)
 {
   var mediaSession = this.Client.CreateMediaSession(
@@ -210,7 +210,7 @@ var call = await this.Client.Calls().AddAsync(joinCallParameters);
 <li>Any subsequent asynchronous notifications delivered by the service need to be redirected to the instance hosting the call.</li>
 </ol>
 <p>Any bot that hosts its own media stack should to be built using the Graph Communications SDK given that the media stream has a requirement that it needs to persist in memory throughout the lifetime of the call.</p>
-<p>More details can be found in the <a href="calling/StateManagement.html">State Management</a> article.</p>
+<p>More details can be found in the <a href="calls/StateManagement.html">State Management</a> article.</p>
 </article>
           </div>
           

@@ -512,7 +512,7 @@ The mute notification will come in on ICallParticipant.OnUpdated</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task PlayPromptAsync(IEnumerable&lt;MediaPrompt&gt; prompts, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;PlayOperationResult&gt; PlayPromptAsync(IEnumerable&lt;MediaPrompt&gt; prompts, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -548,8 +548,8 @@ The mute notification will come in on ICallParticipant.OnUpdated</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
-        <td><p>The <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> that completes after the prompts have been played.</p>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Microsoft.Graph.Communications.Calls.PlayOperationResult.html">PlayOperationResult</a>&gt;</td>
+        <td><p>The <a class="xref" href="Microsoft.Graph.Communications.Calls.PlayOperationResult.html">PlayOperationResult</a> with information on how the play operation completed.</p>
 </td>
       </tr>
     </tbody>
@@ -656,7 +656,7 @@ The mute notification will come in on ICallParticipant.OnUpdated</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Microsoft.Graph.Communications.Calls.RecordOperationResult.html">RecordOperationResult</a>&gt;</td>
-        <td><p>See <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iobservable-1">IObservable&lt;T&gt;</a> </p>
+        <td><p>See <a class="xref" href="Microsoft.Graph.Communications.Calls.RecordOperationResult.html">RecordOperationResult</a> with information on how the record operation completed.</p>
 </td>
       </tr>
     </tbody>

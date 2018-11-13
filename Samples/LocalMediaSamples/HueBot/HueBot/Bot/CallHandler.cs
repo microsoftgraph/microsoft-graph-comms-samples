@@ -237,12 +237,7 @@ namespace Sample.HueBot.Bot
 
             this.subscribedToMsi = e.CurrentDominantSpeaker;
 
-            // Because this call is not awaited, execution of the
-            // current method continues before the call is completed.
-            // Note: Intentionally executing without await so that code runs in background thread.
-#pragma warning disable 4014
-            this.SubscribeAsync(e.CurrentDominantSpeaker).ForgetAndLogExceptionAsync($"Subscribe to msi {e.CurrentDominantSpeaker}.", this.logger);
-#pragma warning restore 4014
+            this.Subscribe(e.CurrentDominantSpeaker);
         }
 
         /// <summary>
@@ -311,10 +306,7 @@ namespace Sample.HueBot.Bot
         /// <param name="msi">
         /// MSI of dominant speaker or previously subscribed to MSI depending on where it is invoked.
         /// </param>
-        /// <returns>
-        /// The <see cref="Task"/>.
-        /// </returns>
-        private async Task SubscribeAsync(uint msi)
+        private void Subscribe(uint msi)
         {
             // Only subscribe when call is in established state.
             if (this.Call.Resource.State != CallState.Established)
@@ -349,7 +341,7 @@ namespace Sample.HueBot.Bot
                     this.logger.Info($"[{this.Call.Id}] Subscribing to {participant.Id} using MSI {msi}");
                 }
 
-                await participant.SubscribeVideoAsync(videoResolution: VideoResolutionFormat.Hd1080p).ConfigureAwait(false);
+                this.Call.GetLocalMediaSession().VideoSocket.Subscribe(VideoResolution.HD1080p, msi);
 
                 // Set the dominant speaker after subscribe completed successfully.
                 // If subscribe fails, another subscribe can set it properly.
@@ -376,12 +368,7 @@ namespace Sample.HueBot.Bot
             uint prevSubscribedMsi = this.subscribedToMsi;
             this.logger.Info($"[{this.Call.Id}] Subscribing to: {prevSubscribedMsi}");
 
-            // Because this call is not awaited, execution of the
-            // current method continues before the call is completed.
-            // Note: Intentionally executing without await so that code runs in background thread.
-#pragma warning disable 4014
-            this.SubscribeAsync(prevSubscribedMsi).ForgetAndLogExceptionAsync($"Subscribe to msi {prevSubscribedMsi}.", this.logger);
-#pragma warning restore 4014
+            this.Subscribe(prevSubscribedMsi);
         }
 
         /// <summary>

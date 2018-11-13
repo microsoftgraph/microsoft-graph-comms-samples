@@ -1461,6 +1461,18 @@ references:
   commentId: Overload:Microsoft.Graph.Call.RequestedModalities
   fullName: Microsoft.Graph.Call.RequestedModalities
   nameWithType: Call.RequestedModalities
+- uid: Microsoft.Graph.Call.ResultInfo
+  name: ResultInfo
+  href: core/Microsoft.Graph.Call.html#Microsoft_Graph_Call_ResultInfo
+  commentId: P:Microsoft.Graph.Call.ResultInfo
+  fullName: Microsoft.Graph.Call.ResultInfo
+  nameWithType: Call.ResultInfo
+- uid: Microsoft.Graph.Call.ResultInfo*
+  name: ResultInfo
+  href: core/Microsoft.Graph.Call.html#Microsoft_Graph_Call_ResultInfo_
+  commentId: Overload:Microsoft.Graph.Call.ResultInfo
+  fullName: Microsoft.Graph.Call.ResultInfo
+  nameWithType: Call.ResultInfo
 - uid: Microsoft.Graph.Call.RingingTimeoutInSeconds
   name: RingingTimeoutInSeconds
   href: core/Microsoft.Graph.Call.html#Microsoft_Graph_Call_RingingTimeoutInSeconds
@@ -4416,12 +4428,12 @@ references:
   commentId: Overload:Microsoft.Graph.CallRequestBuilder.SubscribeToTone
   fullName: Microsoft.Graph.CallRequestBuilder.SubscribeToTone
   nameWithType: CallRequestBuilder.SubscribeToTone
-- uid: Microsoft.Graph.CallRequestBuilder.Transfer(Microsoft.Graph.InvitationParticipantInfo,Microsoft.Graph.IdentitySet,System.String)
-  name: Transfer(InvitationParticipantInfo, IdentitySet, String)
-  href: core/Microsoft.Graph.CallRequestBuilder.html#Microsoft_Graph_CallRequestBuilder_Transfer_Microsoft_Graph_InvitationParticipantInfo_Microsoft_Graph_IdentitySet_System_String_
-  commentId: M:Microsoft.Graph.CallRequestBuilder.Transfer(Microsoft.Graph.InvitationParticipantInfo,Microsoft.Graph.IdentitySet,System.String)
-  fullName: Microsoft.Graph.CallRequestBuilder.Transfer(Microsoft.Graph.InvitationParticipantInfo, Microsoft.Graph.IdentitySet, System.String)
-  nameWithType: CallRequestBuilder.Transfer(InvitationParticipantInfo, IdentitySet, String)
+- uid: Microsoft.Graph.CallRequestBuilder.Transfer(Microsoft.Graph.InvitationParticipantInfo)
+  name: Transfer(InvitationParticipantInfo)
+  href: core/Microsoft.Graph.CallRequestBuilder.html#Microsoft_Graph_CallRequestBuilder_Transfer_Microsoft_Graph_InvitationParticipantInfo_
+  commentId: M:Microsoft.Graph.CallRequestBuilder.Transfer(Microsoft.Graph.InvitationParticipantInfo)
+  fullName: Microsoft.Graph.CallRequestBuilder.Transfer(Microsoft.Graph.InvitationParticipantInfo)
+  nameWithType: CallRequestBuilder.Transfer(InvitationParticipantInfo)
 - uid: Microsoft.Graph.CallRequestBuilder.Transfer*
   name: Transfer
   href: core/Microsoft.Graph.CallRequestBuilder.html#Microsoft_Graph_CallRequestBuilder_Transfer_
@@ -4815,30 +4827,6 @@ references:
   commentId: Overload:Microsoft.Graph.CallTransferRequestBody.#ctor
   fullName: Microsoft.Graph.CallTransferRequestBody.CallTransferRequestBody
   nameWithType: CallTransferRequestBody.CallTransferRequestBody
-- uid: Microsoft.Graph.CallTransferRequestBody.ReplacesCallId
-  name: ReplacesCallId
-  href: core/Microsoft.Graph.CallTransferRequestBody.html#Microsoft_Graph_CallTransferRequestBody_ReplacesCallId
-  commentId: P:Microsoft.Graph.CallTransferRequestBody.ReplacesCallId
-  fullName: Microsoft.Graph.CallTransferRequestBody.ReplacesCallId
-  nameWithType: CallTransferRequestBody.ReplacesCallId
-- uid: Microsoft.Graph.CallTransferRequestBody.ReplacesCallId*
-  name: ReplacesCallId
-  href: core/Microsoft.Graph.CallTransferRequestBody.html#Microsoft_Graph_CallTransferRequestBody_ReplacesCallId_
-  commentId: Overload:Microsoft.Graph.CallTransferRequestBody.ReplacesCallId
-  fullName: Microsoft.Graph.CallTransferRequestBody.ReplacesCallId
-  nameWithType: CallTransferRequestBody.ReplacesCallId
-- uid: Microsoft.Graph.CallTransferRequestBody.Target
-  name: Target
-  href: core/Microsoft.Graph.CallTransferRequestBody.html#Microsoft_Graph_CallTransferRequestBody_Target
-  commentId: P:Microsoft.Graph.CallTransferRequestBody.Target
-  fullName: Microsoft.Graph.CallTransferRequestBody.Target
-  nameWithType: CallTransferRequestBody.Target
-- uid: Microsoft.Graph.CallTransferRequestBody.Target*
-  name: Target
-  href: core/Microsoft.Graph.CallTransferRequestBody.html#Microsoft_Graph_CallTransferRequestBody_Target_
-  commentId: Overload:Microsoft.Graph.CallTransferRequestBody.Target
-  fullName: Microsoft.Graph.CallTransferRequestBody.Target
-  nameWithType: CallTransferRequestBody.Target
 - uid: Microsoft.Graph.CallTransferRequestBody.TransferTarget
   name: TransferTarget
   href: core/Microsoft.Graph.CallTransferRequestBody.html#Microsoft_Graph_CallTransferRequestBody_TransferTarget
@@ -4857,12 +4845,12 @@ references:
   commentId: T:Microsoft.Graph.CallTransferRequestBuilder
   fullName: Microsoft.Graph.CallTransferRequestBuilder
   nameWithType: CallTransferRequestBuilder
-- uid: Microsoft.Graph.CallTransferRequestBuilder.#ctor(System.String,Microsoft.Graph.IBaseClient,Microsoft.Graph.InvitationParticipantInfo,Microsoft.Graph.IdentitySet,System.String)
-  name: CallTransferRequestBuilder(String, IBaseClient, InvitationParticipantInfo, IdentitySet, String)
-  href: core/Microsoft.Graph.CallTransferRequestBuilder.html#Microsoft_Graph_CallTransferRequestBuilder__ctor_System_String_Microsoft_Graph_IBaseClient_Microsoft_Graph_InvitationParticipantInfo_Microsoft_Graph_IdentitySet_System_String_
-  commentId: M:Microsoft.Graph.CallTransferRequestBuilder.#ctor(System.String,Microsoft.Graph.IBaseClient,Microsoft.Graph.InvitationParticipantInfo,Microsoft.Graph.IdentitySet,System.String)
-  fullName: Microsoft.Graph.CallTransferRequestBuilder.CallTransferRequestBuilder(System.String, Microsoft.Graph.IBaseClient, Microsoft.Graph.InvitationParticipantInfo, Microsoft.Graph.IdentitySet, System.String)
-  nameWithType: CallTransferRequestBuilder.CallTransferRequestBuilder(String, IBaseClient, InvitationParticipantInfo, IdentitySet, String)
+- uid: Microsoft.Graph.CallTransferRequestBuilder.#ctor(System.String,Microsoft.Graph.IBaseClient,Microsoft.Graph.InvitationParticipantInfo)
+  name: CallTransferRequestBuilder(String, IBaseClient, InvitationParticipantInfo)
+  href: core/Microsoft.Graph.CallTransferRequestBuilder.html#Microsoft_Graph_CallTransferRequestBuilder__ctor_System_String_Microsoft_Graph_IBaseClient_Microsoft_Graph_InvitationParticipantInfo_
+  commentId: M:Microsoft.Graph.CallTransferRequestBuilder.#ctor(System.String,Microsoft.Graph.IBaseClient,Microsoft.Graph.InvitationParticipantInfo)
+  fullName: Microsoft.Graph.CallTransferRequestBuilder.CallTransferRequestBuilder(System.String, Microsoft.Graph.IBaseClient, Microsoft.Graph.InvitationParticipantInfo)
+  nameWithType: CallTransferRequestBuilder.CallTransferRequestBuilder(String, IBaseClient, InvitationParticipantInfo)
 - uid: Microsoft.Graph.CallTransferRequestBuilder.#ctor*
   name: CallTransferRequestBuilder
   href: core/Microsoft.Graph.CallTransferRequestBuilder.html#Microsoft_Graph_CallTransferRequestBuilder__ctor_
@@ -9890,6 +9878,18 @@ references:
   commentId: Overload:Microsoft.Graph.CommsOperation.LastActionDateTime
   fullName: Microsoft.Graph.CommsOperation.LastActionDateTime
   nameWithType: CommsOperation.LastActionDateTime
+- uid: Microsoft.Graph.CommsOperation.ResultInfo
+  name: ResultInfo
+  href: core/Microsoft.Graph.CommsOperation.html#Microsoft_Graph_CommsOperation_ResultInfo
+  commentId: P:Microsoft.Graph.CommsOperation.ResultInfo
+  fullName: Microsoft.Graph.CommsOperation.ResultInfo
+  nameWithType: CommsOperation.ResultInfo
+- uid: Microsoft.Graph.CommsOperation.ResultInfo*
+  name: ResultInfo
+  href: core/Microsoft.Graph.CommsOperation.html#Microsoft_Graph_CommsOperation_ResultInfo_
+  commentId: Overload:Microsoft.Graph.CommsOperation.ResultInfo
+  fullName: Microsoft.Graph.CommsOperation.ResultInfo
+  nameWithType: CommsOperation.ResultInfo
 - uid: Microsoft.Graph.CommsOperation.Status
   name: Status
   href: core/Microsoft.Graph.CommsOperation.html#Microsoft_Graph_CommsOperation_Status
@@ -10859,6 +10859,18 @@ references:
   commentId: Overload:Microsoft.Graph.Communications.Calls.Media.ILocalMediaSession.AudioSocket
   fullName: Microsoft.Graph.Communications.Calls.Media.ILocalMediaSession.AudioSocket
   nameWithType: ILocalMediaSession.AudioSocket
+- uid: Microsoft.Graph.Communications.Calls.Media.ILocalMediaSession.DataSocket
+  name: DataSocket
+  href: calls_media/Microsoft.Graph.Communications.Calls.Media.ILocalMediaSession.html#Microsoft_Graph_Communications_Calls_Media_ILocalMediaSession_DataSocket
+  commentId: P:Microsoft.Graph.Communications.Calls.Media.ILocalMediaSession.DataSocket
+  fullName: Microsoft.Graph.Communications.Calls.Media.ILocalMediaSession.DataSocket
+  nameWithType: ILocalMediaSession.DataSocket
+- uid: Microsoft.Graph.Communications.Calls.Media.ILocalMediaSession.DataSocket*
+  name: DataSocket
+  href: calls_media/Microsoft.Graph.Communications.Calls.Media.ILocalMediaSession.html#Microsoft_Graph_Communications_Calls_Media_ILocalMediaSession_DataSocket_
+  commentId: Overload:Microsoft.Graph.Communications.Calls.Media.ILocalMediaSession.DataSocket
+  fullName: Microsoft.Graph.Communications.Calls.Media.ILocalMediaSession.DataSocket
+  nameWithType: ILocalMediaSession.DataSocket
 - uid: Microsoft.Graph.Communications.Calls.Media.ILocalMediaSession.VbssSocket
   name: VbssSocket
   href: calls_media/Microsoft.Graph.Communications.Calls.Media.ILocalMediaSession.html#Microsoft_Graph_Communications_Calls_Media_ILocalMediaSession_VbssSocket
@@ -10949,21 +10961,21 @@ references:
   commentId: T:Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions
   fullName: Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions
   nameWithType: MediaCommunicationsClientExtensions
-- uid: Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.CreateMediaSession(Microsoft.Graph.Communications.Client.ICommunicationsClient,Microsoft.Skype.Bots.Media.AudioSocketSettings,Microsoft.Skype.Bots.Media.VideoSocketSettings,Microsoft.Skype.Bots.Media.VideoSocketSettings,System.Guid)
-  name: CreateMediaSession(ICommunicationsClient, AudioSocketSettings, VideoSocketSettings, VideoSocketSettings, Guid)
-  href: calls_media/Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.html#Microsoft_Graph_Communications_Calls_Media_MediaCommunicationsClientExtensions_CreateMediaSession_Microsoft_Graph_Communications_Client_ICommunicationsClient_Microsoft_Skype_Bots_Media_AudioSocketSettings_Microsoft_Skype_Bots_Media_VideoSocketSettings_Microsoft_Skype_Bots_Media_VideoSocketSettings_System_Guid_
-  commentId: M:Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.CreateMediaSession(Microsoft.Graph.Communications.Client.ICommunicationsClient,Microsoft.Skype.Bots.Media.AudioSocketSettings,Microsoft.Skype.Bots.Media.VideoSocketSettings,Microsoft.Skype.Bots.Media.VideoSocketSettings,System.Guid)
-  fullName: Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.CreateMediaSession(Microsoft.Graph.Communications.Client.ICommunicationsClient, Microsoft.Skype.Bots.Media.AudioSocketSettings, Microsoft.Skype.Bots.Media.VideoSocketSettings, Microsoft.Skype.Bots.Media.VideoSocketSettings, System.Guid)
-  nameWithType: MediaCommunicationsClientExtensions.CreateMediaSession(ICommunicationsClient, AudioSocketSettings, VideoSocketSettings, VideoSocketSettings, Guid)
-- uid: Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.CreateMediaSession(Microsoft.Graph.Communications.Client.ICommunicationsClient,Microsoft.Skype.Bots.Media.AudioSocketSettings,System.Collections.Generic.IEnumerable{Microsoft.Skype.Bots.Media.VideoSocketSettings},Microsoft.Skype.Bots.Media.VideoSocketSettings,System.Guid)
-  name: CreateMediaSession(ICommunicationsClient, AudioSocketSettings, IEnumerable<VideoSocketSettings>, VideoSocketSettings, Guid)
-  href: calls_media/Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.html#Microsoft_Graph_Communications_Calls_Media_MediaCommunicationsClientExtensions_CreateMediaSession_Microsoft_Graph_Communications_Client_ICommunicationsClient_Microsoft_Skype_Bots_Media_AudioSocketSettings_System_Collections_Generic_IEnumerable_Microsoft_Skype_Bots_Media_VideoSocketSettings__Microsoft_Skype_Bots_Media_VideoSocketSettings_System_Guid_
-  commentId: M:Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.CreateMediaSession(Microsoft.Graph.Communications.Client.ICommunicationsClient,Microsoft.Skype.Bots.Media.AudioSocketSettings,System.Collections.Generic.IEnumerable{Microsoft.Skype.Bots.Media.VideoSocketSettings},Microsoft.Skype.Bots.Media.VideoSocketSettings,System.Guid)
-  name.vb: CreateMediaSession(ICommunicationsClient, AudioSocketSettings, IEnumerable(Of VideoSocketSettings), VideoSocketSettings, Guid)
-  fullName: Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.CreateMediaSession(Microsoft.Graph.Communications.Client.ICommunicationsClient, Microsoft.Skype.Bots.Media.AudioSocketSettings, System.Collections.Generic.IEnumerable<Microsoft.Skype.Bots.Media.VideoSocketSettings>, Microsoft.Skype.Bots.Media.VideoSocketSettings, System.Guid)
-  fullName.vb: Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.CreateMediaSession(Microsoft.Graph.Communications.Client.ICommunicationsClient, Microsoft.Skype.Bots.Media.AudioSocketSettings, System.Collections.Generic.IEnumerable(Of Microsoft.Skype.Bots.Media.VideoSocketSettings), Microsoft.Skype.Bots.Media.VideoSocketSettings, System.Guid)
-  nameWithType: MediaCommunicationsClientExtensions.CreateMediaSession(ICommunicationsClient, AudioSocketSettings, IEnumerable<VideoSocketSettings>, VideoSocketSettings, Guid)
-  nameWithType.vb: MediaCommunicationsClientExtensions.CreateMediaSession(ICommunicationsClient, AudioSocketSettings, IEnumerable(Of VideoSocketSettings), VideoSocketSettings, Guid)
+- uid: Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.CreateMediaSession(Microsoft.Graph.Communications.Client.ICommunicationsClient,Microsoft.Skype.Bots.Media.AudioSocketSettings,Microsoft.Skype.Bots.Media.VideoSocketSettings,Microsoft.Skype.Bots.Media.VideoSocketSettings,Microsoft.Skype.Bots.Media.DataSocketSettings,System.Guid)
+  name: CreateMediaSession(ICommunicationsClient, AudioSocketSettings, VideoSocketSettings, VideoSocketSettings, DataSocketSettings, Guid)
+  href: calls_media/Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.html#Microsoft_Graph_Communications_Calls_Media_MediaCommunicationsClientExtensions_CreateMediaSession_Microsoft_Graph_Communications_Client_ICommunicationsClient_Microsoft_Skype_Bots_Media_AudioSocketSettings_Microsoft_Skype_Bots_Media_VideoSocketSettings_Microsoft_Skype_Bots_Media_VideoSocketSettings_Microsoft_Skype_Bots_Media_DataSocketSettings_System_Guid_
+  commentId: M:Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.CreateMediaSession(Microsoft.Graph.Communications.Client.ICommunicationsClient,Microsoft.Skype.Bots.Media.AudioSocketSettings,Microsoft.Skype.Bots.Media.VideoSocketSettings,Microsoft.Skype.Bots.Media.VideoSocketSettings,Microsoft.Skype.Bots.Media.DataSocketSettings,System.Guid)
+  fullName: Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.CreateMediaSession(Microsoft.Graph.Communications.Client.ICommunicationsClient, Microsoft.Skype.Bots.Media.AudioSocketSettings, Microsoft.Skype.Bots.Media.VideoSocketSettings, Microsoft.Skype.Bots.Media.VideoSocketSettings, Microsoft.Skype.Bots.Media.DataSocketSettings, System.Guid)
+  nameWithType: MediaCommunicationsClientExtensions.CreateMediaSession(ICommunicationsClient, AudioSocketSettings, VideoSocketSettings, VideoSocketSettings, DataSocketSettings, Guid)
+- uid: Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.CreateMediaSession(Microsoft.Graph.Communications.Client.ICommunicationsClient,Microsoft.Skype.Bots.Media.AudioSocketSettings,System.Collections.Generic.IEnumerable{Microsoft.Skype.Bots.Media.VideoSocketSettings},Microsoft.Skype.Bots.Media.VideoSocketSettings,Microsoft.Skype.Bots.Media.DataSocketSettings,System.Guid)
+  name: CreateMediaSession(ICommunicationsClient, AudioSocketSettings, IEnumerable<VideoSocketSettings>, VideoSocketSettings, DataSocketSettings, Guid)
+  href: calls_media/Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.html#Microsoft_Graph_Communications_Calls_Media_MediaCommunicationsClientExtensions_CreateMediaSession_Microsoft_Graph_Communications_Client_ICommunicationsClient_Microsoft_Skype_Bots_Media_AudioSocketSettings_System_Collections_Generic_IEnumerable_Microsoft_Skype_Bots_Media_VideoSocketSettings__Microsoft_Skype_Bots_Media_VideoSocketSettings_Microsoft_Skype_Bots_Media_DataSocketSettings_System_Guid_
+  commentId: M:Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.CreateMediaSession(Microsoft.Graph.Communications.Client.ICommunicationsClient,Microsoft.Skype.Bots.Media.AudioSocketSettings,System.Collections.Generic.IEnumerable{Microsoft.Skype.Bots.Media.VideoSocketSettings},Microsoft.Skype.Bots.Media.VideoSocketSettings,Microsoft.Skype.Bots.Media.DataSocketSettings,System.Guid)
+  name.vb: CreateMediaSession(ICommunicationsClient, AudioSocketSettings, IEnumerable(Of VideoSocketSettings), VideoSocketSettings, DataSocketSettings, Guid)
+  fullName: Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.CreateMediaSession(Microsoft.Graph.Communications.Client.ICommunicationsClient, Microsoft.Skype.Bots.Media.AudioSocketSettings, System.Collections.Generic.IEnumerable<Microsoft.Skype.Bots.Media.VideoSocketSettings>, Microsoft.Skype.Bots.Media.VideoSocketSettings, Microsoft.Skype.Bots.Media.DataSocketSettings, System.Guid)
+  fullName.vb: Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.CreateMediaSession(Microsoft.Graph.Communications.Client.ICommunicationsClient, Microsoft.Skype.Bots.Media.AudioSocketSettings, System.Collections.Generic.IEnumerable(Of Microsoft.Skype.Bots.Media.VideoSocketSettings), Microsoft.Skype.Bots.Media.VideoSocketSettings, Microsoft.Skype.Bots.Media.DataSocketSettings, System.Guid)
+  nameWithType: MediaCommunicationsClientExtensions.CreateMediaSession(ICommunicationsClient, AudioSocketSettings, IEnumerable<VideoSocketSettings>, VideoSocketSettings, DataSocketSettings, Guid)
+  nameWithType.vb: MediaCommunicationsClientExtensions.CreateMediaSession(ICommunicationsClient, AudioSocketSettings, IEnumerable(Of VideoSocketSettings), VideoSocketSettings, DataSocketSettings, Guid)
 - uid: Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.CreateMediaSession*
   name: CreateMediaSession
   href: calls_media/Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.html#Microsoft_Graph_Communications_Calls_Media_MediaCommunicationsClientExtensions_CreateMediaSession_
@@ -11054,18 +11066,60 @@ references:
   commentId: Overload:Microsoft.Graph.Communications.Calls.ParticipantExtensions.SubscribeVideoAsync
   fullName: Microsoft.Graph.Communications.Calls.ParticipantExtensions.SubscribeVideoAsync
   nameWithType: ParticipantExtensions.SubscribeVideoAsync
+- uid: Microsoft.Graph.Communications.Calls.PlayOperationResult
+  name: PlayOperationResult
+  href: calls/Microsoft.Graph.Communications.Calls.PlayOperationResult.html
+  commentId: T:Microsoft.Graph.Communications.Calls.PlayOperationResult
+  fullName: Microsoft.Graph.Communications.Calls.PlayOperationResult
+  nameWithType: PlayOperationResult
+- uid: Microsoft.Graph.Communications.Calls.PlayOperationResult.#ctor(Microsoft.Graph.CompletionReason,Microsoft.Graph.ResultInfo)
+  name: PlayOperationResult(CompletionReason, ResultInfo)
+  href: calls/Microsoft.Graph.Communications.Calls.PlayOperationResult.html#Microsoft_Graph_Communications_Calls_PlayOperationResult__ctor_Microsoft_Graph_CompletionReason_Microsoft_Graph_ResultInfo_
+  commentId: M:Microsoft.Graph.Communications.Calls.PlayOperationResult.#ctor(Microsoft.Graph.CompletionReason,Microsoft.Graph.ResultInfo)
+  fullName: Microsoft.Graph.Communications.Calls.PlayOperationResult.PlayOperationResult(Microsoft.Graph.CompletionReason, Microsoft.Graph.ResultInfo)
+  nameWithType: PlayOperationResult.PlayOperationResult(CompletionReason, ResultInfo)
+- uid: Microsoft.Graph.Communications.Calls.PlayOperationResult.#ctor*
+  name: PlayOperationResult
+  href: calls/Microsoft.Graph.Communications.Calls.PlayOperationResult.html#Microsoft_Graph_Communications_Calls_PlayOperationResult__ctor_
+  commentId: Overload:Microsoft.Graph.Communications.Calls.PlayOperationResult.#ctor
+  fullName: Microsoft.Graph.Communications.Calls.PlayOperationResult.PlayOperationResult
+  nameWithType: PlayOperationResult.PlayOperationResult
+- uid: Microsoft.Graph.Communications.Calls.PlayOperationResult.CompletionReason
+  name: CompletionReason
+  href: calls/Microsoft.Graph.Communications.Calls.PlayOperationResult.html#Microsoft_Graph_Communications_Calls_PlayOperationResult_CompletionReason
+  commentId: P:Microsoft.Graph.Communications.Calls.PlayOperationResult.CompletionReason
+  fullName: Microsoft.Graph.Communications.Calls.PlayOperationResult.CompletionReason
+  nameWithType: PlayOperationResult.CompletionReason
+- uid: Microsoft.Graph.Communications.Calls.PlayOperationResult.CompletionReason*
+  name: CompletionReason
+  href: calls/Microsoft.Graph.Communications.Calls.PlayOperationResult.html#Microsoft_Graph_Communications_Calls_PlayOperationResult_CompletionReason_
+  commentId: Overload:Microsoft.Graph.Communications.Calls.PlayOperationResult.CompletionReason
+  fullName: Microsoft.Graph.Communications.Calls.PlayOperationResult.CompletionReason
+  nameWithType: PlayOperationResult.CompletionReason
+- uid: Microsoft.Graph.Communications.Calls.PlayOperationResult.ResultInfo
+  name: ResultInfo
+  href: calls/Microsoft.Graph.Communications.Calls.PlayOperationResult.html#Microsoft_Graph_Communications_Calls_PlayOperationResult_ResultInfo
+  commentId: P:Microsoft.Graph.Communications.Calls.PlayOperationResult.ResultInfo
+  fullName: Microsoft.Graph.Communications.Calls.PlayOperationResult.ResultInfo
+  nameWithType: PlayOperationResult.ResultInfo
+- uid: Microsoft.Graph.Communications.Calls.PlayOperationResult.ResultInfo*
+  name: ResultInfo
+  href: calls/Microsoft.Graph.Communications.Calls.PlayOperationResult.html#Microsoft_Graph_Communications_Calls_PlayOperationResult_ResultInfo_
+  commentId: Overload:Microsoft.Graph.Communications.Calls.PlayOperationResult.ResultInfo
+  fullName: Microsoft.Graph.Communications.Calls.PlayOperationResult.ResultInfo
+  nameWithType: PlayOperationResult.ResultInfo
 - uid: Microsoft.Graph.Communications.Calls.RecordOperationResult
   name: RecordOperationResult
   href: calls/Microsoft.Graph.Communications.Calls.RecordOperationResult.html
   commentId: T:Microsoft.Graph.Communications.Calls.RecordOperationResult
   fullName: Microsoft.Graph.Communications.Calls.RecordOperationResult
   nameWithType: RecordOperationResult
-- uid: Microsoft.Graph.Communications.Calls.RecordOperationResult.#ctor(System.String,Microsoft.Graph.RecordCompletionReason)
-  name: RecordOperationResult(String, RecordCompletionReason)
-  href: calls/Microsoft.Graph.Communications.Calls.RecordOperationResult.html#Microsoft_Graph_Communications_Calls_RecordOperationResult__ctor_System_String_Microsoft_Graph_RecordCompletionReason_
-  commentId: M:Microsoft.Graph.Communications.Calls.RecordOperationResult.#ctor(System.String,Microsoft.Graph.RecordCompletionReason)
-  fullName: Microsoft.Graph.Communications.Calls.RecordOperationResult.RecordOperationResult(System.String, Microsoft.Graph.RecordCompletionReason)
-  nameWithType: RecordOperationResult.RecordOperationResult(String, RecordCompletionReason)
+- uid: Microsoft.Graph.Communications.Calls.RecordOperationResult.#ctor(System.String,Microsoft.Graph.RecordCompletionReason,Microsoft.Graph.ResultInfo)
+  name: RecordOperationResult(String, RecordCompletionReason, ResultInfo)
+  href: calls/Microsoft.Graph.Communications.Calls.RecordOperationResult.html#Microsoft_Graph_Communications_Calls_RecordOperationResult__ctor_System_String_Microsoft_Graph_RecordCompletionReason_Microsoft_Graph_ResultInfo_
+  commentId: M:Microsoft.Graph.Communications.Calls.RecordOperationResult.#ctor(System.String,Microsoft.Graph.RecordCompletionReason,Microsoft.Graph.ResultInfo)
+  fullName: Microsoft.Graph.Communications.Calls.RecordOperationResult.RecordOperationResult(System.String, Microsoft.Graph.RecordCompletionReason, Microsoft.Graph.ResultInfo)
+  nameWithType: RecordOperationResult.RecordOperationResult(String, RecordCompletionReason, ResultInfo)
 - uid: Microsoft.Graph.Communications.Calls.RecordOperationResult.#ctor*
   name: RecordOperationResult
   href: calls/Microsoft.Graph.Communications.Calls.RecordOperationResult.html#Microsoft_Graph_Communications_Calls_RecordOperationResult__ctor_
@@ -11096,6 +11150,18 @@ references:
   commentId: Overload:Microsoft.Graph.Communications.Calls.RecordOperationResult.RecordResourceLocation
   fullName: Microsoft.Graph.Communications.Calls.RecordOperationResult.RecordResourceLocation
   nameWithType: RecordOperationResult.RecordResourceLocation
+- uid: Microsoft.Graph.Communications.Calls.RecordOperationResult.ResultInfo
+  name: ResultInfo
+  href: calls/Microsoft.Graph.Communications.Calls.RecordOperationResult.html#Microsoft_Graph_Communications_Calls_RecordOperationResult_ResultInfo
+  commentId: P:Microsoft.Graph.Communications.Calls.RecordOperationResult.ResultInfo
+  fullName: Microsoft.Graph.Communications.Calls.RecordOperationResult.ResultInfo
+  nameWithType: RecordOperationResult.ResultInfo
+- uid: Microsoft.Graph.Communications.Calls.RecordOperationResult.ResultInfo*
+  name: ResultInfo
+  href: calls/Microsoft.Graph.Communications.Calls.RecordOperationResult.html#Microsoft_Graph_Communications_Calls_RecordOperationResult_ResultInfo_
+  commentId: Overload:Microsoft.Graph.Communications.Calls.RecordOperationResult.ResultInfo
+  fullName: Microsoft.Graph.Communications.Calls.RecordOperationResult.ResultInfo
+  nameWithType: RecordOperationResult.ResultInfo
 - uid: Microsoft.Graph.Communications.Client
   name: Microsoft.Graph.Communications.Client
   href: client/Microsoft.Graph.Communications.Client.html
@@ -13097,12 +13163,12 @@ references:
   commentId: F:Microsoft.Graph.Communications.Common.LocalHangupDetail.MediaControllerAgentCreateConversationFailed
   fullName: Microsoft.Graph.Communications.Common.LocalHangupDetail.MediaControllerAgentCreateConversationFailed
   nameWithType: LocalHangupDetail.MediaControllerAgentCreateConversationFailed
-- uid: Microsoft.Graph.Communications.Common.LocalHangupDetail.MediaControllerAgentCreateMediaControllerWrapperFailed
-  name: MediaControllerAgentCreateMediaControllerWrapperFailed
-  href: common/Microsoft.Graph.Communications.Common.LocalHangupDetail.html#Microsoft_Graph_Communications_Common_LocalHangupDetail_MediaControllerAgentCreateMediaControllerWrapperFailed
-  commentId: F:Microsoft.Graph.Communications.Common.LocalHangupDetail.MediaControllerAgentCreateMediaControllerWrapperFailed
-  fullName: Microsoft.Graph.Communications.Common.LocalHangupDetail.MediaControllerAgentCreateMediaControllerWrapperFailed
-  nameWithType: LocalHangupDetail.MediaControllerAgentCreateMediaControllerWrapperFailed
+- uid: Microsoft.Graph.Communications.Common.LocalHangupDetail.MediaControllerAgentCreateMediaControllerClientFailed
+  name: MediaControllerAgentCreateMediaControllerClientFailed
+  href: common/Microsoft.Graph.Communications.Common.LocalHangupDetail.html#Microsoft_Graph_Communications_Common_LocalHangupDetail_MediaControllerAgentCreateMediaControllerClientFailed
+  commentId: F:Microsoft.Graph.Communications.Common.LocalHangupDetail.MediaControllerAgentCreateMediaControllerClientFailed
+  fullName: Microsoft.Graph.Communications.Common.LocalHangupDetail.MediaControllerAgentCreateMediaControllerClientFailed
+  nameWithType: LocalHangupDetail.MediaControllerAgentCreateMediaControllerClientFailed
 - uid: Microsoft.Graph.Communications.Common.LocalHangupDetail.MediaControllerAgentIntializeFailed
   name: MediaControllerAgentIntializeFailed
   href: common/Microsoft.Graph.Communications.Common.LocalHangupDetail.html#Microsoft_Graph_Communications_Common_LocalHangupDetail_MediaControllerAgentIntializeFailed
@@ -18042,6 +18108,15 @@ references:
   commentId: Overload:Microsoft.Graph.Communications.Common.Validator.Equals
   fullName: Microsoft.Graph.Communications.Common.Validator.Equals
   nameWithType: Validator.Equals
+- uid: Microsoft.Graph.Communications.Common.Validator.Equals``1(``0,``0,System.Collections.IComparer,System.String,System.String)
+  name: Equals<T>(T, T, IComparer, String, String)
+  href: common/Microsoft.Graph.Communications.Common.Validator.html#Microsoft_Graph_Communications_Common_Validator_Equals__1___0___0_System_Collections_IComparer_System_String_System_String_
+  commentId: M:Microsoft.Graph.Communications.Common.Validator.Equals``1(``0,``0,System.Collections.IComparer,System.String,System.String)
+  name.vb: Equals(Of T)(T, T, IComparer, String, String)
+  fullName: Microsoft.Graph.Communications.Common.Validator.Equals<T>(T, T, System.Collections.IComparer, System.String, System.String)
+  fullName.vb: Microsoft.Graph.Communications.Common.Validator.Equals(Of T)(T, T, System.Collections.IComparer, System.String, System.String)
+  nameWithType: Validator.Equals<T>(T, T, IComparer, String, String)
+  nameWithType.vb: Validator.Equals(Of T)(T, T, IComparer, String, String)
 - uid: Microsoft.Graph.Communications.Common.Validator.Equals``1(``0,``0,System.String,System.String)
   name: Equals<T>(T, T, String, String)
   href: common/Microsoft.Graph.Communications.Common.Validator.html#Microsoft_Graph_Communications_Common_Validator_Equals__1___0___0_System_String_System_String_
@@ -23421,12 +23496,12 @@ references:
   commentId: Overload:Microsoft.Graph.ICallRequestBuilder.SubscribeToTone
   fullName: Microsoft.Graph.ICallRequestBuilder.SubscribeToTone
   nameWithType: ICallRequestBuilder.SubscribeToTone
-- uid: Microsoft.Graph.ICallRequestBuilder.Transfer(Microsoft.Graph.InvitationParticipantInfo,Microsoft.Graph.IdentitySet,System.String)
-  name: Transfer(InvitationParticipantInfo, IdentitySet, String)
-  href: core/Microsoft.Graph.ICallRequestBuilder.html#Microsoft_Graph_ICallRequestBuilder_Transfer_Microsoft_Graph_InvitationParticipantInfo_Microsoft_Graph_IdentitySet_System_String_
-  commentId: M:Microsoft.Graph.ICallRequestBuilder.Transfer(Microsoft.Graph.InvitationParticipantInfo,Microsoft.Graph.IdentitySet,System.String)
-  fullName: Microsoft.Graph.ICallRequestBuilder.Transfer(Microsoft.Graph.InvitationParticipantInfo, Microsoft.Graph.IdentitySet, System.String)
-  nameWithType: ICallRequestBuilder.Transfer(InvitationParticipantInfo, IdentitySet, String)
+- uid: Microsoft.Graph.ICallRequestBuilder.Transfer(Microsoft.Graph.InvitationParticipantInfo)
+  name: Transfer(InvitationParticipantInfo)
+  href: core/Microsoft.Graph.ICallRequestBuilder.html#Microsoft_Graph_ICallRequestBuilder_Transfer_Microsoft_Graph_InvitationParticipantInfo_
+  commentId: M:Microsoft.Graph.ICallRequestBuilder.Transfer(Microsoft.Graph.InvitationParticipantInfo)
+  fullName: Microsoft.Graph.ICallRequestBuilder.Transfer(Microsoft.Graph.InvitationParticipantInfo)
+  nameWithType: ICallRequestBuilder.Transfer(InvitationParticipantInfo)
 - uid: Microsoft.Graph.ICallRequestBuilder.Transfer*
   name: Transfer
   href: core/Microsoft.Graph.ICallRequestBuilder.html#Microsoft_Graph_ICallRequestBuilder_Transfer_
@@ -31372,6 +31447,18 @@ references:
   commentId: Overload:Microsoft.Graph.Message.Created
   fullName: Microsoft.Graph.Message.Created
   nameWithType: Message.Created
+- uid: Microsoft.Graph.Message.CreatedDateTime
+  name: CreatedDateTime
+  href: core/Microsoft.Graph.Message.html#Microsoft_Graph_Message_CreatedDateTime
+  commentId: P:Microsoft.Graph.Message.CreatedDateTime
+  fullName: Microsoft.Graph.Message.CreatedDateTime
+  nameWithType: Message.CreatedDateTime
+- uid: Microsoft.Graph.Message.CreatedDateTime*
+  name: CreatedDateTime
+  href: core/Microsoft.Graph.Message.html#Microsoft_Graph_Message_CreatedDateTime_
+  commentId: Overload:Microsoft.Graph.Message.CreatedDateTime
+  fullName: Microsoft.Graph.Message.CreatedDateTime
+  nameWithType: Message.CreatedDateTime
 - uid: Microsoft.Graph.Message.Culture
   name: Culture
   href: core/Microsoft.Graph.Message.html#Microsoft_Graph_Message_Culture
@@ -31456,6 +31543,18 @@ references:
   commentId: Overload:Microsoft.Graph.Message.Modified
   fullName: Microsoft.Graph.Message.Modified
   nameWithType: Message.Modified
+- uid: Microsoft.Graph.Message.ModifiedDateTime
+  name: ModifiedDateTime
+  href: core/Microsoft.Graph.Message.html#Microsoft_Graph_Message_ModifiedDateTime
+  commentId: P:Microsoft.Graph.Message.ModifiedDateTime
+  fullName: Microsoft.Graph.Message.ModifiedDateTime
+  nameWithType: Message.ModifiedDateTime
+- uid: Microsoft.Graph.Message.ModifiedDateTime*
+  name: ModifiedDateTime
+  href: core/Microsoft.Graph.Message.html#Microsoft_Graph_Message_ModifiedDateTime_
+  commentId: Overload:Microsoft.Graph.Message.ModifiedDateTime
+  fullName: Microsoft.Graph.Message.ModifiedDateTime
+  nameWithType: Message.ModifiedDateTime
 - uid: Microsoft.Graph.MessageContentType
   name: MessageContentType
   href: core/Microsoft.Graph.MessageContentType.html
@@ -32443,6 +32542,18 @@ references:
   commentId: Overload:Microsoft.Graph.OnlineMeeting.AudioConferencing
   fullName: Microsoft.Graph.OnlineMeeting.AudioConferencing
   nameWithType: OnlineMeeting.AudioConferencing
+- uid: Microsoft.Graph.OnlineMeeting.CanceledDateTime
+  name: CanceledDateTime
+  href: core/Microsoft.Graph.OnlineMeeting.html#Microsoft_Graph_OnlineMeeting_CanceledDateTime
+  commentId: P:Microsoft.Graph.OnlineMeeting.CanceledDateTime
+  fullName: Microsoft.Graph.OnlineMeeting.CanceledDateTime
+  nameWithType: OnlineMeeting.CanceledDateTime
+- uid: Microsoft.Graph.OnlineMeeting.CanceledDateTime*
+  name: CanceledDateTime
+  href: core/Microsoft.Graph.OnlineMeeting.html#Microsoft_Graph_OnlineMeeting_CanceledDateTime_
+  commentId: Overload:Microsoft.Graph.OnlineMeeting.CanceledDateTime
+  fullName: Microsoft.Graph.OnlineMeeting.CanceledDateTime
+  nameWithType: OnlineMeeting.CanceledDateTime
 - uid: Microsoft.Graph.OnlineMeeting.CanceledTime
   name: CanceledTime
   href: core/Microsoft.Graph.OnlineMeeting.html#Microsoft_Graph_OnlineMeeting_CanceledTime
@@ -32479,6 +32590,18 @@ references:
   commentId: Overload:Microsoft.Graph.OnlineMeeting.CorrelationId
   fullName: Microsoft.Graph.OnlineMeeting.CorrelationId
   nameWithType: OnlineMeeting.CorrelationId
+- uid: Microsoft.Graph.OnlineMeeting.CreationDateTime
+  name: CreationDateTime
+  href: core/Microsoft.Graph.OnlineMeeting.html#Microsoft_Graph_OnlineMeeting_CreationDateTime
+  commentId: P:Microsoft.Graph.OnlineMeeting.CreationDateTime
+  fullName: Microsoft.Graph.OnlineMeeting.CreationDateTime
+  nameWithType: OnlineMeeting.CreationDateTime
+- uid: Microsoft.Graph.OnlineMeeting.CreationDateTime*
+  name: CreationDateTime
+  href: core/Microsoft.Graph.OnlineMeeting.html#Microsoft_Graph_OnlineMeeting_CreationDateTime_
+  commentId: Overload:Microsoft.Graph.OnlineMeeting.CreationDateTime
+  fullName: Microsoft.Graph.OnlineMeeting.CreationDateTime
+  nameWithType: OnlineMeeting.CreationDateTime
 - uid: Microsoft.Graph.OnlineMeeting.CreationTime
   name: CreationTime
   href: core/Microsoft.Graph.OnlineMeeting.html#Microsoft_Graph_OnlineMeeting_CreationTime
@@ -32491,6 +32614,18 @@ references:
   commentId: Overload:Microsoft.Graph.OnlineMeeting.CreationTime
   fullName: Microsoft.Graph.OnlineMeeting.CreationTime
   nameWithType: OnlineMeeting.CreationTime
+- uid: Microsoft.Graph.OnlineMeeting.EndDateTime
+  name: EndDateTime
+  href: core/Microsoft.Graph.OnlineMeeting.html#Microsoft_Graph_OnlineMeeting_EndDateTime
+  commentId: P:Microsoft.Graph.OnlineMeeting.EndDateTime
+  fullName: Microsoft.Graph.OnlineMeeting.EndDateTime
+  nameWithType: OnlineMeeting.EndDateTime
+- uid: Microsoft.Graph.OnlineMeeting.EndDateTime*
+  name: EndDateTime
+  href: core/Microsoft.Graph.OnlineMeeting.html#Microsoft_Graph_OnlineMeeting_EndDateTime_
+  commentId: Overload:Microsoft.Graph.OnlineMeeting.EndDateTime
+  fullName: Microsoft.Graph.OnlineMeeting.EndDateTime
+  nameWithType: OnlineMeeting.EndDateTime
 - uid: Microsoft.Graph.OnlineMeeting.EndTime
   name: EndTime
   href: core/Microsoft.Graph.OnlineMeeting.html#Microsoft_Graph_OnlineMeeting_EndTime
@@ -32515,6 +32650,18 @@ references:
   commentId: Overload:Microsoft.Graph.OnlineMeeting.EntryExitAnnouncement
   fullName: Microsoft.Graph.OnlineMeeting.EntryExitAnnouncement
   nameWithType: OnlineMeeting.EntryExitAnnouncement
+- uid: Microsoft.Graph.OnlineMeeting.ExpirationDateTime
+  name: ExpirationDateTime
+  href: core/Microsoft.Graph.OnlineMeeting.html#Microsoft_Graph_OnlineMeeting_ExpirationDateTime
+  commentId: P:Microsoft.Graph.OnlineMeeting.ExpirationDateTime
+  fullName: Microsoft.Graph.OnlineMeeting.ExpirationDateTime
+  nameWithType: OnlineMeeting.ExpirationDateTime
+- uid: Microsoft.Graph.OnlineMeeting.ExpirationDateTime*
+  name: ExpirationDateTime
+  href: core/Microsoft.Graph.OnlineMeeting.html#Microsoft_Graph_OnlineMeeting_ExpirationDateTime_
+  commentId: Overload:Microsoft.Graph.OnlineMeeting.ExpirationDateTime
+  fullName: Microsoft.Graph.OnlineMeeting.ExpirationDateTime
+  nameWithType: OnlineMeeting.ExpirationDateTime
 - uid: Microsoft.Graph.OnlineMeeting.ExpirationTime
   name: ExpirationTime
   href: core/Microsoft.Graph.OnlineMeeting.html#Microsoft_Graph_OnlineMeeting_ExpirationTime
@@ -32587,6 +32734,18 @@ references:
   commentId: Overload:Microsoft.Graph.OnlineMeeting.Participants
   fullName: Microsoft.Graph.OnlineMeeting.Participants
   nameWithType: OnlineMeeting.Participants
+- uid: Microsoft.Graph.OnlineMeeting.StartDateTime
+  name: StartDateTime
+  href: core/Microsoft.Graph.OnlineMeeting.html#Microsoft_Graph_OnlineMeeting_StartDateTime
+  commentId: P:Microsoft.Graph.OnlineMeeting.StartDateTime
+  fullName: Microsoft.Graph.OnlineMeeting.StartDateTime
+  nameWithType: OnlineMeeting.StartDateTime
+- uid: Microsoft.Graph.OnlineMeeting.StartDateTime*
+  name: StartDateTime
+  href: core/Microsoft.Graph.OnlineMeeting.html#Microsoft_Graph_OnlineMeeting_StartDateTime_
+  commentId: Overload:Microsoft.Graph.OnlineMeeting.StartDateTime
+  fullName: Microsoft.Graph.OnlineMeeting.StartDateTime
+  nameWithType: OnlineMeeting.StartDateTime
 - uid: Microsoft.Graph.OnlineMeeting.StartTime
   name: StartTime
   href: core/Microsoft.Graph.OnlineMeeting.html#Microsoft_Graph_OnlineMeeting_StartTime
