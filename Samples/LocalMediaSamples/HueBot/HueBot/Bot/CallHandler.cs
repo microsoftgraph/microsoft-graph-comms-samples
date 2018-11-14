@@ -341,7 +341,10 @@ namespace Sample.HueBot.Bot
                     this.logger.Info($"[{this.Call.Id}] Subscribing to {participant.Id} using MSI {msi}");
                 }
 
-                this.Call.GetLocalMediaSession().VideoSocket.Subscribe(VideoResolution.HD1080p, msi);
+                if (uint.TryParse(participant.Resource.MediaStreams.FirstOrDefault(m => m.MediaType == Modality.Video)?.SourceId, out msi))
+                {
+                    this.Call.GetLocalMediaSession().VideoSocket.Subscribe(VideoResolution.HD1080p, msi);
+                }
 
                 // Set the dominant speaker after subscribe completed successfully.
                 // If subscribe fails, another subscribe can set it properly.
