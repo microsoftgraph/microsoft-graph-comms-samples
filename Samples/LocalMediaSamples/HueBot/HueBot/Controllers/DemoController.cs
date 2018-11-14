@@ -11,7 +11,7 @@ namespace Sample.HueBot.Controllers
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Graph.Core.Telemetry;
+    using Microsoft.Graph.Communications.Common.Telemetry;
     using Newtonsoft.Json;
     using Sample.HueBot.Bot;
 

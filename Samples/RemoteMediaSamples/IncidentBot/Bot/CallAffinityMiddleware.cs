@@ -10,12 +10,10 @@ namespace Sample.IncidentBot.Bot
     using System.Net;
     using System.Net.Http;
     using System.Threading.Tasks;
-
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Http.Extensions;
-    using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.WebApiCompatShim;
-    using Microsoft.Graph.Core.Telemetry;
+    using Microsoft.Graph.Communications.Common.Telemetry;
 
     /// <summary>
     /// The call affinity helper class to help re-route calls to specific web instance.

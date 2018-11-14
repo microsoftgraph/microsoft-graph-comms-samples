@@ -10,9 +10,9 @@ namespace Sample.IncidentBot.Bot
     using System.Threading;
     using System.Threading.Tasks;
     using Microsoft.Graph;
-    using Microsoft.Graph.Calls;
-    using Microsoft.Graph.Core.Telemetry;
-    using Microsoft.Graph.StatefulClient;
+    using Microsoft.Graph.Communications.Calls;
+    using Microsoft.Graph.Communications.Common.Telemetry;
+    using Microsoft.Graph.Communications.Resources;
     using Sample.IncidentBot.Data;
     using Sample.IncidentBot.IncidentStatus;
 

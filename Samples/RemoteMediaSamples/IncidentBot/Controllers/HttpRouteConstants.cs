@@ -18,7 +18,7 @@ namespace Sample.IncidentBot
         /// <summary>
         /// Route for incoming requests including notifications, callbacks and incoming call.
         /// </summary>
-        public const string OnIncomingRequestRoute = HttpRouteConstants.CallbackPrefix + "/calling";
+        public const string OnIncomingRequestRoute = CallbackPrefix + "/calling";
 
         /// <summary>
         /// Route for join call request.

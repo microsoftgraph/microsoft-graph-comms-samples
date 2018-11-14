@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IRequestAuthenticationProvider
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IRequestAuthenticationProvider
+   ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Microsoft.Graph.Communications.Client.Authentication.IRequestAuthenticationProvider">
+  
+  
+  <h1 id="Microsoft_Graph_Communications_Client_Authentication_IRequestAuthenticationProvider" data-uid="Microsoft.Graph.Communications.Client.Authentication.IRequestAuthenticationProvider" class="text-break">Interface IRequestAuthenticationProvider
+  </h1>
+  <div class="markdown level0 summary"><p>The authentication provider interface.
+This is used to authenticate <br></p>
+<ul>
+<li>Inbound requests from Microsoft Graph. It validates the request was issued by
+Microsoft Graph. <br></li>
+<li>Outbound requests to Microsoft Graph. Tenant token is acquired to provide
+Microsoft Graph the permissions the bot has been consented by the tenant admin</li>
+</ul>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.Communications.Client.Authentication.html">Microsoft.Graph.Communications.Client.Authentication</a></h6>
+  <h6><strong>Assembly</strong>: Microsoft.Graph.Communications.Client.dll</h6>
+  <h5 id="Microsoft_Graph_Communications_Client_Authentication_IRequestAuthenticationProvider_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IRequestAuthenticationProvider</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Microsoft_Graph_Communications_Client_Authentication_IRequestAuthenticationProvider_AuthenticateOutboundRequestAsync_" data-uid="Microsoft.Graph.Communications.Client.Authentication.IRequestAuthenticationProvider.AuthenticateOutboundRequestAsync*"></a>
+  <h4 id="Microsoft_Graph_Communications_Client_Authentication_IRequestAuthenticationProvider_AuthenticateOutboundRequestAsync_System_Net_Http_HttpRequestMessage_System_String_" data-uid="Microsoft.Graph.Communications.Client.Authentication.IRequestAuthenticationProvider.AuthenticateOutboundRequestAsync(System.Net.Http.HttpRequestMessage,System.String)">AuthenticateOutboundRequestAsync(HttpRequestMessage, String)</h4>
+  <div class="markdown level1 summary"><p>Authenticates the specified request message.
+This method will be called any time there is an outbound request. This
+method should add any required headers for authentication (eg: Authorization).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task AuthenticateOutboundRequestAsync(HttpRequestMessage request, string tenant)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The outbound http request object.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">tenant</span></td>
+        <td><p>The tenant for which this request belongs to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>The <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>. SDK awaits on this task to make sure
+the bot has included the required headers.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Client_Authentication_IRequestAuthenticationProvider_ValidateInboundRequestAsync_" data-uid="Microsoft.Graph.Communications.Client.Authentication.IRequestAuthenticationProvider.ValidateInboundRequestAsync*"></a>
+  <h4 id="Microsoft_Graph_Communications_Client_Authentication_IRequestAuthenticationProvider_ValidateInboundRequestAsync_System_Net_Http_HttpRequestMessage_" data-uid="Microsoft.Graph.Communications.Client.Authentication.IRequestAuthenticationProvider.ValidateInboundRequestAsync(System.Net.Http.HttpRequestMessage)">ValidateInboundRequestAsync(HttpRequestMessage)</h4>
+  <div class="markdown level1 summary"><p>Validates the inbound request.
+This method will be called any time we have an incoming request.
+Returning <a class="xref" href="Microsoft.Graph.Communications.Client.Authentication.RequestValidationResult.html#Microsoft_Graph_Communications_Client_Authentication_RequestValidationResult_IsValid">IsValid</a> false will result in
+a Forbidden response being created.
+SDK waits until a successful validation is returned along with tenant data in
+<a class="xref" href="Microsoft.Graph.Communications.Client.Authentication.RequestValidationResult.html">RequestValidationResult</a> to fire any events.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;RequestValidationResult&gt; ValidateInboundRequestAsync(HttpRequestMessage request)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The incoming request.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Microsoft.Graph.Communications.Client.Authentication.RequestValidationResult.html">RequestValidationResult</a>&gt;</td>
+        <td><p>The <a class="xref" href="Microsoft.Graph.Communications.Client.Authentication.RequestValidationResult.html">RequestValidationResult</a> structure.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

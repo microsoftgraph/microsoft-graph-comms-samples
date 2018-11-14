@@ -1,14 +1,14 @@
 # Multiple Applications within single Bot
 
-Some developers may wish to support multiple applications from within the same application code.  With very little effort, this can be done using multiple instances of `IStatefulClient`.  There are some steps that should be taken to ensure that we make outbound requests with the right application, and we forward incoming notifications to the right application.
+Some developers may wish to support multiple applications from within the same application code.  With very little effort, this can be done using multiple instances of `ICommunicationsClient`.  There are some steps that should be taken to ensure that we make outbound requests with the right application, and we forward incoming notifications to the right application.
 
 This writeup will demonstrate how to alter the existing samples to add multiple application support.  We have not created a sample of this scenario explicitly given that it is not a standard way to use the Graph SDK.
 
-## Create multiple stateful clients
+## Create multiple communications clients
 
-First, each application instance requires it's own `IStatefulClient` instance, given that it supports a single `IRequestAuthenticationProvider`
+First, each application instance requires it's own `ICommunicationsClient` instance, given that it supports a single `IRequestAuthenticationProvider`
 
-Let's change the Bot `IStatefulClient Client` to an `IDictionary<string, IStatefulClient> Clients` and create our clients.
+Let's change the Bot `ICommunicationsClient Client` to an `IDictionary<string, ICommunicationsClient> Clients` and create our clients.
 
 ```csharp
 /// <summary>
@@ -33,7 +33,7 @@ private void AddClient(string appId, string appSecret)
         Service.Instance.Configuration.CallControlBaseUrl,
         appId);
 
-    var builder = new StatefulClientBuilder("AudioVideoPlaybackBot", appId);
+    var builder = new CommunicationsClientBuilder("AudioVideoPlaybackBot", appId);
     
     builder
         .SetAuthenticationProvider(
@@ -54,7 +54,7 @@ private void AddClient(string appId, string appSecret)
 /// <summary>
 /// Gets the contained app clients
 /// </summary>
-public IDictionary<string, IStatefulClient> Clients { get; }
+public IDictionary<string, ICommunicationsClient> Clients { get; }
 ```
 
 Let's also add a reference to the ICallCollection to the call handler for ease of access.  This will allow us to reference the correct collection/client from any given call id.
@@ -90,7 +90,7 @@ To handle the app id in the URI the controllers for callbacks need to be changed
 /// <summary>
 /// Gets a reference to singleton sample bot/client instance
 /// </summary>
-private IDictionary<string, IStatefulClient> Clients =>
+private IDictionary<string, ICommunicationsClient> Clients =>
     Bot.Instance.Clients;
 
 /// <summary>

@@ -8,7 +8,7 @@ namespace Sample.IncidentBot.Http
     using System;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Graph.Core;
+    using Microsoft.Graph.Communications.Common;
     using Sample.IncidentBot.Bot;
     using Sample.IncidentBot.Data;
 

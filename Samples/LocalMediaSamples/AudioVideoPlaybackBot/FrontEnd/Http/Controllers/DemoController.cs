@@ -17,8 +17,8 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
     using System.Text;
     using System.Threading.Tasks;
     using System.Web.Http;
-    using Microsoft.Graph.Core.Telemetry;
-    using Microsoft.Graph.CoreSDK.Serialization;
+    using Microsoft.Graph.Communications.Common.Telemetry;
+    using Microsoft.Graph.Communications.Core.Serialization;
     using Sample.AudioVideoPlaybackBot.FrontEnd.Bot;
 
     /// <summary>

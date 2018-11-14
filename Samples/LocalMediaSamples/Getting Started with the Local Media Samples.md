@@ -17,10 +17,11 @@ This bot demonstrates local media scenarios.
 # Getting Started
 
 1. [Create your new bot](https://dev.botframework.com/bots) and select the **Bot Channel Registrations** option.
-2. Configure your channels and add the Skype (and Teams) Channels.  Teams bots require the Skype channel.
-3. In the Skype Channel, enable *Calling*, enable *Real Time Media*, and enter your callback URI to support incoming call scenarios.  
+2. Configure your channels and add the Microsoft Teams Channel.
+3. In the Microsoft Teams Channel, enable *Calling* under Calling tab, and enter your callback URI to support incoming call scenarios.  
    - The callback URI will be based on your hosting configuration.  If you choose to run your bot locally via a proxy service such as ngrok and wish to support incoming call scenarios, please enter your ngrok URI here.
-4. The permission needs to be consented by tenant admin. Go to https://login.microsoftonline.com/common/adminconsent?client_id=<app_id>&state=<any_number>&redirect_uri=<callback_url> using tenant admin to sign-in , then consent for the whole tenant.
+   - ![](../images/msteams-enable-calling.png)
+4. The permission needs to be consented by tenant admin. Go to "https://login.microsoftonline.com/common/adminconsent?client_id=<app_id>&state=<any_number>&redirect_uri=<callback_url>" using tenant admin to sign-in , then consent for the whole tenant.
 5. Configure your permissions. Go to Settings page and click on the *Manage* link near *Microsoft App ID*. In the new page, click *Add* button after *Application Permissions* and select *Calls.AccessMedia.All*, and then save the change. If your bot also need to join meeting, select *Calls.JoinGroupCall.All* as well.
 6. Please read the [Concepts](https://docs.microsoft.com/en-us/azure/bot-service/dotnet/bot-builder-dotnet-real-time-media-concepts?view=azure-bot-service-3.0) and [Requirements](https://docs.microsoft.com/en-us/azure/bot-service/dotnet/bot-builder-dotnet-real-time-media-requirements?view=azure-bot-service-3.0) articles for more in depth knowledge on local media bots.
 7. Follow [Deploy your Bot](https://docs.microsoft.com/en-us/azure/bot-service/dotnet/bot-builder-dotnet-real-time-deploy-visual-studio?view=azure-bot-service-3.0) guide to publish your bot to the web.

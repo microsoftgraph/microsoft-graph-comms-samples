@@ -14,11 +14,12 @@ namespace Sample.HueBot.Bot
     using System.Net;
     using System.Threading.Tasks;
     using Microsoft.Graph;
-    using Microsoft.Graph.Calls;
-    using Microsoft.Graph.Calls.Media;
-    using Microsoft.Graph.Core.Common;
-    using Microsoft.Graph.Core.Telemetry;
-    using Microsoft.Graph.StatefulClient;
+    using Microsoft.Graph.Communications.Calls;
+    using Microsoft.Graph.Communications.Calls.Media;
+    using Microsoft.Graph.Communications.Client;
+    using Microsoft.Graph.Communications.Common;
+    using Microsoft.Graph.Communications.Common.Telemetry;
+    using Microsoft.Graph.Communications.Resources;
     using Microsoft.Skype.Bots.Media;
     using Sample.Common.Authentication;
     using Sample.Common.Meetings;
@@ -52,7 +53,7 @@ namespace Sample.HueBot.Bot
                     options.AppId,
                     options.AppSecret,
                     this.logger);
-            var builder = new StatefulClientBuilder("HueBot", options.AppId, this.logger);
+            var builder = new CommunicationsClientBuilder("HueBot", options.AppId, this.logger);
 
             builder.SetAuthenticationProvider(authProvider);
             builder.SetNotificationUrl(options.BotBaseUrl.ReplacePort(options.BotBaseUrl.Port + serviceContext.NodeInstance()));
@@ -86,7 +87,7 @@ namespace Sample.HueBot.Bot
         /// <value>
         /// The client.
         /// </value>
-        public IStatefulClient Client { get; }
+        public ICommunicationsClient Client { get; }
 
         /// <summary>
         /// Gets the online meeting.
@@ -110,11 +111,12 @@ namespace Sample.HueBot.Bot
             ChatInfo chatInfo;
             if (!string.IsNullOrWhiteSpace(joinCallBody.MeetingId))
             {
+                // Meeting id is a cloud-video-interop numeric meeting id.
                 var onlineMeeting = await this.OnlineMeetings
                     .GetOnlineMeetingAsync(joinCallBody.TenantId, joinCallBody.MeetingId, correlationId)
                     .ConfigureAwait(false);
 
-                meetingInfo = onlineMeeting.MeetingInfo;
+                meetingInfo = new OrganizerMeetingInfo { Organizer = onlineMeeting.Participants.Organizer.Identity, };
                 chatInfo = onlineMeeting.ChatInfo;
                 //// meetingInfo.AllowConversationWithoutHost = joinCallBody.AllowConversationWithoutHost;
             }
@@ -212,7 +214,7 @@ namespace Sample.HueBot.Bot
         /// Incoming call handler.
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="args">The <see cref="CollectionEventArgs{ICall}"/> instance containing the event data.</param>
+        /// <param name="args">The <see cref="CollectionEventArgs{TEntity}"/> instance containing the event data.</param>
         private void CallsOnIncoming(ICallCollection sender, CollectionEventArgs<ICall> args)
         {
             args.AddedResources.ForEach(call =>

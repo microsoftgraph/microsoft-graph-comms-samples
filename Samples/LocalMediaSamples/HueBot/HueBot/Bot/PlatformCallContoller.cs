@@ -8,7 +8,7 @@ namespace Sample.HueBot.Bot
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Graph;
-    using Microsoft.Graph.Core.Telemetry;
+    using Microsoft.Graph.Communications.Common.Telemetry;
     using Sample.HueBot.Controllers;
     using Sample.HueBot.Extensions;
 

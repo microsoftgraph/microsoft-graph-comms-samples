@@ -9,8 +9,8 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
     using System.Threading.Tasks;
     using System.Web.Http;
     using Microsoft.Graph;
-    using Microsoft.Graph.Core.Telemetry;
-    using Microsoft.Graph.StatefulClient;
+    using Microsoft.Graph.Communications.Client;
+    using Microsoft.Graph.Communications.Common.Telemetry;
     using Sample.AudioVideoPlaybackBot.FrontEnd.Bot;
 
     /// <summary>
@@ -27,7 +27,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
         /// <summary>
         /// Gets a reference to singleton sample bot/client instance.
         /// </summary>
-        private IStatefulClient Client => Bot.Instance.Client;
+        private ICommunicationsClient Client => Bot.Instance.Client;
 
         /// <summary>
         /// Handle a callback for an existing call.

@@ -11,7 +11,7 @@ namespace Sample.IncidentBot.Http
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.WebApiCompatShim;
     using Microsoft.Graph;
-    using Microsoft.Graph.Core.Telemetry;
+    using Microsoft.Graph.Communications.Common.Telemetry;
     using Sample.IncidentBot.Bot;
 
     /// <summary>

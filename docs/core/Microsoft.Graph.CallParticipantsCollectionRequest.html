@@ -20,7 +20,7 @@
     <meta property="docfx:tocrel" content="toc.html">
     
     <meta property="docfx:rel" content="../">
-    
+    <meta property="docfx:newtab" content="true">
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
@@ -37,7 +37,7 @@
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
+                <img id="logo" class="svg" src="../resources/logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -164,7 +164,7 @@
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.html">Microsoft.Graph</a></h6>
-  <h6><strong>Assembly</strong>: Microsoft.Graph.CoreSDK.dll</h6>
+  <h6><strong>Assembly</strong>: Microsoft.Graph.Communications.Core.dll</h6>
   <h5 id="Microsoft_Graph_CallParticipantsCollectionRequest_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class CallParticipantsCollectionRequest : BaseRequest, ICallParticipantsCollectionRequest, IBaseRequest</code></pre>
@@ -219,7 +219,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;Participant&gt; AddAsync(Participant Participant)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;Participant&gt; AddAsync(Participant participant)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -233,7 +233,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="Microsoft.Graph.Participant.html">Participant</a></td>
-        <td><span class="parametername">Participant</span></td>
+        <td><span class="parametername">participant</span></td>
         <td><p>The Participant to add.</p>
 </td>
       </tr>
@@ -262,7 +262,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;Participant&gt; AddAsync(Participant Participant, CancellationToken cancellationToken)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;Participant&gt; AddAsync(Participant participant, CancellationToken cancellationToken)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -276,7 +276,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="Microsoft.Graph.Participant.html">Participant</a></td>
-        <td><span class="parametername">Participant</span></td>
+        <td><span class="parametername">participant</span></td>
         <td><p>The Participant to add.</p>
 </td>
       </tr>

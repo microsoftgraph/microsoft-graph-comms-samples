@@ -27,7 +27,7 @@ namespace Sample.IncidentBot.IncidentStatus
         /// <summary>
         /// Gets the incident count.
         /// </summary>
-        public int IncidentCount => this.statusDataDictionary.Count;
+        public int IncidentCount => statusDataDictionary.Count;
 
         /// <summary>
         /// Add an incident.

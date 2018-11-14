@@ -37,7 +37,7 @@
     <PackageReference Include="Microsoft.Data.OData" Version="5.8.4" />
     <PackageReference Include="Microsoft.Data.Services.Client" Version="5.8.4" />
     <PackageReference Include="Microsoft.Owin.Host.HttpListener" Version="4.0.0" />
-    <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.9.0.146-alpha" />
+    <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.9.1.9-alpha" />
     <PackageReference Include="Microsoft.WindowsAzure.ConfigurationManager" Version="3.2.3" />
     <PackageReference Include="Microsoft.WindowsAzure.SDK" Version="2.9.0" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
@@ -58,6 +58,10 @@
   <ItemGroup>
     <None Include="app.config">
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="mle1080p15vbss_2500Kbps.264">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="output180p.264">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

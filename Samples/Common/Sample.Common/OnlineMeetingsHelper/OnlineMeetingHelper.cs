@@ -8,8 +8,8 @@ namespace Sample.Common.OnlineMeetings
     using System;
     using System.Threading.Tasks;
     using Microsoft.Graph;
-    using Microsoft.Graph.CoreSDK;
-    using Microsoft.Graph.StatefulClient.Authentication;
+    using Microsoft.Graph.Communications.Client.Authentication;
+    using Microsoft.Graph.Communications.Core;
 
     /// <summary>
     /// Online meeting class to fetch meeting info based of meeting id (ex: vtckey).
@@ -37,7 +37,7 @@ namespace Sample.Common.OnlineMeetings
         /// <param name="meetingId">The meeting identifier.</param>
         /// <param name="correlationId">The correlation identifier.</param>
         /// <returns> The onlinemeeting. </returns>
-        public async Task<Microsoft.Graph.OnlineMeeting> GetOnlineMeetingAsync(string tenantId, string meetingId, Guid correlationId)
+        public async Task<OnlineMeeting> GetOnlineMeetingAsync(string tenantId, string meetingId, Guid correlationId)
         {
             IAuthenticationProvider GetAuthenticationProvider()
             {

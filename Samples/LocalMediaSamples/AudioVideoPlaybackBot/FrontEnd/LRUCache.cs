@@ -34,7 +34,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
         /// <param name="size">Size ofthe cache.</param>
         public LRUCache(uint size)
         {
-            if (size > LRUCache.Max)
+            if (size > Max)
             {
                 throw new ArgumentException($"size value too large; max value is {Max}");
             }

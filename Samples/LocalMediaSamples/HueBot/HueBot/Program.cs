@@ -9,8 +9,8 @@ namespace HueBot
     using System.Diagnostics;
     using System.Threading;
     using System.Threading.Tasks;
-    using Microsoft.Graph.Core.Common;
-    using Microsoft.Graph.Core.Telemetry;
+    using Microsoft.Graph.Communications.Common;
+    using Microsoft.Graph.Communications.Common.Telemetry;
     using Microsoft.ServiceFabric.Services.Runtime;
 
     /// <summary>

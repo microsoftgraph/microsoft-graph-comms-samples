@@ -37,7 +37,7 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         /// Gets helper to convert string.
         /// </summary>
         /// <returns><see cref="string" />.</returns>
-        public override string Message => $"Parameter name: {this.Parameter}\r\n{base.Message}";
+        public override string Message => $"Parameter name: {Parameter}\r\n{base.Message}";
 
         /// <summary>
         /// Helper to convert string.

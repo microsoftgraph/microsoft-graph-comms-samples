@@ -12,7 +12,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
 {
     using System.Web.Http;
     using System.Web.Http.ExceptionHandling;
-    using Microsoft.Graph.Core.Telemetry;
+    using Microsoft.Graph.Communications.Common.Telemetry;
     using Owin;
 
     /// <summary>

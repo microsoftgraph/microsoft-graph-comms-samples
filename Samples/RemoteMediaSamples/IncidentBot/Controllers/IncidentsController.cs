@@ -9,7 +9,7 @@ namespace IcMBot.Controllers
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Graph.Core;
+    using Microsoft.Graph.Communications.Common;
     using Sample.IncidentBot.Bot;
     using Sample.IncidentBot.Data;
     using Sample.IncidentBot.IncidentStatus;

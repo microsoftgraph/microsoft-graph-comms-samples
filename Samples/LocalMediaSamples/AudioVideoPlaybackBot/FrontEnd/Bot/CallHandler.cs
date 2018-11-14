@@ -10,13 +10,12 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
     using System.Collections.Generic;
     using System.Linq;
     using Microsoft.Graph;
-    using Microsoft.Graph.Calls;
-    using Microsoft.Graph.Calls.Media;
-    using Microsoft.Graph.Core.Telemetry;
-    using Microsoft.Graph.CoreSDK.Serialization;
-    using Microsoft.Graph.StatefulClient;
+    using Microsoft.Graph.Communications.Calls;
+    using Microsoft.Graph.Communications.Calls.Media;
+    using Microsoft.Graph.Communications.Common.Telemetry;
+    using Microsoft.Graph.Communications.Core.Serialization;
+    using Microsoft.Graph.Communications.Resources;
     using Microsoft.Skype.Bots.Media;
-    using Sample.Common.Logging;
 
     /// <summary>
     /// Call Handler Logic.

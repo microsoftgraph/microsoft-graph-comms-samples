@@ -14,7 +14,7 @@ namespace Sample.IncidentBot
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
-    using Microsoft.Graph.Core.Telemetry;
+    using Microsoft.Graph.Communications.Common.Telemetry;
     using Sample.IncidentBot.Bot;
 
     /// <summary>

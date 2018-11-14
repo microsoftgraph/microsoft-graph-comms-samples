@@ -12,7 +12,7 @@ namespace Microsoft.AspNetCore.Mvc
     using System.Net.Http.Headers;
     using System.Threading.Tasks;
     using Microsoft.Extensions.Primitives;
-    using Microsoft.Graph.CoreSDK.Exceptions;
+    using Microsoft.Graph.Communications.Core.Exceptions;
 
     /// <summary>
     /// The controller exceptions.

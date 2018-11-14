@@ -17,8 +17,8 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
     using System.IO;
     using System.Runtime.InteropServices;
     using System.Threading.Tasks;
-    using Microsoft.Graph.Calls.Media;
-    using Microsoft.Graph.Core.Telemetry;
+    using Microsoft.Graph.Communications.Calls.Media;
+    using Microsoft.Graph.Communications.Common.Telemetry;
     using Microsoft.Skype.Bots.Media;
     using Microsoft.Skype.Internal.Media.H264;
 

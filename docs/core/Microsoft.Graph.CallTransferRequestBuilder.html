@@ -20,7 +20,7 @@
     <meta property="docfx:tocrel" content="toc.html">
     
     <meta property="docfx:rel" content="../">
-    
+    <meta property="docfx:newtab" content="true">
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
@@ -37,7 +37,7 @@
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
+                <img id="logo" class="svg" src="../resources/logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -143,7 +143,7 @@
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.html">Microsoft.Graph</a></h6>
-  <h6><strong>Assembly</strong>: Microsoft.Graph.CoreSDK.dll</h6>
+  <h6><strong>Assembly</strong>: Microsoft.Graph.Communications.Core.dll</h6>
   <h5 id="Microsoft_Graph_CallTransferRequestBuilder_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class CallTransferRequestBuilder : BaseActionMethodRequestBuilder&lt;ICallTransferRequest&gt;, ICallTransferRequestBuilder</code></pre>
@@ -151,13 +151,13 @@
   <h3 id="constructors">Constructors
   </h3>
   <a id="Microsoft_Graph_CallTransferRequestBuilder__ctor_" data-uid="Microsoft.Graph.CallTransferRequestBuilder.#ctor*"></a>
-  <h4 id="Microsoft_Graph_CallTransferRequestBuilder__ctor_System_String_Microsoft_Graph_IBaseClient_Microsoft_Graph_InvitationParticipantInfo_Microsoft_Graph_IdentitySet_System_String_" data-uid="Microsoft.Graph.CallTransferRequestBuilder.#ctor(System.String,Microsoft.Graph.IBaseClient,Microsoft.Graph.InvitationParticipantInfo,Microsoft.Graph.IdentitySet,System.String)">CallTransferRequestBuilder(String, IBaseClient, InvitationParticipantInfo, IdentitySet, String)</h4>
+  <h4 id="Microsoft_Graph_CallTransferRequestBuilder__ctor_System_String_Microsoft_Graph_IBaseClient_Microsoft_Graph_InvitationParticipantInfo_" data-uid="Microsoft.Graph.CallTransferRequestBuilder.#ctor(System.String,Microsoft.Graph.IBaseClient,Microsoft.Graph.InvitationParticipantInfo)">CallTransferRequestBuilder(String, IBaseClient, InvitationParticipantInfo)</h4>
   <div class="markdown level1 summary"><p>Constructs a new <a class="xref" href="Microsoft.Graph.CallTransferRequestBuilder.html">CallTransferRequestBuilder</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public CallTransferRequestBuilder(string requestUrl, IBaseClient client, InvitationParticipantInfo transferTarget, IdentitySet target, string replacesCallId)</code></pre>
+    <pre><code class="lang-csharp hljs">public CallTransferRequestBuilder(string requestUrl, IBaseClient client, InvitationParticipantInfo transferTarget)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -185,18 +185,6 @@
         <td><a class="xref" href="Microsoft.Graph.InvitationParticipantInfo.html">InvitationParticipantInfo</a></td>
         <td><span class="parametername">transferTarget</span></td>
         <td><p>A transferTarget parameter for the OData method call.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Microsoft.Graph.IdentitySet.html">IdentitySet</a></td>
-        <td><span class="parametername">target</span></td>
-        <td><p>A target parameter for the OData method call.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">replacesCallId</span></td>
-        <td><p>A replacesCallId parameter for the OData method call.</p>
 </td>
       </tr>
     </tbody>

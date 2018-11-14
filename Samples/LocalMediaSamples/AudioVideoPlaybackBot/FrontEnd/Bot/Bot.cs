@@ -12,12 +12,12 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
     using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.Graph;
-    using Microsoft.Graph.Calls;
-    using Microsoft.Graph.Calls.Media;
-    using Microsoft.Graph.Core;
-    using Microsoft.Graph.Core.Common;
-    using Microsoft.Graph.Core.Telemetry;
-    using Microsoft.Graph.StatefulClient;
+    using Microsoft.Graph.Communications.Calls;
+    using Microsoft.Graph.Communications.Calls.Media;
+    using Microsoft.Graph.Communications.Client;
+    using Microsoft.Graph.Communications.Common;
+    using Microsoft.Graph.Communications.Common.Telemetry;
+    using Microsoft.Graph.Communications.Resources;
     using Microsoft.Skype.Bots.Media;
     using Sample.AudioVideoPlaybackBot.FrontEnd;
     using Sample.AudioVideoPlaybackBot.FrontEnd.Http;
@@ -48,7 +48,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         /// <summary>
         /// Gets the entry point for stateful bot.
         /// </summary>
-        public IStatefulClient Client { get; private set; }
+        public ICommunicationsClient Client { get; private set; }
 
         /// <summary>
         /// Gets the online meeting.
@@ -72,11 +72,12 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             ChatInfo chatInfo;
             if (!string.IsNullOrWhiteSpace(joinCallBody.MeetingId))
             {
+                // Meeting id is a cloud-video-interop numeric meeting id.
                 var onlineMeeting = await this.OnlineMeetings
                     .GetOnlineMeetingAsync(joinCallBody.TenantId, joinCallBody.MeetingId, correlationId)
                     .ConfigureAwait(false);
 
-                meetingInfo = onlineMeeting.MeetingInfo;
+                meetingInfo = new OrganizerMeetingInfo { Organizer = onlineMeeting.Participants.Organizer.Identity, };
                 chatInfo = onlineMeeting.ChatInfo;
             }
             else
@@ -142,7 +143,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
 
             this.Logger = logger;
 
-            var builder = new StatefulClientBuilder("AudioVideoPlaybackBot", service.Configuration.AadAppId, this.Logger);
+            var builder = new CommunicationsClientBuilder("AudioVideoPlaybackBot", service.Configuration.AadAppId, this.Logger);
             var authProvider = new AuthenticationProvider(
                     service.Configuration.AadAppId,
                     service.Configuration.AadAppSecret,
@@ -237,14 +238,12 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             var vbssSocketSettings = new VideoSocketSettings
             {
                 StreamDirections = StreamDirection.Recvonly,
-                ReceiveColorFormat = VideoColorFormat.NV12,
+                ReceiveColorFormat = VideoColorFormat.H264,
                 MediaType = MediaType.Vbss,
                 SupportedSendVideoFormats = new List<VideoFormat>
                 {
-                    // fps 1.875 is required for h264 in vbss scenario:
-                    // refer to Raw/Encoded Frame Format Recommendation - VbSS section in
-                    // http://msrtc/documentation/cloud_video_interop/#platform-capabilities-for-encodedecode
-                    VideoFormat.H264_320x180_1_875Fps,
+                    // fps 1.875 is required for h264 in vbss scenario.
+                    VideoFormat.H264_1920x1080_1_875Fps,
                 },
             };
 
@@ -257,6 +256,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                 },
                 videoSocketSettings,
                 vbssSocketSettings,
+                null,
                 correlationId);
             return mediaSession;
         }
@@ -265,7 +265,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         /// Incoming call handler.
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="args">The <see cref="CollectionEventArgs{ICall}"/> instance containing the event data.</param>
+        /// <param name="args">The <see cref="CollectionEventArgs{TEntity}"/> instance containing the event data.</param>
         private void CallsOnIncoming(ICallCollection sender, CollectionEventArgs<ICall> args)
         {
             args.AddedResources.ForEach(call =>
