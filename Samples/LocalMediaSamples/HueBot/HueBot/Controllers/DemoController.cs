@@ -13,6 +13,7 @@ namespace Sample.HueBot.Controllers
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Graph.Communications.Common.Telemetry;
     using Newtonsoft.Json;
+    using Sample.Common.Logging;
     using Sample.HueBot.Bot;
 
     /// <summary>
@@ -29,21 +30,21 @@ namespace Sample.HueBot.Controllers
         /// <summary>
         /// Logger instance.
         /// </summary>
-        private readonly IGraphLogger logger;
+        private readonly SampleLogger logger;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DemoController"/> class.
         /// </summary>
         /// <param name="bot">Bot instance.</param>
         /// <param name="logger">Logger instance.</param>
-        public DemoController(Bot bot, IGraphLogger logger)
+        public DemoController(Bot bot, SampleLogger logger)
         {
             this.bot = bot;
             this.logger = logger;
         }
 
         /// <summary>
-        /// Get the screenshot for the call.
+        /// Get the snapshot for the call.
         /// </summary>
         /// <param name="callId">
         /// Id of the call to retrieve image.
@@ -52,10 +53,10 @@ namespace Sample.HueBot.Controllers
         /// The <see cref="ActionResult"/>.
         /// </returns>
         [HttpGet]
-        [Route(HttpRouteConstants.OnGetScreenshotRoute)]
-        public ActionResult OnGetScreenshot(string callId)
+        [Route(HttpRouteConstants.OnSnapshotRoute)]
+        public ActionResult OnGetSnapshot(string callId)
         {
-            this.logger.Info($"Retrieving image for call {callId}");
+            this.logger.Info($"[{callId}] Retrieving snapshot image.");
 
             try
             {
@@ -65,16 +66,39 @@ namespace Sample.HueBot.Controllers
                     return this.NotFound();
                 }
 
-                this.Response.Headers.Add("Cache-Control", "private,must-revalidate,post-check=1,pre-check=2,no-cache");
-                this.Response.Headers.Add("Refresh", "3");
-
                 var format = System.Drawing.Imaging.ImageFormat.Jpeg;
 
                 var memStream = new MemoryStream();
                 bitmap.Save(memStream, format);
                 memStream.Position = 0;
 
+                this.AddRefreshHeader(3);
                 return this.File(memStream, $"image/{format}");
+            }
+            catch (Exception e)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, e.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Get the hue of video for the call.
+        /// </summary>
+        /// <param name="callId">
+        /// Id of the call to change hue.
+        /// </param>
+        /// <returns>
+        /// The <see cref="IActionResult"/>.
+        /// </returns>
+        [HttpGet]
+        [Route(HttpRouteConstants.OnHueRoute)]
+        public IActionResult OnGetHue(string callId)
+        {
+            this.logger.Info($"[{callId}] Get hue.");
+
+            try
+            {
+                return this.Json(this.bot.GetVideoHueByCallId(callId));
             }
             catch (Exception e)
             {
@@ -95,14 +119,14 @@ namespace Sample.HueBot.Controllers
         /// The <see cref="IActionResult"/>.
         /// </returns>
         [HttpPut]
-        [Route(HttpRouteConstants.OnPutHueRoute)]
+        [Route(HttpRouteConstants.OnHueRoute)]
         public IActionResult OnPutHue(string callId, [FromBody] string color)
         {
-            this.logger.Info($"Changing hue for call {callId}");
+            this.logger.Info($"[{callId}] Set hue to {color}.");
 
             try
             {
-                this.bot.ChangeVideoHueByCallId(callId, color);
+                this.bot.SetVideoHueByCallId(callId, color);
                 return this.Ok();
             }
             catch (Exception e)
@@ -156,10 +180,10 @@ namespace Sample.HueBot.Controllers
         }
 
         /// <summary>
-        /// Change the hue of video for the call.
+        /// Allow the bot to hang up. This does not terminate the call.
         /// </summary>
         /// <param name="callId">
-        /// Id of the call to change hue.
+        /// Id of the call to hang up.
         /// </param>
         /// <returns>
         /// The <see cref="IActionResult"/>.
@@ -168,7 +192,7 @@ namespace Sample.HueBot.Controllers
         [Route(HttpRouteConstants.CallRoute)]
         public async Task<IActionResult> OnEndCallAsync(string callId)
         {
-            this.logger.Info($"Ending call {callId}");
+            this.logger.Info($"[{callId}] Ending call.");
 
             try
             {
@@ -197,13 +221,11 @@ namespace Sample.HueBot.Controllers
         [Route(HttpRouteConstants.CallRoute)]
         public IActionResult OnGetLog(string callId, int limit = 50)
         {
-            this.logger.Info($"Retrieving image for thread id {callId}");
+            this.logger.Info($"[{callId}] Retrieving logs.");
 
             try
             {
-                this.Response.Headers.Add("Cache-Control", "private,must-revalidate,post-check=1,pre-check=2,no-cache");
-                this.Response.Headers.Add("Refresh", $"1; url={this.Url}");
-
+                this.AddRefreshHeader(1);
                 return this.Content(
                     string.Join("\n\n==========================\n\n", this.bot.GetLogsByCallId(callId, limit)),
                     System.Net.Mime.MediaTypeNames.Text.Plain,
@@ -213,6 +235,35 @@ namespace Sample.HueBot.Controllers
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError, e.ToString());
             }
+        }
+
+        /// <summary>
+        /// Get logs from the service.
+        /// </summary>
+        /// <param name="skip">Skip specified lines.</param>
+        /// <param name="take">Take specified lines.</param>
+        /// <returns>Complete logs from the service.</returns>
+        [HttpGet]
+        [Route(HttpRouteConstants.Logs)]
+        public IActionResult OnGetLogs(
+            [FromQuery] int skip = 0,
+            [FromQuery] int take = 1000)
+        {
+            this.AddRefreshHeader(3);
+            return this.Content(
+                    this.logger.GetLogs(skip, take),
+                    System.Net.Mime.MediaTypeNames.Text.Plain,
+                    System.Text.Encoding.UTF8);
+        }
+
+        /// <summary>
+        /// Add refresh headers for browsers to download content.
+        /// </summary>
+        /// <param name="seconds">Refresh rate.</param>
+        private void AddRefreshHeader(int seconds)
+        {
+            this.Response.Headers.Add("Cache-Control", "private,must-revalidate,post-check=1,pre-check=2,no-cache");
+            this.Response.Headers.Add("Refresh", seconds.ToString());
         }
     }
 }

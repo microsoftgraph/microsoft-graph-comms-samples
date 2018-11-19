@@ -43,7 +43,7 @@ The Incident Bot sample is a Remote Media sample demonstrating a simple incident
 * Update the appsettings.json file in the project IncidentBot with the following values:
     * MicrosoftAppId: Obtained from Application Settings during registration. 
     * MicrosoftAppPassword: Obtained from Application Settings during registration. 
-    * Webhook (for calling): Configured in the Bot Registration Eg. `https://{your domain}/api/calling`, the root of this URL should match the URL of your App Service and updated in the BotBaseURL field below.  If necessary, return to the Bot Framework Portal to update the Calling Webhook URL to the URL of your App Service.
+    * Webhook (for calling): Configured in the Bot Registration Eg. `https://{your domain}/callback/calling`, the root of this URL should match the URL of your App Service and updated in the BotBaseURL field below.  If necessary, return to the Bot Framework Portal to update the Calling Webhook URL to the URL of your App Service.
 
 Example appsettings.json
 ```json

@@ -183,6 +183,18 @@ namespace Sample.HueBot.Bot
         }
 
         /// <summary>
+        /// Get the video hue for a particular call.
+        /// </summary>
+        /// <param name="callId">
+        /// The thread Id.
+        /// </param>
+        /// <returns>Current hue.</returns>
+        internal string GetVideoHueByCallId(string callId)
+        {
+            return this.GetHandlerOrThrow(callId).GetHue();
+        }
+
+        /// <summary>
         /// Change the video hue for a particular call.
         /// </summary>
         /// <param name="callId">
@@ -191,7 +203,7 @@ namespace Sample.HueBot.Bot
         /// <param name="color">
         /// The color.
         /// </param>
-        internal void ChangeVideoHueByCallId(string callId, string color)
+        internal void SetVideoHueByCallId(string callId, string color)
         {
             this.GetHandlerOrThrow(callId).SetHue(color);
         }

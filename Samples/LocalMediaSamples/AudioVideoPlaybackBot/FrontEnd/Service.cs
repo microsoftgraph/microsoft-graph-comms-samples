@@ -13,9 +13,9 @@
 namespace Sample.AudioVideoPlaybackBot.FrontEnd
 {
     using System;
-    using Microsoft.Graph.Communications.Common.Telemetry;
     using Microsoft.Owin.Hosting;
     using Sample.AudioVideoPlaybackBot.FrontEnd.Http;
+    using Sample.Common.Logging;
 
     /// <summary>
     /// Service is the main entry point independent of Azure.  Anyone instantiating Service needs to first
@@ -47,7 +47,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
         /// <summary>
         /// Graph logger instance.
         /// </summary>
-        private IGraphLogger logger;
+        private SampleLogger logger;
 
         /// <summary>
         /// Gets the configuration.
@@ -58,8 +58,8 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
         /// Instantiate a custom server (e.g. for testing).
         /// </summary>
         /// <param name="config">The configuration to initialize.</param>
-        /// <param name="logger">Graph logger instance.</param>
-        public void Initialize(IConfiguration config, IGraphLogger logger)
+        /// <param name="logger">Logger instance.</param>
+        public void Initialize(IConfiguration config, SampleLogger logger)
         {
             this.Configuration = config;
             this.logger = logger;
@@ -80,8 +80,8 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
                 }
 
                 // Start HTTP server for calls
-                StartOptions callStartOptions = new StartOptions();
-                foreach (Uri url in this.Configuration.CallControlListeningUrls)
+                var callStartOptions = new StartOptions();
+                foreach (var url in this.Configuration.CallControlListeningUrls)
                 {
                     callStartOptions.Urls.Add(url.ToString());
                 }

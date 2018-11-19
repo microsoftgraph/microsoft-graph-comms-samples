@@ -9,7 +9,7 @@ namespace Sample.HueBot.Bot
     using System.Collections.Generic;
     using System.Drawing;
     using System.Linq;
-    using System.Threading.Tasks;
+    using System.Threading;
     using Microsoft.Graph;
     using Microsoft.Graph.Communications.Calls;
     using Microsoft.Graph.Communications.Calls.Media;
@@ -67,6 +67,11 @@ namespace Sample.HueBot.Bot
         /// Gets the logger instance.
         /// </summary>
         private IGraphLogger logger;
+
+        /// <summary>
+        /// Count of incoming messages to log.
+        /// </summary>
+        private int maxIngestFrameCount = 100;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CallHandler"/> class.
@@ -145,7 +150,16 @@ namespace Sample.HueBot.Bot
         }
 
         /// <summary>
-        /// The set hue.
+        /// Get hue.
+        /// </summary>
+        /// <returns>Current hue.</returns>
+        internal string GetHue()
+        {
+            return this.hueColor.ToString();
+        }
+
+        /// <summary>
+        /// Set hue.
         /// </summary>
         /// <param name="color">
         /// The color.
@@ -253,10 +267,13 @@ namespace Sample.HueBot.Bot
         {
             try
             {
-                this.logger.Info(
-                    $"[{this.Call.Id}]: Capturing image: [VideoMediaReceivedEventArgs(Data=<{e.Buffer.Data.ToString()}>, " +
-                    $"Length={e.Buffer.Length}, Timestamp={e.Buffer.Timestamp}, Width={e.Buffer.VideoFormat.Width}, " +
-                    $"Height={e.Buffer.VideoFormat.Height}, ColorFormat={e.Buffer.VideoFormat.VideoColorFormat}, FrameRate={e.Buffer.VideoFormat.FrameRate})]");
+                if (Interlocked.Decrement(ref this.maxIngestFrameCount) > 0)
+                {
+                    this.logger.Info(
+                        $"[{this.Call.Id}]: Capturing image: [VideoMediaReceivedEventArgs(Data=<{e.Buffer.Data.ToString()}>, " +
+                        $"Length={e.Buffer.Length}, Timestamp={e.Buffer.Timestamp}, Width={e.Buffer.VideoFormat.Width}, " +
+                        $"Height={e.Buffer.VideoFormat.Height}, ColorFormat={e.Buffer.VideoFormat.VideoColorFormat}, FrameRate={e.Buffer.VideoFormat.FrameRate})]");
+                }
 
                 // 33 ms frequency ~ 30 fps
                 if (DateTime.Now > this.lastVideoSentTimeUtc + TimeSpan.FromMilliseconds(33))

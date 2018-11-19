@@ -18,6 +18,7 @@ namespace HueBot
     using Microsoft.ServiceFabric.Services.Communication.AspNetCore;
     using Microsoft.ServiceFabric.Services.Communication.Runtime;
     using Microsoft.ServiceFabric.Services.Runtime;
+    using Sample.Common.Logging;
     using Sample.HueBot.Bot;
 
     /// <summary>
@@ -25,7 +26,7 @@ namespace HueBot
     /// </summary>
     internal sealed class HueBot : StatefulService
     {
-        private IGraphLogger logger;
+        private SampleLogger logger;
         private IConfiguration configuration;
         private BotOptions botOptions;
         private Bot bot;
@@ -35,7 +36,7 @@ namespace HueBot
         /// </summary>
         /// <param name="context">Stateful service context from service fabric.</param>
         /// <param name="logger">Global logger instance.</param>
-        public HueBot(StatefulServiceContext context, IGraphLogger logger)
+        public HueBot(StatefulServiceContext context, SampleLogger logger)
             : base(context)
         {
             this.logger = logger;
@@ -97,6 +98,7 @@ namespace HueBot
                 .ConfigureServices(
                     services => services
                         .AddSingleton(this.logger)
+                        .AddSingleton<IGraphLogger>(this.logger)
                         .AddSingleton(this.StateManager)
                         .AddSingleton(this.Context)
                         .AddSingleton(this.botOptions)

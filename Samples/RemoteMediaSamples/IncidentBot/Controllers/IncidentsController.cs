@@ -10,6 +10,7 @@ namespace IcMBot.Controllers
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Graph.Communications.Common;
+    using Sample.Common.Logging;
     using Sample.IncidentBot.Bot;
     using Sample.IncidentBot.Data;
     using Sample.IncidentBot.IncidentStatus;
@@ -21,14 +22,17 @@ namespace IcMBot.Controllers
     public class IncidentsController : Controller
     {
         private Bot bot;
+        private SampleLogger logger;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IncidentsController"/> class.
         /// </summary>
         /// <param name="bot">The bot.</param>
-        public IncidentsController(Bot bot)
+        /// <param name="logger">Logger instance.</param>
+        public IncidentsController(Bot bot, SampleLogger logger)
         {
             this.bot = bot;
+            this.logger = logger;
         }
 
         /// <summary>
@@ -77,6 +81,35 @@ namespace IcMBot.Controllers
             Validator.IsTrue(Guid.TryParse(callId, out Guid result), nameof(callId), "call id must be a valid guid.");
 
             return await Task.FromResult(this.bot.GetLogsByCallLegId(callId, maxCount)).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Get the service logs.
+        /// </summary>
+        /// <param name="skip">Skip specified lines.</param>
+        /// <param name="take">Take specified lines.</param>
+        /// <returns>The logs.</returns>
+        [HttpGet]
+        [Route("/logs")]
+        public IActionResult GetLogs(
+            [FromQuery] int skip = 0,
+            [FromQuery] int take = 1000)
+        {
+            this.AddRefreshHeader(3);
+            return this.Content(
+                this.logger.GetLogs(skip, take),
+                System.Net.Mime.MediaTypeNames.Text.Plain,
+                System.Text.Encoding.UTF8);
+        }
+
+        /// <summary>
+        /// Add refresh headers for browsers to download content.
+        /// </summary>
+        /// <param name="seconds">Refresh rate.</param>
+        private void AddRefreshHeader(int seconds)
+        {
+            this.Response.Headers.Add("Cache-Control", "private,must-revalidate,post-check=1,pre-check=2,no-cache");
+            this.Response.Headers.Add("Refresh", seconds.ToString());
         }
     }
 }
