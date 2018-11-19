@@ -5,6 +5,7 @@
 
 namespace Sample.HueBot.Controllers
 {
+    using System;
     using System.Fabric;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
@@ -45,10 +46,19 @@ namespace Sample.HueBot.Controllers
         public async Task<IActionResult> JoinCallAsync([FromBody] JoinCallBody joinCallBody)
         {
             var call = await this.bot.JoinCallAsync(joinCallBody).ConfigureAwait(false);
+
+            var serviceURL = new UriBuilder($"{this.Request.Scheme}://{this.Request.Host}");
+            serviceURL.Port = this.botOptions.BotBaseUrl.Port + this.statefulServiceContext.NodeInstance();
+
+            var url = new UriBuilder($"{this.Request.Scheme}://{this.Request.Host}/{HttpRouteConstants.CallRoute}".Replace("{callId}", call.Id));
+
             return this.Ok(new JoinCallResponseBody
             {
-                CallId = call.Id,
-                CallHandlerPort = this.botOptions.BotBaseUrl.Port + this.statefulServiceContext.NodeInstance(),
+                CallURL = serviceURL + HttpRouteConstants.CallRoute.Replace("{callId}", call.Id),
+                CallSnapshotURL = serviceURL + HttpRouteConstants.OnSnapshotRoute.Replace("{callId}", call.Id),
+                CallHueURL = serviceURL + HttpRouteConstants.OnHueRoute.Replace("{callId}", call.Id),
+                CallsURL = serviceURL + HttpRouteConstants.Calls,
+                ServiceLogsURL = serviceURL + HttpRouteConstants.Logs,
             });
         }
 
@@ -98,14 +108,29 @@ namespace Sample.HueBot.Controllers
         public class JoinCallResponseBody
         {
             /// <summary>
-            /// Gets or sets the call identifier for the newly created call.
+            /// Gets or sets the URL for the newly created call.
             /// </summary>
-            public string CallId { get; set; }
+            public string CallURL { get; set; }
 
             /// <summary>
-            /// Gets or sets the port to use to interact with this call (specific to this node).
+            /// Gets or sets the URL for the latest snapshot image on this call.
             /// </summary>
-            public int CallHandlerPort { get; set; }
+            public string CallSnapshotURL { get; set; }
+
+            /// <summary>
+            /// Gets or sets the URL for the hue on this call.
+            /// </summary>
+            public string CallHueURL { get; set; }
+
+            /// <summary>
+            /// Gets or sets the URL for getting all the logs on this node.
+            /// </summary>
+            public string CallsURL { get; set; }
+
+            /// <summary>
+            /// Gets or sets the URL for the service logs on this node.
+            /// </summary>
+            public string ServiceLogsURL { get; set; }
         }
     }
 }

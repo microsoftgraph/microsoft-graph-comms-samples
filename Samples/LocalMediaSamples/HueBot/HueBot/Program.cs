@@ -8,10 +8,10 @@ namespace HueBot
     using System;
     using System.Diagnostics;
     using System.Threading;
-    using System.Threading.Tasks;
     using Microsoft.Graph.Communications.Common;
     using Microsoft.Graph.Communications.Common.Telemetry;
     using Microsoft.ServiceFabric.Services.Runtime;
+    using Sample.Common.Logging;
 
     /// <summary>
     /// Main entry.
@@ -19,14 +19,14 @@ namespace HueBot
     internal static class Program
     {
         /// <summary>
-        /// Graph logger instance.
+        /// Memory logger (not to be used for production.)
         /// </summary>
-        private static readonly GraphLogger Logger = new GraphLogger("Sample.HueBot");
+        private static readonly SampleLogger SampleLogger = new SampleLogger(typeof(Program).Assembly.GetName().Name);
 
         /// <summary>
         /// Observer subscription.
         /// </summary>
-        private static IDisposable subscription = Logger.CreateObserver(OnNext);
+        private static IDisposable subscription = SampleLogger.CreateObserver(OnNext);
 
         /// <summary>
         /// This is the entry point of the service host process.
@@ -35,17 +35,13 @@ namespace HueBot
         {
             try
             {
-                // Log unhandled exceptions.
-                AppDomain.CurrentDomain.UnhandledException += (_, e) => Logger.Error(e.ExceptionObject as Exception, $"Unhandled exception");
-                TaskScheduler.UnobservedTaskException += (_, e) => Logger.Error(e.Exception, "Unobserved task exception");
-
                 // The ServiceManifest.XML file defines one or more service type names.
                 // Registering a service maps a service type name to a .NET type.
                 // When Service Fabric creates an instance of this service type,
                 // an instance of the class is created in this host process.
                 ServiceRuntime.RegisterServiceAsync(
                     "HueBotType",
-                    context => new HueBot(context, Logger)).GetAwaiter().GetResult();
+                    context => new HueBot(context, SampleLogger)).GetAwaiter().GetResult();
 
                 ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, typeof(HueBot).Name);
 

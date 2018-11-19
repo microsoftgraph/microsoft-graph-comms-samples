@@ -22,6 +22,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
     using Sample.AudioVideoPlaybackBot.FrontEnd;
     using Sample.AudioVideoPlaybackBot.FrontEnd.Http;
     using Sample.Common.Authentication;
+    using Sample.Common.Logging;
     using Sample.Common.Meetings;
     using Sample.Common.OnlineMeetings;
 
@@ -38,7 +39,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         /// <summary>
         /// Gets the Graph Logger instance.
         /// </summary>
-        public IGraphLogger Logger { get; private set; }
+        public SampleLogger Logger { get; private set; }
 
         /// <summary>
         /// Gets the collection of call handlers.
@@ -137,7 +138,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         /// </summary>
         /// <param name="service">Service instance.</param>
         /// <param name="logger">Graph logger.</param>
-        internal void Initialize(Service service, IGraphLogger logger)
+        internal void Initialize(Service service, SampleLogger logger)
         {
             Validator.IsNull(this.Logger, "Multiple initializations are not allowed.");
 

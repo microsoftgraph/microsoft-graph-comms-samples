@@ -46,6 +46,11 @@ namespace Sample.HueBot.Controllers
         public const string Calls = "calls/";
 
         /// <summary>
+        /// The Logs suffix.
+        /// </summary>
+        public const string Logs = "logs/";
+
+        /// <summary>
         /// Call Leg ID suffix.
         /// </summary>
         public const string CallIdTemplate = "{callId}/";
@@ -58,11 +63,11 @@ namespace Sample.HueBot.Controllers
         /// <summary>
         /// Route for getting Image for a call.
         /// </summary>
-        public const string OnGetScreenshotRoute = CallRoute + "scr";
+        public const string OnSnapshotRoute = CallRoute + "scr";
 
         /// <summary>
         /// Route for getting Image for a call.
         /// </summary>
-        public const string OnPutHueRoute = CallRoute + "hue";
+        public const string OnHueRoute = CallRoute + "hue";
     }
 }

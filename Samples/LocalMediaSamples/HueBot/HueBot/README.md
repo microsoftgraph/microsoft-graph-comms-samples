@@ -119,9 +119,52 @@ Click `Start` on the top toolbar to deploy the sample to the local cluster.
 
 1. Join the meeting from the Teams client and start up video.
 
-1. Open HueBot.postman_collection.json in PostMan.  Edit the variables and set ServiceName to your bot service URL.
+1. Interact with your service, _adjusting the service URL appropriately_. Target port 9443 for the first request to the load balancer. The returned URL will be on a different port/node that picked up the call.
+    1. Use Postman to post the following `JSON` payload.
 
-    1. Edit the `Join Meeting` payload with the join URL.  The bot will join the call and show up on the Teams client. Note the `callHandlerPort` in the response.
-    1. Open the `List Calls` request and change the port in the URL to the one returned in `callHandlerPort` to find out the currently active calls on that VM.  If the previous step failed for any reason, this will be empty.
-    1. Click on the `hue` link in the List Calls output, edit it to be a `Put`, mark it as JSON body and put "green" as the payload. That will change the hue.
-    1. Click on the `call` link and do a `GET` on it to get the state of the call. Calling `DELETE` on that link will remove the bot from the call.
+        ##### Request
+        ```json
+            POST https://huebotsf02.westus.cloudapp.azure.com:9443/joinCall
+            Content-Type: application/json
+
+            {
+              "JoinURL": "https://teams.microsoft.com/l/meetup-join/...",
+              "TenantId": "72f988bf-..."
+            }
+        ```
+
+        ##### Response
+        ```json
+          HTTP/1.1 200
+          Content-Type: application/json
+
+          {
+              "callURL": "https://huebotsf02.westus.cloudapp.azure.com:9445/calls/321a0b00-84de-415b-a31b-bdd1b0abe663/",
+              "callSnapshotURL": "https://huebotsf02.westus.cloudapp.azure.com:9445/calls/321a0b00-84de-415b-a31b-bdd1b0abe663/scr",
+              "callHueURL": "https://huebotsf02.westus.cloudapp.azure.com:9445/calls/321a0b00-84de-415b-a31b-bdd1b0abe663/hue",
+              "callsURL": "https://huebotsf02.westus.cloudapp.azure.com:9445/calls/",
+              "serviceLogsURL": "https://huebotsf02.westus.cloudapp.azure.com:9445/logs/"
+          }
+        ```
+
+    1. Change hue for the bot through a `PUT`.
+
+        ##### Request
+        ```json
+            PUT https://huebotsf02.westus.cloudapp.azure.com:9445/calls/321a0b00-84de-415b-a31b-bdd1b0abe663/hue
+            Content-Type: application/json
+
+            "green"
+        ```
+
+    1. Get diagnostics data from the bot. Open the links in a browser for auto-refresh.
+       Call logs: https://huebotsf02.westus.cloudapp.azure.com:9445/calls/321a0b00-84de-415b-a31b-bdd1b0abe663/
+       Active calls: https://huebotsf02.westus.cloudapp.azure.com:9445/calls
+       Service logs: https://huebotsf02.westus.cloudapp.azure.com:9445/logs
+
+    1. Terminating the call through `DELETE`.
+
+        ##### Request
+        ```json
+            DELETE https://huebotsf02.westus.cloudapp.azure.com:9445/calls/321a0b00-84de-415b-a31b-bdd1b0abe663
+        ```

@@ -15,6 +15,7 @@ namespace Sample.IncidentBot
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
     using Microsoft.Graph.Communications.Common.Telemetry;
+    using Sample.Common.Logging;
     using Sample.IncidentBot.Bot;
 
     /// <summary>
@@ -22,7 +23,7 @@ namespace Sample.IncidentBot
     /// </summary>
     public class Startup
     {
-        private readonly GraphLogger graphLogger;
+        private readonly SampleLogger logger = new SampleLogger(typeof(Startup).Assembly.GetName().Name);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Startup"/> class.
@@ -30,12 +31,6 @@ namespace Sample.IncidentBot
         /// <param name="configuration">The configuration interface.</param>
         public Startup(IConfiguration configuration)
         {
-            this.graphLogger = new GraphLogger(nameof(Startup));
-
-            // Log unhandled exceptions.
-            AppDomain.CurrentDomain.UnhandledException += (_, e) => this.graphLogger.Error(e.ExceptionObject as Exception, $"Unhandled exception");
-            TaskScheduler.UnobservedTaskException += (_, e) => this.graphLogger.Error(e.Exception, "Unobserved task exception");
-
             this.Configuration = configuration;
         }
 
@@ -50,17 +45,18 @@ namespace Sample.IncidentBot
         /// <param name="services">The service collection.</param>
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IGraphLogger>(this.graphLogger);
+            services
+                .AddSingleton(this.logger)
+                .AddSingleton<IGraphLogger>(this.logger)
+                .AddAuthentication(sharedOptions =>
+                {
+                    sharedOptions.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
+                .AddAzureAdBearer(options => this.Configuration.Bind("AzureAd", options));
 
-            services.AddAuthentication(sharedOptions =>
-            {
-                sharedOptions.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-            .AddAzureAdBearer(options => this.Configuration.Bind("AzureAd", options));
-
-            services.AddBot(options => this.Configuration.Bind("Bot", options));
-
-            services.AddMvc();
+            services
+                .AddBot(options => this.Configuration.Bind("Bot", options))
+                .AddMvc();
         }
 
         /// <summary>
@@ -71,7 +67,7 @@ namespace Sample.IncidentBot
         /// <param name="loggerFactory">The logger of ILogger instance.</param>
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            this.graphLogger.BindToILoggerFactory(loggerFactory);
+            this.logger.BindToILoggerFactory(loggerFactory);
 
             if (env.IsDevelopment())
             {

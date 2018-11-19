@@ -17,6 +17,7 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
     using Microsoft.Graph.Communications.Common.Telemetry;
     using Microsoft.WindowsAzure.ServiceRuntime;
     using Sample.AudioVideoPlaybackBot.FrontEnd;
+    using Sample.Common.Logging;
 
     /// <summary>
     /// The worker role.
@@ -36,7 +37,7 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         /// <summary>
         /// Graph Logger.
         /// </summary>
-        private readonly GraphLogger logger = new GraphLogger(typeof(WorkerRole).Assembly.GetName().Name, redirectToTrace: true);
+        private readonly SampleLogger logger = new SampleLogger(typeof(WorkerRole).Assembly.GetName().Name, redirectToTrace: true);
 
         /// <summary>
         /// The run.
@@ -65,10 +66,6 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         {
             try
             {
-                // Log unhandled exceptions.
-                AppDomain.CurrentDomain.UnhandledException += (_, e) => this.logger.Error(e.ExceptionObject as Exception, $"Unhandled exception");
-                TaskScheduler.UnobservedTaskException += (_, e) => this.logger.Error(e.Exception, "Unobserved task exception");
-
                 // Set the maximum number of concurrent connections
                 ServicePointManager.DefaultConnectionLimit = 12;
 
@@ -76,7 +73,7 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
                 Service.Instance.Initialize(new AzureConfiguration(this.logger), this.logger);
                 Service.Instance.Start();
 
-                bool result = base.OnStart();
+                var result = base.OnStart();
 
                 this.logger.Info("WorkerRole has been started");
 

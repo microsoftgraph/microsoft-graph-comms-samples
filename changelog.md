@@ -10,19 +10,19 @@ SDK package names have been updated to avoid confusion with Microsoft Graph SDK.
 |:-------------------------------|:-------------------------------------------|
 | Microsoft.Graph.Calls          | Microsoft.Graph.Communications.Calls       |
 | Microsoft.Graph.Calls.Media    | Microsoft.Graph.Communications.Calls.Media |
+| Microsoft.Graph.Core.Stateful  | Microsoft.Graph.Communications.Common      |
 | Microsoft.Graph.CoreSDK        | Microsoft.Graph.Communications.Core        |
 | Microsoft.Graph.StatefulClient | Microsoft.Graph.Communications.Client      |
-| Microsoft.Grpah.Core.Stateful  | Microsoft.Graph.Communications.Common      |
 
 Namespaces have been updated to match the assembly and package names. In addition, the top level interfaces have been renamed to match the new naming scheme.
 
 | Original namespace                     | New namespace                                     |
 |:---------------------------------------|:--------------------------------------------------|
-| Microsoft.Graph.CoreSDK                | Microsoft.Graph.Communications.Core               |
-| Microsoft.Graph.Core                   | Microsoft.Graph.Communications.Common             |
-| Microsoft.Graph.StatefulClient         | Microsoft.Graph.Communications.Client             |
 | Microsoft.Graph.Calls                  | Microsoft.Graph.Communications.Calls              |
 | Microsoft.Graph.Calls.Media            | Microsoft.Graph.Communications.Calls.Media        |
+| Microsoft.Graph.Core                   | Microsoft.Graph.Communications.Common             |
+| Microsoft.Graph.CoreSDK                | Microsoft.Graph.Communications.Core               |
+| Microsoft.Graph.StatefulClient         | Microsoft.Graph.Communications.Client             |
 | IStatefulClient                        | ICommunicationsClient                             |
 | StatefulClientBuilder                  | CommunicationsClientBuilder                       |
 
