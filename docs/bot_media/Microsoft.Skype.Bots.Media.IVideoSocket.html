@@ -204,9 +204,103 @@ the buffer object&apos;s Dispose() method is invoked by the Media Platform.</p>
       </tr>
     </tbody>
   </table>
+  <a id="Microsoft_Skype_Bots_Media_IVideoSocket_SetReceiveBandwidthLimit_" data-uid="Microsoft.Skype.Bots.Media.IVideoSocket.SetReceiveBandwidthLimit*"></a>
+  <h4 id="Microsoft_Skype_Bots_Media_IVideoSocket_SetReceiveBandwidthLimit_System_UInt32_" data-uid="Microsoft.Skype.Bots.Media.IVideoSocket.SetReceiveBandwidthLimit(System.UInt32)">SetReceiveBandwidthLimit(UInt32)</h4>
+  <div class="markdown level1 summary"><p>Sets the bandwidth limit on the receive stream of the VideoSocket.
+This is only supported if the socket supports receiving H264 video format.
+It is recommended to wait for the VideoReceiveStatusChanged event with MediaReceiveStatus Active state 
+during the initial call setup before applying the receive bandwidth limit on the socket.
+Bandwidth range (in bits per second) for various resolutions and frame rates per media type:
+<p>Media type: Video
+<p>1000000 - 4000000  1080p at 30 fps
+<p> 550000 - 2500000  720p at 30 fps
+<p> 375000 - 1500000  540p at 30 fps
+<p> 200000 -  800000  360p at 30 fps
+<p> 150000 -  250000  360p at 15 fps
+<p> 120000 -  220000  360p at 7.5 fps
+<p>  60000 -  200000  240p at 7.5 fps
+<p>  20000 -  100000  180p at 7.5 fps
+<p>Media type: Vbss
+<p>Resolution: 1080p
+<p>2000000 - 4000000 at 30 fps
+<p> 600000 - 3000000 at 15 fps
+<p> 300000 -  700000  at 7.5 fps
+<p> 150000 -  350000  at 3.75 fps
+<p>  70000 -  200000  at 1.875 fps</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetReceiveBandwidthLimit(uint bitsPerSecond)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uint32">UInt32</a></td>
+        <td><span class="parametername">bitsPerSecond</span></td>
+        <td><p>The receive bitrate</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Skype_Bots_Media_IVideoSocket_SetSendBandwidthLimit_" data-uid="Microsoft.Skype.Bots.Media.IVideoSocket.SetSendBandwidthLimit*"></a>
+  <h4 id="Microsoft_Skype_Bots_Media_IVideoSocket_SetSendBandwidthLimit_System_UInt32_" data-uid="Microsoft.Skype.Bots.Media.IVideoSocket.SetSendBandwidthLimit(System.UInt32)">SetSendBandwidthLimit(UInt32)</h4>
+  <div class="markdown level1 summary"><p>Sets the bandwidth limit on the send stream of the VideoSocket.
+This is only supported if the socket supports sending H264 video formats.
+It is recommended to wait for the VideoSendStatusChanged event with MediaSendStatus Active state 
+during the initial call setup before applying the send bandwidth limit on the socket.
+<p>Bandwidth range (in bits per second) for various resolutions and frame rates per media type:</p>
+<p>Media type: Video
+<p>1000000 - 4000000  1080p at 30 fps
+<p> 550000 - 2500000  720p at 30 fps
+<p> 375000 - 1500000  540p at 30 fps
+<p> 200000 -  800000  360p at 30 fps
+<p> 150000 -  250000  360p at 15 fps
+<p> 120000 -  220000  360p at 7.5 fps
+<p>  60000 -  200000  240p at 7.5 fps
+<p>  20000 -  100000  180p at 7.5 fps
+<p>Media type: Vbss
+<p>Resolution: 1080p
+<p>2000000 - 4000000 at 30 fps
+<p> 600000 - 3000000 at 15 fps
+<p> 300000 -  700000  at 7.5 fps
+<p> 150000 -  350000  at 3.75 fps
+<p>  70000 -  200000  at 1.875 fps</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetSendBandwidthLimit(uint bitsPerSecond)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uint32">UInt32</a></td>
+        <td><span class="parametername">bitsPerSecond</span></td>
+        <td><p>The send bitrate</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <a id="Microsoft_Skype_Bots_Media_IVideoSocket_Subscribe_" data-uid="Microsoft.Skype.Bots.Media.IVideoSocket.Subscribe*"></a>
   <h4 id="Microsoft_Skype_Bots_Media_IVideoSocket_Subscribe_Microsoft_Skype_Bots_Media_VideoResolution_" data-uid="Microsoft.Skype.Bots.Media.IVideoSocket.Subscribe(Microsoft.Skype.Bots.Media.VideoResolution)">Subscribe(VideoResolution)</h4>
-  <div class="markdown level1 summary"><p>Subscribe API for the 1:1 case. No need to specify the media source id</p>
+  <div class="markdown level1 summary"><p>Subscribe API for the 1:1 case. No need to specify the media source id.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -226,7 +320,8 @@ the buffer object&apos;s Dispose() method is invoked by the Media Platform.</p>
       <tr>
         <td><a class="xref" href="Microsoft.Skype.Bots.Media.VideoResolution.html">VideoResolution</a></td>
         <td><span class="parametername">preferredVideoResolution</span></td>
-        <td></td>
+        <td><p>The preferred video resolution</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -267,7 +362,7 @@ The received video buffers should have the requested resolution if the bandwidth
   </table>
   <a id="Microsoft_Skype_Bots_Media_IVideoSocket_Unsubscribe_" data-uid="Microsoft.Skype.Bots.Media.IVideoSocket.Unsubscribe*"></a>
   <h4 id="Microsoft_Skype_Bots_Media_IVideoSocket_Unsubscribe" data-uid="Microsoft.Skype.Bots.Media.IVideoSocket.Unsubscribe">Unsubscribe()</h4>
-  <div class="markdown level1 summary"><p>Unsubscribe to video, the VideMediaReceived events will stop raising video buffers</p>
+  <div class="markdown level1 summary"><p>Unsubscribe to video, the VideMediaReceived events will stop raising video buffers.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -303,6 +398,29 @@ of the video socket, allowing the bot to add and remove video formats mid-call. 
   </table>
   <h3 id="events">Events
   </h3>
+  <h4 id="Microsoft_Skype_Bots_Media_IVideoSocket_MediaStreamFailure" data-uid="Microsoft.Skype.Bots.Media.IVideoSocket.MediaStreamFailure">MediaStreamFailure</h4>
+  <div class="markdown level1 summary"><p>The event is raised if there is a failure on the stream. For example the socket stops receiving media from the sender</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event EventHandler&lt;MediaStreamFailureEventArgs&gt; MediaStreamFailure</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Microsoft.Skype.Bots.Media.MediaStreamFailureEventArgs.html">MediaStreamFailureEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h4 id="Microsoft_Skype_Bots_Media_IVideoSocket_VideoKeyFrameNeeded" data-uid="Microsoft.Skype.Bots.Media.IVideoSocket.VideoKeyFrameNeeded">VideoKeyFrameNeeded</h4>
   <div class="markdown level1 summary"><p>If the application has configured the VideoSocket to receive encoded media, this
 event is raised each time a key frame is needed.

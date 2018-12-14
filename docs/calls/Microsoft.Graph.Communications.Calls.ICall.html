@@ -571,13 +571,13 @@ The mute notification will come in on ICallParticipant.OnUpdated</p>
     </tbody>
   </table>
   <a id="Microsoft_Graph_Communications_Calls_ICall_RecordAsync_" data-uid="Microsoft.Graph.Communications.Calls.ICall.RecordAsync*"></a>
-  <h4 id="Microsoft_Graph_Communications_Calls_ICall_RecordAsync_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Collections_Generic_IEnumerable_Microsoft_Graph_Prompt__System_Collections_Generic_IEnumerable_System_String__System_Action_System_String__System_Threading_CancellationToken_" data-uid="Microsoft.Graph.Communications.Calls.ICall.RecordAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Collections.Generic.IEnumerable{Microsoft.Graph.Prompt},System.Collections.Generic.IEnumerable{System.String},System.Action{System.String},System.Threading.CancellationToken)">RecordAsync(Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, IEnumerable&lt;Prompt&gt;, IEnumerable&lt;String&gt;, Action&lt;String&gt;, CancellationToken)</h4>
+  <h4 id="Microsoft_Graph_Communications_Calls_ICall_RecordAsync_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Collections_Generic_IEnumerable_Microsoft_Graph_Prompt__System_Collections_Generic_IEnumerable_System_String__System_Action_Microsoft_Graph_Communications_Calls_RecordOperationResult__System_Threading_CancellationToken_" data-uid="Microsoft.Graph.Communications.Calls.ICall.RecordAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Collections.Generic.IEnumerable{Microsoft.Graph.Prompt},System.Collections.Generic.IEnumerable{System.String},System.Action{Microsoft.Graph.Communications.Calls.RecordOperationResult},System.Threading.CancellationToken)">RecordAsync(Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, IEnumerable&lt;Prompt&gt;, IEnumerable&lt;String&gt;, Action&lt;RecordOperationResult&gt;, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Records the call asynchronously.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;RecordOperationResult&gt; RecordAsync(int? maxRecordDurationInSeconds = default(int? ), int? initialSilenceTimeoutInSeconds = default(int? ), int? maxSilenceTimeoutInSeconds = default(int? ), bool? bargeInAllowed = default(bool? ), bool? playBeep = default(bool? ), IEnumerable&lt;Prompt&gt; prompts = null, IEnumerable&lt;string&gt; stopTones = null, Action&lt;string&gt; recordingStreamFile = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;RecordOperationResult&gt; RecordAsync(int? maxRecordDurationInSeconds = default(int? ), int? initialSilenceTimeoutInSeconds = default(int? ), int? maxSilenceTimeoutInSeconds = default(int? ), bool? bargeInAllowed = default(bool? ), bool? playBeep = default(bool? ), IEnumerable&lt;Prompt&gt; prompts = null, IEnumerable&lt;string&gt; stopTones = null, Action&lt;RecordOperationResult&gt; recordingStreamInfo = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -632,9 +632,9 @@ The mute notification will come in on ICallParticipant.OnUpdated</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
-        <td><span class="parametername">recordingStreamFile</span></td>
-        <td><p>If not null, calls this function with the link which could be used to retrieve the raw record stream in real-time while record is in progress. If false, gives a link after recording is complete to download the recorded stream. </p>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="Microsoft.Graph.Communications.Calls.RecordOperationResult.html">RecordOperationResult</a>&gt;</td>
+        <td><span class="parametername">recordingStreamInfo</span></td>
+        <td><p>If not null, calls this function with RecordOperationResult which could be used to retrieve the raw record stream in real-time while record is in progress. If false, gives a link after recording is complete to download the recorded stream. </p>
 </td>
       </tr>
       <tr>

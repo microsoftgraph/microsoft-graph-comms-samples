@@ -124,7 +124,7 @@
   <h6><strong>Assembly</strong>: Microsoft.Skype.Bots.Media.dll</h6>
   <h5 id="Microsoft_Skype_Bots_Media_AudioSocket_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class AudioSocket : IAudioSocket, IDisposable, IInternalAudioSocket</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class AudioSocket : IAudioSocket, IDisposable, IInternalAudioSocket, IInternalSocket</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -282,6 +282,29 @@ If there is no dominant speaker in the conference the CurrentDominantSpeaker arg
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Microsoft.Skype.Bots.Media.DominantSpeakerChangedEventArgs.html">DominantSpeakerChangedEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h4 id="Microsoft_Skype_Bots_Media_AudioSocket_MediaStreamFailure" data-uid="Microsoft.Skype.Bots.Media.AudioSocket.MediaStreamFailure">MediaStreamFailure</h4>
+  <div class="markdown level1 summary"><p>The event is raised if there is a failure on the stream. For example the socket stops receiving media from the sender</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;MediaStreamFailureEventArgs&gt; MediaStreamFailure</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Microsoft.Skype.Bots.Media.MediaStreamFailureEventArgs.html">MediaStreamFailureEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
