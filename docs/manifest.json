@@ -234,7 +234,7 @@
       "output": {
         ".html": {
           "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioMediaBuffer.html",
-          "hash": "WpyzyqZP4YbxqB3vbNsuug=="
+          "hash": "o/lJVi6L/uTOgR5vKX08zQ=="
         }
       },
       "is_incremental": false,
@@ -282,7 +282,7 @@
       "output": {
         ".html": {
           "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioSocket.html",
-          "hash": "DVbMbb/QjE5bcwBww5YhAA=="
+          "hash": "MO6E7javtJJXEPI/OA79Sw=="
         }
       },
       "is_incremental": false,
@@ -294,7 +294,7 @@
       "output": {
         ".html": {
           "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioSocketSettings.html",
-          "hash": "ML90LosRAid7281xo6yWkg=="
+          "hash": "XtcEELcyBtrTKULSSYcITQ=="
         }
       },
       "is_incremental": false,
@@ -366,7 +366,7 @@
       "output": {
         ".html": {
           "relative_path": "bot_media/Microsoft.Skype.Bots.Media.DataSocket.html",
-          "hash": "C458uyZOev9U+7QxGueJ4g=="
+          "hash": "ejrSYReW0YaPSkVbwQJh0w=="
         }
       },
       "is_incremental": false,
@@ -414,7 +414,7 @@
       "output": {
         ".html": {
           "relative_path": "bot_media/Microsoft.Skype.Bots.Media.IAudioSocket.html",
-          "hash": "sKz6fKXb3fRezxWKBMf98A=="
+          "hash": "A1bPdgHUBl3nlUpOklOt9A=="
         }
       },
       "is_incremental": false,
@@ -438,7 +438,7 @@
       "output": {
         ".html": {
           "relative_path": "bot_media/Microsoft.Skype.Bots.Media.IDataSocket.html",
-          "hash": "MxFBT32KtartSotwzsHnPw=="
+          "hash": "5xzFgT2Jp6cYpIjfwsxSUw=="
         }
       },
       "is_incremental": false,
@@ -462,7 +462,7 @@
       "output": {
         ".html": {
           "relative_path": "bot_media/Microsoft.Skype.Bots.Media.IVideoSocket.html",
-          "hash": "tW9ZscTokj5rIRKEasF9qw=="
+          "hash": "Panqx6hRT27123lsXQ3nZg=="
         }
       },
       "is_incremental": false,
@@ -554,6 +554,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.MediaStreamFailureEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.MediaStreamFailureEventArgs.html",
+          "hash": "UJ10UrhYwbSFsPAQRCDspA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.MediaType.yml",
       "output": {
         ".html": {
@@ -631,6 +643,18 @@
         ".html": {
           "relative_path": "bot_media/Microsoft.Skype.Bots.Media.ToneReceivedEventArgs.html",
           "hash": "AQkhtliIdzO4+Mr6sZSlQA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.html",
+          "hash": "1AsCCWgcvWtiTFPxAbzaXA=="
         }
       },
       "is_incremental": false,
@@ -786,7 +810,7 @@
       "output": {
         ".html": {
           "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoSocket.html",
-          "hash": "/iwN8fsHFxlaZ+6l7pFPaw=="
+          "hash": "QenFKMNW4Wj8bRI0DtC5Yg=="
         }
       },
       "is_incremental": false,
@@ -810,7 +834,7 @@
       "output": {
         ".html": {
           "relative_path": "bot_media/Microsoft.Skype.Bots.Media.html",
-          "hash": "hNDqTFKySxob00R+UzoAow=="
+          "hash": "oH+xiIE1ybT2QSn8ELmj2Q=="
         }
       },
       "is_incremental": false,
@@ -822,7 +846,7 @@
       "output": {
         ".html": {
           "relative_path": "bot_media/toc.html",
-          "hash": "h3cfzFixpsOGQqBLtk4wXA=="
+          "hash": "ZLx0yJb5S0r+WtILNlL/EA=="
         }
       },
       "is_incremental": false,
@@ -894,7 +918,7 @@
       "output": {
         ".html": {
           "relative_path": "calls/Microsoft.Graph.Communications.Calls.ICall.html",
-          "hash": "LMxbCYaOR2WS97prWjebUw=="
+          "hash": "OxXZxhHzzikW1Wvb/UrNoQ=="
         }
       },
       "is_incremental": false,
@@ -990,7 +1014,7 @@
       "output": {
         ".html": {
           "relative_path": "calls/Microsoft.Graph.Communications.Calls.RecordOperationResult.html",
-          "hash": "Og+BRVHtRYBNIEBMnFU2gg=="
+          "hash": "2wRrGbNSBYNURw1A01FEsw=="
         }
       },
       "is_incremental": false,
@@ -1278,7 +1302,7 @@
       "output": {
         ".html": {
           "relative_path": "client/Microsoft.Graph.Communications.Client.Transport.GraphClientWrapper.html",
-          "hash": "WSqxN1D4wI/+LNW1wSNl6g=="
+          "hash": "2MKsH6yvRN8X5RCXWurNGw=="
         }
       },
       "is_incremental": false,
@@ -1446,7 +1470,7 @@
       "output": {
         ".html": {
           "relative_path": "client/Microsoft.Graph.Communications.Resources.ResourceEventArgs-1.html",
-          "hash": "gqbL7W8L9x2SjNS+hOjIwg=="
+          "hash": "vQ+roPVVt+bBtOaCUSR9OQ=="
         }
       },
       "is_incremental": false,
@@ -1458,7 +1482,7 @@
       "output": {
         ".html": {
           "relative_path": "client/Microsoft.Graph.Communications.Resources.ResourceEventHandler-2.html",
-          "hash": "FNJSq9xtza+W4R6V8C5BjA=="
+          "hash": "dmScYP+xP7HpOptocmZPDg=="
         }
       },
       "is_incremental": false,
@@ -1578,7 +1602,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.CollectionUtils.html",
-          "hash": "4IoyPLw+9hk1uNrMQj/LAg=="
+          "hash": "ZJR5GMUeLevljnUHqRcKuQ=="
         }
       },
       "is_incremental": false,
@@ -1602,7 +1626,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.EnumUtils.html",
-          "hash": "3jqkWfcZs0F1QC3HgNOoBg=="
+          "hash": "qeqpxNSHgRz0RRoBTVNpuw=="
         }
       },
       "is_incremental": false,
@@ -1710,7 +1734,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.html",
-          "hash": "U+X3kc5heoJOrX1QfLk7FA=="
+          "hash": "7ylHaDuwn0DCwEHQIMCzCg=="
         }
       },
       "is_incremental": false,
@@ -1962,7 +1986,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.StateMachine-1.html",
-          "hash": "7w3MxpiILl0urK/OB+GI5w=="
+          "hash": "9SemIRtd1cTonN0zRfJXiw=="
         }
       },
       "is_incremental": false,
@@ -2334,7 +2358,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.LoggingExtensions.html",
-          "hash": "6kRNSKEBwlZsq46aot9Qww=="
+          "hash": "7W29i5eywb+NLqGQMjODKQ=="
         }
       },
       "is_incremental": false,
@@ -2538,7 +2562,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.Extensions.HttpResponseMessageExtensions.html",
-          "hash": "fa5z9ESwz1OGaqp9X+Vm7A=="
+          "hash": "JbrcbB76XNHewlSe5s3TTA=="
         }
       },
       "is_incremental": false,
@@ -2562,7 +2586,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.html",
-          "hash": "W32LR8ckg1l+8wgBYZho3w=="
+          "hash": "h2CcU56fuA/ORJ+q2dpk2g=="
         }
       },
       "is_incremental": false,
@@ -2682,7 +2706,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.IGraphClient.html",
-          "hash": "tY/MRigubdE+b2o3DAw36A=="
+          "hash": "T8+3DlK6BUKIfQK+7GPfVA=="
         }
       },
       "is_incremental": false,
@@ -2706,7 +2730,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.IGraphHttpClient.html",
-          "hash": "eC+CF8DL8bp9cYOM/E+5Eg=="
+          "hash": "HVD2Ud678XpId4k8HwZM2Q=="
         }
       },
       "is_incremental": false,
@@ -2814,7 +2838,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.Utilities.html",
-          "hash": "09a4a20oZgd8Iupyn9CDbg=="
+          "hash": "wN4XLJvIWgQ9bWxjGTB/xQ=="
         }
       },
       "is_incremental": false,
@@ -2826,7 +2850,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.Validator.html",
-          "hash": "ZGwhOQXAwN/+vyLIuTkKdw=="
+          "hash": "P5ssUdTvrnCsjJQ2W0hpOA=="
         }
       },
       "is_incremental": false,
@@ -2838,7 +2862,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.WeakKey-1.html",
-          "hash": "diO6fXsQmZsZmhYT5+kv4g=="
+          "hash": "Tj5I3TI3dW4MNhX/2JlG3w=="
         }
       },
       "is_incremental": false,
@@ -3846,7 +3870,7 @@
       "output": {
         ".html": {
           "relative_path": "core/Microsoft.Graph.Chat.html",
-          "hash": "bKfYMwwccQdkBZgaHDxt0g=="
+          "hash": "k+LKdXpd6A621+Gxf0KvYA=="
         }
       },
       "is_incremental": false,
@@ -7086,7 +7110,7 @@
       "output": {
         ".html": {
           "relative_path": "core/Microsoft.Graph.MeetingCapability.html",
-          "hash": "Tzyrv/iE+JMxby1B5Pcvsw=="
+          "hash": "ZrqFz8UjoWYgN0vZITOAgg=="
         }
       },
       "is_incremental": false,
@@ -7134,7 +7158,7 @@
       "output": {
         ".html": {
           "relative_path": "core/Microsoft.Graph.MeetingType.html",
-          "hash": "cgEiXrDGRiZhWe/gxQLnmA=="
+          "hash": "1TibINHUXP4qQ5xBFrSOnA=="
         }
       },
       "is_incremental": false,
@@ -7878,7 +7902,7 @@
       "output": {
         ".html": {
           "relative_path": "core/Microsoft.Graph.RecordCompletionReason.html",
-          "hash": "+T1P1NxaZ7PyG5t/yMHoGw=="
+          "hash": "L/MjW2bC5uzY63Nj4/lvtQ=="
         }
       },
       "is_incremental": false,
@@ -7890,7 +7914,7 @@
       "output": {
         ".html": {
           "relative_path": "core/Microsoft.Graph.RecordOperation.html",
-          "hash": "/iL3gQwTahoHylTX1dbWAA=="
+          "hash": "VEFn247gVriNkPTg23S6IA=="
         }
       },
       "is_incremental": false,
@@ -8427,26 +8451,27 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": true,
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
         "incrementalPhase": "build"
       },
       "processors": {
-        "ResourceDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build"
-        },
         "TocDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
         "ConceptualDocumentProcessor": {
-          "can_incremental": true,
+          "can_incremental": false,
           "incrementalPhase": "build"
         },
         "ManagedReferenceDocumentProcessor": {
-          "can_incremental": true,
+          "can_incremental": false,
           "incrementalPhase": "build"
         }
       }

@@ -5418,6 +5418,18 @@ references:
   commentId: Overload:Microsoft.Graph.Chat.BridgedChatId
   fullName: Microsoft.Graph.Chat.BridgedChatId
   nameWithType: Chat.BridgedChatId
+- uid: Microsoft.Graph.Chat.CallbackUrl
+  name: CallbackUrl
+  href: core/Microsoft.Graph.Chat.html#Microsoft_Graph_Chat_CallbackUrl
+  commentId: P:Microsoft.Graph.Chat.CallbackUrl
+  fullName: Microsoft.Graph.Chat.CallbackUrl
+  nameWithType: Chat.CallbackUrl
+- uid: Microsoft.Graph.Chat.CallbackUrl*
+  name: CallbackUrl
+  href: core/Microsoft.Graph.Chat.html#Microsoft_Graph_Chat_CallbackUrl_
+  commentId: Overload:Microsoft.Graph.Chat.CallbackUrl
+  fullName: Microsoft.Graph.Chat.CallbackUrl
+  nameWithType: Chat.CallbackUrl
 - uid: Microsoft.Graph.Chat.ChatType
   name: ChatType
   href: core/Microsoft.Graph.Chat.html#Microsoft_Graph_Chat_ChatType
@@ -10352,15 +10364,15 @@ references:
   commentId: Overload:Microsoft.Graph.Communications.Calls.ICall.PlayPromptAsync
   fullName: Microsoft.Graph.Communications.Calls.ICall.PlayPromptAsync
   nameWithType: ICall.PlayPromptAsync
-- uid: Microsoft.Graph.Communications.Calls.ICall.RecordAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Collections.Generic.IEnumerable{Microsoft.Graph.Prompt},System.Collections.Generic.IEnumerable{System.String},System.Action{System.String},System.Threading.CancellationToken)
-  name: RecordAsync(Nullable<Int32>, Nullable<Int32>, Nullable<Int32>, Nullable<Boolean>, Nullable<Boolean>, IEnumerable<Prompt>, IEnumerable<String>, Action<String>, CancellationToken)
-  href: calls/Microsoft.Graph.Communications.Calls.ICall.html#Microsoft_Graph_Communications_Calls_ICall_RecordAsync_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Collections_Generic_IEnumerable_Microsoft_Graph_Prompt__System_Collections_Generic_IEnumerable_System_String__System_Action_System_String__System_Threading_CancellationToken_
-  commentId: M:Microsoft.Graph.Communications.Calls.ICall.RecordAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Collections.Generic.IEnumerable{Microsoft.Graph.Prompt},System.Collections.Generic.IEnumerable{System.String},System.Action{System.String},System.Threading.CancellationToken)
-  name.vb: RecordAsync(Nullable(Of Int32), Nullable(Of Int32), Nullable(Of Int32), Nullable(Of Boolean), Nullable(Of Boolean), IEnumerable(Of Prompt), IEnumerable(Of String), Action(Of String), CancellationToken)
-  fullName: Microsoft.Graph.Communications.Calls.ICall.RecordAsync(System.Nullable<System.Int32>, System.Nullable<System.Int32>, System.Nullable<System.Int32>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Collections.Generic.IEnumerable<Microsoft.Graph.Prompt>, System.Collections.Generic.IEnumerable<System.String>, System.Action<System.String>, System.Threading.CancellationToken)
-  fullName.vb: Microsoft.Graph.Communications.Calls.ICall.RecordAsync(System.Nullable(Of System.Int32), System.Nullable(Of System.Int32), System.Nullable(Of System.Int32), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Collections.Generic.IEnumerable(Of Microsoft.Graph.Prompt), System.Collections.Generic.IEnumerable(Of System.String), System.Action(Of System.String), System.Threading.CancellationToken)
-  nameWithType: ICall.RecordAsync(Nullable<Int32>, Nullable<Int32>, Nullable<Int32>, Nullable<Boolean>, Nullable<Boolean>, IEnumerable<Prompt>, IEnumerable<String>, Action<String>, CancellationToken)
-  nameWithType.vb: ICall.RecordAsync(Nullable(Of Int32), Nullable(Of Int32), Nullable(Of Int32), Nullable(Of Boolean), Nullable(Of Boolean), IEnumerable(Of Prompt), IEnumerable(Of String), Action(Of String), CancellationToken)
+- uid: Microsoft.Graph.Communications.Calls.ICall.RecordAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Collections.Generic.IEnumerable{Microsoft.Graph.Prompt},System.Collections.Generic.IEnumerable{System.String},System.Action{Microsoft.Graph.Communications.Calls.RecordOperationResult},System.Threading.CancellationToken)
+  name: RecordAsync(Nullable<Int32>, Nullable<Int32>, Nullable<Int32>, Nullable<Boolean>, Nullable<Boolean>, IEnumerable<Prompt>, IEnumerable<String>, Action<RecordOperationResult>, CancellationToken)
+  href: calls/Microsoft.Graph.Communications.Calls.ICall.html#Microsoft_Graph_Communications_Calls_ICall_RecordAsync_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Int32__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Collections_Generic_IEnumerable_Microsoft_Graph_Prompt__System_Collections_Generic_IEnumerable_System_String__System_Action_Microsoft_Graph_Communications_Calls_RecordOperationResult__System_Threading_CancellationToken_
+  commentId: M:Microsoft.Graph.Communications.Calls.ICall.RecordAsync(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Collections.Generic.IEnumerable{Microsoft.Graph.Prompt},System.Collections.Generic.IEnumerable{System.String},System.Action{Microsoft.Graph.Communications.Calls.RecordOperationResult},System.Threading.CancellationToken)
+  name.vb: RecordAsync(Nullable(Of Int32), Nullable(Of Int32), Nullable(Of Int32), Nullable(Of Boolean), Nullable(Of Boolean), IEnumerable(Of Prompt), IEnumerable(Of String), Action(Of RecordOperationResult), CancellationToken)
+  fullName: Microsoft.Graph.Communications.Calls.ICall.RecordAsync(System.Nullable<System.Int32>, System.Nullable<System.Int32>, System.Nullable<System.Int32>, System.Nullable<System.Boolean>, System.Nullable<System.Boolean>, System.Collections.Generic.IEnumerable<Microsoft.Graph.Prompt>, System.Collections.Generic.IEnumerable<System.String>, System.Action<Microsoft.Graph.Communications.Calls.RecordOperationResult>, System.Threading.CancellationToken)
+  fullName.vb: Microsoft.Graph.Communications.Calls.ICall.RecordAsync(System.Nullable(Of System.Int32), System.Nullable(Of System.Int32), System.Nullable(Of System.Int32), System.Nullable(Of System.Boolean), System.Nullable(Of System.Boolean), System.Collections.Generic.IEnumerable(Of Microsoft.Graph.Prompt), System.Collections.Generic.IEnumerable(Of System.String), System.Action(Of Microsoft.Graph.Communications.Calls.RecordOperationResult), System.Threading.CancellationToken)
+  nameWithType: ICall.RecordAsync(Nullable<Int32>, Nullable<Int32>, Nullable<Int32>, Nullable<Boolean>, Nullable<Boolean>, IEnumerable<Prompt>, IEnumerable<String>, Action<RecordOperationResult>, CancellationToken)
+  nameWithType.vb: ICall.RecordAsync(Nullable(Of Int32), Nullable(Of Int32), Nullable(Of Int32), Nullable(Of Boolean), Nullable(Of Boolean), IEnumerable(Of Prompt), IEnumerable(Of String), Action(Of RecordOperationResult), CancellationToken)
 - uid: Microsoft.Graph.Communications.Calls.ICall.RecordAsync*
   name: RecordAsync
   href: calls/Microsoft.Graph.Communications.Calls.ICall.html#Microsoft_Graph_Communications_Calls_ICall_RecordAsync_
@@ -11114,12 +11126,12 @@ references:
   commentId: T:Microsoft.Graph.Communications.Calls.RecordOperationResult
   fullName: Microsoft.Graph.Communications.Calls.RecordOperationResult
   nameWithType: RecordOperationResult
-- uid: Microsoft.Graph.Communications.Calls.RecordOperationResult.#ctor(System.String,Microsoft.Graph.RecordCompletionReason,Microsoft.Graph.ResultInfo)
-  name: RecordOperationResult(String, RecordCompletionReason, ResultInfo)
-  href: calls/Microsoft.Graph.Communications.Calls.RecordOperationResult.html#Microsoft_Graph_Communications_Calls_RecordOperationResult__ctor_System_String_Microsoft_Graph_RecordCompletionReason_Microsoft_Graph_ResultInfo_
-  commentId: M:Microsoft.Graph.Communications.Calls.RecordOperationResult.#ctor(System.String,Microsoft.Graph.RecordCompletionReason,Microsoft.Graph.ResultInfo)
-  fullName: Microsoft.Graph.Communications.Calls.RecordOperationResult.RecordOperationResult(System.String, Microsoft.Graph.RecordCompletionReason, Microsoft.Graph.ResultInfo)
-  nameWithType: RecordOperationResult.RecordOperationResult(String, RecordCompletionReason, ResultInfo)
+- uid: Microsoft.Graph.Communications.Calls.RecordOperationResult.#ctor(System.String,System.String,Microsoft.Graph.RecordCompletionReason,Microsoft.Graph.ResultInfo)
+  name: RecordOperationResult(String, String, RecordCompletionReason, ResultInfo)
+  href: calls/Microsoft.Graph.Communications.Calls.RecordOperationResult.html#Microsoft_Graph_Communications_Calls_RecordOperationResult__ctor_System_String_System_String_Microsoft_Graph_RecordCompletionReason_Microsoft_Graph_ResultInfo_
+  commentId: M:Microsoft.Graph.Communications.Calls.RecordOperationResult.#ctor(System.String,System.String,Microsoft.Graph.RecordCompletionReason,Microsoft.Graph.ResultInfo)
+  fullName: Microsoft.Graph.Communications.Calls.RecordOperationResult.RecordOperationResult(System.String, System.String, Microsoft.Graph.RecordCompletionReason, Microsoft.Graph.ResultInfo)
+  nameWithType: RecordOperationResult.RecordOperationResult(String, String, RecordCompletionReason, ResultInfo)
 - uid: Microsoft.Graph.Communications.Calls.RecordOperationResult.#ctor*
   name: RecordOperationResult
   href: calls/Microsoft.Graph.Communications.Calls.RecordOperationResult.html#Microsoft_Graph_Communications_Calls_RecordOperationResult__ctor_
@@ -11138,6 +11150,18 @@ references:
   commentId: Overload:Microsoft.Graph.Communications.Calls.RecordOperationResult.CompletionReason
   fullName: Microsoft.Graph.Communications.Calls.RecordOperationResult.CompletionReason
   nameWithType: RecordOperationResult.CompletionReason
+- uid: Microsoft.Graph.Communications.Calls.RecordOperationResult.RecordResourceAccessToken
+  name: RecordResourceAccessToken
+  href: calls/Microsoft.Graph.Communications.Calls.RecordOperationResult.html#Microsoft_Graph_Communications_Calls_RecordOperationResult_RecordResourceAccessToken
+  commentId: P:Microsoft.Graph.Communications.Calls.RecordOperationResult.RecordResourceAccessToken
+  fullName: Microsoft.Graph.Communications.Calls.RecordOperationResult.RecordResourceAccessToken
+  nameWithType: RecordOperationResult.RecordResourceAccessToken
+- uid: Microsoft.Graph.Communications.Calls.RecordOperationResult.RecordResourceAccessToken*
+  name: RecordResourceAccessToken
+  href: calls/Microsoft.Graph.Communications.Calls.RecordOperationResult.html#Microsoft_Graph_Communications_Calls_RecordOperationResult_RecordResourceAccessToken_
+  commentId: Overload:Microsoft.Graph.Communications.Calls.RecordOperationResult.RecordResourceAccessToken
+  fullName: Microsoft.Graph.Communications.Calls.RecordOperationResult.RecordResourceAccessToken
+  nameWithType: RecordOperationResult.RecordResourceAccessToken
 - uid: Microsoft.Graph.Communications.Calls.RecordOperationResult.RecordResourceLocation
   name: RecordResourceLocation
   href: calls/Microsoft.Graph.Communications.Calls.RecordOperationResult.html#Microsoft_Graph_Communications_Calls_RecordOperationResult_RecordResourceLocation
@@ -13067,6 +13091,18 @@ references:
   commentId: F:Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.OriginalMessageId
   fullName: Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.OriginalMessageId
   nameWithType: HttpConstants.HeaderNames.OriginalMessageId
+- uid: Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.RedirectDu
+  name: RedirectDu
+  href: common/Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.html#Microsoft_Graph_Communications_Common_HttpConstants_HeaderNames_RedirectDu
+  commentId: F:Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.RedirectDu
+  fullName: Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.RedirectDu
+  nameWithType: HttpConstants.HeaderNames.RedirectDu
+- uid: Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.RedirectRegion
+  name: RedirectRegion
+  href: common/Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.html#Microsoft_Graph_Communications_Common_HttpConstants_HeaderNames_RedirectRegion
+  commentId: F:Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.RedirectRegion
+  fullName: Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.RedirectRegion
+  nameWithType: HttpConstants.HeaderNames.RedirectRegion
 - uid: Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.RequestId
   name: RequestId
   href: common/Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.html#Microsoft_Graph_Communications_Common_HttpConstants_HeaderNames_RequestId
@@ -17127,6 +17163,18 @@ references:
   commentId: Overload:Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.Clone
   fullName: Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.Clone
   nameWithType: GraphHttpClient.Clone
+- uid: Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.CustomRedirectUriGenerator
+  name: CustomRedirectUriGenerator
+  href: common/Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.html#Microsoft_Graph_Communications_Common_Transport_GraphHttpClient_CustomRedirectUriGenerator
+  commentId: P:Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.CustomRedirectUriGenerator
+  fullName: Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.CustomRedirectUriGenerator
+  nameWithType: GraphHttpClient.CustomRedirectUriGenerator
+- uid: Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.CustomRedirectUriGenerator*
+  name: CustomRedirectUriGenerator
+  href: common/Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.html#Microsoft_Graph_Communications_Common_Transport_GraphHttpClient_CustomRedirectUriGenerator_
+  commentId: Overload:Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.CustomRedirectUriGenerator
+  fullName: Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.CustomRedirectUriGenerator
+  nameWithType: GraphHttpClient.CustomRedirectUriGenerator
 - uid: Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.GraphLogger
   name: GraphLogger
   href: common/Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.html#Microsoft_Graph_Communications_Common_Transport_GraphHttpClient_GraphLogger
@@ -17712,6 +17760,18 @@ references:
   commentId: Overload:Microsoft.Graph.Communications.Common.Transport.IGraphHttpClient.Clone
   fullName: Microsoft.Graph.Communications.Common.Transport.IGraphHttpClient.Clone
   nameWithType: IGraphHttpClient.Clone
+- uid: Microsoft.Graph.Communications.Common.Transport.IGraphHttpClient.CustomRedirectUriGenerator
+  name: CustomRedirectUriGenerator
+  href: common/Microsoft.Graph.Communications.Common.Transport.IGraphHttpClient.html#Microsoft_Graph_Communications_Common_Transport_IGraphHttpClient_CustomRedirectUriGenerator
+  commentId: P:Microsoft.Graph.Communications.Common.Transport.IGraphHttpClient.CustomRedirectUriGenerator
+  fullName: Microsoft.Graph.Communications.Common.Transport.IGraphHttpClient.CustomRedirectUriGenerator
+  nameWithType: IGraphHttpClient.CustomRedirectUriGenerator
+- uid: Microsoft.Graph.Communications.Common.Transport.IGraphHttpClient.CustomRedirectUriGenerator*
+  name: CustomRedirectUriGenerator
+  href: common/Microsoft.Graph.Communications.Common.Transport.IGraphHttpClient.html#Microsoft_Graph_Communications_Common_Transport_IGraphHttpClient_CustomRedirectUriGenerator_
+  commentId: Overload:Microsoft.Graph.Communications.Common.Transport.IGraphHttpClient.CustomRedirectUriGenerator
+  fullName: Microsoft.Graph.Communications.Common.Transport.IGraphHttpClient.CustomRedirectUriGenerator
+  nameWithType: IGraphHttpClient.CustomRedirectUriGenerator
 - uid: Microsoft.Graph.Communications.Common.Transport.IGraphHttpClient.SendRawHttpRequestAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)
   name: SendRawHttpRequestAsync(HttpRequestMessage, CancellationToken)
   href: common/Microsoft.Graph.Communications.Common.Transport.IGraphHttpClient.html#Microsoft_Graph_Communications_Common_Transport_IGraphHttpClient_SendRawHttpRequestAsync_System_Net_Http_HttpRequestMessage_System_Threading_CancellationToken_
@@ -30949,6 +31009,18 @@ references:
   commentId: Overload:Microsoft.Graph.MeetingCapability.AllowAnonymousUsersToDialOut
   fullName: Microsoft.Graph.MeetingCapability.AllowAnonymousUsersToDialOut
   nameWithType: MeetingCapability.AllowAnonymousUsersToDialOut
+- uid: Microsoft.Graph.MeetingCapability.AllowAnonymousUsersToStartMeeting
+  name: AllowAnonymousUsersToStartMeeting
+  href: core/Microsoft.Graph.MeetingCapability.html#Microsoft_Graph_MeetingCapability_AllowAnonymousUsersToStartMeeting
+  commentId: P:Microsoft.Graph.MeetingCapability.AllowAnonymousUsersToStartMeeting
+  fullName: Microsoft.Graph.MeetingCapability.AllowAnonymousUsersToStartMeeting
+  nameWithType: MeetingCapability.AllowAnonymousUsersToStartMeeting
+- uid: Microsoft.Graph.MeetingCapability.AllowAnonymousUsersToStartMeeting*
+  name: AllowAnonymousUsersToStartMeeting
+  href: core/Microsoft.Graph.MeetingCapability.html#Microsoft_Graph_MeetingCapability_AllowAnonymousUsersToStartMeeting_
+  commentId: Overload:Microsoft.Graph.MeetingCapability.AllowAnonymousUsersToStartMeeting
+  fullName: Microsoft.Graph.MeetingCapability.AllowAnonymousUsersToStartMeeting
+  nameWithType: MeetingCapability.AllowAnonymousUsersToStartMeeting
 - uid: Microsoft.Graph.MeetingCapability.AutoAdmittedUsers
   name: AutoAdmittedUsers
   href: core/Microsoft.Graph.MeetingCapability.html#Microsoft_Graph_MeetingCapability_AutoAdmittedUsers
@@ -31135,12 +31207,6 @@ references:
   commentId: F:Microsoft.Graph.MeetingType.Broadcast
   fullName: Microsoft.Graph.MeetingType.Broadcast
   nameWithType: MeetingType.Broadcast
-- uid: Microsoft.Graph.MeetingType.Calendar
-  name: Calendar
-  href: core/Microsoft.Graph.MeetingType.html#Microsoft_Graph_MeetingType_Calendar
-  commentId: F:Microsoft.Graph.MeetingType.Calendar
-  fullName: Microsoft.Graph.MeetingType.Calendar
-  nameWithType: MeetingType.Calendar
 - uid: Microsoft.Graph.MeetingType.MeetNow
   name: MeetNow
   href: core/Microsoft.Graph.MeetingType.html#Microsoft_Graph_MeetingType_MeetNow
@@ -31153,6 +31219,12 @@ references:
   commentId: F:Microsoft.Graph.MeetingType.Recurring
   fullName: Microsoft.Graph.MeetingType.Recurring
   nameWithType: MeetingType.Recurring
+- uid: Microsoft.Graph.MeetingType.Scheduled
+  name: Scheduled
+  href: core/Microsoft.Graph.MeetingType.html#Microsoft_Graph_MeetingType_Scheduled
+  commentId: F:Microsoft.Graph.MeetingType.Scheduled
+  fullName: Microsoft.Graph.MeetingType.Scheduled
+  nameWithType: MeetingType.Scheduled
 - uid: Microsoft.Graph.Mention
   name: Mention
   href: core/Microsoft.Graph.Mention.html
@@ -35206,6 +35278,12 @@ references:
   commentId: F:Microsoft.Graph.RecordCompletionReason.MediaReceiveTimeout
   fullName: Microsoft.Graph.RecordCompletionReason.MediaReceiveTimeout
   nameWithType: RecordCompletionReason.MediaReceiveTimeout
+- uid: Microsoft.Graph.RecordCompletionReason.None
+  name: None
+  href: core/Microsoft.Graph.RecordCompletionReason.html#Microsoft_Graph_RecordCompletionReason_None
+  commentId: F:Microsoft.Graph.RecordCompletionReason.None
+  fullName: Microsoft.Graph.RecordCompletionReason.None
+  nameWithType: RecordCompletionReason.None
 - uid: Microsoft.Graph.RecordCompletionReason.OperationCanceled
   name: OperationCanceled
   href: core/Microsoft.Graph.RecordCompletionReason.html#Microsoft_Graph_RecordCompletionReason_OperationCanceled
@@ -35416,6 +35494,18 @@ references:
   commentId: Overload:Microsoft.Graph.RecordOperation.Prompts
   fullName: Microsoft.Graph.RecordOperation.Prompts
   nameWithType: RecordOperation.Prompts
+- uid: Microsoft.Graph.RecordOperation.RecordResourceAccessToken
+  name: RecordResourceAccessToken
+  href: core/Microsoft.Graph.RecordOperation.html#Microsoft_Graph_RecordOperation_RecordResourceAccessToken
+  commentId: P:Microsoft.Graph.RecordOperation.RecordResourceAccessToken
+  fullName: Microsoft.Graph.RecordOperation.RecordResourceAccessToken
+  nameWithType: RecordOperation.RecordResourceAccessToken
+- uid: Microsoft.Graph.RecordOperation.RecordResourceAccessToken*
+  name: RecordResourceAccessToken
+  href: core/Microsoft.Graph.RecordOperation.html#Microsoft_Graph_RecordOperation_RecordResourceAccessToken_
+  commentId: Overload:Microsoft.Graph.RecordOperation.RecordResourceAccessToken
+  fullName: Microsoft.Graph.RecordOperation.RecordResourceAccessToken
+  nameWithType: RecordOperation.RecordResourceAccessToken
 - uid: Microsoft.Graph.RecordOperation.RecordResourceLocation
   name: RecordResourceLocation
   href: core/Microsoft.Graph.RecordOperation.html#Microsoft_Graph_RecordOperation_RecordResourceLocation
@@ -37660,6 +37750,18 @@ references:
   commentId: Overload:Microsoft.Skype.Bots.Media.AudioMediaBuffer.Timestamp
   fullName: Microsoft.Skype.Bots.Media.AudioMediaBuffer.Timestamp
   nameWithType: AudioMediaBuffer.Timestamp
+- uid: Microsoft.Skype.Bots.Media.AudioMediaBuffer.UnmixedAudioBuffers
+  name: UnmixedAudioBuffers
+  href: bot_media/Microsoft.Skype.Bots.Media.AudioMediaBuffer.html#Microsoft_Skype_Bots_Media_AudioMediaBuffer_UnmixedAudioBuffers
+  commentId: P:Microsoft.Skype.Bots.Media.AudioMediaBuffer.UnmixedAudioBuffers
+  fullName: Microsoft.Skype.Bots.Media.AudioMediaBuffer.UnmixedAudioBuffers
+  nameWithType: AudioMediaBuffer.UnmixedAudioBuffers
+- uid: Microsoft.Skype.Bots.Media.AudioMediaBuffer.UnmixedAudioBuffers*
+  name: UnmixedAudioBuffers
+  href: bot_media/Microsoft.Skype.Bots.Media.AudioMediaBuffer.html#Microsoft_Skype_Bots_Media_AudioMediaBuffer_UnmixedAudioBuffers_
+  commentId: Overload:Microsoft.Skype.Bots.Media.AudioMediaBuffer.UnmixedAudioBuffers
+  fullName: Microsoft.Skype.Bots.Media.AudioMediaBuffer.UnmixedAudioBuffers
+  nameWithType: AudioMediaBuffer.UnmixedAudioBuffers
 - uid: Microsoft.Skype.Bots.Media.AudioMediaReceivedEventArgs
   name: AudioMediaReceivedEventArgs
   href: bot_media/Microsoft.Skype.Bots.Media.AudioMediaReceivedEventArgs.html
@@ -37798,6 +37900,12 @@ references:
   commentId: E:Microsoft.Skype.Bots.Media.AudioSocket.DominantSpeakerChanged
   fullName: Microsoft.Skype.Bots.Media.AudioSocket.DominantSpeakerChanged
   nameWithType: AudioSocket.DominantSpeakerChanged
+- uid: Microsoft.Skype.Bots.Media.AudioSocket.MediaStreamFailure
+  name: MediaStreamFailure
+  href: bot_media/Microsoft.Skype.Bots.Media.AudioSocket.html#Microsoft_Skype_Bots_Media_AudioSocket_MediaStreamFailure
+  commentId: E:Microsoft.Skype.Bots.Media.AudioSocket.MediaStreamFailure
+  fullName: Microsoft.Skype.Bots.Media.AudioSocket.MediaStreamFailure
+  nameWithType: AudioSocket.MediaStreamFailure
 - uid: Microsoft.Skype.Bots.Media.AudioSocket.Send(Microsoft.Skype.Bots.Media.AudioMediaBuffer)
   name: Send(AudioMediaBuffer)
   href: bot_media/Microsoft.Skype.Bots.Media.AudioSocket.html#Microsoft_Skype_Bots_Media_AudioSocket_Send_Microsoft_Skype_Bots_Media_AudioMediaBuffer_
@@ -37846,6 +37954,18 @@ references:
   commentId: Overload:Microsoft.Skype.Bots.Media.AudioSocketSettings.CallId
   fullName: Microsoft.Skype.Bots.Media.AudioSocketSettings.CallId
   nameWithType: AudioSocketSettings.CallId
+- uid: Microsoft.Skype.Bots.Media.AudioSocketSettings.ReceiveUnmixedMeetingAudio
+  name: ReceiveUnmixedMeetingAudio
+  href: bot_media/Microsoft.Skype.Bots.Media.AudioSocketSettings.html#Microsoft_Skype_Bots_Media_AudioSocketSettings_ReceiveUnmixedMeetingAudio
+  commentId: P:Microsoft.Skype.Bots.Media.AudioSocketSettings.ReceiveUnmixedMeetingAudio
+  fullName: Microsoft.Skype.Bots.Media.AudioSocketSettings.ReceiveUnmixedMeetingAudio
+  nameWithType: AudioSocketSettings.ReceiveUnmixedMeetingAudio
+- uid: Microsoft.Skype.Bots.Media.AudioSocketSettings.ReceiveUnmixedMeetingAudio*
+  name: ReceiveUnmixedMeetingAudio
+  href: bot_media/Microsoft.Skype.Bots.Media.AudioSocketSettings.html#Microsoft_Skype_Bots_Media_AudioSocketSettings_ReceiveUnmixedMeetingAudio_
+  commentId: Overload:Microsoft.Skype.Bots.Media.AudioSocketSettings.ReceiveUnmixedMeetingAudio
+  fullName: Microsoft.Skype.Bots.Media.AudioSocketSettings.ReceiveUnmixedMeetingAudio
+  nameWithType: AudioSocketSettings.ReceiveUnmixedMeetingAudio
 - uid: Microsoft.Skype.Bots.Media.AudioSocketSettings.StreamDirections
   name: StreamDirections
   href: bot_media/Microsoft.Skype.Bots.Media.AudioSocketSettings.html#Microsoft_Skype_Bots_Media_AudioSocketSettings_StreamDirections
@@ -38152,6 +38272,12 @@ references:
   commentId: Overload:Microsoft.Skype.Bots.Media.DataSocket.Dispose
   fullName: Microsoft.Skype.Bots.Media.DataSocket.Dispose
   nameWithType: DataSocket.Dispose
+- uid: Microsoft.Skype.Bots.Media.DataSocket.MediaStreamFailure
+  name: MediaStreamFailure
+  href: bot_media/Microsoft.Skype.Bots.Media.DataSocket.html#Microsoft_Skype_Bots_Media_DataSocket_MediaStreamFailure
+  commentId: E:Microsoft.Skype.Bots.Media.DataSocket.MediaStreamFailure
+  fullName: Microsoft.Skype.Bots.Media.DataSocket.MediaStreamFailure
+  nameWithType: DataSocket.MediaStreamFailure
 - uid: Microsoft.Skype.Bots.Media.DataSocket.Send(Microsoft.Skype.Bots.Media.DataMediaBuffer,System.UInt32[])
   name: Send(DataMediaBuffer, UInt32[])
   href: bot_media/Microsoft.Skype.Bots.Media.DataSocket.html#Microsoft_Skype_Bots_Media_DataSocket_Send_Microsoft_Skype_Bots_Media_DataMediaBuffer_System_UInt32___
@@ -38317,6 +38443,12 @@ references:
   commentId: E:Microsoft.Skype.Bots.Media.IAudioSocket.DominantSpeakerChanged
   fullName: Microsoft.Skype.Bots.Media.IAudioSocket.DominantSpeakerChanged
   nameWithType: IAudioSocket.DominantSpeakerChanged
+- uid: Microsoft.Skype.Bots.Media.IAudioSocket.MediaStreamFailure
+  name: MediaStreamFailure
+  href: bot_media/Microsoft.Skype.Bots.Media.IAudioSocket.html#Microsoft_Skype_Bots_Media_IAudioSocket_MediaStreamFailure
+  commentId: E:Microsoft.Skype.Bots.Media.IAudioSocket.MediaStreamFailure
+  fullName: Microsoft.Skype.Bots.Media.IAudioSocket.MediaStreamFailure
+  nameWithType: IAudioSocket.MediaStreamFailure
 - uid: Microsoft.Skype.Bots.Media.IAudioSocket.Send(Microsoft.Skype.Bots.Media.AudioMediaBuffer)
   name: Send(AudioMediaBuffer)
   href: bot_media/Microsoft.Skype.Bots.Media.IAudioSocket.html#Microsoft_Skype_Bots_Media_IAudioSocket_Send_Microsoft_Skype_Bots_Media_AudioMediaBuffer_
@@ -38407,6 +38539,12 @@ references:
   commentId: E:Microsoft.Skype.Bots.Media.IDataSocket.DataSendStatusChanged
   fullName: Microsoft.Skype.Bots.Media.IDataSocket.DataSendStatusChanged
   nameWithType: IDataSocket.DataSendStatusChanged
+- uid: Microsoft.Skype.Bots.Media.IDataSocket.MediaStreamFailure
+  name: MediaStreamFailure
+  href: bot_media/Microsoft.Skype.Bots.Media.IDataSocket.html#Microsoft_Skype_Bots_Media_IDataSocket_MediaStreamFailure
+  commentId: E:Microsoft.Skype.Bots.Media.IDataSocket.MediaStreamFailure
+  fullName: Microsoft.Skype.Bots.Media.IDataSocket.MediaStreamFailure
+  nameWithType: IDataSocket.MediaStreamFailure
 - uid: Microsoft.Skype.Bots.Media.IDataSocket.Send(Microsoft.Skype.Bots.Media.DataMediaBuffer,System.UInt32[])
   name: Send(DataMediaBuffer, UInt32[])
   href: bot_media/Microsoft.Skype.Bots.Media.IDataSocket.html#Microsoft_Skype_Bots_Media_IDataSocket_Send_Microsoft_Skype_Bots_Media_DataMediaBuffer_System_UInt32___
@@ -38515,6 +38653,12 @@ references:
   commentId: T:Microsoft.Skype.Bots.Media.IVideoSocket
   fullName: Microsoft.Skype.Bots.Media.IVideoSocket
   nameWithType: IVideoSocket
+- uid: Microsoft.Skype.Bots.Media.IVideoSocket.MediaStreamFailure
+  name: MediaStreamFailure
+  href: bot_media/Microsoft.Skype.Bots.Media.IVideoSocket.html#Microsoft_Skype_Bots_Media_IVideoSocket_MediaStreamFailure
+  commentId: E:Microsoft.Skype.Bots.Media.IVideoSocket.MediaStreamFailure
+  fullName: Microsoft.Skype.Bots.Media.IVideoSocket.MediaStreamFailure
+  nameWithType: IVideoSocket.MediaStreamFailure
 - uid: Microsoft.Skype.Bots.Media.IVideoSocket.MediaType
   name: MediaType
   href: bot_media/Microsoft.Skype.Bots.Media.IVideoSocket.html#Microsoft_Skype_Bots_Media_IVideoSocket_MediaType
@@ -38551,6 +38695,30 @@ references:
   commentId: Overload:Microsoft.Skype.Bots.Media.IVideoSocket.Send
   fullName: Microsoft.Skype.Bots.Media.IVideoSocket.Send
   nameWithType: IVideoSocket.Send
+- uid: Microsoft.Skype.Bots.Media.IVideoSocket.SetReceiveBandwidthLimit(System.UInt32)
+  name: SetReceiveBandwidthLimit(UInt32)
+  href: bot_media/Microsoft.Skype.Bots.Media.IVideoSocket.html#Microsoft_Skype_Bots_Media_IVideoSocket_SetReceiveBandwidthLimit_System_UInt32_
+  commentId: M:Microsoft.Skype.Bots.Media.IVideoSocket.SetReceiveBandwidthLimit(System.UInt32)
+  fullName: Microsoft.Skype.Bots.Media.IVideoSocket.SetReceiveBandwidthLimit(System.UInt32)
+  nameWithType: IVideoSocket.SetReceiveBandwidthLimit(UInt32)
+- uid: Microsoft.Skype.Bots.Media.IVideoSocket.SetReceiveBandwidthLimit*
+  name: SetReceiveBandwidthLimit
+  href: bot_media/Microsoft.Skype.Bots.Media.IVideoSocket.html#Microsoft_Skype_Bots_Media_IVideoSocket_SetReceiveBandwidthLimit_
+  commentId: Overload:Microsoft.Skype.Bots.Media.IVideoSocket.SetReceiveBandwidthLimit
+  fullName: Microsoft.Skype.Bots.Media.IVideoSocket.SetReceiveBandwidthLimit
+  nameWithType: IVideoSocket.SetReceiveBandwidthLimit
+- uid: Microsoft.Skype.Bots.Media.IVideoSocket.SetSendBandwidthLimit(System.UInt32)
+  name: SetSendBandwidthLimit(UInt32)
+  href: bot_media/Microsoft.Skype.Bots.Media.IVideoSocket.html#Microsoft_Skype_Bots_Media_IVideoSocket_SetSendBandwidthLimit_System_UInt32_
+  commentId: M:Microsoft.Skype.Bots.Media.IVideoSocket.SetSendBandwidthLimit(System.UInt32)
+  fullName: Microsoft.Skype.Bots.Media.IVideoSocket.SetSendBandwidthLimit(System.UInt32)
+  nameWithType: IVideoSocket.SetSendBandwidthLimit(UInt32)
+- uid: Microsoft.Skype.Bots.Media.IVideoSocket.SetSendBandwidthLimit*
+  name: SetSendBandwidthLimit
+  href: bot_media/Microsoft.Skype.Bots.Media.IVideoSocket.html#Microsoft_Skype_Bots_Media_IVideoSocket_SetSendBandwidthLimit_
+  commentId: Overload:Microsoft.Skype.Bots.Media.IVideoSocket.SetSendBandwidthLimit
+  fullName: Microsoft.Skype.Bots.Media.IVideoSocket.SetSendBandwidthLimit
+  nameWithType: IVideoSocket.SetSendBandwidthLimit
 - uid: Microsoft.Skype.Bots.Media.IVideoSocket.SocketId
   name: SocketId
   href: bot_media/Microsoft.Skype.Bots.Media.IVideoSocket.html#Microsoft_Skype_Bots_Media_IVideoSocket_SocketId
@@ -38998,6 +39166,24 @@ references:
   commentId: F:Microsoft.Skype.Bots.Media.MediaSendStatus.Inactive
   fullName: Microsoft.Skype.Bots.Media.MediaSendStatus.Inactive
   nameWithType: MediaSendStatus.Inactive
+- uid: Microsoft.Skype.Bots.Media.MediaStreamFailureEventArgs
+  name: MediaStreamFailureEventArgs
+  href: bot_media/Microsoft.Skype.Bots.Media.MediaStreamFailureEventArgs.html
+  commentId: T:Microsoft.Skype.Bots.Media.MediaStreamFailureEventArgs
+  fullName: Microsoft.Skype.Bots.Media.MediaStreamFailureEventArgs
+  nameWithType: MediaStreamFailureEventArgs
+- uid: Microsoft.Skype.Bots.Media.MediaStreamFailureEventArgs.#ctor
+  name: MediaStreamFailureEventArgs()
+  href: bot_media/Microsoft.Skype.Bots.Media.MediaStreamFailureEventArgs.html#Microsoft_Skype_Bots_Media_MediaStreamFailureEventArgs__ctor
+  commentId: M:Microsoft.Skype.Bots.Media.MediaStreamFailureEventArgs.#ctor
+  fullName: Microsoft.Skype.Bots.Media.MediaStreamFailureEventArgs.MediaStreamFailureEventArgs()
+  nameWithType: MediaStreamFailureEventArgs.MediaStreamFailureEventArgs()
+- uid: Microsoft.Skype.Bots.Media.MediaStreamFailureEventArgs.#ctor*
+  name: MediaStreamFailureEventArgs
+  href: bot_media/Microsoft.Skype.Bots.Media.MediaStreamFailureEventArgs.html#Microsoft_Skype_Bots_Media_MediaStreamFailureEventArgs__ctor_
+  commentId: Overload:Microsoft.Skype.Bots.Media.MediaStreamFailureEventArgs.#ctor
+  fullName: Microsoft.Skype.Bots.Media.MediaStreamFailureEventArgs.MediaStreamFailureEventArgs
+  nameWithType: MediaStreamFailureEventArgs.MediaStreamFailureEventArgs
 - uid: Microsoft.Skype.Bots.Media.MediaType
   name: MediaType
   href: bot_media/Microsoft.Skype.Bots.Media.MediaType.html
@@ -39298,6 +39484,48 @@ references:
   commentId: Overload:Microsoft.Skype.Bots.Media.ToneReceivedEventArgs.Tone
   fullName: Microsoft.Skype.Bots.Media.ToneReceivedEventArgs.Tone
   nameWithType: ToneReceivedEventArgs.Tone
+- uid: Microsoft.Skype.Bots.Media.UnmixedAudioBuffer
+  name: UnmixedAudioBuffer
+  href: bot_media/Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.html
+  commentId: T:Microsoft.Skype.Bots.Media.UnmixedAudioBuffer
+  fullName: Microsoft.Skype.Bots.Media.UnmixedAudioBuffer
+  nameWithType: UnmixedAudioBuffer
+- uid: Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.ActiveSpeakerId
+  name: ActiveSpeakerId
+  href: bot_media/Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.html#Microsoft_Skype_Bots_Media_UnmixedAudioBuffer_ActiveSpeakerId
+  commentId: P:Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.ActiveSpeakerId
+  fullName: Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.ActiveSpeakerId
+  nameWithType: UnmixedAudioBuffer.ActiveSpeakerId
+- uid: Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.ActiveSpeakerId*
+  name: ActiveSpeakerId
+  href: bot_media/Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.html#Microsoft_Skype_Bots_Media_UnmixedAudioBuffer_ActiveSpeakerId_
+  commentId: Overload:Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.ActiveSpeakerId
+  fullName: Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.ActiveSpeakerId
+  nameWithType: UnmixedAudioBuffer.ActiveSpeakerId
+- uid: Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.Data
+  name: Data
+  href: bot_media/Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.html#Microsoft_Skype_Bots_Media_UnmixedAudioBuffer_Data
+  commentId: P:Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.Data
+  fullName: Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.Data
+  nameWithType: UnmixedAudioBuffer.Data
+- uid: Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.Data*
+  name: Data
+  href: bot_media/Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.html#Microsoft_Skype_Bots_Media_UnmixedAudioBuffer_Data_
+  commentId: Overload:Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.Data
+  fullName: Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.Data
+  nameWithType: UnmixedAudioBuffer.Data
+- uid: Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.Length
+  name: Length
+  href: bot_media/Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.html#Microsoft_Skype_Bots_Media_UnmixedAudioBuffer_Length
+  commentId: P:Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.Length
+  fullName: Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.Length
+  nameWithType: UnmixedAudioBuffer.Length
+- uid: Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.Length*
+  name: Length
+  href: bot_media/Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.html#Microsoft_Skype_Bots_Media_UnmixedAudioBuffer_Length_
+  commentId: Overload:Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.Length
+  fullName: Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.Length
+  nameWithType: UnmixedAudioBuffer.Length
 - uid: Microsoft.Skype.Bots.Media.VideoColorFormat
   name: VideoColorFormat
   href: bot_media/Microsoft.Skype.Bots.Media.VideoColorFormat.html
@@ -40588,6 +40816,12 @@ references:
   commentId: Overload:Microsoft.Skype.Bots.Media.VideoSocket.Dispose
   fullName: Microsoft.Skype.Bots.Media.VideoSocket.Dispose
   nameWithType: VideoSocket.Dispose
+- uid: Microsoft.Skype.Bots.Media.VideoSocket.MediaStreamFailure
+  name: MediaStreamFailure
+  href: bot_media/Microsoft.Skype.Bots.Media.VideoSocket.html#Microsoft_Skype_Bots_Media_VideoSocket_MediaStreamFailure
+  commentId: E:Microsoft.Skype.Bots.Media.VideoSocket.MediaStreamFailure
+  fullName: Microsoft.Skype.Bots.Media.VideoSocket.MediaStreamFailure
+  nameWithType: VideoSocket.MediaStreamFailure
 - uid: Microsoft.Skype.Bots.Media.VideoSocket.MediaType
   name: MediaType
   href: bot_media/Microsoft.Skype.Bots.Media.VideoSocket.html#Microsoft_Skype_Bots_Media_VideoSocket_MediaType
@@ -40636,6 +40870,30 @@ references:
   commentId: Overload:Microsoft.Skype.Bots.Media.VideoSocket.Send
   fullName: Microsoft.Skype.Bots.Media.VideoSocket.Send
   nameWithType: VideoSocket.Send
+- uid: Microsoft.Skype.Bots.Media.VideoSocket.SetReceiveBandwidthLimit(System.UInt32)
+  name: SetReceiveBandwidthLimit(UInt32)
+  href: bot_media/Microsoft.Skype.Bots.Media.VideoSocket.html#Microsoft_Skype_Bots_Media_VideoSocket_SetReceiveBandwidthLimit_System_UInt32_
+  commentId: M:Microsoft.Skype.Bots.Media.VideoSocket.SetReceiveBandwidthLimit(System.UInt32)
+  fullName: Microsoft.Skype.Bots.Media.VideoSocket.SetReceiveBandwidthLimit(System.UInt32)
+  nameWithType: VideoSocket.SetReceiveBandwidthLimit(UInt32)
+- uid: Microsoft.Skype.Bots.Media.VideoSocket.SetReceiveBandwidthLimit*
+  name: SetReceiveBandwidthLimit
+  href: bot_media/Microsoft.Skype.Bots.Media.VideoSocket.html#Microsoft_Skype_Bots_Media_VideoSocket_SetReceiveBandwidthLimit_
+  commentId: Overload:Microsoft.Skype.Bots.Media.VideoSocket.SetReceiveBandwidthLimit
+  fullName: Microsoft.Skype.Bots.Media.VideoSocket.SetReceiveBandwidthLimit
+  nameWithType: VideoSocket.SetReceiveBandwidthLimit
+- uid: Microsoft.Skype.Bots.Media.VideoSocket.SetSendBandwidthLimit(System.UInt32)
+  name: SetSendBandwidthLimit(UInt32)
+  href: bot_media/Microsoft.Skype.Bots.Media.VideoSocket.html#Microsoft_Skype_Bots_Media_VideoSocket_SetSendBandwidthLimit_System_UInt32_
+  commentId: M:Microsoft.Skype.Bots.Media.VideoSocket.SetSendBandwidthLimit(System.UInt32)
+  fullName: Microsoft.Skype.Bots.Media.VideoSocket.SetSendBandwidthLimit(System.UInt32)
+  nameWithType: VideoSocket.SetSendBandwidthLimit(UInt32)
+- uid: Microsoft.Skype.Bots.Media.VideoSocket.SetSendBandwidthLimit*
+  name: SetSendBandwidthLimit
+  href: bot_media/Microsoft.Skype.Bots.Media.VideoSocket.html#Microsoft_Skype_Bots_Media_VideoSocket_SetSendBandwidthLimit_
+  commentId: Overload:Microsoft.Skype.Bots.Media.VideoSocket.SetSendBandwidthLimit
+  fullName: Microsoft.Skype.Bots.Media.VideoSocket.SetSendBandwidthLimit
+  nameWithType: VideoSocket.SetSendBandwidthLimit
 - uid: Microsoft.Skype.Bots.Media.VideoSocket.SocketId
   name: SocketId
   href: bot_media/Microsoft.Skype.Bots.Media.VideoSocket.html#Microsoft_Skype_Bots_Media_VideoSocket_SocketId
