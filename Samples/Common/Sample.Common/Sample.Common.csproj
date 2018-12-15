@@ -11,7 +11,7 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.6" />
-        <PackageReference Include="Microsoft.Graph.Communications.Client" Version="1.0.0-prerelease.494" />
+        <PackageReference Include="Microsoft.Graph.Communications.Client" Version="1.0.0-prerelease.881" />
         <PackageReference Include="Microsoft.IdentityModel.Clients.ActiveDirectory" Version="3.19.8" />
         <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="5.2.4" />
         <Reference Include="System.Data" />
