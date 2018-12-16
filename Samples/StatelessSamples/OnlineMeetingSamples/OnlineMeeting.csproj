@@ -9,7 +9,7 @@
   <Import Project="$(MSBuildThisFileDirectory)..\..\Graph.props" />
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Graph.Communications.Core" Version="1.0.0-prerelease.494" />
+    <PackageReference Include="Microsoft.Graph.Communications.Core" Version="1.0.0-prerelease.881" />
     <PackageReference Include="Microsoft.IdentityModel.Clients.ActiveDirectory" Version="3.19.8" />
   </ItemGroup>
 
