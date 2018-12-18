@@ -42,7 +42,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/Testing.html",
-          "hash": "d1feTaGQnvE3VS+W2aRfXw=="
+          "hash": "l2yV2np3yV974j3lWt+jDg=="
         }
       },
       "is_incremental": false,
@@ -86,6 +86,30 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "articles/calls/calling-notifications.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/calls/calling-notifications.html",
+          "hash": "9lmp7MWKKvfKP7evG61sPg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/calls/register-calling-bot.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/calls/register-calling-bot.html",
+          "hash": "CKKLtGlhm0kdOwcBSBLCUQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "articles/calls/serviceHostedMediaCalls.md",
       "output": {
         ".html": {
@@ -114,7 +138,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/toc.html",
-          "hash": "ZXd7wDL5x7koA47Y/jJJAg=="
+          "hash": "ZPzMKKb27UQrFqTchI8Btw=="
         }
       },
       "is_incremental": false,
@@ -1302,7 +1326,7 @@
       "output": {
         ".html": {
           "relative_path": "client/Microsoft.Graph.Communications.Client.Transport.GraphClientWrapper.html",
-          "hash": "2MKsH6yvRN8X5RCXWurNGw=="
+          "hash": "WSqxN1D4wI/+LNW1wSNl6g=="
         }
       },
       "is_incremental": false,
@@ -1470,7 +1494,7 @@
       "output": {
         ".html": {
           "relative_path": "client/Microsoft.Graph.Communications.Resources.ResourceEventArgs-1.html",
-          "hash": "vQ+roPVVt+bBtOaCUSR9OQ=="
+          "hash": "gqbL7W8L9x2SjNS+hOjIwg=="
         }
       },
       "is_incremental": false,
@@ -1482,7 +1506,7 @@
       "output": {
         ".html": {
           "relative_path": "client/Microsoft.Graph.Communications.Resources.ResourceEventHandler-2.html",
-          "hash": "dmScYP+xP7HpOptocmZPDg=="
+          "hash": "FNJSq9xtza+W4R6V8C5BjA=="
         }
       },
       "is_incremental": false,
@@ -1602,7 +1626,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.CollectionUtils.html",
-          "hash": "ZJR5GMUeLevljnUHqRcKuQ=="
+          "hash": "4IoyPLw+9hk1uNrMQj/LAg=="
         }
       },
       "is_incremental": false,
@@ -1626,7 +1650,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.EnumUtils.html",
-          "hash": "qeqpxNSHgRz0RRoBTVNpuw=="
+          "hash": "3jqkWfcZs0F1QC3HgNOoBg=="
         }
       },
       "is_incremental": false,
@@ -1986,7 +2010,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.StateMachine-1.html",
-          "hash": "9SemIRtd1cTonN0zRfJXiw=="
+          "hash": "7w3MxpiILl0urK/OB+GI5w=="
         }
       },
       "is_incremental": false,
@@ -2358,7 +2382,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.LoggingExtensions.html",
-          "hash": "7W29i5eywb+NLqGQMjODKQ=="
+          "hash": "6kRNSKEBwlZsq46aot9Qww=="
         }
       },
       "is_incremental": false,
@@ -2562,7 +2586,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.Extensions.HttpResponseMessageExtensions.html",
-          "hash": "JbrcbB76XNHewlSe5s3TTA=="
+          "hash": "fa5z9ESwz1OGaqp9X+Vm7A=="
         }
       },
       "is_incremental": false,
@@ -2586,7 +2610,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.html",
-          "hash": "h2CcU56fuA/ORJ+q2dpk2g=="
+          "hash": "y1Yxl3AzM+nWLzBC01G6kw=="
         }
       },
       "is_incremental": false,
@@ -2706,7 +2730,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.IGraphClient.html",
-          "hash": "T8+3DlK6BUKIfQK+7GPfVA=="
+          "hash": "tY/MRigubdE+b2o3DAw36A=="
         }
       },
       "is_incremental": false,
@@ -2838,7 +2862,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.Utilities.html",
-          "hash": "wN4XLJvIWgQ9bWxjGTB/xQ=="
+          "hash": "09a4a20oZgd8Iupyn9CDbg=="
         }
       },
       "is_incremental": false,
@@ -2850,7 +2874,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.Validator.html",
-          "hash": "P5ssUdTvrnCsjJQ2W0hpOA=="
+          "hash": "ZGwhOQXAwN/+vyLIuTkKdw=="
         }
       },
       "is_incremental": false,
@@ -2862,7 +2886,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.WeakKey-1.html",
-          "hash": "Tj5I3TI3dW4MNhX/2JlG3w=="
+          "hash": "diO6fXsQmZsZmhYT5+kv4g=="
         }
       },
       "is_incremental": false,
@@ -8426,10 +8450,43 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "resources/azure-application-properties.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/azure-application-properties.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "resources/logo.png",
       "output": {
         "resource": {
           "relative_path": "resources/logo.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/msteams-enable-calling.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/msteams-enable-calling.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/registration-settings-manage-link.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/registration-settings-manage-link.png"
         }
       },
       "is_incremental": false,
@@ -8451,8 +8508,7 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": false,
-        "details": "Cannot build incrementally because last build info is missing.",
+        "can_incremental": true,
         "incrementalPhase": "build"
       },
       "processors": {
@@ -8467,11 +8523,11 @@
           "incrementalPhase": "build"
         },
         "ConceptualDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build"
         },
         "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build"
         }
       }

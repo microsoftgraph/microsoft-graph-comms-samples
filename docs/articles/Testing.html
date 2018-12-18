@@ -80,6 +80,8 @@
 <h1 id="testing-of-bots">Testing of Bots</h1>
 
 <p>This document describes how to setup the Graph Calling SDK to run on your localhost, run tests against it against the Graph Platform. </p>
+<div class="CAUTION"><h5>Caution</h5><p>Do not use this testing setup for production traffic. Please limit it to debugging your bot locally with test traffic because of security concerns.</p>
+</div>
 <h2 id="prerequisites">Prerequisites</h2>
 <p>The testing setup requires ngrok to create tunnels to localhost. Go to <a href="https://ngrok.com">ngrok</a> and sign up for a free account. Once you signed up, go to the <a href="https://dashboard.ngrok.com">dashboard</a> and get your authtoken.</p>
 <p>Create an ngrok configuration file <code>ngrok.yml</code> with the following data</p>
