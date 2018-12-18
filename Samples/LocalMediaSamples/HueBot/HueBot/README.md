@@ -9,7 +9,7 @@ This section walks you through the process of deploying and testing the sample b
 For running locally, we need to use a tunneling mechanism to route traffic to your dev box. You can find the concepts documented [here](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/Testing.html). While the steps for running locally can seem a bit longer, the deployments are much faster and convenient for tweaking and playing with the samples.
 
 ### Bot Registration
-1. Follow the steps in [Register Calling Bot](https://sampleapps-microsoftteams.visualstudio.com/_git/GraphCommsSamples?path=%2FDocumentation%2Fconcepts%2Fregister-calling-bot.md&version=GBmaster).  
+1. Follow the steps in [Register Calling Bot](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/register-calling-bot.html).  
 
 1. Add the following Application Permissions to the bot:
 

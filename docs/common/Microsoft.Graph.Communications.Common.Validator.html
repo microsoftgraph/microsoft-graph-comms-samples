@@ -318,6 +318,7 @@
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static void Equals&lt;T, TE&gt;(this T value, T expected, string message = null)
+
     where TE : Exception</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -380,6 +381,7 @@ defined by <code data-dev-comment-type="paramref" class="paramref">minValue</cod
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static void InRange&lt;T&gt;(this T value, T minValue, T maxValue, string paramName = null)
+
     where T : IComparable&lt;T&gt;</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -524,6 +526,7 @@ defined by <code data-dev-comment-type="paramref" class="paramref">minValue</cod
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static void IsFalse&lt;T&gt;(this bool condition, string message = null)
+
     where T : Exception</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -652,6 +655,7 @@ defined by <code data-dev-comment-type="paramref" class="paramref">minValue</cod
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static void IsTrue&lt;T&gt;(this bool condition, string message = null)
+
     where T : Exception</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -702,6 +706,7 @@ defined by <code data-dev-comment-type="paramref" class="paramref">minValue</cod
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static T NotEmpty&lt;T&gt;(this T obj, string paramName = null, string message = null)
+
     where T : IEnumerable</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
