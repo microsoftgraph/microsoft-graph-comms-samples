@@ -86,7 +86,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                 (chatInfo, meetingInfo) = JoinInfo.ParseJoinURL(joinCallBody.JoinURL);
             }
 
-            var mediaSession = this.CreateLocalMediaSession(correlationId);
+            var mediaSession = this.CreateLocalMediaSession();
 
             var joinCallParameters = new JoinMeetingParameters(
                 chatInfo,
@@ -205,9 +205,12 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         /// <summary>
         /// Creates the local media session.
         /// </summary>
-        /// <param name="correlationId">The correlation identifier.</param>
+        /// <param name="mediaSessionId">
+        /// The media session identifier.
+        /// This should be a unique value for each call.
+        /// </param>
         /// <returns>The <see cref="ILocalMediaSession"/>.</returns>
-        private ILocalMediaSession CreateLocalMediaSession(Guid correlationId)
+        private ILocalMediaSession CreateLocalMediaSession(Guid mediaSessionId = default(Guid))
         {
             var videoSocketSettings = new List<VideoSocketSettings>
             {
@@ -257,8 +260,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                 },
                 videoSocketSettings,
                 vbssSocketSettings,
-                null,
-                correlationId);
+                mediaSessionId: mediaSessionId);
             return mediaSession;
         }
 
@@ -271,9 +273,14 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         {
             args.AddedResources.ForEach(call =>
             {
+                IMediaSession mediaSession = Guid.TryParse(call.Id, out Guid callId)
+                    ? this.CreateLocalMediaSession(callId)
+                    : this.CreateLocalMediaSession();
+
                 // Answer call and start video playback
-                var mediaSession = this.CreateLocalMediaSession(call?.CorrelationId ?? Guid.Empty);
-                call?.AnswerAsync(mediaSession).ForgetAndLogExceptionAsync(call.GraphLogger, $"Answering call {call.Id} with correlation {call.CorrelationId}.");
+                call?.AnswerAsync(mediaSession).ForgetAndLogExceptionAsync(
+                    call.GraphLogger,
+                    $"Answering call {call.Id} with correlation {call.CorrelationId}.");
             });
         }
 

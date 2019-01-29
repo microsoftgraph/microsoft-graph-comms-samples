@@ -125,7 +125,7 @@ namespace Sample.HueBot.Bot
                 (chatInfo, meetingInfo) = JoinInfo.ParseJoinURL(joinCallBody.JoinURL);
             }
 
-            ILocalMediaSession mediaSession = this.CreateLocalMediaSession(correlationId);
+            ILocalMediaSession mediaSession = this.CreateLocalMediaSession();
             var joinParams = new JoinMeetingParameters(chatInfo, meetingInfo, mediaSession)
             {
                 RemoveFromDefaultAudioRoutingGroup = joinCallBody.RemoveFromDefaultRoutingGroup,
@@ -231,9 +231,14 @@ namespace Sample.HueBot.Bot
         {
             args.AddedResources.ForEach(call =>
             {
-                // Answer call and start processing.
-                var mediaSession = this.CreateLocalMediaSession(call?.CorrelationId ?? Guid.Empty);
-                call?.AnswerAsync(mediaSession).ForgetAndLogExceptionAsync($"Answering call {call.Id} with correlation {call.CorrelationId}.", this.logger);
+                IMediaSession mediaSession = Guid.TryParse(call.Id, out Guid callId)
+                    ? this.CreateLocalMediaSession(callId)
+                    : this.CreateLocalMediaSession();
+
+                // Answer call and start video playback
+                call?.AnswerAsync(mediaSession).ForgetAndLogExceptionAsync(
+                    call.GraphLogger,
+                    $"Answering call {call.Id} with correlation {call.CorrelationId}.");
             });
         }
 
@@ -261,9 +266,12 @@ namespace Sample.HueBot.Bot
         /// <summary>
         /// Creates the local media session.
         /// </summary>
-        /// <param name="correlationId">The correlation identifier.</param>
+        /// <param name="mediaSessionId">
+        /// The media session identifier.
+        /// This should be a unique value for each call.
+        /// </param>
         /// <returns>The <see cref="ILocalMediaSession"/>.</returns>
-        private ILocalMediaSession CreateLocalMediaSession(Guid correlationId)
+        private ILocalMediaSession CreateLocalMediaSession(Guid mediaSessionId = default(Guid))
         {
             var mediaSession = this.Client.CreateMediaSession(
                 new AudioSocketSettings
@@ -293,7 +301,7 @@ namespace Sample.HueBot.Bot
                         VideoFormat.NV12_1920x1080_30Fps,
                     },
                 },
-                mediaSessionId: correlationId);
+                mediaSessionId: mediaSessionId);
             return mediaSession;
         }
 

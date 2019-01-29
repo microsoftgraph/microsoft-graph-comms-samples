@@ -61,10 +61,10 @@
     <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.6" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Owin" Version="5.2.6" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.1.1" />
-    <PackageReference Include="Microsoft.Graph.Communications.Calls.Media" Version="1.0.0-prerelease.881" />
+    <PackageReference Include="Microsoft.Graph.Communications.Calls.Media" Version="1.0.0-prerelease.1296" />
     <PackageReference Include="Microsoft.Owin" Version="4.0.0" />
     <PackageReference Include="Microsoft.Owin.Hosting" Version="4.0.0" />
-    <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.11.1.2-alpha" />
+    <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.11.1.86-alpha" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="Owin" Version="1.0.0" />
     <PackageReference Include="System.Collections" Version="4.3.0" />
