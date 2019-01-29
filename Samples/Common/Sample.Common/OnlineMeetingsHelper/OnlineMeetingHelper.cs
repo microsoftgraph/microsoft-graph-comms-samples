@@ -16,8 +16,8 @@ namespace Sample.Common.OnlineMeetings
     /// </summary>
     public class OnlineMeetingHelper
     {
-        private Uri graphEndpointUri;
-        private IRequestAuthenticationProvider requestAuthenticationProvider;
+        private readonly Uri graphEndpointUri;
+        private readonly IRequestAuthenticationProvider requestAuthenticationProvider;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="OnlineMeetingHelper"/> class.
@@ -36,7 +36,7 @@ namespace Sample.Common.OnlineMeetings
         /// <param name="tenantId">The tenant identifier.</param>
         /// <param name="meetingId">The meeting identifier.</param>
         /// <param name="correlationId">The correlation identifier.</param>
-        /// <returns> The onlinemeeting. </returns>
+        /// <returns>The online meeting. </returns>
         public async Task<OnlineMeeting> GetOnlineMeetingAsync(string tenantId, string meetingId, Guid correlationId)
         {
             IAuthenticationProvider GetAuthenticationProvider()
@@ -46,7 +46,8 @@ namespace Sample.Common.OnlineMeetings
                     request.Headers.Add(CoreConstants.Headers.ScenarioId, correlationId.ToString());
                     request.Headers.Add(CoreConstants.Headers.ClientRequestId, Guid.NewGuid().ToString());
 
-                    await this.requestAuthenticationProvider.AuthenticateOutboundRequestAsync(request, tenantId)
+                    await this.requestAuthenticationProvider
+                        .AuthenticateOutboundRequestAsync(request, tenantId)
                         .ConfigureAwait(false);
                 });
             }

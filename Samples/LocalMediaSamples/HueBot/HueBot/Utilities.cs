@@ -26,10 +26,10 @@ namespace Sample.HueBot
         /// Extension for Task to execute the task in background and log any exception.
         /// </summary>
         /// <param name="task">Task to execute and capture any exceptions.</param>
+        /// <param name="logger">Graph logger.</param>
         /// <param name="description">Friendly description of the task for debugging purposes.</param>
-        /// <param name="logger">Log instance.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-        public static async Task ForgetAndLogExceptionAsync(this Task task, string description, IGraphLogger logger)
+        public static async Task ForgetAndLogExceptionAsync(this Task task, IGraphLogger logger, string description = null)
         {
             try
             {
@@ -38,7 +38,7 @@ namespace Sample.HueBot
             catch (Exception e)
             {
                 // ignore
-                logger.Error(e, $"Caught an Exception running the task: {description}\n StackTrace: {e.StackTrace}");
+                logger.Error(e, $"Caught an Exception running the task: {description ?? string.Empty} {e.Message}\n StackTrace: {e.StackTrace}");
             }
         }
 
