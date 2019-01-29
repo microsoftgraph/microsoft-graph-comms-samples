@@ -303,14 +303,14 @@ public class ClientEtwLogger : EventSource, IDisposable</code></pre>
   <h3 id="methods">Methods
   </h3>
   <a id="Microsoft_Graph_Communications_Common_Telemetry_ClientEtwLogger_HttpTrace_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.HttpTrace*"></a>
-  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_ClientEtwLogger_HttpTrace_System_Guid_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_Int32_System_Int32_System_String_System_String_System_String_System_String_System_String_System_String_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.HttpTrace(System.Guid,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String)">HttpTrace(Guid, String, String, String, String, String, String, String, Int32, Int32, String, String, String, String, String, String)</h4>
+  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_ClientEtwLogger_HttpTrace_System_Guid_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_Int32_System_String_System_String_System_String_System_String_System_String_System_String_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.HttpTrace(System.Guid,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String)">HttpTrace(Guid, String, String, String, String, String, String, String, Int32, String, String, String, String, String, String)</h4>
   <div class="markdown level1 summary"><p>Trace for client&apos;s http calls.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Event(100, Level = EventLevel.Informational, Message = &quot;{5}&quot;)]
-public void HttpTrace(Guid correlationId, string component, string traceLevel, string url, string transactionDirection, string message, string appName, string appId, int pid, int tid, string callingLine, string traceType, string headers, string method, string responseCode, string responseTime)</code></pre>
+public void HttpTrace(Guid correlationId, string component, string traceLevel, string url, string transactionDirection, string message, string appName, string appId, int mtid, string callingLine, string traceType, string headers, string method, string responseCode, string responseTime)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -372,14 +372,8 @@ public void HttpTrace(Guid correlationId, string component, string traceLevel, s
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td><span class="parametername">pid</span></td>
-        <td><p>The pid.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td><span class="parametername">tid</span></td>
-        <td><p>The tid.</p>
+        <td><span class="parametername">mtid</span></td>
+        <td><p>The managed tid.</p>
 </td>
       </tr>
       <tr>
@@ -421,14 +415,14 @@ public void HttpTrace(Guid correlationId, string component, string traceLevel, s
     </tbody>
   </table>
   <a id="Microsoft_Graph_Communications_Common_Telemetry_ClientEtwLogger_Trace_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.Trace*"></a>
-  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_ClientEtwLogger_Trace_System_Guid_System_String_System_String_System_String_System_String_System_String_System_Int32_System_Int32_System_String_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.Trace(System.Guid,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String)">Trace(Guid, String, String, String, String, String, Int32, Int32, String)</h4>
+  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_ClientEtwLogger_Trace_System_Guid_System_String_System_String_System_String_System_String_System_String_System_Int32_System_String_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.Trace(System.Guid,System.String,System.String,System.String,System.String,System.String,System.Int32,System.String)">Trace(Guid, String, String, String, String, String, Int32, String)</h4>
   <div class="markdown level1 summary"><p>Trace for client&apos;s normal trace calls.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Event(101, Level = EventLevel.Informational, Message = &quot;{3}&quot;)]
-public void Trace(Guid correlationId, string component, string traceLevel, string message, string appName, string appId, int pid, int tid, string callingLine)</code></pre>
+public void Trace(Guid correlationId, string component, string traceLevel, string message, string appName, string appId, int mtid, string callingLine)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -478,14 +472,8 @@ public void Trace(Guid correlationId, string component, string traceLevel, strin
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td><span class="parametername">pid</span></td>
-        <td><p>The pid.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td><span class="parametername">tid</span></td>
-        <td><p>The tid.</p>
+        <td><span class="parametername">mtid</span></td>
+        <td><p>The managed tid.</p>
 </td>
       </tr>
       <tr>

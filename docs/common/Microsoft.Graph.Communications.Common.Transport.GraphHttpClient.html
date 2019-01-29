@@ -130,76 +130,13 @@
   <h3 id="constructors">Constructors
   </h3>
   <a id="Microsoft_Graph_Communications_Common_Transport_GraphHttpClient__ctor_" data-uid="Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.#ctor*"></a>
-  <h4 id="Microsoft_Graph_Communications_Common_Transport_GraphHttpClient__ctor_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_Microsoft_Graph_Communications_Common_OData_ODataConfiguration_System_Net_Http_HttpClient_System_Int32_System_String_System_Net_Http_Headers_ProductInfoHeaderValue_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_Object___" data-uid="Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.#ctor(Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger,Microsoft.Graph.Communications.Common.OData.ODataConfiguration,System.Net.Http.HttpClient,System.Int32,System.String,System.Net.Http.Headers.ProductInfoHeaderValue,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}})">GraphHttpClient(IGraphLogger, ODataConfiguration, HttpClient, Int32, String, ProductInfoHeaderValue, IEnumerable&lt;KeyValuePair&lt;String, Object&gt;&gt;)</h4>
+  <h4 id="Microsoft_Graph_Communications_Common_Transport_GraphHttpClient__ctor_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_Newtonsoft_Json_JsonSerializerSettings_System_Net_Http_HttpClient_System_Int32_System_String_System_Net_Http_Headers_ProductInfoHeaderValue_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_Object___System_String_" data-uid="Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.#ctor(Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger,Newtonsoft.Json.JsonSerializerSettings,System.Net.Http.HttpClient,System.Int32,System.String,System.Net.Http.Headers.ProductInfoHeaderValue,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}},System.String)">GraphHttpClient(IGraphLogger, JsonSerializerSettings, HttpClient, Int32, String, ProductInfoHeaderValue, IEnumerable&lt;KeyValuePair&lt;String, Object&gt;&gt;, String)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.html">GraphHttpClient</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public GraphHttpClient(IGraphLogger logger, ODataConfiguration odataConfiguration = null, HttpClient httpClient = null, int numberOfRetries = 3, string correlationIdHeader = null, ProductInfoHeaderValue userAgent = null, IEnumerable&lt;KeyValuePair&lt;string, object&gt;&gt; defaultProperties = null)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger.html">IGraphLogger</a></td>
-        <td><span class="parametername">logger</span></td>
-        <td><p>The logger.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Microsoft.Graph.Communications.Common.OData.ODataConfiguration.html">ODataConfiguration</a></td>
-        <td><span class="parametername">odataConfiguration</span></td>
-        <td><p>The OData configuration.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a></td>
-        <td><span class="parametername">httpClient</span></td>
-        <td><p>The HTTP client.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td><span class="parametername">numberOfRetries</span></td>
-        <td><p>The number of retries.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">correlationIdHeader</span></td>
-        <td><p>The correlation identifier header.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.headers.productinfoheadervalue">ProductInfoHeaderValue</a></td>
-        <td><span class="parametername">userAgent</span></td>
-        <td><p>The user agent.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;&gt;</td>
-        <td><span class="parametername">defaultProperties</span></td>
-        <td><p>The default properties.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="Microsoft_Graph_Communications_Common_Transport_GraphHttpClient__ctor_" data-uid="Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.#ctor*"></a>
-  <h4 id="Microsoft_Graph_Communications_Common_Transport_GraphHttpClient__ctor_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_Newtonsoft_Json_JsonSerializerSettings_System_Net_Http_HttpClient_System_Int32_System_String_System_Net_Http_Headers_ProductInfoHeaderValue_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_Object___" data-uid="Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.#ctor(Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger,Newtonsoft.Json.JsonSerializerSettings,System.Net.Http.HttpClient,System.Int32,System.String,System.Net.Http.Headers.ProductInfoHeaderValue,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}})">GraphHttpClient(IGraphLogger, JsonSerializerSettings, HttpClient, Int32, String, ProductInfoHeaderValue, IEnumerable&lt;KeyValuePair&lt;String, Object&gt;&gt;)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.html">GraphHttpClient</a> class.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public GraphHttpClient(IGraphLogger logger, JsonSerializerSettings jsonSerializerSettings, HttpClient httpClient = null, int numberOfRetries = 3, string correlationIdHeader = null, ProductInfoHeaderValue userAgent = null, IEnumerable&lt;KeyValuePair&lt;string, object&gt;&gt; defaultProperties = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public GraphHttpClient(IGraphLogger logger, JsonSerializerSettings jsonSerializerSettings = null, HttpClient httpClient = null, int numberOfRetries = 3, string correlationIdHeader = null, ProductInfoHeaderValue userAgent = null, IEnumerable&lt;KeyValuePair&lt;string, object&gt;&gt; defaultProperties = null, string metricName = &quot;PartnerHttpRequests&quot;)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -251,6 +188,12 @@
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;&gt;</td>
         <td><span class="parametername">defaultProperties</span></td>
         <td><p>The default properties.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">metricName</span></td>
+        <td><p>The metric name.</p>
 </td>
       </tr>
     </tbody>
