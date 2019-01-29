@@ -12428,6 +12428,15 @@ references:
   fullName.vb: Microsoft.Graph.Communications.Common.CollectionUtils.GetValueOrDefault(Of TKey, TValue)(System.Collections.Generic.IDictionary(Of TKey, TValue), TKey)
   nameWithType: CollectionUtils.GetValueOrDefault<TKey, TValue>(IDictionary<TKey, TValue>, TKey)
   nameWithType.vb: CollectionUtils.GetValueOrDefault(Of TKey, TValue)(IDictionary(Of TKey, TValue), TKey)
+- uid: Microsoft.Graph.Communications.Common.CollectionUtils.GetValueOrDefault``2(System.Collections.Generic.IDictionary{``0,``1},``0,``1)
+  name: GetValueOrDefault<TKey, TValue>(IDictionary<TKey, TValue>, TKey, TValue)
+  href: common/Microsoft.Graph.Communications.Common.CollectionUtils.html#Microsoft_Graph_Communications_Common_CollectionUtils_GetValueOrDefault__2_System_Collections_Generic_IDictionary___0___1____0___1_
+  commentId: M:Microsoft.Graph.Communications.Common.CollectionUtils.GetValueOrDefault``2(System.Collections.Generic.IDictionary{``0,``1},``0,``1)
+  name.vb: GetValueOrDefault(Of TKey, TValue)(IDictionary(Of TKey, TValue), TKey, TValue)
+  fullName: Microsoft.Graph.Communications.Common.CollectionUtils.GetValueOrDefault<TKey, TValue>(System.Collections.Generic.IDictionary<TKey, TValue>, TKey, TValue)
+  fullName.vb: Microsoft.Graph.Communications.Common.CollectionUtils.GetValueOrDefault(Of TKey, TValue)(System.Collections.Generic.IDictionary(Of TKey, TValue), TKey, TValue)
+  nameWithType: CollectionUtils.GetValueOrDefault<TKey, TValue>(IDictionary<TKey, TValue>, TKey, TValue)
+  nameWithType.vb: CollectionUtils.GetValueOrDefault(Of TKey, TValue)(IDictionary(Of TKey, TValue), TKey, TValue)
 - uid: Microsoft.Graph.Communications.Common.CollectionUtils.ToSortedList*
   name: ToSortedList
   href: common/Microsoft.Graph.Communications.Common.CollectionUtils.html#Microsoft_Graph_Communications_Common_CollectionUtils_ToSortedList_
@@ -12791,6 +12800,18 @@ references:
   commentId: Overload:Microsoft.Graph.Communications.Common.Extensions.Read
   fullName: Microsoft.Graph.Communications.Common.Extensions.Read
   nameWithType: Extensions.Read
+- uid: Microsoft.Graph.Communications.Common.Extensions.ReplaceFirst(System.String,System.String,System.String)
+  name: ReplaceFirst(String, String, String)
+  href: common/Microsoft.Graph.Communications.Common.Extensions.html#Microsoft_Graph_Communications_Common_Extensions_ReplaceFirst_System_String_System_String_System_String_
+  commentId: M:Microsoft.Graph.Communications.Common.Extensions.ReplaceFirst(System.String,System.String,System.String)
+  fullName: Microsoft.Graph.Communications.Common.Extensions.ReplaceFirst(System.String, System.String, System.String)
+  nameWithType: Extensions.ReplaceFirst(String, String, String)
+- uid: Microsoft.Graph.Communications.Common.Extensions.ReplaceFirst*
+  name: ReplaceFirst
+  href: common/Microsoft.Graph.Communications.Common.Extensions.html#Microsoft_Graph_Communications_Common_Extensions_ReplaceFirst_
+  commentId: Overload:Microsoft.Graph.Communications.Common.Extensions.ReplaceFirst
+  fullName: Microsoft.Graph.Communications.Common.Extensions.ReplaceFirst
+  nameWithType: Extensions.ReplaceFirst
 - uid: Microsoft.Graph.Communications.Common.Extensions.ReplaceScheme(System.Uri,System.String,System.String)
   name: ReplaceScheme(Uri, String, String)
   href: common/Microsoft.Graph.Communications.Common.Extensions.html#Microsoft_Graph_Communications_Common_Extensions_ReplaceScheme_System_Uri_System_String_System_String_
@@ -13091,6 +13112,12 @@ references:
   commentId: F:Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.OriginalMessageId
   fullName: Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.OriginalMessageId
   nameWithType: HttpConstants.HeaderNames.OriginalMessageId
+- uid: Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.PmaInstanceUrl
+  name: PmaInstanceUrl
+  href: common/Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.html#Microsoft_Graph_Communications_Common_HttpConstants_HeaderNames_PmaInstanceUrl
+  commentId: F:Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.PmaInstanceUrl
+  fullName: Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.PmaInstanceUrl
+  nameWithType: HttpConstants.HeaderNames.PmaInstanceUrl
 - uid: Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.RedirectDu
   name: RedirectDu
   href: common/Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.html#Microsoft_Graph_Communications_Common_HttpConstants_HeaderNames_RedirectDu
@@ -14469,24 +14496,24 @@ references:
   commentId: Overload:Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.#ctor
   fullName: Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.ClientEtwLogger
   nameWithType: ClientEtwLogger.ClientEtwLogger
-- uid: Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.HttpTrace(System.Guid,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String)
-  name: HttpTrace(Guid, String, String, String, String, String, String, String, Int32, Int32, String, String, String, String, String, String)
-  href: common/Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.html#Microsoft_Graph_Communications_Common_Telemetry_ClientEtwLogger_HttpTrace_System_Guid_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_Int32_System_Int32_System_String_System_String_System_String_System_String_System_String_System_String_
-  commentId: M:Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.HttpTrace(System.Guid,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String)
-  fullName: Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.HttpTrace(System.Guid, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.Int32, System.Int32, System.String, System.String, System.String, System.String, System.String, System.String)
-  nameWithType: ClientEtwLogger.HttpTrace(Guid, String, String, String, String, String, String, String, Int32, Int32, String, String, String, String, String, String)
+- uid: Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.HttpTrace(System.Guid,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String)
+  name: HttpTrace(Guid, String, String, String, String, String, String, String, Int32, String, String, String, String, String, String)
+  href: common/Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.html#Microsoft_Graph_Communications_Common_Telemetry_ClientEtwLogger_HttpTrace_System_Guid_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_Int32_System_String_System_String_System_String_System_String_System_String_System_String_
+  commentId: M:Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.HttpTrace(System.Guid,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String)
+  fullName: Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.HttpTrace(System.Guid, System.String, System.String, System.String, System.String, System.String, System.String, System.String, System.Int32, System.String, System.String, System.String, System.String, System.String, System.String)
+  nameWithType: ClientEtwLogger.HttpTrace(Guid, String, String, String, String, String, String, String, Int32, String, String, String, String, String, String)
 - uid: Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.HttpTrace*
   name: HttpTrace
   href: common/Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.html#Microsoft_Graph_Communications_Common_Telemetry_ClientEtwLogger_HttpTrace_
   commentId: Overload:Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.HttpTrace
   fullName: Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.HttpTrace
   nameWithType: ClientEtwLogger.HttpTrace
-- uid: Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.Trace(System.Guid,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String)
-  name: Trace(Guid, String, String, String, String, String, Int32, Int32, String)
-  href: common/Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.html#Microsoft_Graph_Communications_Common_Telemetry_ClientEtwLogger_Trace_System_Guid_System_String_System_String_System_String_System_String_System_String_System_Int32_System_Int32_System_String_
-  commentId: M:Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.Trace(System.Guid,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String)
-  fullName: Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.Trace(System.Guid, System.String, System.String, System.String, System.String, System.String, System.Int32, System.Int32, System.String)
-  nameWithType: ClientEtwLogger.Trace(Guid, String, String, String, String, String, Int32, Int32, String)
+- uid: Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.Trace(System.Guid,System.String,System.String,System.String,System.String,System.String,System.Int32,System.String)
+  name: Trace(Guid, String, String, String, String, String, Int32, String)
+  href: common/Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.html#Microsoft_Graph_Communications_Common_Telemetry_ClientEtwLogger_Trace_System_Guid_System_String_System_String_System_String_System_String_System_String_System_Int32_System_String_
+  commentId: M:Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.Trace(System.Guid,System.String,System.String,System.String,System.String,System.String,System.Int32,System.String)
+  fullName: Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.Trace(System.Guid, System.String, System.String, System.String, System.String, System.String, System.Int32, System.String)
+  nameWithType: ClientEtwLogger.Trace(Guid, String, String, String, String, String, Int32, String)
 - uid: Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.Trace*
   name: Trace
   href: common/Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.html#Microsoft_Graph_Communications_Common_Telemetry_ClientEtwLogger_Trace_
@@ -15747,6 +15774,12 @@ references:
   commentId: F:Microsoft.Graph.Communications.Common.Telemetry.LoggingConstants.ChatInactivityTrackingExceedingInterval
   fullName: Microsoft.Graph.Communications.Common.Telemetry.LoggingConstants.ChatInactivityTrackingExceedingInterval
   nameWithType: LoggingConstants.ChatInactivityTrackingExceedingInterval
+- uid: Microsoft.Graph.Communications.Common.Telemetry.LoggingConstants.ErrorCode
+  name: ErrorCode
+  href: common/Microsoft.Graph.Communications.Common.Telemetry.LoggingConstants.html#Microsoft_Graph_Communications_Common_Telemetry_LoggingConstants_ErrorCode
+  commentId: F:Microsoft.Graph.Communications.Common.Telemetry.LoggingConstants.ErrorCode
+  fullName: Microsoft.Graph.Communications.Common.Telemetry.LoggingConstants.ErrorCode
+  nameWithType: LoggingConstants.ErrorCode
 - uid: Microsoft.Graph.Communications.Common.Telemetry.LoggingConstants.FailedBridgedMessages
   name: FailedBridgedMessages
   href: common/Microsoft.Graph.Communications.Common.Telemetry.LoggingConstants.html#Microsoft_Graph_Communications_Common_Telemetry_LoggingConstants_FailedBridgedMessages
@@ -17001,6 +17034,21 @@ references:
   commentId: T:Microsoft.Graph.Communications.Common.Transport.Extensions.GraphRequestExtensions
   fullName: Microsoft.Graph.Communications.Common.Transport.Extensions.GraphRequestExtensions
   nameWithType: GraphRequestExtensions
+- uid: Microsoft.Graph.Communications.Common.Transport.Extensions.GraphRequestExtensions.AddProperty*
+  name: AddProperty
+  href: common/Microsoft.Graph.Communications.Common.Transport.Extensions.GraphRequestExtensions.html#Microsoft_Graph_Communications_Common_Transport_Extensions_GraphRequestExtensions_AddProperty_
+  commentId: Overload:Microsoft.Graph.Communications.Common.Transport.Extensions.GraphRequestExtensions.AddProperty
+  fullName: Microsoft.Graph.Communications.Common.Transport.Extensions.GraphRequestExtensions.AddProperty
+  nameWithType: GraphRequestExtensions.AddProperty
+- uid: Microsoft.Graph.Communications.Common.Transport.Extensions.GraphRequestExtensions.AddProperty``2(Microsoft.Graph.Communications.Common.Transport.GraphRequest{``0},System.String,``1)
+  name: AddProperty<T, TValue>(GraphRequest<T>, String, TValue)
+  href: common/Microsoft.Graph.Communications.Common.Transport.Extensions.GraphRequestExtensions.html#Microsoft_Graph_Communications_Common_Transport_Extensions_GraphRequestExtensions_AddProperty__2_Microsoft_Graph_Communications_Common_Transport_GraphRequest___0__System_String___1_
+  commentId: M:Microsoft.Graph.Communications.Common.Transport.Extensions.GraphRequestExtensions.AddProperty``2(Microsoft.Graph.Communications.Common.Transport.GraphRequest{``0},System.String,``1)
+  name.vb: AddProperty(Of T, TValue)(GraphRequest(Of T), String, TValue)
+  fullName: Microsoft.Graph.Communications.Common.Transport.Extensions.GraphRequestExtensions.AddProperty<T, TValue>(Microsoft.Graph.Communications.Common.Transport.GraphRequest<T>, System.String, TValue)
+  fullName.vb: Microsoft.Graph.Communications.Common.Transport.Extensions.GraphRequestExtensions.AddProperty(Of T, TValue)(Microsoft.Graph.Communications.Common.Transport.GraphRequest(Of T), System.String, TValue)
+  nameWithType: GraphRequestExtensions.AddProperty<T, TValue>(GraphRequest<T>, String, TValue)
+  nameWithType.vb: GraphRequestExtensions.AddProperty(Of T, TValue)(GraphRequest(Of T), String, TValue)
 - uid: Microsoft.Graph.Communications.Common.Transport.Extensions.GraphRequestExtensions.ToHttpMethod(Microsoft.Graph.Communications.Common.Transport.RequestType)
   name: ToHttpMethod(RequestType)
   href: common/Microsoft.Graph.Communications.Common.Transport.Extensions.GraphRequestExtensions.html#Microsoft_Graph_Communications_Common_Transport_Extensions_GraphRequestExtensions_ToHttpMethod_Microsoft_Graph_Communications_Common_Transport_RequestType_
@@ -17127,24 +17175,15 @@ references:
   commentId: T:Microsoft.Graph.Communications.Common.Transport.GraphHttpClient
   fullName: Microsoft.Graph.Communications.Common.Transport.GraphHttpClient
   nameWithType: GraphHttpClient
-- uid: Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.#ctor(Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger,Microsoft.Graph.Communications.Common.OData.ODataConfiguration,System.Net.Http.HttpClient,System.Int32,System.String,System.Net.Http.Headers.ProductInfoHeaderValue,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}})
-  name: GraphHttpClient(IGraphLogger, ODataConfiguration, HttpClient, Int32, String, ProductInfoHeaderValue, IEnumerable<KeyValuePair<String, Object>>)
-  href: common/Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.html#Microsoft_Graph_Communications_Common_Transport_GraphHttpClient__ctor_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_Microsoft_Graph_Communications_Common_OData_ODataConfiguration_System_Net_Http_HttpClient_System_Int32_System_String_System_Net_Http_Headers_ProductInfoHeaderValue_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_Object___
-  commentId: M:Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.#ctor(Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger,Microsoft.Graph.Communications.Common.OData.ODataConfiguration,System.Net.Http.HttpClient,System.Int32,System.String,System.Net.Http.Headers.ProductInfoHeaderValue,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}})
-  name.vb: GraphHttpClient(IGraphLogger, ODataConfiguration, HttpClient, Int32, String, ProductInfoHeaderValue, IEnumerable(Of KeyValuePair(Of String, Object)))
-  fullName: Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.GraphHttpClient(Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger, Microsoft.Graph.Communications.Common.OData.ODataConfiguration, System.Net.Http.HttpClient, System.Int32, System.String, System.Net.Http.Headers.ProductInfoHeaderValue, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<System.String, System.Object>>)
-  fullName.vb: Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.GraphHttpClient(Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger, Microsoft.Graph.Communications.Common.OData.ODataConfiguration, System.Net.Http.HttpClient, System.Int32, System.String, System.Net.Http.Headers.ProductInfoHeaderValue, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of System.String, System.Object)))
-  nameWithType: GraphHttpClient.GraphHttpClient(IGraphLogger, ODataConfiguration, HttpClient, Int32, String, ProductInfoHeaderValue, IEnumerable<KeyValuePair<String, Object>>)
-  nameWithType.vb: GraphHttpClient.GraphHttpClient(IGraphLogger, ODataConfiguration, HttpClient, Int32, String, ProductInfoHeaderValue, IEnumerable(Of KeyValuePair(Of String, Object)))
-- uid: Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.#ctor(Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger,Newtonsoft.Json.JsonSerializerSettings,System.Net.Http.HttpClient,System.Int32,System.String,System.Net.Http.Headers.ProductInfoHeaderValue,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}})
-  name: GraphHttpClient(IGraphLogger, JsonSerializerSettings, HttpClient, Int32, String, ProductInfoHeaderValue, IEnumerable<KeyValuePair<String, Object>>)
-  href: common/Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.html#Microsoft_Graph_Communications_Common_Transport_GraphHttpClient__ctor_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_Newtonsoft_Json_JsonSerializerSettings_System_Net_Http_HttpClient_System_Int32_System_String_System_Net_Http_Headers_ProductInfoHeaderValue_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_Object___
-  commentId: M:Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.#ctor(Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger,Newtonsoft.Json.JsonSerializerSettings,System.Net.Http.HttpClient,System.Int32,System.String,System.Net.Http.Headers.ProductInfoHeaderValue,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}})
-  name.vb: GraphHttpClient(IGraphLogger, JsonSerializerSettings, HttpClient, Int32, String, ProductInfoHeaderValue, IEnumerable(Of KeyValuePair(Of String, Object)))
-  fullName: Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.GraphHttpClient(Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger, Newtonsoft.Json.JsonSerializerSettings, System.Net.Http.HttpClient, System.Int32, System.String, System.Net.Http.Headers.ProductInfoHeaderValue, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<System.String, System.Object>>)
-  fullName.vb: Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.GraphHttpClient(Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger, Newtonsoft.Json.JsonSerializerSettings, System.Net.Http.HttpClient, System.Int32, System.String, System.Net.Http.Headers.ProductInfoHeaderValue, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of System.String, System.Object)))
-  nameWithType: GraphHttpClient.GraphHttpClient(IGraphLogger, JsonSerializerSettings, HttpClient, Int32, String, ProductInfoHeaderValue, IEnumerable<KeyValuePair<String, Object>>)
-  nameWithType.vb: GraphHttpClient.GraphHttpClient(IGraphLogger, JsonSerializerSettings, HttpClient, Int32, String, ProductInfoHeaderValue, IEnumerable(Of KeyValuePair(Of String, Object)))
+- uid: Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.#ctor(Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger,Newtonsoft.Json.JsonSerializerSettings,System.Net.Http.HttpClient,System.Int32,System.String,System.Net.Http.Headers.ProductInfoHeaderValue,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}},System.String)
+  name: GraphHttpClient(IGraphLogger, JsonSerializerSettings, HttpClient, Int32, String, ProductInfoHeaderValue, IEnumerable<KeyValuePair<String, Object>>, String)
+  href: common/Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.html#Microsoft_Graph_Communications_Common_Transport_GraphHttpClient__ctor_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_Newtonsoft_Json_JsonSerializerSettings_System_Net_Http_HttpClient_System_Int32_System_String_System_Net_Http_Headers_ProductInfoHeaderValue_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_Object___System_String_
+  commentId: M:Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.#ctor(Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger,Newtonsoft.Json.JsonSerializerSettings,System.Net.Http.HttpClient,System.Int32,System.String,System.Net.Http.Headers.ProductInfoHeaderValue,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}},System.String)
+  name.vb: GraphHttpClient(IGraphLogger, JsonSerializerSettings, HttpClient, Int32, String, ProductInfoHeaderValue, IEnumerable(Of KeyValuePair(Of String, Object)), String)
+  fullName: Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.GraphHttpClient(Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger, Newtonsoft.Json.JsonSerializerSettings, System.Net.Http.HttpClient, System.Int32, System.String, System.Net.Http.Headers.ProductInfoHeaderValue, System.Collections.Generic.IEnumerable<System.Collections.Generic.KeyValuePair<System.String, System.Object>>, System.String)
+  fullName.vb: Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.GraphHttpClient(Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger, Newtonsoft.Json.JsonSerializerSettings, System.Net.Http.HttpClient, System.Int32, System.String, System.Net.Http.Headers.ProductInfoHeaderValue, System.Collections.Generic.IEnumerable(Of System.Collections.Generic.KeyValuePair(Of System.String, System.Object)), System.String)
+  nameWithType: GraphHttpClient.GraphHttpClient(IGraphLogger, JsonSerializerSettings, HttpClient, Int32, String, ProductInfoHeaderValue, IEnumerable<KeyValuePair<String, Object>>, String)
+  nameWithType.vb: GraphHttpClient.GraphHttpClient(IGraphLogger, JsonSerializerSettings, HttpClient, Int32, String, ProductInfoHeaderValue, IEnumerable(Of KeyValuePair(Of String, Object)), String)
 - uid: Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.#ctor*
   name: GraphHttpClient
   href: common/Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.html#Microsoft_Graph_Communications_Common_Transport_GraphHttpClient__ctor_
@@ -20297,6 +20336,18 @@ references:
   commentId: Overload:Microsoft.Graph.Communications.Resources.IResource.Id
   fullName: Microsoft.Graph.Communications.Resources.IResource.Id
   nameWithType: IResource.Id
+- uid: Microsoft.Graph.Communications.Resources.IResource.ModifiedDateTime
+  name: ModifiedDateTime
+  href: client/Microsoft.Graph.Communications.Resources.IResource.html#Microsoft_Graph_Communications_Resources_IResource_ModifiedDateTime
+  commentId: P:Microsoft.Graph.Communications.Resources.IResource.ModifiedDateTime
+  fullName: Microsoft.Graph.Communications.Resources.IResource.ModifiedDateTime
+  nameWithType: IResource.ModifiedDateTime
+- uid: Microsoft.Graph.Communications.Resources.IResource.ModifiedDateTime*
+  name: ModifiedDateTime
+  href: client/Microsoft.Graph.Communications.Resources.IResource.html#Microsoft_Graph_Communications_Resources_IResource_ModifiedDateTime_
+  commentId: Overload:Microsoft.Graph.Communications.Resources.IResource.ModifiedDateTime
+  fullName: Microsoft.Graph.Communications.Resources.IResource.ModifiedDateTime
+  nameWithType: IResource.ModifiedDateTime
 - uid: Microsoft.Graph.Communications.Resources.IResource`2
   name: IResource<TSelf, TEntity>
   href: client/Microsoft.Graph.Communications.Resources.IResource-2.html
@@ -20348,6 +20399,18 @@ references:
   commentId: Overload:Microsoft.Graph.Communications.Resources.IResourceBase.Client
   fullName: Microsoft.Graph.Communications.Resources.IResourceBase.Client
   nameWithType: IResourceBase.Client
+- uid: Microsoft.Graph.Communications.Resources.IResourceBase.CreatedDateTime
+  name: CreatedDateTime
+  href: client/Microsoft.Graph.Communications.Resources.IResourceBase.html#Microsoft_Graph_Communications_Resources_IResourceBase_CreatedDateTime
+  commentId: P:Microsoft.Graph.Communications.Resources.IResourceBase.CreatedDateTime
+  fullName: Microsoft.Graph.Communications.Resources.IResourceBase.CreatedDateTime
+  nameWithType: IResourceBase.CreatedDateTime
+- uid: Microsoft.Graph.Communications.Resources.IResourceBase.CreatedDateTime*
+  name: CreatedDateTime
+  href: client/Microsoft.Graph.Communications.Resources.IResourceBase.html#Microsoft_Graph_Communications_Resources_IResourceBase_CreatedDateTime_
+  commentId: Overload:Microsoft.Graph.Communications.Resources.IResourceBase.CreatedDateTime
+  fullName: Microsoft.Graph.Communications.Resources.IResourceBase.CreatedDateTime
+  nameWithType: IResourceBase.CreatedDateTime
 - uid: Microsoft.Graph.Communications.Resources.IResourceBase.GraphClient
   name: GraphClient
   href: client/Microsoft.Graph.Communications.Resources.IResourceBase.html#Microsoft_Graph_Communications_Resources_IResourceBase_GraphClient
