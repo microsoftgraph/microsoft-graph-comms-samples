@@ -448,6 +448,7 @@ Clients can use this to read the response and give the new redirect url to call 
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Task&lt;IGraphResponse&gt; SendAsync&lt;T&gt;(IGraphRequest&lt;T&gt; graphRequest, CancellationToken cancellationToken = default(CancellationToken))
+
     where T : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -509,6 +510,7 @@ Clients can use this to read the response and give the new redirect url to call 
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Task&lt;IGraphResponse&lt;T2&gt;&gt; SendAsync&lt;T1, T2&gt;(IGraphRequest&lt;T1&gt; graphRequest, CancellationToken cancellationToken = default(CancellationToken))
+
     where T1 : class where T2 : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -577,6 +579,7 @@ not retry in case of error response returned from the request.</p>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected virtual Task&lt;IGraphResponse&lt;T2&gt;&gt; SendHttpRequestAsync&lt;T1, T2&gt;(IGraphRequest&lt;T1&gt; graphRequest, CancellationToken cancellationToken)
+
     where T1 : class where T2 : class</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
