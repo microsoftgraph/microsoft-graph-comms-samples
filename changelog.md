@@ -2,7 +2,7 @@
 
 This changelog covers what's changed in Microsoft Graph Communications SDK and its associated samples.
 
-## January 2018
+## January 2019
 
 - Updated Media library 1.11.1.86-alpha
 - Updated Communications libraries 1.0.0-prerelease.1272
