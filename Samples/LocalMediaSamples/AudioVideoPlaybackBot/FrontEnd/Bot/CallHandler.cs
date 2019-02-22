@@ -54,9 +54,6 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             this.Call = statefulCall;
             this.logger = logger;
 
-            // subscribe to call updates
-            this.Call.OnUpdated += this.CallOnUpdated;
-
             // subscribe to dominant speaker event on the audioSocket
             this.Call.GetLocalMediaSession().AudioSocket.DominantSpeakerChanged += this.OnDominantSpeakerChanged;
 
@@ -70,9 +67,6 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             {
                 this.availableSocketIds.Add((uint)videoSocket.SocketId);
             }
-
-            var outcome = Serializer.SerializeObject(statefulCall.Resource);
-            this.OutcomesLogMostRecentFirst.AddFirst("Call Created:\n" + outcome);
 
             // attach the botMediaStream
             this.BotMediaStream = new BotMediaStream(this.Call.GetLocalMediaSession(), this.logger);
@@ -88,18 +82,9 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         /// </summary>
         public BotMediaStream BotMediaStream { get; private set; }
 
-        /// <summary>
-        /// Gets the outcomes log - maintained for easy checking of async server responses.
-        /// </summary>
-        /// <value>
-        /// The outcomes log.
-        /// </value>
-        public LinkedList<string> OutcomesLogMostRecentFirst { get; } = new LinkedList<string>();
-
         /// <inheritdoc />
         public void Dispose()
         {
-            this.Call.OnUpdated -= this.CallOnUpdated;
             this.Call.GetLocalMediaSession().AudioSocket.DominantSpeakerChanged -= this.OnDominantSpeakerChanged;
             this.Call.GetLocalMediaSession().VideoSockets.FirstOrDefault().VideoMediaReceived -= this.OnVideoMediaReceived;
 
@@ -114,17 +99,6 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         }
 
         /// <summary>
-        /// Event fired when call has been updated.
-        /// </summary>
-        /// <param name="sender">Call object.</param>
-        /// <param name="args">Event args containing the old values and the new values.</param>
-        private void CallOnUpdated(ICall sender, ResourceEventArgs<Call> args)
-        {
-            var outcome = Serializer.SerializeObject(sender.Resource);
-            this.OutcomesLogMostRecentFirst.AddFirst("Call Updated:\n" + outcome);
-        }
-
-        /// <summary>
         /// Event fired when the participants collection has been updated.
         /// </summary>
         /// <param name="sender">Participants collection.</param>
@@ -133,9 +107,6 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         {
             foreach (var participant in args.AddedResources)
             {
-                var outcome = Serializer.SerializeObject(participant.Resource);
-                this.OutcomesLogMostRecentFirst.AddFirst("Participant Added:\n" + outcome);
-
                 // todo remove the cast with the new graph implementation,
                 // for now we want the bot to only subscribe to "real" participants
                 var participantDetails = participant.Resource.Info.Identity.User;
@@ -159,9 +130,6 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                     participant.OnUpdated -= this.OnParticipantUpdated;
                     this.UnsubscribeFromParticipantVideo(participant);
                 }
-
-                var outcome = Serializer.SerializeObject(participant.Resource);
-                this.OutcomesLogMostRecentFirst.AddFirst("Participant Removed:\n" + outcome);
             }
         }
 
@@ -172,9 +140,6 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         /// <param name="args">Event args containing the old values and the new values.</param>
         private void OnParticipantUpdated(ICallParticipant sender, ResourceEventArgs<Participant> args)
         {
-            var outcome = Serializer.SerializeObject(sender.Resource);
-            this.OutcomesLogMostRecentFirst.AddFirst("Participant Updated:\n" + outcome);
-
             this.SubscribeToParticipantVideo(sender, forceSubscribe: false);
         }
 

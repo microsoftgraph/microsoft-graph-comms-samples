@@ -6,7 +6,6 @@
 namespace Sample.Common.Meetings
 {
     using System;
-    using System.Collections.Generic;
     using System.IO;
     using System.Net;
     using System.Runtime.Serialization;
@@ -42,9 +41,23 @@ namespace Sample.Common.Meetings
             using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(match.Groups["context"].Value)))
             {
                 var ctxt = (Context)new DataContractJsonSerializer(typeof(Context)).ReadObject(stream);
-                return (
-                    new ChatInfo { ThreadId = match.Groups["thread"].Value, MessageId = match.Groups["message"].Value, ReplyChainMessageId = ctxt.MessageId },
-                    new OrganizerMeetingInfo { Organizer = new IdentitySet { User = new Identity { Id = ctxt.Oid, AdditionalData = new Dictionary<string, object> { { "TenantId", ctxt.Tid } } } } });
+                var chatInfo = new ChatInfo
+                {
+                    ThreadId = match.Groups["thread"].Value,
+                    MessageId = match.Groups["message"].Value,
+                    ReplyChainMessageId = ctxt.MessageId,
+                };
+
+                var meetingInfo = new OrganizerMeetingInfo
+                {
+                    Organizer = new IdentitySet
+                    {
+                        User = new Identity { Id = ctxt.Oid },
+                    },
+                };
+                meetingInfo.Organizer.User.SetTenantId(ctxt.Tid);
+
+                return (chatInfo, meetingInfo);
             }
         }
 

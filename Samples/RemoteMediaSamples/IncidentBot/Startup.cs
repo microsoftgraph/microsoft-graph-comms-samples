@@ -5,8 +5,6 @@
 
 namespace Sample.IncidentBot
 {
-    using System;
-    using System.Threading.Tasks;
     using Microsoft.AspNetCore.Authentication;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Builder;
@@ -23,7 +21,8 @@ namespace Sample.IncidentBot
     /// </summary>
     public class Startup
     {
-        private readonly SampleLogger logger = new SampleLogger(typeof(Startup).Assembly.GetName().Name);
+        private readonly GraphLogger logger;
+        private readonly SampleObserver observer;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Startup"/> class.
@@ -32,6 +31,8 @@ namespace Sample.IncidentBot
         public Startup(IConfiguration configuration)
         {
             this.Configuration = configuration;
+            this.logger = new GraphLogger(typeof(Startup).Assembly.GetName().Name);
+            this.observer = new SampleObserver(this.logger);
         }
 
         /// <summary>
@@ -46,7 +47,7 @@ namespace Sample.IncidentBot
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddSingleton(this.logger)
+                .AddSingleton(this.observer)
                 .AddSingleton<IGraphLogger>(this.logger)
                 .AddAuthentication(sharedOptions =>
                 {

@@ -125,11 +125,15 @@ namespace Sample.HueBot.Bot
                 (chatInfo, meetingInfo) = JoinInfo.ParseJoinURL(joinCallBody.JoinURL);
             }
 
+            var tenantId =
+                joinCallBody.TenantId ??
+                (meetingInfo as OrganizerMeetingInfo)?.Organizer.GetPrimaryIdentity()?.GetTenantId();
             ILocalMediaSession mediaSession = this.CreateLocalMediaSession();
+
             var joinParams = new JoinMeetingParameters(chatInfo, meetingInfo, mediaSession)
             {
                 RemoveFromDefaultAudioRoutingGroup = joinCallBody.RemoveFromDefaultRoutingGroup,
-                TenantId = joinCallBody.TenantId,
+                TenantId = tenantId,
                 CorrelationId = correlationId,
             };
 

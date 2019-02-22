@@ -26,6 +26,11 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
         public const string OnIncomingRequestRoute = "";
 
         /// <summary>
+        /// The logs route for GET.
+        /// </summary>
+        public const string Logs = "logs";
+
+        /// <summary>
         /// The calls route for both GET and POST.
         /// </summary>
         public const string Calls = "calls";

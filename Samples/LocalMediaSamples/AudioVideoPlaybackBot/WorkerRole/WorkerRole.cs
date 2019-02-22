@@ -17,7 +17,6 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
     using Microsoft.Graph.Communications.Common.Telemetry;
     using Microsoft.WindowsAzure.ServiceRuntime;
     using Sample.AudioVideoPlaybackBot.FrontEnd;
-    using Sample.Common.Logging;
 
     /// <summary>
     /// The worker role.
@@ -35,9 +34,17 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         private readonly ManualResetEvent runCompleteEvent = new ManualResetEvent(false);
 
         /// <summary>
-        /// Graph Logger.
+        /// The graph logger.
         /// </summary>
-        private readonly SampleLogger logger = new SampleLogger(typeof(WorkerRole).Assembly.GetName().Name, redirectToTrace: true);
+        private readonly IGraphLogger logger;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WorkerRole"/> class.
+        /// </summary>
+        public WorkerRole()
+        {
+            this.logger = new GraphLogger(typeof(WorkerRole).Assembly.GetName().Name, redirectToTrace: true);
+        }
 
         /// <summary>
         /// The run.
@@ -93,6 +100,7 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         {
             this.logger.Info("WorkerRole is stopping");
 
+            Service.Instance.Stop();
             this.cancellationTokenSource.Cancel();
             this.runCompleteEvent.WaitOne();
 

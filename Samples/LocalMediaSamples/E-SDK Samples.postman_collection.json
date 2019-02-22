@@ -1,76 +1,89 @@
 {
-	"info": {
-		"_postman_id": "bf4e33f2-c50a-47df-bbc6-f7d2a508ebbf",
-		"name": "Graph-SDK Samples",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
-	},
-	"item": [
-		{
-			"name": "List Calls",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": "https://<bot_service_name>.cloudapp.net/calls"
-			},
-			"response": []
-		},
-		{
-			"name": "Join Meeting by ID",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"MeetingId\": \"000000000\",\r\n    \"TenantId\": \"00000000-0000-0000-0000-000000000000\",\r\n    \"DisplayName\": \"(optional) xx\"\r\n}"
-				},
-				"url": "https://<bot_service_name>.cloudapp.net/joinCall"
-			},
-			"response": []
-		},
-		{
-			"name": "Join Meeting by Coordinates",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"JoinURL\": \"https://teams.microsoft.com/l/meetup-join/...\",\r\n    \"TenantId\": \"00000000-0000-0000-0000-000000000000\",\r\n    \"DisplayName\": \"(optional) xx\"\r\n}"
-				},
-				"url": "https://<bot_service_name>.cloudapp.net/joinCall"
-			},
-			"response": []
-		},
-		{
-			"name": "Change Screen Sharing Role",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"role\": \"sharer/viewer\" \r\n}"
-				},
-				"url": "https://<bot_service_name>.cloudapp.net/calls/<call_leg_Id>/changeRole"
-			},
-			"response": []
-		}
-	]
+  "info": {
+    "_postman_id": "bf4e33f2-c50a-47df-bbc6-f7d2a508ebbf",
+    "name": "Graph-SDK Samples",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "List Calls",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": "https://<bot_service_name>.cloudapp.net/calls"
+      },
+      "response": []
+    },
+    {
+      "name": "Get Logs",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": "https://<bot_service_name>.cloudapp.net/logs"
+      },
+      "response": []
+    },
+    {
+      "name": "Join Meeting by ID",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"MeetingId\": \"000000000\",\r\n    \"TenantId\": \"00000000-0000-0000-0000-000000000000\",\r\n    \"DisplayName\": \"(optional) xx\"\r\n}"
+        },
+        "url": "https://<bot_service_name>.cloudapp.net/joinCall"
+      },
+      "response": []
+    },
+    {
+      "name": "Join Meeting by Coordinates",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"JoinURL\": \"https://teams.microsoft.com/l/meetup-join/...\",\r\n    \"DisplayName\": \"(optional) xx\"\r\n}"
+        },
+        "url": "https://<bot_service_name>.cloudapp.net/joinCall"
+      },
+      "response": []
+    },
+    {
+      "name": "Change Screen Sharing Role",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"role\": \"sharer/viewer\" \r\n}"
+        },
+        "url": "https://<bot_service_name>.cloudapp.net/calls/<call_leg_Id>/changeRole"
+      },
+      "response": []
+    }
+  ]
 }

@@ -28,19 +28,26 @@ namespace Sample.HueBot.Controllers
         private readonly Bot bot;
 
         /// <summary>
-        /// Logger instance.
+        /// The logger instance.
         /// </summary>
-        private readonly SampleLogger logger;
+        private readonly IGraphLogger logger;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="DemoController"/> class.
+        /// The observer instance.
+        /// </summary>
+        private readonly SampleObserver observer;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DemoController" /> class.
         /// </summary>
         /// <param name="bot">Bot instance.</param>
         /// <param name="logger">Logger instance.</param>
-        public DemoController(Bot bot, SampleLogger logger)
+        /// <param name="observer">The observer.</param>
+        public DemoController(Bot bot, IGraphLogger logger, SampleObserver observer)
         {
             this.bot = bot;
             this.logger = logger;
+            this.observer = observer;
         }
 
         /// <summary>
@@ -165,6 +172,7 @@ namespace Sample.HueBot.Controllers
                     { "callId", call.Id },
                     { "correlationId", call.CorrelationId.ToString() },
                     { "call", callUriTemplate },
+                    { "logs", callUriTemplate.Replace("/calls/", "/logs/") },
                     { "screenshots", callUriTemplate + "scr" },
                     { "hue", callUriTemplate + "hue" },
                 };
@@ -251,9 +259,32 @@ namespace Sample.HueBot.Controllers
         {
             this.AddRefreshHeader(3);
             return this.Content(
-                    this.logger.GetLogs(skip, take),
+                    this.observer.GetLogs(skip, take),
                     System.Net.Mime.MediaTypeNames.Text.Plain,
                     System.Text.Encoding.UTF8);
+        }
+
+        /// <summary>
+        /// Get logs from the service.
+        /// </summary>
+        /// <param name="filter">The filter.</param>
+        /// <param name="skip">Skip specified lines.</param>
+        /// <param name="take">Take specified lines.</param>
+        /// <returns>
+        /// Complete logs from the service.
+        /// </returns>
+        [HttpGet]
+        [Route(HttpRouteConstants.Logs + "/{filter}")]
+        public IActionResult OnGetLogs(
+            string filter,
+            [FromQuery] int skip = 0,
+            [FromQuery] int take = 1000)
+        {
+            this.AddRefreshHeader(3);
+            return this.Content(
+                this.observer.GetLogs(filter, skip, take),
+                System.Net.Mime.MediaTypeNames.Text.Plain,
+                System.Text.Encoding.UTF8);
         }
 
         /// <summary>
