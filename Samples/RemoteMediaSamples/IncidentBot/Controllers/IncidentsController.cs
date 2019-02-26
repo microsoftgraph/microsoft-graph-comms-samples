@@ -22,17 +22,17 @@ namespace IcMBot.Controllers
     public class IncidentsController : Controller
     {
         private Bot bot;
-        private SampleLogger logger;
+        private SampleObserver observer;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="IncidentsController"/> class.
+        /// Initializes a new instance of the <see cref="IncidentsController" /> class.
         /// </summary>
         /// <param name="bot">The bot.</param>
-        /// <param name="logger">Logger instance.</param>
-        public IncidentsController(Bot bot, SampleLogger logger)
+        /// <param name="observer">The log observer.</param>
+        public IncidentsController(Bot bot, SampleObserver observer)
         {
             this.bot = bot;
-            this.logger = logger;
+            this.observer = observer;
         }
 
         /// <summary>
@@ -97,7 +97,30 @@ namespace IcMBot.Controllers
         {
             this.AddRefreshHeader(3);
             return this.Content(
-                this.logger.GetLogs(skip, take),
+                this.observer.GetLogs(skip, take),
+                System.Net.Mime.MediaTypeNames.Text.Plain,
+                System.Text.Encoding.UTF8);
+        }
+
+        /// <summary>
+        /// Get the service logs.
+        /// </summary>
+        /// <param name="filter">The filter.</param>
+        /// <param name="skip">Skip specified lines.</param>
+        /// <param name="take">Take specified lines.</param>
+        /// <returns>
+        /// The logs.
+        /// </returns>
+        [HttpGet]
+        [Route("/logs/{filter}")]
+        public IActionResult GetLogs(
+            string filter,
+            [FromQuery] int skip = 0,
+            [FromQuery] int take = 1000)
+        {
+            this.AddRefreshHeader(3);
+            return this.Content(
+                this.observer.GetLogs(filter, skip, take),
                 System.Net.Mime.MediaTypeNames.Text.Plain,
                 System.Text.Encoding.UTF8);
         }

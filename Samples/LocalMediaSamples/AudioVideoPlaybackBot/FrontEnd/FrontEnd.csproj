@@ -54,7 +54,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.Skype.Internal.Media.H264, Version=0.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\packages\Microsoft.Skype.Bots.Media\1.11.1.2-alpha\src\skype_media_lib\Microsoft.Skype.Internal.Media.H264.dll</HintPath>
+      <HintPath>..\..\..\packages\Microsoft.Skype.Bots.Media\1.11.1.86-alpha\src\skype_media_lib\Microsoft.Skype.Internal.Media.H264.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

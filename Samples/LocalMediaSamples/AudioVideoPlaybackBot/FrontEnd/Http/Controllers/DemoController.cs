@@ -20,6 +20,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
     using Microsoft.Graph.Communications.Common.Telemetry;
     using Microsoft.Graph.Communications.Core.Serialization;
     using Sample.AudioVideoPlaybackBot.FrontEnd.Bot;
+    using Sample.Common.Logging;
 
     /// <summary>
     /// DemoController serves as the gateway to explore the bot.
@@ -33,7 +34,56 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
         private IGraphLogger Logger => Bot.Instance.Logger;
 
         /// <summary>
-        /// The on get calls.
+        /// Gets the sample log observer.
+        /// </summary>
+        private SampleObserver Observer => Bot.Instance.Observer;
+
+        /// <summary>
+        /// The GET logs.
+        /// </summary>
+        /// <param name="skip">The skip.</param>
+        /// <param name="take">The take.</param>
+        /// <returns>
+        /// The <see cref="Task" />.
+        /// </returns>
+        [HttpGet]
+        [Route(HttpRouteConstants.Logs + "/")]
+        public HttpResponseMessage OnGetLogs(
+            int skip = 0,
+            int take = 1000)
+        {
+            var logs = this.Observer.GetLogs(skip, take);
+
+            var response = this.Request.CreateResponse(HttpStatusCode.OK);
+            response.Content = new StringContent(logs, Encoding.UTF8, "text/plain");
+            return response;
+        }
+
+        /// <summary>
+        /// The GET logs.
+        /// </summary>
+        /// <param name="filter">The filter.</param>
+        /// <param name="skip">The skip.</param>
+        /// <param name="take">The take.</param>
+        /// <returns>
+        /// The <see cref="Task" />.
+        /// </returns>
+        [HttpGet]
+        [Route(HttpRouteConstants.Logs + "/{filter}")]
+        public HttpResponseMessage OnGetLogs(
+            string filter,
+            int skip = 0,
+            int take = 1000)
+        {
+            var logs = this.Observer.GetLogs(filter, skip, take);
+
+            var response = this.Request.CreateResponse(HttpStatusCode.OK);
+            response.Content = new StringContent(logs, Encoding.UTF8, "text/plain");
+            return response;
+        }
+
+        /// <summary>
+        /// The GET calls.
         /// </summary>
         /// <returns>
         /// The <see cref="Task"/>.
@@ -63,6 +113,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
                     { "legId", call.Id },
                     { "correlationId", call.CorrelationId.ToString() },
                     { "call", callUriTemplate },
+                    { "logs", callUriTemplate.Replace("/calls/", "/logs/") },
                     { "changeScreenSharingRole", callUriTemplate + "/" + HttpRouteConstants.OnChangeRoleRoute },
                 };
                 calls.Add(values);
@@ -95,44 +146,6 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
                 await Bot.Instance.EndCallByCallLegIdAsync(callLegId).ConfigureAwait(false);
 
                 return this.Request.CreateResponse(HttpStatusCode.OK);
-            }
-            catch (Exception e)
-            {
-                var response = this.Request.CreateResponse(HttpStatusCode.InternalServerError);
-                response.Content = new StringContent(e.ToString());
-                return response;
-            }
-        }
-
-        /// <summary>
-        /// Get the async outcomes log for a call.
-        /// </summary>
-        /// <param name="callLegId">
-        /// Id of the call to retrieve image.
-        /// </param>
-        /// <param name="limit">
-        /// Number of logs to retrieve (most recent).
-        /// </param>
-        /// <returns>
-        /// The <see cref="HttpResponseMessage"/>.
-        /// </returns>
-        [HttpGet]
-        [Route(HttpRouteConstants.CallRoute)]
-        public HttpResponseMessage OnGetLog(string callLegId, int limit = 50)
-        {
-            this.Logger.Info($"Retrieving image for thread id {callLegId}");
-
-            try
-            {
-                var response = this.Request.CreateResponse(HttpStatusCode.OK);
-
-                response.Content = new StringContent(string.Join("\n\n==========================\n\n", Bot.Instance.GetLogsByCallLegId(callLegId, limit)), Encoding.UTF8, System.Net.Mime.MediaTypeNames.Text.Plain);
-
-                response.Headers.Add("Cache-Control", "private,must-revalidate,post-check=1,pre-check=2,no-cache");
-
-                response.Headers.Add("Refresh", $"1; url={this.Request.RequestUri}");
-
-                return response;
             }
             catch (Exception e)
             {

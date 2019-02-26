@@ -26,20 +26,23 @@ namespace HueBot
     /// </summary>
     internal sealed class HueBot : StatefulService
     {
-        private SampleLogger logger;
+        private IGraphLogger logger;
+        private SampleObserver observer;
         private IConfiguration configuration;
         private BotOptions botOptions;
         private Bot bot;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="HueBot"/> class.
+        /// Initializes a new instance of the <see cref="HueBot" /> class.
         /// </summary>
         /// <param name="context">Stateful service context from service fabric.</param>
         /// <param name="logger">Global logger instance.</param>
-        public HueBot(StatefulServiceContext context, SampleLogger logger)
+        /// <param name="observer">Global observer instance.</param>
+        public HueBot(StatefulServiceContext context, IGraphLogger logger, SampleObserver observer)
             : base(context)
         {
             this.logger = logger;
+            this.observer = observer;
 
             // Set directory to where the assemblies are running from.
             // This is necessary for Media binaries to pick up logging configuration.
@@ -98,7 +101,7 @@ namespace HueBot
                 .ConfigureServices(
                     services => services
                         .AddSingleton(this.logger)
-                        .AddSingleton<IGraphLogger>(this.logger)
+                        .AddSingleton(this.observer)
                         .AddSingleton(this.StateManager)
                         .AddSingleton(this.Context)
                         .AddSingleton(this.botOptions)

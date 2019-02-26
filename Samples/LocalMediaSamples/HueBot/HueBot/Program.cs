@@ -21,7 +21,8 @@ namespace HueBot
         /// <summary>
         /// Memory logger (not to be used for production.)
         /// </summary>
-        private static readonly SampleLogger SampleLogger = new SampleLogger(typeof(Program).Assembly.GetName().Name);
+        private static readonly IGraphLogger SampleLogger = new GraphLogger(typeof(Program).Assembly.GetName().Name);
+        private static readonly SampleObserver SampleObserver = new SampleObserver(SampleLogger);
 
         /// <summary>
         /// Observer subscription.
@@ -41,7 +42,7 @@ namespace HueBot
                 // an instance of the class is created in this host process.
                 ServiceRuntime.RegisterServiceAsync(
                     "HueBotType",
-                    context => new HueBot(context, SampleLogger)).GetAwaiter().GetResult();
+                    context => new HueBot(context, SampleLogger, SampleObserver)).GetAwaiter().GetResult();
 
                 ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, typeof(HueBot).Name);
 

@@ -246,6 +246,9 @@ namespace Sample.IncidentBot.Bot
                 meetingInfo.AllowConversationWithoutHost = joinCallBody.AllowConversationWithoutHost;
             }
 
+            var tenantId =
+                joinCallBody.TenantId ??
+                (meetingInfo as OrganizerMeetingInfo)?.Organizer.GetPrimaryIdentity()?.GetTenantId();
             var mediaToPrefetch = new List<MediaInfo>();
             foreach (var m in this.MediaMap)
             {
@@ -255,7 +258,7 @@ namespace Sample.IncidentBot.Bot
             var joinParams = new JoinMeetingParameters(chatInfo, meetingInfo, new[] { Modality.Audio }, mediaToPrefetch)
             {
                 RemoveFromDefaultAudioRoutingGroup = joinCallBody.RemoveFromDefaultRoutingGroup,
-                TenantId = joinCallBody.TenantId,
+                TenantId = tenantId,
                 CorrelationId = correlationId,
             };
 

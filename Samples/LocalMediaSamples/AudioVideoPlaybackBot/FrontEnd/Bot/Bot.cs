@@ -9,7 +9,6 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
     using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Data;
-    using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.Graph;
     using Microsoft.Graph.Communications.Calls;
@@ -29,7 +28,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
     /// <summary>
     /// The core bot logic.
     /// </summary>
-    internal class Bot
+    internal class Bot : IDisposable
     {
         /// <summary>
         /// Gets the instance of the bot.
@@ -39,7 +38,12 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         /// <summary>
         /// Gets the Graph Logger instance.
         /// </summary>
-        public SampleLogger Logger { get; private set; }
+        public IGraphLogger Logger { get; private set; }
+
+        /// <summary>
+        /// Gets the sample log observer.
+        /// </summary>
+        public SampleObserver Observer { get; private set; }
 
         /// <summary>
         /// Gets the collection of call handlers.
@@ -86,14 +90,14 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                 (chatInfo, meetingInfo) = JoinInfo.ParseJoinURL(joinCallBody.JoinURL);
             }
 
+            var tenantId =
+                joinCallBody.TenantId ??
+                (meetingInfo as OrganizerMeetingInfo)?.Organizer.GetPrimaryIdentity()?.GetTenantId();
             var mediaSession = this.CreateLocalMediaSession();
 
-            var joinCallParameters = new JoinMeetingParameters(
-                chatInfo,
-                meetingInfo,
-                mediaSession)
+            var joinParams = new JoinMeetingParameters(chatInfo, meetingInfo, mediaSession)
             {
-                TenantId = joinCallBody.TenantId,
+                TenantId = tenantId,
                 CorrelationId = correlationId,
             };
 
@@ -103,14 +107,14 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                 // If display name is specified, we join as anonymous (guest) user
                 // with the specified display name.  This will put bot into lobby
                 // unless lobby bypass is disabled.
-                joinCallParameters.GuestIdentity = new Identity
+                joinParams.GuestIdentity = new Identity
                 {
                     Id = Guid.NewGuid().ToString(),
                     DisplayName = joinCallBody.DisplayName,
                 };
             }
 
-            var statefulCall = await this.Client.Calls().AddAsync(joinCallParameters).ConfigureAwait(false);
+            var statefulCall = await this.Client.Calls().AddAsync(joinParams).ConfigureAwait(false);
             statefulCall.GraphLogger.Info($"Call creation complete: {statefulCall.Id}");
             return statefulCall;
         }
@@ -133,16 +137,28 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                 .ConfigureAwait(false);
         }
 
+        /// <inheritdoc />
+        public void Dispose()
+        {
+            this.Observer?.Dispose();
+            this.Observer = null;
+            this.Logger = null;
+            this.Client?.Dispose();
+            this.Client = null;
+            this.OnlineMeetings = null;
+        }
+
         /// <summary>
         /// Initialize the instance.
         /// </summary>
         /// <param name="service">Service instance.</param>
         /// <param name="logger">Graph logger.</param>
-        internal void Initialize(Service service, SampleLogger logger)
+        internal void Initialize(Service service, IGraphLogger logger)
         {
             Validator.IsNull(this.Logger, "Multiple initializations are not allowed.");
 
             this.Logger = logger;
+            this.Observer = new SampleObserver(logger);
 
             var builder = new CommunicationsClientBuilder("AudioVideoPlaybackBot", service.Configuration.AadAppId, this.Logger);
             var authProvider = new AuthenticationProvider(
@@ -160,23 +176,6 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             this.Client.Calls().OnUpdated += this.CallsOnUpdated;
 
             this.OnlineMeetings = new OnlineMeetingHelper(authProvider, service.Configuration.PlaceCallEndpointUrl);
-        }
-
-        /// <summary>
-        /// Get the logs for a particular call.
-        /// </summary>
-        /// <param name="callLegId">
-        /// The call Leg Id.
-        /// </param>
-        /// <param name="limit">
-        /// The limit.
-        /// </param>
-        /// <returns>
-        /// The <see cref="IEnumerable{String}"/>.
-        /// </returns>
-        internal IEnumerable<string> GetLogsByCallLegId(string callLegId, int limit)
-        {
-            return this.GetHandlerOrThrow(callLegId).OutcomesLogMostRecentFirst.Take(limit);
         }
 
         /// <summary>
