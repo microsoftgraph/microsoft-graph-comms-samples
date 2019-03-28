@@ -82,7 +82,7 @@ public ICall Call { get; }
 
 Next we need to adjust the incoming call controller to forward the notifications to the right client.  If there is no need to handle incoming call, then the above configuration will automatically route the the correct apps endpoint.  If we need to handle incoming call, we can either have a default app process all those scenarios, or the callback URI of each app can contain the app id.
 
-For example, if our service URI is `https://base.uri/callback`, we can set all our bots to use this URI directly, but then we lose knowledge of which app is receiving the incoming call.  If we change each apps callback uri to `https://base.uri/callback/{appId}` (example: https://base.uri/callback/9ecd52e5-6592-42b7-b562-093f37f13bde, where the appId is 9ecd52e5-6592-42b7-b562-093f37f13bde) then we have the app context when an incoming call occurs.  Of course there are other ways at getting the app id, like from the auth token or the payload, but this is one simple option.
+For example, if our service URI is `https://base.uri/callback`, we can set all our bots to use this URI directly, but then we lose knowledge of which app is receiving the incoming call.  If we change each app's callback URI to `https://base.uri/callback/{appId}` (example: https://base.uri/callback/9ecd52e5-6592-42b7-b562-093f37f13bde, where the appId is 9ecd52e5-6592-42b7-b562-093f37f13bde) then we have the app context when an incoming call occurs.  Of course there are other ways to get the app ID, like from the auth token or the payload, but this is one simple option.
 
 To handle the app id in the URI the controllers for callbacks need to be changed to the following:
 
