@@ -660,7 +660,7 @@ The flatten support one level property lookup only.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string GetHeaderText(this IGraphLogger logger, IEnumerable&lt;KeyValuePair&lt;string, IEnumerable&lt;string&gt;&gt;&gt; headers)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;string&gt; GetHeaderText(this IGraphLogger logger, IEnumerable&lt;KeyValuePair&lt;string, IEnumerable&lt;string&gt;&gt;&gt; headers)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -696,8 +696,57 @@ The flatten support one level property lookup only.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
         <td><p>Log Text</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Common_Telemetry_LoggingExtensions_GetTypedProperties_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.LoggingExtensions.GetTypedProperties*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_LoggingExtensions_GetTypedProperties_Microsoft_Graph_Communications_Common_Telemetry_LogEvent_System_Type_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.LoggingExtensions.GetTypedProperties(Microsoft.Graph.Communications.Common.Telemetry.LogEvent,System.Type)">GetTypedProperties(LogEvent, Type)</h4>
+  <div class="markdown level1 summary"><p>Gets the client common properties from log event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static object GetTypedProperties(this LogEvent logEvent, Type type)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.LogEvent.html">LogEvent</a></td>
+        <td><span class="parametername">logEvent</span></td>
+        <td><p>The log event.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.type">Type</a></td>
+        <td><span class="parametername">type</span></td>
+        <td><p>The type of the property.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td><p>The client common properties.</p>
 </td>
       </tr>
     </tbody>
@@ -742,7 +791,7 @@ The flatten support one level property lookup only.</p>
     <tbody>
       <tr>
         <td><span class="xref">T</span></td>
-        <td><p>The client common properties</p>
+        <td><p>The client common properties.</p>
 </td>
       </tr>
     </tbody>

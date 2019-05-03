@@ -205,7 +205,7 @@ a given socket configuration.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ILocalMediaSession CreateMediaSession(this ICommunicationsClient statefulClient, AudioSocketSettings audioSocketSettings, IEnumerable&lt;VideoSocketSettings&gt; videoSocketSettings = null, VideoSocketSettings vbssSocketSettings = null, DataSocketSettings dataSocketSettings = null, Guid mediaSessionId = default(Guid))</code></pre>
+    <pre><code class="lang-csharp hljs">public static ILocalMediaSession CreateMediaSession(this ICommunicationsClient client, AudioSocketSettings audioSocketSettings, IEnumerable&lt;VideoSocketSettings&gt; videoSocketSettings = null, VideoSocketSettings vbssSocketSettings = null, DataSocketSettings dataSocketSettings = null, Guid mediaSessionId = default(Guid))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -219,8 +219,8 @@ a given socket configuration.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="../client/Microsoft.Graph.Communications.Client.ICommunicationsClient.html">ICommunicationsClient</a></td>
-        <td><span class="parametername">statefulClient</span></td>
-        <td><p>The stateful client.</p>
+        <td><span class="parametername">client</span></td>
+        <td><p>The communications client.</p>
 </td>
       </tr>
       <tr>
@@ -282,7 +282,7 @@ a given socket configuration.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
-        <td><p>statefulClient</p>
+        <td><p>If the communications client has not been specified.</p>
 </td>
       </tr>
       <tr>

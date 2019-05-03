@@ -87,19 +87,12 @@
   <div class="markdown level0 remarks"></div>
     <h3 id="classes">Classes
   </h3>
-      <h4><a class="xref" href="Microsoft.Graph.Communications.Core.Serialization.ODataJsonConverter.html">ODataJsonConverter</a></h4>
-      <section><p>Handles resolving interfaces to the correct derived class during serialization/deserialization.</p>
-</section>
-      <h4><a class="xref" href="Microsoft.Graph.Communications.Core.Serialization.ODataResolver.html">ODataResolver</a></h4>
-      <section><p>Contract resolver that allows us to create OData JSON payloads with type information.</p>
-</section>
-      <h4><a class="xref" href="Microsoft.Graph.Communications.Core.Serialization.Serializer.html">Serializer</a></h4>
-      <section><p>An interface for serializing and deserializing JSON objects.</p>
-</section>
-    <h3 id="interfaces">Interfaces
-  </h3>
-      <h4><a class="xref" href="Microsoft.Graph.Communications.Core.Serialization.ISerializer.html">ISerializer</a></h4>
-      <section><p>An interface for serializing and deserializing JSON objects.</p>
+      <h4><a class="xref" href="Microsoft.Graph.Communications.Core.Serialization.CommsSerializer.html">CommsSerializer</a></h4>
+      <section><p>An interface for serializing and deserializing JSON objects.
+This serializer is used throughout the Communications workload
+to provide extra functionality.  Specifically it supports
+more robust serialization/deserialization of @odata.type property
+and deserialization of open type additional data.</p>
 </section>
 </article>
           </div>

@@ -86,11 +86,20 @@
   <div class="markdown level0 summary"><p>The response got in exchange of a <a class="xref" href="Microsoft.Graph.Communications.Common.Transport.IGraphRequest-1.html">IGraphRequest&lt;T&gt;</a>.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Transport.IGraphExchange-1.html#Microsoft_Graph_Communications_Common_Transport_IGraphExchange_1_Content">IGraphExchange&lt;T&gt;.Content</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Transport.IGraphExchange.html#Microsoft_Graph_Communications_Common_Transport_IGraphExchange_Properties">IGraphExchange.Properties</a>
+    </div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.Communications.Common.Transport.html">Microsoft.Graph.Communications.Common.Transport</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.Communications.Common.dll</h6>
   <h5 id="Microsoft_Graph_Communications_Common_Transport_IGraphResponse_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IGraphResponse&lt;T&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IGraphResponse&lt;T&gt; : IGraphExchange&lt;T&gt;, IGraphExchange</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -110,30 +119,6 @@
   </table>
   <h3 id="properties">Properties
   </h3>
-  <a id="Microsoft_Graph_Communications_Common_Transport_IGraphResponse_1_Content_" data-uid="Microsoft.Graph.Communications.Common.Transport.IGraphResponse`1.Content*"></a>
-  <h4 id="Microsoft_Graph_Communications_Common_Transport_IGraphResponse_1_Content" data-uid="Microsoft.Graph.Communications.Common.Transport.IGraphResponse`1.Content">Content</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the content of the response.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">T Content { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <a id="Microsoft_Graph_Communications_Common_Transport_IGraphResponse_1_ErrorContent_" data-uid="Microsoft.Graph.Communications.Common.Transport.IGraphResponse`1.ErrorContent*"></a>
   <h4 id="Microsoft_Graph_Communications_Common_Transport_IGraphResponse_1_ErrorContent" data-uid="Microsoft.Graph.Communications.Common.Transport.IGraphResponse`1.ErrorContent">ErrorContent</h4>
   <div class="markdown level1 summary"><p>Gets the content of the error.</p>
@@ -154,33 +139,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><p>The content of the error.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="Microsoft_Graph_Communications_Common_Transport_IGraphResponse_1_Properties_" data-uid="Microsoft.Graph.Communications.Common.Transport.IGraphResponse`1.Properties*"></a>
-  <h4 id="Microsoft_Graph_Communications_Common_Transport_IGraphResponse_1_Properties" data-uid="Microsoft.Graph.Communications.Common.Transport.IGraphResponse`1.Properties">Properties</h4>
-  <div class="markdown level1 summary"><p>Gets the properties.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ICollection&lt;KeyValuePair&lt;string, object&gt;&gt; Properties { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;&gt;</td>
-        <td><p>The properties.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -204,8 +163,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><p>The reason phrase.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -229,8 +187,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="Microsoft.Graph.Communications.Common.Transport.ResponseStatus.html">ResponseStatus</a></td>
-        <td><p>The status.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -257,10 +214,20 @@
       <a class="xref" href="Microsoft.Graph.Communications.Common.Validator.html#Microsoft_Graph_Communications_Common_Validator_NotNull__1___0_System_String_System_String_">Validator.NotNull&lt;T&gt;(T, String, String)</a>
   </div>
   <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Validator.html#Microsoft_Graph_Communications_Common_Validator_Equals__1___0___0_System_String_System_String_">Validator.Equals&lt;T&gt;(T, T, String, String)</a>
+  </div>
+  <div>
       <a class="xref" href="Microsoft.Graph.Communications.Common.Validator.html#Microsoft_Graph_Communications_Common_Validator_Equals__2___0___0_System_String_">Validator.Equals&lt;T, TE&gt;(T, T, String)</a>
   </div>
   <div>
       <a class="xref" href="Microsoft.Graph.Communications.Common.Validator.html#Microsoft_Graph_Communications_Common_Validator_NotEquals__1___0___0_System_String_System_String_">Validator.NotEquals&lt;T&gt;(T, T, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Transport.GraphResponseExtensions.html#Microsoft_Graph_Communications_Common_Transport_GraphResponseExtensions_ToHttpResponseMessage__1_Microsoft_Graph_Communications_Common_Transport_IGraphResponse___0__Newtonsoft_Json_JsonSerializerSettings_System_Collections_Generic_IEnumerable_Microsoft_Graph_Communications_Common_Transport_IGraphProperty__">GraphResponseExtensions.ToHttpResponseMessage&lt;T&gt;(IGraphResponse&lt;T&gt;, JsonSerializerSettings, IEnumerable&lt;IGraphProperty&gt;)</a>
+  </div>
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="Microsoft.Graph.Communications.Common.Transport.IGraphExchange-1.html">IGraphExchange</a>&lt;T&gt;</div>
   </div>
 </article>
           </div>

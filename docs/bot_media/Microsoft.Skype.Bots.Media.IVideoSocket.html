@@ -399,7 +399,8 @@ of the video socket, allowing the bot to add and remove video formats mid-call. 
   <h3 id="events">Events
   </h3>
   <h4 id="Microsoft_Skype_Bots_Media_IVideoSocket_MediaStreamFailure" data-uid="Microsoft.Skype.Bots.Media.IVideoSocket.MediaStreamFailure">MediaStreamFailure</h4>
-  <div class="markdown level1 summary"><p>The event is raised if there is a failure on the stream. For example the socket stops receiving media from the sender</p>
+  <div class="markdown level1 summary"><p>This event is raised if there is a network connection failure with the peer. To recover, the bot
+will need to start a new call or rejoin the meeting.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -417,6 +418,33 @@ of the video socket, allowing the bot to add and remove video formats mid-call. 
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Microsoft.Skype.Bots.Media.MediaStreamFailureEventArgs.html">MediaStreamFailureEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Microsoft_Skype_Bots_Media_IVideoSocket_MediaStreamFailure_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Note: this event can be raised even if there is no active video subscription; i.e., the VideoSocket is &quot;idle&quot;
+and not receiving media.</p>
+</div>
+  <h4 id="Microsoft_Skype_Bots_Media_IVideoSocket_MediaStreamQualityChanged" data-uid="Microsoft.Skype.Bots.Media.IVideoSocket.MediaStreamQualityChanged">MediaStreamQualityChanged</h4>
+  <div class="markdown level1 summary"><p>The event is raised if a media stream quality change was detected</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event EventHandler&lt;VideoMediaStreamQualityChangedEventArgs&gt; MediaStreamQualityChanged</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Microsoft.Skype.Bots.Media.VideoMediaStreamQualityChangedEventArgs.html">VideoMediaStreamQualityChangedEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>

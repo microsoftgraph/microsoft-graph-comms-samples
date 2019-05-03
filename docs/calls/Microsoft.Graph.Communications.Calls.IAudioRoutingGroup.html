@@ -123,7 +123,7 @@ participants in the multiparty conversation</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="../core/Microsoft.Graph.AudioRoutingGroup.html">AudioRoutingGroup</a></td>
+        <td><a class="xref" href="../core_calls/Microsoft.Graph.AudioRoutingGroup.html">AudioRoutingGroup</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -131,13 +131,13 @@ participants in the multiparty conversation</p>
   <h3 id="methods">Methods
   </h3>
   <a id="Microsoft_Graph_Communications_Calls_IAudioRoutingGroup_DeleteAsync_" data-uid="Microsoft.Graph.Communications.Calls.IAudioRoutingGroup.DeleteAsync*"></a>
-  <h4 id="Microsoft_Graph_Communications_Calls_IAudioRoutingGroup_DeleteAsync_System_Threading_CancellationToken_" data-uid="Microsoft.Graph.Communications.Calls.IAudioRoutingGroup.DeleteAsync(System.Threading.CancellationToken)">DeleteAsync(CancellationToken)</h4>
+  <h4 id="Microsoft_Graph_Communications_Calls_IAudioRoutingGroup_DeleteAsync_System_Boolean_System_Threading_CancellationToken_" data-uid="Microsoft.Graph.Communications.Calls.IAudioRoutingGroup.DeleteAsync(System.Boolean,System.Threading.CancellationToken)">DeleteAsync(Boolean, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Deletes this audio routing group asynchronously.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task DeleteAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task DeleteAsync(bool handleHttpNotFoundInternally = false, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -149,6 +149,12 @@ participants in the multiparty conversation</p>
       </tr>
     </thead>
     <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">handleHttpNotFoundInternally</span></td>
+        <td><p>If the <a class="xref" href="Microsoft.Graph.Communications.Calls.ICall.html">ICall</a> is already gone, whether to handle the exception gracefully or not.</p>
+</td>
+      </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
@@ -193,7 +199,7 @@ participants in the multiparty conversation</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="../core/Microsoft.Graph.AudioRoutingGroup.html">AudioRoutingGroup</a></td>
+        <td><a class="xref" href="../core_calls/Microsoft.Graph.AudioRoutingGroup.html">AudioRoutingGroup</a></td>
         <td><span class="parametername">resource</span></td>
         <td><p>The updated resource.</p>
 </td>

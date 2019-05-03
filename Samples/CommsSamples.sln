@@ -3,35 +3,30 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StatelessSamples", "StatelessSamples", "{F4E98677-1FA1-4835-9388-DB6FCAA6311A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BetaSamples", "BetaSamples", "{7F25C14D-04B3-4B60-B24E-F20034D55227}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LocalMediaSamples", "LocalMediaSamples", "{40151D89-A44A-4793-80B2-1EEBFDD93889}"
-	ProjectSection(SolutionItems) = preProject
-		LocalMediaSamples\configure_cloud.ps1 = LocalMediaSamples\configure_cloud.ps1
-		LocalMediaSamples\E-SDK Samples.postman_collection.json = LocalMediaSamples\E-SDK Samples.postman_collection.json
-		LocalMediaSamples\Getting Started with the Local Media Samples.md = LocalMediaSamples\Getting Started with the Local Media Samples.md
-		LocalMediaSamples\README - multiple app support.md = LocalMediaSamples\README - multiple app support.md
-	EndProjectSection
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StatelessSamples", "StatelessSamples", "{F4E98677-1FA1-4835-9388-DB6FCAA6311A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RemoteMediaSamples", "RemoteMediaSamples", "{220D3F02-7EA5-451C-BE5E-C032104A3463}"
 	ProjectSection(SolutionItems) = preProject
-		RemoteMediaSamples\Getting Started with the Remote Media Samples.md = RemoteMediaSamples\Getting Started with the Remote Media Samples.md
+		BetaSamples\RemoteMediaSamples\Getting Started with the Remote Media Samples.md = BetaSamples\RemoteMediaSamples\Getting Started with the Remote Media Samples.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AudioVideoPlaybackBot", "AudioVideoPlaybackBot", "{540514B8-BFF4-47D6-8F21-B8B824521A1B}"
 	ProjectSection(SolutionItems) = preProject
-		LocalMediaSamples\AudioVideoPlaybackBot\README Release Notes.md = LocalMediaSamples\AudioVideoPlaybackBot\README Release Notes.md
+		V1.0Samples\LocalMediaSamples\configure_cloud.ps1 = V1.0Samples\LocalMediaSamples\configure_cloud.ps1
+		V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot\README.md = V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot\README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IncidentBot", "RemoteMediaSamples\IncidentBot\IncidentBot.csproj", "{9FA55459-F040-45E7-BB07-3415AF5D72F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IncidentBot", "BetaSamples\RemoteMediaSamples\IncidentBot\IncidentBot.csproj", "{9FA55459-F040-45E7-BB07-3415AF5D72F2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineMeeting", "StatelessSamples\OnlineMeetingSamples\OnlineMeeting.csproj", "{EA303D4F-CF25-4B34-AE53-0F95D7AADBAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineMeeting", "BetaSamples\StatelessSamples\OnlineMeetingSamples\OnlineMeeting.csproj", "{EA303D4F-CF25-4B34-AE53-0F95D7AADBAF}"
 EndProject
-Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "AudioVideoPlaybackBot", "LocalMediaSamples\AudioVideoPlaybackBot\AudioVideoPlaybackBot.ccproj", "{386504C0-3BC0-41DB-8096-7110A5F1D434}"
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "AudioVideoPlaybackBot", "V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot\AudioVideoPlaybackBot.ccproj", "{386504C0-3BC0-41DB-8096-7110A5F1D434}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd", "LocalMediaSamples\AudioVideoPlaybackBot\FrontEnd\FrontEnd.csproj", "{7C0DE005-FD92-4AEE-A6A2-03954F9DA631}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd", "V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot\FrontEnd\FrontEnd.csproj", "{7C0DE005-FD92-4AEE-A6A2-03954F9DA631}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerRole", "LocalMediaSamples\AudioVideoPlaybackBot\WorkerRole\WorkerRole.csproj", "{9B6A0025-19B5-41D3-9E7D-F1160FA37E78}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerRole", "V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot\WorkerRole\WorkerRole.csproj", "{9B6A0025-19B5-41D3-9E7D-F1160FA37E78}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{ECA2F7AC-B74B-4626-87FA-B708F0F04A21}"
 	ProjectSection(SolutionItems) = preProject
@@ -45,15 +40,25 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Common", "Common\Sam
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HueBot", "HueBot", "{2092372D-EEE2-4F2C-963D-2A0F9ECAF82C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HueBot", "LocalMediaSamples\HueBot\HueBot\HueBot.csproj", "{64538D87-16CD-4A13-ADA9-63EBA7C80BBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HueBot", "V1.0Samples\LocalMediaSamples\HueBot\HueBot\HueBot.csproj", "{64538D87-16CD-4A13-ADA9-63EBA7C80BBE}"
 EndProject
-Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "HueBotSF", "LocalMediaSamples\HueBot\HueBotSF\HueBotSF.sfproj", "{24E33708-FB5C-45F8-81CA-B0C857435FFB}"
+Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "HueBotSF", "V1.0Samples\LocalMediaSamples\HueBot\HueBotSF\HueBotSF.sfproj", "{24E33708-FB5C-45F8-81CA-B0C857435FFB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E5ADF206-0845-436D-8A70-826DE8082A8C}"
 	ProjectSection(SolutionItems) = preProject
 		..\changelog.md = ..\changelog.md
 		..\LICENSE = ..\LICENSE
 		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.0Samples", "V1.0Samples", "{02A1C0B0-1098-4525-97D1-D38C39C8CB9D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LocalMediaSamples", "LocalMediaSamples", "{A6303F54-64FF-4FFC-921C-3F383D26F807}"
+	ProjectSection(SolutionItems) = preProject
+		V1.0Samples\LocalMediaSamples\configure_cloud.ps1 = V1.0Samples\LocalMediaSamples\configure_cloud.ps1
+		V1.0Samples\LocalMediaSamples\E-SDK Samples.postman_collection.json = V1.0Samples\LocalMediaSamples\E-SDK Samples.postman_collection.json
+		V1.0Samples\LocalMediaSamples\Getting Started with the Local Media Samples.md = V1.0Samples\LocalMediaSamples\Getting Started with the Local Media Samples.md
+		V1.0Samples\LocalMediaSamples\README - multiple app support.md = V1.0Samples\LocalMediaSamples\README - multiple app support.md
 	EndProjectSection
 EndProject
 Global
@@ -101,16 +106,19 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{540514B8-BFF4-47D6-8F21-B8B824521A1B} = {40151D89-A44A-4793-80B2-1EEBFDD93889}
+		{F4E98677-1FA1-4835-9388-DB6FCAA6311A} = {7F25C14D-04B3-4B60-B24E-F20034D55227}
+		{220D3F02-7EA5-451C-BE5E-C032104A3463} = {7F25C14D-04B3-4B60-B24E-F20034D55227}
+		{540514B8-BFF4-47D6-8F21-B8B824521A1B} = {A6303F54-64FF-4FFC-921C-3F383D26F807}
 		{9FA55459-F040-45E7-BB07-3415AF5D72F2} = {220D3F02-7EA5-451C-BE5E-C032104A3463}
 		{EA303D4F-CF25-4B34-AE53-0F95D7AADBAF} = {F4E98677-1FA1-4835-9388-DB6FCAA6311A}
 		{386504C0-3BC0-41DB-8096-7110A5F1D434} = {540514B8-BFF4-47D6-8F21-B8B824521A1B}
 		{7C0DE005-FD92-4AEE-A6A2-03954F9DA631} = {540514B8-BFF4-47D6-8F21-B8B824521A1B}
 		{9B6A0025-19B5-41D3-9E7D-F1160FA37E78} = {540514B8-BFF4-47D6-8F21-B8B824521A1B}
 		{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3} = {ECA2F7AC-B74B-4626-87FA-B708F0F04A21}
-		{2092372D-EEE2-4F2C-963D-2A0F9ECAF82C} = {40151D89-A44A-4793-80B2-1EEBFDD93889}
+		{2092372D-EEE2-4F2C-963D-2A0F9ECAF82C} = {A6303F54-64FF-4FFC-921C-3F383D26F807}
 		{64538D87-16CD-4A13-ADA9-63EBA7C80BBE} = {2092372D-EEE2-4F2C-963D-2A0F9ECAF82C}
 		{24E33708-FB5C-45F8-81CA-B0C857435FFB} = {2092372D-EEE2-4F2C-963D-2A0F9ECAF82C}
+		{A6303F54-64FF-4FFC-921C-3F383D26F807} = {02A1C0B0-1098-4525-97D1-D38C39C8CB9D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {40C46BA5-FFE7-414A-89C4-F7EE1F3055DC}

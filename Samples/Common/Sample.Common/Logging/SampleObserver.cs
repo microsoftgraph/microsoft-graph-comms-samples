@@ -38,7 +38,7 @@ namespace Sample.Common.Logging
         /// <summary>
         /// The formatter.
         /// </summary>
-        private SampleFormatter formatter = new SampleFormatter();
+        private ILogEventFormatter formatter = new CommsLogEventFormatter();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SampleObserver" /> class.

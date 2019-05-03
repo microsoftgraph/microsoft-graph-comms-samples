@@ -130,13 +130,13 @@
   <h3 id="constructors">Constructors
   </h3>
   <a id="Microsoft_Graph_Communications_Common_Transport_GraphHttpClient__ctor_" data-uid="Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.#ctor*"></a>
-  <h4 id="Microsoft_Graph_Communications_Common_Transport_GraphHttpClient__ctor_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_Newtonsoft_Json_JsonSerializerSettings_System_Net_Http_HttpClient_System_Int32_System_String_System_Net_Http_Headers_ProductInfoHeaderValue_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_Object___System_String_" data-uid="Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.#ctor(Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger,Newtonsoft.Json.JsonSerializerSettings,System.Net.Http.HttpClient,System.Int32,System.String,System.Net.Http.Headers.ProductInfoHeaderValue,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}},System.String)">GraphHttpClient(IGraphLogger, JsonSerializerSettings, HttpClient, Int32, String, ProductInfoHeaderValue, IEnumerable&lt;KeyValuePair&lt;String, Object&gt;&gt;, String)</h4>
+  <h4 id="Microsoft_Graph_Communications_Common_Transport_GraphHttpClient__ctor_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_Newtonsoft_Json_JsonSerializerSettings_System_Net_Http_HttpClient_System_Int32_System_String_System_Net_Http_Headers_ProductInfoHeaderValue_System_Collections_Generic_IEnumerable_Microsoft_Graph_Communications_Common_Transport_IGraphProperty__System_String_" data-uid="Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.#ctor(Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger,Newtonsoft.Json.JsonSerializerSettings,System.Net.Http.HttpClient,System.Int32,System.String,System.Net.Http.Headers.ProductInfoHeaderValue,System.Collections.Generic.IEnumerable{Microsoft.Graph.Communications.Common.Transport.IGraphProperty},System.String)">GraphHttpClient(IGraphLogger, JsonSerializerSettings, HttpClient, Int32, String, ProductInfoHeaderValue, IEnumerable&lt;IGraphProperty&gt;, String)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.html">GraphHttpClient</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public GraphHttpClient(IGraphLogger logger, JsonSerializerSettings jsonSerializerSettings = null, HttpClient httpClient = null, int numberOfRetries = 3, string correlationIdHeader = null, ProductInfoHeaderValue userAgent = null, IEnumerable&lt;KeyValuePair&lt;string, object&gt;&gt; defaultProperties = null, string metricName = &quot;PartnerHttpRequests&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">public GraphHttpClient(IGraphLogger logger, JsonSerializerSettings jsonSerializerSettings = null, HttpClient httpClient = null, int numberOfRetries = 3, string correlationIdHeader = null, ProductInfoHeaderValue userAgent = null, IEnumerable&lt;IGraphProperty&gt; defaultProperties = null, string metricName = &quot;PartnerHttpRequests&quot;)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -185,7 +185,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Microsoft.Graph.Communications.Common.Transport.IGraphProperty.html">IGraphProperty</a>&gt;</td>
         <td><span class="parametername">defaultProperties</span></td>
         <td><p>The default properties.</p>
 </td>
@@ -227,6 +227,30 @@ Clients can use this to read the response and give the new redirect url to call 
       </tr>
     </tbody>
   </table>
+  <a id="Microsoft_Graph_Communications_Common_Transport_GraphHttpClient_DefaultProperties_" data-uid="Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.DefaultProperties*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_Transport_GraphHttpClient_DefaultProperties" data-uid="Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.DefaultProperties">DefaultProperties</h4>
+  <div class="markdown level1 summary"><p>Gets the default properties.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;IGraphProperty&gt; DefaultProperties { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Microsoft.Graph.Communications.Common.Transport.IGraphProperty.html">IGraphProperty</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <a id="Microsoft_Graph_Communications_Common_Transport_GraphHttpClient_GraphLogger_" data-uid="Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.GraphLogger*"></a>
   <h4 id="Microsoft_Graph_Communications_Common_Transport_GraphHttpClient_GraphLogger" data-uid="Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.GraphLogger">GraphLogger</h4>
   <div class="markdown level1 summary"><p>Gets the graph logger.</p>
@@ -247,8 +271,7 @@ Clients can use this to read the response and give the new redirect url to call 
     <tbody>
       <tr>
         <td><a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger.html">IGraphLogger</a></td>
-        <td><p>The graph logger.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -321,14 +344,23 @@ Clients can use this to read the response and give the new redirect url to call 
       </tr>
     </tbody>
   </table>
+  <a id="Microsoft_Graph_Communications_Common_Transport_GraphHttpClient_InitializeServicePointSettings_" data-uid="Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.InitializeServicePointSettings*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_Transport_GraphHttpClient_InitializeServicePointSettings" data-uid="Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.InitializeServicePointSettings">InitializeServicePointSettings()</h4>
+  <div class="markdown level1 summary"><p>Initializes global service point settings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void InitializeServicePointSettings()</code></pre>
+  </div>
   <a id="Microsoft_Graph_Communications_Common_Transport_GraphHttpClient_LogRequest_" data-uid="Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.LogRequest*"></a>
-  <h4 id="Microsoft_Graph_Communications_Common_Transport_GraphHttpClient_LogRequest_System_Net_Http_HttpRequestMessage_System_Object_System_String_System_String_System_Int32_" data-uid="Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.LogRequest(System.Net.Http.HttpRequestMessage,System.Object,System.String,System.String,System.Int32)">LogRequest(HttpRequestMessage, Object, String, String, Int32)</h4>
+  <h4 id="Microsoft_Graph_Communications_Common_Transport_GraphHttpClient_LogRequest_System_Diagnostics_TraceLevel_System_Net_Http_HttpRequestMessage_System_Object_System_String_System_String_System_Int32_" data-uid="Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.LogRequest(System.Diagnostics.TraceLevel,System.Net.Http.HttpRequestMessage,System.Object,System.String,System.String,System.Int32)">LogRequest(TraceLevel, HttpRequestMessage, Object, String, String, Int32)</h4>
   <div class="markdown level1 summary"><p>Logs the request message.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void LogRequest(HttpRequestMessage httpRequest, object content = null, string memberName = null, string filePath = null, int lineNumber = 0)</code></pre>
+    <pre><code class="lang-csharp hljs">protected void LogRequest(TraceLevel level, HttpRequestMessage httpRequest, object content = null, string memberName = null, string filePath = null, int lineNumber = 0)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -340,6 +372,12 @@ Clients can use this to read the response and give the new redirect url to call 
       </tr>
     </thead>
     <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracelevel">TraceLevel</a></td>
+        <td><span class="parametername">level</span></td>
+        <td><p>The level.</p>
+</td>
+      </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a></td>
         <td><span class="parametername">httpRequest</span></td>
@@ -373,13 +411,13 @@ Clients can use this to read the response and give the new redirect url to call 
     </tbody>
   </table>
   <a id="Microsoft_Graph_Communications_Common_Transport_GraphHttpClient_LogResponse_" data-uid="Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.LogResponse*"></a>
-  <h4 id="Microsoft_Graph_Communications_Common_Transport_GraphHttpClient_LogResponse_System_Net_Http_HttpRequestMessage_System_Int64_System_Net_Http_HttpResponseMessage_System_Object_System_Exception_System_String_System_String_System_Int32_" data-uid="Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.LogResponse(System.Net.Http.HttpRequestMessage,System.Int64,System.Net.Http.HttpResponseMessage,System.Object,System.Exception,System.String,System.String,System.Int32)">LogResponse(HttpRequestMessage, Int64, HttpResponseMessage, Object, Exception, String, String, Int32)</h4>
+  <h4 id="Microsoft_Graph_Communications_Common_Transport_GraphHttpClient_LogResponse_System_Diagnostics_TraceLevel_System_Net_Http_HttpRequestMessage_System_Int64_System_Net_Http_HttpResponseMessage_System_Object_System_Exception_System_String_System_String_System_Int32_" data-uid="Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.LogResponse(System.Diagnostics.TraceLevel,System.Net.Http.HttpRequestMessage,System.Int64,System.Net.Http.HttpResponseMessage,System.Object,System.Exception,System.String,System.String,System.Int32)">LogResponse(TraceLevel, HttpRequestMessage, Int64, HttpResponseMessage, Object, Exception, String, String, Int32)</h4>
   <div class="markdown level1 summary"><p>Logs the response message.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void LogResponse(HttpRequestMessage httpRequest, long responseTime, HttpResponseMessage httpResponse = null, object content = null, Exception exception = null, string memberName = null, string filePath = null, int lineNumber = 0)</code></pre>
+    <pre><code class="lang-csharp hljs">protected void LogResponse(TraceLevel level, HttpRequestMessage httpRequest, long responseTime, HttpResponseMessage httpResponse = null, object content = null, Exception exception = null, string memberName = null, string filePath = null, int lineNumber = 0)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -391,6 +429,12 @@ Clients can use this to read the response and give the new redirect url to call 
       </tr>
     </thead>
     <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracelevel">TraceLevel</a></td>
+        <td><span class="parametername">level</span></td>
+        <td><p>The level.</p>
+</td>
+      </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a></td>
         <td><span class="parametername">httpRequest</span></td>
@@ -721,6 +765,9 @@ The content sent using this is not parsed or logged.</p>
   </div>
   <div>
       <a class="xref" href="Microsoft.Graph.Communications.Common.Validator.html#Microsoft_Graph_Communications_Common_Validator_NotNull__1___0_System_String_System_String_">Validator.NotNull&lt;T&gt;(T, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Validator.html#Microsoft_Graph_Communications_Common_Validator_Equals__1___0___0_System_String_System_String_">Validator.Equals&lt;T&gt;(T, T, String, String)</a>
   </div>
   <div>
       <a class="xref" href="Microsoft.Graph.Communications.Common.Validator.html#Microsoft_Graph_Communications_Common_Validator_Equals__2___0___0_System_String_">Validator.Equals&lt;T, TE&gt;(T, T, String)</a>

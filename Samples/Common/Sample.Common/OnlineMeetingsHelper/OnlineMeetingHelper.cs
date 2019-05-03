@@ -35,16 +35,16 @@ namespace Sample.Common.OnlineMeetings
         /// </summary>
         /// <param name="tenantId">The tenant identifier.</param>
         /// <param name="meetingId">The meeting identifier.</param>
-        /// <param name="correlationId">The correlation identifier.</param>
+        /// <param name="scenarioId">The scenario identifier.</param>
         /// <returns>The online meeting. </returns>
-        public async Task<OnlineMeeting> GetOnlineMeetingAsync(string tenantId, string meetingId, Guid correlationId)
+        public async Task<OnlineMeeting> GetOnlineMeetingAsync(string tenantId, string meetingId, Guid scenarioId)
         {
             IAuthenticationProvider GetAuthenticationProvider()
             {
                 return new DelegateAuthenticationProvider(async request =>
                 {
-                    request.Headers.Add(CoreConstants.Headers.ScenarioId, correlationId.ToString());
-                    request.Headers.Add(CoreConstants.Headers.ClientRequestId, Guid.NewGuid().ToString());
+                    request.Headers.Add(CommsConstants.Headers.ScenarioId, scenarioId.ToString());
+                    request.Headers.Add(CommsConstants.Headers.ClientRequestId, Guid.NewGuid().ToString());
 
                     await this.requestAuthenticationProvider
                         .AuthenticateOutboundRequestAsync(request, tenantId)
@@ -52,7 +52,7 @@ namespace Sample.Common.OnlineMeetings
                 });
             }
 
-            var statelessClient = new DefaultContainerClient(this.graphEndpointUri.AbsoluteUri, GetAuthenticationProvider());
+            var statelessClient = new CallsGraphServiceClient(this.graphEndpointUri.AbsoluteUri, GetAuthenticationProvider());
             var meetingRequest = statelessClient.App.OnlineMeetings[meetingId].Request();
 
             var meeting = await meetingRequest.GetAsync().ConfigureAwait(false);
