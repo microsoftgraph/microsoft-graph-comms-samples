@@ -83,11 +83,17 @@
   
   <h1 id="Microsoft_Graph_Communications_Resources_IResourceCollection_3" data-uid="Microsoft.Graph.Communications.Resources.IResourceCollection`3" class="text-break">Interface IResourceCollection&lt;TSelf, TResource, TEntity&gt;
   </h1>
-  <div class="markdown level0 summary"><p>The stateful resource collection interface.</p>
+  <div class="markdown level0 summary"><p>The resource collection interface.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Resources.IResourceCollection-2.html#Microsoft_Graph_Communications_Resources_IResourceCollection_2_TryForceRemove_System_String__0__">IResourceCollection&lt;TResource, TEntity&gt;.TryForceRemove(String, TResource)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Resources.IResourceCollection-2.html#Microsoft_Graph_Communications_Resources_IResourceCollection_2_Item_System_String_">IResourceCollection&lt;TResource, TEntity&gt;.Item[String]</a>
+    </div>
     <div>
       <a class="xref" href="Microsoft.Graph.Communications.Resources.IResourceCollection.html#Microsoft_Graph_Communications_Resources_IResourceCollection_TerminateAsync_System_TimeSpan_">IResourceCollection.TerminateAsync(TimeSpan)</a>
     </div>
@@ -120,7 +126,7 @@
   <h6><strong>Assembly</strong>: Microsoft.Graph.Communications.Client.dll</h6>
   <h5 id="Microsoft_Graph_Communications_Resources_IResourceCollection_3_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IResourceCollection&lt;out TSelf, TResource, in TEntity&gt; : IResourceCollection, IResourceBase, IDisposable, IReadOnlyCollection&lt;TResource&gt;, IEnumerable&lt;TResource&gt;, IEnumerable where TSelf : IResourceCollection&lt;TSelf, TResource, TEntity&gt; where TResource : IResource&lt;TResource, TEntity&gt; where TEntity : Entity</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IResourceCollection&lt;out TSelf, TResource, in TEntity&gt; : IResourceCollection&lt;TResource, TEntity&gt;, IResourceCollection, IResourceBase, IDisposable, IReadOnlyCollection&lt;TResource&gt;, IEnumerable&lt;TResource&gt;, IEnumerable where TSelf : IResourceCollection&lt;TResource, TEntity&gt; where TResource : IResource where TEntity : Entity</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -138,110 +144,12 @@
       </tr>
       <tr>
         <td><span class="parametername">TResource</span></td>
-        <td><p>The containing stateful resource type. <a class="xref" href="Microsoft.Graph.Communications.Resources.IResource-2.html">IResource&lt;TSelf, TEntity&gt;</a></p>
+        <td><p>The containing resource type. <a class="xref" href="Microsoft.Graph.Communications.Resources.IResource-2.html">IResource&lt;TSelf, TEntity&gt;</a></p>
 </td>
       </tr>
       <tr>
         <td><span class="parametername">TEntity</span></td>
-        <td><p>The containing resource type. <a class="xref" href="../core/Microsoft.Graph.Entity.html">Entity</a></p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-  </h3>
-  <a id="Microsoft_Graph_Communications_Resources_IResourceCollection_3_Item_" data-uid="Microsoft.Graph.Communications.Resources.IResourceCollection`3.Item*"></a>
-  <h4 id="Microsoft_Graph_Communications_Resources_IResourceCollection_3_Item_System_String_" data-uid="Microsoft.Graph.Communications.Resources.IResourceCollection`3.Item(System.String)">Item[String]</h4>
-  <div class="markdown level1 summary"><p>The resource at the specified index.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">TResource this[string id] { get; }</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">id</span></td>
-        <td><p>The index id.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TResource</span></td>
-        <td><p>The <a class="xref" href="Microsoft.Graph.Communications.Resources.IResource-2.html">IResource&lt;TSelf, TEntity&gt;</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-  </h3>
-  <a id="Microsoft_Graph_Communications_Resources_IResourceCollection_3_TryForceRemove_" data-uid="Microsoft.Graph.Communications.Resources.IResourceCollection`3.TryForceRemove*"></a>
-  <h4 id="Microsoft_Graph_Communications_Resources_IResourceCollection_3_TryForceRemove_System_String__1__" data-uid="Microsoft.Graph.Communications.Resources.IResourceCollection`3.TryForceRemove(System.String,`1@)">TryForceRemove(String, out TResource)</h4>
-  <div class="markdown level1 summary"><p>Attempts to remove and return the value that has the specified id from the <a class="xref" href="Microsoft.Graph.Communications.Resources.IResourceCollection-3.html">IResourceCollection&lt;TSelf, TResource, TEntity&gt;</a>.
-This will force remove the object, if for whatever reason it cannot be removed by the service.
-It should only be used as a last resort to clean up stale resources.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">bool TryForceRemove(string id, out TResource resource)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">id</span></td>
-        <td><p>The identifier.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">TResource</span></td>
-        <td><span class="parametername">resource</span></td>
-        <td><p>The resource.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td><p>true if the object was removed successfully; otherwise, false.</p>
+        <td><p>The containing resource type. <span class="xref">Microsoft.Graph.Entity</span></p>
 </td>
       </tr>
     </tbody>
@@ -273,8 +181,7 @@ It should only be used as a last resort to clean up stale resources.</p>
   </table>
   <h3 id="seealso">See Also</h3>
   <div class="seealso">
-      <div><a class="xref" href="Microsoft.Graph.Communications.Resources.IResourceCollection.html">IResourceCollection</a></div>
-      <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;T&gt;</div>
+      <div><a class="xref" href="Microsoft.Graph.Communications.Resources.IResourceCollection-2.html">IResourceCollection</a>&lt;TResource, TEntity&gt;</div>
   </div>
 </article>
           </div>

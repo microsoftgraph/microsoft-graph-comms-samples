@@ -92,6 +92,14 @@ the generic type T.</p>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">PagedList&lt;T&gt;</span></div>
   </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Microsoft.Graph.Communications.Client.IPagedList-1.html">IPagedList</a>&lt;T&gt;</div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;T&gt;</div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">IReadOnlyCollection</a>&lt;T&gt;</div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;</div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+  </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -120,7 +128,7 @@ the generic type T.</p>
   <h6><strong>Assembly</strong>: Microsoft.Graph.Communications.Client.dll</h6>
   <h5 id="Microsoft_Graph_Communications_Client_PagedList_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class PagedList&lt;T&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public class PagedList&lt;T&gt; : IPagedList&lt;T&gt;, IReadOnlyList&lt;T&gt;, IReadOnlyCollection&lt;T&gt;, IEnumerable&lt;T&gt;, IEnumerable</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -174,14 +182,13 @@ the generic type T.</p>
       </tr>
     </tbody>
   </table>
-  <a id="Microsoft_Graph_Communications_Client_PagedList_1_NextLinkUrl_" data-uid="Microsoft.Graph.Communications.Client.PagedList`1.NextLinkUrl*"></a>
-  <h4 id="Microsoft_Graph_Communications_Client_PagedList_1_NextLinkUrl" data-uid="Microsoft.Graph.Communications.Client.PagedList`1.NextLinkUrl">NextLinkUrl</h4>
-  <div class="markdown level1 summary"><p>Gets the next link URL taken from @odata.nextLink.</p>
-</div>
+  <a id="Microsoft_Graph_Communications_Client_PagedList_1_Count_" data-uid="Microsoft.Graph.Communications.Client.PagedList`1.Count*"></a>
+  <h4 id="Microsoft_Graph_Communications_Client_PagedList_1_Count" data-uid="Microsoft.Graph.Communications.Client.PagedList`1.Count">Count</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string NextLinkUrl { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -193,7 +200,71 @@ the generic type T.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Client_PagedList_1_Item_" data-uid="Microsoft.Graph.Communications.Client.PagedList`1.Item*"></a>
+  <h4 id="Microsoft_Graph_Communications_Client_PagedList_1_Item_System_Int32_" data-uid="Microsoft.Graph.Communications.Client.PagedList`1.Item(System.Int32)">Item[Int32]</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T this[int index] { get; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Client_PagedList_1_NextLinkUrl_" data-uid="Microsoft.Graph.Communications.Client.PagedList`1.NextLinkUrl*"></a>
+  <h4 id="Microsoft_Graph_Communications_Client_PagedList_1_NextLinkUrl" data-uid="Microsoft.Graph.Communications.Client.PagedList`1.NextLinkUrl">NextLinkUrl</h4>
+  <div class="markdown level1 summary"><p>Gets the next link URL taken from @odata.nextLink.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Uri NextLinkUrl { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uri">Uri</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -222,6 +293,72 @@ the generic type T.</p>
       </tr>
     </tbody>
   </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Microsoft_Graph_Communications_Client_PagedList_1_GetEnumerator_" data-uid="Microsoft.Graph.Communications.Client.PagedList`1.GetEnumerator*"></a>
+  <h4 id="Microsoft_Graph_Communications_Client_PagedList_1_GetEnumerator" data-uid="Microsoft.Graph.Communications.Client.PagedList`1.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;T&gt; GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  <a id="Microsoft_Graph_Communications_Client_PagedList_1_System_Collections_IEnumerable_GetEnumerator_" data-uid="Microsoft.Graph.Communications.Client.PagedList`1.System#Collections#IEnumerable#GetEnumerator*"></a>
+  <h4 id="Microsoft_Graph_Communications_Client_PagedList_1_System_Collections_IEnumerable_GetEnumerator" data-uid="Microsoft.Graph.Communications.Client.PagedList`1.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerator">IEnumerator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Client.IPagedList-1.html">IPagedList&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">System.Collections.Generic.IReadOnlyList&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1">System.Collections.Generic.IReadOnlyCollection&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">System.Collections.Generic.IEnumerable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">System.Collections.IEnumerable</a>
+  </div>
 </article>
           </div>
           

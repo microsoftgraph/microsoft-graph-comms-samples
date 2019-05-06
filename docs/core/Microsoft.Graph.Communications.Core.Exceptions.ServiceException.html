@@ -89,84 +89,26 @@
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception">Exception</a></div>
-    <div class="level2"><span class="xref">ServiceException</span></div>
-  </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.runtime.serialization.iserializable">ISerializable</a></div>
-    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.runtime.interopservices._exception">_Exception</a></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception.getbaseexception#System_Exception_GetBaseException">Exception.GetBaseException()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception.getobjectdata#System_Exception_GetObjectData_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_">Exception.GetObjectData(SerializationInfo, StreamingContext)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception.gettype#System_Exception_GetType">Exception.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception.message#System_Exception_Message">Exception.Message</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception.data#System_Exception_Data">Exception.Data</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception.innerexception#System_Exception_InnerException">Exception.InnerException</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception.targetsite#System_Exception_TargetSite">Exception.TargetSite</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception.stacktrace#System_Exception_StackTrace">Exception.StackTrace</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception.helplink#System_Exception_HelpLink">Exception.HelpLink</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception.source#System_Exception_Source">Exception.Source</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception.hresult#System_Exception_HResult">Exception.HResult</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception.serializeobjectstate">Exception.SerializeObjectState</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
-    </div>
+    <div class="level1"><span class="xref">ServiceException</span></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.Communications.Core.Exceptions.html">Microsoft.Graph.Communications.Core.Exceptions</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.Communications.Core.dll</h6>
   <h5 id="Microsoft_Graph_Communications_Core_Exceptions_ServiceException_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ServiceException : Exception, ISerializable, _Exception</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated, please use Microsoft.Graph.ServiceException instead.&quot;)]
+public class ServiceException : ServiceException</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   <a id="Microsoft_Graph_Communications_Core_Exceptions_ServiceException__ctor_" data-uid="Microsoft.Graph.Communications.Core.Exceptions.ServiceException.#ctor*"></a>
-  <h4 id="Microsoft_Graph_Communications_Core_Exceptions_ServiceException__ctor_Microsoft_Graph_Communications_Core_Exceptions_Error_System_Exception_" data-uid="Microsoft.Graph.Communications.Core.Exceptions.ServiceException.#ctor(Microsoft.Graph.Communications.Core.Exceptions.Error,System.Exception)">ServiceException(Error, Exception)</h4>
+  <h4 id="Microsoft_Graph_Communications_Core_Exceptions_ServiceException__ctor_Microsoft_Graph_Error_System_Exception_" data-uid="Microsoft.Graph.Communications.Core.Exceptions.ServiceException.#ctor(Microsoft.Graph.Error,System.Exception)">ServiceException(Error, Exception)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Microsoft.Graph.Communications.Core.Exceptions.ServiceException.html">ServiceException</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ServiceException(Error error = null, Exception innerException = null)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated, please use Microsoft.Graph.ServiceException instead.&quot;)]
+public ServiceException(Error error = null, Exception innerException = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -179,7 +121,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Microsoft.Graph.Communications.Core.Exceptions.Error.html">Error</a></td>
+        <td><span class="xref">Microsoft.Graph.Error</span></td>
         <td><span class="parametername">error</span></td>
         <td><p>The error.</p>
 </td>
@@ -192,93 +134,15 @@
       </tr>
     </tbody>
   </table>
-  <h3 id="properties">Properties
-  </h3>
-  <a id="Microsoft_Graph_Communications_Core_Exceptions_ServiceException_Error_" data-uid="Microsoft.Graph.Communications.Core.Exceptions.ServiceException.Error*"></a>
-  <h4 id="Microsoft_Graph_Communications_Core_Exceptions_ServiceException_Error" data-uid="Microsoft.Graph.Communications.Core.Exceptions.ServiceException.Error">Error</h4>
-  <div class="markdown level1 summary"><p>Gets the error.</p>
+  <a id="Microsoft_Graph_Communications_Core_Exceptions_ServiceException__ctor_" data-uid="Microsoft.Graph.Communications.Core.Exceptions.ServiceException.#ctor*"></a>
+  <h4 id="Microsoft_Graph_Communications_Core_Exceptions_ServiceException__ctor_Microsoft_Graph_Error_System_Net_Http_Headers_HttpResponseHeaders_System_Net_HttpStatusCode_System_Exception_" data-uid="Microsoft.Graph.Communications.Core.Exceptions.ServiceException.#ctor(Microsoft.Graph.Error,System.Net.Http.Headers.HttpResponseHeaders,System.Net.HttpStatusCode,System.Exception)">ServiceException(Error, HttpResponseHeaders, HttpStatusCode, Exception)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Microsoft.Graph.Communications.Core.Exceptions.ServiceException.html">ServiceException</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Error Error { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Microsoft.Graph.Communications.Core.Exceptions.Error.html">Error</a></td>
-        <td><p>The error.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="Microsoft_Graph_Communications_Core_Exceptions_ServiceException_ResponseHeaders_" data-uid="Microsoft.Graph.Communications.Core.Exceptions.ServiceException.ResponseHeaders*"></a>
-  <h4 id="Microsoft_Graph_Communications_Core_Exceptions_ServiceException_ResponseHeaders" data-uid="Microsoft.Graph.Communications.Core.Exceptions.ServiceException.ResponseHeaders">ResponseHeaders</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the response headers.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public HttpResponseHeaders ResponseHeaders { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.headers.httpresponseheaders">HttpResponseHeaders</a></td>
-        <td><p>The response headers.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="Microsoft_Graph_Communications_Core_Exceptions_ServiceException_StatusCode_" data-uid="Microsoft.Graph.Communications.Core.Exceptions.ServiceException.StatusCode*"></a>
-  <h4 id="Microsoft_Graph_Communications_Core_Exceptions_ServiceException_StatusCode" data-uid="Microsoft.Graph.Communications.Core.Exceptions.ServiceException.StatusCode">StatusCode</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the status code.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public HttpStatusCode StatusCode { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.httpstatuscode">HttpStatusCode</a></td>
-        <td><p>The status code.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-  </h3>
-  <a id="Microsoft_Graph_Communications_Core_Exceptions_ServiceException_IsMatch_" data-uid="Microsoft.Graph.Communications.Core.Exceptions.ServiceException.IsMatch*"></a>
-  <h4 id="Microsoft_Graph_Communications_Core_Exceptions_ServiceException_IsMatch_System_String_" data-uid="Microsoft.Graph.Communications.Core.Exceptions.ServiceException.IsMatch(System.String)">IsMatch(String)</h4>
-  <div class="markdown level1 summary"><p>Determines whether the specified error code is a match.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsMatch(string errorCode)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated, please use Microsoft.Graph.ServiceException instead.&quot;)]
+public ServiceException(Error error, HttpResponseHeaders responseHeaders, HttpStatusCode statusCode, Exception innerException = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -291,80 +155,34 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">errorCode</span></td>
-        <td><p>The error code.</p>
+        <td><span class="xref">Microsoft.Graph.Error</span></td>
+        <td><span class="parametername">error</span></td>
+        <td><p>The error.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.headers.httpresponseheaders">HttpResponseHeaders</a></td>
+        <td><span class="parametername">responseHeaders</span></td>
+        <td><p>The response headers.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.httpstatuscode">HttpStatusCode</a></td>
+        <td><span class="parametername">statusCode</span></td>
+        <td><p>The status code.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception">Exception</a></td>
+        <td><span class="parametername">innerException</span></td>
+        <td><p>The inner exception.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td><p><code>true</code> if the specified error code is a match; otherwise, <code>false</code>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
-        <td><p>errorCode cannot be null or empty - errorCode</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="Microsoft_Graph_Communications_Core_Exceptions_ServiceException_ToString_" data-uid="Microsoft.Graph.Communications.Core.Exceptions.ServiceException.ToString*"></a>
-  <h4 id="Microsoft_Graph_Communications_Core_Exceptions_ServiceException_ToString" data-uid="Microsoft.Graph.Communications.Core.Exceptions.ServiceException.ToString">ToString()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception.tostring#System_Exception_ToString">Exception.ToString()</a></div>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.runtime.serialization.iserializable">System.Runtime.Serialization.ISerializable</a>
-  </div>
-  <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.runtime.interopservices._exception">System.Runtime.InteropServices._Exception</a>
-  </div>
   <h3 id="seealso">See Also</h3>
   <div class="seealso">
-      <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception">Exception</a></div>
+      <div><span class="xref">Microsoft.Graph.ServiceException</span></div>
   </div>
 </article>
           </div>

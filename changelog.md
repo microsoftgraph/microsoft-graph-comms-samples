@@ -2,6 +2,48 @@
 
 This changelog covers what's changed in Microsoft Graph Communications SDK and its associated samples.
 
+## May 2019
+
+- Updated Media library 1.12.1.6-alpha
+- Updated Communications libraries 1.1.0-prerelease.452
+
+### Communications 1.1.0-prerelease.452 Changes
+
+The Communications SDKs are now decoupled the `Microsoft.Graph` SDK.  New nugets have been released to as version `1.1.0-prerelease.*` to signal breaking changes due to objects being moved to Microsoft.Graph. 
+
+#### Microsoft.Graph.Communications.Core:
+
+This library no longer contains any Calls contracts... it now references `Microsoft.Graph` 1.14.0 and `Microsoft.Graph.Core` 1.15.0-preview.2 and only contains shared contracts not present in Microsoft.Graph.  It also contains serialization/deserialization helpers and extensions methods to help with the Calling APIs (`IdentitySet.GetGuest`/`IdentitySet.SetGuest`/etc...).  The frameworks have been bumped up to `net461` and `netstandard2.0` so the core SDK can leverage `Microsoft.Graph.Communications.Common`.  Customers using this SDK now have to move to the one containing their specific contracts (below).
+
+#### Microsoft.Graph.Communications.Core.Calls:
+
+Calls wire SDK (contains all the calls and online meetings contracts).  Note that some object names have changed as not to conflict with Microsoft.Graph names.
+```
+DefaultContainerClient => CallsGraphServiceClient
+Notification => CommsNotification
+Notifications => CommsNotifications
+```
+
+#### Microsoft.Graph.Communications.Calls:
+
+Now references `Microsoft.Graph.Communications.Core.Calls` and `Microsoft.Graph.Communications.Client`.  
+
+Naming conventions of these SDKs were changed as they are namespaced and do not need the Call prefix:
+```
+ICallParticipantCollection => IParticipantCollection
+ICallParticipant => IParticipant
+```
+
+### Misc changes
+- Contract sync with latest Beta Calling contracts.
+- Updated to `Microsoft.Graph.Core` 1.15.0-preview.2 SDK to resolve inconsistencies between `ServiceException` types.
+- Updated to `Microsoft.Graph` 1.14.0 SDK.
+- Updated to `Microsoft.Skype.Bots.Media` 1.12.1.6-alpha SDK.
+- Added `promptsQueued` callback to be notified when a prompt has been queued, and the next one can be added.  This is only valid for scenarios where bot developers queue a single prompt at a time.  If 1P developers pass in multiple prompts, order is guaranteed.
+- Added proper cleanup of resources when ESDK resources get garbage collected.  This fixes a memory leak where internal notification queues were not getting removed when resources were GCd without `Dispose()` being called.
+- First stages of HA/DR support.  SDK supports passing in an `ICache` interface that notifies the bot developer whenever internal state has changed.  It is also used to recover state when calling `ICommunicationsClient.RehydrateAsync`.  An implementation of re-hydration from PMA is built in by default, but it does not support AudioRoutingGroupentities.
+- Deprecated support for Chain-Id/Correlation-Id in ESDK.  It is replaced with Scenario-Id, which can be set by the client as a kind of "telemetry identifier" to correlate any calls together.
+
 ## January 2019
 
 - Updated Media library 1.11.1.86-alpha

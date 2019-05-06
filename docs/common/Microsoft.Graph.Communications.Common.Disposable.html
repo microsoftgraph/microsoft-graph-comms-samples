@@ -140,6 +140,33 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Disposable()</code></pre>
   </div>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="Microsoft_Graph_Communications_Common_Disposable_IsDisposed_" data-uid="Microsoft.Graph.Communications.Common.Disposable.IsDisposed*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_Disposable_IsDisposed" data-uid="Microsoft.Graph.Communications.Common.Disposable.IsDisposed">IsDisposed</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether this instance is disposed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool IsDisposed { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p><code>true</code> if this instance is disposed; otherwise, <code>false</code>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
   </h3>
   <a id="Microsoft_Graph_Communications_Common_Disposable_Dispose_" data-uid="Microsoft.Graph.Communications.Common.Disposable.Dispose*"></a>
@@ -153,7 +180,8 @@
   </div>
   <a id="Microsoft_Graph_Communications_Common_Disposable_Dispose_" data-uid="Microsoft.Graph.Communications.Common.Disposable.Dispose*"></a>
   <h4 id="Microsoft_Graph_Communications_Common_Disposable_Dispose_System_Boolean_" data-uid="Microsoft.Graph.Communications.Common.Disposable.Dispose(System.Boolean)">Dispose(Boolean)</h4>
-  <div class="markdown level1 summary"><p>Dispose resources.</p>
+  <div class="markdown level1 summary"><p>Protected implementation of dispose.
+This will be triggered only once regardless if manually disposed or garbage collected.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -212,6 +240,9 @@
   </div>
   <div>
       <a class="xref" href="Microsoft.Graph.Communications.Common.Validator.html#Microsoft_Graph_Communications_Common_Validator_NotNull__1___0_System_String_System_String_">Validator.NotNull&lt;T&gt;(T, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Validator.html#Microsoft_Graph_Communications_Common_Validator_Equals__1___0___0_System_String_System_String_">Validator.Equals&lt;T&gt;(T, T, String, String)</a>
   </div>
   <div>
       <a class="xref" href="Microsoft.Graph.Communications.Common.Validator.html#Microsoft_Graph_Communications_Common_Validator_Equals__2___0___0_System_String_">Validator.Equals&lt;T, TE&gt;(T, T, String)</a>

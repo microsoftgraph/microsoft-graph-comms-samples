@@ -91,7 +91,7 @@
 <h2 id="notification-handling">Notification Handling</h2>
 <ol>
 <li>The Graph Platform sends out notifications via HTTP that need to be handled by the Bot Developers. The Platform sends out notifications on the notification url, and the bot developers should listen to HTTP messages on that url. </li>
-<li>Once the HTTP message has been received by the developer, they need to forward the message to <a class="xref" href="Microsoft.Graph.Communications.Client.ICommunicationsClient.html">ICommunicationsClient</a> using the <a class="xref" href="../core/Microsoft.Graph.Communications.Core.Notifications.NotificationProcessorExtensions.html#Microsoft_Graph_Communications_Core_Notifications_NotificationProcessorExtensions_ProcessNotificationAsync_Microsoft_Graph_Communications_Core_Notifications_INotificationProcessor_System_Net_Http_HttpRequestMessage_">ProcessNotificationAsync</a> method.</li>
+<li>Once the HTTP message has been received by the developer, they need to forward the message to <a class="xref" href="Microsoft.Graph.Communications.Client.ICommunicationsClient.html">ICommunicationsClient</a> using the <a class="xref" href="Microsoft.Graph.Communications.Client.CommunicationsClientExtensions.html#Microsoft_Graph_Communications_Client_CommunicationsClientExtensions_ProcessNotificationAsync_Microsoft_Graph_Communications_Client_ICommunicationsClient_System_Net_Http_HttpRequestMessage_">ProcessNotificationAsync</a> method.</li>
 <li>The SDK processes the notification, calls the <code>IRequestAuthenticationProvider</code> and raises any corresponding events asynchronously.</li>
 <li>The SDK then returns a <code>HttpResponseMessage</code> that needs to be sent out as a response to the Graph Platform.</li>
 </ol>

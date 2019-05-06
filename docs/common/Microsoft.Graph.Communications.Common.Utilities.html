@@ -166,6 +166,108 @@
       </tr>
     </tbody>
   </table>
+  <a id="Microsoft_Graph_Communications_Common_Utilities_DecodeReplacesContextFromBase64_" data-uid="Microsoft.Graph.Communications.Common.Utilities.DecodeReplacesContextFromBase64*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_Utilities_DecodeReplacesContextFromBase64_System_String_" data-uid="Microsoft.Graph.Communications.Common.Utilities.DecodeReplacesContextFromBase64(System.String)">DecodeReplacesContextFromBase64(String)</h4>
+  <div class="markdown level1 summary"><p>Decodes the replaces context for consultative call transfer scenario.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Uri DecodeReplacesContextFromBase64(this string replacesContext)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">replacesContext</span></td>
+        <td><p>The replaces context.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uri">Uri</a></td>
+        <td><p>The decoded replaces URI.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Replaces context provided for consultative transfer is invalid.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Common_Utilities_EncodeReplacesUriToBase64_" data-uid="Microsoft.Graph.Communications.Common.Utilities.EncodeReplacesUriToBase64*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_Utilities_EncodeReplacesUriToBase64_System_Uri_" data-uid="Microsoft.Graph.Communications.Common.Utilities.EncodeReplacesUriToBase64(System.Uri)">EncodeReplacesUriToBase64(Uri)</h4>
+  <div class="markdown level1 summary"><p>Base64 Encodes the replaces URI for consultative call transfer scenario.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string EncodeReplacesUriToBase64(this Uri replacesUri)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uri">Uri</a></td>
+        <td><span class="parametername">replacesUri</span></td>
+        <td><p>The replaces URI.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>The encoded replaces context.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <a id="Microsoft_Graph_Communications_Common_Utilities_SafeDispose_" data-uid="Microsoft.Graph.Communications.Common.Utilities.SafeDispose*"></a>
   <h4 id="Microsoft_Graph_Communications_Common_Utilities_SafeDispose__1___0__Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_" data-uid="Microsoft.Graph.Communications.Common.Utilities.SafeDispose``1(``0@,Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger)">SafeDispose&lt;T&gt;(ref T, IGraphLogger)</h4>
   <div class="markdown level1 summary"><p>Safely dispose members.</p>

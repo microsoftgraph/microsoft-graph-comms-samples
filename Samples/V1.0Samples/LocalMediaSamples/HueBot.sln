@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "HueBotSF", "HueBot\HueBotSF\HueBotSF.sfproj", "{24E33708-FB5C-45F8-81CA-B0C857435FFB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3} = {3268E59C-90DC-4D7B-97EA-A1DBB2716DF3}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HueBot", "HueBot\HueBot\HueBot.csproj", "{3F316013-2182-4D07-8F5D-234F75CE7381}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Common", "..\..\Common\Sample.Common\Sample.Common.csproj", "{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24E33708-FB5C-45F8-81CA-B0C857435FFB}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{24E33708-FB5C-45F8-81CA-B0C857435FFB}.Debug|x64.ActiveCfg = Debug|x64
+		{24E33708-FB5C-45F8-81CA-B0C857435FFB}.Debug|x64.Build.0 = Debug|x64
+		{24E33708-FB5C-45F8-81CA-B0C857435FFB}.Debug|x64.Deploy.0 = Debug|x64
+		{24E33708-FB5C-45F8-81CA-B0C857435FFB}.Release|Any CPU.ActiveCfg = Release|x64
+		{24E33708-FB5C-45F8-81CA-B0C857435FFB}.Release|x64.ActiveCfg = Release|x64
+		{24E33708-FB5C-45F8-81CA-B0C857435FFB}.Release|x64.Build.0 = Release|x64
+		{24E33708-FB5C-45F8-81CA-B0C857435FFB}.Release|x64.Deploy.0 = Release|x64
+		{3F316013-2182-4D07-8F5D-234F75CE7381}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F316013-2182-4D07-8F5D-234F75CE7381}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F316013-2182-4D07-8F5D-234F75CE7381}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3F316013-2182-4D07-8F5D-234F75CE7381}.Debug|x64.Build.0 = Debug|Any CPU
+		{3F316013-2182-4D07-8F5D-234F75CE7381}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F316013-2182-4D07-8F5D-234F75CE7381}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F316013-2182-4D07-8F5D-234F75CE7381}.Release|x64.ActiveCfg = Release|Any CPU
+		{3F316013-2182-4D07-8F5D-234F75CE7381}.Release|x64.Build.0 = Release|Any CPU
+		{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3}.Debug|x64.Build.0 = Debug|Any CPU
+		{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3}.Release|x64.ActiveCfg = Release|Any CPU
+		{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3}.Release|x64.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6015BE40-5CC8-4F5A-B3F1-1FF317F38F40}
+	EndGlobalSection
+EndGlobal

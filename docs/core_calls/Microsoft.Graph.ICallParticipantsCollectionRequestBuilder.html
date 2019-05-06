@@ -1,0 +1,429 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface ICallParticipantsCollectionRequestBuilder
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface ICallParticipantsCollectionRequestBuilder
+   ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Microsoft.Graph.ICallParticipantsCollectionRequestBuilder">
+  
+  
+  <h1 id="Microsoft_Graph_ICallParticipantsCollectionRequestBuilder" data-uid="Microsoft.Graph.ICallParticipantsCollectionRequestBuilder" class="text-break">Interface ICallParticipantsCollectionRequestBuilder
+  </h1>
+  <div class="markdown level0 summary"><p>The interface ICallParticipantsCollectionRequestBuilder.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <span class="xref">Microsoft.Graph</span></h6>
+  <h6><strong>Assembly</strong>: Microsoft.Graph.Communications.Core.Calls.dll</h6>
+  <h5 id="Microsoft_Graph_ICallParticipantsCollectionRequestBuilder_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface ICallParticipantsCollectionRequestBuilder : IBaseRequestBuilder</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="Microsoft_Graph_ICallParticipantsCollectionRequestBuilder_Item_" data-uid="Microsoft.Graph.ICallParticipantsCollectionRequestBuilder.Item*"></a>
+  <h4 id="Microsoft_Graph_ICallParticipantsCollectionRequestBuilder_Item_System_String_" data-uid="Microsoft.Graph.ICallParticipantsCollectionRequestBuilder.Item(System.String)">Item[String]</h4>
+  <div class="markdown level1 summary"><p>Gets an <a class="xref" href="Microsoft.Graph.IParticipantRequestBuilder.html">IParticipantRequestBuilder</a> for the specified Participant.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IParticipantRequestBuilder this[string id] { get; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>The ID for the Participant.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.IParticipantRequestBuilder.html">IParticipantRequestBuilder</a></td>
+        <td><p>The <a class="xref" href="Microsoft.Graph.IParticipantRequestBuilder.html">IParticipantRequestBuilder</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Microsoft_Graph_ICallParticipantsCollectionRequestBuilder_ConfigureMixer_" data-uid="Microsoft.Graph.ICallParticipantsCollectionRequestBuilder.ConfigureMixer*"></a>
+  <h4 id="Microsoft_Graph_ICallParticipantsCollectionRequestBuilder_ConfigureMixer_System_Collections_Generic_IEnumerable_Microsoft_Graph_ParticipantMixerLevel__System_String_" data-uid="Microsoft.Graph.ICallParticipantsCollectionRequestBuilder.ConfigureMixer(System.Collections.Generic.IEnumerable{Microsoft.Graph.ParticipantMixerLevel},System.String)">ConfigureMixer(IEnumerable&lt;ParticipantMixerLevel&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Gets the request builder for ParticipantConfigureMixer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IParticipantConfigureMixerRequestBuilder ConfigureMixer(IEnumerable&lt;ParticipantMixerLevel&gt; participantMixerLevels, string clientContext = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Microsoft.Graph.ParticipantMixerLevel.html">ParticipantMixerLevel</a>&gt;</td>
+        <td><span class="parametername">participantMixerLevels</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">clientContext</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.IParticipantConfigureMixerRequestBuilder.html">IParticipantConfigureMixerRequestBuilder</a></td>
+        <td><p>The <a class="xref" href="Microsoft.Graph.IParticipantConfigureMixerRequestBuilder.html">IParticipantConfigureMixerRequestBuilder</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_ICallParticipantsCollectionRequestBuilder_Invite_" data-uid="Microsoft.Graph.ICallParticipantsCollectionRequestBuilder.Invite*"></a>
+  <h4 id="Microsoft_Graph_ICallParticipantsCollectionRequestBuilder_Invite_System_Collections_Generic_IEnumerable_Microsoft_Graph_InvitationParticipantInfo__System_String_" data-uid="Microsoft.Graph.ICallParticipantsCollectionRequestBuilder.Invite(System.Collections.Generic.IEnumerable{Microsoft.Graph.InvitationParticipantInfo},System.String)">Invite(IEnumerable&lt;InvitationParticipantInfo&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Gets the request builder for ParticipantInvite.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IParticipantInviteRequestBuilder Invite(IEnumerable&lt;InvitationParticipantInfo&gt; participants, string clientContext = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Microsoft.Graph.InvitationParticipantInfo.html">InvitationParticipantInfo</a>&gt;</td>
+        <td><span class="parametername">participants</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">clientContext</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.IParticipantInviteRequestBuilder.html">IParticipantInviteRequestBuilder</a></td>
+        <td><p>The <a class="xref" href="Microsoft.Graph.IParticipantInviteRequestBuilder.html">IParticipantInviteRequestBuilder</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_ICallParticipantsCollectionRequestBuilder_MuteAll_" data-uid="Microsoft.Graph.ICallParticipantsCollectionRequestBuilder.MuteAll*"></a>
+  <h4 id="Microsoft_Graph_ICallParticipantsCollectionRequestBuilder_MuteAll_System_Collections_Generic_IEnumerable_System_String__System_String_" data-uid="Microsoft.Graph.ICallParticipantsCollectionRequestBuilder.MuteAll(System.Collections.Generic.IEnumerable{System.String},System.String)">MuteAll(IEnumerable&lt;String&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Gets the request builder for ParticipantMuteAll.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IParticipantMuteAllRequestBuilder MuteAll(IEnumerable&lt;string&gt; participants = null, string clientContext = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td><span class="parametername">participants</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">clientContext</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.IParticipantMuteAllRequestBuilder.html">IParticipantMuteAllRequestBuilder</a></td>
+        <td><p>The <a class="xref" href="Microsoft.Graph.IParticipantMuteAllRequestBuilder.html">IParticipantMuteAllRequestBuilder</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_ICallParticipantsCollectionRequestBuilder_Request_" data-uid="Microsoft.Graph.ICallParticipantsCollectionRequestBuilder.Request*"></a>
+  <h4 id="Microsoft_Graph_ICallParticipantsCollectionRequestBuilder_Request" data-uid="Microsoft.Graph.ICallParticipantsCollectionRequestBuilder.Request">Request()</h4>
+  <div class="markdown level1 summary"><p>Builds the request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICallParticipantsCollectionRequest Request()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.ICallParticipantsCollectionRequest.html">ICallParticipantsCollectionRequest</a></td>
+        <td><p>The built request.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_ICallParticipantsCollectionRequestBuilder_Request_" data-uid="Microsoft.Graph.ICallParticipantsCollectionRequestBuilder.Request*"></a>
+  <h4 id="Microsoft_Graph_ICallParticipantsCollectionRequestBuilder_Request_System_Collections_Generic_IEnumerable_Microsoft_Graph_Option__" data-uid="Microsoft.Graph.ICallParticipantsCollectionRequestBuilder.Request(System.Collections.Generic.IEnumerable{Microsoft.Graph.Option})">Request(IEnumerable&lt;Option&gt;)</h4>
+  <div class="markdown level1 summary"><p>Builds the request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICallParticipantsCollectionRequest Request(IEnumerable&lt;Option&gt; options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<span class="xref">Microsoft.Graph.Option</span>&gt;</td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The query and header options for the request.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.ICallParticipantsCollectionRequest.html">ICallParticipantsCollectionRequest</a></td>
+        <td><p>The built request.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_ICallParticipantsCollectionRequestBuilder_UnmuteAll_" data-uid="Microsoft.Graph.ICallParticipantsCollectionRequestBuilder.UnmuteAll*"></a>
+  <h4 id="Microsoft_Graph_ICallParticipantsCollectionRequestBuilder_UnmuteAll_System_Collections_Generic_IEnumerable_System_String__System_String_" data-uid="Microsoft.Graph.ICallParticipantsCollectionRequestBuilder.UnmuteAll(System.Collections.Generic.IEnumerable{System.String},System.String)">UnmuteAll(IEnumerable&lt;String&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Gets the request builder for ParticipantUnmuteAll.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IParticipantUnmuteAllRequestBuilder UnmuteAll(IEnumerable&lt;string&gt; participants = null, string clientContext = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td><span class="parametername">participants</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">clientContext</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.IParticipantUnmuteAllRequestBuilder.html">IParticipantUnmuteAllRequestBuilder</a></td>
+        <td><p>The <a class="xref" href="Microsoft.Graph.IParticipantUnmuteAllRequestBuilder.html">IParticipantUnmuteAllRequestBuilder</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

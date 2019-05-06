@@ -185,14 +185,14 @@
       </tr>
     </tbody>
   </table>
-  <a id="Microsoft_Graph_Communications_Common_Telemetry_HttpLogging_HttpObfuscationHelpers_LogHeadersText_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.HttpObfuscationHelpers.LogHeadersText*"></a>
-  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_HttpLogging_HttpObfuscationHelpers_LogHeadersText_System_Text_StringBuilder_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_Collections_Generic_IEnumerable_System_String____Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_ObfuscationConfiguration_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.HttpObfuscationHelpers.LogHeadersText(System.Text.StringBuilder,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Collections.Generic.IEnumerable{System.String}}},Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationConfiguration)">LogHeadersText(StringBuilder, IEnumerable&lt;KeyValuePair&lt;String, IEnumerable&lt;String&gt;&gt;&gt;, ObfuscationConfiguration)</h4>
-  <div class="markdown level1 summary"><p>Logs the headers text.</p>
+  <a id="Microsoft_Graph_Communications_Common_Telemetry_HttpLogging_HttpObfuscationHelpers_LogHeaderText_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.HttpObfuscationHelpers.LogHeaderText*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_HttpLogging_HttpObfuscationHelpers_LogHeaderText_Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_ObfuscationConfiguration_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_Collections_Generic_IEnumerable_System_String____" data-uid="Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.HttpObfuscationHelpers.LogHeaderText(Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationConfiguration,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Collections.Generic.IEnumerable{System.String}}})">LogHeaderText(ObfuscationConfiguration, IEnumerable&lt;KeyValuePair&lt;String, IEnumerable&lt;String&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Logs the header text.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void LogHeadersText(StringBuilder builder, IEnumerable&lt;KeyValuePair&lt;string, IEnumerable&lt;string&gt;&gt;&gt; headers, ObfuscationConfiguration configuration)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;string&gt; LogHeaderText(this ObfuscationConfiguration configuration, IEnumerable&lt;KeyValuePair&lt;string, IEnumerable&lt;string&gt;&gt;&gt; headers)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -205,9 +205,9 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.text.stringbuilder">StringBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td><p>The builder.</p>
+        <td><a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationConfiguration.html">ObfuscationConfiguration</a></td>
+        <td><span class="parametername">configuration</span></td>
+        <td><p>The configuration.</p>
 </td>
       </tr>
       <tr>
@@ -216,22 +216,32 @@
         <td><p>The headers.</p>
 </td>
       </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
       <tr>
-        <td><a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationConfiguration.html">ObfuscationConfiguration</a></td>
-        <td><span class="parametername">configuration</span></td>
-        <td><p>The configuration.</p>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td><p>The obfuscated header and value pairs.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <a id="Microsoft_Graph_Communications_Common_Telemetry_HttpLogging_HttpObfuscationHelpers_LogHeaderText_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.HttpObfuscationHelpers.LogHeaderText*"></a>
-  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_HttpLogging_HttpObfuscationHelpers_LogHeaderText_System_Text_StringBuilder_System_String_System_Collections_Generic_IEnumerable_System_String__Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_ObfuscationConfiguration_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.HttpObfuscationHelpers.LogHeaderText(System.Text.StringBuilder,System.String,System.Collections.Generic.IEnumerable{System.String},Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationConfiguration)">LogHeaderText(StringBuilder, String, IEnumerable&lt;String&gt;, ObfuscationConfiguration)</h4>
+  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_HttpLogging_HttpObfuscationHelpers_LogHeaderText_Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_ObfuscationConfiguration_System_String_System_Collections_Generic_IEnumerable_System_String__" data-uid="Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.HttpObfuscationHelpers.LogHeaderText(Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationConfiguration,System.String,System.Collections.Generic.IEnumerable{System.String})">LogHeaderText(ObfuscationConfiguration, String, IEnumerable&lt;String&gt;)</h4>
   <div class="markdown level1 summary"><p>Logs the header text.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void LogHeaderText(StringBuilder builder, string headerName, IEnumerable&lt;string&gt; headerValues, ObfuscationConfiguration configuration)</code></pre>
+    <pre><code class="lang-csharp hljs">public static string LogHeaderText(this ObfuscationConfiguration configuration, string headerName, IEnumerable&lt;string&gt; headerValues)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -244,9 +254,9 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.text.stringbuilder">StringBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
-        <td><p>The builder.</p>
+        <td><a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationConfiguration.html">ObfuscationConfiguration</a></td>
+        <td><span class="parametername">configuration</span></td>
+        <td><p>The configuration.</p>
 </td>
       </tr>
       <tr>
@@ -261,10 +271,20 @@
         <td><p>The header values.</p>
 </td>
       </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
       <tr>
-        <td><a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationConfiguration.html">ObfuscationConfiguration</a></td>
-        <td><span class="parametername">configuration</span></td>
-        <td><p>The configuration.</p>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>The obfuscated header and value pair.</p>
 </td>
       </tr>
     </tbody>

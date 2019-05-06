@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Supporting Multiple Applications Within Single Code Base </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Supporting Multiple Applications Within Single Code Base ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../resources/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="supporting-multiple-applications-within-single-code-base">Supporting Multiple Applications Within Single Code Base</h1>
+
+<p>Some developers may wish to support multiple applications from within the same application code.  With very little effort, this can be done using multiple instances of <code>ICommunicationsClient</code>.  There are some steps that should be taken to ensure that we make outbound requests with the right application, and we forward incoming notifications to the right application.</p>
+<p>This writeup will demonstrate how to alter the existing samples to add multiple application support.  We have not created a sample of this scenario explicitly given that it is not a standard way to use the Graph SDK.</p>
+<h2 id="create-multiple-communications-clients">Create multiple communications clients</h2>
+<p>First, each application instance requires it&#39;s own <code>ICommunicationsClient</code> instance, given that it supports a single <code>IRequestAuthenticationProvider</code></p>
+<p>Let&#39;s change the Bot <code>ICommunicationsClient Client</code> to an <code>IDictionary&lt;string, ICommunicationsClient&gt; Clients</code> and create our clients.</p>
+<pre><code class="lang-csharp">/// &lt;summary&gt;
+/// Prevents a default instance of the &lt;see cref=&quot;Bot&quot;/&gt; class from being created.
+/// &lt;/summary&gt;
+private Bot()
+{
+    this.AddClient(
+        Service.Instance.Configuration.MicrosoftAppId,
+        Service.Instance.Configuration.MicrosoftAppPassword);
+    this.AddClient(
+        Service.Instance.Configuration.MicrosoftApp2Id,
+        Service.Instance.Configuration.MicrosoftApp2Password);
+}
+
+private void AddClient(string appId, string appSecret)
+{
+    // Create a unique notification uri for first app instance
+    // This appends the app id to the callback uri so we get
+    // https://base.uri/callbacks/{appId}
+    var notificationUri = new Uri(
+        Service.Instance.Configuration.CallControlBaseUrl,
+        appId);
+
+    var builder = new CommunicationsClientBuilder(&quot;AudioVideoPlaybackBot&quot;, appId);
+
+    builder
+        .SetAuthenticationProvider(
+            new AuthenticationProvider(
+                appId,
+                appSecret,
+                Service.Instance.Configuration.TokenAudienceResourceLink))
+        .SetNotificationUrl(notificationUri)
+        .SetMediaPlatformSettings(Service.Instance.Configuration.MediaPlatformSettings)
+        .SetServiceBaseUrl(Service.Instance.Configuration.PlaceCallEndpointUrl);
+
+    var client = builder.Build();
+    this.Clients.Add(appId, client);
+    client.Calls().OnIncoming += this.CallsOnIncoming;
+    client.Calls().OnUpdated += this.CallsOnUpdated;
+}
+
+/// &lt;summary&gt;
+/// Gets the contained app clients
+/// &lt;/summary&gt;
+public IDictionary&lt;string, ICommunicationsClient&gt; Clients { get; }
+</code></pre><p>Let&#39;s also add a reference to the ICallCollection to the call handler for ease of access.  This will allow us to reference the correct collection/client from any given call id.</p>
+<pre><code class="lang-csharp">/// &lt;summary&gt;
+/// Initializes a new instance of the &lt;see cref=&quot;CallHandler&quot;/&gt; class.
+/// &lt;/summary&gt;
+/// &lt;param name=&quot;callCollection&quot;&gt;The call collection.&lt;/param&gt;
+/// &lt;param name=&quot;call&quot;&gt;The call.&lt;/param&gt;
+public CallHandler(ICallCollection callCollection, ICall call);
+
+/// &lt;summary&gt;
+/// Gets the call collection
+/// &lt;/summary&gt;
+public ICallCollection CallCollection { get; }
+
+/// &lt;summary&gt;
+/// Gets the call
+/// &lt;/summary&gt;
+public ICall Call { get; }
+</code></pre><h2 id="handle-notifications">Handle notifications</h2>
+<p>Next we need to adjust the incoming call controller to forward the notifications to the right client.  If there is no need to handle incoming call, then the above configuration will automatically route the the correct apps endpoint.  If we need to handle incoming call, we can either have a default app process all those scenarios, or the callback URI of each app can contain the app id.</p>
+<p>For example, if our service URI is <code>https://base.uri/callback</code>, we can set all our bots to use this URI directly, but then we lose knowledge of which app is receiving the incoming call.  If we change each app&#39;s callback URI to <code>https://base.uri/callback/{appId}</code> (example: <a href="https://base.uri/callback/9ecd52e5-6592-42b7-b562-093f37f13bde">https://base.uri/callback/9ecd52e5-6592-42b7-b562-093f37f13bde</a>, where the appId is 9ecd52e5-6592-42b7-b562-093f37f13bde) then we have the app context when an incoming call occurs.  Of course there are other ways to get the app ID, like from the auth token or the payload, but this is one simple option.</p>
+<p>To handle the app id in the URI the controllers for callbacks need to be changed to the following:</p>
+<pre><code class="lang-csharp">/// &lt;summary&gt;
+/// Gets a reference to singleton sample bot/client instance
+/// &lt;/summary&gt;
+private IDictionary&lt;string, ICommunicationsClient&gt; Clients =&gt;
+    Bot.Instance.Clients;
+
+/// &lt;summary&gt;
+/// Handle a callback for an incoming call.
+/// Here we don&#39;t know what application is receiving the callback.
+/// &lt;/summary&gt;
+/// &lt;returns&gt;
+/// The &lt;see cref=&quot;HttpResponseMessage&quot;/&gt;.
+/// &lt;/returns&gt;
+[HttpPost]
+[Route(&quot;&quot;)]
+public Task&lt;HttpResponseMessage&gt; OnIncomingRequestAsync()
+{
+    // Pick some app id to handle this call.
+    var appId = this.Clients.Keys.First();
+    return this.OnIncomingRequestAsync(appId);
+}
+
+/// &lt;summary&gt;
+/// Handle a callback for an incoming call or notification.
+/// Here we&#39;ve added the application id to the callback URI.
+/// &lt;/summary&gt;
+/// &lt;returns&gt;
+/// The &lt;see cref=&quot;HttpResponseMessage&quot;/&gt;.
+/// &lt;/returns&gt;
+[HttpPost]
+[Route(&quot;{appId}&quot;)]
+public async Task&lt;HttpResponseMessage&gt; OnIncomingRequestAsync(string appId)
+{
+    Log.Info(new CallerInfo(), LogContext.FrontEnd, $&quot;Received HTTP {this.Request.Method}, {this.Request.RequestUri}&quot;);
+
+    // Pass the incoming message to the sdk. The sdk takes care of what to do with it.
+    var client = this.Clients[appId];
+    var response = await client.ProcessNotificationAsync(this.Request).ConfigureAwait(false);
+
+    // Enforce the connection close to ensure that requests are evenly load balanced so
+    // calls do no stick to one instance of the worker role.
+    response.Headers.ConnectionClose = true;
+    return response;
+}
+</code></pre><h2 id="additional-notes">Additional notes</h2>
+<p>There are a few items not addressed here.  For instance, when a VTC joins a meeting, which app should it use?  This has been purposefuly excluded from this guide given that it is unique business logic.  Some may want a different bot configuration for each client, others may associate unique permissions to each bot and use depending on action being performed.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

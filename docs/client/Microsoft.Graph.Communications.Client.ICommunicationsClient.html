@@ -277,7 +277,7 @@ This is the logger used within the SDK.</p>
   <h3 id="methods">Methods
   </h3>
   <a id="Microsoft_Graph_Communications_Client_ICommunicationsClient_ProcessNotifications_" data-uid="Microsoft.Graph.Communications.Client.ICommunicationsClient.ProcessNotifications*"></a>
-  <h4 id="Microsoft_Graph_Communications_Client_ICommunicationsClient_ProcessNotifications_System_Uri_Microsoft_Graph_CommsNotifications_System_String_System_Guid_System_Guid_" data-uid="Microsoft.Graph.Communications.Client.ICommunicationsClient.ProcessNotifications(System.Uri,Microsoft.Graph.CommsNotifications,System.String,System.Guid,System.Guid)">ProcessNotifications(Uri, CommsNotifications, String, Guid, Guid)</h4>
+  <h4 id="Microsoft_Graph_Communications_Client_ICommunicationsClient_ProcessNotifications_System_Uri_Microsoft_Graph_CommsNotifications_System_String_System_Guid_System_Guid_System_Collections_Generic_IDictionary_System_String_System_Object__" data-uid="Microsoft.Graph.Communications.Client.ICommunicationsClient.ProcessNotifications(System.Uri,Microsoft.Graph.CommsNotifications,System.String,System.Guid,System.Guid,System.Collections.Generic.IDictionary{System.String,System.Object})">ProcessNotifications(Uri, CommsNotifications, String, Guid, Guid, IDictionary&lt;String, Object&gt;)</h4>
   <div class="markdown level1 summary"><p>Processes the notifications and raise the required callbacks.
 This function should be called in order for the SDK to raise
 any required events and process state changes.</p>
@@ -285,7 +285,7 @@ any required events and process state changes.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void ProcessNotifications(Uri callbackUri, CommsNotifications notifications, string tenantId, Guid requestId, Guid correlationId)</code></pre>
+    <pre><code class="lang-csharp hljs">void ProcessNotifications(Uri callbackUri, CommsNotifications notifications, string tenantId, Guid requestId, Guid scenarioId, IDictionary&lt;string, object&gt; additionalData = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -323,8 +323,69 @@ any required events and process state changes.</p>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.guid">Guid</a></td>
-        <td><span class="parametername">correlationId</span></td>
-        <td><p>The correlation identifier.</p>
+        <td><span class="parametername">scenarioId</span></td>
+        <td><p>The scenario identifier.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.idictionary-2">IDictionary</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;</td>
+        <td><span class="parametername">additionalData</span></td>
+        <td><p>Additional data associated with the notification.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Client_ICommunicationsClient_RehydrateAsync_" data-uid="Microsoft.Graph.Communications.Client.ICommunicationsClient.RehydrateAsync*"></a>
+  <h4 id="Microsoft_Graph_Communications_Client_ICommunicationsClient_RehydrateAsync_System_String_System_String_System_Guid_" data-uid="Microsoft.Graph.Communications.Client.ICommunicationsClient.RehydrateAsync(System.String,System.String,System.Guid)">RehydrateAsync(String, String, Guid)</h4>
+  <div class="markdown level1 summary"><p>Re-hydrates the resource at the specified path asynchronously.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task RehydrateAsync(string resourcePath, string tenantId, Guid scenarioId = default(Guid))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">resourcePath</span></td>
+        <td><p>The resource path.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">tenantId</span></td>
+        <td><p>The tenant identifier.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.guid">Guid</a></td>
+        <td><span class="parametername">scenarioId</span></td>
+        <td><p>The scenario identifier.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>The <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -446,7 +507,7 @@ This terminates all the calls, waits for dispose events, and disposes everything
   </table>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
-      <a class="xref" href="Microsoft.Graph.CommunicationsClientExtensions.html#Microsoft_Graph_CommunicationsClientExtensions_ProcessNotificationAsync_Microsoft_Graph_Communications_Client_ICommunicationsClient_System_Net_Http_HttpRequestMessage_">CommunicationsClientExtensions.ProcessNotificationAsync(ICommunicationsClient, HttpRequestMessage)</a>
+      <a class="xref" href="Microsoft.Graph.Communications.Client.CommunicationsClientExtensions.html#Microsoft_Graph_Communications_Client_CommunicationsClientExtensions_ProcessNotificationAsync_Microsoft_Graph_Communications_Client_ICommunicationsClient_System_Net_Http_HttpRequestMessage_">CommunicationsClientExtensions.ProcessNotificationAsync(ICommunicationsClient, HttpRequestMessage)</a>
   </div>
 </article>
           </div>
