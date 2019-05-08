@@ -55,11 +55,6 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
         Uri PlaceCallEndpointUrl { get; }
 
         /// <summary>
-        /// Gets the Base URL for this particular azure instance.
-        /// </summary>
-        Uri AzureInstanceBaseUrl { get; }
-
-        /// <summary>
         /// Gets the AadAppId generated at the time of registration of the bot.
         /// </summary>
         string AadAppId { get; }

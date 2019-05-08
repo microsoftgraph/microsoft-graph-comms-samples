@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:4213/",
+      "applicationUrl": "http://localhost:9442/",
       "sslPort": 44308
     }
   },
@@ -11,7 +11,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "http://localhost:4213/",
+      "launchUrl": "http://localhost:9442/",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -19,11 +19,11 @@
     "IcMBot": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/values",
+      "launchUrl": "http://localhost:9442/",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:4214/"
+      "applicationUrl": "http://localhost:9442/"
     }
   }
 }

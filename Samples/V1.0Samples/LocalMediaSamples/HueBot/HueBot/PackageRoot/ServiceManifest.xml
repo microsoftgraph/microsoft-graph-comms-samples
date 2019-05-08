@@ -43,7 +43,7 @@
 
       <!-- Instance input port for Media; traffic to this is enabled by the NAT pool in Load Balancer settings. -->
       <!-- If you update the port here, update the argument to Startup.cmd above. -->
-      <Endpoint Name="MediaPort" Type="Input" Protocol="tcp" Port="8000" />
+      <Endpoint Name="MediaPort" Type="Input" Protocol="tcp" Port="8445" />
 
       <!-- This http endpoint is used during local debugging with ngrok. 
           During Azure deployment, access to this port is blocked by the Load Balancer. -->

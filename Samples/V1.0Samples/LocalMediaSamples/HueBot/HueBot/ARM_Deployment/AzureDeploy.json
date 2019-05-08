@@ -441,7 +441,7 @@
           {
             "name": "MediaNatPool",
             "properties": {
-              "backendPort": "8000",
+              "backendPort": "8445",
               "frontendIPConfiguration": {
                 "id": "[variables('lbIPConfig0')]"
               },

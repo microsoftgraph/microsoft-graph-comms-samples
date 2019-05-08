@@ -67,7 +67,7 @@ namespace Sample.Common.Logging
                 var filteredLogs = this.logs
                     .Skip(skip)
                     .Take(take);
-                return string.Join(string.Empty, filteredLogs);
+                return string.Join(Environment.NewLine, filteredLogs);
             }
         }
 
@@ -89,7 +89,7 @@ namespace Sample.Common.Logging
                     .Where(log => log.IndexOf(filter, StringComparison.OrdinalIgnoreCase) >= 0)
                     .Skip(skip)
                     .Take(take);
-                return string.Join(string.Empty, filteredLogs);
+                return string.Join(Environment.NewLine, filteredLogs);
             }
         }
 

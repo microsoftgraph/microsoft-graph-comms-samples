@@ -29,7 +29,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
         {
             HttpConfiguration httpConfig = new HttpConfiguration();
             httpConfig.MapHttpAttributeRoutes();
-            httpConfig.MessageHandlers.Add(new LoggingMessageHandler(isIncomingMessageHandler: true, logger: logger));
+            httpConfig.MessageHandlers.Add(new LoggingMessageHandler(isIncomingMessageHandler: true, logger: logger, urlIgnorers: new[] { "/logs" }));
 
             httpConfig.Services.Add(typeof(IExceptionLogger), new Common.Logging.ExceptionLogger(logger));
 

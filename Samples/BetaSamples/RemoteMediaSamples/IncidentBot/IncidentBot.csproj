@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net471</TargetFramework>
@@ -29,5 +29,5 @@
     <ProjectReference Include="..\..\..\Common\Sample.Common\Sample.Common.csproj" />
     <Reference Include="System.Net.Http" />
   </ItemGroup>
-  
+
 </Project>
