@@ -14,7 +14,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RemoteMediaSamples", "Remot
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AudioVideoPlaybackBot", "AudioVideoPlaybackBot", "{540514B8-BFF4-47D6-8F21-B8B824521A1B}"
 	ProjectSection(SolutionItems) = preProject
-		V1.0Samples\LocalMediaSamples\configure_cloud.ps1 = V1.0Samples\LocalMediaSamples\configure_cloud.ps1
 		V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot\README.md = V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot\README.md
 	EndProjectSection
 EndProject
@@ -39,6 +38,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Common", "Common\Sample.Common\Sample.Common.csproj", "{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HueBot", "HueBot", "{2092372D-EEE2-4F2C-963D-2A0F9ECAF82C}"
+	ProjectSection(SolutionItems) = preProject
+		V1.0Samples\LocalMediaSamples\HueBot\README.md = V1.0Samples\LocalMediaSamples\HueBot\README.md
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HueBot", "V1.0Samples\LocalMediaSamples\HueBot\HueBot\HueBot.csproj", "{64538D87-16CD-4A13-ADA9-63EBA7C80BBE}"
 EndProject

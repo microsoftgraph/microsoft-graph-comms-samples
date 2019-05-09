@@ -121,11 +121,11 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         private const string InstanceIdToken = "in_";
 
         /// <summary>
-        /// localPort specified in <InputEndpoint name="DefaultCallControlEndpoint" protocol="tcp" port="443" localPort="9440" />
+        /// localPort specified in <InputEndpoint name="DefaultCallControlEndpoint" protocol="tcp" port="443" localPort="9443" />
         /// in .csdef. This is needed for running in emulator. Currently only messaging can be debugged in the emulator.
         /// Media debugging in emulator will be supported in future releases.
         /// </summary>
-        private const int DefaultPort = 9440;
+        private const int DefaultPort = 9443;
 
         /// <summary>
         /// Graph logger.
@@ -158,9 +158,6 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
 
         /// <inheritdoc/>
         public Uri PlaceCallEndpointUrl { get; private set; }
-
-        /// <inheritdoc/>
-        public Uri AzureInstanceBaseUrl { get; private set; }
 
         /// <inheritdoc/>
         public MediaPlatformSettings MediaPlatformSettings { get; private set; }
@@ -233,7 +230,7 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
 
             int instanceCallControlPublicPort = RoleEnvironment.IsEmulated ? DefaultPort : instanceCallControlEndpoint.PublicIPEndpoint.Port;
             int mediaInstanceInternalPort = RoleEnvironment.IsEmulated ? 8445 : mediaControlEndpoint.IPEndpoint.Port;
-            int mediaInstancePublicPort = RoleEnvironment.IsEmulated ? 20100 : mediaControlEndpoint.PublicIPEndpoint.Port;
+            int mediaInstancePublicPort = RoleEnvironment.IsEmulated ? 13016 : mediaControlEndpoint.PublicIPEndpoint.Port;
 
             string instanceCallControlIpEndpoint = string.Format("{0}:{1}", instanceCallControlInternalIpAddress, instanceCallControlInternalPort);
 
@@ -280,31 +277,32 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
 
             this.AudioVideoFileLengthInSec = avFileLengthInSec;
 
-            // Create structured config objects for service.
-            this.CallControlBaseUrl = new Uri(string.Format(
-                "https://{0}:{1}/{2}",
-                this.ServiceCname,
-                instanceCallControlPublicPort,
-                HttpRouteConstants.CallSignalingRoutePrefix));
-
-            this.AzureInstanceBaseUrl = new Uri(string.Format(
-                "https://{0}:{1}/",
-                this.ServiceCname,
-                instanceCallControlPublicPort));
-
-            this.TraceConfigValue("CallControlCallbackUri", this.CallControlBaseUrl);
             List<Uri> controlListenUris = new List<Uri>();
-
             if (RoleEnvironment.IsEmulated)
             {
+                // Create structured config objects for service.
+                this.CallControlBaseUrl = new Uri(string.Format(
+                    "https://{0}/{1}",
+                    this.ServiceCname,
+                    HttpRouteConstants.CallSignalingRoutePrefix));
+
                 controlListenUris.Add(new Uri("https://" + defaultEndpoint.IPEndpoint.Address + ":" + DefaultPort + "/"));
+                controlListenUris.Add(new Uri("http://" + defaultEndpoint.IPEndpoint.Address + ":" + (DefaultPort - 1) + "/"));
             }
             else
             {
+                // Create structured config objects for service.
+                this.CallControlBaseUrl = new Uri(string.Format(
+                    "https://{0}:{1}/{2}",
+                    this.ServiceCname,
+                    instanceCallControlPublicPort,
+                    HttpRouteConstants.CallSignalingRoutePrefix));
+
                 controlListenUris.Add(new Uri("https://" + instanceCallControlIpEndpoint + "/"));
                 controlListenUris.Add(new Uri("https://" + defaultEndpoint.IPEndpoint + "/"));
             }
 
+            this.TraceConfigValue("CallControlCallbackUri", this.CallControlBaseUrl);
             this.CallControlListeningUrls = controlListenUris;
 
             foreach (Uri uri in this.CallControlListeningUrls)
@@ -313,7 +311,7 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
             }
 
             IPAddress publicInstanceIpAddress = RoleEnvironment.IsEmulated
-                ? IPAddress.Loopback
+                ? IPAddress.Any
                 : this.GetInstancePublicIpAddress(this.ServiceDnsName);
 
             this.MediaPlatformSettings = new MediaPlatformSettings()

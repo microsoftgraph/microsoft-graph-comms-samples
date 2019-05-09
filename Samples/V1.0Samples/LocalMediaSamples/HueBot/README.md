@@ -52,7 +52,7 @@ For running locally, we need to use a tunneling mechanism to route traffic to yo
             addr: 9442
             proto: http
           media: 
-            addr: 8000
+            addr: 8445
             proto: tcp
         ```
 
@@ -72,7 +72,7 @@ For running locally, we need to use a tunneling mechanism to route traffic to yo
     * `%AppId%` and `%AppSecret%` that you obtained during application registration.
     * Replace all `huebotsxxxxx.xxxx.cloudapp.azure.com` with your full cluster name.
     * Replace all certificate thumbprint `ABC0000000000000000000000000000000000CBA` with your certificate.
-    * in HueBot/PackageRoot/ServiceManifest.xml file, for Startup.cmd, add `8000 your certificate thumbprint` for \<Arguments\>. For example \<Arguments\>`8000 ABC0000000000000000000000000000000000CBA`\</Arguments\>
+    * in HueBot/PackageRoot/ServiceManifest.xml file, for Startup.cmd, add `8445 your certificate thumbprint` for \<Arguments\>. For example \<Arguments\>`8445 ABC0000000000000000000000000000000000CBA`\</Arguments\>
 ### Deploy
 
 #### [Azure] deployment
