@@ -5,9 +5,9 @@ This changelog covers what's changed in Microsoft Graph Communications SDK and i
 ## May 2019
 
 - Updated Media library 1.12.1.6-alpha
-- Updated Communications libraries 1.1.0-prerelease.452
+- Updated Communications libraries 1.1.0-prerelease.581
 
-### Communications 1.1.0-prerelease.452 Changes
+### Communications 1.1.0-prerelease.581 Changes
 
 The Communications SDKs are now decoupled the `Microsoft.Graph` SDK.  New nugets have been released to as version `1.1.0-prerelease.*` to signal breaking changes due to objects being moved to Microsoft.Graph. 
 

@@ -125,13 +125,13 @@
   <h3 id="constructors">Constructors
   </h3>
   <a id="Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_ObfuscationConfiguration__ctor_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationConfiguration.#ctor*"></a>
-  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_ObfuscationConfiguration__ctor_Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_IObfuscationEngine_System_Collections_Generic_IEnumerable_Microsoft_Graph_Communications_Common_Telemetry_HttpLogging_Filters_BaseFilter__Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_ObfuscationMember___" data-uid="Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationConfiguration.#ctor(Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.IObfuscationEngine,System.Collections.Generic.IEnumerable{Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.Filters.BaseFilter},Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationMember[])">ObfuscationConfiguration(IObfuscationEngine, IEnumerable&lt;BaseFilter&gt;, ObfuscationMember[])</h4>
+  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_ObfuscationConfiguration__ctor_Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_IObfuscationEngine_System_Collections_Generic_IEnumerable_Microsoft_Graph_Communications_Common_Telemetry_HttpLogging_Filters_BaseFilter__System_Boolean_Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_ObfuscationMember___" data-uid="Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationConfiguration.#ctor(Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.IObfuscationEngine,System.Collections.Generic.IEnumerable{Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.Filters.BaseFilter},System.Boolean,Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationMember[])">ObfuscationConfiguration(IObfuscationEngine, IEnumerable&lt;BaseFilter&gt;, Boolean, ObfuscationMember[])</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationConfiguration.html">ObfuscationConfiguration</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ObfuscationConfiguration(IObfuscationEngine engine, IEnumerable&lt;BaseFilter&gt; filters = null, ObfuscationMember[] members = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public ObfuscationConfiguration(IObfuscationEngine engine, IEnumerable&lt;BaseFilter&gt; filters = null, bool addOdataType = true, ObfuscationMember[] members = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -156,6 +156,12 @@
 </td>
       </tr>
       <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">addOdataType</span></td>
+        <td><p>If true, attach the @odata.type property, otherwise only attach this property if it&apos;s already present as a first class property.</p>
+</td>
+      </tr>
+      <tr>
         <td><a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationMember.html">ObfuscationMember</a>[]</td>
         <td><span class="parametername">members</span></td>
         <td><p>The predefined set of obfuscation members.
@@ -166,13 +172,13 @@ and check the cache for the <a class="xref" href="Microsoft.Graph.Communications
     </tbody>
   </table>
   <a id="Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_ObfuscationConfiguration__ctor_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationConfiguration.#ctor*"></a>
-  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_ObfuscationConfiguration__ctor_Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_IObfuscationEngine_System_Collections_Generic_IEnumerable_Microsoft_Graph_Communications_Common_Telemetry_HttpLogging_Filters_HeaderFilter__System_Collections_Generic_IEnumerable_Microsoft_Graph_Communications_Common_Telemetry_HttpLogging_Filters_ContentDispositionFilter__System_Collections_Generic_IEnumerable_Microsoft_Graph_Communications_Common_Telemetry_HttpLogging_Filters_ContentTypeFilter__Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_ObfuscationMember___" data-uid="Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationConfiguration.#ctor(Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.IObfuscationEngine,System.Collections.Generic.IEnumerable{Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.Filters.HeaderFilter},System.Collections.Generic.IEnumerable{Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.Filters.ContentDispositionFilter},System.Collections.Generic.IEnumerable{Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.Filters.ContentTypeFilter},Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationMember[])">ObfuscationConfiguration(IObfuscationEngine, IEnumerable&lt;HeaderFilter&gt;, IEnumerable&lt;ContentDispositionFilter&gt;, IEnumerable&lt;ContentTypeFilter&gt;, ObfuscationMember[])</h4>
+  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_ObfuscationConfiguration__ctor_Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_IObfuscationEngine_System_Collections_Generic_IEnumerable_Microsoft_Graph_Communications_Common_Telemetry_HttpLogging_Filters_HeaderFilter__System_Collections_Generic_IEnumerable_Microsoft_Graph_Communications_Common_Telemetry_HttpLogging_Filters_ContentDispositionFilter__System_Collections_Generic_IEnumerable_Microsoft_Graph_Communications_Common_Telemetry_HttpLogging_Filters_ContentTypeFilter__System_Boolean_Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_ObfuscationMember___" data-uid="Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationConfiguration.#ctor(Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.IObfuscationEngine,System.Collections.Generic.IEnumerable{Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.Filters.HeaderFilter},System.Collections.Generic.IEnumerable{Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.Filters.ContentDispositionFilter},System.Collections.Generic.IEnumerable{Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.Filters.ContentTypeFilter},System.Boolean,Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationMember[])">ObfuscationConfiguration(IObfuscationEngine, IEnumerable&lt;HeaderFilter&gt;, IEnumerable&lt;ContentDispositionFilter&gt;, IEnumerable&lt;ContentTypeFilter&gt;, Boolean, ObfuscationMember[])</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationConfiguration.html">ObfuscationConfiguration</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ObfuscationConfiguration(IObfuscationEngine engine, IEnumerable&lt;HeaderFilter&gt; headerFilters, IEnumerable&lt;ContentDispositionFilter&gt; contentDispositionFilters, IEnumerable&lt;ContentTypeFilter&gt; contentTypeFilters, ObfuscationMember[] members = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public ObfuscationConfiguration(IObfuscationEngine engine, IEnumerable&lt;HeaderFilter&gt; headerFilters, IEnumerable&lt;ContentDispositionFilter&gt; contentDispositionFilters, IEnumerable&lt;ContentTypeFilter&gt; contentTypeFilters, bool addOdataType = true, ObfuscationMember[] members = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -206,6 +212,12 @@ and check the cache for the <a class="xref" href="Microsoft.Graph.Communications
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.Filters.ContentTypeFilter.html">ContentTypeFilter</a>&gt;</td>
         <td><span class="parametername">contentTypeFilters</span></td>
         <td><p>The content type filters.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">addOdataType</span></td>
+        <td><p>If true, attach the @odata.type property, otherwise only attach this property if it&apos;s already present as a first class property.</p>
 </td>
       </tr>
       <tr>

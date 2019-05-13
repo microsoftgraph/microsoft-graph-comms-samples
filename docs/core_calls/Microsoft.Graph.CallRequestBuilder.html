@@ -270,13 +270,13 @@
     </tbody>
   </table>
   <a id="Microsoft_Graph_CallRequestBuilder_CancelMediaProcessing_" data-uid="Microsoft.Graph.CallRequestBuilder.CancelMediaProcessing*"></a>
-  <h4 id="Microsoft_Graph_CallRequestBuilder_CancelMediaProcessing_System_Nullable_System_Boolean__System_String_" data-uid="Microsoft.Graph.CallRequestBuilder.CancelMediaProcessing(System.Nullable{System.Boolean},System.String)">CancelMediaProcessing(Nullable&lt;Boolean&gt;, String)</h4>
+  <h4 id="Microsoft_Graph_CallRequestBuilder_CancelMediaProcessing_System_String_" data-uid="Microsoft.Graph.CallRequestBuilder.CancelMediaProcessing(System.String)">CancelMediaProcessing(String)</h4>
   <div class="markdown level1 summary"><p>Gets the request builder for CallCancelMediaProcessing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ICallCancelMediaProcessingRequestBuilder CancelMediaProcessing(bool? all = default(bool? ), string clientContext = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public ICallCancelMediaProcessingRequestBuilder CancelMediaProcessing(string clientContext = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -288,11 +288,6 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
-        <td><span class="parametername">all</span></td>
-        <td></td>
-      </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><span class="parametername">clientContext</span></td>
@@ -743,61 +738,14 @@
       </tr>
     </tbody>
   </table>
-  <a id="Microsoft_Graph_CallRequestBuilder_Terminate_" data-uid="Microsoft.Graph.CallRequestBuilder.Terminate*"></a>
-  <h4 id="Microsoft_Graph_CallRequestBuilder_Terminate_Microsoft_Graph_ParticipantInfo_System_String_" data-uid="Microsoft.Graph.CallRequestBuilder.Terminate(Microsoft.Graph.ParticipantInfo,System.String)">Terminate(ParticipantInfo, String)</h4>
-  <div class="markdown level1 summary"><p>Gets the request builder for CallTerminate.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ICallTerminateRequestBuilder Terminate(ParticipantInfo acceptedElsewhereBy = null, string clientContext = null)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Microsoft.Graph.ParticipantInfo.html">ParticipantInfo</a></td>
-        <td><span class="parametername">acceptedElsewhereBy</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">clientContext</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Microsoft.Graph.ICallTerminateRequestBuilder.html">ICallTerminateRequestBuilder</a></td>
-        <td><p>The <a class="xref" href="Microsoft.Graph.ICallTerminateRequestBuilder.html">ICallTerminateRequestBuilder</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <a id="Microsoft_Graph_CallRequestBuilder_Transfer_" data-uid="Microsoft.Graph.CallRequestBuilder.Transfer*"></a>
-  <h4 id="Microsoft_Graph_CallRequestBuilder_Transfer_Microsoft_Graph_InvitationParticipantInfo_System_String_" data-uid="Microsoft.Graph.CallRequestBuilder.Transfer(Microsoft.Graph.InvitationParticipantInfo,System.String)">Transfer(InvitationParticipantInfo, String)</h4>
+  <h4 id="Microsoft_Graph_CallRequestBuilder_Transfer_Microsoft_Graph_InvitationParticipantInfo_" data-uid="Microsoft.Graph.CallRequestBuilder.Transfer(Microsoft.Graph.InvitationParticipantInfo)">Transfer(InvitationParticipantInfo)</h4>
   <div class="markdown level1 summary"><p>Gets the request builder for CallTransfer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ICallTransferRequestBuilder Transfer(InvitationParticipantInfo transferTarget = null, string clientContext = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public ICallTransferRequestBuilder Transfer(InvitationParticipantInfo transferTarget = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -812,11 +760,6 @@
       <tr>
         <td><a class="xref" href="Microsoft.Graph.InvitationParticipantInfo.html">InvitationParticipantInfo</a></td>
         <td><span class="parametername">transferTarget</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">clientContext</span></td>
         <td></td>
       </tr>
     </tbody>

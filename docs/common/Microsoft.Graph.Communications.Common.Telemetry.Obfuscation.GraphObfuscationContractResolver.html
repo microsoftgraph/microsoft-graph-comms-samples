@@ -111,13 +111,13 @@ to serialize data for logging purposes.</p>
   <h3 id="constructors">Constructors
   </h3>
   <a id="Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_GraphObfuscationContractResolver__ctor_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.GraphObfuscationContractResolver.#ctor*"></a>
-  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_GraphObfuscationContractResolver__ctor_Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_IObfuscationEngine_Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_ObfuscationMember___" data-uid="Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.GraphObfuscationContractResolver.#ctor(Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.IObfuscationEngine,Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationMember[])">GraphObfuscationContractResolver(IObfuscationEngine, ObfuscationMember[])</h4>
+  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_GraphObfuscationContractResolver__ctor_Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_IObfuscationEngine_System_Boolean_Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_ObfuscationMember___" data-uid="Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.GraphObfuscationContractResolver.#ctor(Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.IObfuscationEngine,System.Boolean,Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationMember[])">GraphObfuscationContractResolver(IObfuscationEngine, Boolean, ObfuscationMember[])</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.GraphObfuscationContractResolver.html">GraphObfuscationContractResolver</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public GraphObfuscationContractResolver(IObfuscationEngine engine, ObfuscationMember[] members = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public GraphObfuscationContractResolver(IObfuscationEngine engine, bool addOdataType = true, ObfuscationMember[] members = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -133,6 +133,12 @@ to serialize data for logging purposes.</p>
         <td><a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.IObfuscationEngine.html">IObfuscationEngine</a></td>
         <td><span class="parametername">engine</span></td>
         <td><p>The obfuscation engine.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">addOdataType</span></td>
+        <td><p>If true, attach the @odata.type property, otherwise only attach this property if it&apos;s already present as a first class property.</p>
 </td>
       </tr>
       <tr>
