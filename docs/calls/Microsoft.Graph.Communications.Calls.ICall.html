@@ -347,14 +347,14 @@ ICall.OnUpdated</p>
     </tbody>
   </table>
   <a id="Microsoft_Graph_Communications_Calls_ICall_CancelMediaProcessingAsync_" data-uid="Microsoft.Graph.Communications.Calls.ICall.CancelMediaProcessingAsync*"></a>
-  <h4 id="Microsoft_Graph_Communications_Calls_ICall_CancelMediaProcessingAsync_System_Boolean_System_Threading_CancellationToken_" data-uid="Microsoft.Graph.Communications.Calls.ICall.CancelMediaProcessingAsync(System.Boolean,System.Threading.CancellationToken)">CancelMediaProcessingAsync(Boolean, CancellationToken)</h4>
+  <h4 id="Microsoft_Graph_Communications_Calls_ICall_CancelMediaProcessingAsync_System_Threading_CancellationToken_" data-uid="Microsoft.Graph.Communications.Calls.ICall.CancelMediaProcessingAsync(System.Threading.CancellationToken)">CancelMediaProcessingAsync(CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Performs the CancelMediaProcessing operation. This cancels all or one of
 the ongoing media operations.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task CancelMediaProcessingAsync(bool all = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task CancelMediaProcessingAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -366,13 +366,6 @@ the ongoing media operations.</p>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td><span class="parametername">all</span></td>
-        <td><p>When true, cancels all the media operations, otherwise
-cancel the current one.</p>
-</td>
-      </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>

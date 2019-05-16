@@ -98,7 +98,6 @@ namespace Sample.IncidentBot.Bot
                     Uri = new Uri(audioBaseUri, "audio/responder-transfering.wav").ToString(),
                     ResourceId = Guid.NewGuid().ToString(),
                 },
-                Loop = 1,
             };
 
             this.MediaMap[NotificationPromptName] = new MediaPrompt
@@ -108,7 +107,6 @@ namespace Sample.IncidentBot.Bot
                     Uri = new Uri(audioBaseUri, "audio/responder-notification.wav").ToString(),
                     ResourceId = Guid.NewGuid().ToString(),
                 },
-                Loop = 1,
             };
 
             this.MediaMap[BotIncomingPromptName] = new MediaPrompt
@@ -118,7 +116,6 @@ namespace Sample.IncidentBot.Bot
                     Uri = new Uri(audioBaseUri, "audio/bot-incoming.wav").ToString(),
                     ResourceId = Guid.NewGuid().ToString(),
                 },
-                Loop = 1,
             };
 
             this.MediaMap[BotEndpointIncomingPromptName] = new MediaPrompt
@@ -128,7 +125,6 @@ namespace Sample.IncidentBot.Bot
                     Uri = new Uri(audioBaseUri, "audio/bot-endpoint-incoming.wav").ToString(),
                     ResourceId = Guid.NewGuid().ToString(),
                 },
-                Loop = 1,
             };
 
             this.OnlineMeetings = new OnlineMeetingHelper(authProvider, options.PlaceCallEndpointUrl);

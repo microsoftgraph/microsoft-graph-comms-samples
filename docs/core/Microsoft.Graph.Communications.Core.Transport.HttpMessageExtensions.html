@@ -209,6 +209,61 @@
       </tr>
     </tbody>
   </table>
+  <a id="Microsoft_Graph_Communications_Core_Transport_HttpMessageExtensions_TryGetGuid_" data-uid="Microsoft.Graph.Communications.Core.Transport.HttpMessageExtensions.TryGetGuid*"></a>
+  <h4 id="Microsoft_Graph_Communications_Core_Transport_HttpMessageExtensions_TryGetGuid_System_Net_Http_Headers_HttpHeaders_System_String_System_Guid__" data-uid="Microsoft.Graph.Communications.Core.Transport.HttpMessageExtensions.TryGetGuid(System.Net.Http.Headers.HttpHeaders,System.String,System.Guid@)">TryGetGuid(HttpHeaders, String, out Guid)</h4>
+  <div class="markdown level1 summary"><p>Tries to get the GUID value for the specifed header.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryGetGuid(this HttpHeaders headers, string header, out Guid guid)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.headers.httpheaders">HttpHeaders</a></td>
+        <td><span class="parametername">headers</span></td>
+        <td><p>The headers collection.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">header</span></td>
+        <td><p>The header to look at.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.guid">Guid</a></td>
+        <td><span class="parametername">guid</span></td>
+        <td><p>The found guid</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p>True if the specified header is a valid guid, false otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 </article>
           </div>
           
