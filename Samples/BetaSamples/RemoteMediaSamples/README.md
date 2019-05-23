@@ -27,7 +27,19 @@ The Incident Bot sample is a Remote Media sample demonstrating a simple incident
 * Clone the Git repo for the Microsoft Graph Calling API Samples. Please see the instructions [here](https://docs.microsoft.com/en-us/vsts/git/tutorial/clone?view=vsts&tabs=visual-studio) to get started with VSTS Git. 
 * Log in to your Azure subscription to host web sites and bot services. 
 * Install Visual Studio and launch IncidentBot.sln in <Repository>\RemoteMediaSamples with Visual Studio
-* Follow the instructions [Register a Calling Bot](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/register-calling-bot.html). Take a note of the registered config values (Bot Id, MicrosoftAppId and MicrosoftAppPassword). You will need these values in the code sample config.
+
+#### Bot Registration
+
+1. Follow the instructions [Register a Calling Bot](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/register-calling-bot.html). Take a note of the registered config values (Bot Id, MicrosoftAppId and MicrosoftAppPassword). You will need these values in the code sample config.
+
+1. Add the following Application Permissions to the bot:
+
+    * Calls.AccessMedia.All
+    * Calls.Initiate
+    * Calls.JoinGroupCall.All
+    * Calls.JoinGroupAsGuestCall.All
+
+1. The permissions need to be consented by tenant admin. Go to "https://login.microsoftonline.com/common/adminconsent?client_id=<app_id>&state=<any_number>&redirect_uri=<any_callback_url>" using tenant admin to sign-in , then consent for the whole tenant.
 
 #### Deploying the Sample
 

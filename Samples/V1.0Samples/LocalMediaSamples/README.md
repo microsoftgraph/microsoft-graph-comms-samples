@@ -4,14 +4,14 @@ Local media samples give the developer direct access to the inbound and outbound
 
 ## AudioVideoPlaybackBot
 
-This bot demostrates several features of local media scenarios:
+The [AudioVideoPlaybackBot](AudioVideoPlaybackBot/README.md) demostrates several features of local media scenarios:
 - Plays a movie in multiple resolutions as the main video output feed.
 - Listens to dominant speaker events and subscribes to inbound video feeds of those participants.
 - Allows switching between screen viewing sharer and viewer, and publishes video through the screen sharing socket.
 
 ## HueBot
 
-This bot demonstrates local media scenarios.
+The [HueBot](HueBot/README.md) demonstrates local media scenarios.
 - Listens to dominant speaker events and changes the hue color of the dominant speaker video.
 
 # Getting Started
