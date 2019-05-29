@@ -1,14 +1,17 @@
 ﻿# Introduction
 
 ## About
+
 The Hue Bot sample guides you through building, deploying and testing an application hosted media bot. This sample demonstrates how bots can interact with users by enabling real-time video capabilities.
 
 ## Getting Started
+
 This section walks you through the process of deploying and testing the sample bot. You have 2 options: deploy to Azure, or run locally on your dev box. Many of the steps are common; wherever they do diverge, they have been specifically marked as **[Local]** or **[Azure]**.
 
 For running locally, we need to use a tunneling mechanism to route traffic to your dev box. You can find the concepts documented [here](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/Testing.html). While the steps for running locally can seem a bit longer, the deployments are much faster and convenient for tweaking and playing with the samples.
 
 ### Bot Registration
+
 1. Follow the steps in [Register Calling Bot](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/register-calling-bot.html).  
 
 1. Add the following Application Permissions to the bot:
@@ -17,6 +20,8 @@ For running locally, we need to use a tunneling mechanism to route traffic to yo
     * Calls.Initiate
     * Calls.JoinGroupCall.All
     * Calls.JoinGroupAsGuestCall.All
+
+1. The permissions need to be consented by tenant admin. Go to "https://login.microsoftonline.com/common/adminconsent?client_id=<app_id>&state=<any_number>&redirect_uri=<any_callback_url>" using tenant admin to sign-in, then consent for the whole tenant.
 
 ### Prerequisites
 

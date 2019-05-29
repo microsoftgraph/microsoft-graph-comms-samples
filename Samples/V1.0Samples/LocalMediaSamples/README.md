@@ -4,21 +4,21 @@ Local media samples give the developer direct access to the inbound and outbound
 
 ## AudioVideoPlaybackBot
 
-This bot demostrates several features of local media scenarios:
+The [AudioVideoPlaybackBot](AudioVideoPlaybackBot/README.md) demostrates several features of local media scenarios:
 - Plays a movie in multiple resolutions as the main video output feed.
 - Listens to dominant speaker events and subscribes to inbound video feeds of those participants.
 - Allows switching between screen viewing sharer and viewer, and publishes video through the screen sharing socket.
 
 ## HueBot
 
-This bot demonstrates local media scenarios.
+The [HueBot](HueBot/README.md) demonstrates local media scenarios.
 - Listens to dominant speaker events and changes the hue color of the dominant speaker video.
 
 # Getting Started
 
 1. [Register Calling Bot](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/register-calling-bot.html).
 1. Configure your permissions. Go to Settings page and click on the *Manage* link near *Microsoft App ID*. In the new page, click *Add* button after *Application Permissions* and select *Calls.AccessMedia.All*, and then save the change. If your bot also need to join meeting, select *Calls.JoinGroupCall.All* as well.
-1. The permission needs to be consented by tenant admin. Go to "https://login.microsoftonline.com/common/adminconsent?client_id=<app_id>&state=<any_number>&redirect_uri=<callback_url>" using tenant admin to sign-in , then consent for the whole tenant.
+1. The permission needs to be consented by tenant admin. Go to "https://login.microsoftonline.com/common/adminconsent?client_id=<app_id>&state=<any_number>&redirect_uri=<callback_url>" using tenant admin to sign-in, then consent for the whole tenant.
 1. Please read the [Concepts](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/calls-and-meetings/real-time-media-concepts) articles for more in depth knowledge on local media bots.
 1. Follow instructions in the sample to publish your bot to the web.
 1. Please read the [API Reference](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/) for specific API information.

@@ -1,12 +1,15 @@
 # Introduction
 
 ## About
+
 The AudioVideoPlaybackBot sample guides you through building, deploying and testing an application hosted media bot. This sample demonstrates how a bot can do a video stream and change screen sharing role.
 
 ## Getting Started
-This section walks you through the process of deploying and testing the sample AudioVideoPlaybackBot to Azure. 
+
+This section walks you through the process of deploying and testing the sample bot.
 
 ### Bot Registration
+
 1. Follow the steps in [Register Calling Bot](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/register-calling-bot.html). Save the bot name, bot app id and bot secret for configuration.
 
 1. Add the following Application Permissions to the bot:
@@ -16,8 +19,7 @@ This section walks you through the process of deploying and testing the sample A
     * Calls.JoinGroupCall.All
     * Calls.JoinGroupAsGuestCall.All
    
-1. The permission needs to be consented by tenant admin. Go to "https://login.microsoftonline.com/common/adminconsent?client_id=<app_id>&state=<any_number>&redirect_uri=<any_callback_url>" using tenant admin to sign-in , then consent for the whole tenant.
-
+1. The permission needs to be consented by tenant admin. Go to "https://login.microsoftonline.com/common/adminconsent?client_id=<app_id>&state=<any_number>&redirect_uri=<any_callback_url>" using tenant admin to sign-in, then consent for the whole tenant.
 
 ### Prerequisites
 
@@ -28,6 +30,7 @@ This section walks you through the process of deploying and testing the sample A
 ### Deploy
 
 #### [Azure] deployment
+
 1. Create a cloud service (classic) in Azure. Get your "Site URL" from Azure portal, this will be your DNS name and CN name for later configuration, for example: `bot.contoso.com`.
 
 1. Set up SSL certificate and upload to the cloud service
@@ -41,7 +44,6 @@ This section walks you through the process of deploying and testing the sample A
 
 1. Publish AudioVideoPlaybackBot from VS:
     1. Right click AudioVideoPlaybackBot, then click Publish.... Publish it to the cloud service you created earlier.
-    
 
 ### Test
 
