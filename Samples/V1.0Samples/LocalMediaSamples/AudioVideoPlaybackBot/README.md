@@ -19,7 +19,7 @@ This section walks you through the process of deploying and testing the sample b
     * Calls.JoinGroupCall.All
     * Calls.JoinGroupAsGuestCall.All
    
-1. The permission needs to be consented by tenant admin. Go to "https://login.microsoftonline.com/common/adminconsent?client_id=<app_id>&state=<any_number>&redirect_uri=<any_callback_url>" using tenant admin to sign-in , then consent for the whole tenant.
+1. The permission needs to be consented by tenant admin. Go to "https://login.microsoftonline.com/common/adminconsent?client_id=<app_id>&state=<any_number>&redirect_uri=<any_callback_url>" using tenant admin to sign-in, then consent for the whole tenant.
 
 ### Prerequisites
 

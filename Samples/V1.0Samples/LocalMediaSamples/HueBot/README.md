@@ -21,7 +21,7 @@ For running locally, we need to use a tunneling mechanism to route traffic to yo
     * Calls.JoinGroupCall.All
     * Calls.JoinGroupAsGuestCall.All
 
-1. The permissions need to be consented by tenant admin. Go to "https://login.microsoftonline.com/common/adminconsent?client_id=<app_id>&state=<any_number>&redirect_uri=<any_callback_url>" using tenant admin to sign-in , then consent for the whole tenant.
+1. The permissions need to be consented by tenant admin. Go to "https://login.microsoftonline.com/common/adminconsent?client_id=<app_id>&state=<any_number>&redirect_uri=<any_callback_url>" using tenant admin to sign-in, then consent for the whole tenant.
 
 ### Prerequisites
 
