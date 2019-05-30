@@ -36,7 +36,7 @@
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
           listen. Please note that if your service is partitioned, this port is shared with 
           replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="ServiceEndpoint" Type="Input" Protocol="https" Port="9443" />
+      <Endpoint Name="ServiceEndpoint" Type="Input" Protocol="https" Port="9441" />
 
       <!-- Instance input port for Signaling; traffic to this is enabled by the NAT pool in Load Balancer settings. -->
       <Endpoint Name="SignalingPort" Type="Input" Protocol="https" Port="9444" />

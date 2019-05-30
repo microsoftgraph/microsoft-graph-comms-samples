@@ -29,7 +29,7 @@
       <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" />
     </ConfigurationSettings>
     <Endpoints>
-      <InputEndpoint name="DefaultEndpoint" protocol="tcp" port="443" localPort="9443" />
+      <InputEndpoint name="DefaultEndpoint" protocol="tcp" port="443" localPort="9441" />
       <InstanceInputEndpoint name="InstanceCallControlEndpoint" protocol="tcp" localPort="10100">
         <AllocatePublicPortFrom>
           <FixedPortRange max="10199" min="10100" />
