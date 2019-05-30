@@ -124,12 +124,12 @@ Click `Start` on the top toolbar to deploy the sample to the local cluster.
 
 1. Join the meeting from the Teams client and start up video.
 
-1. Interact with your service, _adjusting the service URL appropriately_. Target port 9443 for the first request to the load balancer. The returned URL will be on a different port/node that picked up the call.
+1. Interact with your service, _adjusting the service URL appropriately_. Target port 9441 for the first request to the load balancer. The returned URL will be on a different port/node that picked up the call.
     1. Use Postman to post the following `JSON` payload.
 
         ##### Request
         ```json
-            POST https://huebotsxxxxx.xxxx.cloudapp.azure.com:9443/joinCall
+            POST https://huebotsxxxxx.xxxx.cloudapp.azure.com:9441/joinCall
             Content-Type: application/json
 
             {

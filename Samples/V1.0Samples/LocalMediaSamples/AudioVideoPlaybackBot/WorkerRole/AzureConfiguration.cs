@@ -121,11 +121,11 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         private const string InstanceIdToken = "in_";
 
         /// <summary>
-        /// localPort specified in <InputEndpoint name="DefaultCallControlEndpoint" protocol="tcp" port="443" localPort="9443" />
+        /// localPort specified in <InputEndpoint name="DefaultCallControlEndpoint" protocol="tcp" port="443" localPort="9441" />
         /// in .csdef. This is needed for running in emulator. Currently only messaging can be debugged in the emulator.
         /// Media debugging in emulator will be supported in future releases.
         /// </summary>
-        private const int DefaultPort = 9443;
+        private const int DefaultPort = 9441;
 
         /// <summary>
         /// Graph logger.
@@ -287,7 +287,7 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
                     HttpRouteConstants.CallSignalingRoutePrefix));
 
                 controlListenUris.Add(new Uri("https://" + defaultEndpoint.IPEndpoint.Address + ":" + DefaultPort + "/"));
-                controlListenUris.Add(new Uri("http://" + defaultEndpoint.IPEndpoint.Address + ":" + (DefaultPort - 1) + "/"));
+                controlListenUris.Add(new Uri("http://" + defaultEndpoint.IPEndpoint.Address + ":" + (DefaultPort + 1) + "/"));
             }
             else
             {

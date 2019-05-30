@@ -30,7 +30,7 @@
       "value": 80
     },
     "loadBalancedAppPort2": {
-      "value": 9443
+      "value": 9441
     },
     "clusterProtectionLevel": {
       "value": "EncryptAndSign"
