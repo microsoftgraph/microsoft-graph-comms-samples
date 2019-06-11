@@ -38,12 +38,11 @@ For running locally, we need to use a tunneling mechanism to route traffic to yo
         * Create a wildcard certificate. For instance, if your bot is hosted at `bot.contoso.com`, create the certificate for `*.contoso.com`.
 
     1. [Azure] Upload the certificate to your key-vault instance.
-        ![ConfigureCert1](HueBot/Images/ConfigureCert1.png)
-
-        ![ConfigureCert2](HueBot/Images/ConfigureCert2.png)
+        ![ConfigureCert1](Images/ConfigureCert1.png)
+        ![ConfigureCert1](Images/ConfigureCert2.png)
 
     1. [Azure] Copy the Secret Identifier to be used later.
-        ![ConfigureCert3](HueBot/Images/ConfigureCert3.png)
+        ![ConfigureCert1](Images/ConfigureCert3.png)
 
     1. Install the certificate to the LocalMachine/My certificate folder on your dev machine, including the private keys. Save the thumbprint for later.
 
@@ -63,7 +62,7 @@ For running locally, we need to use a tunneling mechanism to route traffic to yo
         ```
 
     1. Start ngrok: `ngrok.exe start -all -config %replace_with_path_to_your_ngrok.yml%`. You will see an output like this:
-        ![ngrokScreenshot](HueBot/Images/ngrokScreenshot.png)
+        ![ngrokScreenshot](Images/ngrokScreenshot.png)
 
     1. From **your** output, note the 3 values in the places marked in red above. From now on, we will call them by these names:
        * `9add54fe` - ngrok signaling prefix
@@ -103,7 +102,7 @@ For running locally, we need to use a tunneling mechanism to route traffic to yo
 
 1. Publish HueBotSF from VS:
 
-    ![Publish](HueBot/Images/Publish.png)
+    ![Publish](Images/Publish.png)
 
 #### [Local] deployment
 
@@ -115,11 +114,11 @@ Click `Start` on the top toolbar to deploy the sample to the local cluster.
 
 1. Schedule a Teams meeting with another person.
 
-    ![Test Meeting1](HueBot/Images/TestMeeting1.png)
+    ![Test Meeting1](Images/TestMeeting1.png)
 
 1. Copy the Join Microsoft Teams Meeting link. Depending on where you copy this, this may be encoded as a safe link in Outlook. If it's encoded, first decode the link and replace the " with \".
 
-    ![Test Meeting2](HueBot/Images/TestMeeting2.png)
+    ![Test Meeting2](Images/TestMeeting2.png)
 
     Example, `https://teams.microsoft.com/l/meetup-join/19:cd9ce3da56624fe69c9d7cd026f9126d@thread.skype/1509579179399?context={"Tid":"72f988bf-86f1-41af-91ab-2d7cd011db47","Oid":"550fae72-d251-43ec-868c-373732c2704f","MessageId":"1536978844957"}`
 
