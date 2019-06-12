@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BetaSamples", "BetaSamples", "{7F25C14D-04B3-4B60-B24E-F20034D55227}"
 EndProject
@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StatelessSamples", "Statele
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RemoteMediaSamples", "RemoteMediaSamples", "{220D3F02-7EA5-451C-BE5E-C032104A3463}"
 	ProjectSection(SolutionItems) = preProject
-		BetaSamples\RemoteMediaSamples\Getting Started with the Remote Media Samples.md = BetaSamples\RemoteMediaSamples\Getting Started with the Remote Media Samples.md
+		BetaSamples\RemoteMediaSamples\README.md = BetaSamples\RemoteMediaSamples\README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AudioVideoPlaybackBot", "AudioVideoPlaybackBot", "{540514B8-BFF4-47D6-8F21-B8B824521A1B}"
@@ -59,8 +59,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LocalMediaSamples", "LocalM
 	ProjectSection(SolutionItems) = preProject
 		V1.0Samples\LocalMediaSamples\configure_cloud.ps1 = V1.0Samples\LocalMediaSamples\configure_cloud.ps1
 		V1.0Samples\LocalMediaSamples\E-SDK Samples.postman_collection.json = V1.0Samples\LocalMediaSamples\E-SDK Samples.postman_collection.json
-		V1.0Samples\LocalMediaSamples\Getting Started with the Local Media Samples.md = V1.0Samples\LocalMediaSamples\Getting Started with the Local Media Samples.md
-		V1.0Samples\LocalMediaSamples\README - multiple app support.md = V1.0Samples\LocalMediaSamples\README - multiple app support.md
+		V1.0Samples\LocalMediaSamples\README.md = V1.0Samples\LocalMediaSamples\README.md
 	EndProjectSection
 EndProject
 Global

@@ -39,4 +39,4 @@ If you choose to go down this route, please take a look at the deployment steps 
 
 ## Run your bot locally
 
-To run your bot locally you will need to configure a local proxy.  [ngrok](https://ngrok.com/) is a great service that allows local proxy of both http (signalling) and tcp (media) traffic.  For more information please reference our [Local Testing Guide](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/testing.html)
+To run your bot locally you will need to configure a local proxy.  [ngrok](https://ngrok.com/) is a great service that allows local proxy of both http (signalling) and tcp (media) traffic.  For more information please reference our [Local Testing Guide](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/Testing.html)
