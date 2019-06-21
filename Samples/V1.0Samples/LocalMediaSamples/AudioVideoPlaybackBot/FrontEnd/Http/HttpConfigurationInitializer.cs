@@ -31,7 +31,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
             httpConfig.MapHttpAttributeRoutes();
             httpConfig.MessageHandlers.Add(new LoggingMessageHandler(isIncomingMessageHandler: true, logger: logger, urlIgnorers: new[] { "/logs" }));
 
-            httpConfig.Services.Add(typeof(IExceptionLogger), new Common.Logging.ExceptionLogger(logger));
+            httpConfig.Services.Add(typeof(IExceptionLogger), new ExceptionLogger(logger));
 
             // TODO: Provide serializer settings hooks
             // httpConfig.Formatters.JsonFormatter.SerializerSettings = RealTimeMediaSerializer.GetSerializerSettings();

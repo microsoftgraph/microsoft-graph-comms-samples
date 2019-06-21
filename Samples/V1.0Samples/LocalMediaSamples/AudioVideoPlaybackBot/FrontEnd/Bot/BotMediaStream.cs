@@ -19,6 +19,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
     using Microsoft.Graph.Communications.Common.Telemetry;
     using Microsoft.Skype.Bots.Media;
     using Microsoft.Skype.Internal.Media.Services.Common;
+    using Sample.Common;
 
     /// <summary>
     /// Class responsible for streaming audio and video.

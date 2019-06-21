@@ -20,6 +20,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
     using Microsoft.Skype.Bots.Media;
     using Sample.AudioVideoPlaybackBot.FrontEnd;
     using Sample.AudioVideoPlaybackBot.FrontEnd.Http;
+    using Sample.Common;
     using Sample.Common.Authentication;
     using Sample.Common.Logging;
     using Sample.Common.Meetings;
@@ -159,11 +160,17 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             this.Logger = logger;
             this.Observer = new SampleObserver(logger);
 
-            var builder = new CommunicationsClientBuilder("AudioVideoPlaybackBot", service.Configuration.AadAppId, this.Logger);
+            var name = this.GetType().Assembly.GetName().Name;
+            var builder = new CommunicationsClientBuilder(
+                name,
+                service.Configuration.AadAppId,
+                this.Logger);
+
             var authProvider = new AuthenticationProvider(
-                    service.Configuration.AadAppId,
-                    service.Configuration.AadAppSecret,
-                    this.Logger);
+                name,
+                service.Configuration.AadAppId,
+                service.Configuration.AadAppSecret,
+                this.Logger);
 
             builder.SetAuthenticationProvider(authProvider);
             builder.SetNotificationUrl(service.Configuration.CallControlBaseUrl);

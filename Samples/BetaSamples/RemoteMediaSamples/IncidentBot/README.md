@@ -24,6 +24,16 @@ The sample demostrate an incident process workflow. When a incident raised (thro
       - Write down the application ID \{ApplicationId} and \{ApplicationSecret} for next steps. 
     - Click "IncidentBot" in "Bot Services" resource type page, Click "Channels", Then select "Microsoft Teams" and "Skype" channels and enable both of them.
     - Click "edit" button of "Skype" channel, click "Calling" tab, select "Enable calling" radio button, then select "IVR - 1:1 IVR audio calls", and fill the Webhook (for calling) edit box with value "\{BotBaseUrl}/callback/calling". 
+  * Configure permissions for the Bot.
+    - Go to Application Registration Portal (https://apps.dev.microsoft.com/).
+    - Select your registered bot application.
+    - Click "Add" under Microsoft Graph Permissions --> Application Permissions.
+    - Select all permissions starting with "Calls.", i.e. "Calls.AccessMedia.All", "Calls.Initiate.All", etc.
+    - Click "Ok" and then "Save"
+  * Consent the permissions
+    - Go to "https://login.microsoftonline.com/common/adminconsent?client_id=<app_id>&state=<any_number>&redirect_uri=<any_callback_url>"
+    - Sign in with a tenant admin
+    - Consent for the whole tenant.
   * Update the following elements in appsettings.json file in project IncidentBot.
     - Bot/AppId: "\{ApplicationId}"
     - Bot/AppSecret: "\{ApplicationSecret}"

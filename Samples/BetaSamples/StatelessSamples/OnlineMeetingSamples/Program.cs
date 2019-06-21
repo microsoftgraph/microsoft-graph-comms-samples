@@ -7,6 +7,8 @@ namespace Sample.OnlineMeeting
 {
     using System;
     using System.Threading.Tasks;
+    using Microsoft.Graph.Communications.Common.Telemetry;
+    using Sample.Common.Authentication;
 
     /// <summary>
     /// Default program class.
@@ -30,8 +32,10 @@ namespace Sample.OnlineMeeting
         /// <returns> The onlinemeeting details. </returns>
         public static async Task<Microsoft.Graph.OnlineMeeting> GetOnlineMeetingAsync(string tenantId, string meetingId)
         {
+            var name = typeof(Program).Assembly.GetName().Name;
+            var logger = new GraphLogger(name);
             var onlineMeeting = new OnlineMeeting(
-                        new RequestAuthenticationProvider(appId, appSecret),
+                        new AuthenticationProvider(name, appId, appSecret, logger),
                         graphUri);
 
             var meetingDetails = await onlineMeeting.GetOnlineMeetingAsync(tenantId, meetingId, default(Guid)).ConfigureAwait(false);
@@ -50,8 +54,10 @@ namespace Sample.OnlineMeeting
         /// <returns> The newly created onlinemeeting. </returns>
         public static async Task<Microsoft.Graph.OnlineMeeting> CreateOnlineMeetingAsync(string tenantId, string organizerId)
         {
+            var name = typeof(Program).Assembly.GetName().Name;
+            var logger = new GraphLogger(name);
             var onlineMeeting = new OnlineMeeting(
-                        new RequestAuthenticationProvider(appId, appSecret),
+                        new AuthenticationProvider(name, appId, appSecret, logger),
                         graphUri);
 
             var meetingDetails = await onlineMeeting.CreateOnlineMeetingAsync(tenantId, organizerId, default(Guid)).ConfigureAwait(false);

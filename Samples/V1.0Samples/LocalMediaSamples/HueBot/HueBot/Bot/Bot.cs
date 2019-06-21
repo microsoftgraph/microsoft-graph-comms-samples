@@ -20,10 +20,10 @@ namespace Sample.HueBot.Bot
     using Microsoft.Graph.Communications.Common.Telemetry;
     using Microsoft.Graph.Communications.Resources;
     using Microsoft.Skype.Bots.Media;
+    using Sample.Common;
     using Sample.Common.Authentication;
     using Sample.Common.Meetings;
     using Sample.Common.OnlineMeetings;
-    using Sample.HueBot;
     using Sample.HueBot.Controllers;
     using Sample.HueBot.Extensions;
 
@@ -48,11 +48,17 @@ namespace Sample.HueBot.Bot
             this.Options = options;
             this.logger = graphLogger;
 
+            var name = this.GetType().Assembly.GetName().Name;
+            var builder = new CommunicationsClientBuilder(
+                name,
+                options.AppId,
+                this.logger);
+
             var authProvider = new AuthenticationProvider(
-                    options.AppId,
-                    options.AppSecret,
-                    this.logger);
-            var builder = new CommunicationsClientBuilder("HueBot", options.AppId, this.logger);
+                name,
+                options.AppId,
+                options.AppSecret,
+                this.logger);
 
             builder.SetAuthenticationProvider(authProvider);
             builder.SetNotificationUrl(options.BotBaseUrl.ReplacePort(options.BotBaseUrl.Port + serviceContext.NodeInstance()));

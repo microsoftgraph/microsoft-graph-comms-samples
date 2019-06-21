@@ -2,6 +2,13 @@
 
 This changelog covers what's changed in Microsoft Graph Communications SDK and its associated samples.
 
+## June 2019
+
+- Migrated AuthenticationProvider from ADAL to MSAL AAD libraries.
+- Removed OnlineMeeting sample IRequestAuthenticationProvider and leveraged the one defined in Sample.Common.
+- Updated all samples to latest media binaries: Microsoft.Skype.Bots.Media 1.13.1.98-alpha
+- Changed Samples.Common so that it supports dual targets (net461 and netstandard2.0)
+
 ## May 2019
 
 - Updated Media library 1.12.1.6-alpha
@@ -9,7 +16,7 @@ This changelog covers what's changed in Microsoft Graph Communications SDK and i
 
 ### Communications 1.1.0-prerelease.581 Changes
 
-The Communications SDKs are now decoupled the `Microsoft.Graph` SDK.  New nugets have been released to as version `1.1.0-prerelease.*` to signal breaking changes due to objects being moved to Microsoft.Graph. 
+The Communications SDKs are now decoupled from the `Microsoft.Graph` SDK.  New nugets have been released to as version `1.1.0-prerelease.*` to signal breaking changes due to objects being moved to Microsoft.Graph. 
 
 #### Microsoft.Graph.Communications.Core:
 
@@ -111,6 +118,11 @@ This release cleans up interfaces where some members have been renamed or remove
 | OnlineMeeting.StartTime                | OnlineMeeting.StartDateTime                       |
 | Participant.SubscribeVideoAsync        | Call.GetLocalMediaSession().VideoSocket.Subscribe |
 
+## September 2018
+
+1. Updated to https://graph.microsoft.com/beta endpoint for Microsoft Ignite 2018 release.
+2. Updated to public nuget version of Graph Comms SDK. Note new version scheme: 1.0.0-prerelease.48
+
 ## August 2018
 
 ### Core SDK
@@ -165,3 +177,82 @@ Added proper handling of the operation response.
 - If operation is `null`, `Idle` or `Running` the action is treated as asynchronous and SDK will wait for subsequent `Running` `Failed` or `Completed` operation notifications.
 - If operation is `Failed` SDK will throw a `ServiceException` with the error details.
 - If operation is `Completed` the action is treated as synchronous and SDK will return from the calling method.
+- Updated to latest version of SDK, which has a couple fixes in regards to how operations are processed.  This removes the `400 Bad Request` after some operations, and fixes issues with Mute/Unmute.
+- Switched to the `Subscribe` and `Unsubscribe` on the video sockets, instead of using the `IParticipant.SubscribeAsync`.
+
+``` csharp
+/// <summary>
+/// Interface to a VideoSocket.
+/// </summary>
+public interface IVideoSocket : IDisposable
+ 
+/// <summary>
+/// Video Subscription API for the conference scenario, once the MediaReceiveStatus is raised with active status,
+/// it is possible to call this api to subscribe to a specific video using the media source id.
+/// </summary>
+/// <param name="preferredVideoResolution">The requested video resolution,
+/// The received video buffers should have the requested resolution if the bandwidth constraints and sender capabilities are satisfied</param>
+void Subscribe(VideoResolution preferredVideoResolution, uint MediaSourceId);
+ 
+/// <summary>
+/// Subscribe API for the 1:1 case. No need to specify the media source id
+/// </summary>
+void Subscribe(VideoResolution preferredVideoResolution);
+ 
+void Unsubscribe();
+```
+
+Note: The VideoSocket.Subscribe method will throw an InvalidOperationException if it is called too early, before the media session is established/active. The bot can monitor the (also new) VideoSocket.VideoReceiveStatusChanged event to see when the VideoSocket reports MediaReceiveStatus.Active, to know when it can start making video subscription requests.
+
+# Release dates and notes:
+
+## May 2018
+
+### Core SDK
+Updated to latest SDK version.  This includes minor bug fixes and contract changes.
+- The `OrganizerMeetingInfo.OrganizerId` and `OrganizerMeetingInfo.TenantId` parameters have been replaced with `IdentitySet Organizer`.
+- The transfer `IdenitySet Target` and `string ReplacesCallId` parameters have been replaced with `InvitationParticipantInfo TransferTarget`.
+
+### Stateful SDK
+Added logic to handle failed call deletion, or any time a stale call needs to be removed from SDK memory.
+
+``` csharp
+// Manually remove the call from SDK state.
+// This will trigger the ICallCollection.OnUpdated event with the removed resource.
+this.Client.Calls().TryForceRemove(callLegId, out ICall call);
+```
+
+## March 2018
+
+### Core SDK
+No changes
+
+### Stateful SDK
+- CorrelationId is now a Guid.
+- Added auto expiry of certificates in authentication provider.
+- Added support for `IGraphLogger` as part of `ICommunicationsClient`.
+- Set `AllowConversationWithoutHost = true;` for joined meetings.  This will ensure that any participants joining the meeting after the bot will not get kicked out of the meeting once bot leaves.
+- Added better tracking of calls by setting the `correlationId` for new calls and media sessions.
+- Added `ICommunicationsClient.TerminateAsync(bool onlyMedia, TimeSpan timeout);`  SDK supports couple flavors of cleanup:
+  - **Recommended:** `TerminateAsync(false, timeout)` will terminate all existing calls, terminate the media platform, shut down background threads, and dispose internal objects.  Setting `timeout` will still terminate the media platform, shut down background threads, and dispose internal objects, but it will limit the time spent waiting for calls to be terminated.
+ - `ICommunicationsClient.TermianteAsync(true, timeout)` will only terminate the media platform.  In this instance the `timeout` parameter is ignored.
+ - `ICommunicationsClient.TerminateAsync(timeout)` is used for media hosted on MSFT cloud, and not relevant in this drop.
+- The termination state now also bubbles up in the call.OnUpdated notification.
+
+If bots wish to shut down cleanly, we recommend the following:
+``` csharp
+try
+{
+  // Terminate all existing calls and wait for confirmation.
+  // Terminate media platform, terminate background threads, dispose objects.
+  await this.Client
+    .TerminateAsync(false, new TimeSpan(hours: 0, minutes: 1, seconds: 0))
+    .ConfigureAwait(false);
+}
+catch (Exception)
+{
+  // Terminate with error.
+}
+
+// Perform graceful termination logic.
+```
