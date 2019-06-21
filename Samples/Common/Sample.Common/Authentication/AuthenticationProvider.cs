@@ -120,14 +120,15 @@ namespace Sample.Common.Authentication
                 ClientId = this.appId,
                 ClientVersion = this.GetType().Assembly.GetName().Version.ToString(),
                 TenantId = tenant,
-                EnablePiiLogging = true,
+                LogLevel = LogLevel.Info,
+                EnablePiiLogging = false,
                 IsDefaultPlatformLoggingEnabled = false,
                 AzureCloudInstance = AzureCloudInstance.AzurePublic,
             };
 
             ConfidentialClientApplicationBuilder builder = ConfidentialClientApplicationBuilder
                 .CreateWithApplicationOptions(options)
-                .WithLogging(this.LogCallback, LogLevel.Info, true, false);
+                .WithLogging(this.LogCallback);
             IConfidentialClientApplication app = string.IsNullOrEmpty(this.appSecret)
                 ? builder.WithCertificate(this.appCert).Build()
                 : builder.WithClientSecret(this.appSecret).Build();
