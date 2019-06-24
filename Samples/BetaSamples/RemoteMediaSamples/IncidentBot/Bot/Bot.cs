@@ -73,12 +73,18 @@ namespace Sample.IncidentBot.Bot
             var instanceNotificationUri = CallAffinityMiddleware.GetWebInstanceCallbackUri(new Uri(options.BotBaseUrl, HttpRouteConstants.OnIncomingRequestRoute));
 
             this.graphLogger = graphLogger;
+            var name = this.GetType().Assembly.GetName().Name;
+            var builder = new CommunicationsClientBuilder(
+                name,
+                options.AppId,
+                this.graphLogger);
+
             var authProvider = new AuthenticationProvider(
+                name,
                 options.AppId,
                 options.AppSecret,
                 this.graphLogger);
 
-            var builder = new CommunicationsClientBuilder("IcmBot", options.AppId, this.graphLogger);
             builder.SetAuthenticationProvider(authProvider);
             builder.SetNotificationUrl(instanceNotificationUri);
             builder.SetServiceBaseUrl(options.PlaceCallEndpointUrl);

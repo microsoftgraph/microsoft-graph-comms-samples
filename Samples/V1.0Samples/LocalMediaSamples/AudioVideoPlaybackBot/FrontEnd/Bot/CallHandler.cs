@@ -15,6 +15,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
     using Microsoft.Graph.Communications.Common.Telemetry;
     using Microsoft.Graph.Communications.Resources;
     using Microsoft.Skype.Bots.Media;
+    using Sample.Common;
 
     /// <summary>
     /// Call Handler Logic.
@@ -50,6 +51,8 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             this.Call = statefulCall;
             this.logger = statefulCall.GraphLogger;
 
+            this.Call.OnUpdated += this.CallOnUpdated;
+
             // subscribe to dominant speaker event on the audioSocket
             this.Call.GetLocalMediaSession().AudioSocket.DominantSpeakerChanged += this.OnDominantSpeakerChanged;
 
@@ -84,6 +87,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             this.Call.GetLocalMediaSession().AudioSocket.DominantSpeakerChanged -= this.OnDominantSpeakerChanged;
             this.Call.GetLocalMediaSession().VideoSockets.FirstOrDefault().VideoMediaReceived -= this.OnVideoMediaReceived;
 
+            this.Call.OnUpdated -= this.CallOnUpdated;
             this.Call.Participants.OnUpdated -= this.ParticipantsOnUpdated;
 
             foreach (var participant in this.Call.Participants)
@@ -92,6 +96,19 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             }
 
             this.BotMediaStream?.ShutdownAsync().ForgetAndLogExceptionAsync(this.logger);
+        }
+
+        /// <summary>
+        /// Event fired when the call has been updated.
+        /// </summary>
+        /// <param name="sender">The call.</param>
+        /// <param name="e">The event args containing call changes.</param>
+        private void CallOnUpdated(ICall sender, ResourceEventArgs<Call> e)
+        {
+            if (e.OldResource.State != e.NewResource.State && e.NewResource.State == CallState.Established)
+            {
+                // Call is established... do some work.
+            }
         }
 
         /// <summary>

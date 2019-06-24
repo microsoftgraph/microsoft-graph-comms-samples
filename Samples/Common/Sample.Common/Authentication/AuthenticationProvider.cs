@@ -6,16 +6,18 @@
 namespace Sample.Common.Authentication
 {
     using System;
+    using System.Diagnostics;
     using System.IdentityModel.Tokens.Jwt;
     using System.Net.Http;
     using System.Net.Http.Headers;
     using System.Security.Claims;
+    using System.Security.Cryptography.X509Certificates;
     using System.Threading;
     using System.Threading.Tasks;
     using Microsoft.Graph.Communications.Client.Authentication;
     using Microsoft.Graph.Communications.Common;
     using Microsoft.Graph.Communications.Common.Telemetry;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Microsoft.Identity.Client;
     using Microsoft.IdentityModel.Protocols;
     using Microsoft.IdentityModel.Protocols.OpenIdConnect;
     using Microsoft.IdentityModel.Tokens;
@@ -24,8 +26,17 @@ namespace Sample.Common.Authentication
     /// The authentication provider for this bot instance.
     /// </summary>
     /// <seealso cref="IRequestAuthenticationProvider" />
-    public class AuthenticationProvider : IRequestAuthenticationProvider
+    public class AuthenticationProvider : ObjectRoot, IRequestAuthenticationProvider
     {
+        private const string Resource = "https://graph.microsoft.com";
+        private const string DefaultScope = Resource + "/.default";
+        private static readonly string[] Scopes = new[] { DefaultScope };
+
+        /// <summary>
+        /// The application name.
+        /// </summary>
+        private readonly string appName;
+
         /// <summary>
         /// The application identifier.
         /// </summary>
@@ -37,9 +48,9 @@ namespace Sample.Common.Authentication
         private readonly string appSecret;
 
         /// <summary>
-        /// The graph logger.
+        /// The application certificate.
         /// </summary>
-        private readonly IGraphLogger graphLogger;
+        private readonly X509Certificate2 appCert;
 
         /// <summary>
         /// The open ID configuration refresh interval.
@@ -59,14 +70,31 @@ namespace Sample.Common.Authentication
         /// <summary>
         /// Initializes a new instance of the <see cref="AuthenticationProvider" /> class.
         /// </summary>
+        /// <param name="appName">The application name.</param>
         /// <param name="appId">The application identifier.</param>
         /// <param name="appSecret">The application secret.</param>
         /// <param name="logger">The logger.</param>
-        public AuthenticationProvider(string appId, string appSecret, IGraphLogger logger)
+        public AuthenticationProvider(string appName, string appId, string appSecret, IGraphLogger logger)
+            : base(logger.NotNull(nameof(logger)).CreateShim(nameof(AuthenticationProvider)))
         {
+            this.appName = appName.NotNullOrWhitespace(nameof(appName));
             this.appId = appId.NotNullOrWhitespace(nameof(appId));
             this.appSecret = appSecret.NotNullOrWhitespace(nameof(appSecret));
-            this.graphLogger = logger.NotNull(nameof(logger)).CreateShim(nameof(AuthenticationProvider));
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AuthenticationProvider" /> class.
+        /// </summary>
+        /// <param name="appName">The application name.</param>
+        /// <param name="appId">The application identifier.</param>
+        /// <param name="appCert">The application certificate.</param>
+        /// <param name="logger">The logger.</param>
+        public AuthenticationProvider(string appName, string appId, X509Certificate2 appCert, IGraphLogger logger)
+            : base(logger.NotNull(nameof(logger)).CreateShim(nameof(AuthenticationProvider)))
+        {
+            this.appName = appName.NotNullOrWhitespace(nameof(appName));
+            this.appId = appId.NotNullOrWhitespace(nameof(appId));
+            this.appCert = appCert.NotNull(nameof(appCert));
         }
 
         /// <summary>
@@ -83,34 +111,31 @@ namespace Sample.Common.Authentication
         /// </returns>
         public async Task AuthenticateOutboundRequestAsync(HttpRequestMessage request, string tenant)
         {
-            const string schema = "Bearer";
-            const string replaceString = "{tenant}";
-            const string oauthV2TokenLink = "https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token";
-            const string resource = "https://graph.microsoft.com";
+            const string Schema = "Bearer";
 
-            // If no tenant was specified, we craft the token link using the common tenant.
-            // https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols#endpoints
             tenant = string.IsNullOrWhiteSpace(tenant) ? "common" : tenant;
-            var tokenLink = oauthV2TokenLink.Replace(replaceString, tenant);
-
-            this.graphLogger.Info("AuthenticationProvider: Refreshing OAuth token.");
-            var context = new AuthenticationContext(tokenLink);
-            var creds = new ClientCredential(this.appId, this.appSecret);
-
-            AuthenticationResult result;
-            try
+            var options = new ConfidentialClientApplicationOptions
             {
-                result = await context.AcquireTokenAsync(resource, creds).ConfigureAwait(false);
-            }
-            catch (Exception ex)
-            {
-                this.graphLogger.Error(ex, $"Failed to generate token for client: {this.appId}");
-                throw;
-            }
+                ClientName = this.appName,
+                ClientId = this.appId,
+                ClientVersion = this.GetType().Assembly.GetName().Version.ToString(),
+                TenantId = tenant,
+                LogLevel = LogLevel.Info,
+                EnablePiiLogging = false,
+                IsDefaultPlatformLoggingEnabled = false,
+                AzureCloudInstance = AzureCloudInstance.AzurePublic,
+            };
 
-            this.graphLogger.Info($"AuthenticationProvider: OAuth token cached. Expires in {result.ExpiresOn.Subtract(DateTimeOffset.UtcNow).TotalMinutes} minutes.");
+            ConfidentialClientApplicationBuilder builder = ConfidentialClientApplicationBuilder
+                .CreateWithApplicationOptions(options)
+                .WithLogging(this.LogCallback);
+            IConfidentialClientApplication app = string.IsNullOrEmpty(this.appSecret)
+                ? builder.WithCertificate(this.appCert).Build()
+                : builder.WithClientSecret(this.appSecret).Build();
 
-            request.Headers.Authorization = new AuthenticationHeaderValue(schema, result.AccessToken);
+            AuthenticationResult result = await this.AcquireTokenWithRetryAsync(app, 3).ConfigureAwait(false);
+
+            request.Headers.Authorization = new AuthenticationHeaderValue(Schema, result.AccessToken);
         }
 
         /// <summary>
@@ -136,7 +161,7 @@ namespace Sample.Common.Authentication
             const string authDomain = "https://api.aps.skype.com/v1/.well-known/OpenIdConfiguration";
             if (this.openIdConfiguration == null || DateTime.Now > this.prevOpenIdConfigUpdateTimestamp.Add(this.openIdConfigRefreshInterval))
             {
-                this.graphLogger.Info("Updating OpenID configuration");
+                this.GraphLogger.Info("Updating OpenID configuration");
 
                 // Download the OIDC configuration which contains the JWKS
                 IConfigurationManager<OpenIdConnectConfiguration> configurationManager =
@@ -182,7 +207,7 @@ namespace Sample.Common.Authentication
             catch (Exception ex)
             {
                 // Some other error
-                this.graphLogger.Error(ex, $"Failed to validate token for client: {this.appId}.");
+                this.GraphLogger.Error(ex, $"Failed to validate token for client: {this.appId}.");
                 return new RequestValidationResult() { IsValid = false };
             }
 
@@ -196,6 +221,78 @@ namespace Sample.Common.Authentication
             }
 
             return new RequestValidationResult { IsValid = true, TenantId = tenantClaim.Value };
+        }
+
+        /// <summary>
+        /// Callback delegate that allows application developers to consume logs, and handle them in a custom manner. This
+        /// callback is set using Microsoft.Identity.Client.AbstractApplicationBuilder`1.WithLogging(Microsoft.Identity.Client.LogCallback,System.Nullable{Microsoft.Identity.Client.LogLevel},System.Nullable{System.Boolean},System.Nullable{System.Boolean}).
+        /// If PiiLoggingEnabled is set to true, when registering the callback this method will receive the messages twice:
+        /// once with the containsPii parameter equals false and the message without PII,
+        /// and a second time with the containsPii parameter equals to true and the message might contain PII.
+        /// In some cases (when the message does not contain PII), the message will be the same.
+        /// For details see https://aka.ms/msal-net-logging.
+        /// </summary>
+        /// <param name="logLevel">Log level of the log message to process.</param>
+        /// <param name="message">Pre-formatted log message.</param>
+        /// <param name="containsPii">
+        /// Indicates if the log message contains Organizational Identifiable Information (OII)
+        /// or Personally Identifiable Information (PII) nor not.
+        /// If Microsoft.Identity.Client.Logger.PiiLoggingEnabled is set to false then this value is always false.
+        /// Otherwise it will be true when the message contains PII.
+        /// </param>
+        private void LogCallback(LogLevel logLevel, string message, bool containsPii)
+        {
+            TraceLevel level;
+            switch (logLevel)
+            {
+                case LogLevel.Error:
+                    level = TraceLevel.Error;
+                    break;
+                case LogLevel.Warning:
+                    level = TraceLevel.Warning;
+                    break;
+                case LogLevel.Info:
+                    level = TraceLevel.Info;
+                    break;
+                default:
+                    level = TraceLevel.Verbose;
+                    break;
+            }
+
+            this.GraphLogger.Log(level, message, nameof(IConfidentialClientApplication));
+        }
+
+        /// <summary>
+        /// Acquires the token and retries if failure occurs.
+        /// </summary>
+        /// <param name="app">The confidential application.</param>
+        /// <param name="attempts">The attempts.</param>
+        /// <returns>
+        /// The <see cref="AuthenticationResult" />.
+        /// </returns>
+        private async Task<AuthenticationResult> AcquireTokenWithRetryAsync(IConfidentialClientApplication app, int attempts)
+        {
+            while (true)
+            {
+                attempts--;
+
+                try
+                {
+                    return await app
+                        .AcquireTokenForClient(Scopes)
+                        .ExecuteAsync()
+                        .ConfigureAwait(false);
+                }
+                catch (Exception)
+                {
+                    if (attempts < 1)
+                    {
+                        throw;
+                    }
+                }
+
+                await Task.Delay(1000).ConfigureAwait(false);
+            }
         }
     }
 }

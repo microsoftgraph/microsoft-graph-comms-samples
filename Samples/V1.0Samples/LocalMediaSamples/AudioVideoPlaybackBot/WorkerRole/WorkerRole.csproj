@@ -36,8 +36,8 @@
     <PackageReference Include="Microsoft.Data.Edm" Version="5.8.4" />
     <PackageReference Include="Microsoft.Data.OData" Version="5.8.4" />
     <PackageReference Include="Microsoft.Data.Services.Client" Version="5.8.4" />
-    <PackageReference Include="Microsoft.Owin.Host.HttpListener" Version="4.0.0" />
-    <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.12.1.6-alpha" />
+    <PackageReference Include="Microsoft.Owin.Host.HttpListener" Version="4.0.1" />
+    <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.13.1.98-alpha" />
     <PackageReference Include="Microsoft.WindowsAzure.ConfigurationManager" Version="3.2.3" />
     <PackageReference Include="Microsoft.WindowsAzure.SDK" Version="2.9.0" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />

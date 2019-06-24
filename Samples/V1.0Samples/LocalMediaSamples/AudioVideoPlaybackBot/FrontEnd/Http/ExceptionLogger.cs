@@ -8,7 +8,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Sample.Common.Logging
+namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
 {
     using System.Threading;
     using System.Threading.Tasks;

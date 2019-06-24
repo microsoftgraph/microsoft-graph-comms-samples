@@ -16,7 +16,6 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
     using System.Diagnostics;
     using System.IO;
     using System.Runtime.InteropServices;
-    using System.Threading.Tasks;
     using Microsoft.Graph.Communications.Calls.Media;
     using Microsoft.Graph.Communications.Common.Telemetry;
     using Microsoft.Skype.Bots.Media;
@@ -59,26 +58,6 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
                 }
 
                 H264Frames.TryAdd(videoFormat.GetId(), listOfFrames);
-            }
-        }
-
-        /// <summary>
-        /// Extension for Task to execute the task in background and log any exception.
-        /// </summary>
-        /// <param name="task">Task to execute and capture any exceptions.</param>
-        /// <param name="logger">Graph logger.</param>
-        /// <param name="description">Friendly description of the task for debugging purposes.</param>
-        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-        public static async Task ForgetAndLogExceptionAsync(this Task task, IGraphLogger logger, string description = null)
-        {
-            try
-            {
-                await task.ConfigureAwait(false);
-            }
-            catch (Exception e)
-            {
-                // ignore
-                logger.Error(e, $"Caught an Exception running the task: {description ?? string.Empty} {e.Message}\n StackTrace: {e.StackTrace}");
             }
         }
 

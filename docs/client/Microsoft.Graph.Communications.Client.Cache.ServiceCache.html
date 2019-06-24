@@ -161,6 +161,7 @@ Fetching data only happens in HA/DR scenarios, so could take longer.</p>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Task&lt;string&gt; GetDataAsync&lt;T&gt;(IEnumerable&lt;IGraphProperty&gt; properties, string resourcePath, CancellationToken cancellationToken = default(CancellationToken))
+
     where T : Entity</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -235,6 +236,7 @@ Fetching data only happens in HA/DR scenarios, so could take longer.</p>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;string&gt;&gt; GetDataCollectionAsync&lt;T&gt;(IEnumerable&lt;IGraphProperty&gt; properties, string resourcePath, CancellationToken cancellationToken = default(CancellationToken))
+
     where T : Entity</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>

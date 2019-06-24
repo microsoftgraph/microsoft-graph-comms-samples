@@ -8,6 +8,7 @@ namespace Sample.OnlineMeeting
     using System;
     using System.Threading.Tasks;
     using Microsoft.Graph;
+    using Microsoft.Graph.Communications.Client.Authentication;
     using Microsoft.Graph.Communications.Core;
 
     /// <summary>
