@@ -13,7 +13,7 @@
     <PackageReference Include="Microsoft.Graph.Communications.Client" Version="1.1.0-prerelease.581" />
     <PackageReference Include="Microsoft.Graph.Communications.Core.Calls" Version="1.1.0-prerelease.581" />
     <PackageReference Include="Microsoft.Identity.Client" Version="4.0.0" />
-    <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="6.1.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="5.5.0" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
