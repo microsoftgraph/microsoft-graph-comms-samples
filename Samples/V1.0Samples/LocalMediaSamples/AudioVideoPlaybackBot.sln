@@ -1,19 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2036
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{36341412-BFDE-495F-8216-7736CE191F39}"
 	ProjectSection(SolutionItems) = preProject
 		configure_cloud.ps1 = configure_cloud.ps1
 		E-SDK Samples.postman_collection.json = E-SDK Samples.postman_collection.json
-		Getting Started with the Local Media Samples.md = Getting Started with the Local Media Samples.md
-		..\Graph.props = ..\Graph.props
-		..\nuget.config = ..\nuget.config
-		AudioVideoPlaybackBot\README Release Notes.md = AudioVideoPlaybackBot\README Release Notes.md
-		AudioVideoPlaybackBot\README.md = AudioVideoPlaybackBot\README.md
-		..\stylecop.json = ..\stylecop.json
-		..\StyleCop.ruleset = ..\StyleCop.ruleset
+		..\..\Graph.props = ..\..\Graph.props
+		..\..\nuget.config = ..\..\nuget.config
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "AudioVideoPlaybackBot", "AudioVideoPlaybackBot\AudioVideoPlaybackBot.ccproj", "{386504C0-3BC0-41DB-8096-7110A5F1D434}"
