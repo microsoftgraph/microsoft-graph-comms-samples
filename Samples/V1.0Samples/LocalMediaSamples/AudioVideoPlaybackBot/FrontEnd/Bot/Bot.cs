@@ -193,11 +193,12 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         /// <returns>
         /// The <see cref="Task"/>.
         /// </returns>
-        internal async Task EndCallByCallLegIdAsync(string callLegId)
+        internal async Task<bool> EndCallByCallLegIdAsync(string callLegId)
         {
             try
             {
                 await this.GetHandlerOrThrow(callLegId).Call.DeleteAsync().ConfigureAwait(false);
+                return true;
             }
             catch (Exception)
             {
@@ -205,6 +206,8 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                 // This will trigger the ICallCollection.OnUpdated event with the removed resource.
                 this.Client.Calls().TryForceRemove(callLegId, out ICall call);
             }
+
+            return false;
         }
 
         /// <summary>

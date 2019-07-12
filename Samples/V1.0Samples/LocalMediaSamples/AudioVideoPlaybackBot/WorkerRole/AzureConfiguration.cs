@@ -314,6 +314,8 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
                 ? IPAddress.Any
                 : this.GetInstancePublicIpAddress(this.ServiceDnsName);
 
+            string serviceFqdn = RoleEnvironment.IsEmulated ? "0.ngrok.skype-graph-test.net" : this.ServiceCname;
+
             this.MediaPlatformSettings = new MediaPlatformSettings()
             {
                 MediaPlatformInstanceSettings = new MediaPlatformInstanceSettings()
@@ -322,7 +324,7 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
                     InstanceInternalPort = mediaInstanceInternalPort,
                     InstancePublicIPAddress = publicInstanceIpAddress,
                     InstancePublicPort = mediaInstancePublicPort,
-                    ServiceFqdn = this.ServiceCname,
+                    ServiceFqdn = serviceFqdn,
                 },
 
                 ApplicationId = this.AadAppId,

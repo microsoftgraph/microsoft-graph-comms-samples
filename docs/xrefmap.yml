@@ -28332,18 +28332,6 @@ references:
   commentId: Overload:Microsoft.Skype.Bots.Media.MediaPlatformInstanceSettings.CertificateThumbprint
   fullName: Microsoft.Skype.Bots.Media.MediaPlatformInstanceSettings.CertificateThumbprint
   nameWithType: MediaPlatformInstanceSettings.CertificateThumbprint
-- uid: Microsoft.Skype.Bots.Media.MediaPlatformInstanceSettings.HostingEnvironmentConfiguration
-  name: HostingEnvironmentConfiguration
-  href: bot_media/Microsoft.Skype.Bots.Media.MediaPlatformInstanceSettings.html#Microsoft_Skype_Bots_Media_MediaPlatformInstanceSettings_HostingEnvironmentConfiguration
-  commentId: P:Microsoft.Skype.Bots.Media.MediaPlatformInstanceSettings.HostingEnvironmentConfiguration
-  fullName: Microsoft.Skype.Bots.Media.MediaPlatformInstanceSettings.HostingEnvironmentConfiguration
-  nameWithType: MediaPlatformInstanceSettings.HostingEnvironmentConfiguration
-- uid: Microsoft.Skype.Bots.Media.MediaPlatformInstanceSettings.HostingEnvironmentConfiguration*
-  name: HostingEnvironmentConfiguration
-  href: bot_media/Microsoft.Skype.Bots.Media.MediaPlatformInstanceSettings.html#Microsoft_Skype_Bots_Media_MediaPlatformInstanceSettings_HostingEnvironmentConfiguration_
-  commentId: Overload:Microsoft.Skype.Bots.Media.MediaPlatformInstanceSettings.HostingEnvironmentConfiguration
-  fullName: Microsoft.Skype.Bots.Media.MediaPlatformInstanceSettings.HostingEnvironmentConfiguration
-  nameWithType: MediaPlatformInstanceSettings.HostingEnvironmentConfiguration
 - uid: Microsoft.Skype.Bots.Media.MediaPlatformInstanceSettings.InstanceInternalPort
   name: InstanceInternalPort
   href: bot_media/Microsoft.Skype.Bots.Media.MediaPlatformInstanceSettings.html#Microsoft_Skype_Bots_Media_MediaPlatformInstanceSettings_InstanceInternalPort
@@ -28434,6 +28422,18 @@ references:
   commentId: Overload:Microsoft.Skype.Bots.Media.MediaPlatformSettings.ApplicationId
   fullName: Microsoft.Skype.Bots.Media.MediaPlatformSettings.ApplicationId
   nameWithType: MediaPlatformSettings.ApplicationId
+- uid: Microsoft.Skype.Bots.Media.MediaPlatformSettings.HostingEnvironmentConfiguration
+  name: HostingEnvironmentConfiguration
+  href: bot_media/Microsoft.Skype.Bots.Media.MediaPlatformSettings.html#Microsoft_Skype_Bots_Media_MediaPlatformSettings_HostingEnvironmentConfiguration
+  commentId: P:Microsoft.Skype.Bots.Media.MediaPlatformSettings.HostingEnvironmentConfiguration
+  fullName: Microsoft.Skype.Bots.Media.MediaPlatformSettings.HostingEnvironmentConfiguration
+  nameWithType: MediaPlatformSettings.HostingEnvironmentConfiguration
+- uid: Microsoft.Skype.Bots.Media.MediaPlatformSettings.HostingEnvironmentConfiguration*
+  name: HostingEnvironmentConfiguration
+  href: bot_media/Microsoft.Skype.Bots.Media.MediaPlatformSettings.html#Microsoft_Skype_Bots_Media_MediaPlatformSettings_HostingEnvironmentConfiguration_
+  commentId: Overload:Microsoft.Skype.Bots.Media.MediaPlatformSettings.HostingEnvironmentConfiguration
+  fullName: Microsoft.Skype.Bots.Media.MediaPlatformSettings.HostingEnvironmentConfiguration
+  nameWithType: MediaPlatformSettings.HostingEnvironmentConfiguration
 - uid: Microsoft.Skype.Bots.Media.MediaPlatformSettings.MediaPlatformInstanceSettings
   name: MediaPlatformInstanceSettings
   href: bot_media/Microsoft.Skype.Bots.Media.MediaPlatformSettings.html#Microsoft_Skype_Bots_Media_MediaPlatformSettings_MediaPlatformInstanceSettings

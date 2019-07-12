@@ -70,7 +70,10 @@ namespace Sample.IncidentBot.Bot
         /// <param name="graphLogger">The graph logger.</param>
         public Bot(BotOptions options, IGraphLogger graphLogger)
         {
-            var instanceNotificationUri = CallAffinityMiddleware.GetWebInstanceCallbackUri(new Uri(options.BotBaseUrl, HttpRouteConstants.OnIncomingRequestRoute));
+            this.BotInstanceUri = CallAffinityMiddleware.GetWebInstanceCallbackUri(options.BotBaseUrl);
+
+            var instanceNotificationUri = CallAffinityMiddleware.GetWebInstanceCallbackUri(
+                new Uri(options.BotBaseUrl, HttpRouteConstants.OnIncomingRequestRoute));
 
             this.graphLogger = graphLogger;
             var name = this.GetType().Assembly.GetName().Name;
@@ -145,6 +148,11 @@ namespace Sample.IncidentBot.Bot
         /// Gets the prompts dictionary.
         /// </summary>
         public Dictionary<string, MediaPrompt> MediaMap { get; } = new Dictionary<string, MediaPrompt>();
+
+        /// <summary>
+        /// Gets the bots instance URI.
+        /// </summary>
+        public Uri BotInstanceUri { get; }
 
         /// <summary>
         /// Gets the client.

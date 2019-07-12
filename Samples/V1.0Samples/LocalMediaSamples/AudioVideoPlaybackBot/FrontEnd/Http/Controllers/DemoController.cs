@@ -143,9 +143,10 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
 
             try
             {
-                await Bot.Instance.EndCallByCallLegIdAsync(callLegId).ConfigureAwait(false);
-
-                return this.Request.CreateResponse(HttpStatusCode.OK);
+                var removed = await Bot.Instance.EndCallByCallLegIdAsync(callLegId).ConfigureAwait(false);
+                return removed
+                    ? this.Request.CreateResponse(HttpStatusCode.OK)
+                    : this.Request.CreateResponse(HttpStatusCode.NotFound);
             }
             catch (Exception e)
             {

@@ -8,7 +8,7 @@
     <RootNamespace>Sample.IncidentBot</RootNamespace>
     <AssemblyName>Sample.IncidentBot</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
 
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\Graph.props" />

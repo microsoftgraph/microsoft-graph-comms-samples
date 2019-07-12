@@ -56,7 +56,7 @@ param(
 
 Write-Output 'Microsoft BotBuilder Enterprise SDK - Azure Cloud Configurator'
 
-$Files = "ServiceConfiguration.Cloud.cscfg", "ServiceConfiguration.Local.cscfg", "app.config"
+$Files = "ServiceConfiguration.Cloud.cscfg", "ServiceConfiguration.Local.cscfg", "app.config", "appsettings.json"
 [System.Collections.ArrayList]$FilesToReplace = @()
 
 foreach($file in $Files)
@@ -75,6 +75,8 @@ if ($reset)
         $fileName = $file.Name
         $backupName = "$fileName.original"
         $backupFile = Join-Path $file.DirectoryName $backupName
+        Write-Output "  Found configuration"
+        Write-Output "  $($file.FullName)"
         if (Test-Path $backupFile)
         {
             Write-Output "  Resetting $fileName using $backupName"
@@ -116,7 +118,7 @@ if (-not $AppSecret) {
 
 function ReplaceInFile ($file, [string]$pattern, [string]$replaceWith) {
     $fileName = $file.Name
-    Write-Output "Replacing $pattern with $replaceWith in $fileName"
+    Write-Output "  Replacing $pattern with $replaceWith in $fileName"
 
     (Get-Content $file.FullName).replace($pattern, $replaceWith) | Set-Content $file.FullName
 }
@@ -129,8 +131,11 @@ foreach($file in $FilesToReplace)
     $fileName = $file.Name
     $backupName = "$fileName.original"
     $backupFile = Join-Path $file.DirectoryName $backupName
+    Write-Output "  Found configuration"
+    Write-Output "  $($file.FullName)"
+
     if (-not (Test-Path $backupFile)) {
-        Write-Output "Backing up $fileName with $backupName"
+        Write-Output "  Backing up $fileName with $backupName"
         Copy-Item $file.FullName -Destination $backupFile
     }
 

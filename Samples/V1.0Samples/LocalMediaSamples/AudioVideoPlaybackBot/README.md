@@ -39,8 +39,14 @@ This section walks you through the process of deploying and testing the sample b
     3. Copy the thumbprint for later.
 
 1. Set up cloud service configuration
-    1. Open powershell, go to the folder that contains file `configure_cloud.ps1`. The file is in the same directory as `AudioVideoPlaybackBot.sln`
-    2. Run the powershell script with parameters `.\configure_cloud.ps1 -p .\AudioVideoPlaybackBot\ -dns {your DNS name} -cn {your CN name, should be the same as your DNS name} -thumb {your certificate thumbprint} -bid {your bot name} -aid {your bot app id} -as {your bot secret}`, for example `.\configure_cloud.ps1 -p .\AudioVideoPlaybackBot\ -dns bot.contoso.com -cn bot.contoso.com -thumb ABC0000000000000000000000000000000000CBA -bid bot -aid 3853f935-2c6f-43d7-859d-6e8f83b519ae -as 123456!@#$%^`
+    1. Open powershell, go to the folder that contains file `configure_cloud.ps1`. The file is in the `Samples` directory.
+    2. Run the powershell script with parameters 
+
+        `.\configure_cloud.ps1 -p {path to project} -dns {your DNS name} -cn {your CN name, should be the same as your DNS name} -thumb {your certificate thumbprint} -bid {your bot name} -aid {your bot app id} -as {your bot secret}`
+
+        For example:
+
+        `.\configure_cloud.ps1 -p .\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot\ -dns bot.contoso.com -cn bot.contoso.com -thumb ABC0000000000000000000000000000000000CBA -bid bot -aid 3853f935-2c6f-43d7-859d-6e8f83b519ae -as 123456!@#$%^`
 
 1. Publish AudioVideoPlaybackBot from VS:
     1. Right click AudioVideoPlaybackBot, then click Publish.... Publish it to the cloud service you created earlier.
@@ -63,40 +69,45 @@ This section walks you through the process of deploying and testing the sample b
     1. Use Postman to post the following `JSON` payload.
 
         ##### Request
-        ```json
-            POST https://bot.contoso.com/joinCall
-            Content-Type: application/json
-
-            {
-              "JoinURL": "https://teams.microsoft.com/l/meetup-join/...",
-            }
+        ```http
+        POST https://bot.contoso.com/joinCall
+        Content-Type: application/json
+        {
+            "JoinURL": "https://teams.microsoft.com/l/meetup-join/...",
+        }
         ```
 
         ##### Response
-        The guid "311a0a00-53d9-4a42-aa78-c10a9ae95213" in the response will be your call id. Use your call id for the next request.
+        The guid "491f0500-401f-4f11-8af4-2eff4c0a0643" in the response will be your call id. Use your call id for the next request.
         ```json
-          "311a0a00-53d9-4a42-aa78-c10a9ae95213"
+        {
+            "legId": "491f0500-401f-4f11-8af4-2eff4c0a0643",
+            "scenarioId": "98ca8eab-8c03-4b7d-a468-15b37c0b648e",
+            "call": "https://bot.contoso.com:10100/calls/491f0500-401f-4f11-8af4-2eff4c0a0643",
+            "logs": "https://bot.contoso.com:10100/logs/491f0500-401f-4f11-8af4-2eff4c0a0643",
+            "changeScreenSharingRole": "https://bot.contoso.com:10100/calls/491f0500-401f-4f11-8af4-2eff4c0a0643/changeRole"
+        }
         ```
 
-    1. After the bot joins the meeting. The bot will start playing a video. Change the bot's screen sharing role by `POST` changeRole request. Replace the call id 311a0a00-53d9-4a42-aa78-c10a9ae95213 below with your call id from the first response.
+    1. After the bot joins the meeting. The bot will start playing a video. Change the bot's screen sharing role by `POST` changeRole request. Replace the call id 491f0500-401f-4f11-8af4-2eff4c0a0643 below with your call id from the first response.
 
         ##### Request
-        ```json
-            POST https://bot.contoso.com/calls/311a0a00-53d9-4a42-aa78-c10a9ae95213/changeRole
-            Content-Type: application/json
-            {
-	            "role": "viewer"
-            }
+        ```http
+        POST https://bot.contoso.com/calls/491f0500-401f-4f11-8af4-2eff4c0a0643/changeRole
+        Content-Type: application/json
+        {
+            "role": "viewer"
+        }
         ```
         You can play around with the bot by switching the screensharing role from "viewer" to "sharer" or from "sharer" to "viewer"
 
-    1. Get diagnostics data from the bot. Open the links in a browser for auto-refresh. Replace the call id 311a0a00-53d9-4a42-aa78-c10a9ae95213 below with your call id from the first response.
+    1. Get diagnostics data from the bot. Open the links in a browser for auto-refresh. Replace the call id 491f0500-401f-4f11-8af4-2eff4c0a0643 below with your call id from the first response.
        * Active calls: https://bot.contoso.com/calls
        * Service logs: https://bot.contoso.com/logs
 
-    1. Terminating the call through `DELETE`. Replace the call id 311a0a00-53d9-4a42-aa78-c10a9ae95213 below with your call id from the first response.
+    1. Terminating the call through `DELETE`. Replace the call id 491f0500-401f-4f11-8af4-2eff4c0a0643 below with your call id from the first response.
 
         ##### Request
-        ```json
-            DELETE https://bot.contoso.com/calls/311a0a00-53d9-4a42-aa78-c10a9ae95213
+        ```http
+        DELETE https://bot.contoso.com/calls/491f0500-401f-4f11-8af4-2eff4c0a0643
         ```
