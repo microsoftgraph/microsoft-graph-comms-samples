@@ -11,11 +11,14 @@
 namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
 {
     using System;
+    using System.Collections.Generic;
     using System.Net;
     using System.Net.Http;
+    using System.Text;
     using System.Threading.Tasks;
     using System.Web.Http;
     using Microsoft.Graph;
+    using Microsoft.Graph.Communications.Core.Serialization;
     using Sample.AudioVideoPlaybackBot.FrontEnd.Bot;
 
     /// <summary>
@@ -41,7 +44,26 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
             try
             {
                 var call = await Bot.Instance.JoinCallAsync(joinCallBody).ConfigureAwait(false);
-                return this.Request.CreateResponse(HttpStatusCode.OK, call.Id);
+
+                var callUriTemplate =
+                    (Service.Instance.Configuration.CallControlBaseUrl + "/" +
+                    HttpRouteConstants.CallRoute)
+                        .Replace(HttpRouteConstants.CallSignalingRoutePrefix + "/", string.Empty)
+                        .Replace("{callLegId}", call.Id);
+                var values = new Dictionary<string, string>
+                {
+                    { "legId", call.Id },
+                    { "scenarioId", call.ScenarioId.ToString() },
+                    { "call", callUriTemplate },
+                    { "logs", callUriTemplate.Replace("/calls/", "/logs/") },
+                    { "changeScreenSharingRole", callUriTemplate + "/" + HttpRouteConstants.OnChangeRoleRoute },
+                };
+
+                var serializer = new CommsSerializer(pretty: true);
+                var json = serializer.SerializeObject(values);
+                var response = this.Request.CreateResponse(HttpStatusCode.OK);
+                response.Content = new StringContent(json, Encoding.UTF8, "application/json");
+                return response;
             }
             catch (ServiceException e)
             {

@@ -10,7 +10,9 @@ namespace IcMBot.Controllers
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Graph.Communications.Common;
+    using Microsoft.Graph.Communications.Core.Serialization;
     using Sample.Common.Logging;
+    using Sample.IncidentBot;
     using Sample.IncidentBot.Bot;
     using Sample.IncidentBot.Data;
     using Sample.IncidentBot.IncidentStatus;
@@ -47,9 +49,24 @@ namespace IcMBot.Controllers
 
             try
             {
-                var botMeetingCall = await this.bot.RaiseIncidentAsync(incidentRequestData).ConfigureAwait(false);
+                var call = await this.bot.RaiseIncidentAsync(incidentRequestData).ConfigureAwait(false);
 
-                return this.Ok(botMeetingCall.Id);
+                var callUriTemplate = new UriBuilder(this.bot.BotInstanceUri);
+                callUriTemplate.Path = HttpRouteConstants.CallRoutePrefix.Replace("{callLegId}", call.Id);
+                callUriTemplate.Query = this.bot.BotInstanceUri.Query.Trim('?');
+
+                var callUri = callUriTemplate.Uri.AbsoluteUri;
+                var values = new Dictionary<string, string>
+                {
+                    { "legId", call.Id },
+                    { "scenarioId", call.ScenarioId.ToString() },
+                    { "call", callUri },
+                    { "logs", callUri.Replace("/calls/", "/logs/") },
+                };
+
+                var serializer = new CommsSerializer(pretty: true);
+                var json = serializer.SerializeObject(values);
+                return this.Ok(json);
             }
             catch (Exception e)
             {

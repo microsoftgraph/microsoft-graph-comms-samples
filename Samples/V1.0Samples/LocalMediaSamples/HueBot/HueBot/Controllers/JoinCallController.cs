@@ -50,15 +50,13 @@ namespace Sample.HueBot.Controllers
             var serviceURL = new UriBuilder($"{this.Request.Scheme}://{this.Request.Host}");
             serviceURL.Port = this.botOptions.BotBaseUrl.Port + this.statefulServiceContext.NodeInstance();
 
-            var url = new UriBuilder($"{this.Request.Scheme}://{this.Request.Host}/{HttpRouteConstants.CallRoute}".Replace("{callId}", call.Id));
-
             return this.Ok(new JoinCallResponseBody
             {
                 CallURL = serviceURL + HttpRouteConstants.CallRoute.Replace("{callId}", call.Id),
                 CallSnapshotURL = serviceURL + HttpRouteConstants.OnSnapshotRoute.Replace("{callId}", call.Id),
                 CallHueURL = serviceURL + HttpRouteConstants.OnHueRoute.Replace("{callId}", call.Id),
                 CallsURL = serviceURL + HttpRouteConstants.Calls,
-                ServiceLogsURL = serviceURL + HttpRouteConstants.Logs,
+                ServiceLogsURL = serviceURL + HttpRouteConstants.Logs + call.Id,
             });
         }
 

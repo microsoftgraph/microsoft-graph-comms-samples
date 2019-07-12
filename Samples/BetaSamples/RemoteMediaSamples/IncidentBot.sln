@@ -1,10 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2036
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DCC9792D-0B15-4167-8A9F-BB5DDDA6E7D6}"
 	ProjectSection(SolutionItems) = preProject
+		..\..\configure_cloud.ps1 = ..\..\configure_cloud.ps1
 		Getting Started with the Remote Media Samples.md = Getting Started with the Remote Media Samples.md
 		..\Graph.props = ..\Graph.props
 		..\nuget.config = ..\nuget.config
@@ -12,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IncidentBot", "IncidentBot\IncidentBot.csproj", "{FA70E97D-7018-4B08-A9D0-ABA9967AD7DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Common", "..\..\Common\Sample.Common\Sample.Common.csproj", "{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Common", "..\..\Common\Sample.Common\Sample.Common.csproj", "{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

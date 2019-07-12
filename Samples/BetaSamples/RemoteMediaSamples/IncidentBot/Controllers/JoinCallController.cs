@@ -11,6 +11,7 @@ namespace Sample.IncidentBot.Http
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Graph.Communications.Common;
     using Microsoft.Graph.Communications.Common.Telemetry;
+    using Microsoft.Graph.Communications.Core.Serialization;
     using Sample.IncidentBot.Bot;
     using Sample.IncidentBot.Data;
 
@@ -52,7 +53,23 @@ namespace Sample.IncidentBot.Http
             try
             {
                 var call = await this.bot.JoinCallAsync(joinCallBody).ConfigureAwait(false);
-                return this.Ok(call.Id);
+
+                var callUriTemplate = new UriBuilder(this.bot.BotInstanceUri);
+                callUriTemplate.Path = HttpRouteConstants.CallRoutePrefix.Replace("{callLegId}", call.Id);
+                callUriTemplate.Query = this.bot.BotInstanceUri.Query.Trim('?');
+
+                var callUri = callUriTemplate.Uri.AbsoluteUri;
+                var values = new Dictionary<string, string>
+                {
+                    { "legId", call.Id },
+                    { "scenarioId", call.ScenarioId.ToString() },
+                    { "call", callUri },
+                    { "logs", callUri.Replace("/calls/", "/logs/") },
+                };
+
+                var serializer = new CommsSerializer(pretty: true);
+                var json = serializer.SerializeObject(values);
+                return this.Ok(json);
             }
             catch (Exception e)
             {
@@ -81,10 +98,17 @@ namespace Sample.IncidentBot.Http
             foreach (var callHandler in this.bot.CallHandlers.Values)
             {
                 var call = callHandler.Call;
+                var callUriTemplate = new UriBuilder(this.bot.BotInstanceUri);
+                callUriTemplate.Path = HttpRouteConstants.CallRoutePrefix.Replace("{callLegId}", call.Id);
+                callUriTemplate.Query = this.bot.BotInstanceUri.Query.Trim('?');
+
+                var callUri = callUriTemplate.Uri.AbsoluteUri;
                 var values = new Dictionary<string, string>
                 {
                     { "legId", call.Id },
                     { "scenarioId", call.ScenarioId.ToString() },
+                    { "call", callUri },
+                    { "logs", callUri.Replace("/calls/", "/logs/") },
                 };
                 calls.Add(values);
             }
