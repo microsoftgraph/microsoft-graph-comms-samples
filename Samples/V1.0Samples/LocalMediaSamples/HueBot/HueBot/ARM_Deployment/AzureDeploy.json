@@ -445,8 +445,8 @@
               "frontendIPConfiguration": {
                 "id": "[variables('lbIPConfig0')]"
               },
-              "frontendPortRangeEnd": "8100",
-              "frontendPortRangeStart": "8000",
+              "frontendPortRangeEnd": "8545",
+              "frontendPortRangeStart": "8445",
               "protocol": "tcp"
             }
           },

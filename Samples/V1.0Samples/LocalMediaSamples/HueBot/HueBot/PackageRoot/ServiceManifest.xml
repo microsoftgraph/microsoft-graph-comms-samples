@@ -15,7 +15,7 @@
     <SetupEntryPoint>
       <ExeHost>
         <Program>Startup.cmd</Program>
-        <Arguments></Arguments>
+        <Arguments>8445 ABC0000000000000000000000000000000000CBA</Arguments>
         <WorkingFolder>CodePackage</WorkingFolder>
       </ExeHost>
     </SetupEntryPoint>
