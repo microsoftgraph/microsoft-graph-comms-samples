@@ -338,7 +338,7 @@ namespace Sample.HueBot.Bot
                 {
                     CertificateThumbprint = options.Certificate,
                     InstanceInternalPort = serviceContext.CodePackageActivationContext.GetEndpoint("MediaPort").Port,
-                    InstancePublicIPAddress = new IPAddress(0x0), //// instanceAddresses[0],
+                    InstancePublicIPAddress = instanceAddresses[0],
                     InstancePublicPort = publicMediaUrl.Port + instanceNumber,
                     ServiceFqdn = publicMediaUrl.Host,
                 },

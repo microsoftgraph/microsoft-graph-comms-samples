@@ -38,10 +38,13 @@ For running locally, we need to use a tunneling mechanism to route traffic to yo
         * Create a wildcard certificate. For instance, if your bot is hosted at `bot.contoso.com`, create the certificate for `*.contoso.com`.
 
     1. [Azure] Upload the certificate to your key-vault instance.
+
         ![ConfigureCert1](Images/ConfigureCert1.png)
+
         ![ConfigureCert1](Images/ConfigureCert2.png)
 
     1. [Azure] Copy the Secret Identifier to be used later.
+
         ![ConfigureCert1](Images/ConfigureCert3.png)
 
     1. Install the certificate to the LocalMachine/My certificate folder on your dev machine, including the private keys. Save the thumbprint for later.
@@ -62,6 +65,7 @@ For running locally, we need to use a tunneling mechanism to route traffic to yo
         ```
 
     1. Start ngrok: `ngrok.exe start -all -config %replace_with_path_to_your_ngrok.yml%`. You will see an output like this:
+
         ![ngrokScreenshot](Images/ngrokScreenshot.png)
 
     1. From **your** output, note the 3 values in the places marked in red above. From now on, we will call them by these names:
@@ -73,11 +77,29 @@ For running locally, we need to use a tunneling mechanism to route traffic to yo
 
 ### Code
 
+* Run the `configure_cloud.ps1` script to configure your application.
+    * Open a powershell session and navigate to the `/Samples` folder.
+    * Run the following command
+
+    ```Powershell
+    .\configure_cloud.ps1 -p .\V1.0Samples\LocalMediaSamples\HueBot `
+        -dns {full cluster name: huebotxxxxx.xxxx.cloudapp.azure.com} `
+        -cn {full cluster name: huebotxxxxx.xxxx.cloudapp.azure.com} `
+        -thumb ABC0000000000000000000000000000000000CBA `
+        -bid {bot/cluster name: HueBotxxxxx} `
+        -aid {application id created during registration} `
+        -as {application secret created during registration}
+    ```
+
+Alternatively, you can configure your solution manually.
+
 * Open the `HueBot.sln` in Visual Studio 2017 and search/replace these values:
     * `%AppId%` and `%AppSecret%` that you obtained during application registration.
-    * Replace all `huebotsxxxxx.xxxx.cloudapp.azure.com` with your full cluster name.
+    * `%BotNameLower%` with your desired service fabric cluser name.
+    * Replace all `%ServiceDns%` with your full cluster name (I.E. huebotxxxxx.xxxx.cloudapp.azure.com).
+    * Replace all `%CName%` with your full cluster name (I.E. huebotxxxxx.xxxx.cloudapp.azure.com).
     * Replace all certificate thumbprint `ABC0000000000000000000000000000000000CBA` with your certificate.
-    * in HueBot/PackageRoot/ServiceManifest.xml file, for Startup.cmd, add `8445 your certificate thumbprint` for \<Arguments\>. For example \<Arguments\>`8445 ABC0000000000000000000000000000000000CBA`\</Arguments\>
+
 ### Deploy
 
 #### [Azure] deployment
@@ -129,12 +151,11 @@ Click `Start` on the top toolbar to deploy the sample to the local cluster.
 
         ##### Request
         ```json
-            POST https://huebotsxxxxx.xxxx.cloudapp.azure.com:9441/joinCall
+            POST https://huebotxxxxx.xxxx.cloudapp.azure.com:9441/joinCall
             Content-Type: application/json
 
             {
-              "JoinURL": "https://teams.microsoft.com/l/meetup-join/...",
-              "TenantId": "72f988bf-..."
+              "JoinURL": "https://teams.microsoft.com/l/meetup-join/..."
             }
         ```
 
@@ -145,11 +166,11 @@ Click `Start` on the top toolbar to deploy the sample to the local cluster.
           Content-Type: application/json
 
           {
-              "callURL": "https://huebotsxxxxx.xxxx.cloudapp.azure.com:9445/calls/321a0b00-84de-415b-a31b-bdd1b0abe663/",
-              "callSnapshotURL": "https://huebotsxxxxx.xxxx.cloudapp.azure.com:9445/calls/321a0b00-84de-415b-a31b-bdd1b0abe663/scr",
-              "callHueURL": "https://huebotsxxxxx.xxxx.cloudapp.azure.com:9445/calls/321a0b00-84de-415b-a31b-bdd1b0abe663/hue",
-              "callsURL": "https://huebotsxxxxx.xxxx.cloudapp.azure.com:9445/calls/",
-              "serviceLogsURL": "https://huebotsxxxxx.xxxx.cloudapp.azure.com:9445/logs/"
+              "callURL": "https://huebotxxxxx.xxxx.cloudapp.azure.com:9445/calls/321a0b00-84de-415b-a31b-bdd1b0abe663/",
+              "callSnapshotURL": "https://huebotxxxxx.xxxx.cloudapp.azure.com:9445/calls/321a0b00-84de-415b-a31b-bdd1b0abe663/scr",
+              "callHueURL": "https://huebotxxxxx.xxxx.cloudapp.azure.com:9445/calls/321a0b00-84de-415b-a31b-bdd1b0abe663/hue",
+              "callsURL": "https://huebotxxxxx.xxxx.cloudapp.azure.com:9445/calls/",
+              "serviceLogsURL": "https://huebotxxxxx.xxxx.cloudapp.azure.com:9445/logs/"
           }
         ```
 
@@ -157,20 +178,20 @@ Click `Start` on the top toolbar to deploy the sample to the local cluster.
 
         ##### Request
         ```json
-            PUT https://huebotsxxxxx.xxxx.cloudapp.azure.com:9445/calls/321a0b00-84de-415b-a31b-bdd1b0abe663/hue
+            PUT https://huebotxxxxx.xxxx.cloudapp.azure.com:9445/calls/321a0b00-84de-415b-a31b-bdd1b0abe663/hue
             Content-Type: application/json
 
             "green"
         ```
 
     1. Get diagnostics data from the bot. Open the links in a browser for auto-refresh. Replace the call id 321a0b00-84de-415b-a31b-bdd1b0abe663 below with your call id from the first response.
-       Call logs: https://huebotsxxxxx.xxxx.cloudapp.azure.com:9445/logs/321a0b00-84de-415b-a31b-bdd1b0abe663/
-       Active calls: https://huebotsxxxxx.xxxx.cloudapp.azure.com:9445/calls
-       Service logs: https://huebotsxxxxx.xxxx.cloudapp.azure.com:9445/logs
+       Call logs: https://huebotxxxxx.xxxx.cloudapp.azure.com:9445/logs/321a0b00-84de-415b-a31b-bdd1b0abe663/
+       Active calls: https://huebotxxxxx.xxxx.cloudapp.azure.com:9445/calls
+       Service logs: https://huebotxxxxx.xxxx.cloudapp.azure.com:9445/logs
 
     1. Terminating the call through `DELETE`. Replace the call id 321a0b00-84de-415b-a31b-bdd1b0abe663 below with your call id from the first response.
 
         ##### Request
         ```json
-            DELETE https://huebotsxxxxx.xxxx.cloudapp.azure.com:9445/calls/321a0b00-84de-415b-a31b-bdd1b0abe663
+            DELETE https://huebotxxxxx.xxxx.cloudapp.azure.com:9445/calls/321a0b00-84de-415b-a31b-bdd1b0abe663
         ```

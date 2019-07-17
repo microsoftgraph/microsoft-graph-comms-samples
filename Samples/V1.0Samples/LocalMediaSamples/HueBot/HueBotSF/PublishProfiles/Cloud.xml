@@ -20,7 +20,7 @@
                                     AzureActiveDirectory="true"
                                     ServerCertThumbprint="0123456789012345678901234567890123456789" />
   -->
-  <ClusterConnectionParameters ConnectionEndpoint="huebotsf02.westus.cloudapp.azure.com:19000" X509Credential="true" ServerCertThumbprint="ABC0000000000000000000000000000000000CBA" FindType="FindByThumbprint" FindValue="ABC0000000000000000000000000000000000CBA" StoreLocation="LocalMachine" StoreName="My" />
+  <ClusterConnectionParameters ConnectionEndpoint="%ServiceDns%:19000" X509Credential="true" ServerCertThumbprint="ABC0000000000000000000000000000000000CBA" FindType="FindByThumbprint" FindValue="ABC0000000000000000000000000000000000CBA" StoreLocation="LocalMachine" StoreName="My" />
   <ApplicationParameterFile Path="..\ApplicationParameters\Cloud.xml" />
   <CopyPackageParameters CompressPackage="true" />
   <UpgradeDeployment Mode="Monitored" Enabled="false">

@@ -56,7 +56,7 @@ param(
 
 Write-Output 'Microsoft BotBuilder Enterprise SDK - Azure Cloud Configurator'
 
-$Files = "ServiceConfiguration.Cloud.cscfg", "ServiceConfiguration.Local.cscfg", "app.config", "appsettings.json"
+$Files = "ServiceConfiguration.Cloud.cscfg", "ServiceConfiguration.Local.cscfg", "app.config", "appsettings.json", "cloud.xml", "ServiceManifest.xml", "ApplicationManifest.xml", "AzureDeploy.Parameters.json"
 [System.Collections.ArrayList]$FilesToReplace = @()
 
 foreach($file in $Files)
@@ -143,7 +143,8 @@ foreach($file in $FilesToReplace)
     ReplaceInFile $file "%ServiceDns%" $ServiceDns
     ReplaceInFile $file "%CName%" $CName
     ReplaceInFile $file "ABC0000000000000000000000000000000000CBA" $CertThumbprint
-    ReplaceInFile $file "%BotId%" $BotName
+    ReplaceInFile $file "%BotName%" $BotName
+    ReplaceInFile $file "%BotNameLower%" $BotName.ToLower()
     ReplaceInFile $file "%AppId%" $AppId
     ReplaceInFile $file "%AppSecret%" $AppSecret
 }
