@@ -83,7 +83,7 @@
   
   <h1 id="Microsoft_Graph_OnlineMeeting" data-uid="Microsoft.Graph.OnlineMeeting" class="text-break">Class OnlineMeeting
   </h1>
-  <div class="markdown level0 summary"><p>The type Online Meeting.</p>
+  <div class="markdown level0 summary"><p>OnlineMeeting class.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -91,7 +91,7 @@
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">OnlineMeeting</span></div>
   </div>
-  <h6><strong>Namespace</strong>: <span class="xref">Microsoft.Graph</span></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.graph">Microsoft.Graph</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.Communications.Core.Calls.dll</h6>
   <h5 id="Microsoft_Graph_OnlineMeeting_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -111,7 +111,7 @@
   </h3>
   <a id="Microsoft_Graph_OnlineMeeting_AccessLevel_" data-uid="Microsoft.Graph.OnlineMeeting.AccessLevel*"></a>
   <h4 id="Microsoft_Graph_OnlineMeeting_AccessLevel" data-uid="Microsoft.Graph.OnlineMeeting.AccessLevel">AccessLevel</h4>
-  <div class="markdown level1 summary"><p>Gets or sets access level.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the access level.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -135,7 +135,7 @@
   </table>
   <a id="Microsoft_Graph_OnlineMeeting_AudioConferencing_" data-uid="Microsoft.Graph.OnlineMeeting.AudioConferencing*"></a>
   <h4 id="Microsoft_Graph_OnlineMeeting_AudioConferencing" data-uid="Microsoft.Graph.OnlineMeeting.AudioConferencing">AudioConferencing</h4>
-  <div class="markdown level1 summary"><p>Gets or sets audio conferencing.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the audio conferencing information.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -159,7 +159,7 @@
   </table>
   <a id="Microsoft_Graph_OnlineMeeting_CanceledDateTime_" data-uid="Microsoft.Graph.OnlineMeeting.CanceledDateTime*"></a>
   <h4 id="Microsoft_Graph_OnlineMeeting_CanceledDateTime" data-uid="Microsoft.Graph.OnlineMeeting.CanceledDateTime">CanceledDateTime</h4>
-  <div class="markdown level1 summary"><p>Gets or sets canceled date time.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the cancelled date and time.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -181,9 +181,33 @@
       </tr>
     </tbody>
   </table>
+  <a id="Microsoft_Graph_OnlineMeeting_Capabilities_" data-uid="Microsoft.Graph.OnlineMeeting.Capabilities*"></a>
+  <h4 id="Microsoft_Graph_OnlineMeeting_Capabilities" data-uid="Microsoft.Graph.OnlineMeeting.Capabilities">Capabilities</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the meeting capabilities.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;MeetingCapabilities&gt; Capabilities { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Microsoft.Graph.MeetingCapabilities.html">MeetingCapabilities</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <a id="Microsoft_Graph_OnlineMeeting_ChatInfo_" data-uid="Microsoft.Graph.OnlineMeeting.ChatInfo*"></a>
   <h4 id="Microsoft_Graph_OnlineMeeting_ChatInfo" data-uid="Microsoft.Graph.OnlineMeeting.ChatInfo">ChatInfo</h4>
-  <div class="markdown level1 summary"><p>Gets or sets chat info.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the chat related info associated with this meeting.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -207,7 +231,7 @@
   </table>
   <a id="Microsoft_Graph_OnlineMeeting_CreationDateTime_" data-uid="Microsoft.Graph.OnlineMeeting.CreationDateTime*"></a>
   <h4 id="Microsoft_Graph_OnlineMeeting_CreationDateTime" data-uid="Microsoft.Graph.OnlineMeeting.CreationDateTime">CreationDateTime</h4>
-  <div class="markdown level1 summary"><p>Gets or sets creation date time.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the creation date and time.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -231,7 +255,7 @@
   </table>
   <a id="Microsoft_Graph_OnlineMeeting_EndDateTime_" data-uid="Microsoft.Graph.OnlineMeeting.EndDateTime*"></a>
   <h4 id="Microsoft_Graph_OnlineMeeting_EndDateTime" data-uid="Microsoft.Graph.OnlineMeeting.EndDateTime">EndDateTime</h4>
-  <div class="markdown level1 summary"><p>Gets or sets end date time.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the end date and time.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -255,7 +279,7 @@
   </table>
   <a id="Microsoft_Graph_OnlineMeeting_EntryExitAnnouncement_" data-uid="Microsoft.Graph.OnlineMeeting.EntryExitAnnouncement*"></a>
   <h4 id="Microsoft_Graph_OnlineMeeting_EntryExitAnnouncement" data-uid="Microsoft.Graph.OnlineMeeting.EntryExitAnnouncement">EntryExitAnnouncement</h4>
-  <div class="markdown level1 summary"><p>Gets or sets entry exit announcement.</p>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether [entry exit announcement]. The attendance announcements status for the online meeting. When attendance announcements are enabled, the online meeting will announce the names of the participants who join the meeting through audio.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -279,7 +303,7 @@
   </table>
   <a id="Microsoft_Graph_OnlineMeeting_ExpirationDateTime_" data-uid="Microsoft.Graph.OnlineMeeting.ExpirationDateTime*"></a>
   <h4 id="Microsoft_Graph_OnlineMeeting_ExpirationDateTime" data-uid="Microsoft.Graph.OnlineMeeting.ExpirationDateTime">ExpirationDateTime</h4>
-  <div class="markdown level1 summary"><p>Gets or sets expiration date time.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the expiration date and time.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -303,7 +327,7 @@
   </table>
   <a id="Microsoft_Graph_OnlineMeeting_IsCancelled_" data-uid="Microsoft.Graph.OnlineMeeting.IsCancelled*"></a>
   <h4 id="Microsoft_Graph_OnlineMeeting_IsCancelled" data-uid="Microsoft.Graph.OnlineMeeting.IsCancelled">IsCancelled</h4>
-  <div class="markdown level1 summary"><p>Gets or sets is cancelled.</p>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the meeting has been canceled.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -327,7 +351,7 @@
   </table>
   <a id="Microsoft_Graph_OnlineMeeting_JoinUrl_" data-uid="Microsoft.Graph.OnlineMeeting.JoinUrl*"></a>
   <h4 id="Microsoft_Graph_OnlineMeeting_JoinUrl" data-uid="Microsoft.Graph.OnlineMeeting.JoinUrl">JoinUrl</h4>
-  <div class="markdown level1 summary"><p>Gets or sets join url.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the join URL.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -351,7 +375,7 @@
   </table>
   <a id="Microsoft_Graph_OnlineMeeting_MeetingType_" data-uid="Microsoft.Graph.OnlineMeeting.MeetingType*"></a>
   <h4 id="Microsoft_Graph_OnlineMeeting_MeetingType" data-uid="Microsoft.Graph.OnlineMeeting.MeetingType">MeetingType</h4>
-  <div class="markdown level1 summary"><p>Gets or sets meeting type.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the meeting type.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -375,7 +399,7 @@
   </table>
   <a id="Microsoft_Graph_OnlineMeeting_Participants_" data-uid="Microsoft.Graph.OnlineMeeting.Participants*"></a>
   <h4 id="Microsoft_Graph_OnlineMeeting_Participants" data-uid="Microsoft.Graph.OnlineMeeting.Participants">Participants</h4>
-  <div class="markdown level1 summary"><p>Gets or sets participants.</p>
+  <div class="markdown level1 summary"><p>Gets or sets information on the participants of the meeting.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -399,7 +423,7 @@
   </table>
   <a id="Microsoft_Graph_OnlineMeeting_StartDateTime_" data-uid="Microsoft.Graph.OnlineMeeting.StartDateTime*"></a>
   <h4 id="Microsoft_Graph_OnlineMeeting_StartDateTime" data-uid="Microsoft.Graph.OnlineMeeting.StartDateTime">StartDateTime</h4>
-  <div class="markdown level1 summary"><p>Gets or sets start date time.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the start date and time.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -423,12 +447,36 @@
   </table>
   <a id="Microsoft_Graph_OnlineMeeting_Subject_" data-uid="Microsoft.Graph.OnlineMeeting.Subject*"></a>
   <h4 id="Microsoft_Graph_OnlineMeeting_Subject" data-uid="Microsoft.Graph.OnlineMeeting.Subject">Subject</h4>
-  <div class="markdown level1 summary"><p>Gets or sets subject.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the Subject.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public string Subject { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_OnlineMeeting_VideoTeleconferenceId_" data-uid="Microsoft.Graph.OnlineMeeting.VideoTeleconferenceId*"></a>
+  <h4 id="Microsoft_Graph_OnlineMeeting_VideoTeleconferenceId" data-uid="Microsoft.Graph.OnlineMeeting.VideoTeleconferenceId">VideoTeleconferenceId</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the video teleconference id.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string VideoTeleconferenceId { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">

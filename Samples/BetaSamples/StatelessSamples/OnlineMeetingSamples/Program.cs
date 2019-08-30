@@ -18,7 +18,7 @@ namespace Sample.OnlineMeeting
         private static string appSecret = "__placeholder__";
         private static string appId = "__placeholder__";
 
-        private static string meetingId = "__placeholder__";
+        private static string vtcId = "__placeholder__";
         private static string tenantId = "__placeholder__";
         private static string organizerID = "__placeholder__";
 
@@ -28,9 +28,9 @@ namespace Sample.OnlineMeeting
         /// Gets the online meeting asynchronous.
         /// </summary>
         /// <param name="tenantId">The tenant identifier.</param>
-        /// <param name="meetingId">The meeting identifier.</param>
+        /// <param name="videoTeleconferenceId">The meeting identifier.</param>
         /// <returns> The onlinemeeting details. </returns>
-        public static async Task<Microsoft.Graph.OnlineMeeting> GetOnlineMeetingAsync(string tenantId, string meetingId)
+        public static async Task<Microsoft.Graph.OnlineMeeting> GetOnlineMeetingByVtcIdAsync(string tenantId, string videoTeleconferenceId)
         {
             var name = typeof(Program).Assembly.GetName().Name;
             var logger = new GraphLogger(name);
@@ -38,7 +38,7 @@ namespace Sample.OnlineMeeting
                         new AuthenticationProvider(name, appId, appSecret, logger),
                         graphUri);
 
-            var meetingDetails = await onlineMeeting.GetOnlineMeetingAsync(tenantId, meetingId, default(Guid)).ConfigureAwait(false);
+            var meetingDetails = await onlineMeeting.GetOnlineMeetingByVtcIdAsync(tenantId, videoTeleconferenceId, default(Guid)).ConfigureAwait(false);
 
             Console.WriteLine(meetingDetails.Id);
             Console.WriteLine(meetingDetails.ChatInfo.ThreadId);
@@ -78,7 +78,7 @@ namespace Sample.OnlineMeeting
             {
                 try
                 {
-                    var meetingDetails = await GetOnlineMeetingAsync(tenantId, meetingId).ConfigureAwait(false);
+                    var meetingDetails = await GetOnlineMeetingByVtcIdAsync(tenantId, vtcId).ConfigureAwait(false);
 
                     var createdMeetingDetails = await CreateOnlineMeetingAsync(tenantId, organizerID).ConfigureAwait(false);
                 }

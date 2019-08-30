@@ -95,7 +95,7 @@
     <h5>Implements</h5>
     <div><a class="xref" href="Microsoft.Graph.ICallPlayPromptRequestBuilder.html">ICallPlayPromptRequestBuilder</a></div>
   </div>
-  <h6><strong>Namespace</strong>: <span class="xref">Microsoft.Graph</span></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.graph">Microsoft.Graph</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.Communications.Core.Calls.dll</h6>
   <h5 id="Microsoft_Graph_CallPlayPromptRequestBuilder_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -104,13 +104,13 @@
   <h3 id="constructors">Constructors
   </h3>
   <a id="Microsoft_Graph_CallPlayPromptRequestBuilder__ctor_" data-uid="Microsoft.Graph.CallPlayPromptRequestBuilder.#ctor*"></a>
-  <h4 id="Microsoft_Graph_CallPlayPromptRequestBuilder__ctor_System_String_Microsoft_Graph_IBaseClient_System_Collections_Generic_IEnumerable_Microsoft_Graph_Prompt__System_String_" data-uid="Microsoft.Graph.CallPlayPromptRequestBuilder.#ctor(System.String,Microsoft.Graph.IBaseClient,System.Collections.Generic.IEnumerable{Microsoft.Graph.Prompt},System.String)">CallPlayPromptRequestBuilder(String, IBaseClient, IEnumerable&lt;Prompt&gt;, String)</h4>
+  <h4 id="Microsoft_Graph_CallPlayPromptRequestBuilder__ctor_System_String_Microsoft_Graph_IBaseClient_System_Collections_Generic_IEnumerable_Microsoft_Graph_Prompt__System_Nullable_System_Boolean__System_String_" data-uid="Microsoft.Graph.CallPlayPromptRequestBuilder.#ctor(System.String,Microsoft.Graph.IBaseClient,System.Collections.Generic.IEnumerable{Microsoft.Graph.Prompt},System.Nullable{System.Boolean},System.String)">CallPlayPromptRequestBuilder(String, IBaseClient, IEnumerable&lt;Prompt&gt;, Nullable&lt;Boolean&gt;, String)</h4>
   <div class="markdown level1 summary"><p>Constructs a new <a class="xref" href="Microsoft.Graph.CallPlayPromptRequestBuilder.html">CallPlayPromptRequestBuilder</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public CallPlayPromptRequestBuilder(string requestUrl, IBaseClient client, IEnumerable&lt;Prompt&gt; prompts, string clientContext)</code></pre>
+    <pre><code class="lang-csharp hljs">public CallPlayPromptRequestBuilder(string requestUrl, IBaseClient client, IEnumerable&lt;Prompt&gt; prompts, bool? loop, string clientContext)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -129,15 +129,21 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Microsoft.Graph.IBaseClient</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.graph.ibaseclient">IBaseClient</a></td>
         <td><span class="parametername">client</span></td>
-        <td><p>The <span class="xref">Microsoft.Graph.IBaseClient</span> for handling requests.</p>
+        <td><p>The <a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.graph.ibaseclient">IBaseClient</a> for handling requests.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Microsoft.Graph.Prompt.html">Prompt</a>&gt;</td>
         <td><span class="parametername">prompts</span></td>
         <td><p>A prompts parameter for the OData method call.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="parametername">loop</span></td>
+        <td><p>A loop parameter for the OData method call.</p>
 </td>
       </tr>
       <tr>
@@ -176,7 +182,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<span class="xref">Microsoft.Graph.Option</span>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.graph.option">Option</a>&gt;</td>
         <td><span class="parametername">options</span></td>
         <td><p>The query and header options for the request.</p>
 </td>
@@ -220,7 +226,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<span class="xref">Microsoft.Graph.Option</span>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.graph.option">Option</a>&gt;</td>
         <td><span class="parametername">options</span></td>
         <td></td>
       </tr>

@@ -6,10 +6,11 @@
 namespace Sample.OnlineMeeting
 {
     using System;
+    using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.Graph;
     using Microsoft.Graph.Communications.Client.Authentication;
-    using Microsoft.Graph.Communications.Core;
+    using Microsoft.Graph.Communications.Common;
 
     /// <summary>
     /// Online meeting class to fetch meeting info based of meeting id (ex: vtckey).
@@ -35,19 +36,21 @@ namespace Sample.OnlineMeeting
         /// Permissions required : Either OnlineMeetings.Read.All or OnlineMeetings.ReadWrite.All.
         /// </summary>
         /// <param name="tenantId">The tenant identifier.</param>
-        /// <param name="meetingId">The meeting identifier.</param>
+        /// <param name="vtcId">The vtcid assoiciated with the meeting.</param>
         /// <param name="scenarioId">The scenario identifier - needed in case of debugging for correlating client side request with server side logs.</param>
         /// <returns> The onlinemeeting. </returns>
-        public async Task<Microsoft.Graph.OnlineMeeting> GetOnlineMeetingAsync(string tenantId, string meetingId, Guid scenarioId)
+        public async Task<Microsoft.Graph.OnlineMeeting> GetOnlineMeetingByVtcIdAsync(string tenantId, string vtcId, Guid scenarioId)
         {
            var statelessClient = new CallsGraphServiceClient(
                this.graphEndpointUri.AbsoluteUri,
                this.GetAuthenticationProvider(tenantId, scenarioId));
 
-           var meetingRequest = statelessClient.App.OnlineMeetings[meetingId].Request();
-           var meeting = await meetingRequest.GetAsync().ConfigureAwait(false);
+           var meetingRequestCollection = statelessClient.App.OnlineMeetings.Request();
+           meetingRequestCollection.Filter($"VideoTeleconferenceId eq '{vtcId}'");
 
-           return meeting;
+           var meeting = await meetingRequestCollection.GetAsync().ConfigureAwait(false);
+
+           return meeting.First();
         }
 
         /// <summary>
@@ -100,8 +103,8 @@ namespace Sample.OnlineMeeting
         {
             return new DelegateAuthenticationProvider(async request =>
             {
-                request.Headers.Add(CommsConstants.Headers.ScenarioId, scenarioId.ToString());
-                request.Headers.Add(CommsConstants.Headers.ClientRequestId, Guid.NewGuid().ToString());
+                request.Headers.Add(HttpConstants.HeaderNames.ScenarioId, scenarioId.ToString());
+                request.Headers.Add(HttpConstants.HeaderNames.ClientRequestId, Guid.NewGuid().ToString());
 
                 await this.requestAuthenticationProvider.AuthenticateOutboundRequestAsync(request, tenantId)
                     .ConfigureAwait(false);

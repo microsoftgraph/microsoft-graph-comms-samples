@@ -9,7 +9,7 @@ namespace Sample.Common.OnlineMeetings
     using System.Threading.Tasks;
     using Microsoft.Graph;
     using Microsoft.Graph.Communications.Client.Authentication;
-    using Microsoft.Graph.Communications.Core;
+    using Microsoft.Graph.Communications.Common;
 
     /// <summary>
     /// Online meeting class to fetch meeting info based of meeting id (ex: vtckey).
@@ -43,8 +43,8 @@ namespace Sample.Common.OnlineMeetings
             {
                 return new DelegateAuthenticationProvider(async request =>
                 {
-                    request.Headers.Add(CommsConstants.Headers.ScenarioId, scenarioId.ToString());
-                    request.Headers.Add(CommsConstants.Headers.ClientRequestId, Guid.NewGuid().ToString());
+                    request.Headers.Add(HttpConstants.HeaderNames.ScenarioId, scenarioId.ToString());
+                    request.Headers.Add(HttpConstants.HeaderNames.ClientRequestId, Guid.NewGuid().ToString());
 
                     await this.requestAuthenticationProvider
                         .AuthenticateOutboundRequestAsync(request, tenantId)

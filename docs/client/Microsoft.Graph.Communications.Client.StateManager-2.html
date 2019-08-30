@@ -148,7 +148,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Microsoft.Graph.ISerializer</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.graph.iserializer">ISerializer</a></td>
         <td><span class="parametername">serializer</span></td>
         <td><p>The serializer.</p>
 </td>
@@ -443,13 +443,54 @@
       </tr>
     </tbody>
   </table>
+  <a id="Microsoft_Graph_Communications_Client_StateManager_2_GetOrAdd_" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.GetOrAdd*"></a>
+  <h4 id="Microsoft_Graph_Communications_Client_StateManager_2_GetOrAdd_System_String_System_Func__0__" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.GetOrAdd(System.String,System.Func{`0})">GetOrAdd(String, Func&lt;TResource&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TResource GetOrAdd(string id, Func&lt;TResource&gt; resourceFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">id</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TResource&gt;</td>
+        <td><span class="parametername">resourceFactory</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResource</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <a id="Microsoft_Graph_Communications_Client_StateManager_2_GetOrAddAsync_" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.GetOrAddAsync*"></a>
   <h4 id="Microsoft_Graph_Communications_Client_StateManager_2_GetOrAddAsync_System_String_System_Func_System_Threading_Tasks_Task__0___" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.GetOrAddAsync(System.String,System.Func{System.Threading.Tasks.Task{`0}})">GetOrAddAsync(String, Func&lt;Task&lt;TResource&gt;&gt;)</h4>
-  <div class="markdown level1 summary"><p>Gets the resource with the specified id if it exists in the collection,
-otherwise executes the resource factory to create the resource.
-State manager does not guarantee that the resource factory is executed
-only once, so operations must be idempotent (I.E. GET, PUT, etc...)</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -468,14 +509,12 @@ only once, so operations must be idempotent (I.E. GET, PUT, etc...)</p>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><span class="parametername">id</span></td>
-        <td><p>The identifier.</p>
-</td>
+        <td></td>
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TResource&gt;&gt;</td>
         <td><span class="parametername">resourceFactory</span></td>
-        <td><p>The resource factory.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -490,8 +529,7 @@ only once, so operations must be idempotent (I.E. GET, PUT, etc...)</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TResource&gt;</td>
-        <td><p>The <a class="xref" href="Microsoft.Graph.Communications.Resources.IResource-2.html">IResource&lt;TSelf, TEntity&gt;</a> that was found or created.</p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>

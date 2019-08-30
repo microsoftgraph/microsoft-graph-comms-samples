@@ -83,7 +83,7 @@
   
   <h1 id="Microsoft_Graph_ResultInfo" data-uid="Microsoft.Graph.ResultInfo" class="text-break">Class ResultInfo
   </h1>
-  <div class="markdown level0 summary"><p>The type ResultInfo.</p>
+  <div class="markdown level0 summary"><p>Result info class to be used to report result status for actions/operations.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -115,7 +115,7 @@
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <span class="xref">Microsoft.Graph</span></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.graph">Microsoft.Graph</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.Communications.Core.dll</h6>
   <h5 id="Microsoft_Graph_ResultInfo_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -159,7 +159,7 @@
   </table>
   <a id="Microsoft_Graph_ResultInfo_Code_" data-uid="Microsoft.Graph.ResultInfo.Code*"></a>
   <h4 id="Microsoft_Graph_ResultInfo_Code" data-uid="Microsoft.Graph.ResultInfo.Code">Code</h4>
-  <div class="markdown level1 summary"><p>Gets or sets code.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the result code For synchronous failures, this maps one-to-one with HTTP responses. For asynchronous failures or messages, it is contextual.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -183,7 +183,7 @@
   </table>
   <a id="Microsoft_Graph_ResultInfo_Message_" data-uid="Microsoft.Graph.ResultInfo.Message*"></a>
   <h4 id="Microsoft_Graph_ResultInfo_Message" data-uid="Microsoft.Graph.ResultInfo.Message">Message</h4>
-  <div class="markdown level1 summary"><p>Gets or sets message.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the message The message is a detail explanation of subcode.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -229,14 +229,14 @@
       </tr>
     </tbody>
   </table>
-  <a id="Microsoft_Graph_ResultInfo_SubCode_" data-uid="Microsoft.Graph.ResultInfo.SubCode*"></a>
-  <h4 id="Microsoft_Graph_ResultInfo_SubCode" data-uid="Microsoft.Graph.ResultInfo.SubCode">SubCode</h4>
-  <div class="markdown level1 summary"><p>Gets or sets subCode.</p>
+  <a id="Microsoft_Graph_ResultInfo_Subcode_" data-uid="Microsoft.Graph.ResultInfo.Subcode*"></a>
+  <h4 id="Microsoft_Graph_ResultInfo_Subcode" data-uid="Microsoft.Graph.ResultInfo.Subcode">Subcode</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the result subcode. The subcode further classifies a failure. For example.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int? SubCode { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int? Subcode { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">

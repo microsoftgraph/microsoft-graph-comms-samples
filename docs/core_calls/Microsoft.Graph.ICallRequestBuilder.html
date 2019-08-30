@@ -86,7 +86,7 @@
   <div class="markdown level0 summary"><p>The interface ICallRequestBuilder.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <span class="xref">Microsoft.Graph</span></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.graph">Microsoft.Graph</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.Communications.Core.Calls.dll</h6>
   <h5 id="Microsoft_Graph_ICallRequestBuilder_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -350,13 +350,13 @@
     </tbody>
   </table>
   <a id="Microsoft_Graph_ICallRequestBuilder_PlayPrompt_" data-uid="Microsoft.Graph.ICallRequestBuilder.PlayPrompt*"></a>
-  <h4 id="Microsoft_Graph_ICallRequestBuilder_PlayPrompt_System_Collections_Generic_IEnumerable_Microsoft_Graph_Prompt__System_String_" data-uid="Microsoft.Graph.ICallRequestBuilder.PlayPrompt(System.Collections.Generic.IEnumerable{Microsoft.Graph.Prompt},System.String)">PlayPrompt(IEnumerable&lt;Prompt&gt;, String)</h4>
+  <h4 id="Microsoft_Graph_ICallRequestBuilder_PlayPrompt_System_Collections_Generic_IEnumerable_Microsoft_Graph_Prompt__System_Nullable_System_Boolean__System_String_" data-uid="Microsoft.Graph.ICallRequestBuilder.PlayPrompt(System.Collections.Generic.IEnumerable{Microsoft.Graph.Prompt},System.Nullable{System.Boolean},System.String)">PlayPrompt(IEnumerable&lt;Prompt&gt;, Nullable&lt;Boolean&gt;, String)</h4>
   <div class="markdown level1 summary"><p>Gets the request builder for CallPlayPrompt.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ICallPlayPromptRequestBuilder PlayPrompt(IEnumerable&lt;Prompt&gt; prompts, string clientContext = null)</code></pre>
+    <pre><code class="lang-csharp hljs">ICallPlayPromptRequestBuilder PlayPrompt(IEnumerable&lt;Prompt&gt; prompts, bool? loop = default(bool? ), string clientContext = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -371,6 +371,11 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Microsoft.Graph.Prompt.html">Prompt</a>&gt;</td>
         <td><span class="parametername">prompts</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td><span class="parametername">loop</span></td>
         <td></td>
       </tr>
       <tr>
@@ -479,13 +484,13 @@
     </tbody>
   </table>
   <a id="Microsoft_Graph_ICallRequestBuilder_Redirect_" data-uid="Microsoft.Graph.ICallRequestBuilder.Redirect*"></a>
-  <h4 id="Microsoft_Graph_ICallRequestBuilder_Redirect_System_Collections_Generic_IEnumerable_Microsoft_Graph_InvitationParticipantInfo__System_Nullable_Microsoft_Graph_CallDisposition__System_Nullable_System_Int32__System_Nullable_System_Boolean__System_Nullable_System_Boolean__" data-uid="Microsoft.Graph.ICallRequestBuilder.Redirect(System.Collections.Generic.IEnumerable{Microsoft.Graph.InvitationParticipantInfo},System.Nullable{Microsoft.Graph.CallDisposition},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">Redirect(IEnumerable&lt;InvitationParticipantInfo&gt;, Nullable&lt;CallDisposition&gt;, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;)</h4>
+  <h4 id="Microsoft_Graph_ICallRequestBuilder_Redirect_System_Collections_Generic_IEnumerable_Microsoft_Graph_InvitationParticipantInfo__System_Nullable_Microsoft_Graph_CallDisposition__System_Nullable_System_Int32__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_String_" data-uid="Microsoft.Graph.ICallRequestBuilder.Redirect(System.Collections.Generic.IEnumerable{Microsoft.Graph.InvitationParticipantInfo},System.Nullable{Microsoft.Graph.CallDisposition},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.String)">Redirect(IEnumerable&lt;InvitationParticipantInfo&gt;, Nullable&lt;CallDisposition&gt;, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, String)</h4>
   <div class="markdown level1 summary"><p>Gets the request builder for CallRedirect.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ICallRedirectRequestBuilder Redirect(IEnumerable&lt;InvitationParticipantInfo&gt; targets, CallDisposition? targetDisposition = default(CallDisposition? ), int? timeout = default(int? ), bool? maskCallee = default(bool? ), bool? maskCaller = default(bool? ))</code></pre>
+    <pre><code class="lang-csharp hljs">ICallRedirectRequestBuilder Redirect(IEnumerable&lt;InvitationParticipantInfo&gt; targets, CallDisposition? targetDisposition = default(CallDisposition? ), int? timeout = default(int? ), bool? maskCallee = default(bool? ), bool? maskCaller = default(bool? ), string callbackUri = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -522,6 +527,11 @@
         <td><span class="parametername">maskCaller</span></td>
         <td></td>
       </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">callbackUri</span></td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -541,13 +551,13 @@
     </tbody>
   </table>
   <a id="Microsoft_Graph_ICallRequestBuilder_Reject_" data-uid="Microsoft.Graph.ICallRequestBuilder.Reject*"></a>
-  <h4 id="Microsoft_Graph_ICallRequestBuilder_Reject_System_Nullable_Microsoft_Graph_RejectReason__" data-uid="Microsoft.Graph.ICallRequestBuilder.Reject(System.Nullable{Microsoft.Graph.RejectReason})">Reject(Nullable&lt;RejectReason&gt;)</h4>
+  <h4 id="Microsoft_Graph_ICallRequestBuilder_Reject_System_Nullable_Microsoft_Graph_RejectReason__System_String_" data-uid="Microsoft.Graph.ICallRequestBuilder.Reject(System.Nullable{Microsoft.Graph.RejectReason},System.String)">Reject(Nullable&lt;RejectReason&gt;, String)</h4>
   <div class="markdown level1 summary"><p>Gets the request builder for CallReject.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ICallRejectRequestBuilder Reject(RejectReason? reason = default(RejectReason? ))</code></pre>
+    <pre><code class="lang-csharp hljs">ICallRejectRequestBuilder Reject(RejectReason? reason = default(RejectReason? ), string callbackUri = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -562,6 +572,11 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="Microsoft.Graph.RejectReason.html">RejectReason</a>&gt;</td>
         <td><span class="parametername">reason</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">callbackUri</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -627,7 +642,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<span class="xref">Microsoft.Graph.Option</span>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.graph.option">Option</a>&gt;</td>
         <td><span class="parametername">options</span></td>
         <td><p>The query and header options for the request.</p>
 </td>
@@ -772,53 +787,6 @@
       <tr>
         <td><a class="xref" href="Microsoft.Graph.ICallUnmuteRequestBuilder.html">ICallUnmuteRequestBuilder</a></td>
         <td><p>The <a class="xref" href="Microsoft.Graph.ICallUnmuteRequestBuilder.html">ICallUnmuteRequestBuilder</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="Microsoft_Graph_ICallRequestBuilder_UpdateMetadata_" data-uid="Microsoft.Graph.ICallRequestBuilder.UpdateMetadata*"></a>
-  <h4 id="Microsoft_Graph_ICallRequestBuilder_UpdateMetadata_System_String_System_String_" data-uid="Microsoft.Graph.ICallRequestBuilder.UpdateMetadata(System.String,System.String)">UpdateMetadata(String, String)</h4>
-  <div class="markdown level1 summary"><p>Gets the request builder for CallUpdateMetadata.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ICallUpdateMetadataRequestBuilder UpdateMetadata(string metadata = null, string clientContext = null)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">metadata</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">clientContext</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Microsoft.Graph.ICallUpdateMetadataRequestBuilder.html">ICallUpdateMetadataRequestBuilder</a></td>
-        <td><p>The <a class="xref" href="Microsoft.Graph.ICallUpdateMetadataRequestBuilder.html">ICallUpdateMetadataRequestBuilder</a>.</p>
 </td>
       </tr>
     </tbody>

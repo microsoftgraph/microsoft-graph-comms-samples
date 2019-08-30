@@ -126,31 +126,6 @@ Authentication: Bearer &lt;TOKEN&gt;
 </ul>
 <p>The listener interface on the web hook URL can validate the token, ensure it has not expired, checking whether it has been signed by our published openid configuration. You must also check whether audience matches your App ID before accepting the callback request.</p>
 <p><a href="https://github.com/microsoftgraph/microsoft-graph-comms-samples/blob/master/Samples/Common/Sample.Common/Authentication/AuthenticationProvider.cs">Sample</a> shows how to validate inbound requests.</p>
-<p>&nbsp;</p>
-<blockquote><p><strong>Important upcoming changes:</strong></p>
-</blockquote>
-<p>In future, we are migrating to sending you OAUTH tokens issued by AAD. Hence, you should be ready for the migration and code up to accept both kinds of tokens.</p>
-<p>The new token would look like following.</p>
-<pre><code class="lang-json">{
-    &quot;aud&quot;: &quot;8A34A46B-3D17-4ADC-8DCE-DC4E7D572698&quot;,
-    &quot;iss&quot;: &quot;https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0&quot;,
-    &quot;iat&quot;: 1466741440,
-    &quot;nbf&quot;: 1466741440,
-    &quot;exp&quot;: 1466745340,
-    &quot;appid&quot;: &quot;26a18ebc-cdf7-4a6a-91cb-beb352805e81&quot;,
-    &quot;appidacr&quot;: &quot;2&quot;,
-    &quot;oid&quot;: &quot;2d452913-80c9-4b56-8419-43a7da179822&quot;,
-    &quot;sub&quot;: &quot;MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q&quot;,
-    &quot;tid&quot;: &quot;b9419818-09af-49c2-b0c3-653adc1f376e&quot;,
-    &quot;ver&quot;: &quot;2.0&quot;
-}
-</code></pre><ul>
-<li><strong>aud</strong> audience is the App ID specified for the application.</li>
-<li><strong>tid</strong> is the tenant id for contoso</li>
-<li><strong>iss</strong> is the token issuer, <code>https://login.microsoftonline.com/{tenantId}/v2.0</code></li>
-<li><strong>appid</strong> is the appid of our service </li>
-</ul>
-<p>The listener interface on the web hook URL can validate the OAUTH token, ensure it has not expired, checking whether AAD issued and signed the token. You must also check whether audience matches your App ID before accepting the callback request.</p>
 <h2 id="additional-information">Additional information</h2>
 <p>You can read more about <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-id-and-access-tokens">AAD tokens and Validation</a></p>
 </article>
