@@ -2,6 +2,22 @@
 
 This changelog covers what's changed in Microsoft Graph Communications SDK and its associated samples.
 
+## Sept 2019
+
+- Updated Media library 1.13.1.324-alpha
+- Updated Communications libraries 1.1.0-prerelease.1511
+
+### Communications 1.1.0-prerelease.1511 Changes
+
+- Updated to latest /beta contacts.
+  - For a full list of changes refer to the [graph blog](https://developer.microsoft.com/en-us/graph/blogs/breaking-changes-calls-and-online-meetings-api-updates-in-microsoft-graph-beta/).
+- Stateful client now supports HA/DR.
+  - Further detail to come in sample and SDK documentation.
+- Added more verbose code comments.
+- Removed redundant objects.
+- Removed obsolete objects.
+- Misc bug fixes and improvements.
+
 ## June 2019
 
 - Migrated AuthenticationProvider from ADAL to MSAL AAD libraries.

@@ -83,7 +83,7 @@
   
   <h1 id="Microsoft_Graph_MeetingParticipants" data-uid="Microsoft.Graph.MeetingParticipants" class="text-break">Class MeetingParticipants
   </h1>
-  <div class="markdown level0 summary"><p>The type MeetingParticipants.</p>
+  <div class="markdown level0 summary"><p>MeetingParticipants class.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -115,7 +115,7 @@
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <span class="xref">Microsoft.Graph</span></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.graph">Microsoft.Graph</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.Communications.Core.Calls.dll</h6>
   <h5 id="Microsoft_Graph_MeetingParticipants_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -159,12 +159,36 @@
   </table>
   <a id="Microsoft_Graph_MeetingParticipants_Attendees_" data-uid="Microsoft.Graph.MeetingParticipants.Attendees*"></a>
   <h4 id="Microsoft_Graph_MeetingParticipants_Attendees" data-uid="Microsoft.Graph.MeetingParticipants.Attendees">Attendees</h4>
-  <div class="markdown level1 summary"><p>Gets or sets attendees.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the attendees of the meeting.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IEnumerable&lt;MeetingParticipantInfo&gt; Attendees { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Microsoft.Graph.MeetingParticipantInfo.html">MeetingParticipantInfo</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_MeetingParticipants_Contributors_" data-uid="Microsoft.Graph.MeetingParticipants.Contributors*"></a>
+  <h4 id="Microsoft_Graph_MeetingParticipants_Contributors" data-uid="Microsoft.Graph.MeetingParticipants.Contributors">Contributors</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the contributors for broadcast meetings only.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;MeetingParticipantInfo&gt; Contributors { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -207,7 +231,7 @@
   </table>
   <a id="Microsoft_Graph_MeetingParticipants_Organizer_" data-uid="Microsoft.Graph.MeetingParticipants.Organizer*"></a>
   <h4 id="Microsoft_Graph_MeetingParticipants_Organizer" data-uid="Microsoft.Graph.MeetingParticipants.Organizer">Organizer</h4>
-  <div class="markdown level1 summary"><p>Gets or sets organizer.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the organizer of the meeting.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -225,6 +249,30 @@
     <tbody>
       <tr>
         <td><a class="xref" href="Microsoft.Graph.MeetingParticipantInfo.html">MeetingParticipantInfo</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_MeetingParticipants_Producers_" data-uid="Microsoft.Graph.MeetingParticipants.Producers*"></a>
+  <h4 id="Microsoft_Graph_MeetingParticipants_Producers" data-uid="Microsoft.Graph.MeetingParticipants.Producers">Producers</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the producers for broadcast meetings only.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;MeetingParticipantInfo&gt; Producers { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Microsoft.Graph.MeetingParticipantInfo.html">MeetingParticipantInfo</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>

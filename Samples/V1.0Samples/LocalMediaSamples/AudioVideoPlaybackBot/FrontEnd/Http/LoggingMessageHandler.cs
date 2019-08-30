@@ -19,8 +19,8 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
     using System.Net.Http.Headers;
     using System.Threading;
     using System.Threading.Tasks;
+    using Microsoft.Graph.Communications.Common;
     using Microsoft.Graph.Communications.Common.Telemetry;
-    using Microsoft.Graph.Communications.Core;
 
     /// <summary>
     /// Helper class to log HTTP requests and responses and to set the scenario id based on the Scenario-ID or the X-Microsoft-Skype-Chain-ID headers
@@ -206,12 +206,12 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
             IEnumerable<string> values;
             Guid scenarioGuid;
             string scenarioId = null;
-            if (headers.TryGetValues(CommsConstants.Headers.ScenarioId, out values) && Guid.TryParse(values.FirstOrDefault(), out scenarioGuid))
+            if (headers.TryGetValues(HttpConstants.HeaderNames.ScenarioId, out values) && Guid.TryParse(values.FirstOrDefault(), out scenarioGuid))
             {
                 scenarioId = scenarioGuid.ToString();
                 this.logger.CorrelationId = scenarioGuid;
             }
-            else if (headers.TryGetValues(CommsConstants.Headers.ChainId, out values) && Guid.TryParse(values.FirstOrDefault(), out scenarioGuid))
+            else if (headers.TryGetValues(HttpConstants.HeaderNames.ChainId, out values) && Guid.TryParse(values.FirstOrDefault(), out scenarioGuid))
             {
                 scenarioId = scenarioGuid.ToString();
                 this.logger.CorrelationId = scenarioGuid;
@@ -234,7 +234,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
             Guid scenarioId = this.logger.CorrelationId;
             if (scenarioId != Guid.Empty)
             {
-                headers.Add(CommsConstants.Headers.ScenarioId, scenarioId.ToString());
+                headers.Add(HttpConstants.HeaderNames.ScenarioId, scenarioId.ToString());
             }
 
             return scenarioId.ToString();

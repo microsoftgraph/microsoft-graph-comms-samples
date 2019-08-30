@@ -587,7 +587,7 @@ This header is used to track individual requests within the NGC stack.</p>
     </tbody>
   </table>
   <h4 id="Microsoft_Graph_Communications_Common_HttpConstants_HeaderNames_RedirectDu" data-uid="Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.RedirectDu">RedirectDu</h4>
-  <div class="markdown level1 summary"><p>The redirect du.</p>
+  <div class="markdown level1 summary"><p>The redirect du header.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -610,7 +610,7 @@ This header is used to track individual requests within the NGC stack.</p>
     </tbody>
   </table>
   <h4 id="Microsoft_Graph_Communications_Common_HttpConstants_HeaderNames_RedirectRegion" data-uid="Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.RedirectRegion">RedirectRegion</h4>
-  <div class="markdown level1 summary"><p>The redirect region.</p>
+  <div class="markdown level1 summary"><p>The redirect region header.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -750,13 +750,59 @@ This header is used to correlate requests with SS service.</p>
       </tr>
     </tbody>
   </table>
+  <h4 id="Microsoft_Graph_Communications_Common_HttpConstants_HeaderNames_Tenant" data-uid="Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.Tenant">Tenant</h4>
+  <div class="markdown level1 summary"><p>The tenant header</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Tenant = &quot;X-Microsoft-Tenant&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h4 id="Microsoft_Graph_Communications_Common_HttpConstants_HeaderNames_TenantRegion" data-uid="Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.TenantRegion">TenantRegion</h4>
-  <div class="markdown level1 summary"><p>The tenant regoin header.</p>
+  <div class="markdown level1 summary"><p>The tenant region header.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public const string TenantRegion = &quot;Tenant-Region&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h4 id="Microsoft_Graph_Communications_Common_HttpConstants_HeaderNames_ThrowSite" data-uid="Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.ThrowSite">ThrowSite</h4>
+  <div class="markdown level1 summary"><p>The throw site header.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string ThrowSite = &quot;X-ThrowSite&quot;</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -820,7 +866,7 @@ This header is used to correlate requests with SS service.</p>
     </tbody>
   </table>
   <h4 id="Microsoft_Graph_Communications_Common_HttpConstants_HeaderNames_XMsClientUserAgent" data-uid="Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.XMsClientUserAgent">XMsClientUserAgent</h4>
-  <div class="markdown level1 summary"><p>Client User Agent.
+  <div class="markdown level1 summary"><p>Client User Agent header.
 This header has the user agent in requests. Used in requests to presence service at the moment.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -844,7 +890,7 @@ This header has the user agent in requests. Used in requests to presence service
     </tbody>
   </table>
   <h4 id="Microsoft_Graph_Communications_Common_HttpConstants_HeaderNames_XMsClientVersion" data-uid="Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.XMsClientVersion">XMsClientVersion</h4>
-  <div class="markdown level1 summary"><p>Client Version.
+  <div class="markdown level1 summary"><p>The client version header.
 This header has the client version in requests. Used in requests to presence service at the moment.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -868,7 +914,7 @@ This header has the client version in requests. Used in requests to presence ser
     </tbody>
   </table>
   <h4 id="Microsoft_Graph_Communications_Common_HttpConstants_HeaderNames_XMsCorrelationId" data-uid="Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.XMsCorrelationId">XMsCorrelationId</h4>
-  <div class="markdown level1 summary"><p>CorrelationId.
+  <div class="markdown level1 summary"><p>the correlation id header.
 This header is used to correlate requests with presence service at the moment.</p>
 </div>
   <div class="markdown level1 conceptual"></div>

@@ -124,7 +124,7 @@ This means that
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Microsoft.Graph.IAuthenticationProvider</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.graph.iauthenticationprovider">IAuthenticationProvider</a></td>
         <td><p>The authentication provider.</p>
 </td>
       </tr>
@@ -132,14 +132,16 @@ This means that
   </table>
   <h3 id="methods">Methods
   </h3>
-  <a id="Microsoft_Graph_Communications_Core_Notifications_INotificationProcessor_ProcessNotification_" data-uid="Microsoft.Graph.Communications.Core.Notifications.INotificationProcessor.ProcessNotification*"></a>
-  <h4 id="Microsoft_Graph_Communications_Core_Notifications_INotificationProcessor_ProcessNotification_Microsoft_Graph_Communications_Core_Transport_IGraphRequest_" data-uid="Microsoft.Graph.Communications.Core.Notifications.INotificationProcessor.ProcessNotification(Microsoft.Graph.Communications.Core.Transport.IGraphRequest)">ProcessNotification(IGraphRequest)</h4>
-  <div class="markdown level1 summary"><p>Process the incoming notification.</p>
+  <a id="Microsoft_Graph_Communications_Core_Notifications_INotificationProcessor_ProcessNotifications_" data-uid="Microsoft.Graph.Communications.Core.Notifications.INotificationProcessor.ProcessNotifications*"></a>
+  <h4 id="Microsoft_Graph_Communications_Core_Notifications_INotificationProcessor_ProcessNotifications_System_Uri_System_String_System_String_System_Guid_System_Guid_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_Object___" data-uid="Microsoft.Graph.Communications.Core.Notifications.INotificationProcessor.ProcessNotifications(System.Uri,System.String,System.String,System.Guid,System.Guid,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}})">ProcessNotifications(Uri, String, String, Guid, Guid, IEnumerable&lt;KeyValuePair&lt;String, Object&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Processes the notifications and raise the required callbacks.
+This function should be called in order for the SDK to raise
+any required events and process state changes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IGraphResponse ProcessNotification(IGraphRequest request)</code></pre>
+    <pre><code class="lang-csharp hljs">void ProcessNotifications(Uri callbackUri, string content, string tenantId, Guid requestId, Guid scenarioId, IEnumerable&lt;KeyValuePair&lt;string, object&gt;&gt; additionalData = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -152,25 +154,39 @@ This means that
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Microsoft.Graph.Communications.Core.Transport.IGraphRequest.html">IGraphRequest</a></td>
-        <td><span class="parametername">request</span></td>
-        <td><p>The request that contains the notification.</p>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uri">Uri</a></td>
+        <td><span class="parametername">callbackUri</span></td>
+        <td><p>The callback URI.</p>
 </td>
       </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
       <tr>
-        <th>Type</th>
-        <th>Description</th>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">content</span></td>
+        <td><p>The notifications content.</p>
+</td>
       </tr>
-    </thead>
-    <tbody>
       <tr>
-        <td><a class="xref" href="Microsoft.Graph.Communications.Core.Transport.IGraphResponse.html">IGraphResponse</a></td>
-        <td><p>The <a class="xref" href="Microsoft.Graph.Communications.Core.Transport.IGraphResponse.html">IGraphResponse</a> for the processed <a class="xref" href="Microsoft.Graph.Communications.Core.Transport.IGraphRequest.html">IGraphRequest</a>.</p>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">tenantId</span></td>
+        <td><p>The tenant identifier.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.guid">Guid</a></td>
+        <td><span class="parametername">requestId</span></td>
+        <td><p>The request identifier.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.guid">Guid</a></td>
+        <td><span class="parametername">scenarioId</span></td>
+        <td><p>The scenario identifier.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;&gt;</td>
+        <td><span class="parametername">additionalData</span></td>
+        <td><p>Additional data associated with the notification.</p>
 </td>
       </tr>
     </tbody>

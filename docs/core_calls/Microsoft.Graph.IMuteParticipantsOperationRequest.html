@@ -86,7 +86,7 @@
   <div class="markdown level0 summary"><p>The interface IMuteParticipantsOperationRequest.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <span class="xref">Microsoft.Graph</span></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.graph">Microsoft.Graph</a></h6>
   <h6><strong>Assembly</strong>: Microsoft.Graph.Communications.Core.Calls.dll</h6>
   <h5 id="Microsoft_Graph_IMuteParticipantsOperationRequest_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -96,7 +96,7 @@
   </h3>
   <a id="Microsoft_Graph_IMuteParticipantsOperationRequest_CreateAsync_" data-uid="Microsoft.Graph.IMuteParticipantsOperationRequest.CreateAsync*"></a>
   <h4 id="Microsoft_Graph_IMuteParticipantsOperationRequest_CreateAsync_Microsoft_Graph_MuteParticipantsOperation_" data-uid="Microsoft.Graph.IMuteParticipantsOperationRequest.CreateAsync(Microsoft.Graph.MuteParticipantsOperation)">CreateAsync(MuteParticipantsOperation)</h4>
-  <div class="markdown level1 summary"><p>Creates the specified MuteParticipantsOperation using PUT.</p>
+  <div class="markdown level1 summary"><p>Creates the specified MuteParticipantsOperation using POST.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -139,7 +139,7 @@
   </table>
   <a id="Microsoft_Graph_IMuteParticipantsOperationRequest_CreateAsync_" data-uid="Microsoft.Graph.IMuteParticipantsOperationRequest.CreateAsync*"></a>
   <h4 id="Microsoft_Graph_IMuteParticipantsOperationRequest_CreateAsync_Microsoft_Graph_MuteParticipantsOperation_System_Threading_CancellationToken_" data-uid="Microsoft.Graph.IMuteParticipantsOperationRequest.CreateAsync(Microsoft.Graph.MuteParticipantsOperation,System.Threading.CancellationToken)">CreateAsync(MuteParticipantsOperation, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Creates the specified MuteParticipantsOperation using PUT.</p>
+  <div class="markdown level1 summary"><p>Creates the specified MuteParticipantsOperation using POST.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -582,6 +582,22 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="Microsoft.Graph.MuteParticipantsOperation.html">MuteParticipantsOperation</a>&gt;</td>
         <td><p>The updated MuteParticipantsOperation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.graph.clientexception">ClientException</a></td>
+        <td><p>Thrown when an object returned in a response is used for updating an object in Microsoft Graph.</p>
 </td>
       </tr>
     </tbody>
