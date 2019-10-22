@@ -1,11 +1,15 @@
-﻿// <copyright file="OnlineMeeting.cs" company="Microsoft Corporation">
+﻿// <copyright file="AppOnlineMeeting.cs" company="Microsoft Corporation">
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT license.
 // </copyright>
 
+// THIS CODE HAS NOT BEEN TESTED RIGOROUSLY.USING THIS CODE IN PRODUCTION ENVIRONMENT IS STRICTLY NOT RECOMMENDED.
+// THIS SAMPLE IS PURELY FOR DEMONSTRATION PURPOSES ONLY.
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND.
 namespace Sample.OnlineMeeting
 {
     using System;
+    using System.Diagnostics;
     using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.Graph;
@@ -15,17 +19,17 @@ namespace Sample.OnlineMeeting
     /// <summary>
     /// Online meeting class to fetch meeting info based of meeting id (ex: vtckey).
     /// </summary>
-    public class OnlineMeeting
+    public class AppOnlineMeeting
     {
         private Uri graphEndpointUri;
         private IRequestAuthenticationProvider requestAuthenticationProvider;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OnlineMeeting"/> class.
+        /// Initializes a new instance of the <see cref="AppOnlineMeeting"/> class.
         /// </summary>
         /// <param name="requestAuthenticationProvider">The request authentication provider.</param>
         /// <param name="graphUri">The graph url.</param>
-        public OnlineMeeting(IRequestAuthenticationProvider requestAuthenticationProvider, Uri graphUri)
+        public AppOnlineMeeting(IRequestAuthenticationProvider requestAuthenticationProvider, Uri graphUri)
         {
             this.requestAuthenticationProvider = requestAuthenticationProvider;
             this.graphEndpointUri = graphUri;
@@ -54,13 +58,14 @@ namespace Sample.OnlineMeeting
         }
 
         /// <summary>
-        /// Creates a new adhoc online meeting.
+        /// Creates a new online meeting.
         /// Permissions required : OnlineMeetings.ReadWrite.All.
         /// </summary>
         /// <param name="tenantId">The tenant identifier.</param>
         /// <param name="organizerId">The meeting organizer identifier.</param>
         /// <param name="scenarioId">The scenario identifier - needed in case of debugging for correlating client side request with server side logs.</param>
         /// <returns> The onlinemeeting. </returns>
+        [Obsolete("This way of creating meeting is obsolete. Check CreateUserMeetingRequestAsync for creating meetings.")]
         public async Task<Microsoft.Graph.OnlineMeeting> CreateOnlineMeetingAsync(string tenantId, string organizerId, Guid scenarioId)
         {
             var statelessClient = new CallsGraphServiceClient(
@@ -71,7 +76,6 @@ namespace Sample.OnlineMeeting
 
             var onlineMeeting = new Microsoft.Graph.OnlineMeeting()
             {
-                MeetingType = MeetingType.MeetNow,
                 Participants = new MeetingParticipants()
                 {
                     Organizer = new MeetingParticipantInfo()

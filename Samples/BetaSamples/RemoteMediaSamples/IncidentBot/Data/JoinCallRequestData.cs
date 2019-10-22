@@ -34,10 +34,5 @@ namespace Sample.IncidentBot.Data
         /// Gets or sets a value indicating whether to remove the bot from default routing group.
         /// </summary>
         public bool RemoveFromDefaultRoutingGroup { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether allow conversation without host.
-        /// </summary>
-        public bool AllowConversationWithoutHost { get; set; }
     }
 }

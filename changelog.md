@@ -2,6 +2,12 @@
 
 This changelog covers what's changed in Microsoft Graph Communications SDK and its associated samples.
 
+## Oct 2019
+
+- Updated Communications libraries 1.1.0-prerelease.1855
+- Updated to latest /beta contacts.
+  - For a full list of changes refer to the [graph blog](https://developer.microsoft.com/en-us/graph/blogs/breaking-changes-calls-and-online-meetings-api-updates-in-microsoft-graph-beta-2/).
+
 ## Sept 2019
 
 - Updated Media library 1.13.1.324-alpha
