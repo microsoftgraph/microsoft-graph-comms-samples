@@ -3,6 +3,9 @@
 // Licensed under the MIT license.
 // </copyright>
 
+// THIS CODE HAS NOT BEEN TESTED RIGOROUSLY.USING THIS CODE IN PRODUCTION ENVIRONMENT IS STRICTLY NOT RECOMMENDED.
+// THIS SAMPLE IS PURELY FOR DEMONSTRATION PURPOSES ONLY.
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND.
 namespace Sample.OnlineMeeting
 {
     using System;
@@ -15,12 +18,17 @@ namespace Sample.OnlineMeeting
     /// </summary>
     public class Program
     {
+        // Common settings.
         private static string appSecret = "__placeholder__";
         private static string appId = "__placeholder__";
-
-        private static string vtcId = "__placeholder__";
         private static string tenantId = "__placeholder__";
-        private static string organizerID = "__placeholder__";
+
+        // Needed for app token meetings.
+        private static string vtcId = "__placeholder__";
+
+        // Needed for user token meetings.
+        private static string userName = "__placeholder__";
+        private static string password = "__placeholder__";
 
         private static Uri graphUri = new Uri("https://graph.microsoft.com/beta/");
 
@@ -34,13 +42,13 @@ namespace Sample.OnlineMeeting
         {
             var name = typeof(Program).Assembly.GetName().Name;
             var logger = new GraphLogger(name);
-            var onlineMeeting = new OnlineMeeting(
+            var onlineMeeting = new AppOnlineMeeting(
                         new AuthenticationProvider(name, appId, appSecret, logger),
                         graphUri);
 
             var meetingDetails = await onlineMeeting.GetOnlineMeetingByVtcIdAsync(tenantId, videoTeleconferenceId, default(Guid)).ConfigureAwait(false);
 
-            Console.WriteLine(meetingDetails.Id);
+            Console.WriteLine(meetingDetails.VideoTeleconferenceId);
             Console.WriteLine(meetingDetails.ChatInfo.ThreadId);
 
             return meetingDetails;
@@ -52,15 +60,38 @@ namespace Sample.OnlineMeeting
         /// <param name="tenantId">The tenant identifier.</param>
         /// <param name="organizerId">The organizer identifier.</param>
         /// <returns> The newly created onlinemeeting. </returns>
+        [Obsolete("This way of creating meeting is obsolete. Check CreateUserMeetingRequestAsync for creating meetings.")]
         public static async Task<Microsoft.Graph.OnlineMeeting> CreateOnlineMeetingAsync(string tenantId, string organizerId)
         {
             var name = typeof(Program).Assembly.GetName().Name;
             var logger = new GraphLogger(name);
-            var onlineMeeting = new OnlineMeeting(
+            var onlineMeeting = new AppOnlineMeeting(
                         new AuthenticationProvider(name, appId, appSecret, logger),
                         graphUri);
 
             var meetingDetails = await onlineMeeting.CreateOnlineMeetingAsync(tenantId, organizerId, default(Guid)).ConfigureAwait(false);
+
+            Console.WriteLine(meetingDetails.Id);
+            Console.WriteLine(meetingDetails.ChatInfo.ThreadId);
+
+            return meetingDetails;
+        }
+
+        /// <summary>
+        /// Creates the online meeting asynchronous.
+        /// </summary>
+        /// <param name="tenantId">The tenant identifier.</param>
+        /// <returns> The newly created onlinemeeting. </returns>
+        public static async Task<Microsoft.Graph.OnlineMeeting> CreateUserOnlineMeetingAsync(string tenantId)
+        {
+            var name = typeof(Program).Assembly.GetName().Name;
+            var logger = new GraphLogger(name);
+
+            var onlineMeeting = new UserOnlineMeeting(
+                        new UserPasswordAuthenticationProvider(name, appId, appSecret, userName, password, logger),
+                        graphUri);
+
+            var meetingDetails = await onlineMeeting.CreateUserMeetingRequestAsync(tenantId, default(Guid)).ConfigureAwait(false);
 
             Console.WriteLine(meetingDetails.Id);
             Console.WriteLine(meetingDetails.ChatInfo.ThreadId);
@@ -80,7 +111,13 @@ namespace Sample.OnlineMeeting
                 {
                     var meetingDetails = await GetOnlineMeetingByVtcIdAsync(tenantId, vtcId).ConfigureAwait(false);
 
-                    var createdMeetingDetails = await CreateOnlineMeetingAsync(tenantId, organizerID).ConfigureAwait(false);
+                    /*
+                     * THIS WAY OF CREATING MEETING IS OBSOLETE. CHECK CreateUserOnlineMeetingAsync FOR CREATING MEETINGS.
+                     *
+                     * var createdMeetingDetails = await CreateOnlineMeetingAsync(tenantId, organizerID).ConfigureAwait(false);
+                    */
+
+                    var userTokenMeeting = await CreateUserOnlineMeetingAsync(tenantId).ConfigureAwait(false);
                 }
                 catch (Exception ex)
                 {

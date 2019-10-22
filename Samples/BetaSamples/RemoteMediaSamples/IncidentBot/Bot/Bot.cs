@@ -247,13 +247,11 @@ namespace Sample.IncidentBot.Bot
                     .ConfigureAwait(false);
 
                 meetingInfo = new OrganizerMeetingInfo { Organizer = onlineMeeting.Participants.Organizer.Identity, };
-                meetingInfo.AllowConversationWithoutHost = joinCallBody.AllowConversationWithoutHost;
                 chatInfo = onlineMeeting.ChatInfo;
             }
             else
             {
                 (chatInfo, meetingInfo) = JoinInfo.ParseJoinURL(joinCallBody.JoinURL);
-                meetingInfo.AllowConversationWithoutHost = joinCallBody.AllowConversationWithoutHost;
             }
 
             var tenantId =

@@ -3,7 +3,10 @@
 // Licensed under the MIT license.
 // </copyright>
 
-namespace OnlineMeeting
+// THIS CODE HAS NOT BEEN TESTED RIGOROUSLY.USING THIS CODE IN PRODUCTION ENVIRONMENT IS STRICTLY NOT RECOMMENDED.
+// THIS SAMPLE IS PURELY FOR DEMONSTRATION PURPOSES ONLY.
+// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND.
+namespace Sample.Common.Authentication
 {
     using System;
     using System.Collections.Generic;
@@ -22,28 +25,9 @@ namespace OnlineMeeting
     public class UserPasswordAuthenticationProvider : ObjectRoot, IRequestAuthenticationProvider
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UserPasswordAuthenticationProvider"/> class.
+        /// The application name.
         /// </summary>
-        /// <param name="appId">The application identifier.</param>
-        /// <param name="appSecret">The application secret.</param>
-        /// <param name="userName">The username to be used.</param>
-        /// <param name="password">Password assoicated with the passed username.</param>
-        /// <param name="logger">The logger.</param>
-        public UserPasswordAuthenticationProvider(string appId, string appSecret, string userName, string password, IGraphLogger logger)
-            : base(logger.NotNull(nameof(logger)).CreateShim(nameof(UserPasswordAuthenticationProvider)))
-        {
-            Debug.Assert(!string.IsNullOrWhiteSpace(appId), $"Invalid {nameof(appId)}.");
-            Debug.Assert(!string.IsNullOrWhiteSpace(appSecret), $"Invalid {nameof(appSecret)}.");
-            Debug.Assert(!string.IsNullOrWhiteSpace(userName), $"Invalid {nameof(userName)}.");
-            Debug.Assert(!string.IsNullOrWhiteSpace(password), $"Invalid {nameof(password)}.");
-
-            this.AppId = appId;
-            this.AppSecret = appSecret;
-
-            // NOTE: STORING USERNAME/PASSWORD IN A FILE IS NOT SAFE. THIS SAMPLE IS FOR DEMONSTRATION PURPOSE ONLY.
-            this.UserName = userName;
-            this.Password = password;
-        }
+        private readonly string appName;
 
         /// <summary>
         /// Gets the application identifier.
@@ -51,7 +35,7 @@ namespace OnlineMeeting
         /// <value>
         /// The application identifier.
         /// </value>
-        private string AppId { get; }
+        private readonly string appId;
 
         /// <summary>
         /// Gets the application secret.
@@ -59,17 +43,37 @@ namespace OnlineMeeting
         /// <value>
         /// The application secret.
         /// </value>
-        private string AppSecret { get; }
+        private readonly string appSecret;
 
         /// <summary>
         /// Gets UserName to be passed to oauth service.
         /// </summary>
-        private string UserName { get; }
+        private readonly string userName;
 
         /// <summary>
         /// Gets password to be passed to oauth service.
         /// </summary>
-        private string Password { get; }
+        private readonly string password;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UserPasswordAuthenticationProvider"/> class.
+        /// </summary>
+        /// <param name="appName">The application name.</param>
+        /// <param name="appId">The application identifier.</param>
+        /// <param name="appSecret">The application secret.</param>
+        /// <param name="userName">The username to be used.</param>
+        /// <param name="password">Password assoicated with the passed username.</param>
+        /// <param name="logger">The logger.</param>
+        public UserPasswordAuthenticationProvider(string appName, string appId, string appSecret, string userName, string password, IGraphLogger logger)
+            : base(logger.NotNull(nameof(logger)).CreateShim(nameof(UserPasswordAuthenticationProvider)))
+        {
+            this.appName = appName.NotNullOrWhitespace(nameof(appName));
+            this.appId = appId.NotNullOrWhitespace(nameof(appId));
+            this.appSecret = appSecret.NotNullOrWhitespace(nameof(appSecret));
+
+            this.userName = userName.NotNullOrWhitespace(nameof(userName));
+            this.password = password.NotNullOrWhitespace(nameof(password));
+        }
 
         /// <inheritdoc />
         public async Task AuthenticateOutboundRequestAsync(HttpRequestMessage request, string tenantId)
@@ -79,7 +83,7 @@ namespace OnlineMeeting
             const string BearerPrefix = "Bearer";
             const string ReplaceString = "{tenant}";
             const string TokenAuthorityMicrosoft = "https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token";
-            const string Resource = @"https://graph.microsoft.com";
+            const string Resource = @"https://graph.microsoft.com/.default";
 
             var tokenLink = TokenAuthorityMicrosoft.Replace(ReplaceString, tenantId);
             OAuthResponse authResult = null;
@@ -88,18 +92,22 @@ namespace OnlineMeeting
             {
                 using (var httpClient = new HttpClient())
                 {
-                    var result1 = await httpClient.PostAsync(tokenLink, new FormUrlEncodedContent(new[]
+                    var result = await httpClient.PostAsync(tokenLink, new FormUrlEncodedContent(new[]
                     {
-                        new KeyValuePair<string, string>("resource", Resource),
-                        new KeyValuePair<string, string>("client_id", this.AppId),
                         new KeyValuePair<string, string>("grant_type", "password"),
-                        new KeyValuePair<string, string>("username", this.UserName),
-                        new KeyValuePair<string, string>("password", this.Password),
-                        new KeyValuePair<string, string>("scope", "openid"),
-                        new KeyValuePair<string, string>("client_secret", this.AppSecret),
+                        new KeyValuePair<string, string>("username", this.userName),
+                        new KeyValuePair<string, string>("password", this.password),
+                        new KeyValuePair<string, string>("scope", Resource),
+                        new KeyValuePair<string, string>("client_id", this.appId),
+                        new KeyValuePair<string, string>("client_secret", this.appSecret),
                     })).ConfigureAwait(false);
 
-                    var content = await result1.Content.ReadAsStringAsync().ConfigureAwait(false);
+                    if (!result.IsSuccessStatusCode)
+                    {
+                        throw new Exception("Failed to generate user token.");
+                    }
+
+                    var content = await result.Content.ReadAsStringAsync().ConfigureAwait(false);
                     authResult = JsonConvert.DeserializeObject<OAuthResponse>(content);
 
                     request.Headers.Authorization = new AuthenticationHeaderValue(BearerPrefix, authResult.Access_Token);
@@ -107,7 +115,7 @@ namespace OnlineMeeting
             }
             catch (Exception ex)
             {
-                this.GraphLogger.Error(ex, $"Failed to generate user token for user: {this.UserName}");
+                this.GraphLogger.Error(ex, $"Failed to generate user token for user: {this.userName}");
                 throw;
             }
 
@@ -117,6 +125,7 @@ namespace OnlineMeeting
         /// <inheritdoc />
         public Task<RequestValidationResult> ValidateInboundRequestAsync(HttpRequestMessage request)
         {
+            // Currently no scenarios on /user | /me path for inbound requests.
             throw new NotImplementedException();
         }
 

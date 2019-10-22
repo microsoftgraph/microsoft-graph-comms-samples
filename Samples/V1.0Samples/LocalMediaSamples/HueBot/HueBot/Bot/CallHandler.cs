@@ -8,13 +8,17 @@ namespace Sample.HueBot.Bot
     using System;
     using System.Drawing;
     using System.Linq;
+    using System.Runtime.InteropServices;
     using System.Threading;
+    using System.Timers;
     using Microsoft.Graph;
     using Microsoft.Graph.Communications.Calls;
     using Microsoft.Graph.Communications.Calls.Media;
     using Microsoft.Graph.Communications.Common.Telemetry;
     using Microsoft.Graph.Communications.Resources;
     using Microsoft.Skype.Bots.Media;
+    using Sample.Common;
+    using Timer = System.Timers.Timer;
 
     /// <summary>
     /// Call Handler Logic.
@@ -25,6 +29,11 @@ namespace Sample.HueBot.Bot
         /// MSI when there is no dominant speaker.
         /// </summary>
         public const uint DominantSpeakerNone = DominantSpeakerChangedEventArgs.None;
+
+        /// <summary>
+        /// How long the timer should wait before ending the call.
+        /// </summary>
+        private const double WaitForMs = 1000 * 60 * 5;
 
         /// <summary>
         /// The time between each video frame capturing.
@@ -67,6 +76,11 @@ namespace Sample.HueBot.Bot
         private int maxIngestFrameCount = 100;
 
         /// <summary>
+        /// The Timer to end the call.
+        /// </summary>
+        private Timer endCallTimer;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="CallHandler"/> class.
         /// </summary>
         /// <param name="statefulCall">Stateful call instance.</param>
@@ -83,6 +97,10 @@ namespace Sample.HueBot.Bot
             }
 
             this.Call.Participants.OnUpdated += this.OnParticipantsUpdated;
+            this.endCallTimer = new Timer(CallHandler.WaitForMs);
+            this.endCallTimer.Enabled = false;
+            this.endCallTimer.AutoReset = false;
+            this.endCallTimer.Elapsed += this.OnTimerElapsed;
         }
 
         /// <summary>
@@ -129,6 +147,8 @@ namespace Sample.HueBot.Bot
             {
                 participant.OnUpdated -= this.OnParticipantUpdated;
             }
+
+            this.endCallTimer.Elapsed -= this.OnTimerElapsed;
         }
 
         /// <summary>
@@ -186,8 +206,38 @@ namespace Sample.HueBot.Bot
                 participant.OnUpdated -= this.OnParticipantUpdated;
             }
 
+            bool nonBotParticipants = false;
+            foreach (var participant in sender)
+            {
+                var isBot = participant.Resource.Info.Identity.Application != null;
+                if (!isBot)
+                {
+                    nonBotParticipants = true;
+                    break;
+                }
+            }
+
+            if (nonBotParticipants)
+            {
+                this.endCallTimer.Stop();
+            }
+            else
+            {
+                this.endCallTimer.Start();
+            }
+
             // Subscribed participant might have left the meeting.
             this.Subscribe();
+        }
+
+        /// <summary>
+        /// When the end call timer elapses, end the call.
+        /// </summary>
+        /// <param name="sender">The sender object.</param>
+        /// <param name="args">Event args containing the elapsed event information.</param>
+        private void OnTimerElapsed(object sender, ElapsedEventArgs args)
+        {
+            _ = this.Call.DeleteAsync().ForgetAndLogExceptionAsync(this.Call.GraphLogger);
         }
 
         /// <summary>
