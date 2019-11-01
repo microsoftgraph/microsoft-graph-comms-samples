@@ -237,7 +237,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             };
 
             // create the receive only sockets settings for the multiview support
-            for (int i = 0; i < SampleConstants.NumberOfMultivewSockets; i++)
+            for (int i = 0; i < SampleConstants.NumberOfMultiviewSockets; i++)
             {
                 videoSocketSettings.Add(new VideoSocketSettings
                 {

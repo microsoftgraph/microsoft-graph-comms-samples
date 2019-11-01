@@ -32,7 +32,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
 
         // this is an LRU cache with the MSI values, we update this Cache with the dominant speaker events
         // this way we can make sure that the muliview sockets are subscribed to the active (speaking) participants
-        private readonly LRUCache currentVideoSubscriptions = new LRUCache(SampleConstants.NumberOfMultivewSockets + 1);
+        private readonly LRUCache currentVideoSubscriptions = new LRUCache(SampleConstants.NumberOfMultiviewSockets + 1);
 
         private readonly object subscriptionLock = new object();
 

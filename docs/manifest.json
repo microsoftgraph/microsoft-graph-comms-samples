@@ -1026,7 +1026,7 @@
       "output": {
         ".html": {
           "relative_path": "calls/Microsoft.Graph.Communications.Calls.CallExtensions.html",
-          "hash": "xYSCG847g/L/tXWABb1Stw=="
+          "hash": "QCe/mVBGqFADp7ry9Wu/HQ=="
         }
       },
       "is_incremental": false,
@@ -1074,7 +1074,7 @@
       "output": {
         ".html": {
           "relative_path": "calls/Microsoft.Graph.Communications.Calls.ICall.html",
-          "hash": "3N21V2hQev+lU61qZeasxQ=="
+          "hash": "sOpxvhCvATW4Nsh5fWQk3Q=="
         }
       },
       "is_incremental": false,
@@ -1122,7 +1122,7 @@
       "output": {
         ".html": {
           "relative_path": "calls/Microsoft.Graph.Communications.Calls.IParticipantCollection.html",
-          "hash": "oVHjUk1hR9N5ggwAnpzkbQ=="
+          "hash": "s2MafV2krtL38LTmtvn5ig=="
         }
       },
       "is_incremental": false,
@@ -1134,7 +1134,7 @@
       "output": {
         ".html": {
           "relative_path": "calls/Microsoft.Graph.Communications.Calls.JoinMeetingParameters.html",
-          "hash": "zgp50Md6e2V8Vq1TNFdMAA=="
+          "hash": "WT8j2P5jQHxw2ikXzQ1cVQ=="
         }
       },
       "is_incremental": false,
@@ -1146,7 +1146,7 @@
       "output": {
         ".html": {
           "relative_path": "calls/Microsoft.Graph.Communications.Calls.ParticipantExtensions.html",
-          "hash": "J7iiC64lsqFwRdmxVJD10g=="
+          "hash": "vT0ul93mwkzA/5XbG6evWA=="
         }
       },
       "is_incremental": false,
@@ -1170,7 +1170,7 @@
       "output": {
         ".html": {
           "relative_path": "calls/Microsoft.Graph.Communications.Calls.RecordOperationResult.html",
-          "hash": "Rk4EReE5odm36ssR6GeQ8g=="
+          "hash": "UkhoCFnBf4lFs455n8+8Ng=="
         }
       },
       "is_incremental": false,
@@ -1230,7 +1230,7 @@
       "output": {
         ".html": {
           "relative_path": "calls_media/Microsoft.Graph.Communications.Calls.Media.MediaCallExtensions.html",
-          "hash": "LcKdsBprbZgzwvUhJA7HwQ=="
+          "hash": "j62X1rgDBs90ETwaNdnDyA=="
         }
       },
       "is_incremental": false,
@@ -1254,7 +1254,31 @@
       "output": {
         ".html": {
           "relative_path": "calls_media/Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.html",
-          "hash": "AmMkGxMGFq61I30xlsXFhQ=="
+          "hash": "Pmqyiex1a0qBYnQatyJGpw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/calls_media/Microsoft.Graph.Communications.Calls.Media.MediaSession.MediaProperties.yml",
+      "output": {
+        ".html": {
+          "relative_path": "calls_media/Microsoft.Graph.Communications.Calls.Media.MediaSession.MediaProperties.html",
+          "hash": "hQRRcsA6EiWQN5idUrihrg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/calls_media/Microsoft.Graph.Communications.Calls.Media.MediaSession.yml",
+      "output": {
+        ".html": {
+          "relative_path": "calls_media/Microsoft.Graph.Communications.Calls.Media.MediaSession.html",
+          "hash": "l7ljK0c+AZyH8pJY23VW0g=="
         }
       },
       "is_incremental": false,
@@ -1278,7 +1302,7 @@
       "output": {
         ".html": {
           "relative_path": "calls_media/Microsoft.Graph.Communications.Calls.Media.html",
-          "hash": "qd/tVo6o6w0Y+EdvvSqjuA=="
+          "hash": "ZlKTjpkjZtrNQpIq2znpPQ=="
         }
       },
       "is_incremental": false,
@@ -1290,7 +1314,7 @@
       "output": {
         ".html": {
           "relative_path": "calls_media/toc.html",
-          "hash": "yAJttb3vbA7hnNcxZHvoUQ=="
+          "hash": "ArnK0zS4DNCfbH5gzrcEzA=="
         }
       },
       "is_incremental": false,
@@ -1398,7 +1422,19 @@
       "output": {
         ".html": {
           "relative_path": "client/Microsoft.Graph.Communications.Client.CommunicationsClientExtensions.html",
-          "hash": "lcdl9hkWaXDU5EEDPf3WXw=="
+          "hash": "lzflwDKD+ibPsIBEtdBhAw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Client.GraphLoggerExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Client.GraphLoggerExtensions.html",
+          "hash": "jEJ4Gs0NkWzeQhkMgs+evQ=="
         }
       },
       "is_incremental": false,
@@ -1410,7 +1446,7 @@
       "output": {
         ".html": {
           "relative_path": "client/Microsoft.Graph.Communications.Client.ICommunicationsClient.html",
-          "hash": "y++BtMyRHwG1MZWtuvtoQQ=="
+          "hash": "0yN/H1SclEtRIcFUYDhlFA=="
         }
       },
       "is_incremental": false,
@@ -1566,7 +1602,7 @@
       "output": {
         ".html": {
           "relative_path": "client/Microsoft.Graph.Communications.Client.html",
-          "hash": "sbAK8MkPUqcQbAKZ8zQ/cA=="
+          "hash": "SZepewJLOaaNnLeXTtgQOA=="
         }
       },
       "is_incremental": false,
@@ -1770,7 +1806,7 @@
       "output": {
         ".html": {
           "relative_path": "client/toc.html",
-          "hash": "VQ38eavz0jlXfVdDeZ8BoA=="
+          "hash": "47U8eiZLuRYX+ickBi55yw=="
         }
       },
       "is_incremental": false,
@@ -1974,7 +2010,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.html",
-          "hash": "1gYYyEu/qJjQ9Yax+FCBEw=="
+          "hash": "T1jTeOovrBrTPQ/cVMxgMg=="
         }
       },
       "is_incremental": false,
@@ -2102,11 +2138,23 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.OData.ODataTimeSpanConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.OData.ODataTimeSpanConverter.html",
+          "hash": "mux7nFv7fAmQGLKlA3OgsQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.OData.yml",
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.OData.html",
-          "hash": "EBt1vZLESy+WfKoHfYQmUw=="
+          "hash": "4arecZgs9kA4nNQrHHgnng=="
         }
       },
       "is_incremental": false,
@@ -2166,7 +2214,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.ReflectionUtils.html",
-          "hash": "j5gqLxkE+KL9x5xiUB/c1w=="
+          "hash": "AL3t01JWCY2d5TJUUg0i4w=="
         }
       },
       "is_incremental": false,
@@ -2238,7 +2286,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.StringUtils.html",
-          "hash": "2q4x0Ss8znEqQsiz7QvDZA=="
+          "hash": "bf9lGUqbFL9EVxZoJ6Rfhg=="
         }
       },
       "is_incremental": false,
@@ -2598,7 +2646,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.LoggingConstants.html",
-          "hash": "K8BAqxU2Df58URLG92iZXA=="
+          "hash": "uF0BAs8CjB0YaBHWV+ajKw=="
         }
       },
       "is_incremental": false,
@@ -2634,7 +2682,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.GraphObfuscationAttribute.html",
-          "hash": "4TjFv/L8vwCewyZcUyA14Q=="
+          "hash": "DedQKod6zYDHK/Q67QmWCw=="
         }
       },
       "is_incremental": false,
@@ -3234,7 +3282,7 @@
       "output": {
         ".html": {
           "relative_path": "common/toc.html",
-          "hash": "6TRgfvmSetmutQ+Z7pVfvA=="
+          "hash": "I12KObh6KjxvDVovQKvUmw=="
         }
       },
       "is_incremental": false,
@@ -3258,7 +3306,7 @@
       "output": {
         ".html": {
           "relative_path": "core/Microsoft.Graph.CommsNotification.html",
-          "hash": "RqKvJTtTNOT5p9R1AQMV8Q=="
+          "hash": "250mvvl53NCBpBRo9+BX+w=="
         }
       },
       "is_incremental": false,
@@ -3282,19 +3330,7 @@
       "output": {
         ".html": {
           "relative_path": "core/Microsoft.Graph.CommsOperation.html",
-          "hash": "k7BUC0zD5fTc+FmxBBsNhQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/core/Microsoft.Graph.Communications.Core.CommsConstants.Headers.yml",
-      "output": {
-        ".html": {
-          "relative_path": "core/Microsoft.Graph.Communications.Core.CommsConstants.Headers.html",
-          "hash": "/oEM24QLJSWWbYEW1tdtJg=="
+          "hash": "D6lfYpNPWWsR2MBFM4utcg=="
         }
       },
       "is_incremental": false,
@@ -3314,23 +3350,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/core/Microsoft.Graph.Communications.Core.CommsConstants.Serialization.yml",
-      "output": {
-        ".html": {
-          "relative_path": "core/Microsoft.Graph.Communications.Core.CommsConstants.Serialization.html",
-          "hash": "pnM68F2Do/biQvXgcRJC1g=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/core/Microsoft.Graph.Communications.Core.CommsConstants.yml",
       "output": {
         ".html": {
           "relative_path": "core/Microsoft.Graph.Communications.Core.CommsConstants.html",
-          "hash": "80hZvpMs/X2ckSJK/RiIKg=="
+          "hash": "3ZYRdNUILUzvm3OuQ4m7Zg=="
         }
       },
       "is_incremental": false,
@@ -3570,7 +3594,67 @@
       "output": {
         ".html": {
           "relative_path": "core/Microsoft.Graph.Communications.Core.html",
-          "hash": "7lEOJZs14bxm1P/+menS1A=="
+          "hash": "+Fa9WnWlo09bJDRitp+6NQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.ContractsConstants.EntityContainerNames.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.ContractsConstants.EntityContainerNames.html",
+          "hash": "WWPFh8H8PrxNiY0xx6d7Og=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.ContractsConstants.IdentityProperties.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.ContractsConstants.IdentityProperties.html",
+          "hash": "0iItkMvWOfKQ8GxtM4+QEg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.ContractsConstants.NotificationProperties.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.ContractsConstants.NotificationProperties.html",
+          "hash": "Y5jElmL6FmLVHIFJteGdvQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.ContractsConstants.Signature.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.ContractsConstants.Signature.html",
+          "hash": "9cu0slcPS/f6DEpCpHVvyQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.ContractsConstants.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.ContractsConstants.html",
+          "hash": "y20VzkQq1z+QCqA3pGM+kg=="
         }
       },
       "is_incremental": false,
@@ -3590,11 +3674,35 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.IdentityExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.IdentityExtensions.html",
+          "hash": "Lk7/hXtoMIYcgpSaVfsQSQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/core/Microsoft.Graph.IdentitySetExtensions.yml",
       "output": {
         ".html": {
           "relative_path": "core/Microsoft.Graph.IdentitySetExtensions.html",
-          "hash": "Uwox21QRNvWlhqrW224nKw=="
+          "hash": "tMjRiZ8TF2feHE5h7fxXOQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.Modality.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.Modality.html",
+          "hash": "1NXnmEg6hLKoP1QS5Qe9eQ=="
         }
       },
       "is_incremental": false,
@@ -3626,11 +3734,35 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.Routing.CloudNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.Routing.CloudNamespace.html",
+          "hash": "PjQC2qlbCEE7yhl/kPtZnA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.Routing.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.Routing.html",
+          "hash": "G/jm96f9ai3qozYyHnjWiQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/core/Microsoft.Graph.yml",
       "output": {
         ".html": {
           "relative_path": "core/Microsoft.Graph.html",
-          "hash": "yBIw7JyvNeEpfLSkqzjAHw=="
+          "hash": "QZ864+ri9fFE2zpcKIraRw=="
         }
       },
       "is_incremental": false,
@@ -3642,19 +3774,7 @@
       "output": {
         ".html": {
           "relative_path": "core/toc.html",
-          "hash": "kHKVbHZQjag18y3VuS5HFw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/core_calls/Microsoft.Graph.AccessLevel.yml",
-      "output": {
-        ".html": {
-          "relative_path": "core_calls/Microsoft.Graph.AccessLevel.html",
-          "hash": "C2dXk36t238WljXnfewcKQ=="
+          "hash": "HExbdtCfGgeOyd0QzqmHBQ=="
         }
       },
       "is_incremental": false,
@@ -3678,7 +3798,7 @@
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.AudioConferencing.html",
-          "hash": "UuWql2RSu4p/RKTnF2AgEA=="
+          "hash": "agVW3QYgkLMh05NwN2wixg=="
         }
       },
       "is_incremental": false,
@@ -3726,7 +3846,7 @@
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.AutoAdmittedUsersType.html",
-          "hash": "XEKEUG2dRnWthCQvFhc+Ag=="
+          "hash": "3U9+lsglvv07/jvtMn52+w=="
         }
       },
       "is_incremental": false,
@@ -3738,7 +3858,7 @@
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.Call.html",
-          "hash": "LBrSh62yRuotQ4UQ93IPXw=="
+          "hash": "OXexKmtLGHn7ytaFdG9Plg=="
         }
       },
       "is_incremental": false,
@@ -3762,7 +3882,7 @@
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.CallAnswerRequestBody.html",
-          "hash": "QUaDT/IQ3iqJqvfPkXlEsg=="
+          "hash": "4u+nu9xibIfaPS+rBmu7LQ=="
         }
       },
       "is_incremental": false,
@@ -3774,7 +3894,7 @@
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.CallAnswerRequestBuilder.html",
-          "hash": "eA6UqdcU3l0vXRY58BqiEg=="
+          "hash": "mT7AmItesLvdsQktH2wU3A=="
         }
       },
       "is_incremental": false,
@@ -3907,18 +4027,6 @@
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.CallDirection.html",
           "hash": "V/kXgn9M5wcAMtf630K+Pg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/core_calls/Microsoft.Graph.CallDisposition.yml",
-      "output": {
-        ".html": {
-          "relative_path": "core_calls/Microsoft.Graph.CallDisposition.html",
-          "hash": "oRUY450li5Ybyb736A49GA=="
         }
       },
       "is_incremental": false,
@@ -4158,7 +4266,7 @@
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.CallRedirectRequestBody.html",
-          "hash": "dP8v3CecFqQblaoaTxtpvA=="
+          "hash": "U7vkLXT8sZU2wITiPd9Vng=="
         }
       },
       "is_incremental": false,
@@ -4170,7 +4278,7 @@
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.CallRedirectRequestBuilder.html",
-          "hash": "VaUjaF3QeAoyJRqLtOrnlg=="
+          "hash": "Ep/CsPzUg+KYVk6DSj/hNA=="
         }
       },
       "is_incremental": false,
@@ -4230,7 +4338,7 @@
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.CallRequestBuilder.html",
-          "hash": "ANo/HUEbysfGt4fGzZadLw=="
+          "hash": "973KxyHaE+q9Gm5UYIEXDw=="
         }
       },
       "is_incremental": false,
@@ -4254,7 +4362,7 @@
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.CallState.html",
-          "hash": "DV5PQklMCdgow4RXEMk4fg=="
+          "hash": "F4Msd+wIpzS2cItAJh5Lkg=="
         }
       },
       "is_incremental": false,
@@ -4363,6 +4471,42 @@
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.CallUnmuteRequestBuilder.html",
           "hash": "zfREhFWUDs1Bk+gIkn7AKA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.CallUpdateRecordingStatusRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.CallUpdateRecordingStatusRequest.html",
+          "hash": "qEAYb/GluS+3ocJOJY+oIA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.CallUpdateRecordingStatusRequestBody.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.CallUpdateRecordingStatusRequestBody.html",
+          "hash": "Pb7XevxEzYmUgwIYLYvpTQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.CallUpdateRecordingStatusRequestBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.CallUpdateRecordingStatusRequestBuilder.html",
+          "hash": "Jwzg5+/ehQ6x4HzPZ3+ZAw=="
         }
       },
       "is_incremental": false,
@@ -4506,7 +4650,55 @@
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.CallsGraphServiceClient.html",
-          "hash": "Z+WRVu4uuacEAaXoHLDX4Q=="
+          "hash": "ejppjkqj0EWC89OgalEc4Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.CallsGraphServiceUsersCollectionPage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.CallsGraphServiceUsersCollectionPage.html",
+          "hash": "ZnXtLhCWpkvsg1e++9+png=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.CallsGraphServiceUsersCollectionRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.CallsGraphServiceUsersCollectionRequest.html",
+          "hash": "9DJs4ZGOgrqVqxwWNHuu5Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.CallsGraphServiceUsersCollectionRequestBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.CallsGraphServiceUsersCollectionRequestBuilder.html",
+          "hash": "QvpMtcYSWeJ1d5LVuOE3PQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.CallsGraphServiceUsersCollectionResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.CallsGraphServiceUsersCollectionResponse.html",
+          "hash": "0/UPytyguzyozK6P8IpyIw=="
         }
       },
       "is_incremental": false,
@@ -4562,6 +4754,198 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.CloudCommunications.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.CloudCommunications.html",
+          "hash": "RaQTFrmAhxjHvfXRoFRD3w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.CloudCommunicationsCallsCollectionPage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.CloudCommunicationsCallsCollectionPage.html",
+          "hash": "svc2IcrVRh7N9KPm5kJSlQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.CloudCommunicationsCallsCollectionRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.CloudCommunicationsCallsCollectionRequest.html",
+          "hash": "fKdbBjLVFlJzwBqPTaMsBg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.CloudCommunicationsCallsCollectionRequestBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.CloudCommunicationsCallsCollectionRequestBuilder.html",
+          "hash": "6EPD0d/YQ5CfZSCdqoF73w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.CloudCommunicationsCallsCollectionResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.CloudCommunicationsCallsCollectionResponse.html",
+          "hash": "pKYYTH6VQ3DPydP7zNNKtg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.CloudCommunicationsGetPresencesByUserIdCollectionPage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.CloudCommunicationsGetPresencesByUserIdCollectionPage.html",
+          "hash": "mAyRJkD8ECx4gpPW2FLtxw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.CloudCommunicationsGetPresencesByUserIdCollectionResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.CloudCommunicationsGetPresencesByUserIdCollectionResponse.html",
+          "hash": "q6quZ9O7gFQhF3Bb/OYmlg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.CloudCommunicationsGetPresencesByUserIdRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.CloudCommunicationsGetPresencesByUserIdRequest.html",
+          "hash": "UTUJ1EnGQzVyn51GalO7CA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.CloudCommunicationsGetPresencesByUserIdRequestBody.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.CloudCommunicationsGetPresencesByUserIdRequestBody.html",
+          "hash": "NbNWT+vW4pVmfNzTek3RIw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.CloudCommunicationsGetPresencesByUserIdRequestBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.CloudCommunicationsGetPresencesByUserIdRequestBuilder.html",
+          "hash": "WuTMLutTLdkNqfgV+t+TVQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.CloudCommunicationsOnlineMeetingsCollectionPage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.CloudCommunicationsOnlineMeetingsCollectionPage.html",
+          "hash": "OXhErcpZn7BB9b21i9dmXg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.CloudCommunicationsOnlineMeetingsCollectionRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.CloudCommunicationsOnlineMeetingsCollectionRequest.html",
+          "hash": "KFgrAvuLzYFKiMMIxo+fHg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.CloudCommunicationsOnlineMeetingsCollectionRequestBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.CloudCommunicationsOnlineMeetingsCollectionRequestBuilder.html",
+          "hash": "vF19e5qKr0UY0b2D35AESQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.CloudCommunicationsOnlineMeetingsCollectionResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.CloudCommunicationsOnlineMeetingsCollectionResponse.html",
+          "hash": "Bwg8N9gAfu0imYJpPBi8KA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.CloudCommunicationsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.CloudCommunicationsRequest.html",
+          "hash": "YEtIIkFV7vR3KZPeDFceUg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.CloudCommunicationsRequestBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.CloudCommunicationsRequestBuilder.html",
+          "hash": "cLDB02YjJqqb0NFf9UNiRg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/core_calls/Microsoft.Graph.CommsOperationRequest.yml",
       "output": {
         ".html": {
@@ -4578,7 +4962,7 @@
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.CommsOperationRequestBuilder.html",
-          "hash": "XNPA0EM/xV/8h/FWA1Nsiw=="
+          "hash": "8EgneaLIMEKlLkk0PaETRw=="
         }
       },
       "is_incremental": false,
@@ -4590,7 +4974,7 @@
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.EndpointType.html",
-          "hash": "HgN4hR4JWEmP6DJ/LEFtbQ=="
+          "hash": "WB2sdDrfzZMICdOR9qB7gQ=="
         }
       },
       "is_incremental": false,
@@ -4938,7 +5322,7 @@
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.ICallRequestBuilder.html",
-          "hash": "OW3rScmccCt2mjnCJ1W0DQ=="
+          "hash": "JsotIOAycqhh9dWFBIxFTQ=="
         }
       },
       "is_incremental": false,
@@ -5011,6 +5395,30 @@
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.ICallUnmuteRequestBuilder.html",
           "hash": "nFIkQqyxbCBHxtNLcoLUYA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.ICallUpdateRecordingStatusRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.ICallUpdateRecordingStatusRequest.html",
+          "hash": "hN791C0Qkvd7Cihshxap1g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.ICallUpdateRecordingStatusRequestBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.ICallUpdateRecordingStatusRequestBuilder.html",
+          "hash": "RAPAuUTVpjjuz5hHxbv/Lg=="
         }
       },
       "is_incremental": false,
@@ -5118,7 +5526,43 @@
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.ICallsGraphServiceClient.html",
-          "hash": "1e4nyUFmC93iI58/HFBkag=="
+          "hash": "kxKY7hyoeliWPOEfRWW4qQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionPage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionPage.html",
+          "hash": "o7Cm0k3wzxSVjcoEirvbLg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.html",
+          "hash": "FBqC/l3JypS3CS5Tm/IBIw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionRequestBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionRequestBuilder.html",
+          "hash": "Kt2JwgaHlCeRvgWEggEn3Q=="
         }
       },
       "is_incremental": false,
@@ -5143,6 +5587,138 @@
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.ICancelMediaProcessingOperationRequestBuilder.html",
           "hash": "ktrtWx8nUI/GlYW5AI4mpQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.ICloudCommunicationsCallsCollectionPage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.ICloudCommunicationsCallsCollectionPage.html",
+          "hash": "NmraV2KfJ6VA1IkYgGDqtQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.ICloudCommunicationsCallsCollectionRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.ICloudCommunicationsCallsCollectionRequest.html",
+          "hash": "6IxkRY8u/uE1zxqAffcnzQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.ICloudCommunicationsCallsCollectionRequestBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.ICloudCommunicationsCallsCollectionRequestBuilder.html",
+          "hash": "yyfOKY/xgZYcHs/faDyrMg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.ICloudCommunicationsGetPresencesByUserIdCollectionPage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.ICloudCommunicationsGetPresencesByUserIdCollectionPage.html",
+          "hash": "eUnfJ3DYa+PW3Se7sBDTfQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.ICloudCommunicationsGetPresencesByUserIdRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.ICloudCommunicationsGetPresencesByUserIdRequest.html",
+          "hash": "ir7I/Hc4ZRaaeeKckBiRYA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.ICloudCommunicationsGetPresencesByUserIdRequestBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.ICloudCommunicationsGetPresencesByUserIdRequestBuilder.html",
+          "hash": "MjJBp3B4i9gfm/sz+8XGng=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.ICloudCommunicationsOnlineMeetingsCollectionPage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.ICloudCommunicationsOnlineMeetingsCollectionPage.html",
+          "hash": "rfiBgqSYz4XuEFe3bvyuIQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.ICloudCommunicationsOnlineMeetingsCollectionRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.ICloudCommunicationsOnlineMeetingsCollectionRequest.html",
+          "hash": "Xq8877JqDdNo4QdSHZSh9Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.ICloudCommunicationsOnlineMeetingsCollectionRequestBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.ICloudCommunicationsOnlineMeetingsCollectionRequestBuilder.html",
+          "hash": "iE+hIZqfzHPoT1QMjqAvUQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.ICloudCommunicationsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.ICloudCommunicationsRequest.html",
+          "hash": "h+j40Bv7Q224rpDt3CIEqQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.ICloudCommunicationsRequestBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.ICloudCommunicationsRequestBuilder.html",
+          "hash": "osHYvFcFTHiCIdZCP2TC/A=="
         }
       },
       "is_incremental": false,
@@ -5390,6 +5966,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.IPresenceRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.IPresenceRequest.html",
+          "hash": "+frIGttrV0Gwyt/NX+IwXA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.IPresenceRequestBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.IPresenceRequestBuilder.html",
+          "hash": "01E5dlzufc5DCOL33rJoEQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/core_calls/Microsoft.Graph.IRecordOperationRequest.yml",
       "output": {
         ".html": {
@@ -5462,11 +6062,83 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.IUpdateRecordingStatusOperationRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.IUpdateRecordingStatusOperationRequest.html",
+          "hash": "Qq4Y0VrJo+w1H9AcPnjpJw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.IUpdateRecordingStatusOperationRequestBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.IUpdateRecordingStatusOperationRequestBuilder.html",
+          "hash": "YwfCag5b4Mrkq/LHZYAOUg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.IUserOnlineMeetingsCollectionPage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.IUserOnlineMeetingsCollectionPage.html",
+          "hash": "MXKGmm2obL9MRVCWJ8+kWA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.IUserOnlineMeetingsCollectionRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.IUserOnlineMeetingsCollectionRequest.html",
+          "hash": "odrgTJTAT1BjM8JU0gpFqg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.IUserOnlineMeetingsCollectionRequestBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.IUserOnlineMeetingsCollectionRequestBuilder.html",
+          "hash": "iMWHQHsjI4vwcEaMxQqAUw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.IncomingContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.IncomingContext.html",
+          "hash": "nUh67Z/Y5vV2HxMHRqmpcA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/core_calls/Microsoft.Graph.InvitationParticipantInfo.yml",
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.InvitationParticipantInfo.html",
-          "hash": "1c7z++M9Myk/CrQ5em/kHw=="
+          "hash": "sRa9fgg98GwL+K/qly8eYg=="
         }
       },
       "is_incremental": false,
@@ -5562,7 +6234,7 @@
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.MediaState.html",
-          "hash": "b2Cee/nJ83BGoFVmj38i4g=="
+          "hash": "fyDiOrWYHCRGA6t0cNwDmA=="
         }
       },
       "is_incremental": false,
@@ -5574,7 +6246,7 @@
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.MediaStream.html",
-          "hash": "adjh0WshG6bNexWjLj9X2w=="
+          "hash": "MqBbLbozs5fapIcLsDFNXA=="
         }
       },
       "is_incremental": false,
@@ -5610,7 +6282,7 @@
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.MeetingInfo.html",
-          "hash": "dDk4+/1+VbpsyVPZgbQKsg=="
+          "hash": "niVyLyyLf14ZnFRV+A2dFg=="
         }
       },
       "is_incremental": false,
@@ -5622,7 +6294,7 @@
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.MeetingParticipantInfo.html",
-          "hash": "WUhNB5/ZBhMeP6z6otVqvA=="
+          "hash": "5QCLymiJVgKKMww+4MQDRA=="
         }
       },
       "is_incremental": false,
@@ -5634,31 +6306,7 @@
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.MeetingParticipants.html",
-          "hash": "+RNTGoPAt1MpZlGvo2ea3A=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/core_calls/Microsoft.Graph.MeetingType.yml",
-      "output": {
-        ".html": {
-          "relative_path": "core_calls/Microsoft.Graph.MeetingType.html",
-          "hash": "4nDwB1Bda9xapnBMyXLhaw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/core_calls/Microsoft.Graph.Modality.yml",
-      "output": {
-        ".html": {
-          "relative_path": "core_calls/Microsoft.Graph.Modality.html",
-          "hash": "tFQ7wfVbDEuALcpyZovFEQ=="
+          "hash": "90i/6IZ22E305eAJQHq7rw=="
         }
       },
       "is_incremental": false,
@@ -5742,7 +6390,7 @@
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.OnlineMeeting.html",
-          "hash": "o4xGz3NY1Ke3x8WumTZdyg=="
+          "hash": "btgG/fDwhZxOh9nLws492g=="
         }
       },
       "is_incremental": false,
@@ -5778,7 +6426,7 @@
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.OrganizerMeetingInfo.html",
-          "hash": "2+6xT+oJP+1x51/IGf2g6w=="
+          "hash": "vmHrWKgaomXEqZY437PwZw=="
         }
       },
       "is_incremental": false,
@@ -5802,7 +6450,7 @@
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.ParticipantInfo.html",
-          "hash": "33kN7LOPMlh23djfXGzL+g=="
+          "hash": "+t/uvUEuykABwBk2YMH+GQ=="
         }
       },
       "is_incremental": false,
@@ -5946,7 +6594,7 @@
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.PlayPromptCompletionReason.html",
-          "hash": "fGER2f9LvIRBBIszZw9EOQ=="
+          "hash": "S9U94ZvAw6e9yJhAk7dXjg=="
         }
       },
       "is_incremental": false,
@@ -5983,6 +6631,42 @@
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.PlayPromptOperationRequestBuilder.html",
           "hash": "uv3n7Kg8HcLZQ7v+3cMn/A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.Presence.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.Presence.html",
+          "hash": "QRrygpE2QRYRKU+dXedJqQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.PresenceRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.PresenceRequest.html",
+          "hash": "wiw/zxsbQ8Rsy0OUXboB6A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.PresenceRequestBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.PresenceRequestBuilder.html",
+          "hash": "VvF4WkhdFveATgq+POgX4g=="
         }
       },
       "is_incremental": false,
@@ -6054,7 +6738,7 @@
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.RecordingInfo.html",
-          "hash": "dkI3pjQ3J2Ae8SDZzACCQg=="
+          "hash": "A0pa3TgAboZC7U4nVqPJ7g=="
         }
       },
       "is_incremental": false,
@@ -6066,7 +6750,7 @@
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.RecordingStatus.html",
-          "hash": "m/eJVJ1x1nA2z2fgYIUeQQ=="
+          "hash": "pfohSjIBjxio1JE2SW7tRg=="
         }
       },
       "is_incremental": false,
@@ -6078,7 +6762,7 @@
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.RejectReason.html",
-          "hash": "uqn9qoCtY9khadW9r9MDtg=="
+          "hash": "mBEUH72xB0EyogXyTlm8gQ=="
         }
       },
       "is_incremental": false,
@@ -6186,7 +6870,7 @@
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.TokenMeetingInfo.html",
-          "hash": "XEUOrRVFEflj4Z6t85ho8A=="
+          "hash": "7uV7ct808BYjU7utpN4aVg=="
         }
       },
       "is_incremental": false,
@@ -6254,11 +6938,95 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.UpdateRecordingStatusOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.UpdateRecordingStatusOperation.html",
+          "hash": "wYbeWVMCzflctIQU4rsRkQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.UpdateRecordingStatusOperationRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.UpdateRecordingStatusOperationRequest.html",
+          "hash": "RtJ00O9Y6l+mM/H69UFnbQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.UpdateRecordingStatusOperationRequestBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.UpdateRecordingStatusOperationRequestBuilder.html",
+          "hash": "txA5zFbpZZRlkgYNm89aeg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.UserOnlineMeetingsCollectionPage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.UserOnlineMeetingsCollectionPage.html",
+          "hash": "lENNQE6LG9Z04Q+IoTfhDw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.UserOnlineMeetingsCollectionRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.UserOnlineMeetingsCollectionRequest.html",
+          "hash": "ayORfd1GfTYsT5HSa/2m2Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.UserOnlineMeetingsCollectionRequestBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.UserOnlineMeetingsCollectionRequestBuilder.html",
+          "hash": "nPOv4slO5ovmSRWwtXoeRw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core_calls/Microsoft.Graph.UserOnlineMeetingsCollectionResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core_calls/Microsoft.Graph.UserOnlineMeetingsCollectionResponse.html",
+          "hash": "Y+mCi3a1VjN0g126Rc7raQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/core_calls/Microsoft.Graph.yml",
       "output": {
         ".html": {
           "relative_path": "core_calls/Microsoft.Graph.html",
-          "hash": "elXn7M81ydRb8kH1mIohzw=="
+          "hash": "5H8YxOXZwjwQUhb72P2+mQ=="
         }
       },
       "is_incremental": false,
@@ -6270,7 +7038,7 @@
       "output": {
         ".html": {
           "relative_path": "core_calls/toc.html",
-          "hash": "MgGiic+x6vPhFxSSoq4C0w=="
+          "hash": "K4KdUO/pSyhKWZc/SAwUHg=="
         }
       },
       "is_incremental": false,
@@ -6336,8 +7104,7 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": false,
-        "details": "Cannot build incrementally because last build info is missing.",
+        "can_incremental": true,
         "incrementalPhase": "build"
       },
       "processors": {
@@ -6352,11 +7119,11 @@
           "incrementalPhase": "build"
         },
         "ConceptualDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build"
         },
         "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build"
         }
       }

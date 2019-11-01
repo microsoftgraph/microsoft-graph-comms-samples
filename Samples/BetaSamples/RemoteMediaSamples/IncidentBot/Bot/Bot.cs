@@ -303,7 +303,7 @@ namespace Sample.IncidentBot.Bot
 
             var target =
                 makeCallBody.IsApplication ?
-                new ParticipantInfo
+                new InvitationParticipantInfo
                 {
                     Identity = new IdentitySet
                     {
@@ -315,7 +315,7 @@ namespace Sample.IncidentBot.Bot
                     },
                 }
                 :
-                new ParticipantInfo
+                new InvitationParticipantInfo
                 {
                     Identity = new IdentitySet
                     {
@@ -498,8 +498,7 @@ namespace Sample.IncidentBot.Bot
 
             var statusData = this.IncidentStatusManager.GetIncident(incidentCallContext.IncidentId);
 
-            var callee = default(ParticipantInfo);
-
+            InvitationParticipantInfo callee = null;
             switch (incidentCallContext.CallType)
             {
                 case IncidentCallType.BotMeeting:
