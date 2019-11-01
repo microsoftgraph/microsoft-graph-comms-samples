@@ -83,7 +83,7 @@
   
   <h1 id="Microsoft_Graph_OnlineMeeting" data-uid="Microsoft.Graph.OnlineMeeting" class="text-break">Class OnlineMeeting
   </h1>
-  <div class="markdown level0 summary"><p>OnlineMeeting class.</p>
+  <div class="markdown level0 summary"><p>The online meeting class.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -109,30 +109,6 @@
   </div>
   <h3 id="properties">Properties
   </h3>
-  <a id="Microsoft_Graph_OnlineMeeting_AccessLevel_" data-uid="Microsoft.Graph.OnlineMeeting.AccessLevel*"></a>
-  <h4 id="Microsoft_Graph_OnlineMeeting_AccessLevel" data-uid="Microsoft.Graph.OnlineMeeting.AccessLevel">AccessLevel</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the access level.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public AccessLevel? AccessLevel { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="Microsoft.Graph.AccessLevel.html">AccessLevel</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <a id="Microsoft_Graph_OnlineMeeting_AudioConferencing_" data-uid="Microsoft.Graph.OnlineMeeting.AudioConferencing*"></a>
   <h4 id="Microsoft_Graph_OnlineMeeting_AudioConferencing" data-uid="Microsoft.Graph.OnlineMeeting.AudioConferencing">AudioConferencing</h4>
   <div class="markdown level1 summary"><p>Gets or sets the audio conferencing information.</p>
@@ -153,6 +129,30 @@
     <tbody>
       <tr>
         <td><a class="xref" href="Microsoft.Graph.AudioConferencing.html">AudioConferencing</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_OnlineMeeting_AutoAdmittedUsers_" data-uid="Microsoft.Graph.OnlineMeeting.AutoAdmittedUsers*"></a>
+  <h4 id="Microsoft_Graph_OnlineMeeting_AutoAdmittedUsers" data-uid="Microsoft.Graph.OnlineMeeting.AutoAdmittedUsers">AutoAdmittedUsers</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the AutoAdmittedUsers. Specifies users who can direcly join the meeting i.e. skip lobby.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AutoAdmittedUsersType? AutoAdmittedUsers { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="Microsoft.Graph.AutoAdmittedUsersType.html">AutoAdmittedUsersType</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -277,14 +277,14 @@
       </tr>
     </tbody>
   </table>
-  <a id="Microsoft_Graph_OnlineMeeting_EntryExitAnnouncement_" data-uid="Microsoft.Graph.OnlineMeeting.EntryExitAnnouncement*"></a>
-  <h4 id="Microsoft_Graph_OnlineMeeting_EntryExitAnnouncement" data-uid="Microsoft.Graph.OnlineMeeting.EntryExitAnnouncement">EntryExitAnnouncement</h4>
-  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether [entry exit announcement]. The attendance announcements status for the online meeting. When attendance announcements are enabled, the online meeting will announce the names of the participants who join the meeting through audio.</p>
+  <a id="Microsoft_Graph_OnlineMeeting_IsBroadcast_" data-uid="Microsoft.Graph.OnlineMeeting.IsBroadcast*"></a>
+  <h4 id="Microsoft_Graph_OnlineMeeting_IsBroadcast" data-uid="Microsoft.Graph.OnlineMeeting.IsBroadcast">IsBroadcast</h4>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the meeting is a broadcast meeting. Default is false.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool? EntryExitAnnouncement { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool? IsBroadcast { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -301,38 +301,14 @@
       </tr>
     </tbody>
   </table>
-  <a id="Microsoft_Graph_OnlineMeeting_ExpirationDateTime_" data-uid="Microsoft.Graph.OnlineMeeting.ExpirationDateTime*"></a>
-  <h4 id="Microsoft_Graph_OnlineMeeting_ExpirationDateTime" data-uid="Microsoft.Graph.OnlineMeeting.ExpirationDateTime">ExpirationDateTime</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the expiration date and time.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DateTimeOffset? ExpirationDateTime { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="Microsoft_Graph_OnlineMeeting_IsCancelled_" data-uid="Microsoft.Graph.OnlineMeeting.IsCancelled*"></a>
-  <h4 id="Microsoft_Graph_OnlineMeeting_IsCancelled" data-uid="Microsoft.Graph.OnlineMeeting.IsCancelled">IsCancelled</h4>
+  <a id="Microsoft_Graph_OnlineMeeting_IsCanceled_" data-uid="Microsoft.Graph.OnlineMeeting.IsCanceled*"></a>
+  <h4 id="Microsoft_Graph_OnlineMeeting_IsCanceled" data-uid="Microsoft.Graph.OnlineMeeting.IsCanceled">IsCanceled</h4>
   <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the meeting has been canceled.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool? IsCancelled { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool? IsCanceled { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -369,30 +345,6 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="Microsoft_Graph_OnlineMeeting_MeetingType_" data-uid="Microsoft.Graph.OnlineMeeting.MeetingType*"></a>
-  <h4 id="Microsoft_Graph_OnlineMeeting_MeetingType" data-uid="Microsoft.Graph.OnlineMeeting.MeetingType">MeetingType</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the meeting type.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public MeetingType? MeetingType { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="Microsoft.Graph.MeetingType.html">MeetingType</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -447,7 +399,7 @@
   </table>
   <a id="Microsoft_Graph_OnlineMeeting_Subject_" data-uid="Microsoft.Graph.OnlineMeeting.Subject*"></a>
   <h4 id="Microsoft_Graph_OnlineMeeting_Subject" data-uid="Microsoft.Graph.OnlineMeeting.Subject">Subject</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the Subject.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the subject.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>

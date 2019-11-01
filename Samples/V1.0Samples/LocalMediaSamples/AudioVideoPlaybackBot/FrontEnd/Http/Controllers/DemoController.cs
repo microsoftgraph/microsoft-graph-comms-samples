@@ -103,18 +103,15 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
             foreach (var callHandler in Bot.Instance.CallHandlers.Values)
             {
                 var call = callHandler.Call;
-                var callUriTemplate =
-                    (Service.Instance.Configuration.CallControlBaseUrl + "/" +
-                    HttpRouteConstants.CallRoute)
-                        .Replace(HttpRouteConstants.CallSignalingRoutePrefix + "/", string.Empty)
-                        .Replace("{callLegId}", call.Id);
+                var callPath = ("/" + HttpRouteConstants.CallRoute).Replace("{callLegId}", call.Id);
+                var callUri = new Uri(Service.Instance.Configuration.CallControlBaseUrl, callPath).AbsoluteUri;
                 var values = new Dictionary<string, string>
                 {
                     { "legId", call.Id },
                     { "scenarioId", call.ScenarioId.ToString() },
-                    { "call", callUriTemplate },
-                    { "logs", callUriTemplate.Replace("/calls/", "/logs/") },
-                    { "changeScreenSharingRole", callUriTemplate + "/" + HttpRouteConstants.OnChangeRoleRoute },
+                    { "call", callUri },
+                    { "logs", callUri.Replace("/calls/", "/logs/") },
+                    { "changeScreenSharingRole", callUri + "/" + HttpRouteConstants.OnChangeRoleRoute },
                 };
                 calls.Add(values);
             }
