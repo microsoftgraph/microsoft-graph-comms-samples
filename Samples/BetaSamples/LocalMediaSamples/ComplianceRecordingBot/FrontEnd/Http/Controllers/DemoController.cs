@@ -103,7 +103,7 @@ namespace Sample.ComplianceRecordingBot.FrontEnd.Http
             foreach (var callHandler in Bot.Instance.CallHandlers.Values)
             {
                 var call = callHandler.Call;
-                var callPath = ("/" + HttpRouteConstants.CallRoute).Replace("{callLegId}", call.Id);
+                var callPath = "/" + HttpRouteConstants.CallRoute.Replace("{callLegId}", call.Id);
                 var callUri = new Uri(Service.Instance.Configuration.CallControlBaseUrl, callPath).AbsoluteUri;
                 var values = new Dictionary<string, string>
                 {
