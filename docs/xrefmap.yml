@@ -7713,6 +7713,18 @@ references:
   commentId: T:Microsoft.Graph.Communications.Calls.IParticipant
   fullName: Microsoft.Graph.Communications.Calls.IParticipant
   nameWithType: IParticipant
+- uid: Microsoft.Graph.Communications.Calls.IParticipant.DeleteAsync(System.Boolean,System.Threading.CancellationToken)
+  name: DeleteAsync(Boolean, CancellationToken)
+  href: calls/Microsoft.Graph.Communications.Calls.IParticipant.html#Microsoft_Graph_Communications_Calls_IParticipant_DeleteAsync_System_Boolean_System_Threading_CancellationToken_
+  commentId: M:Microsoft.Graph.Communications.Calls.IParticipant.DeleteAsync(System.Boolean,System.Threading.CancellationToken)
+  fullName: Microsoft.Graph.Communications.Calls.IParticipant.DeleteAsync(System.Boolean, System.Threading.CancellationToken)
+  nameWithType: IParticipant.DeleteAsync(Boolean, CancellationToken)
+- uid: Microsoft.Graph.Communications.Calls.IParticipant.DeleteAsync*
+  name: DeleteAsync
+  href: calls/Microsoft.Graph.Communications.Calls.IParticipant.html#Microsoft_Graph_Communications_Calls_IParticipant_DeleteAsync_
+  commentId: Overload:Microsoft.Graph.Communications.Calls.IParticipant.DeleteAsync
+  fullName: Microsoft.Graph.Communications.Calls.IParticipant.DeleteAsync
+  nameWithType: IParticipant.DeleteAsync
 - uid: Microsoft.Graph.Communications.Calls.IParticipant.MuteAsync(System.Threading.CancellationToken)
   name: MuteAsync(CancellationToken)
   href: calls/Microsoft.Graph.Communications.Calls.IParticipant.html#Microsoft_Graph_Communications_Calls_IParticipant_MuteAsync_System_Threading_CancellationToken_
@@ -11172,6 +11184,12 @@ references:
   commentId: F:Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.UserAgent
   fullName: Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.UserAgent
   nameWithType: HttpConstants.HeaderNames.UserAgent
+- uid: Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.WebhooksResource
+  name: WebhooksResource
+  href: common/Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.html#Microsoft_Graph_Communications_Common_HttpConstants_HeaderNames_WebhooksResource
+  commentId: F:Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.WebhooksResource
+  fullName: Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.WebhooksResource
+  nameWithType: HttpConstants.HeaderNames.WebhooksResource
 - uid: Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.XMsClientUserAgent
   name: XMsClientUserAgent
   href: common/Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.html#Microsoft_Graph_Communications_Common_HttpConstants_HeaderNames_XMsClientUserAgent
@@ -11886,6 +11904,30 @@ references:
   fullName.vb: Microsoft.Graph.Communications.Common.ReflectionUtils.DerivesFrom(Of T)(System.Type)
   nameWithType: ReflectionUtils.DerivesFrom<T>(Type)
   nameWithType.vb: ReflectionUtils.DerivesFrom(Of T)(Type)
+- uid: Microsoft.Graph.Communications.Common.ReflectionUtils.GetPropertyUsingReflection(System.Object,System.String)
+  name: GetPropertyUsingReflection(Object, String)
+  href: common/Microsoft.Graph.Communications.Common.ReflectionUtils.html#Microsoft_Graph_Communications_Common_ReflectionUtils_GetPropertyUsingReflection_System_Object_System_String_
+  commentId: M:Microsoft.Graph.Communications.Common.ReflectionUtils.GetPropertyUsingReflection(System.Object,System.String)
+  fullName: Microsoft.Graph.Communications.Common.ReflectionUtils.GetPropertyUsingReflection(System.Object, System.String)
+  nameWithType: ReflectionUtils.GetPropertyUsingReflection(Object, String)
+- uid: Microsoft.Graph.Communications.Common.ReflectionUtils.GetPropertyUsingReflection*
+  name: GetPropertyUsingReflection
+  href: common/Microsoft.Graph.Communications.Common.ReflectionUtils.html#Microsoft_Graph_Communications_Common_ReflectionUtils_GetPropertyUsingReflection_
+  commentId: Overload:Microsoft.Graph.Communications.Common.ReflectionUtils.GetPropertyUsingReflection
+  fullName: Microsoft.Graph.Communications.Common.ReflectionUtils.GetPropertyUsingReflection
+  nameWithType: ReflectionUtils.GetPropertyUsingReflection
+- uid: Microsoft.Graph.Communications.Common.ReflectionUtils.GetValueCached(System.Reflection.PropertyInfo,System.Object)
+  name: GetValueCached(PropertyInfo, Object)
+  href: common/Microsoft.Graph.Communications.Common.ReflectionUtils.html#Microsoft_Graph_Communications_Common_ReflectionUtils_GetValueCached_System_Reflection_PropertyInfo_System_Object_
+  commentId: M:Microsoft.Graph.Communications.Common.ReflectionUtils.GetValueCached(System.Reflection.PropertyInfo,System.Object)
+  fullName: Microsoft.Graph.Communications.Common.ReflectionUtils.GetValueCached(System.Reflection.PropertyInfo, System.Object)
+  nameWithType: ReflectionUtils.GetValueCached(PropertyInfo, Object)
+- uid: Microsoft.Graph.Communications.Common.ReflectionUtils.GetValueCached*
+  name: GetValueCached
+  href: common/Microsoft.Graph.Communications.Common.ReflectionUtils.html#Microsoft_Graph_Communications_Common_ReflectionUtils_GetValueCached_
+  commentId: Overload:Microsoft.Graph.Communications.Common.ReflectionUtils.GetValueCached
+  fullName: Microsoft.Graph.Communications.Common.ReflectionUtils.GetValueCached
+  nameWithType: ReflectionUtils.GetValueCached
 - uid: Microsoft.Graph.Communications.Common.ReflectionUtils.Implements(System.Type,System.Type)
   name: Implements(Type, Type)
   href: common/Microsoft.Graph.Communications.Common.ReflectionUtils.html#Microsoft_Graph_Communications_Common_ReflectionUtils_Implements_System_Type_System_Type_
@@ -11907,6 +11949,30 @@ references:
   fullName.vb: Microsoft.Graph.Communications.Common.ReflectionUtils.Implements(Of T)(System.Type)
   nameWithType: ReflectionUtils.Implements<T>(Type)
   nameWithType.vb: ReflectionUtils.Implements(Of T)(Type)
+- uid: Microsoft.Graph.Communications.Common.ReflectionUtils.SetPropertyUsingReflection(System.Object,System.String,System.Object)
+  name: SetPropertyUsingReflection(Object, String, Object)
+  href: common/Microsoft.Graph.Communications.Common.ReflectionUtils.html#Microsoft_Graph_Communications_Common_ReflectionUtils_SetPropertyUsingReflection_System_Object_System_String_System_Object_
+  commentId: M:Microsoft.Graph.Communications.Common.ReflectionUtils.SetPropertyUsingReflection(System.Object,System.String,System.Object)
+  fullName: Microsoft.Graph.Communications.Common.ReflectionUtils.SetPropertyUsingReflection(System.Object, System.String, System.Object)
+  nameWithType: ReflectionUtils.SetPropertyUsingReflection(Object, String, Object)
+- uid: Microsoft.Graph.Communications.Common.ReflectionUtils.SetPropertyUsingReflection*
+  name: SetPropertyUsingReflection
+  href: common/Microsoft.Graph.Communications.Common.ReflectionUtils.html#Microsoft_Graph_Communications_Common_ReflectionUtils_SetPropertyUsingReflection_
+  commentId: Overload:Microsoft.Graph.Communications.Common.ReflectionUtils.SetPropertyUsingReflection
+  fullName: Microsoft.Graph.Communications.Common.ReflectionUtils.SetPropertyUsingReflection
+  nameWithType: ReflectionUtils.SetPropertyUsingReflection
+- uid: Microsoft.Graph.Communications.Common.ReflectionUtils.SetValueCached(System.Reflection.PropertyInfo,System.Object,System.Object)
+  name: SetValueCached(PropertyInfo, Object, Object)
+  href: common/Microsoft.Graph.Communications.Common.ReflectionUtils.html#Microsoft_Graph_Communications_Common_ReflectionUtils_SetValueCached_System_Reflection_PropertyInfo_System_Object_System_Object_
+  commentId: M:Microsoft.Graph.Communications.Common.ReflectionUtils.SetValueCached(System.Reflection.PropertyInfo,System.Object,System.Object)
+  fullName: Microsoft.Graph.Communications.Common.ReflectionUtils.SetValueCached(System.Reflection.PropertyInfo, System.Object, System.Object)
+  nameWithType: ReflectionUtils.SetValueCached(PropertyInfo, Object, Object)
+- uid: Microsoft.Graph.Communications.Common.ReflectionUtils.SetValueCached*
+  name: SetValueCached
+  href: common/Microsoft.Graph.Communications.Common.ReflectionUtils.html#Microsoft_Graph_Communications_Common_ReflectionUtils_SetValueCached_
+  commentId: Overload:Microsoft.Graph.Communications.Common.ReflectionUtils.SetValueCached
+  fullName: Microsoft.Graph.Communications.Common.ReflectionUtils.SetValueCached
+  nameWithType: ReflectionUtils.SetValueCached
 - uid: Microsoft.Graph.Communications.Common.SafeNativeMethods
   name: SafeNativeMethods
   href: common/Microsoft.Graph.Communications.Common.SafeNativeMethods.html

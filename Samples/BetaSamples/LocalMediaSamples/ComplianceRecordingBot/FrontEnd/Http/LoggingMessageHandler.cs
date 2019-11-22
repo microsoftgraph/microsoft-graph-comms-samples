@@ -136,7 +136,7 @@ namespace Sample.ComplianceRecordingBot.FrontEnd.Http
             }
 
             this.logger.LogHttpMessage(
-                TraceLevel.Info,
+                TraceLevel.Verbose,
                 direction,
                 HttpTraceType.HttpRequest,
                 request.RequestUri.ToString(),
@@ -165,7 +165,7 @@ namespace Sample.ComplianceRecordingBot.FrontEnd.Http
             }
 
             this.logger.LogHttpMessage(
-                TraceLevel.Info,
+                TraceLevel.Verbose,
                 direction,
                 HttpTraceType.HttpResponse,
                 request.RequestUri.ToString(),

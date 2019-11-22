@@ -115,7 +115,17 @@ namespace Sample.ComplianceRecordingBot.FrontEnd.Bot
             _ = Task.Run(async () =>
             {
                 var recordingStatus = new[] { RecordingStatus.Recording, RecordingStatus.NotRecording, RecordingStatus.Failed };
-                var recordingIndex = (this.recordingStatusIndex + 1) % recordingStatus.Length;
+                var recordingIndex = this.recordingStatusIndex + 1;
+                if (recordingIndex >= recordingStatus.Length)
+                {
+                    var recordedParticipantId = this.Call.Resource.IncomingContext.ObservedParticipantId;
+
+                    this.logger.Warn($"We've rolled through all the status'... removing participant {recordedParticipantId}");
+                    var recordedParticipant = this.Call.Participants[recordedParticipantId];
+                    await recordedParticipant.DeleteAsync().ConfigureAwait(false);
+                    return;
+                }
+
                 var newStatus = recordingStatus[recordingIndex];
 
                 this.logger.Info($"Flipping recording status to {newStatus}");
