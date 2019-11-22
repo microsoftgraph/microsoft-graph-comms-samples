@@ -20,9 +20,9 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
     {
         /// <summary>
         /// Number of sockets to receive video only
-        /// The main video socket being sendrecv this brings the total to NumberOfMultivewSockets + 1 receive channels.
+        /// The main video socket being sendrecv this brings the total to NumberOfMultiviewSockets + 1 receive channels.
         /// </summary>
-        public const uint NumberOfMultivewSockets = 3;
+        public const uint NumberOfMultiviewSockets = 3;
 
         /// <summary>
         /// Stores a list of supported video formats.

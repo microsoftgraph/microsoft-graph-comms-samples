@@ -242,7 +242,7 @@ This is used for obfuscation for logging.</p>
   <h6><strong>Assembly</strong>: Microsoft.Graph.Communications.Common.dll</h6>
   <h5 id="Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_GraphObfuscationAttribute_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[AttributeUsage(AttributeTargets.Class | AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter, AllowMultiple = false, Inherited = false)]
+    <pre><code class="lang-csharp hljs">[AttributeUsage(AttributeTargets.Class | AttributeTargets.Enum | AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter, AllowMultiple = false, Inherited = false)]
 public class GraphObfuscationAttribute : Attribute, _Attribute</code></pre>
   </div>
   <h3 id="constructors">Constructors
@@ -300,6 +300,12 @@ public class GraphObfuscationAttribute : Attribute, _Attribute</code></pre>
   </div>
   <div>
       <a class="xref" href="Microsoft.Graph.Communications.Common.Extensions.html#Microsoft_Graph_Communications_Common_Extensions_TryDispose_System_Object_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_">Extensions.TryDispose(Object, IGraphLogger)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.ReflectionUtils.html#Microsoft_Graph_Communications_Common_ReflectionUtils_GetPropertyUsingReflection_System_Object_System_String_">ReflectionUtils.GetPropertyUsingReflection(Object, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.ReflectionUtils.html#Microsoft_Graph_Communications_Common_ReflectionUtils_SetPropertyUsingReflection_System_Object_System_String_System_Object_">ReflectionUtils.SetPropertyUsingReflection(Object, String, Object)</a>
   </div>
   <div>
       <a class="xref" href="Microsoft.Graph.Communications.Common.Validator.html#Microsoft_Graph_Communications_Common_Validator_IsNull_System_Object_System_String_System_String_">Validator.IsNull(Object, String, String)</a>

@@ -247,7 +247,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Microsoft.Graph.Modality.html">Modality</a>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="../core/Microsoft.Graph.Modality.html">Modality</a>&gt;</td>
         <td><span class="parametername">acceptedModalities</span></td>
         <td></td>
       </tr>
@@ -530,13 +530,13 @@
     </tbody>
   </table>
   <a id="Microsoft_Graph_CallRequestBuilder_Redirect_" data-uid="Microsoft.Graph.CallRequestBuilder.Redirect*"></a>
-  <h4 id="Microsoft_Graph_CallRequestBuilder_Redirect_System_Collections_Generic_IEnumerable_Microsoft_Graph_InvitationParticipantInfo__System_Nullable_Microsoft_Graph_CallDisposition__System_Nullable_System_Int32__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_String_" data-uid="Microsoft.Graph.CallRequestBuilder.Redirect(System.Collections.Generic.IEnumerable{Microsoft.Graph.InvitationParticipantInfo},System.Nullable{Microsoft.Graph.CallDisposition},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.String)">Redirect(IEnumerable&lt;InvitationParticipantInfo&gt;, Nullable&lt;CallDisposition&gt;, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, String)</h4>
+  <h4 id="Microsoft_Graph_CallRequestBuilder_Redirect_System_Collections_Generic_IEnumerable_Microsoft_Graph_InvitationParticipantInfo__System_Nullable_System_Int32__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_String_" data-uid="Microsoft.Graph.CallRequestBuilder.Redirect(System.Collections.Generic.IEnumerable{Microsoft.Graph.InvitationParticipantInfo},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.String)">Redirect(IEnumerable&lt;InvitationParticipantInfo&gt;, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, String)</h4>
   <div class="markdown level1 summary"><p>Gets the request builder for CallRedirect.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ICallRedirectRequestBuilder Redirect(IEnumerable&lt;InvitationParticipantInfo&gt; targets, CallDisposition? targetDisposition = default(CallDisposition? ), int? timeout = default(int? ), bool? maskCallee = default(bool? ), bool? maskCaller = default(bool? ), string callbackUri = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public ICallRedirectRequestBuilder Redirect(IEnumerable&lt;InvitationParticipantInfo&gt; targets, int? timeout = default(int? ), bool? maskCallee = default(bool? ), bool? maskCaller = default(bool? ), string callbackUri = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -551,11 +551,6 @@
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Microsoft.Graph.InvitationParticipantInfo.html">InvitationParticipantInfo</a>&gt;</td>
         <td><span class="parametername">targets</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="Microsoft.Graph.CallDisposition.html">CallDisposition</a>&gt;</td>
-        <td><span class="parametername">targetDisposition</span></td>
         <td></td>
       </tr>
       <tr>
@@ -760,7 +755,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ICallTransferRequestBuilder Transfer(InvitationParticipantInfo transferTarget = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public ICallTransferRequestBuilder Transfer(InvitationParticipantInfo transferTarget)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -833,6 +828,53 @@
       <tr>
         <td><a class="xref" href="Microsoft.Graph.ICallUnmuteRequestBuilder.html">ICallUnmuteRequestBuilder</a></td>
         <td><p>The <a class="xref" href="Microsoft.Graph.ICallUnmuteRequestBuilder.html">ICallUnmuteRequestBuilder</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_CallRequestBuilder_UpdateRecordingStatus_" data-uid="Microsoft.Graph.CallRequestBuilder.UpdateRecordingStatus*"></a>
+  <h4 id="Microsoft_Graph_CallRequestBuilder_UpdateRecordingStatus_Microsoft_Graph_RecordingStatus_System_String_" data-uid="Microsoft.Graph.CallRequestBuilder.UpdateRecordingStatus(Microsoft.Graph.RecordingStatus,System.String)">UpdateRecordingStatus(RecordingStatus, String)</h4>
+  <div class="markdown level1 summary"><p>Gets the request builder for CallUpdateRecordingStatus.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICallUpdateRecordingStatusRequestBuilder UpdateRecordingStatus(RecordingStatus status, string clientContext = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.RecordingStatus.html">RecordingStatus</a></td>
+        <td><span class="parametername">status</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">clientContext</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.ICallUpdateRecordingStatusRequestBuilder.html">ICallUpdateRecordingStatusRequestBuilder</a></td>
+        <td><p>The <a class="xref" href="Microsoft.Graph.ICallUpdateRecordingStatusRequestBuilder.html">ICallUpdateRecordingStatusRequestBuilder</a>.</p>
 </td>
       </tr>
     </tbody>

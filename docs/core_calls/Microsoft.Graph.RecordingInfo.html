@@ -159,7 +159,7 @@
   </table>
   <a id="Microsoft_Graph_RecordingInfo_InitiatedBy_" data-uid="Microsoft.Graph.RecordingInfo.InitiatedBy*"></a>
   <h4 id="Microsoft_Graph_RecordingInfo_InitiatedBy" data-uid="Microsoft.Graph.RecordingInfo.InitiatedBy">InitiatedBy</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the info on the participant which initiated the recording. This is used when the initiator is not the participant who is recording.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the info of the participant who initiated the recording. When this is present, this participant records on behalf of someone that initiated the recording. If the participant was recording on behalf of the tenant, then the tenant is the &quot;initiator&quot; and this field is blank.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -205,14 +205,14 @@
       </tr>
     </tbody>
   </table>
-  <a id="Microsoft_Graph_RecordingInfo_Status_" data-uid="Microsoft.Graph.RecordingInfo.Status*"></a>
-  <h4 id="Microsoft_Graph_RecordingInfo_Status" data-uid="Microsoft.Graph.RecordingInfo.Status">Status</h4>
+  <a id="Microsoft_Graph_RecordingInfo_RecordingStatus_" data-uid="Microsoft.Graph.RecordingInfo.RecordingStatus*"></a>
+  <h4 id="Microsoft_Graph_RecordingInfo_RecordingStatus" data-uid="Microsoft.Graph.RecordingInfo.RecordingStatus">RecordingStatus</h4>
   <div class="markdown level1 summary"><p>Gets or sets the recording status.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RecordingStatus? Status { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public RecordingStatus? RecordingStatus { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">

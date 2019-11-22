@@ -298,9 +298,9 @@ This is used only for Local Media Scenarios.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="../core_calls/Microsoft.Graph.Modality.html">Modality</a>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="../core/Microsoft.Graph.Modality.html">Modality</a>&gt;</td>
         <td><span class="parametername">acceptedModalities</span></td>
-        <td><p>The accepted list of <a class="xref" href="../core_calls/Microsoft.Graph.Modality.html">Modality</a>.</p>
+        <td><p>The accepted list of <a class="xref" href="../core/Microsoft.Graph.Modality.html">Modality</a>.</p>
 </td>
       </tr>
       <tr>
@@ -711,13 +711,13 @@ Flag indicating whether prompt sequence needs to be played in loop or not.</p>
 is five minutes (300 seconds).</p>
 </div>
   <a id="Microsoft_Graph_Communications_Calls_ICall_RedirectAsync_" data-uid="Microsoft.Graph.Communications.Calls.ICall.RedirectAsync*"></a>
-  <h4 id="Microsoft_Graph_Communications_Calls_ICall_RedirectAsync_System_Collections_Generic_IEnumerable_Microsoft_Graph_InvitationParticipantInfo__System_Nullable_Microsoft_Graph_CallDisposition__System_Nullable_System_Int32__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_String_System_Guid_System_Threading_CancellationToken_" data-uid="Microsoft.Graph.Communications.Calls.ICall.RedirectAsync(System.Collections.Generic.IEnumerable{Microsoft.Graph.InvitationParticipantInfo},System.Nullable{Microsoft.Graph.CallDisposition},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.String,System.Guid,System.Threading.CancellationToken)">RedirectAsync(IEnumerable&lt;InvitationParticipantInfo&gt;, Nullable&lt;CallDisposition&gt;, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, String, Guid, CancellationToken)</h4>
+  <h4 id="Microsoft_Graph_Communications_Calls_ICall_RedirectAsync_System_Collections_Generic_IEnumerable_Microsoft_Graph_InvitationParticipantInfo__System_Nullable_System_Int32__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_String_System_Guid_System_Threading_CancellationToken_" data-uid="Microsoft.Graph.Communications.Calls.ICall.RedirectAsync(System.Collections.Generic.IEnumerable{Microsoft.Graph.InvitationParticipantInfo},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.String,System.Guid,System.Threading.CancellationToken)">RedirectAsync(IEnumerable&lt;InvitationParticipantInfo&gt;, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, String, Guid, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Redirects the incoming call asynchronously.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task RedirectAsync(IEnumerable&lt;InvitationParticipantInfo&gt; targets, CallDisposition? targetDisposition = default(CallDisposition? ), int? timeout = default(int? ), bool? maskCallee = default(bool? ), bool? maskCaller = default(bool? ), string callbackUri = null, Guid scenarioId = default(Guid), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task RedirectAsync(IEnumerable&lt;InvitationParticipantInfo&gt; targets, int? timeout = default(int? ), bool? maskCallee = default(bool? ), bool? maskCaller = default(bool? ), string callbackUri = null, Guid scenarioId = default(Guid), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -734,13 +734,6 @@ is five minutes (300 seconds).</p>
         <td><span class="parametername">targets</span></td>
         <td><p>The targets to whom the call should
 be redirected to.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="../core_calls/Microsoft.Graph.CallDisposition.html">CallDisposition</a>&gt;</td>
-        <td><span class="parametername">targetDisposition</span></td>
-        <td><p>The disposition that describes
-how multiple targets are reached.</p>
 </td>
       </tr>
       <tr>
@@ -1005,6 +998,55 @@ ICall.OnUpdated</p>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
         <td><p>The <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> that completes after the request has been sent.
 The unmute notification will come in on IParticipant.OnUpdated</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Calls_ICall_UpdateRecordingStatusAsync_" data-uid="Microsoft.Graph.Communications.Calls.ICall.UpdateRecordingStatusAsync*"></a>
+  <h4 id="Microsoft_Graph_Communications_Calls_ICall_UpdateRecordingStatusAsync_Microsoft_Graph_RecordingStatus_System_Threading_CancellationToken_" data-uid="Microsoft.Graph.Communications.Calls.ICall.UpdateRecordingStatusAsync(Microsoft.Graph.RecordingStatus,System.Threading.CancellationToken)">UpdateRecordingStatusAsync(RecordingStatus, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Updates the recording status of the bot. Currently only applicable to Compliance Recording bots.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task UpdateRecordingStatusAsync(RecordingStatus status, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="../core_calls/Microsoft.Graph.RecordingStatus.html">RecordingStatus</a></td>
+        <td><span class="parametername">status</span></td>
+        <td><p>The recording status..</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>The <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> that completes after the request has been sent.</p>
 </td>
       </tr>
     </tbody>

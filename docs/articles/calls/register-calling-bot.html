@@ -85,11 +85,12 @@
 <h2 id="register-your-bot-in-the-azure-bot-service">Register your bot in the Azure Bot Service</h2>
 <p>Complete the following steps:</p>
 <ol>
-<li>Register a bot through <a href="https://docs.microsoft.com/en-us/azure/bot-service/bot-service-quickstart-registration">Azure Bot Channel Registration</a>.</li>
+<li>Register a bot by creating a <strong>Bot Channels Registration</strong> through <a href="https://docs.microsoft.com/en-us/azure/bot-service/bot-service-quickstart-registration">Azure Bot Channel Registration</a>.</li>
 <li>Once you complete the registration, take a note of the registered config values (Bot Name, Application Id, and Application Secret).  You will need these values later in the code samples.</li>
-<li>Enable the Microsoft Teams channel and enable calling on the Calling tab.  Fill in the Webhook (for calling) where you will receive incoming notifications. E.g. <code>https://{your domain}/api/calls</code>. Refer to <a href="https://docs.microsoft.com/en-us/azure/bot-service/bot-service-manage-channels">Connect a bot to channels</a> for more information on how to configure channels.
-<img src="../../resources/msteams-enable-calling.png" alt="Microsoft Teams Enable Calling"></li>
+<li>In the resource blade, click <strong>Channels</strong>.</li>
+<li>Enable the Microsoft Teams channel and enable calling on the Calling tab.  Fill in the Webhook (for calling) where you will receive incoming notifications. E.g. <code>https://{your domain}/api/calls</code>. Refer to <a href="https://docs.microsoft.com/en-us/azure/bot-service/bot-service-manage-channels">Connect a bot to channels</a> for more information on how to configure channels.</li>
 </ol>
+<p><img src="../../resources/msteams-enable-calling.png" alt="Microsoft Teams Enable Calling"></p>
 <h2 id="permissions">Permissions</h2>
 <h3 id="add-microsoft-graph-permissions-for-calling-to-your-bot">Add Microsoft Graph permissions for calling to your bot</h3>
 <p>Microsoft Graph exposes granular permissions controlling the access apps have to resources. As a developer, you decide which permissions for Microsoft Graph your app requests.  The Microsoft Graph Calling APIs support Application permissions, which are used by apps that run without a signed-in user present; for example, apps that run as background services or bots.  Application permissions can only be consented by a tenant administrator.  Calling bots and applications have some capabilties that will need tenant administrator consent.  Below is a list of those permissions:</p>
@@ -140,10 +141,14 @@
 <h3 id="assigning-permissions">Assigning permissions</h3>
 <p>You pre-configure the application permissions your app needs when you register your app.  To add permissions from the Azure Bot Registration Portal:</p>
 <ul>
-<li>From the <strong>Settings</strong> blade, click <strong>Manage</strong>. This is the link appearing by the <strong>Microsoft App ID</strong>. This link will open a window where you can scroll down to add Microsoft Graph Permissions: under <strong>Microsoft Graph</strong>, choose <strong>Add</strong> next to <strong>Application Permissions</strong> and then select the permissions your app requires in the <strong>Select Permissions</strong> dialog. <br>
-<img src="../../resources/registration-settings-manage-link.png" alt="Manage link in Settings blade"></li>
+<li>From the <strong>Settings</strong> blade, click <strong>Manage</strong>. This is the link appearing by the <strong>Microsoft App ID</strong>. </li>
 </ul>
-<p>You can also add permissions by accessing your app through the <a href="https://apps.dev.microsoft.com/">Microsoft App Registration Portal</a>.</p>
+<p><img src="../../resources/registration-settings-manage-link.png" alt="Manage link in Settings blade"></p>
+<ul>
+<li>This link will open a window where you can click on <strong>API permissions</strong> and then click <strong>Add a permission</strong> in the right pane. Select <strong>Microsoft Graph</strong>, choose  <strong>Application Permissions</strong> and then select the permissions your app requires in the <strong>Select Permissions</strong> dialog. </li>
+</ul>
+<p><img src="../../resources/permissions-add-graph.png" alt="Add Graph Permissions">
+<br></p>
 <h3 id="getting-administrator-consent">Getting administrator consent</h3>
 <p>An administrator can either consent to these permissions using the <a href="https://portal.azure.com">Azure portal</a> when your app is installed in their organization, or you can provide a sign-up experience in your app through which administrators can consent to the permissions you configured. Once administrator consent is recorded by Azure AD, your app can request tokens without having to request consent again.</p>
 <p>You can rely on an administrator to grant the permissions your app needs at the <a href="https://portal.azure.com">Azure portal</a>, but often a better option is to provide a sign-up experience for administrators by using the Azure AD v2.0 <code>/adminconsent</code> endpoint.  Please refer to the <a href="https://developer.microsoft.com/graph/docs/concepts/auth_v2_service#3-get-administrator-consent">instructions on constructing an Admin Consent URL</a> for more detail.</p>
@@ -152,43 +157,27 @@
 </blockquote>
 <h2 id="register-bot-in-microsoft-teams">Register bot in Microsoft Teams</h2>
 <p>The code samples can be used in combination with a Microsoft Teams App Manifest settings to add the Calling and Video buttons for a 1:1 bot interaction.  To develop calling bot, add &#39;supportsCalling&#39; and &#39;supportsVideo&#39; boolean properties to the bots section in the app manifest and the bot is all set to receive calls once installed (either to a personal context or a team).  App Manifests can be uploaded through the <a href="https://docs.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-app-studio">App Studio</a> in the Microsoft Teams client.</p>
-<pre><code class="lang-json">{
-  &quot;$schema&quot;: &quot;https://raw.githubusercontent.com/OfficeDev/microsoft-teams-app-schema/preview/DevPreview/MicrosoftTeams.schema.json&quot;,
-  &quot;manifestVersion&quot;: &quot;1.3&quot;,
-  &quot;version&quot;: &quot;1.0.0&quot;,
-  &quot;id&quot;: &quot;%MICROSOFT-APP-ID%&quot;,
-  &quot;packageName&quot;: &quot;com.example.myapp&quot;,
-  &quot;developer&quot;: {
-    &quot;name&quot;: &quot;Publisher Name&quot;,
-    &quot;websiteUrl&quot;: &quot;https://website.com/&quot;,
-    &quot;privacyUrl&quot;: &quot;https://website.com/privacy&quot;,
-    &quot;termsOfUseUrl&quot;: &quot;https://website.com/app-tos&quot;
-  },
-  &quot;name&quot;: {
-    &quot;short&quot;: &quot;Name of your app (&lt;=30 chars)&quot;,
-    &quot;full&quot;: &quot;Full name of app, if longer than 30 characters&quot;
-  },
-  &quot;description&quot;: {
-    &quot;short&quot;: &quot;Short description of your app&quot;,
-    &quot;full&quot;: &quot;Full description of your app&quot;
-  },
-  &quot;icons&quot;: {
-    &quot;outline&quot;: &quot;%FILENAME-32x32px%&quot;,
-    &quot;color&quot;: &quot;%FILENAME-192x192px&quot;
-  },
-  &quot;accentColor&quot;: &quot;%HEX-COLOR%&quot;,
-  &quot;bots&quot;: [
-    {
-      &quot;botId&quot;: &quot;%MICROSOFT-APP-ID-REGISTERED-WITH-BOT-FRAMEWORK%&quot;,
-      &quot;needsChannelSelector&quot;: false,
-      &quot;isNotificationOnly&quot;: false,
-      &quot;scopes&quot;: [ &quot;team&quot;, &quot;personal&quot;, &quot;groupchat&quot; ],
-      &quot;supportsCalling&quot;: true,
-      &quot;supportsVideo&quot;: true
-    }
-  ]
-}
-</code></pre></article>
+<ul>
+<li>In the Teams client, select <strong>Apps</strong> from the left pane and then select <strong>App Studio</strong>.</li>
+</ul>
+<p><img src="../../resources/teams-client-app-studio.png" alt="Select App Studio"></p>
+<ul>
+<li>From the top pane, click <strong>Manifest editor</strong> and then <strong>Create a new app</strong> from the left pane.</li>
+</ul>
+<p><img src="../../resources/app-studio-create-new.png" alt="Create a new app"></p>
+<ul>
+<li>In the <strong>App details</strong> tab, provide the basic information.</li>
+<li>Navigate to the <strong>Capabilities</strong> section, and select the <strong>Bots</strong> tab. Then select <strong>Set Up</strong> in the right pane.</li>
+</ul>
+<p><img src="../../resources/app-studio-set-up-bots.png" alt="Set up bots"></p>
+<ul>
+<li>Fill in the desired bot name</li>
+<li>Select the <strong>Select from one of my existing bots</strong> option, and find your bot from above in the dropdown.</li>
+<li>Check all options under <strong>Calling Bot</strong> and <strong>Scope</strong></li>
+<li>Press <strong>Save</strong></li>
+</ul>
+<p><img src="../../resources/app-studio-set-up-a-bot.png" alt="Set up a bot"></p>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

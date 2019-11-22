@@ -2,6 +2,25 @@
 
 This changelog covers what's changed in Microsoft Graph Communications SDK and its associated samples.
 
+## Nov 2019
+
+- Updated Communications libraries 1.1.0-prerelease.2237
+  - Exposed delete participant API
+
+- Updated Communications libraries 1.1.0-prerelease.2027
+  - Exposed recording APIs
+
+| **Change type** | **Version**   | **Description**                          |
+| :-------------- | :------------ | :--------------------------------------- |
+|Addition|beta|Added new action `updateRecordingStatus` to `call` entity.
+|Addition|beta|Added new complex type `incomingContext`.
+|Addition|beta|Added new property `incomingContext` to `call` entity.
+|Addition|beta|Added new property `endpointType` to `participantInfo` complex type.
+|Addition|beta|Added new property `endpointType` to `invitationParticipantInfo` complex type.
+|Addition|beta|Added new property `recordingStatus` to `recordingInfo` complex type.
+|Deletion|beta|Removed property `status` from `recordingInfo` complex type.
+|Deletion|beta|Removed inheritance of `participantInfo` from `invitationParticipantInfo` complex type.
+
 ## Oct 2019
 
 - Updated Communications libraries 1.1.0-prerelease.1855
@@ -10,8 +29,8 @@ This changelog covers what's changed in Microsoft Graph Communications SDK and i
 
 ## Sept 2019
 
-- Updated Media library 1.13.1.324-alpha
 - Updated Communications libraries 1.1.0-prerelease.1511
+- Updated Media library 1.13.1.324-alpha
 
 ### Communications 1.1.0-prerelease.1511 Changes
 

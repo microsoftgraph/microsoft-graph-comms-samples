@@ -123,6 +123,158 @@
   </div>
   <h3 id="methods">Methods
   </h3>
+  <a id="Microsoft_Graph_Communications_Client_CommunicationsClientExtensions_CreateResponse_" data-uid="Microsoft.Graph.Communications.Client.CommunicationsClientExtensions.CreateResponse*"></a>
+  <h4 id="Microsoft_Graph_Communications_Client_CommunicationsClientExtensions_CreateResponse_Microsoft_Graph_Communications_Client_ICommunicationsClient_System_Net_HttpStatusCode_System_Guid_System_Guid_System_Object_" data-uid="Microsoft.Graph.Communications.Client.CommunicationsClientExtensions.CreateResponse(Microsoft.Graph.Communications.Client.ICommunicationsClient,System.Net.HttpStatusCode,System.Guid,System.Guid,System.Object)">CreateResponse(ICommunicationsClient, HttpStatusCode, Guid, Guid, Object)</h4>
+  <div class="markdown level1 summary"><p>Creates the response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static HttpResponseMessage CreateResponse(this ICommunicationsClient client, HttpStatusCode statusCode, Guid requestId, Guid scenarioId, object responseContent = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.Communications.Client.ICommunicationsClient.html">ICommunicationsClient</a></td>
+        <td><span class="parametername">client</span></td>
+        <td><p>The client.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.httpstatuscode">HttpStatusCode</a></td>
+        <td><span class="parametername">statusCode</span></td>
+        <td><p>The status code.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.guid">Guid</a></td>
+        <td><span class="parametername">requestId</span></td>
+        <td><p>The request identifier.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.guid">Guid</a></td>
+        <td><span class="parametername">scenarioId</span></td>
+        <td><p>The scenario identifier.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td><span class="parametername">responseContent</span></td>
+        <td><p>The response content.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.httpresponsemessage">HttpResponseMessage</a></td>
+        <td><p>The HTTP response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Client_CommunicationsClientExtensions_LogAndCreateResponse_" data-uid="Microsoft.Graph.Communications.Client.CommunicationsClientExtensions.LogAndCreateResponse*"></a>
+  <h4 id="Microsoft_Graph_Communications_Client_CommunicationsClientExtensions_LogAndCreateResponse_Microsoft_Graph_Communications_Client_ICommunicationsClient_System_Net_Http_HttpRequestMessage_System_Guid_System_Guid_Microsoft_Graph_CommsNotifications_System_Net_HttpStatusCode_System_Diagnostics_Stopwatch_System_Exception_" data-uid="Microsoft.Graph.Communications.Client.CommunicationsClientExtensions.LogAndCreateResponse(Microsoft.Graph.Communications.Client.ICommunicationsClient,System.Net.Http.HttpRequestMessage,System.Guid,System.Guid,Microsoft.Graph.CommsNotifications,System.Net.HttpStatusCode,System.Diagnostics.Stopwatch,System.Exception)">LogAndCreateResponse(ICommunicationsClient, HttpRequestMessage, Guid, Guid, CommsNotifications, HttpStatusCode, Stopwatch, Exception)</h4>
+  <div class="markdown level1 summary"><p>Logs the request, creates the response, and logs the response.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static HttpResponseMessage LogAndCreateResponse(this ICommunicationsClient client, HttpRequestMessage request, Guid requestId, Guid scenarioId, CommsNotifications notifications, HttpStatusCode statusCode, Stopwatch stopwatch, Exception exception = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.Communications.Client.ICommunicationsClient.html">ICommunicationsClient</a></td>
+        <td><span class="parametername">client</span></td>
+        <td><p>The client.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.guid">Guid</a></td>
+        <td><span class="parametername">requestId</span></td>
+        <td><p>The request identifier.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.guid">Guid</a></td>
+        <td><span class="parametername">scenarioId</span></td>
+        <td><p>The scenario identifier.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="../core/Microsoft.Graph.CommsNotifications.html">CommsNotifications</a></td>
+        <td><span class="parametername">notifications</span></td>
+        <td><p>The notifications that were extracted.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.httpstatuscode">HttpStatusCode</a></td>
+        <td><span class="parametername">statusCode</span></td>
+        <td><p>The status code.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.stopwatch">Stopwatch</a></td>
+        <td><span class="parametername">stopwatch</span></td>
+        <td><p>The stopwatch tracking how long the request is taking.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception">Exception</a></td>
+        <td><span class="parametername">exception</span></td>
+        <td><p>Any exceptions raised.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.httpresponsemessage">HttpResponseMessage</a></td>
+        <td><p>The response for the associated request.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <a id="Microsoft_Graph_Communications_Client_CommunicationsClientExtensions_ProcessNotificationAsync_" data-uid="Microsoft.Graph.Communications.Client.CommunicationsClientExtensions.ProcessNotificationAsync*"></a>
   <h4 id="Microsoft_Graph_Communications_Client_CommunicationsClientExtensions_ProcessNotificationAsync_Microsoft_Graph_Communications_Client_ICommunicationsClient_System_Net_Http_HttpRequestMessage_" data-uid="Microsoft.Graph.Communications.Client.CommunicationsClientExtensions.ProcessNotificationAsync(Microsoft.Graph.Communications.Client.ICommunicationsClient,System.Net.Http.HttpRequestMessage)">ProcessNotificationAsync(ICommunicationsClient, HttpRequestMessage)</h4>
   <div class="markdown level1 summary"><p>Processes the notifications and raises the required callbacks.

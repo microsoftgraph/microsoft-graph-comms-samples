@@ -124,13 +124,13 @@
   <h3 id="methods">Methods
   </h3>
   <a id="Microsoft_Graph_Communications_Calls_ParticipantExtensions_InviteAsync_" data-uid="Microsoft.Graph.Communications.Calls.ParticipantExtensions.InviteAsync*"></a>
-  <h4 id="Microsoft_Graph_Communications_Calls_ParticipantExtensions_InviteAsync_Microsoft_Graph_Communications_Calls_IParticipantCollection_Microsoft_Graph_IdentitySet_System_String_System_String_System_Threading_CancellationToken_" data-uid="Microsoft.Graph.Communications.Calls.ParticipantExtensions.InviteAsync(Microsoft.Graph.Communications.Calls.IParticipantCollection,Microsoft.Graph.IdentitySet,System.String,System.String,System.Threading.CancellationToken)">InviteAsync(IParticipantCollection, IdentitySet, String, String, CancellationToken)</h4>
+  <h4 id="Microsoft_Graph_Communications_Calls_ParticipantExtensions_InviteAsync_Microsoft_Graph_Communications_Calls_IParticipantCollection_Microsoft_Graph_IdentitySet_System_String_System_Threading_CancellationToken_" data-uid="Microsoft.Graph.Communications.Calls.ParticipantExtensions.InviteAsync(Microsoft.Graph.Communications.Calls.IParticipantCollection,Microsoft.Graph.IdentitySet,System.String,System.Threading.CancellationToken)">InviteAsync(IParticipantCollection, IdentitySet, String, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Invite a participant into the existing call.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Task InviteAsync(this IParticipantCollection participantCollection, IdentitySet identitySet, string replacesCallId = null, string languageId = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public static Task InviteAsync(this IParticipantCollection participantCollection, IdentitySet identitySet, string replacesCallId = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -161,12 +161,6 @@ which a new participant is being invited.</p>
         <td><p>The replaces call identifier. This is an optional
 field used for consultative transfer. This is used to bring a participant
 from an existing call.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">languageId</span></td>
-        <td><p>The participant preferred language id</p>
 </td>
       </tr>
       <tr>
