@@ -9,8 +9,13 @@
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\Graph.props" />
 
   <ItemGroup>
+<<<<<<< HEAD
     <PackageReference Include="Microsoft.Graph.Communications.Client" Version="1.1.0-prerelease.2237" />
     <PackageReference Include="Microsoft.Graph.Communications.Core.Calls" Version="1.1.0-prerelease.2237" />
+=======
+    <PackageReference Include="Microsoft.Graph.Communications.Client" Version="1.1.0-prerelease.2027" />
+    <PackageReference Include="Microsoft.Graph.Communications.Core.Calls" Version="1.1.0-prerelease.2027" />
+>>>>>>> master
   </ItemGroup>
 
   <ItemGroup>

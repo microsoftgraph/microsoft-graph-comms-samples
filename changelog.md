@@ -4,9 +4,12 @@ This changelog covers what's changed in Microsoft Graph Communications SDK and i
 
 ## Nov 2019
 
+<<<<<<< HEAD
 - Updated Communications libraries 1.1.0-prerelease.2237
   - Exposed delete participant API
 
+=======
+>>>>>>> master
 - Updated Communications libraries 1.1.0-prerelease.2027
   - Exposed recording APIs
 

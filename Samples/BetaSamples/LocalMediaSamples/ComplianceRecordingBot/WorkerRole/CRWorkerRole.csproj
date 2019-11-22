@@ -38,6 +38,10 @@
     <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.13.1.324-alpha" />
     <PackageReference Include="Microsoft.WindowsAzure.ConfigurationManager" Version="3.2.3" />
     <PackageReference Include="Microsoft.WindowsAzure.SDK" Version="2.9.0" />
+<<<<<<< HEAD
+=======
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+>>>>>>> master
     <PackageReference Include="WindowsAzure.Storage">
       <Version>8.0.1</Version>
     </PackageReference>

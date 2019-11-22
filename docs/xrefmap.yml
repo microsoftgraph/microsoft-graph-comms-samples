@@ -11904,6 +11904,7 @@ references:
   fullName.vb: Microsoft.Graph.Communications.Common.ReflectionUtils.DerivesFrom(Of T)(System.Type)
   nameWithType: ReflectionUtils.DerivesFrom<T>(Type)
   nameWithType.vb: ReflectionUtils.DerivesFrom(Of T)(Type)
+<<<<<<< HEAD
 - uid: Microsoft.Graph.Communications.Common.ReflectionUtils.GetPropertyUsingReflection(System.Object,System.String)
   name: GetPropertyUsingReflection(Object, String)
   href: common/Microsoft.Graph.Communications.Common.ReflectionUtils.html#Microsoft_Graph_Communications_Common_ReflectionUtils_GetPropertyUsingReflection_System_Object_System_String_
@@ -11928,6 +11929,8 @@ references:
   commentId: Overload:Microsoft.Graph.Communications.Common.ReflectionUtils.GetValueCached
   fullName: Microsoft.Graph.Communications.Common.ReflectionUtils.GetValueCached
   nameWithType: ReflectionUtils.GetValueCached
+=======
+>>>>>>> master
 - uid: Microsoft.Graph.Communications.Common.ReflectionUtils.Implements(System.Type,System.Type)
   name: Implements(Type, Type)
   href: common/Microsoft.Graph.Communications.Common.ReflectionUtils.html#Microsoft_Graph_Communications_Common_ReflectionUtils_Implements_System_Type_System_Type_
@@ -11949,6 +11952,7 @@ references:
   fullName.vb: Microsoft.Graph.Communications.Common.ReflectionUtils.Implements(Of T)(System.Type)
   nameWithType: ReflectionUtils.Implements<T>(Type)
   nameWithType.vb: ReflectionUtils.Implements(Of T)(Type)
+<<<<<<< HEAD
 - uid: Microsoft.Graph.Communications.Common.ReflectionUtils.SetPropertyUsingReflection(System.Object,System.String,System.Object)
   name: SetPropertyUsingReflection(Object, String, Object)
   href: common/Microsoft.Graph.Communications.Common.ReflectionUtils.html#Microsoft_Graph_Communications_Common_ReflectionUtils_SetPropertyUsingReflection_System_Object_System_String_System_Object_
@@ -11973,6 +11977,8 @@ references:
   commentId: Overload:Microsoft.Graph.Communications.Common.ReflectionUtils.SetValueCached
   fullName: Microsoft.Graph.Communications.Common.ReflectionUtils.SetValueCached
   nameWithType: ReflectionUtils.SetValueCached
+=======
+>>>>>>> master
 - uid: Microsoft.Graph.Communications.Common.SafeNativeMethods
   name: SafeNativeMethods
   href: common/Microsoft.Graph.Communications.Common.SafeNativeMethods.html
@@ -21367,6 +21373,156 @@ references:
   nameWithType: ICallsGraphServiceUsersCollectionRequest.Expand(Expression<Func<User, Object>>)
   nameWithType.vb: ICallsGraphServiceUsersCollectionRequest.Expand(Expression(Of Func(Of User, Object)))
 - uid: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Expand(System.String)
+<<<<<<< HEAD
+=======
+  name: Expand(String)
+  href: core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.html#Microsoft_Graph_ICallsGraphServiceUsersCollectionRequest_Expand_System_String_
+  commentId: M:Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Expand(System.String)
+  fullName: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Expand(System.String)
+  nameWithType: ICallsGraphServiceUsersCollectionRequest.Expand(String)
+- uid: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Expand*
+  name: Expand
+  href: core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.html#Microsoft_Graph_ICallsGraphServiceUsersCollectionRequest_Expand_
+  commentId: Overload:Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Expand
+  fullName: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Expand
+  nameWithType: ICallsGraphServiceUsersCollectionRequest.Expand
+- uid: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Filter(System.String)
+  name: Filter(String)
+  href: core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.html#Microsoft_Graph_ICallsGraphServiceUsersCollectionRequest_Filter_System_String_
+  commentId: M:Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Filter(System.String)
+  fullName: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Filter(System.String)
+  nameWithType: ICallsGraphServiceUsersCollectionRequest.Filter(String)
+- uid: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Filter*
+  name: Filter
+  href: core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.html#Microsoft_Graph_ICallsGraphServiceUsersCollectionRequest_Filter_
+  commentId: Overload:Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Filter
+  fullName: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Filter
+  nameWithType: ICallsGraphServiceUsersCollectionRequest.Filter
+- uid: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.GetAsync
+  name: GetAsync()
+  href: core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.html#Microsoft_Graph_ICallsGraphServiceUsersCollectionRequest_GetAsync
+  commentId: M:Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.GetAsync
+  fullName: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.GetAsync()
+  nameWithType: ICallsGraphServiceUsersCollectionRequest.GetAsync()
+- uid: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.GetAsync(System.Threading.CancellationToken)
+  name: GetAsync(CancellationToken)
+  href: core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.html#Microsoft_Graph_ICallsGraphServiceUsersCollectionRequest_GetAsync_System_Threading_CancellationToken_
+  commentId: M:Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.GetAsync(System.Threading.CancellationToken)
+  fullName: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.GetAsync(System.Threading.CancellationToken)
+  nameWithType: ICallsGraphServiceUsersCollectionRequest.GetAsync(CancellationToken)
+- uid: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.GetAsync*
+  name: GetAsync
+  href: core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.html#Microsoft_Graph_ICallsGraphServiceUsersCollectionRequest_GetAsync_
+  commentId: Overload:Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.GetAsync
+  fullName: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.GetAsync
+  nameWithType: ICallsGraphServiceUsersCollectionRequest.GetAsync
+- uid: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.OrderBy(System.String)
+  name: OrderBy(String)
+  href: core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.html#Microsoft_Graph_ICallsGraphServiceUsersCollectionRequest_OrderBy_System_String_
+  commentId: M:Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.OrderBy(System.String)
+  fullName: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.OrderBy(System.String)
+  nameWithType: ICallsGraphServiceUsersCollectionRequest.OrderBy(String)
+- uid: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.OrderBy*
+  name: OrderBy
+  href: core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.html#Microsoft_Graph_ICallsGraphServiceUsersCollectionRequest_OrderBy_
+  commentId: Overload:Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.OrderBy
+  fullName: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.OrderBy
+  nameWithType: ICallsGraphServiceUsersCollectionRequest.OrderBy
+- uid: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Select(System.Linq.Expressions.Expression{System.Func{Microsoft.Graph.User,System.Object}})
+  name: Select(Expression<Func<User, Object>>)
+  href: core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.html#Microsoft_Graph_ICallsGraphServiceUsersCollectionRequest_Select_System_Linq_Expressions_Expression_System_Func_Microsoft_Graph_User_System_Object___
+  commentId: M:Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Select(System.Linq.Expressions.Expression{System.Func{Microsoft.Graph.User,System.Object}})
+  name.vb: Select(Expression(Of Func(Of User, Object)))
+  fullName: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Select(System.Linq.Expressions.Expression<System.Func<Microsoft.Graph.User, System.Object>>)
+  fullName.vb: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Select(System.Linq.Expressions.Expression(Of System.Func(Of Microsoft.Graph.User, System.Object)))
+  nameWithType: ICallsGraphServiceUsersCollectionRequest.Select(Expression<Func<User, Object>>)
+  nameWithType.vb: ICallsGraphServiceUsersCollectionRequest.Select(Expression(Of Func(Of User, Object)))
+- uid: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Select(System.String)
+  name: Select(String)
+  href: core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.html#Microsoft_Graph_ICallsGraphServiceUsersCollectionRequest_Select_System_String_
+  commentId: M:Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Select(System.String)
+  fullName: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Select(System.String)
+  nameWithType: ICallsGraphServiceUsersCollectionRequest.Select(String)
+- uid: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Select*
+  name: Select
+  href: core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.html#Microsoft_Graph_ICallsGraphServiceUsersCollectionRequest_Select_
+  commentId: Overload:Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Select
+  fullName: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Select
+  nameWithType: ICallsGraphServiceUsersCollectionRequest.Select
+- uid: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Skip(System.Int32)
+  name: Skip(Int32)
+  href: core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.html#Microsoft_Graph_ICallsGraphServiceUsersCollectionRequest_Skip_System_Int32_
+  commentId: M:Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Skip(System.Int32)
+  fullName: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Skip(System.Int32)
+  nameWithType: ICallsGraphServiceUsersCollectionRequest.Skip(Int32)
+- uid: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Skip*
+  name: Skip
+  href: core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.html#Microsoft_Graph_ICallsGraphServiceUsersCollectionRequest_Skip_
+  commentId: Overload:Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Skip
+  fullName: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Skip
+  nameWithType: ICallsGraphServiceUsersCollectionRequest.Skip
+- uid: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Top(System.Int32)
+  name: Top(Int32)
+  href: core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.html#Microsoft_Graph_ICallsGraphServiceUsersCollectionRequest_Top_System_Int32_
+  commentId: M:Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Top(System.Int32)
+  fullName: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Top(System.Int32)
+  nameWithType: ICallsGraphServiceUsersCollectionRequest.Top(Int32)
+- uid: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Top*
+  name: Top
+  href: core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.html#Microsoft_Graph_ICallsGraphServiceUsersCollectionRequest_Top_
+  commentId: Overload:Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Top
+  fullName: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Top
+  nameWithType: ICallsGraphServiceUsersCollectionRequest.Top
+- uid: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequestBuilder
+  name: ICallsGraphServiceUsersCollectionRequestBuilder
+  href: core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionRequestBuilder.html
+  commentId: T:Microsoft.Graph.ICallsGraphServiceUsersCollectionRequestBuilder
+  fullName: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequestBuilder
+  nameWithType: ICallsGraphServiceUsersCollectionRequestBuilder
+- uid: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequestBuilder.Item(System.String)
+  name: Item[String]
+  href: core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionRequestBuilder.html#Microsoft_Graph_ICallsGraphServiceUsersCollectionRequestBuilder_Item_System_String_
+  commentId: P:Microsoft.Graph.ICallsGraphServiceUsersCollectionRequestBuilder.Item(System.String)
+  name.vb: Item(String)
+  fullName: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequestBuilder.Item[System.String]
+  fullName.vb: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequestBuilder.Item(System.String)
+  nameWithType: ICallsGraphServiceUsersCollectionRequestBuilder.Item[String]
+  nameWithType.vb: ICallsGraphServiceUsersCollectionRequestBuilder.Item(String)
+- uid: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequestBuilder.Item*
+  name: Item
+  href: core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionRequestBuilder.html#Microsoft_Graph_ICallsGraphServiceUsersCollectionRequestBuilder_Item_
+  commentId: Overload:Microsoft.Graph.ICallsGraphServiceUsersCollectionRequestBuilder.Item
+  fullName: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequestBuilder.Item
+  nameWithType: ICallsGraphServiceUsersCollectionRequestBuilder.Item
+- uid: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequestBuilder.Request
+  name: Request()
+  href: core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionRequestBuilder.html#Microsoft_Graph_ICallsGraphServiceUsersCollectionRequestBuilder_Request
+  commentId: M:Microsoft.Graph.ICallsGraphServiceUsersCollectionRequestBuilder.Request
+  fullName: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequestBuilder.Request()
+  nameWithType: ICallsGraphServiceUsersCollectionRequestBuilder.Request()
+- uid: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequestBuilder.Request(System.Collections.Generic.IEnumerable{Microsoft.Graph.Option})
+  name: Request(IEnumerable<Option>)
+  href: core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionRequestBuilder.html#Microsoft_Graph_ICallsGraphServiceUsersCollectionRequestBuilder_Request_System_Collections_Generic_IEnumerable_Microsoft_Graph_Option__
+  commentId: M:Microsoft.Graph.ICallsGraphServiceUsersCollectionRequestBuilder.Request(System.Collections.Generic.IEnumerable{Microsoft.Graph.Option})
+  name.vb: Request(IEnumerable(Of Option))
+  fullName: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequestBuilder.Request(System.Collections.Generic.IEnumerable<Microsoft.Graph.Option>)
+  fullName.vb: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequestBuilder.Request(System.Collections.Generic.IEnumerable(Of Microsoft.Graph.Option))
+  nameWithType: ICallsGraphServiceUsersCollectionRequestBuilder.Request(IEnumerable<Option>)
+  nameWithType.vb: ICallsGraphServiceUsersCollectionRequestBuilder.Request(IEnumerable(Of Option))
+- uid: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequestBuilder.Request*
+  name: Request
+  href: core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionRequestBuilder.html#Microsoft_Graph_ICallsGraphServiceUsersCollectionRequestBuilder_Request_
+  commentId: Overload:Microsoft.Graph.ICallsGraphServiceUsersCollectionRequestBuilder.Request
+  fullName: Microsoft.Graph.ICallsGraphServiceUsersCollectionRequestBuilder.Request
+  nameWithType: ICallsGraphServiceUsersCollectionRequestBuilder.Request
+- uid: Microsoft.Graph.ICallSubscribeToToneRequest
+  name: ICallSubscribeToToneRequest
+  href: core_calls/Microsoft.Graph.ICallSubscribeToToneRequest.html
+  commentId: T:Microsoft.Graph.ICallSubscribeToToneRequest
+  fullName: Microsoft.Graph.ICallSubscribeToToneRequest
+  nameWithType: ICallSubscribeToToneRequest
+- uid: Microsoft.Graph.ICallSubscribeToToneRequest.Expand(System.String)
+>>>>>>> master
   name: Expand(String)
   href: core_calls/Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.html#Microsoft_Graph_ICallsGraphServiceUsersCollectionRequest_Expand_System_String_
   commentId: M:Microsoft.Graph.ICallsGraphServiceUsersCollectionRequest.Expand(System.String)
