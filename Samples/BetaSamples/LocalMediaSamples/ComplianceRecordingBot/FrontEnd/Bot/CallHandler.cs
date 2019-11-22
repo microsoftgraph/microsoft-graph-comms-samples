@@ -115,7 +115,6 @@ namespace Sample.ComplianceRecordingBot.FrontEnd.Bot
             _ = Task.Run(async () =>
             {
                 var recordingStatus = new[] { RecordingStatus.Recording, RecordingStatus.NotRecording, RecordingStatus.Failed };
-<<<<<<< HEAD
                 var recordingIndex = this.recordingStatusIndex + 1;
                 if (recordingIndex >= recordingStatus.Length)
                 {
@@ -127,9 +126,6 @@ namespace Sample.ComplianceRecordingBot.FrontEnd.Bot
                     return;
                 }
 
-=======
-                var recordingIndex = (this.recordingStatusIndex + 1) % recordingStatus.Length;
->>>>>>> master
                 var newStatus = recordingStatus[recordingIndex];
 
                 this.logger.Info($"Flipping recording status to {newStatus}");
