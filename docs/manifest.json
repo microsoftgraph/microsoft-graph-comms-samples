@@ -174,7 +174,7 @@
       "output": {
         ".html": {
           "relative_path": "bot_media/index.html",
-          "hash": "bb9HB6yYOok3RO9opMN9YA=="
+          "hash": "nZKj5WkWEauW1qjIuouRIw=="
         }
       },
       "is_incremental": false,
@@ -1098,7 +1098,7 @@
       "output": {
         ".html": {
           "relative_path": "calls/Microsoft.Graph.Communications.Calls.IMediaSession.html",
-          "hash": "Tue+AX3uM+PStsKOLsBraQ=="
+          "hash": "vJwzZAyGaeRm5mj7Yk+T6w=="
         }
       },
       "is_incremental": false,
@@ -1362,7 +1362,7 @@
       "output": {
         ".html": {
           "relative_path": "client/Microsoft.Graph.Communications.Client.Cache.CacheContext-1.html",
-          "hash": "z7H/ls2Z3sJm30F6Cha2tA=="
+          "hash": "LTgJFu6LpaZTAS8O5Ea4Bw=="
         }
       },
       "is_incremental": false,
@@ -1374,7 +1374,7 @@
       "output": {
         ".html": {
           "relative_path": "client/Microsoft.Graph.Communications.Client.Cache.ICache.html",
-          "hash": "L6JHX7eRreBcxGXwEwsWeg=="
+          "hash": "ipm0B2MEX1WnurwIzSu6Ow=="
         }
       },
       "is_incremental": false,
@@ -1386,7 +1386,7 @@
       "output": {
         ".html": {
           "relative_path": "client/Microsoft.Graph.Communications.Client.Cache.ServiceCache.html",
-          "hash": "tgEMyqC5dCPouB8oXYtXaA=="
+          "hash": "Ox8BSGFBl4jsU4hg+ewNaQ=="
         }
       },
       "is_incremental": false,
@@ -1542,7 +1542,7 @@
       "output": {
         ".html": {
           "relative_path": "client/Microsoft.Graph.Communications.Client.Transport.GraphAuthClient.html",
-          "hash": "GeoQi66nwjd1M1mKIdk7SA=="
+          "hash": "tfmELFZRdOGdJmwX9nb1JQ=="
         }
       },
       "is_incremental": false,
@@ -1578,7 +1578,7 @@
       "output": {
         ".html": {
           "relative_path": "client/Microsoft.Graph.Communications.Client.Transport.GraphClientWrapper.html",
-          "hash": "Vx56/3vnmOlYl5/wpAl3MQ=="
+          "hash": "xfUqkQs8l9YS5vLkUlAvZQ=="
         }
       },
       "is_incremental": false,
@@ -1770,7 +1770,7 @@
       "output": {
         ".html": {
           "relative_path": "client/Microsoft.Graph.Communications.Resources.ResourceEventArgs-1.html",
-          "hash": "gqbL7W8L9x2SjNS+hOjIwg=="
+          "hash": "vQ+roPVVt+bBtOaCUSR9OQ=="
         }
       },
       "is_incremental": false,
@@ -1782,7 +1782,7 @@
       "output": {
         ".html": {
           "relative_path": "client/Microsoft.Graph.Communications.Resources.ResourceEventHandler-2.html",
-          "hash": "QsXYFnoll+mIQiw8+Bkjzw=="
+          "hash": "rwFnaJJNtAoQ9dpDf03o4w=="
         }
       },
       "is_incremental": false,
@@ -1866,7 +1866,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.CollectionUtils.html",
-          "hash": "p634wrr8DYafCNVykRDRug=="
+          "hash": "PsTh4A7tnxZSK5I99cqyXA=="
         }
       },
       "is_incremental": false,
@@ -1890,7 +1890,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.EnumUtils.html",
-          "hash": "3jqkWfcZs0F1QC3HgNOoBg=="
+          "hash": "qeqpxNSHgRz0RRoBTVNpuw=="
         }
       },
       "is_incremental": false,
@@ -2274,7 +2274,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.StateMachine-1.html",
-          "hash": "lSdsilzBUyuhGG2Eg01D/A=="
+          "hash": "mMIL4G6H2R7dOLcDIQJVGA=="
         }
       },
       "is_incremental": false,
@@ -2658,7 +2658,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.LoggingExtensions.html",
-          "hash": "S762hrF+odPDYnijg0dSyQ=="
+          "hash": "XXKnBk6fFQz9sbZTOFz8FA=="
         }
       },
       "is_incremental": false,
@@ -2838,7 +2838,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.html",
-          "hash": "6x6KX/WoyiOML/l5Fwil+Q=="
+          "hash": "3imL6Oag8pFNjS6MYtOqaQ=="
         }
       },
       "is_incremental": false,
@@ -3018,7 +3018,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.HttpResponseMessageExtensions.html",
-          "hash": "T2KV/Fh4mxAJquWp2+9aWQ=="
+          "hash": "7PhdLWPj0+fVAlisqSODkQ=="
         }
       },
       "is_incremental": false,
@@ -3030,7 +3030,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.IGraphClient.html",
-          "hash": "HDZxdEYX9xRDIJJ9M7HXzw=="
+          "hash": "nx9Bdss0bAFz0MdLvkipQg=="
         }
       },
       "is_incremental": false,
@@ -3210,7 +3210,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.Utilities.html",
-          "hash": "P7bijYjfezowjaZOS70hQQ=="
+          "hash": "9xADBJir0eFQ+m3keou1uw=="
         }
       },
       "is_incremental": false,
@@ -3222,7 +3222,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.Validator.html",
-          "hash": "UwGeSDD4yH1NidjwhJQAVQ=="
+          "hash": "hkvghL/P4CKxWUwc33jf7Q=="
         }
       },
       "is_incremental": false,
@@ -3234,7 +3234,7 @@
       "output": {
         ".html": {
           "relative_path": "common/Microsoft.Graph.Communications.Common.WeakKey-1.html",
-          "hash": "/9blAPw0+9/hw0R8aAq0Gg=="
+          "hash": "H+Pplh2DCP90yRaJy8fwMw=="
         }
       },
       "is_incremental": false,
@@ -7159,7 +7159,8 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": true,
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
         "incrementalPhase": "build"
       },
       "processors": {
@@ -7168,17 +7169,17 @@
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
-        "ResourceDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build"
-        },
         "ConceptualDocumentProcessor": {
-          "can_incremental": true,
+          "can_incremental": false,
           "incrementalPhase": "build"
         },
         "ManagedReferenceDocumentProcessor": {
-          "can_incremental": true,
+          "can_incremental": false,
+          "incrementalPhase": "build"
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         }
       }

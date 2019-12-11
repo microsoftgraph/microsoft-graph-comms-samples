@@ -177,7 +177,7 @@ namespace Sample.ComplianceRecordingBot.WorkerRole
 
             int instanceCallControlPublicPort = RoleEnvironment.IsEmulated ? DefaultPort : instanceCallControlEndpoint.PublicIPEndpoint.Port;
             int mediaInstanceInternalPort = RoleEnvironment.IsEmulated ? 8445 : mediaControlEndpoint.IPEndpoint.Port;
-            int mediaInstancePublicPort = RoleEnvironment.IsEmulated ? 13016 : mediaControlEndpoint.PublicIPEndpoint.Port;
+            int mediaInstancePublicPort = RoleEnvironment.IsEmulated ? 19476 : mediaControlEndpoint.PublicIPEndpoint.Port;
 
             string instanceCallControlIpEndpoint = string.Format("{0}:{1}", instanceCallControlInternalIpAddress, instanceCallControlInternalPort);
 
