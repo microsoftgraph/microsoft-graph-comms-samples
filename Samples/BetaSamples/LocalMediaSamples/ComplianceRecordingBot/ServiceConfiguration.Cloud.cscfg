@@ -4,15 +4,15 @@
     <Instances count="2" />
     <ConfigurationSettings> 
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=$storage$;AccountKey=$storageKey$" />
-      <Setting name="ServiceDnsName" value="mathowar-http.frontend.skype-graph-test.net" /> 
+      <Setting name="ServiceDnsName" value="%ServiceDns%" /> 
       <!-- xyz.cloudapp.net--> 
-      <Setting name="ServiceCNAME" value="mathowar-http.frontend.skype-graph-test.net" /> 
+      <Setting name="ServiceCNAME" value="%CName%" /> 
       <!-- CNAME pointing to the .cloudapp.net if available.--> 
-      <Setting name="DefaultCertificate" value="EB30E97A6EF6B1FB7C5D538F5FCC4242D8D33E68" /> 
+      <Setting name="DefaultCertificate" value="ABC0000000000000000000000000000000000CBA" /> 
       <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" value="" /> 
     </ConfigurationSettings> 
     <Certificates> 
-      <Certificate name="Default" thumbprint="EB30E97A6EF6B1FB7C5D538F5FCC4242D8D33E68" thumbprintAlgorithm="sha1" /> 
+      <Certificate name="Default" thumbprint="ABC0000000000000000000000000000000000CBA" thumbprintAlgorithm="sha1" /> 
     </Certificates> 
   </Role>
   <NetworkConfiguration>
