@@ -79,7 +79,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="interactive-voice-response-ivr">Interactive Voice Response (IVR)</h1>
 
-<p>Graph Calling SDK and Core SDK can be used to make and manage IVR calls.</p>
+<p>Graph Communications Calling SDK and Core SDK can be used to make and manage IVR calls.</p>
 <h2 id="features">Features</h2>
 <ul>
 <li>Join exiting calls</li>
@@ -111,20 +111,20 @@ ICall call = this.GetIncomingCall();
 await call.RedirectAsync(new[] { target }).ConfigureAwait(false);
 </code></pre><h3 id="blind-transfer">Blind transfer</h3>
 <p>To make a blind transfer, only the target needs to be specified.</p>
-<pre><code class="lang-cs">ICall oritinalCall = this.Client.Calls[&quot;*call id to transfer*&quot;];
+<pre><code class="lang-cs">ICall oritinalCall = this.Client.Calls()[&quot;*call id to transfer*&quot;];
 await oritinalCall.TransferAsync(target).ConfigureAwait(false);
 </code></pre><h3 id="consultative-transfer">Consultative transfer</h3>
-<pre><code class="lang-cs">ICall newCall = this.Client.Calls[&quot;*call id of second call*&quot;];
+<pre><code class="lang-cs">ICall newCall = this.Client.Calls()[&quot;*call id of second call*&quot;];
 await newCall.TransferAsync(target, &quot;*id of the original call*&quot;).ConfigureAwait(false);
 </code></pre><h2 id="subscribe-to-tones">Subscribe to tones</h2>
-<pre><code class="lang-cs">ICall call = this.Client.Calls[&quot;*id of the call*&quot;];
+<pre><code class="lang-cs">ICall call = this.Client.Calls()[&quot;*id of the call*&quot;];
 await call.SubscribeToToneAsync().ConfigureAwait(false);
 </code></pre><p>Any tones that are received are sent as part of a call update in <code>ToneInfo</code> property of the call resource.</p>
 <h2 id="play-media-prompts">Play media prompts</h2>
-<pre><code class="lang-cs">ICall call = this.Client.Calls[&quot;*id of the call*&quot;];
+<pre><code class="lang-cs">ICall call = this.Client.Calls()[&quot;*id of the call*&quot;];
 await call.PlayPromptAsync(*A list of media prompts to play*).ConfigureAwait(false);
 </code></pre><h2 id="record">Record</h2>
-<pre><code class="lang-cs">ICall call = this.Client.Calls[&quot;*id of the call*&quot;];
+<pre><code class="lang-cs">ICall call = this.Client.Calls()[&quot;*id of the call*&quot;];
 HttpClient httpClient = this.HttpClient;
 
 RecordOperationResult result = await call.RecordAsync(*record options*).ConfigureAwait(false);
@@ -149,7 +149,7 @@ using (var request = new HttpRequestMessage(HttpMethod.Get, new Uri(location)))
 }
 </code></pre><h2 id="cancel-media-processing">Cancel media processing</h2>
 <p>This API will cancel all prompts that are queued to be played.</p>
-<pre><code class="lang-cs">ICall call = this.Client.Calls[&quot;*id of the call*&quot;];
+<pre><code class="lang-cs">ICall call = this.Client.Calls()[&quot;*id of the call*&quot;];
 await call.CancelMediaProcessingAsync().ConfigureAwait(false);
 </code></pre></article>
           </div>

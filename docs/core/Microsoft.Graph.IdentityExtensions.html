@@ -211,49 +211,6 @@ This identity must be retrieved when other identities are not listed</p>
       </tr>
     </tbody>
   </table>
-  <a id="Microsoft_Graph_IdentityExtensions_GetEnumerator_" data-uid="Microsoft.Graph.IdentityExtensions.GetEnumerator*"></a>
-  <h4 id="Microsoft_Graph_IdentityExtensions_GetEnumerator_Microsoft_Graph_IdentitySet_" data-uid="Microsoft.Graph.IdentityExtensions.GetEnumerator(Microsoft.Graph.IdentitySet)">GetEnumerator(IdentitySet)</h4>
-  <div class="markdown level1 summary"><p>Gets the enumerator for the <span class="xref">Microsoft.Graph.IdentitySet</span>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;Identity&gt; GetEnumerator(this IdentitySet identitySet)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Microsoft.Graph.IdentitySet</span></td>
-        <td><span class="parametername">identitySet</span></td>
-        <td><p>The identity set.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<span class="xref">Microsoft.Graph.Identity</span>&gt;</td>
-        <td><p>The <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a> for the <span class="xref">Microsoft.Graph.IdentitySet</span>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <a id="Microsoft_Graph_IdentityExtensions_GetGuest_" data-uid="Microsoft.Graph.IdentityExtensions.GetGuest*"></a>
   <h4 id="Microsoft_Graph_IdentityExtensions_GetGuest_Microsoft_Graph_IdentitySet_" data-uid="Microsoft.Graph.IdentityExtensions.GetGuest(Microsoft.Graph.IdentitySet)">GetGuest(IdentitySet)</h4>
   <div class="markdown level1 summary"><p>Gets the guest identity from identity set.
@@ -337,6 +294,50 @@ This is part of additional data.</p>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><p>The identity provider string.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_IdentityExtensions_GetOnPremises_" data-uid="Microsoft.Graph.IdentityExtensions.GetOnPremises*"></a>
+  <h4 id="Microsoft_Graph_IdentityExtensions_GetOnPremises_Microsoft_Graph_IdentitySet_" data-uid="Microsoft.Graph.IdentityExtensions.GetOnPremises(Microsoft.Graph.IdentitySet)">GetOnPremises(IdentitySet)</h4>
+  <div class="markdown level1 summary"><p>Gets the on-premises identity from identity set.
+This is part of additional data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Identity GetOnPremises(this IdentitySet identitySet)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.Graph.IdentitySet</span></td>
+        <td><span class="parametername">identitySet</span></td>
+        <td><p>The identity set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.Graph.Identity</span></td>
+        <td><p>Identity</p>
 </td>
       </tr>
     </tbody>

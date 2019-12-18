@@ -92,10 +92,10 @@
 <div class="IMPORTANT"><h5>Important</h5><p>It is important for all event handlers to be non-blocking, and any long running operations need to be offloaded to another thread.  Long running operations in any event will block further operations from being raised for the given resource.</p>
 </div>
 <h3 id="example-outgoing-calls">Example Outgoing Calls</h3>
-<p>To illustrate functionality of the Graph Calling SDK, the below examples demonstrate 2 common scenarios: how to make an outbound call to a Microsoft Teams user and how to join an existing Microsoft Teams meeting.</p>
+<p>To illustrate functionality of the Graph Communications Calling SDK, the below examples demonstrate 2 common scenarios: how to make an outbound call to a Microsoft Teams user and how to join an existing Microsoft Teams meeting.</p>
 <h4 id="making-an-outbound-call">Making an Outbound Call</h4>
 <p>Assuming a bot has been properly registered and deployed, the <code>ICommunicationsClient</code> configured and built.</p>
-<p>The bot needs to create the <a class="xref" href="../core_calls/Microsoft.Graph.Call.html">Call</a> object with the corresponding parameters and pass the object to the <a class="xref" href="../calls/Microsoft.Graph.Communications.Calls.CallCollectionExtensions.html#Microsoft_Graph_Communications_Calls_CallCollectionExtensions_AddAsync_Microsoft_Graph_Communications_Calls_ICallCollection_Microsoft_Graph_Communications_Calls_JoinMeetingParameters_System_Guid_System_Threading_CancellationToken_">CallCollectionExtensions.AddAsync</a> method as follows:</p>
+<p>The bot needs to create the @Microsoft.Graph.Call object with the corresponding parameters and pass the object to the <a class="xref" href="../calls/Microsoft.Graph.Communications.Calls.CallCollectionExtensions.html#Microsoft_Graph_Communications_Calls_CallCollectionExtensions_AddAsync_Microsoft_Graph_Communications_Calls_ICallCollection_Microsoft_Graph_Communications_Calls_JoinMeetingParameters_System_Guid_System_Threading_CancellationToken_">CallCollectionExtensions.AddAsync</a> method as follows:</p>
 <pre><code class="lang-cs">var callResource = new Call
 {
   Subject = &quot;**Subject**&quot;,

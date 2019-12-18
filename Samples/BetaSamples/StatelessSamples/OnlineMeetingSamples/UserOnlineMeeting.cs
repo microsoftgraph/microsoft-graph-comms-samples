@@ -41,9 +41,9 @@ namespace Sample.OnlineMeeting
         /// <param name="tenantId">The tenant identifier.</param>
         /// <param name="scenarioId">The scenario identifier - needed in case of debugging for correlating client side request with server side logs.</param>
         /// <returns> The onlinemeeting. </returns>
-        public async Task<Microsoft.Graph.OnlineMeeting> CreateUserMeetingRequestAsync(string tenantId, Guid scenarioId)
+        public async Task<OnlineMeeting> CreateUserMeetingRequestAsync(string tenantId, Guid scenarioId)
         {
-            var statelessClient = new CallsGraphServiceClientEx(
+            var statelessClient = new GraphServiceClient(
                 this.graphEndpointUri.AbsoluteUri,
                 this.GetAuthenticationProvider(tenantId, scenarioId));
 
@@ -52,7 +52,7 @@ namespace Sample.OnlineMeeting
             DateTimeOffset startTime = new DateTimeOffset(DateTime.Now, TimeZoneInfo.Local.GetUtcOffset(DateTime.Now));
             DateTimeOffset endTime = new DateTimeOffset(DateTime.Now.AddMinutes(30), TimeZoneInfo.Local.GetUtcOffset(DateTime.Now));
 
-            var onlineMeeting = new Microsoft.Graph.OnlineMeeting()
+            var onlineMeeting = new OnlineMeeting()
             {
                 Subject = "Test User Meeting",
 

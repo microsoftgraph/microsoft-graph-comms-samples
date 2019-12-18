@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Graph Calling SDK </title>
+    <title>Graph Communications Calling SDK </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Graph Calling SDK ">
+    <meta name="title" content="Graph Communications Calling SDK ">
     <meta name="generator" content="docfx 2.39.2.0">
     
     <link rel="shortcut icon" href="favicon.ico">
@@ -70,17 +70,16 @@
         <div class="article row grid">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="graph-calling-sdk">Graph Calling SDK</h1>
+<h1 id="graph-communications-calling-sdk">Graph Communications Calling SDK</h1>
 
 <h2 id="introduction">Introduction</h2>
-<p>The Graph Calling SDK simplifies the creation of calling and meetings bots that use the <a href="https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/calls-api-overview">Microsoft Graph Calling APIs</a>.  The SDK provides the functionality to manage states of resources in memory and simplify tasks like call setup and media session establishment. It provides interfaces for bot&#39;s service-to-service interactions with calls and meetings, including an optional Media Extension SDK that enables a bot developer to host media on their machines and gain access to low level Audio/Video sockets and media streams.</p>
+<p>The Graph Communications Calling SDK simplifies the creation of calling and meetings bots that use the <a href="https://docs.microsoft.com/en-us/graph/cloud-communications-concept-overview">Cloud Communications APIs</a>.  The SDK provides the functionality to manage states of resources in memory and simplify tasks like call setup and media session establishment. It provides interfaces for bot&#39;s service-to-service interactions with calls and meetings, including an optional Media Extension SDK that enables a bot developer to host media on their machines and gain access to low level Audio/Video sockets and media streams.</p>
 <h2 id="sdk">SDK</h2>
-<p>The Graph Calling SDK is built on top of the Microsoft Graph API and distributed as NuGet packages. The <a href="articles/index.html">Core Concepts</a> article is designed to better explain all the constructs used by the SDKs. To dive right in and deploy a Calling Bot refer to the documentation in each sample for further instructions.</p>
+<p>The Graph Communications Calling SDK is built on top of the Microsoft Graph API and distributed as NuGet packages. The <a href="articles/index.html">Core Concepts</a> article is designed to better explain all the constructs used by the SDKs. To dive right in and deploy a Calling Bot refer to the documentation in each sample for further instructions.</p>
 <p>The SDK is divided into multiple nuget packages each described as below.</p>
 <ul>
 <li><a href="common/index.html">Microsoft.Graph.Communications.Common</a> (<a href="https://www.nuget.org/packages/Microsoft.Graph.Communications.Common/">nuget</a>): This is the nuget containing all the utilities used throughout the Stateful SDK. It contains telemetry, http, obfuscation support along with helper methods.</li>
 <li><a href="core/index.html">Microsoft.Graph.Communications.Core</a> (<a href="https://www.nuget.org/packages/Microsoft.Graph.Communications.Core/">nuget</a>): This library contains the serialization and notification for the communications APIs.</li>
-<li><a href="core_calls/index.html">Microsoft.Graph.Communications.Core.Calls</a> (<a href="https://www.nuget.org/packages/Microsoft.Graph.Communications.Core.Calls/">nuget</a>): This library contains the calling contracts and is a duplicate of <a href="https://www.nuget.org/packages/Microsoft.Graph/">Microsoft.Graph SDK</a> but only with Communication APIs.</li>
 <li><a href="client/index.html">Microsoft.Graph.Communications.Client</a> (<a href="https://www.nuget.org/packages/Microsoft.Graph.Communications.Client/">nuget</a>): This is the base client for the Stateful SDK. This implements all the common SDK features used within different verticals like calling, etc. </li>
 <li><a href="calls/index.html">Microsoft.Graph.Communications.Calls</a> (<a href="https://www.nuget.org/packages/Microsoft.Graph.Communications.Calls/">nuget</a>): This is the SDK that implements calling APIs. This supports making, receiving, and joining calls with Microsoft Teams users, and creating voice and video enabled bots.</li>
 <li><a href="calls_media/index.html">Microsoft.Graph.Communications.Calls.Media</a> (<a href="https://www.nuget.org/packages/Microsoft.Graph.Communications.Calls.Media/">nuget</a>): This library allows developers to use the <code>Microsoft.Graph.Communications.Calls</code> SDK and gain direct access to the audio, video, screen sharing, and data streams. This is an optional library on top of <code>Microsoft.Graph.Communications.Calls</code></li>
@@ -96,6 +95,8 @@
 </ul>
 <h3 id="icommunicationsclient-and-extension-methods">ICommunicationsClient and Extension Methods</h3>
 <p>The Stateful SDK is exposed using a single class <a class="xref" href="client/Microsoft.Graph.Communications.Client.ICommunicationsClient.html">ICommunicationsClient</a>. This class is defined in the <code>Microsoft.Graph.Communications.Client</code> nuget and has no dependency on the <code>Microsoft.Graph.Communications.Calls</code> calling vertical nuget package. The different verticals therefore make heavy usage of extension methods on <code>ICommunicationsClient</code> rather than standalone functions or properties. The intention here is to add new verticals into the <code>ICommunicationsClient</code> using the same pattern without the <code>ICommunicationsClient</code> itself taking a dependency on the new vertical&#39;s nuget, which provides greater decoupling between future verticals we will support.  For a usage example please see the <a class="xref" href="calls/Microsoft.Graph.Communications.Calls.CommunicationsClientExtensions.html#Microsoft_Graph_Communications_Calls_CommunicationsClientExtensions_Calls_Microsoft_Graph_Communications_Client_ICommunicationsClient_System_Boolean_">ICommunicationsClient.Calls()</a> extension method.</p>
+<h3 id="accompanying-information">Accompanying Information</h3>
+<p>Accessing the Microsoft Teams Service through a Microsoft API Cloud Video Interop (CVI) partners and contact centers may integrate with Microsoft Teams to aid their solution. Contact centers may route calls to Microsoft Teams but may not build a separate or independent communications related solution while using Microsoft Teams as a base for the solution.</p>
 </article>
           </div>
           

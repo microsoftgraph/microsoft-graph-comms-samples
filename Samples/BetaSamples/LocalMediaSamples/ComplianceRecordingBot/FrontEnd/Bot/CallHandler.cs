@@ -109,7 +109,7 @@ namespace Sample.ComplianceRecordingBot.FrontEnd.Bot
         /// Called when recording status flip timer fires.
         /// </summary>
         /// <param name="source">The source.</param>
-        /// <param name="e">The <see cref="System.Timers.ElapsedEventArgs" /> instance containing the event data.</param>
+        /// <param name="e">The <see cref="ElapsedEventArgs" /> instance containing the event data.</param>
         private void OnRecordingStatusFlip(object source, ElapsedEventArgs e)
         {
             _ = Task.Run(async () =>
