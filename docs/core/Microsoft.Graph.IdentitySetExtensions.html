@@ -123,29 +123,6 @@
   </div>
   <h3 id="fields">Fields
   </h3>
-  <h4 id="Microsoft_Graph_IdentitySetExtensions_ChatServiceThreadIdPrefix" data-uid="Microsoft.Graph.IdentitySetExtensions.ChatServiceThreadIdPrefix">ChatServiceThreadIdPrefix</h4>
-  <div class="markdown level1 summary"><p>The chat service thread identifier prefix</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const string ChatServiceThreadIdPrefix = &quot;19:&quot;</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h4 id="Microsoft_Graph_IdentitySetExtensions_DodAppParticipantPrefix" data-uid="Microsoft.Graph.IdentitySetExtensions.DodAppParticipantPrefix">DodAppParticipantPrefix</h4>
   <div class="markdown level1 summary"><p>The application participant prefix for dod cloud</p>
 </div>
@@ -199,6 +176,29 @@
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public const string DodDirectoryParticipantPrefix = &quot;8:dod:&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h4 id="Microsoft_Graph_IdentitySetExtensions_DodOnPremisesParticipantPrefix" data-uid="Microsoft.Graph.IdentitySetExtensions.DodOnPremisesParticipantPrefix">DodOnPremisesParticipantPrefix</h4>
+  <div class="markdown level1 summary"><p>The external prefix for DoD cloud</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string DodOnPremisesParticipantPrefix = &quot;8:dod-sfb:&quot;</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -307,6 +307,29 @@
       </tr>
     </tbody>
   </table>
+  <h4 id="Microsoft_Graph_IdentitySetExtensions_GcchOnPremisesParticipantPrefix" data-uid="Microsoft.Graph.IdentitySetExtensions.GcchOnPremisesParticipantPrefix">GcchOnPremisesParticipantPrefix</h4>
+  <div class="markdown level1 summary"><p>The external prefix for GCCH cloud</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string GcchOnPremisesParticipantPrefix = &quot;8:gcch-sfb:&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h4 id="Microsoft_Graph_IdentitySetExtensions_PhoneParticipantPrefix" data-uid="Microsoft.Graph.IdentitySetExtensions.PhoneParticipantPrefix">PhoneParticipantPrefix</h4>
   <div class="markdown level1 summary"><p>The phone participant prefix</p>
 </div>
@@ -383,6 +406,29 @@
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public const string PublicDirectoryParticipantPrefix = &quot;8:orgid:&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h4 id="Microsoft_Graph_IdentitySetExtensions_PublicOnPremisesParticipantPrefix" data-uid="Microsoft.Graph.IdentitySetExtensions.PublicOnPremisesParticipantPrefix">PublicOnPremisesParticipantPrefix</h4>
+  <div class="markdown level1 summary"><p>The external prefix for public cloud</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string PublicOnPremisesParticipantPrefix = &quot;8:sfb:&quot;</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -498,7 +544,7 @@ For chat service thread mris we return null</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Microsoft.Graph.IdentitySet</span></td>
+        <td><a class="xref" href="https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/src/Microsoft.Graph/Models/Generated/IdentitySet.cs">IdentitySet</a></td>
         <td><p>Created identity set</p>
 </td>
       </tr>
@@ -607,6 +653,135 @@ For chat service thread mris we return null</p>
       </tr>
     </tbody>
   </table>
+  <a id="Microsoft_Graph_IdentitySetExtensions_GetDirectoryAppParticipantPrefix_" data-uid="Microsoft.Graph.IdentitySetExtensions.GetDirectoryAppParticipantPrefix*"></a>
+  <h4 id="Microsoft_Graph_IdentitySetExtensions_GetDirectoryAppParticipantPrefix_Microsoft_Graph_Routing_CloudNamespace_" data-uid="Microsoft.Graph.IdentitySetExtensions.GetDirectoryAppParticipantPrefix(Microsoft.Graph.Routing.CloudNamespace)">GetDirectoryAppParticipantPrefix(CloudNamespace)</h4>
+  <div class="markdown level1 summary"><p>Gets directory app participant prefix for the provided <a class="xref" href="Microsoft.Graph.Routing.CloudNamespace.html">CloudNamespace</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetDirectoryAppParticipantPrefix(CloudNamespace cloudNamespace)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.Routing.CloudNamespace.html">CloudNamespace</a></td>
+        <td><span class="parametername">cloudNamespace</span></td>
+        <td><p>The cloud where the directory app participant belongs</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>Prefix to be used to construct the MRI</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_IdentitySetExtensions_GetDirectoryParticipantPrefix_" data-uid="Microsoft.Graph.IdentitySetExtensions.GetDirectoryParticipantPrefix*"></a>
+  <h4 id="Microsoft_Graph_IdentitySetExtensions_GetDirectoryParticipantPrefix_Microsoft_Graph_Routing_CloudNamespace_" data-uid="Microsoft.Graph.IdentitySetExtensions.GetDirectoryParticipantPrefix(Microsoft.Graph.Routing.CloudNamespace)">GetDirectoryParticipantPrefix(CloudNamespace)</h4>
+  <div class="markdown level1 summary"><p>Gets a user prefix for the provided <a class="xref" href="Microsoft.Graph.Routing.CloudNamespace.html">CloudNamespace</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetDirectoryParticipantPrefix(CloudNamespace cloudNamespace)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.Routing.CloudNamespace.html">CloudNamespace</a></td>
+        <td><span class="parametername">cloudNamespace</span></td>
+        <td><p>The cloud where the user belongs</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>Prefix to be used to construct the MRI</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_IdentitySetExtensions_GetEnumerator_" data-uid="Microsoft.Graph.IdentitySetExtensions.GetEnumerator*"></a>
+  <h4 id="Microsoft_Graph_IdentitySetExtensions_GetEnumerator_Microsoft_Graph_IdentitySet_" data-uid="Microsoft.Graph.IdentitySetExtensions.GetEnumerator(Microsoft.Graph.IdentitySet)">GetEnumerator(IdentitySet)</h4>
+  <div class="markdown level1 summary"><p>Enumerates through all the <a class="xref" href="https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/src/Microsoft.Graph/Models/Generated/Identity.cs">Identity</a> objects found in this <a class="xref" href="https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/src/Microsoft.Graph/Models/Generated/IdentitySet.cs">IdentitySet</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;KeyValuePair&lt;string, Identity&gt;&gt; GetEnumerator(this IdentitySet identitySet)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/src/Microsoft.Graph/Models/Generated/IdentitySet.cs">IdentitySet</a></td>
+        <td><span class="parametername">identitySet</span></td>
+        <td><p>The identity set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/src/Microsoft.Graph/Models/Generated/Identity.cs">Identity</a>&gt;&gt;</td>
+        <td><p>The IEnumerable{KeyValuePair{string, Identity}} for the specified <a class="xref" href="https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/src/Microsoft.Graph/Models/Generated/IdentitySet.cs">IdentitySet</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <a id="Microsoft_Graph_IdentitySetExtensions_GetMri_" data-uid="Microsoft.Graph.IdentitySetExtensions.GetMri*"></a>
   <h4 id="Microsoft_Graph_IdentitySetExtensions_GetMri_Microsoft_Graph_IdentitySet_Microsoft_Graph_Routing_CloudNamespace_" data-uid="Microsoft.Graph.IdentitySetExtensions.GetMri(Microsoft.Graph.IdentitySet,Microsoft.Graph.Routing.CloudNamespace)">GetMri(IdentitySet, CloudNamespace)</h4>
   <div class="markdown level1 summary"><p>Gets participant MRI
@@ -629,7 +804,7 @@ User, Guest, Encrypted, Application Instance, Application, Phone</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Microsoft.Graph.IdentitySet</span></td>
+        <td><a class="xref" href="https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/src/Microsoft.Graph/Models/Generated/IdentitySet.cs">IdentitySet</a></td>
         <td><span class="parametername">identitySet</span></td>
         <td><p>Participant identity set</p>
 </td>
@@ -654,6 +829,92 @@ User, Guest, Encrypted, Application Instance, Application, Phone</p>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td><p>Participant MRI</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_IdentitySetExtensions_GetObjectIdForAppParticipant_" data-uid="Microsoft.Graph.IdentitySetExtensions.GetObjectIdForAppParticipant*"></a>
+  <h4 id="Microsoft_Graph_IdentitySetExtensions_GetObjectIdForAppParticipant_System_String_" data-uid="Microsoft.Graph.IdentitySetExtensions.GetObjectIdForAppParticipant(System.String)">GetObjectIdForAppParticipant(String)</h4>
+  <div class="markdown level1 summary"><p>Get the object id for an app</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetObjectIdForAppParticipant(string mri)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">mri</span></td>
+        <td><p>participant mri</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>The object id of the participant&gt;</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_IdentitySetExtensions_GetObjectIdForDirectoryAppParticipant_" data-uid="Microsoft.Graph.IdentitySetExtensions.GetObjectIdForDirectoryAppParticipant*"></a>
+  <h4 id="Microsoft_Graph_IdentitySetExtensions_GetObjectIdForDirectoryAppParticipant_System_String_" data-uid="Microsoft.Graph.IdentitySetExtensions.GetObjectIdForDirectoryAppParticipant(System.String)">GetObjectIdForDirectoryAppParticipant(String)</h4>
+  <div class="markdown level1 summary"><p>Get the object id for a directory app participant</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetObjectIdForDirectoryAppParticipant(string mri)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">mri</span></td>
+        <td><p>participant mri</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>The object id of the participant&gt;</p>
 </td>
       </tr>
     </tbody>
@@ -701,11 +962,97 @@ User, Guest, Encrypted, Application Instance, Application, Phone</p>
       </tr>
     </tbody>
   </table>
+  <a id="Microsoft_Graph_IdentitySetExtensions_GetObjectIdForOnPremisesParticipant_" data-uid="Microsoft.Graph.IdentitySetExtensions.GetObjectIdForOnPremisesParticipant*"></a>
+  <h4 id="Microsoft_Graph_IdentitySetExtensions_GetObjectIdForOnPremisesParticipant_System_String_" data-uid="Microsoft.Graph.IdentitySetExtensions.GetObjectIdForOnPremisesParticipant(System.String)">GetObjectIdForOnPremisesParticipant(String)</h4>
+  <div class="markdown level1 summary"><p>/Get the object id for an external participant</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetObjectIdForOnPremisesParticipant(string mri)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">mri</span></td>
+        <td><p>participant mri</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>The object id of the participant&gt;</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_IdentitySetExtensions_GetOnPremisesParticipantPrefix_" data-uid="Microsoft.Graph.IdentitySetExtensions.GetOnPremisesParticipantPrefix*"></a>
+  <h4 id="Microsoft_Graph_IdentitySetExtensions_GetOnPremisesParticipantPrefix_Microsoft_Graph_Routing_CloudNamespace_" data-uid="Microsoft.Graph.IdentitySetExtensions.GetOnPremisesParticipantPrefix(Microsoft.Graph.Routing.CloudNamespace)">GetOnPremisesParticipantPrefix(CloudNamespace)</h4>
+  <div class="markdown level1 summary"><p>Gets an external prefix for the provided <a class="xref" href="Microsoft.Graph.Routing.CloudNamespace.html">CloudNamespace</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetOnPremisesParticipantPrefix(CloudNamespace cloudNamespace)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.Routing.CloudNamespace.html">CloudNamespace</a></td>
+        <td><span class="parametername">cloudNamespace</span></td>
+        <td><p>The cloud where the user belongs</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>Prefix to be used to construct the MRI</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <a id="Microsoft_Graph_IdentitySetExtensions_GetPrimaryIdentity_" data-uid="Microsoft.Graph.IdentitySetExtensions.GetPrimaryIdentity*"></a>
   <h4 id="Microsoft_Graph_IdentitySetExtensions_GetPrimaryIdentity_Microsoft_Graph_IdentitySet_" data-uid="Microsoft.Graph.IdentitySetExtensions.GetPrimaryIdentity(Microsoft.Graph.IdentitySet)">GetPrimaryIdentity(IdentitySet)</h4>
-  <div class="markdown level1 summary"><p>Gets the primary identity from the specified <span class="xref">Microsoft.Graph.IdentitySet</span>.
+  <div class="markdown level1 summary"><p>Gets the primary identity from the specified <a class="xref" href="https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/src/Microsoft.Graph/Models/Generated/IdentitySet.cs">IdentitySet</a>.
 The priority order is:
-User, Guest, Encrypted, Application Instance, Application, Phone</p>
+User, Guest, Phone, Encrypted, OnPremises, Application Instance, Application</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -723,7 +1070,7 @@ User, Guest, Encrypted, Application Instance, Application, Phone</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Microsoft.Graph.IdentitySet</span></td>
+        <td><a class="xref" href="https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/src/Microsoft.Graph/Models/Generated/IdentitySet.cs">IdentitySet</a></td>
         <td><span class="parametername">identitySet</span></td>
         <td><p>The identity set.</p>
 </td>
@@ -740,9 +1087,220 @@ User, Guest, Encrypted, Application Instance, Application, Phone</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Microsoft.Graph.Identity</span></td>
+        <td><a class="xref" href="https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/src/Microsoft.Graph/Models/Generated/Identity.cs">Identity</a></td>
         <td><p>Primary Identity</p>
 </td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_IdentitySetExtensions_IsConsumer_" data-uid="Microsoft.Graph.IdentitySetExtensions.IsConsumer*"></a>
+  <h4 id="Microsoft_Graph_IdentitySetExtensions_IsConsumer_Microsoft_Graph_IdentitySet_" data-uid="Microsoft.Graph.IdentitySetExtensions.IsConsumer(Microsoft.Graph.IdentitySet)">IsConsumer(IdentitySet)</h4>
+  <div class="markdown level1 summary"><p>Indicates whether this identity set is a consumer identity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsConsumer(this IdentitySet identitySet)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/src/Microsoft.Graph/Models/Generated/IdentitySet.cs">IdentitySet</a></td>
+        <td><span class="parametername">identitySet</span></td>
+        <td><p>The identity set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p><code>true</code> if the identity is a consumer identity, <code>false</code> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_IdentitySetExtensions_MriHasAppParticipantPrefix_" data-uid="Microsoft.Graph.IdentitySetExtensions.MriHasAppParticipantPrefix*"></a>
+  <h4 id="Microsoft_Graph_IdentitySetExtensions_MriHasAppParticipantPrefix_System_String_" data-uid="Microsoft.Graph.IdentitySetExtensions.MriHasAppParticipantPrefix(System.String)">MriHasAppParticipantPrefix(String)</h4>
+  <div class="markdown level1 summary"><p>Returns whether a MRI is a directory participant prefix or not.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool MriHasAppParticipantPrefix(string mri)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">mri</span></td>
+        <td><p>Participant MRI</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><pre><code>true</code></pre> if <code data-dev-comment-type="paramref" class="paramref">mri</code> is a valid directory participant prefix</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_IdentitySetExtensions_MriHasDirectoryAppParticipantPrefix_" data-uid="Microsoft.Graph.IdentitySetExtensions.MriHasDirectoryAppParticipantPrefix*"></a>
+  <h4 id="Microsoft_Graph_IdentitySetExtensions_MriHasDirectoryAppParticipantPrefix_System_String_" data-uid="Microsoft.Graph.IdentitySetExtensions.MriHasDirectoryAppParticipantPrefix(System.String)">MriHasDirectoryAppParticipantPrefix(String)</h4>
+  <div class="markdown level1 summary"><p>Returns whether a MRI is a directory participant prefix or not.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool MriHasDirectoryAppParticipantPrefix(string mri)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">mri</span></td>
+        <td><p>Participant MRI</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><pre><code>true</code></pre> if <code data-dev-comment-type="paramref" class="paramref">mri</code> is a valid directory participant prefix</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_IdentitySetExtensions_MriHasDirectoryParticipantPrefix_" data-uid="Microsoft.Graph.IdentitySetExtensions.MriHasDirectoryParticipantPrefix*"></a>
+  <h4 id="Microsoft_Graph_IdentitySetExtensions_MriHasDirectoryParticipantPrefix_System_String_" data-uid="Microsoft.Graph.IdentitySetExtensions.MriHasDirectoryParticipantPrefix(System.String)">MriHasDirectoryParticipantPrefix(String)</h4>
+  <div class="markdown level1 summary"><p>Returns whether a MRI is a directory participant prefix or not.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool MriHasDirectoryParticipantPrefix(string mri)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">mri</span></td>
+        <td><p>Participant MRI</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><pre><code>true</code></pre> if <code data-dev-comment-type="paramref" class="paramref">mri</code> is a valid directory participant prefix</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_IdentitySetExtensions_MriHasOnPremisesParticipantPrefix_" data-uid="Microsoft.Graph.IdentitySetExtensions.MriHasOnPremisesParticipantPrefix*"></a>
+  <h4 id="Microsoft_Graph_IdentitySetExtensions_MriHasOnPremisesParticipantPrefix_System_String_" data-uid="Microsoft.Graph.IdentitySetExtensions.MriHasOnPremisesParticipantPrefix(System.String)">MriHasOnPremisesParticipantPrefix(String)</h4>
+  <div class="markdown level1 summary"><p>Returns whether a MRI is an external participant prefix or not.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool MriHasOnPremisesParticipantPrefix(string mri)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">mri</span></td>
+        <td><p>Participant MRI</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><pre><code>true</code></pre> if <code data-dev-comment-type="paramref" class="paramref">mri</code> is a valid external participant prefix</td>
       </tr>
     </tbody>
   </table>

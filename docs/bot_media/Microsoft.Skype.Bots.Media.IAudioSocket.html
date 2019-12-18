@@ -135,6 +135,72 @@ the buffer object&apos;s Dispose() method is invoked by the Media Platform.</p>
       </tr>
     </tbody>
   </table>
+  <a id="Microsoft_Skype_Bots_Media_IAudioSocket_SendDtmfTone_" data-uid="Microsoft.Skype.Bots.Media.IAudioSocket.SendDtmfTone*"></a>
+  <h4 id="Microsoft_Skype_Bots_Media_IAudioSocket_SendDtmfTone_Microsoft_Skype_Bots_Media_ToneId_" data-uid="Microsoft.Skype.Bots.Media.IAudioSocket.SendDtmfTone(Microsoft.Skype.Bots.Media.ToneId)">SendDtmfTone(ToneId)</h4>
+  <div class="markdown level1 summary"><p>Sends a DTMF tone.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SendDtmfTone(ToneId tone)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Skype.Bots.Media.ToneId.html">ToneId</a></td>
+        <td><span class="parametername">tone</span></td>
+        <td><p>The DTMF digit. Ranges from 0-16.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Microsoft_Skype_Bots_Media_IAudioSocket_SendDtmfTone_Microsoft_Skype_Bots_Media_ToneId__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Sending DTMF tone is only allowed if the AudioSocket is configured for sending media.</p>
+</div>
+  <a id="Microsoft_Skype_Bots_Media_IAudioSocket_SendDtmfTones_" data-uid="Microsoft.Skype.Bots.Media.IAudioSocket.SendDtmfTones*"></a>
+  <h4 id="Microsoft_Skype_Bots_Media_IAudioSocket_SendDtmfTones_System_Collections_Generic_IEnumerable_Microsoft_Skype_Bots_Media_ToneId__System_Int32_" data-uid="Microsoft.Skype.Bots.Media.IAudioSocket.SendDtmfTones(System.Collections.Generic.IEnumerable{Microsoft.Skype.Bots.Media.ToneId},System.Int32)">SendDtmfTones(IEnumerable&lt;ToneId&gt;, Int32)</h4>
+  <div class="markdown level1 summary"><p>Sends a sequence of DTMF tones with an optional delay between each tone.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SendDtmfTones(IEnumerable&lt;ToneId&gt; tones, int delayBetweenTonesInMilliseconds = -1)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Microsoft.Skype.Bots.Media.ToneId.html">ToneId</a>&gt;</td>
+        <td><span class="parametername">tones</span></td>
+        <td><p>The list of DTMF digits to be sent. Ranges from 0-16.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">delayBetweenTonesInMilliseconds</span></td>
+        <td><p>Delay (in milliseconds) between each DTMF tone sent.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Microsoft_Skype_Bots_Media_IAudioSocket_SendDtmfTones_System_Collections_Generic_IEnumerable_Microsoft_Skype_Bots_Media_ToneId__System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>By default, the delay is set to -1 which picks a random time between 0 to 500 milliseconds.</p>
+</div>
   <h3 id="events">Events
   </h3>
   <h4 id="Microsoft_Skype_Bots_Media_IAudioSocket_AudioMediaReceived" data-uid="Microsoft.Skype.Bots.Media.IAudioSocket.AudioMediaReceived">AudioMediaReceived</h4>

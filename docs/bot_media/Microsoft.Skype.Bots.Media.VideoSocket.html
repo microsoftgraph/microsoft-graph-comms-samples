@@ -450,6 +450,32 @@ The received video buffers should have the requested resolution if the bandwidth
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></td>
+        <td><p>Thrown when the socket was disposed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Thrown when the subscription is invalid.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.Skype.Bots.Media.SkypeMediaException.html">SkypeMediaException</a></td>
+        <td><p>Thrown when an internal media failure occured.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <a id="Microsoft_Skype_Bots_Media_VideoSocket_Unsubscribe_" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.Unsubscribe*"></a>
   <h4 id="Microsoft_Skype_Bots_Media_VideoSocket_Unsubscribe" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.Unsubscribe">Unsubscribe()</h4>
   <div class="markdown level1 summary"><p>Unsubscribe to video, the VideMediaReceived events will stop raising video buffers</p>

@@ -124,13 +124,13 @@
   <h3 id="constructors">Constructors
   </h3>
   <a id="Microsoft_Graph_Communications_Calls_RecordOperationResult__ctor_" data-uid="Microsoft.Graph.Communications.Calls.RecordOperationResult.#ctor*"></a>
-  <h4 id="Microsoft_Graph_Communications_Calls_RecordOperationResult__ctor_System_String_System_String_System_Nullable_Microsoft_Graph_RecordCompletionReason__Microsoft_Graph_ResultInfo_" data-uid="Microsoft.Graph.Communications.Calls.RecordOperationResult.#ctor(System.String,System.String,System.Nullable{Microsoft.Graph.RecordCompletionReason},Microsoft.Graph.ResultInfo)">RecordOperationResult(String, String, Nullable&lt;RecordCompletionReason&gt;, ResultInfo)</h4>
+  <h4 id="Microsoft_Graph_Communications_Calls_RecordOperationResult__ctor_System_String_System_String_Microsoft_Graph_ResultInfo_" data-uid="Microsoft.Graph.Communications.Calls.RecordOperationResult.#ctor(System.String,System.String,Microsoft.Graph.ResultInfo)">RecordOperationResult(String, String, ResultInfo)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Microsoft.Graph.Communications.Calls.RecordOperationResult.html">RecordOperationResult</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RecordOperationResult(string recordingLocation, string recordingAccessToken, RecordCompletionReason? completionReason, ResultInfo resultInfo)</code></pre>
+    <pre><code class="lang-csharp hljs">public RecordOperationResult(string recordingLocation, string recordingAccessToken, ResultInfo resultInfo)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -155,13 +155,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="../core_calls/Microsoft.Graph.RecordCompletionReason.html">RecordCompletionReason</a>&gt;</td>
-        <td><span class="parametername">completionReason</span></td>
-        <td><p>The completion reason.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="../core/Microsoft.Graph.ResultInfo.html">ResultInfo</a></td>
+        <td><a class="xref" href="https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/src/Microsoft.Graph/Models/Generated/ResultInfo.cs">ResultInfo</a></td>
         <td><span class="parametername">resultInfo</span></td>
         <td><p>The result information.</p>
 </td>
@@ -170,30 +164,6 @@
   </table>
   <h3 id="properties">Properties
   </h3>
-  <a id="Microsoft_Graph_Communications_Calls_RecordOperationResult_CompletionReason_" data-uid="Microsoft.Graph.Communications.Calls.RecordOperationResult.CompletionReason*"></a>
-  <h4 id="Microsoft_Graph_Communications_Calls_RecordOperationResult_CompletionReason" data-uid="Microsoft.Graph.Communications.Calls.RecordOperationResult.CompletionReason">CompletionReason</h4>
-  <div class="markdown level1 summary"><p>Gets completion reason.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RecordCompletionReason? CompletionReason { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="../core_calls/Microsoft.Graph.RecordCompletionReason.html">RecordCompletionReason</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <a id="Microsoft_Graph_Communications_Calls_RecordOperationResult_RecordingAccessToken_" data-uid="Microsoft.Graph.Communications.Calls.RecordOperationResult.RecordingAccessToken*"></a>
   <h4 id="Microsoft_Graph_Communications_Calls_RecordOperationResult_RecordingAccessToken" data-uid="Microsoft.Graph.Communications.Calls.RecordOperationResult.RecordingAccessToken">RecordingAccessToken</h4>
   <div class="markdown level1 summary"><p>Gets the recording access token required to retrieve the recording.</p>
@@ -244,58 +214,6 @@ Client need to call GET request on this link passing RecordingAccessToken as bea
       </tr>
     </tbody>
   </table>
-  <a id="Microsoft_Graph_Communications_Calls_RecordOperationResult_RecordResourceAccessToken_" data-uid="Microsoft.Graph.Communications.Calls.RecordOperationResult.RecordResourceAccessToken*"></a>
-  <h4 id="Microsoft_Graph_Communications_Calls_RecordOperationResult_RecordResourceAccessToken" data-uid="Microsoft.Graph.Communications.Calls.RecordOperationResult.RecordResourceAccessToken">RecordResourceAccessToken</h4>
-  <div class="markdown level1 summary"><p>Gets record resource access token required to retrieve the recording.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Please use RecordingAccessToken property instead.&quot;)]
-public string RecordResourceAccessToken { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="Microsoft_Graph_Communications_Calls_RecordOperationResult_RecordResourceLocation_" data-uid="Microsoft.Graph.Communications.Calls.RecordOperationResult.RecordResourceLocation*"></a>
-  <h4 id="Microsoft_Graph_Communications_Calls_RecordOperationResult_RecordResourceLocation" data-uid="Microsoft.Graph.Communications.Calls.RecordOperationResult.RecordResourceLocation">RecordResourceLocation</h4>
-  <div class="markdown level1 summary"><p>Gets the record resource location.
-Link to the &quot;live raw stream as it is being recorded&quot; or &quot;recorded stream after it’s recorded&quot;.
-Client need to call GET request on this link passing RecordResourceAccessToken as bearer token in order to download the stream.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Please use RecordingLocation property instead.&quot;)]
-public string RecordResourceLocation { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <a id="Microsoft_Graph_Communications_Calls_RecordOperationResult_ResultInfo_" data-uid="Microsoft.Graph.Communications.Calls.RecordOperationResult.ResultInfo*"></a>
   <h4 id="Microsoft_Graph_Communications_Calls_RecordOperationResult_ResultInfo" data-uid="Microsoft.Graph.Communications.Calls.RecordOperationResult.ResultInfo">ResultInfo</h4>
   <div class="markdown level1 summary"><p>Gets the result information.</p>
@@ -315,7 +233,7 @@ public string RecordResourceLocation { get; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="../core/Microsoft.Graph.ResultInfo.html">ResultInfo</a></td>
+        <td><a class="xref" href="https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/src/Microsoft.Graph/Models/Generated/ResultInfo.cs">ResultInfo</a></td>
         <td><p>The result information.</p>
 </td>
       </tr>

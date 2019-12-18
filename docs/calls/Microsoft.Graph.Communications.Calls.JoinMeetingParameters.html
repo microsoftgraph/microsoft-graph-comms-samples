@@ -124,14 +124,14 @@
   <h3 id="constructors">Constructors
   </h3>
   <a id="Microsoft_Graph_Communications_Calls_JoinMeetingParameters__ctor_" data-uid="Microsoft.Graph.Communications.Calls.JoinMeetingParameters.#ctor*"></a>
-  <h4 id="Microsoft_Graph_Communications_Calls_JoinMeetingParameters__ctor_Microsoft_Graph_ChatInfo_Microsoft_Graph_MeetingInfo_Microsoft_Graph_Communications_Calls_IMediaSession_System_Boolean_" data-uid="Microsoft.Graph.Communications.Calls.JoinMeetingParameters.#ctor(Microsoft.Graph.ChatInfo,Microsoft.Graph.MeetingInfo,Microsoft.Graph.Communications.Calls.IMediaSession,System.Boolean)">JoinMeetingParameters(ChatInfo, MeetingInfo, IMediaSession, Boolean)</h4>
+  <h4 id="Microsoft_Graph_Communications_Calls_JoinMeetingParameters__ctor_Microsoft_Graph_ChatInfo_Microsoft_Graph_MeetingInfo_Microsoft_Graph_Communications_Calls_IMediaSession_" data-uid="Microsoft.Graph.Communications.Calls.JoinMeetingParameters.#ctor(Microsoft.Graph.ChatInfo,Microsoft.Graph.MeetingInfo,Microsoft.Graph.Communications.Calls.IMediaSession)">JoinMeetingParameters(ChatInfo, MeetingInfo, IMediaSession)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Microsoft.Graph.Communications.Calls.JoinMeetingParameters.html">JoinMeetingParameters</a> class.
 Use this constructor for app hosted media.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public JoinMeetingParameters(ChatInfo chatInfo, MeetingInfo meetingInfo, IMediaSession mediaSession, bool removeFromDefaultAudioRoutingGroup = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public JoinMeetingParameters(ChatInfo chatInfo, MeetingInfo meetingInfo, IMediaSession mediaSession)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -144,13 +144,13 @@ Use this constructor for app hosted media.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="../core_calls/Microsoft.Graph.ChatInfo.html">ChatInfo</a></td>
+        <td><a class="xref" href="https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/src/Microsoft.Graph/Models/Generated/ChatInfo.cs">ChatInfo</a></td>
         <td><span class="parametername">chatInfo</span></td>
         <td><p>The chat information.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="../core_calls/Microsoft.Graph.MeetingInfo.html">MeetingInfo</a></td>
+        <td><a class="xref" href="https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/src/Microsoft.Graph/Models/Generated/MeetingInfo.cs">MeetingInfo</a></td>
         <td><span class="parametername">meetingInfo</span></td>
         <td><p>The meeting information.</p>
 </td>
@@ -161,23 +161,17 @@ Use this constructor for app hosted media.</p>
         <td><p>The media session.</p>
 </td>
       </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td><span class="parametername">removeFromDefaultAudioRoutingGroup</span></td>
-        <td><p>Whether to remove it from the default audio route.</p>
-</td>
-      </tr>
     </tbody>
   </table>
   <a id="Microsoft_Graph_Communications_Calls_JoinMeetingParameters__ctor_" data-uid="Microsoft.Graph.Communications.Calls.JoinMeetingParameters.#ctor*"></a>
-  <h4 id="Microsoft_Graph_Communications_Calls_JoinMeetingParameters__ctor_Microsoft_Graph_ChatInfo_Microsoft_Graph_MeetingInfo_System_Collections_Generic_IEnumerable_Microsoft_Graph_Modality__System_Collections_Generic_IEnumerable_Microsoft_Graph_MediaInfo__System_Boolean_" data-uid="Microsoft.Graph.Communications.Calls.JoinMeetingParameters.#ctor(Microsoft.Graph.ChatInfo,Microsoft.Graph.MeetingInfo,System.Collections.Generic.IEnumerable{Microsoft.Graph.Modality},System.Collections.Generic.IEnumerable{Microsoft.Graph.MediaInfo},System.Boolean)">JoinMeetingParameters(ChatInfo, MeetingInfo, IEnumerable&lt;Modality&gt;, IEnumerable&lt;MediaInfo&gt;, Boolean)</h4>
+  <h4 id="Microsoft_Graph_Communications_Calls_JoinMeetingParameters__ctor_Microsoft_Graph_ChatInfo_Microsoft_Graph_MeetingInfo_System_Collections_Generic_IEnumerable_Microsoft_Graph_Modality__System_Collections_Generic_IEnumerable_Microsoft_Graph_MediaInfo__" data-uid="Microsoft.Graph.Communications.Calls.JoinMeetingParameters.#ctor(Microsoft.Graph.ChatInfo,Microsoft.Graph.MeetingInfo,System.Collections.Generic.IEnumerable{Microsoft.Graph.Modality},System.Collections.Generic.IEnumerable{Microsoft.Graph.MediaInfo})">JoinMeetingParameters(ChatInfo, MeetingInfo, IEnumerable&lt;Modality&gt;, IEnumerable&lt;MediaInfo&gt;)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Microsoft.Graph.Communications.Calls.JoinMeetingParameters.html">JoinMeetingParameters</a> class.
 Use this constructor for service hosted media.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public JoinMeetingParameters(ChatInfo chatInfo, MeetingInfo meetingInfo, IEnumerable&lt;Modality&gt; requestedModalities, IEnumerable&lt;MediaInfo&gt; prefetchPrompts = null, bool removeFromDefaultAudioRoutingGroup = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public JoinMeetingParameters(ChatInfo chatInfo, MeetingInfo meetingInfo, IEnumerable&lt;Modality&gt; requestedModalities, IEnumerable&lt;MediaInfo&gt; prefetchPrompts = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -190,33 +184,27 @@ Use this constructor for service hosted media.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="../core_calls/Microsoft.Graph.ChatInfo.html">ChatInfo</a></td>
+        <td><a class="xref" href="https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/src/Microsoft.Graph/Models/Generated/ChatInfo.cs">ChatInfo</a></td>
         <td><span class="parametername">chatInfo</span></td>
         <td><p>The chat information.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="../core_calls/Microsoft.Graph.MeetingInfo.html">MeetingInfo</a></td>
+        <td><a class="xref" href="https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/src/Microsoft.Graph/Models/Generated/MeetingInfo.cs">MeetingInfo</a></td>
         <td><span class="parametername">meetingInfo</span></td>
         <td><p>The meeting information.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="../core/Microsoft.Graph.Modality.html">Modality</a>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/src/Microsoft.Graph/Models/Generated/Modality.cs">Modality</a>&gt;</td>
         <td><span class="parametername">requestedModalities</span></td>
         <td><p>The list of modalities for the call</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="../core_calls/Microsoft.Graph.MediaInfo.html">MediaInfo</a>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/src/Microsoft.Graph/Models/Generated/MediaInfo.cs">MediaInfo</a>&gt;</td>
         <td><span class="parametername">prefetchPrompts</span></td>
         <td><p>The list of media files to prefetch</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td><span class="parametername">removeFromDefaultAudioRoutingGroup</span></td>
-        <td><p>Whether to remove it from the default audio route.</p>
 </td>
       </tr>
     </tbody>
@@ -247,6 +235,30 @@ Use this constructor for service hosted media.</p>
       </tr>
     </tbody>
   </table>
+  <a id="Microsoft_Graph_Communications_Calls_JoinMeetingParameters_AllowGuestToBypassLobby_" data-uid="Microsoft.Graph.Communications.Calls.JoinMeetingParameters.AllowGuestToBypassLobby*"></a>
+  <h4 id="Microsoft_Graph_Communications_Calls_JoinMeetingParameters_AllowGuestToBypassLobby" data-uid="Microsoft.Graph.Communications.Calls.JoinMeetingParameters.AllowGuestToBypassLobby">AllowGuestToBypassLobby</h4>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether to bypass lobby when joining a group call as guest.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? AllowGuestToBypassLobby { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <a id="Microsoft_Graph_Communications_Calls_JoinMeetingParameters_ChatInfo_" data-uid="Microsoft.Graph.Communications.Calls.JoinMeetingParameters.ChatInfo*"></a>
   <h4 id="Microsoft_Graph_Communications_Calls_JoinMeetingParameters_ChatInfo" data-uid="Microsoft.Graph.Communications.Calls.JoinMeetingParameters.ChatInfo">ChatInfo</h4>
   <div class="markdown level1 summary"><p>Gets the chat information.</p>
@@ -266,7 +278,7 @@ Use this constructor for service hosted media.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="../core_calls/Microsoft.Graph.ChatInfo.html">ChatInfo</a></td>
+        <td><a class="xref" href="https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/src/Microsoft.Graph/Models/Generated/ChatInfo.cs">ChatInfo</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -315,7 +327,7 @@ public Guid CorrelationId { get; set; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Microsoft.Graph.Identity</span></td>
+        <td><a class="xref" href="https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/src/Microsoft.Graph/Models/Generated/Identity.cs">Identity</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -363,7 +375,7 @@ public Guid CorrelationId { get; set; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="../core_calls/Microsoft.Graph.MeetingInfo.html">MeetingInfo</a></td>
+        <td><a class="xref" href="https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/src/Microsoft.Graph/Models/Generated/MeetingInfo.cs">MeetingInfo</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -387,31 +399,7 @@ public Guid CorrelationId { get; set; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="../core_calls/Microsoft.Graph.MediaInfo.html">MediaInfo</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="Microsoft_Graph_Communications_Calls_JoinMeetingParameters_RemoveFromDefaultAudioRoutingGroup_" data-uid="Microsoft.Graph.Communications.Calls.JoinMeetingParameters.RemoveFromDefaultAudioRoutingGroup*"></a>
-  <h4 id="Microsoft_Graph_Communications_Calls_JoinMeetingParameters_RemoveFromDefaultAudioRoutingGroup" data-uid="Microsoft.Graph.Communications.Calls.JoinMeetingParameters.RemoveFromDefaultAudioRoutingGroup">RemoveFromDefaultAudioRoutingGroup</h4>
-  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether to remove from default audio routing group.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool RemoveFromDefaultAudioRoutingGroup { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/src/Microsoft.Graph/Models/Generated/MediaInfo.cs">MediaInfo</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -435,7 +423,7 @@ public Guid CorrelationId { get; set; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="../core/Microsoft.Graph.Modality.html">Modality</a>&gt;</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://github.com/microsoftgraph/msgraph-sdk-dotnet/blob/dev/src/Microsoft.Graph/Models/Generated/Modality.cs">Modality</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>

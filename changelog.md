@@ -2,12 +2,17 @@
 
 This changelog covers what's changed in Microsoft Graph Communications SDK and its associated samples.
 
+## Dec 2019
+
+- Updated Documenation to be based on the 1.2.0.1 SDK.
+- Updated Communications libraries to 1.2.0-beta.1
+
 ## Nov 2019
 
-- Updated Communications libraries 1.1.0-prerelease.2237
+- Updated Communications libraries to 1.1.0-prerelease.2237
   - Exposed delete participant API
 
-- Updated Communications libraries 1.1.0-prerelease.2027
+- Updated Communications libraries to 1.1.0-prerelease.2027
   - Exposed recording APIs
 
 | **Change type** | **Version**   | **Description**                          |
@@ -23,13 +28,13 @@ This changelog covers what's changed in Microsoft Graph Communications SDK and i
 
 ## Oct 2019
 
-- Updated Communications libraries 1.1.0-prerelease.1855
+- Updated Communications libraries to 1.1.0-prerelease.1855
 - Updated to latest /beta contacts.
   - For a full list of changes refer to the [graph blog](https://developer.microsoft.com/en-us/graph/blogs/breaking-changes-calls-and-online-meetings-api-updates-in-microsoft-graph-beta-2/).
 
 ## Sept 2019
 
-- Updated Communications libraries 1.1.0-prerelease.1511
+- Updated Communications libraries to 1.1.0-prerelease.1511
 - Updated Media library 1.13.1.324-alpha
 
 ### Communications 1.1.0-prerelease.1511 Changes
@@ -53,7 +58,7 @@ This changelog covers what's changed in Microsoft Graph Communications SDK and i
 ## May 2019
 
 - Updated Media library 1.12.1.6-alpha
-- Updated Communications libraries 1.1.0-prerelease.581
+- Updated Communications libraries to 1.1.0-prerelease.581
 
 ### Communications 1.1.0-prerelease.581 Changes
 
@@ -95,7 +100,7 @@ ICallParticipant => IParticipant
 ## January 2019
 
 - Updated Media library 1.11.1.86-alpha
-- Updated Communications libraries 1.0.0-prerelease.1272
+- Updated Communications libraries to 1.0.0-prerelease.1272
 
 | API                            | Update                                     |
 |:-------------------------------|:-------------------------------------------|
@@ -110,7 +115,7 @@ When the stateful SDK receives a notification it validates it, queues it up for 
 ## December 2018
 
 - Updated Media library 1.11.1.2-alpha
-- Updated Communications libraries 1.0.0-prerelease.881
+- Updated Communications libraries to 1.0.0-prerelease.881
 
 | API                            | Update                                     |
 |:-------------------------------|:-------------------------------------------|
