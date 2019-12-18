@@ -79,8 +79,6 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="notifications-in-calling">Notifications in Calling</h1>
 
-<blockquote><p><strong>Important:</strong> APIs for Calling in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.</p>
-</blockquote>
 <p>Refer to <a href="register-calling-bot.html">Registering a Calling Bot</a> on how to register the callback URL. This callback is used for all incoming calls to the application.</p>
 <h2 id="protocol-determination">Protocol determination</h2>
 <p>The incoming notification is provided in legacy format for compatibility with the previous <a href="https://docs.microsoft.com/en-us/azure/bot-service/dotnet/bot-builder-dotnet-real-time-media-concepts?view=azure-bot-service-3.0">protocol</a>. In order to convert the call to the Microsoft Graph protocol, the bot must determine the notification is in legacy format and reply with:</p>
