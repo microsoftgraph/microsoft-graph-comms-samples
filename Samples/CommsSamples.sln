@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StatelessSamples", "Statele
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RemoteMediaSamples", "RemoteMediaSamples", "{220D3F02-7EA5-451C-BE5E-C032104A3463}"
 	ProjectSection(SolutionItems) = preProject
-		BetaSamples\RemoteMediaSamples\README.md = BetaSamples\RemoteMediaSamples\README.md
+		V1.0Samples\RemoteMediaSamples\README.md = V1.0Samples\RemoteMediaSamples\README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AudioVideoPlaybackBot", "AudioVideoPlaybackBot", "{540514B8-BFF4-47D6-8F21-B8B824521A1B}"
@@ -17,25 +17,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AudioVideoPlaybackBot", "Au
 		V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot\README.md = V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot\README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IncidentBot", "BetaSamples\RemoteMediaSamples\IncidentBot\IncidentBot.csproj", "{9FA55459-F040-45E7-BB07-3415AF5D72F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IncidentBot", "V1.0Samples\RemoteMediaSamples\IncidentBot\IncidentBot.csproj", "{9FA55459-F040-45E7-BB07-3415AF5D72F2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineMeeting", "BetaSamples\StatelessSamples\OnlineMeetingSamples\OnlineMeeting.csproj", "{EA303D4F-CF25-4B34-AE53-0F95D7AADBAF}"
 EndProject
 Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "AudioVideoPlaybackBot", "V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot\AudioVideoPlaybackBot.ccproj", "{386504C0-3BC0-41DB-8096-7110A5F1D434}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd", "V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot\FrontEnd\FrontEnd.csproj", "{7C0DE005-FD92-4AEE-A6A2-03954F9DA631}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AVPFrontEnd", "V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot\FrontEnd\AVPFrontEnd.csproj", "{7C0DE005-FD92-4AEE-A6A2-03954F9DA631}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerRole", "V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot\WorkerRole\WorkerRole.csproj", "{9B6A0025-19B5-41D3-9E7D-F1160FA37E78}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{ECA2F7AC-B74B-4626-87FA-B708F0F04A21}"
-	ProjectSection(SolutionItems) = preProject
-		Graph.props = Graph.props
-		nuget.config = nuget.config
-		stylecop.json = stylecop.json
-		StyleCop.ruleset = StyleCop.ruleset
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AVPWorkerRole", "V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot\WorkerRole\AVPWorkerRole.csproj", "{9B6A0025-19B5-41D3-9E7D-F1160FA37E78}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Common", "Common\Sample.Common\Sample.Common.csproj", "{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Common.Beta", "Common\Sample.Common.Beta\Sample.Common.Beta.csproj", "{88B67FBE-6DE8-4DC3-83CF-9F6B4EA10138}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Common.Tests", "Common\Sample.Common.Tests\Sample.Common.Tests.csproj", "{31B275EA-67A2-4E1A-8DF8-49D7A21BF213}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HueBot", "HueBot", "{2092372D-EEE2-4F2C-963D-2A0F9ECAF82C}"
 	ProjectSection(SolutionItems) = preProject
@@ -50,11 +46,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		..\changelog.md = ..\changelog.md
 		configure_cloud.ps1 = configure_cloud.ps1
+		Graph.props = Graph.props
 		..\LICENSE = ..\LICENSE
+		nuget.config = nuget.config
 		..\README.md = ..\README.md
+		stylecop.json = stylecop.json
+		StyleCop.ruleset = StyleCop.ruleset
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V1.0Samples", "V1.0Samples", "{02A1C0B0-1098-4525-97D1-D38C39C8CB9D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.0Samples", "1.0Samples", "{02A1C0B0-1098-4525-97D1-D38C39C8CB9D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LocalMediaSamples", "LocalMediaSamples", "{A6303F54-64FF-4FFC-921C-3F383D26F807}"
 	ProjectSection(SolutionItems) = preProject
@@ -105,6 +105,10 @@ Global
 		{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88B67FBE-6DE8-4DC3-83CF-9F6B4EA10138}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88B67FBE-6DE8-4DC3-83CF-9F6B4EA10138}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88B67FBE-6DE8-4DC3-83CF-9F6B4EA10138}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88B67FBE-6DE8-4DC3-83CF-9F6B4EA10138}.Release|Any CPU.Build.0 = Release|Any CPU
 		{64538D87-16CD-4A13-ADA9-63EBA7C80BBE}.Debug|Any CPU.ActiveCfg = Debug|x64
 		{64538D87-16CD-4A13-ADA9-63EBA7C80BBE}.Debug|Any CPU.Build.0 = Debug|x64
 		{64538D87-16CD-4A13-ADA9-63EBA7C80BBE}.Release|Any CPU.ActiveCfg = Release|x64
@@ -127,20 +131,25 @@ Global
 		{69051056-B313-432E-8CE3-D7164CD82DC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69051056-B313-432E-8CE3-D7164CD82DC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69051056-B313-432E-8CE3-D7164CD82DC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31B275EA-67A2-4E1A-8DF8-49D7A21BF213}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31B275EA-67A2-4E1A-8DF8-49D7A21BF213}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31B275EA-67A2-4E1A-8DF8-49D7A21BF213}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31B275EA-67A2-4E1A-8DF8-49D7A21BF213}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F4E98677-1FA1-4835-9388-DB6FCAA6311A} = {7F25C14D-04B3-4B60-B24E-F20034D55227}
-		{220D3F02-7EA5-451C-BE5E-C032104A3463} = {7F25C14D-04B3-4B60-B24E-F20034D55227}
+		{220D3F02-7EA5-451C-BE5E-C032104A3463} = {02A1C0B0-1098-4525-97D1-D38C39C8CB9D}
 		{540514B8-BFF4-47D6-8F21-B8B824521A1B} = {A6303F54-64FF-4FFC-921C-3F383D26F807}
 		{9FA55459-F040-45E7-BB07-3415AF5D72F2} = {220D3F02-7EA5-451C-BE5E-C032104A3463}
 		{EA303D4F-CF25-4B34-AE53-0F95D7AADBAF} = {F4E98677-1FA1-4835-9388-DB6FCAA6311A}
 		{386504C0-3BC0-41DB-8096-7110A5F1D434} = {540514B8-BFF4-47D6-8F21-B8B824521A1B}
 		{7C0DE005-FD92-4AEE-A6A2-03954F9DA631} = {540514B8-BFF4-47D6-8F21-B8B824521A1B}
 		{9B6A0025-19B5-41D3-9E7D-F1160FA37E78} = {540514B8-BFF4-47D6-8F21-B8B824521A1B}
-		{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3} = {ECA2F7AC-B74B-4626-87FA-B708F0F04A21}
+		{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3} = {02A1C0B0-1098-4525-97D1-D38C39C8CB9D}
+		{88B67FBE-6DE8-4DC3-83CF-9F6B4EA10138} = {7F25C14D-04B3-4B60-B24E-F20034D55227}
 		{2092372D-EEE2-4F2C-963D-2A0F9ECAF82C} = {A6303F54-64FF-4FFC-921C-3F383D26F807}
 		{64538D87-16CD-4A13-ADA9-63EBA7C80BBE} = {2092372D-EEE2-4F2C-963D-2A0F9ECAF82C}
 		{24E33708-FB5C-45F8-81CA-B0C857435FFB} = {2092372D-EEE2-4F2C-963D-2A0F9ECAF82C}
@@ -150,6 +159,7 @@ Global
 		{739D09C4-47E8-42B7-9B89-94DCB890AC0F} = {CB724919-F77C-4589-98D8-50564B8CF43C}
 		{EAF11F22-C267-4C02-820D-12B622FEBFC1} = {CB724919-F77C-4589-98D8-50564B8CF43C}
 		{69051056-B313-432E-8CE3-D7164CD82DC9} = {CB724919-F77C-4589-98D8-50564B8CF43C}
+		{31B275EA-67A2-4E1A-8DF8-49D7A21BF213} = {02A1C0B0-1098-4525-97D1-D38C39C8CB9D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {40C46BA5-FFE7-414A-89C4-F7EE1F3055DC}

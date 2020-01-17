@@ -29,10 +29,5 @@ namespace Sample.IncidentBot.Data
         /// Gets or sets the scenario id.
         /// </summary>
         public string ScenarioId { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether to remove the bot from default routing group.
-        /// </summary>
-        public bool RemoveFromDefaultRoutingGroup { get; set; }
     }
 }

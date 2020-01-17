@@ -53,7 +53,7 @@ namespace Sample.Common.OnlineMeetings
             }
 
             var statelessClient = new GraphServiceClient(this.graphEndpointUri.AbsoluteUri, GetAuthenticationProvider());
-            var meetingRequest = statelessClient.App.OnlineMeetings[meetingId].Request();
+            var meetingRequest = statelessClient.Communications.OnlineMeetings[meetingId].Request();
 
             var meeting = await meetingRequest.GetAsync().ConfigureAwait(false);
 

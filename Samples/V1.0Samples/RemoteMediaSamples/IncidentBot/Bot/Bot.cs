@@ -265,7 +265,6 @@ namespace Sample.IncidentBot.Bot
 
             var joinParams = new JoinMeetingParameters(chatInfo, meetingInfo, new[] { Modality.Audio }, mediaToPrefetch)
             {
-                RemoveFromDefaultAudioRoutingGroup = joinCallBody.RemoveFromDefaultRoutingGroup,
                 TenantId = tenantId,
             };
 
@@ -413,22 +412,6 @@ namespace Sample.IncidentBot.Bot
         }
 
         /// <summary>
-        /// Deletes audio routing groups asynchronously.
-        /// </summary>
-        /// <param name="callLegId">which call to add audio routing group.</param>
-        /// <param name="routingMode">The audio group id to delete.</param>
-        /// <returns>The routing group id.</returns>
-        public async Task DeleteAudioRoutingGroupAsync(string callLegId, RoutingMode routingMode)
-        {
-            if (string.IsNullOrEmpty(callLegId))
-            {
-                throw new ArgumentNullException(nameof(callLegId));
-            }
-
-            await this.Client.Calls()[callLegId].AudioRoutingGroups[routingMode.ToString()].DeleteAsync().ConfigureAwait(false);
-        }
-
-        /// <summary>
         /// Incoming call handler.
         /// </summary>
         /// <param name="sender">The sender.</param>
@@ -494,11 +477,10 @@ namespace Sample.IncidentBot.Bot
         {
             Validator.NotNull(incidentCallContext, nameof(incidentCallContext));
 
-            var callHandler = default(CallHandler);
-
             var statusData = this.IncidentStatusManager.GetIncident(incidentCallContext.IncidentId);
 
-            InvitationParticipantInfo callee = null;
+            CallHandler callHandler;
+            ParticipantInfo callee;
             switch (incidentCallContext.CallType)
             {
                 case IncidentCallType.BotMeeting:

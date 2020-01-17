@@ -41,7 +41,7 @@ namespace Sample.HueBot.Bot
 
         /// <summary>
         /// Gets or sets the communications platform endpoint uri.
-        /// E.g. https://graph.microsoft.com/beta. TODO: paywu, replace v1.0 endpoint.
+        /// E.g. https://graph.microsoft.com/v1.0.
         /// </summary>
         public Uri PlaceCallEndpointUrl { get; set; }
     }

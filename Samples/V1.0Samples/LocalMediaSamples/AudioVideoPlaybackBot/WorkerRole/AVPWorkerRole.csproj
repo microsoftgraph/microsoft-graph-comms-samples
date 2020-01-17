@@ -76,9 +76,9 @@
       <Project>{3268e59c-90dc-4d7b-97ea-a1dbb2716df3}</Project>
       <Name>Sample.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FrontEnd\FrontEnd.csproj">
+    <ProjectReference Include="..\FrontEnd\AVPFrontEnd.csproj">
       <Project>{7C0DE005-FD92-4AEE-A6A2-03954F9DA631}</Project>
-      <Name>FrontEnd</Name>
+      <Name>AVPFrontEnd</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

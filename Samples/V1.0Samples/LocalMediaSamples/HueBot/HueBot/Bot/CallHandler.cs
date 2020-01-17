@@ -8,8 +8,8 @@ namespace Sample.HueBot.Bot
     using System;
     using System.Drawing;
     using System.Linq;
-    using System.Runtime.InteropServices;
     using System.Threading;
+    using System.Threading.Tasks;
     using System.Timers;
     using Microsoft.Graph;
     using Microsoft.Graph.Communications.Calls;
@@ -23,7 +23,7 @@ namespace Sample.HueBot.Bot
     /// <summary>
     /// Call Handler Logic.
     /// </summary>
-    public class CallHandler : IDisposable
+    public class CallHandler : HeartbeatHandler
     {
         /// <summary>
         /// MSI when there is no dominant speaker.
@@ -66,11 +66,6 @@ namespace Sample.HueBot.Bot
         private HueColor hueColor = HueColor.Blue;
 
         /// <summary>
-        /// Gets the logger instance.
-        /// </summary>
-        private IGraphLogger logger;
-
-        /// <summary>
         /// Count of incoming messages to log.
         /// </summary>
         private int maxIngestFrameCount = 100;
@@ -85,10 +80,9 @@ namespace Sample.HueBot.Bot
         /// </summary>
         /// <param name="statefulCall">Stateful call instance.</param>
         public CallHandler(ICall statefulCall)
+            : base(TimeSpan.FromMinutes(10), statefulCall?.GraphLogger)
         {
-            this.logger = statefulCall.GraphLogger;
             this.Call = statefulCall;
-
             this.Call.OnUpdated += this.OnCallUpdated;
             if (this.Call.GetLocalMediaSession() != null)
             {
@@ -134,23 +128,6 @@ namespace Sample.HueBot.Bot
         /// </summary>
         public Bitmap LatestScreenshotImage { get; private set; }
 
-        /// <inheritdoc />
-        public void Dispose()
-        {
-            this.LatestScreenshotImage?.Dispose();
-
-            this.Call.OnUpdated -= this.OnCallUpdated;
-            this.Call.GetLocalMediaSession().AudioSocket.DominantSpeakerChanged -= this.OnDominantSpeakerChanged;
-            this.Call.GetLocalMediaSession().VideoSocket.VideoMediaReceived -= this.OnVideoMediaReceived;
-            this.Call.Participants.OnUpdated -= this.OnParticipantsUpdated;
-            foreach (var participant in this.Call.Participants)
-            {
-                participant.OnUpdated -= this.OnParticipantUpdated;
-            }
-
-            this.endCallTimer.Elapsed -= this.OnTimerElapsed;
-        }
-
         /// <summary>
         /// Get hue.
         /// </summary>
@@ -176,6 +153,31 @@ namespace Sample.HueBot.Bot
             {
                 throw new ArgumentException($"invalid color ({color})", nameof(color));
             }
+        }
+
+        /// <inheritdoc/>
+        protected override Task HeartbeatAsync(ElapsedEventArgs args)
+        {
+            return this.Call.KeepAliveAsync();
+        }
+
+        /// <inheritdoc />
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+
+            this.LatestScreenshotImage?.Dispose();
+
+            this.Call.OnUpdated -= this.OnCallUpdated;
+            this.Call.GetLocalMediaSession().AudioSocket.DominantSpeakerChanged -= this.OnDominantSpeakerChanged;
+            this.Call.GetLocalMediaSession().VideoSocket.VideoMediaReceived -= this.OnVideoMediaReceived;
+            this.Call.Participants.OnUpdated -= this.OnParticipantsUpdated;
+            foreach (var participant in this.Call.Participants)
+            {
+                participant.OnUpdated -= this.OnParticipantUpdated;
+            }
+
+            this.endCallTimer.Elapsed -= this.OnTimerElapsed;
         }
 
         /// <summary>
@@ -262,7 +264,7 @@ namespace Sample.HueBot.Bot
         /// </param>
         private void OnDominantSpeakerChanged(object sender, DominantSpeakerChangedEventArgs e)
         {
-            this.logger.Info($"[{this.Call.Id}:OnDominantSpeakerChanged(DominantSpeaker={e.CurrentDominantSpeaker})]");
+            this.GraphLogger.Info($"[{this.Call.Id}:OnDominantSpeakerChanged(DominantSpeaker={e.CurrentDominantSpeaker})]");
 
             this.subscribedToMsi = e.CurrentDominantSpeaker;
 
@@ -284,7 +286,7 @@ namespace Sample.HueBot.Bot
             {
                 if (Interlocked.Decrement(ref this.maxIngestFrameCount) > 0)
                 {
-                    this.logger.Info(
+                    this.GraphLogger.Info(
                         $"[{this.Call.Id}]: Capturing image: [VideoMediaReceivedEventArgs(Data=<{e.Buffer.Data.ToString()}>, " +
                         $"Length={e.Buffer.Length}, Timestamp={e.Buffer.Timestamp}, Width={e.Buffer.VideoFormat.Width}, " +
                         $"Height={e.Buffer.VideoFormat.Height}, ColorFormat={e.Buffer.VideoFormat.VideoColorFormat}, FrameRate={e.Buffer.VideoFormat.FrameRate})]");
@@ -315,7 +317,7 @@ namespace Sample.HueBot.Bot
                             buffer,
                             e.Buffer.VideoFormat.Width,
                             e.Buffer.VideoFormat.Height,
-                            this.logger);
+                            this.GraphLogger);
 
                         // Update the bitmap cache
                         this.LatestScreenshotImage = bmpObject;
@@ -324,7 +326,7 @@ namespace Sample.HueBot.Bot
             }
             catch (Exception ex)
             {
-                this.logger.Error(ex, $"[{this.Call.Id}] Exception in VideoMediaReceived");
+                this.GraphLogger.Error(ex, $"[{this.Call.Id}] Exception in VideoMediaReceived");
             }
 
             e.Buffer.Dispose();
@@ -348,14 +350,14 @@ namespace Sample.HueBot.Bot
 
             try
             {
-                this.logger.Info($"[{this.Call.Id}] Received subscribe request for Msi {msi}");
+                this.GraphLogger.Info($"[{this.Call.Id}] Received subscribe request for Msi {msi}");
 
                 IParticipant participant = this.GetParticipantForParticipantsChange(msi);
                 if (participant == null)
                 {
                     this.subscribedToParticipant = null;
 
-                    this.logger.Info($"[{this.Call.Id}] Could not find valid participant using MSI {msi}");
+                    this.GraphLogger.Info($"[{this.Call.Id}] Could not find valid participant using MSI {msi}");
 
                     return;
                 }
@@ -363,11 +365,11 @@ namespace Sample.HueBot.Bot
                 // if we have already subscribed earlier, skip the subscription
                 if (this.subscribedToParticipant?.Id.Equals(participant.Id, StringComparison.OrdinalIgnoreCase) == true)
                 {
-                    this.logger.Info($"[{this.Call.Id}] Already subscribed to {participant.Id}. So skipping subscription");
+                    this.GraphLogger.Info($"[{this.Call.Id}] Already subscribed to {participant.Id}. So skipping subscription");
                 }
                 else
                 {
-                    this.logger.Info($"[{this.Call.Id}] Subscribing to {participant.Id} using MSI {msi}");
+                    this.GraphLogger.Info($"[{this.Call.Id}] Subscribing to {participant.Id} using MSI {msi}");
                 }
 
                 if (uint.TryParse(participant.Resource.MediaStreams.FirstOrDefault(m => m.MediaType == Modality.Video)?.SourceId, out msi))
@@ -381,7 +383,7 @@ namespace Sample.HueBot.Bot
             }
             catch (Exception ex)
             {
-                this.logger.Error(ex, $"[{this.Call.Id}] Subscribe threw exception");
+                this.GraphLogger.Error(ex, $"[{this.Call.Id}] Subscribe threw exception");
             }
         }
 
@@ -395,7 +397,7 @@ namespace Sample.HueBot.Bot
         private void Subscribe()
         {
             uint prevSubscribedMsi = this.subscribedToMsi;
-            this.logger.Info($"[{this.Call.Id}] Subscribing to: {prevSubscribedMsi}");
+            this.GraphLogger.Info($"[{this.Call.Id}] Subscribing to: {prevSubscribedMsi}");
 
             this.Subscribe(prevSubscribedMsi);
         }
@@ -413,7 +415,7 @@ namespace Sample.HueBot.Bot
         {
             if (this.Call.Participants.Count < 1)
             {
-                this.logger.Warn($"[{this.Call.Id}] Did not receive rosterupdate notification yet");
+                this.GraphLogger.Warn($"[{this.Call.Id}] Did not receive rosterupdate notification yet");
                 return null;
             }
 

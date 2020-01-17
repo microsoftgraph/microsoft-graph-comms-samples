@@ -37,13 +37,12 @@
     <ServiceConfiguration Include="ServiceConfiguration.Cloud.cscfg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="WorkerRole\WorkerRole.csproj">
-      <Name>WorkerRole</Name>
-      <Project>{9B6A0025-19B5-41D3-9E7D-F1160FA37E78}</Project>
+    <ProjectReference Include="WorkerRole\AVPWorkerRole.csproj">
+      <Name>AVPWorkerRole</Name>
+      <Project>{9b6a0025-19b5-41d3-9e7d-f1160fa37e78}</Project>
       <Private>True</Private>
       <RoleType>Worker</RoleType>
-      <RoleName>WorkerRole</RoleName>
-      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+      <RoleName>AVPWorkerRole</RoleName>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

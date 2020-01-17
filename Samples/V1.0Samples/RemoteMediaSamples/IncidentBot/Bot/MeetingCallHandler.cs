@@ -93,7 +93,7 @@ namespace Sample.IncidentBot.Bot
             Task.Run(async () =>
             {
                 await this.Bot.TryDeleteCallAsync(callId).ConfigureAwait(false);
-                this.Logger.Info($"Try to delete call {callId}.");
+                this.GraphLogger.Info($"Try to delete call {callId}.");
             });
         }
     }
