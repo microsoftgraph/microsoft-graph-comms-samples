@@ -9,7 +9,6 @@
 namespace Sample.OnlineMeeting
 {
     using System;
-    using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.Graph;
     using Microsoft.Graph.Communications.Client.Authentication;

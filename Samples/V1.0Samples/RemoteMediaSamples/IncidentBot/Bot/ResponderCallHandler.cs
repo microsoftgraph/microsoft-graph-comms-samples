@@ -62,7 +62,7 @@ namespace Sample.IncidentBot.Bot
                 {
                     Tone tone = sender.Resource.ToneInfo.Tone.Value;
 
-                    this.Logger.Info($"Tone {tone} received.");
+                    this.GraphLogger.Info($"Tone {tone} received.");
 
                     // handle different tones from responder
                     switch (tone)
@@ -92,11 +92,11 @@ namespace Sample.IncidentBot.Bot
                 try
                 {
                     await this.Call.SubscribeToToneAsync().ConfigureAwait(false);
-                    this.Logger.Info("Started subscribing to tone.");
+                    this.GraphLogger.Info("Started subscribing to tone.");
                 }
                 catch (Exception ex)
                 {
-                    this.Logger.Error(ex, $"Failed to subscribe to tone. ");
+                    this.GraphLogger.Error(ex, $"Failed to subscribe to tone. ");
                     throw;
                 }
             });
@@ -112,11 +112,11 @@ namespace Sample.IncidentBot.Bot
                 try
                 {
                     await this.Call.PlayPromptAsync(new List<MediaPrompt> { this.Bot.MediaMap[Bot.TransferingPromptName] }).ConfigureAwait(false);
-                    this.Logger.Info("Started playing transfering prompt");
+                    this.GraphLogger.Info("Started playing transfering prompt");
                 }
                 catch (Exception ex)
                 {
-                    this.Logger.Error(ex, $"Failed to play transfering prompt.");
+                    this.GraphLogger.Error(ex, $"Failed to play transfering prompt.");
                     throw;
                 }
             });
@@ -132,11 +132,11 @@ namespace Sample.IncidentBot.Bot
                 try
                 {
                     await this.Call.PlayPromptAsync(new List<MediaPrompt> { this.Bot.MediaMap[Bot.NotificationPromptName] }).ConfigureAwait(false);
-                    this.Logger.Info("Started playing notification prompt");
+                    this.GraphLogger.Info("Started playing notification prompt");
                 }
                 catch (Exception ex)
                 {
-                    this.Logger.Error(ex, $"Failed to play notification prompt.");
+                    this.GraphLogger.Error(ex, $"Failed to play notification prompt.");
                     throw;
                 }
             });
@@ -164,17 +164,17 @@ namespace Sample.IncidentBot.Bot
 
                         await this.Bot.AddParticipantAsync(incidentMeetingCallId, addParticipantRequestData).ConfigureAwait(false);
 
-                        this.Logger.Info("Finished to transfer to incident meeting. ");
+                        this.GraphLogger.Info("Finished to transfer to incident meeting. ");
                     }
                     else
                     {
-                        this.Logger.Warn(
+                        this.GraphLogger.Warn(
                             $"Tried to transfer to incident meeting but needed info are not valid. Meeting call-id: {incidentMeetingCallId}; status data: {responderStatusData}");
                     }
                 }
                 catch (Exception ex)
                 {
-                    this.Logger.Error(ex, $"Failed to transfer to incident meeting.");
+                    this.GraphLogger.Error(ex, $"Failed to transfer to incident meeting.");
                     throw;
                 }
             });

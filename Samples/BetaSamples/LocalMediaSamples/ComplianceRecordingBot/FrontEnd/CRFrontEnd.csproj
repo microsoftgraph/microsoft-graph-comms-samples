@@ -65,9 +65,9 @@
     <Reference Include="System.Data.Entity" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Common\Sample.Common\Sample.Common.csproj">
-      <Project>{3268e59c-90dc-4d7b-97ea-a1dbb2716df3}</Project>
-      <Name>Sample.Common</Name>
+    <ProjectReference Include="..\..\..\..\Common\Sample.Common.Beta\Sample.Common.Beta.csproj">
+      <Project>{88b67fbe-6de8-4dc3-83cf-9f6b4ea10138}</Project>
+      <Name>Sample.Common.Beta</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

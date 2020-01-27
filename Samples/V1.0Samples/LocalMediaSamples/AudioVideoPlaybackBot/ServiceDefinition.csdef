@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ServiceDefinition name="AudioVideoPlaybackBot" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
-  <WorkerRole name="WorkerRole" vmsize="Standard_D3_v2">
+  <WorkerRole name="AVPWorkerRole" vmsize="Standard_D3_v2">
     <Runtime executionContext="elevated" />
     <Startup>
       <Task commandLine="Startup.cmd &gt; Startup.cmd.log" executionContext="elevated" taskType="simple">

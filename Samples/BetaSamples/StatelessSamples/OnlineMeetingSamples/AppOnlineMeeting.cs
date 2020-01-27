@@ -9,7 +9,6 @@
 namespace Sample.OnlineMeeting
 {
     using System;
-    using System.Diagnostics;
     using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.Graph;
@@ -49,7 +48,7 @@ namespace Sample.OnlineMeeting
                this.graphEndpointUri.AbsoluteUri,
                this.GetAuthenticationProvider(tenantId, scenarioId));
 
-           var meetingRequestCollection = statelessClient.App.OnlineMeetings.Request();
+           var meetingRequestCollection = statelessClient.Communications.OnlineMeetings.Request();
            meetingRequestCollection.Filter($"VideoTeleconferenceId eq '{vtcId}'");
 
            var meeting = await meetingRequestCollection.GetAsync().ConfigureAwait(false);
@@ -72,7 +71,7 @@ namespace Sample.OnlineMeeting
                 this.graphEndpointUri.AbsoluteUri,
                 this.GetAuthenticationProvider(tenantId, scenarioId));
 
-            var meetingRequest = statelessClient.App.OnlineMeetings.Request();
+            var meetingRequest = statelessClient.Communications.OnlineMeetings.Request();
 
             var onlineMeeting = new OnlineMeeting()
             {

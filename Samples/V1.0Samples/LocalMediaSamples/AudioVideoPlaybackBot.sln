@@ -14,9 +14,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "AudioVideoPlaybackBot", "AudioVideoPlaybackBot\AudioVideoPlaybackBot.ccproj", "{386504C0-3BC0-41DB-8096-7110A5F1D434}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerRole", "AudioVideoPlaybackBot\WorkerRole\WorkerRole.csproj", "{9B6A0025-19B5-41D3-9E7D-F1160FA37E78}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AVPWorkerRole", "AudioVideoPlaybackBot\WorkerRole\AVPWorkerRole.csproj", "{9B6A0025-19B5-41D3-9E7D-F1160FA37E78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd", "AudioVideoPlaybackBot\FrontEnd\FrontEnd.csproj", "{7C0DE005-FD92-4AEE-A6A2-03954F9DA631}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AVPFrontEnd", "AudioVideoPlaybackBot\FrontEnd\AVPFrontEnd.csproj", "{7C0DE005-FD92-4AEE-A6A2-03954F9DA631}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Common", "..\..\Common\Sample.Common\Sample.Common.csproj", "{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3}"
 EndProject

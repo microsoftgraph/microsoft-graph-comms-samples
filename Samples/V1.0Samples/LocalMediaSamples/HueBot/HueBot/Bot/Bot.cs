@@ -137,7 +137,6 @@ namespace Sample.HueBot.Bot
 
             var joinParams = new JoinMeetingParameters(chatInfo, meetingInfo, mediaSession)
             {
-                RemoveFromDefaultAudioRoutingGroup = joinCallBody.RemoveFromDefaultRoutingGroup,
                 TenantId = tenantId,
             };
 

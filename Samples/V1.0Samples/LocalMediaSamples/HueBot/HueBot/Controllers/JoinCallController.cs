@@ -93,11 +93,6 @@ namespace Sample.HueBot.Controllers
             /// unless lobby bypass is disabled.
             /// </summary>
             public string DisplayName { get; set; }
-
-            /// <summary>
-            /// Gets or sets a value indicating whether to remove the bot from default routing group.
-            /// </summary>
-            public bool RemoveFromDefaultRoutingGroup { get; set; }
         }
 
         /// <summary>

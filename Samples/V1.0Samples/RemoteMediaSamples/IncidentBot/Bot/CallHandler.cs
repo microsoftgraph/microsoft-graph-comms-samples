@@ -6,15 +6,17 @@
 namespace Sample.IncidentBot.Bot
 {
     using System;
+    using System.Threading.Tasks;
+    using System.Timers;
     using Microsoft.Graph;
     using Microsoft.Graph.Communications.Calls;
-    using Microsoft.Graph.Communications.Common.Telemetry;
     using Microsoft.Graph.Communications.Resources;
+    using Sample.Common;
 
     /// <summary>
     /// Base class for call handler for event handling, logging and cleanup.
     /// </summary>
-    public class CallHandler : IDisposable
+    public class CallHandler : HeartbeatHandler
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CallHandler"/> class.
@@ -22,12 +24,10 @@ namespace Sample.IncidentBot.Bot
         /// <param name="bot">The bot.</param>
         /// <param name="call">The call.</param>
         public CallHandler(Bot bot, ICall call)
+            : base(TimeSpan.FromMinutes(10), call?.GraphLogger)
         {
             this.Bot = bot;
             this.Call = call;
-
-            // Use the call GraphLogger so we carry the call/scenario context in each log record.
-            this.Logger = call.GraphLogger.CreateShim(component: this.GetType().Name);
 
             this.Call.OnUpdated += this.OnCallUpdated;
             this.Call.Participants.OnUpdated += this.OnParticipantsUpdated;
@@ -43,14 +43,17 @@ namespace Sample.IncidentBot.Bot
         /// </summary>
         protected Bot Bot { get; }
 
-        /// <summary>
-        /// Gets the logger.
-        /// </summary>
-        protected IGraphLogger Logger { get; }
+        /// <inheritdoc/>
+        protected override Task HeartbeatAsync(ElapsedEventArgs args)
+        {
+            return this.Call.KeepAliveAsync();
+        }
 
         /// <inheritdoc />
-        public void Dispose()
+        protected override void Dispose(bool disposing)
         {
+            base.Dispose(disposing);
+
             this.Call.OnUpdated -= this.OnCallUpdated;
             this.Call.Participants.OnUpdated -= this.OnParticipantsUpdated;
 

@@ -61,11 +61,11 @@ namespace Sample.IncidentBot.Bot
                     var mediaName = this.endpointId == null ? Bot.BotIncomingPromptName : Bot.BotEndpointIncomingPromptName;
 
                     await this.Call.PlayPromptAsync(new List<MediaPrompt> { this.Bot.MediaMap[mediaName] }).ConfigureAwait(false);
-                    this.Logger.Info("Started playing notification prompt");
+                    this.GraphLogger.Info("Started playing notification prompt");
                 }
                 catch (Exception ex)
                 {
-                    this.Logger.Error(ex, $"Failed to play notification prompt.");
+                    this.GraphLogger.Error(ex, $"Failed to play notification prompt.");
                     throw;
                 }
             });

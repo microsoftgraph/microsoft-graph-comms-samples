@@ -2,9 +2,17 @@
 
 This changelog covers what's changed in Microsoft Graph Communications SDK and its associated samples.
 
+## Jan 2019
+
+- Promoted IncidentBot to v1.0 samples.
+- Migrated v1.0 samples to use the 1.2.0.1 SDK and the https://graph.microsoft.com/v1.0 endpoint.
+- Added `POST ~/call/{id}/keepAlive` API to v1.0 samples.
+  - Required to persist the call.
+- Migrated samples from the `~/app/` endpoint to the `~/communications/` endpoint
+
 ## Dec 2019
 
-- Updated Documenation to be based on the 1.2.0.1 SDK.
+- Updated Documentation to be based on the 1.2.0.1 SDK.
 - Updated Communications libraries to 1.2.0-beta.1
 
 ## Nov 2019
@@ -93,9 +101,9 @@ ICallParticipant => IParticipant
 - Updated to `Microsoft.Graph` 1.14.0 SDK.
 - Updated to `Microsoft.Skype.Bots.Media` 1.12.1.6-alpha SDK.
 - Added `promptsQueued` callback to be notified when a prompt has been queued, and the next one can be added.  This is only valid for scenarios where bot developers queue a single prompt at a time.  If 1P developers pass in multiple prompts, order is guaranteed.
-- Added proper cleanup of resources when ESDK resources get garbage collected.  This fixes a memory leak where internal notification queues were not getting removed when resources were GCd without `Dispose()` being called.
-- First stages of HA/DR support.  SDK supports passing in an `ICache` interface that notifies the bot developer whenever internal state has changed.  It is also used to recover state when calling `ICommunicationsClient.RehydrateAsync`.  An implementation of re-hydration from PMA is built in by default, but it does not support AudioRoutingGroupentities.
-- Deprecated support for Chain-Id/Correlation-Id in ESDK.  It is replaced with Scenario-Id, which can be set by the client as a kind of "telemetry identifier" to correlate any calls together.
+- Added proper cleanup of resources when Stateful SDK resources get garbage collected.  This fixes a memory leak where internal notification queues were not getting removed when resources were GCd without `Dispose()` being called.
+- First stages of HA/DR support.  SDK supports passing in an `ICache` interface that notifies the bot developer whenever internal state has changed.  It is also used to recover state when calling `ICommunicationsClient.RehydrateAsync`.  An implementation of re-hydration from PMA is built in by default, but it does not support AudioRoutingGroup entities.
+- Deprecated support for Chain-Id/Correlation-Id in Stateful SDK.  It is replaced with Scenario-Id, which can be set by the client as a kind of "telemetry identifier" to correlate any calls together.
 
 ## January 2019
 
@@ -172,7 +180,7 @@ This release cleans up interfaces where some members have been renamed or remove
 ## August 2018
 
 ### Core SDK
-Removed propreties from some graph owned contracts:
+Removed properties from some graph owned contracts:
 - Removed `Identity.TenantId` property.  This still flows through on the wire, but needs to be fetched from `Identity.AdditionalData`.
 - Removed `Identity.IdentityProvider` as it was not required.  `IdentityProvider` is now expected to be inferred using `tenantId`
 ``` json
@@ -186,7 +194,7 @@ Removed propreties from some graph owned contracts:
   }
 }
 ```
-- Guest `Identity` is no longer represented using `IdentitySet.User` with `IndentityProvider.None`.
+- Guest `Identity` is no longer represented using `IdentitySet.User` with `IdentityProvider.None`.
 ``` json
 {
   "@odata.type": "#microsoft.graph.identitySet",
