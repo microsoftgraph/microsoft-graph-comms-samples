@@ -125,7 +125,8 @@
   </h3>
   <a id="Microsoft_Skype_Bots_Media_AudioSocketSettings__ctor_" data-uid="Microsoft.Skype.Bots.Media.AudioSocketSettings.#ctor*"></a>
   <h4 id="Microsoft_Skype_Bots_Media_AudioSocketSettings__ctor" data-uid="Microsoft.Skype.Bots.Media.AudioSocketSettings.#ctor">AudioSocketSettings()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initializes an AudioSocketSettings object.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -161,7 +162,7 @@
   <h4 id="Microsoft_Skype_Bots_Media_AudioSocketSettings_ReceiveUnmixedMeetingAudio" data-uid="Microsoft.Skype.Bots.Media.AudioSocketSettings.ReceiveUnmixedMeetingAudio">ReceiveUnmixedMeetingAudio</h4>
   <div class="markdown level1 summary"><p>Allows the bot to receive separate unmixed audio buffers for individual speakers in a meeting.
 When set to true, up to four audio buffers, each corresponding to the top four active speakers, will be received at a time.
-Note: This feature is not yet available and setting this property to true will not have any effect for now.</p>
+In UnmixedMeetingAudio mode, the bot will receive only unmixed audio and not both unmixed and mixed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -184,12 +185,19 @@ Note: This feature is not yet available and setting this property to true will n
     </tbody>
   </table>
   <h5 id="Microsoft_Skype_Bots_Media_AudioSocketSettings_ReceiveUnmixedMeetingAudio_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Unmixed audio is optimized for machine cognition (e.g., speech recognition) rather than
-for human perception (such as call recording and playback).</p>
+  <div class="markdown level1 remarks"><p>
+Unmixed audio is optimized for machine cognition (e.g., speech recognition) rather than
+for human perception (such as call recording and playback). Certain error concealment treatment
+(e.g., to mitigate packet loss) is not applied to the received audio stream in unmixed mode.
+</p><p>
+In order to receive both mixed and unmixed audio simultaneously, the bot must establish two separate calls
+into the meeting.
+</p>
 </div>
   <a id="Microsoft_Skype_Bots_Media_AudioSocketSettings_StreamDirections_" data-uid="Microsoft.Skype.Bots.Media.AudioSocketSettings.StreamDirections*"></a>
   <h4 id="Microsoft_Skype_Bots_Media_AudioSocketSettings_StreamDirections" data-uid="Microsoft.Skype.Bots.Media.AudioSocketSettings.StreamDirections">StreamDirections</h4>
-  <div class="markdown level1 summary"><p>The direction of the stream</p>
+  <div class="markdown level1 summary"><p>The directionality of the media stream. This indicates whether it is enabled
+to both send and receive media, or only send or only receive media.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>

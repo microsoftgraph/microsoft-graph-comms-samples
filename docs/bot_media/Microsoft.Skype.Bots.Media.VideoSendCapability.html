@@ -156,7 +156,7 @@
   </table>
   <a id="Microsoft_Skype_Bots_Media_VideoSendCapability_SupportedSendVideoFormats_" data-uid="Microsoft.Skype.Bots.Media.VideoSendCapability.SupportedSendVideoFormats*"></a>
   <h4 id="Microsoft_Skype_Bots_Media_VideoSendCapability_SupportedSendVideoFormats" data-uid="Microsoft.Skype.Bots.Media.VideoSendCapability.SupportedSendVideoFormats">SupportedSendVideoFormats</h4>
-  <div class="markdown level1 summary"><p>The list of video formats the bot supports sending.</p>
+  <div class="markdown level1 summary"><p>The list of video formats the VideoSocket supports sending.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -178,6 +178,24 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="Microsoft_Skype_Bots_Media_VideoSendCapability_SupportedSendVideoFormats_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>For the main-video modality (<code>MediaType.Video</code>), the following ten H264 send video formats are supported:
+<ul><li><code>H264_1920x1080_30Fps</code></li><li><code>H264_1280x720_30Fps</code></li><li><code>H264_960x540_30Fps</code></li><li><code>H264_640x360_30Fps</code></li><li><code>H264_640x360_15Fps</code></li><li><code>H264_424x240_15Fps</code></li><li><code>H264_320x180_15Fps</code></li><li><code>H264_320x180_7_5Fps</code></li><li><code>H264_320x180_3_75Fps</code></li><li><code>H264_320x180_1_875Fps</code></li></ul>
+(If the SupportedSendVideoFormats list contains other H264 video formats for main-video,
+they will be ignored and not used.)
+<p>
+At least one of the <code>H264_320x180</code> video formats must be supported. For best video
+interoperability, the bot should support all the <code>H264_320x180</code> formats.
+</p>
+<p>
+For the Vbss modality, all of the send formats must be of the same resolution.
+The resolution should best match the native resolution of the content to be shared.
+Downscaling the Vbss content to a lower resolution should be avoided (but may be
+necessary if the native content resolution is larger than 1080p).
+The bot should support as many different frame rates as possible. The 1.875 fps frame rate
+must be supported.
+</p></p>
+</div>
   <h3 id="methods">Methods
   </h3>
   <a id="Microsoft_Skype_Bots_Media_VideoSendCapability_ToString_" data-uid="Microsoft.Skype.Bots.Media.VideoSendCapability.ToString*"></a>

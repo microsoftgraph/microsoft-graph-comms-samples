@@ -282,7 +282,7 @@
       "output": {
         ".html": {
           "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioMediaBuffer.html",
-          "hash": "mSvnT+8CGLufKOJ7AOMr1A=="
+          "hash": "D3oAOYvJ8uiCcRfnoy8fQw=="
         }
       },
       "is_incremental": false,
@@ -295,6 +295,30 @@
         ".html": {
           "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioMediaReceivedEventArgs.html",
           "hash": "XMcebuujeb+JFbxDwqPDmQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.AudioMetrics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioMetrics.html",
+          "hash": "UY2oO+zvHpgWnMh/EC+47g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.AudioQualityOfExperienceData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioQualityOfExperienceData.html",
+          "hash": "Cumr4B5XdLsMJuTrkrcGjw=="
         }
       },
       "is_incremental": false,
@@ -330,7 +354,7 @@
       "output": {
         ".html": {
           "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioSocket.html",
-          "hash": "1Pu/Yo8BhcvNdP3HF0mW7Q=="
+          "hash": "U9OHDMRlUX+CNJQbMhAPnQ=="
         }
       },
       "is_incremental": false,
@@ -342,7 +366,7 @@
       "output": {
         ".html": {
           "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioSocketSettings.html",
-          "hash": "5mvNACD9avlcXaN6lkIlVw=="
+          "hash": "JMdx630F7MLB/Pujlq+d0w=="
         }
       },
       "is_incremental": false,
@@ -438,7 +462,7 @@
       "output": {
         ".html": {
           "relative_path": "bot_media/Microsoft.Skype.Bots.Media.DataType.html",
-          "hash": "Hg/C0bRsAyIs5GZDHqNakA=="
+          "hash": "DEK7aDY/aJrtrc5ATiHv2g=="
         }
       },
       "is_incremental": false,
@@ -474,7 +498,7 @@
       "output": {
         ".html": {
           "relative_path": "bot_media/Microsoft.Skype.Bots.Media.IAudioSocket.html",
-          "hash": "oOxjTQEWx3SFBBn9TExy3w=="
+          "hash": "tqLblqdOBCVaxVck1Jx0rw=="
         }
       },
       "is_incremental": false,
@@ -534,7 +558,7 @@
       "output": {
         ".html": {
           "relative_path": "bot_media/Microsoft.Skype.Bots.Media.IVideoSocket.html",
-          "hash": "8KoVuefCaBfsaL6c4zpDEA=="
+          "hash": "4FzQiisKDzzwH3PmZTOiFw=="
         }
       },
       "is_incremental": false,
@@ -570,7 +594,7 @@
       "output": {
         ".html": {
           "relative_path": "bot_media/Microsoft.Skype.Bots.Media.MediaPlatform.html",
-          "hash": "UKWV7mgZF++2uyicFIGUdg=="
+          "hash": "uQ+4iCLKpYp7LTyulvvp7Q=="
         }
       },
       "is_incremental": false,
@@ -638,6 +662,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.html",
+          "hash": "+eYUqZcdUaYPAVJbEAXVrQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.MediaQualityState.yml",
       "output": {
         ".html": {
@@ -690,7 +726,19 @@
       "output": {
         ".html": {
           "relative_path": "bot_media/Microsoft.Skype.Bots.Media.MediaType.html",
-          "hash": "08gOMFlP+bqvq/eR3FOfBw=="
+          "hash": "wGkRzrbIlJlHSImx6bBJ6g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.NetworkMetrics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.NetworkMetrics.html",
+          "hash": "/mwKAqA4dBdlUry7q89O6w=="
         }
       },
       "is_incremental": false,
@@ -774,7 +822,7 @@
       "output": {
         ".html": {
           "relative_path": "bot_media/Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.html",
-          "hash": "JNLWCivIOfZ3B5XQAJGHhw=="
+          "hash": "Afe6S0epO5yzoJ1qWb2k5Q=="
         }
       },
       "is_incremental": false,
@@ -834,7 +882,7 @@
       "output": {
         ".html": {
           "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoMediaBuffer.html",
-          "hash": "sLFaDuC7YENKzQlE7pmX5Q=="
+          "hash": "omWcRc4eRHtcFlilihOwXw=="
         }
       },
       "is_incremental": false,
@@ -859,6 +907,30 @@
         ".html": {
           "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoMediaStreamQualityChangedEventArgs.html",
           "hash": "Eu9Czpbdm1BITJ3Gpvf29A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoMetrics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoMetrics.html",
+          "hash": "xE4H00p+154QJn3Hb/72ag=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoQualityOfExperienceData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoQualityOfExperienceData.html",
+          "hash": "W14zQWLYvm3d98VRBwK1ow=="
         }
       },
       "is_incremental": false,
@@ -906,7 +978,7 @@
       "output": {
         ".html": {
           "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoSendCapability.html",
-          "hash": "HDHi1GidKQtS7BpcERBu8w=="
+          "hash": "DICvBzIsBkZX8/qtbOg+Ow=="
         }
       },
       "is_incremental": false,
@@ -954,7 +1026,7 @@
       "output": {
         ".html": {
           "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoSocket.html",
-          "hash": "MGFrtYkbyIncUS3P+c3WSw=="
+          "hash": "wDsPm/N2FdlzNH8X50zs7g=="
         }
       },
       "is_incremental": false,
@@ -966,7 +1038,7 @@
       "output": {
         ".html": {
           "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoSocketSettings.html",
-          "hash": "Yf+J5HEGmM/J+NENft+ZIA=="
+          "hash": "kU/XwfT7D+rtUL2h2JPPGQ=="
         }
       },
       "is_incremental": false,
@@ -978,7 +1050,7 @@
       "output": {
         ".html": {
           "relative_path": "bot_media/Microsoft.Skype.Bots.Media.html",
-          "hash": "nvgWL6HBgHKiYRqA+Uv33Q=="
+          "hash": "BqUFrag4/DhOztTMmjNSRA=="
         }
       },
       "is_incremental": false,
@@ -990,7 +1062,7 @@
       "output": {
         ".html": {
           "relative_path": "bot_media/toc.html",
-          "hash": "KyrQT1JWZJ8ZLalhtGCiig=="
+          "hash": "npefBbeA5y2i1OKAgTjRqQ=="
         }
       },
       "is_incremental": false,
@@ -3803,14 +3875,6 @@
         "incrementalPhase": "build"
       },
       "processors": {
-        "ConceptualDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build"
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build"
-        },
         "TocDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
@@ -3819,6 +3883,14 @@
         "ResourceDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
           "incrementalPhase": "build"
         }
       }
