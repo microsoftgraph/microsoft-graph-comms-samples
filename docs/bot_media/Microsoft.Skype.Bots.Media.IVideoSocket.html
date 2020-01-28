@@ -160,6 +160,33 @@ Before the call to CreateMediaConfiguration, the SocketId has a value of -1.</p>
   </table>
   <h3 id="methods">Methods
   </h3>
+  <a id="Microsoft_Skype_Bots_Media_IVideoSocket_GetQualityOfExperienceData_" data-uid="Microsoft.Skype.Bots.Media.IVideoSocket.GetQualityOfExperienceData*"></a>
+  <h4 id="Microsoft_Skype_Bots_Media_IVideoSocket_GetQualityOfExperienceData" data-uid="Microsoft.Skype.Bots.Media.IVideoSocket.GetQualityOfExperienceData">GetQualityOfExperienceData()</h4>
+  <div class="markdown level1 summary"><p>Get the Quality of Experience (QoE) data for the video socket.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">VideoQualityOfExperienceData GetQualityOfExperienceData()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Skype.Bots.Media.VideoQualityOfExperienceData.html">VideoQualityOfExperienceData</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Microsoft_Skype_Bots_Media_IVideoSocket_GetQualityOfExperienceData_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The bot should fetch the QoE data no more than once every 30 seconds.</p>
+</div>
   <a id="Microsoft_Skype_Bots_Media_IVideoSocket_RequestKeyFrame_" data-uid="Microsoft.Skype.Bots.Media.IVideoSocket.RequestKeyFrame*"></a>
   <h4 id="Microsoft_Skype_Bots_Media_IVideoSocket_RequestKeyFrame" data-uid="Microsoft.Skype.Bots.Media.IVideoSocket.RequestKeyFrame">RequestKeyFrame()</h4>
   <div class="markdown level1 summary"><p>Allows the application to request for key frame.
@@ -172,14 +199,7 @@ Only valid for sockets with the ReceiveColorFormat as H264</p>
   </div>
   <a id="Microsoft_Skype_Bots_Media_IVideoSocket_Send_" data-uid="Microsoft.Skype.Bots.Media.IVideoSocket.Send*"></a>
   <h4 id="Microsoft_Skype_Bots_Media_IVideoSocket_Send_Microsoft_Skype_Bots_Media_VideoMediaBuffer_" data-uid="Microsoft.Skype.Bots.Media.IVideoSocket.Send(Microsoft.Skype.Bots.Media.VideoMediaBuffer)">Send(VideoMediaBuffer)</h4>
-  <div class="markdown level1 summary"><p>Allows the application to send a packet of video media if the application
-has configured the VideoSocket to send media.
-The application should be sending about 30 video frame buffers/second.
-The application must create a concrete class which derives from the
-VideoMediaBuffer abstract class. The buffer object passed to the Send
-method is still potentially in-use after the method returns to the
-caller. The application must not free the buffer&apos;s data until the
-the buffer object&apos;s Dispose() method is invoked by the Media Platform.</p>
+  <div class="markdown level1 summary"><p>Sends a frame of video media.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -199,11 +219,25 @@ the buffer object&apos;s Dispose() method is invoked by the Media Platform.</p>
       <tr>
         <td><a class="xref" href="Microsoft.Skype.Bots.Media.VideoMediaBuffer.html">VideoMediaBuffer</a></td>
         <td><span class="parametername">buffer</span></td>
-        <td><p>VideoMediaBuffer to send.</p>
+        <td><p>VideoMediaBuffer containing the frame of video media to send.</p>
 </td>
       </tr>
     </tbody>
   </table>
+  <h5 id="Microsoft_Skype_Bots_Media_IVideoSocket_Send_Microsoft_Skype_Bots_Media_VideoMediaBuffer__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The application must create a concrete class which derives from the
+VideoMediaBuffer abstract class. The buffer object passed to the Send
+method is still potentially in-use after the method returns to the
+caller. The application must not free the buffer&apos;s data until the
+the buffer object&apos;s Dispose() method is invoked by the Media Platform.
+<p>
+The application should be sending up to 30 video frames per second.
+</p>
+<p>
+The VideoSocket must be enabled to send media via the <code>VideoSocketSettings.StreamDirections</code>
+property.
+</p></p>
+</div>
   <a id="Microsoft_Skype_Bots_Media_IVideoSocket_SetReceiveBandwidthLimit_" data-uid="Microsoft.Skype.Bots.Media.IVideoSocket.SetReceiveBandwidthLimit*"></a>
   <h4 id="Microsoft_Skype_Bots_Media_IVideoSocket_SetReceiveBandwidthLimit_System_UInt32_" data-uid="Microsoft.Skype.Bots.Media.IVideoSocket.SetReceiveBandwidthLimit(System.UInt32)">SetReceiveBandwidthLimit(UInt32)</h4>
   <div class="markdown level1 summary"><p>Sets the bandwidth limit on the receive stream of the VideoSocket.
@@ -217,9 +251,11 @@ Bandwidth range (in bits per second) for various resolutions and frame rates per
 <p> 375000 - 1500000  540p at 30 fps
 <p> 200000 -  800000  360p at 30 fps
 <p> 150000 -  250000  360p at 15 fps
-<p> 120000 -  220000  360p at 7.5 fps
-<p>  60000 -  200000  240p at 7.5 fps
+<p> 120000 -  220000  240p at 15 fps
+<p>  60000 -  200000  180p at 15 fps
 <p>  20000 -  100000  180p at 7.5 fps
+<p>  10000 -   25000  180p at 3.75 fps
+<p>   1000 -   12500  180p at 1.875 fps
 <p>Media type: Vbss
 <p>Resolution: 1080p
 <p>2000000 - 4000000 at 30 fps
@@ -264,9 +300,11 @@ during the initial call setup before applying the send bandwidth limit on the so
 <p> 375000 - 1500000  540p at 30 fps
 <p> 200000 -  800000  360p at 30 fps
 <p> 150000 -  250000  360p at 15 fps
-<p> 120000 -  220000  360p at 7.5 fps
-<p>  60000 -  200000  240p at 7.5 fps
+<p> 120000 -  220000  240p at 15 fps
+<p>  60000 -  200000  180p at 15 fps
 <p>  20000 -  100000  180p at 7.5 fps
+<p>  10000 -   25000  180p at 3.75 fps
+<p>   1000 -   12500  180p at 1.875 fps
 <p>Media type: Vbss
 <p>Resolution: 1080p
 <p>2000000 - 4000000 at 30 fps
@@ -300,7 +338,9 @@ during the initial call setup before applying the send bandwidth limit on the so
   </table>
   <a id="Microsoft_Skype_Bots_Media_IVideoSocket_Subscribe_" data-uid="Microsoft.Skype.Bots.Media.IVideoSocket.Subscribe*"></a>
   <h4 id="Microsoft_Skype_Bots_Media_IVideoSocket_Subscribe_Microsoft_Skype_Bots_Media_VideoResolution_" data-uid="Microsoft.Skype.Bots.Media.IVideoSocket.Subscribe(Microsoft.Skype.Bots.Media.VideoResolution)">Subscribe(VideoResolution)</h4>
-  <div class="markdown level1 summary"><p>Subscribe API for the 1:1 case. No need to specify the media source id.</p>
+  <div class="markdown level1 summary"><p>Request to receive the video of the peer in a 1:1 call. No need to specify a MediaSourceId.
+The bot cannot subscribe to a video source unless the <code>VideoReceiveStatusChanged</code> event is raised
+indicating the VideoSocket&apos;s <code>MediaReceiveStatus</code> is <code>Active</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -320,15 +360,19 @@ during the initial call setup before applying the send bandwidth limit on the so
       <tr>
         <td><a class="xref" href="Microsoft.Skype.Bots.Media.VideoResolution.html">VideoResolution</a></td>
         <td><span class="parametername">preferredVideoResolution</span></td>
-        <td><p>The preferred video resolution</p>
+        <td><p>The requested video resolution.
+The received video frames should have this resolution if the bandwidth constraints and sender capabilities allow,
+however the bot may receive video frames at a resolution lower than requested.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <a id="Microsoft_Skype_Bots_Media_IVideoSocket_Subscribe_" data-uid="Microsoft.Skype.Bots.Media.IVideoSocket.Subscribe*"></a>
   <h4 id="Microsoft_Skype_Bots_Media_IVideoSocket_Subscribe_Microsoft_Skype_Bots_Media_VideoResolution_System_UInt32_" data-uid="Microsoft.Skype.Bots.Media.IVideoSocket.Subscribe(Microsoft.Skype.Bots.Media.VideoResolution,System.UInt32)">Subscribe(VideoResolution, UInt32)</h4>
-  <div class="markdown level1 summary"><p>Video Subscription API for the conference scenario, once the MediaReceiveStatus is raised with active status,
-it is possible to call this api to subscribe to a specific video using the media source id.</p>
+  <div class="markdown level1 summary"><p>Request to receive the video source of a participant in a meeting or group call.
+The video source must be identified by its MediaSourceId available from the roster.
+The bot cannot subscribe to a video source unless the <code>VideoReceiveStatusChanged</code> event is raised
+indicating the VideoSocket&apos;s <code>MediaReceiveStatus</code> is <code>Active</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -348,8 +392,9 @@ it is possible to call this api to subscribe to a specific video using the media
       <tr>
         <td><a class="xref" href="Microsoft.Skype.Bots.Media.VideoResolution.html">VideoResolution</a></td>
         <td><span class="parametername">preferredVideoResolution</span></td>
-        <td><p>The requested video resolution,
-The received video buffers should have the requested resolution if the bandwidth constraints and sender capabilities are satisfied</p>
+        <td><p>The requested video resolution.
+The received video frames should have this resolution if the bandwidth constraints and sender capabilities allow,
+however the bot may receive video frames at a resolution lower than requested.</p>
 </td>
       </tr>
       <tr>
@@ -360,9 +405,36 @@ The received video buffers should have the requested resolution if the bandwidth
       </tr>
     </tbody>
   </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></td>
+        <td><p>Thrown if the VideoSocket is disposed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Thrown if the subscription is invalid.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.Skype.Bots.Media.SkypeMediaException.html">SkypeMediaException</a></td>
+        <td><p>Thrown if an internal media failure occurs.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <a id="Microsoft_Skype_Bots_Media_IVideoSocket_Unsubscribe_" data-uid="Microsoft.Skype.Bots.Media.IVideoSocket.Unsubscribe*"></a>
   <h4 id="Microsoft_Skype_Bots_Media_IVideoSocket_Unsubscribe" data-uid="Microsoft.Skype.Bots.Media.IVideoSocket.Unsubscribe">Unsubscribe()</h4>
-  <div class="markdown level1 summary"><p>Unsubscribe to video, the VideMediaReceived events will stop raising video buffers.</p>
+  <div class="markdown level1 summary"><p>Stops the current video subscription on the VideoSocket.
+The <code>VideoMediaReceived</code> events will stop raising video buffers.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -476,12 +548,9 @@ Events are serialized, so only one event at a time is raised to the app.</p>
   </table>
   <h4 id="Microsoft_Skype_Bots_Media_IVideoSocket_VideoMediaReceived" data-uid="Microsoft.Skype.Bots.Media.IVideoSocket.VideoMediaReceived">VideoMediaReceived</h4>
   <div class="markdown level1 summary"><p>If the application has configured the VideoSocket to receive media, this
-event is raised each time a packet of video media is received.
+event is raised each time a frame of video media is received.
 Once the application has consumed the buffer, it must call the buffer&apos;s
-Dispose() method.
-The application should be prepared to handle approximately 30 incoming
-video buffers per second.
-Events are serialized, so only one event at a time is raised to the app.</p>
+Dispose() method.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -503,6 +572,14 @@ Events are serialized, so only one event at a time is raised to the app.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="Microsoft_Skype_Bots_Media_IVideoSocket_VideoMediaReceived_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The incoming video frame rate is variable. The frame rate can vary between
+1.875 frames per second (fps) up to 30 fps. The application must be able
+to receive up to 30 video buffers per second.
+Events are serialized, so only one event at a time is raised to the app.
+The event handler should return as quickly as possible; any time-consuming
+per-frame processing should be performed asynchronously from the event handler.</p>
+</div>
   <h4 id="Microsoft_Skype_Bots_Media_IVideoSocket_VideoReceiveStatusChanged" data-uid="Microsoft.Skype.Bots.Media.IVideoSocket.VideoReceiveStatusChanged">VideoReceiveStatusChanged</h4>
   <div class="markdown level1 summary"><p>If the application has configured the VideoSocket to receive media,
 this event is raised to inform the application when it is ready to receive media.

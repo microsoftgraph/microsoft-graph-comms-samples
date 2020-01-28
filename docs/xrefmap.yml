@@ -12277,6 +12277,78 @@ references:
   commentId: Overload:Microsoft.Skype.Bots.Media.AudioMediaReceivedEventArgs.Buffer
   fullName: Microsoft.Skype.Bots.Media.AudioMediaReceivedEventArgs.Buffer
   nameWithType: AudioMediaReceivedEventArgs.Buffer
+- uid: Microsoft.Skype.Bots.Media.AudioMetrics
+  name: AudioMetrics
+  href: bot_media/Microsoft.Skype.Bots.Media.AudioMetrics.html
+  commentId: T:Microsoft.Skype.Bots.Media.AudioMetrics
+  fullName: Microsoft.Skype.Bots.Media.AudioMetrics
+  nameWithType: AudioMetrics
+- uid: Microsoft.Skype.Bots.Media.AudioMetrics.#ctor
+  name: AudioMetrics()
+  href: bot_media/Microsoft.Skype.Bots.Media.AudioMetrics.html#Microsoft_Skype_Bots_Media_AudioMetrics__ctor
+  commentId: M:Microsoft.Skype.Bots.Media.AudioMetrics.#ctor
+  fullName: Microsoft.Skype.Bots.Media.AudioMetrics.AudioMetrics()
+  nameWithType: AudioMetrics.AudioMetrics()
+- uid: Microsoft.Skype.Bots.Media.AudioMetrics.#ctor*
+  name: AudioMetrics
+  href: bot_media/Microsoft.Skype.Bots.Media.AudioMetrics.html#Microsoft_Skype_Bots_Media_AudioMetrics__ctor_
+  commentId: Overload:Microsoft.Skype.Bots.Media.AudioMetrics.#ctor
+  fullName: Microsoft.Skype.Bots.Media.AudioMetrics.AudioMetrics
+  nameWithType: AudioMetrics.AudioMetrics
+- uid: Microsoft.Skype.Bots.Media.AudioMetrics.AverageInboundNetworkJitter
+  name: AverageInboundNetworkJitter
+  href: bot_media/Microsoft.Skype.Bots.Media.AudioMetrics.html#Microsoft_Skype_Bots_Media_AudioMetrics_AverageInboundNetworkJitter
+  commentId: P:Microsoft.Skype.Bots.Media.AudioMetrics.AverageInboundNetworkJitter
+  fullName: Microsoft.Skype.Bots.Media.AudioMetrics.AverageInboundNetworkJitter
+  nameWithType: AudioMetrics.AverageInboundNetworkJitter
+- uid: Microsoft.Skype.Bots.Media.AudioMetrics.AverageInboundNetworkJitter*
+  name: AverageInboundNetworkJitter
+  href: bot_media/Microsoft.Skype.Bots.Media.AudioMetrics.html#Microsoft_Skype_Bots_Media_AudioMetrics_AverageInboundNetworkJitter_
+  commentId: Overload:Microsoft.Skype.Bots.Media.AudioMetrics.AverageInboundNetworkJitter
+  fullName: Microsoft.Skype.Bots.Media.AudioMetrics.AverageInboundNetworkJitter
+  nameWithType: AudioMetrics.AverageInboundNetworkJitter
+- uid: Microsoft.Skype.Bots.Media.AudioMetrics.MaximumInboundNetworkJitter
+  name: MaximumInboundNetworkJitter
+  href: bot_media/Microsoft.Skype.Bots.Media.AudioMetrics.html#Microsoft_Skype_Bots_Media_AudioMetrics_MaximumInboundNetworkJitter
+  commentId: P:Microsoft.Skype.Bots.Media.AudioMetrics.MaximumInboundNetworkJitter
+  fullName: Microsoft.Skype.Bots.Media.AudioMetrics.MaximumInboundNetworkJitter
+  nameWithType: AudioMetrics.MaximumInboundNetworkJitter
+- uid: Microsoft.Skype.Bots.Media.AudioMetrics.MaximumInboundNetworkJitter*
+  name: MaximumInboundNetworkJitter
+  href: bot_media/Microsoft.Skype.Bots.Media.AudioMetrics.html#Microsoft_Skype_Bots_Media_AudioMetrics_MaximumInboundNetworkJitter_
+  commentId: Overload:Microsoft.Skype.Bots.Media.AudioMetrics.MaximumInboundNetworkJitter
+  fullName: Microsoft.Skype.Bots.Media.AudioMetrics.MaximumInboundNetworkJitter
+  nameWithType: AudioMetrics.MaximumInboundNetworkJitter
+- uid: Microsoft.Skype.Bots.Media.AudioQualityOfExperienceData
+  name: AudioQualityOfExperienceData
+  href: bot_media/Microsoft.Skype.Bots.Media.AudioQualityOfExperienceData.html
+  commentId: T:Microsoft.Skype.Bots.Media.AudioQualityOfExperienceData
+  fullName: Microsoft.Skype.Bots.Media.AudioQualityOfExperienceData
+  nameWithType: AudioQualityOfExperienceData
+- uid: Microsoft.Skype.Bots.Media.AudioQualityOfExperienceData.#ctor
+  name: AudioQualityOfExperienceData()
+  href: bot_media/Microsoft.Skype.Bots.Media.AudioQualityOfExperienceData.html#Microsoft_Skype_Bots_Media_AudioQualityOfExperienceData__ctor
+  commentId: M:Microsoft.Skype.Bots.Media.AudioQualityOfExperienceData.#ctor
+  fullName: Microsoft.Skype.Bots.Media.AudioQualityOfExperienceData.AudioQualityOfExperienceData()
+  nameWithType: AudioQualityOfExperienceData.AudioQualityOfExperienceData()
+- uid: Microsoft.Skype.Bots.Media.AudioQualityOfExperienceData.#ctor*
+  name: AudioQualityOfExperienceData
+  href: bot_media/Microsoft.Skype.Bots.Media.AudioQualityOfExperienceData.html#Microsoft_Skype_Bots_Media_AudioQualityOfExperienceData__ctor_
+  commentId: Overload:Microsoft.Skype.Bots.Media.AudioQualityOfExperienceData.#ctor
+  fullName: Microsoft.Skype.Bots.Media.AudioQualityOfExperienceData.AudioQualityOfExperienceData
+  nameWithType: AudioQualityOfExperienceData.AudioQualityOfExperienceData
+- uid: Microsoft.Skype.Bots.Media.AudioQualityOfExperienceData.AudioMetrics
+  name: AudioMetrics
+  href: bot_media/Microsoft.Skype.Bots.Media.AudioQualityOfExperienceData.html#Microsoft_Skype_Bots_Media_AudioQualityOfExperienceData_AudioMetrics
+  commentId: P:Microsoft.Skype.Bots.Media.AudioQualityOfExperienceData.AudioMetrics
+  fullName: Microsoft.Skype.Bots.Media.AudioQualityOfExperienceData.AudioMetrics
+  nameWithType: AudioQualityOfExperienceData.AudioMetrics
+- uid: Microsoft.Skype.Bots.Media.AudioQualityOfExperienceData.AudioMetrics*
+  name: AudioMetrics
+  href: bot_media/Microsoft.Skype.Bots.Media.AudioQualityOfExperienceData.html#Microsoft_Skype_Bots_Media_AudioQualityOfExperienceData_AudioMetrics_
+  commentId: Overload:Microsoft.Skype.Bots.Media.AudioQualityOfExperienceData.AudioMetrics
+  fullName: Microsoft.Skype.Bots.Media.AudioQualityOfExperienceData.AudioMetrics
+  nameWithType: AudioQualityOfExperienceData.AudioMetrics
 - uid: Microsoft.Skype.Bots.Media.AudioSendStatusChangedEventArgs
   name: AudioSendStatusChangedEventArgs
   href: bot_media/Microsoft.Skype.Bots.Media.AudioSendStatusChangedEventArgs.html
@@ -12385,6 +12457,18 @@ references:
   commentId: E:Microsoft.Skype.Bots.Media.AudioSocket.DominantSpeakerChanged
   fullName: Microsoft.Skype.Bots.Media.AudioSocket.DominantSpeakerChanged
   nameWithType: AudioSocket.DominantSpeakerChanged
+- uid: Microsoft.Skype.Bots.Media.AudioSocket.GetQualityOfExperienceData
+  name: GetQualityOfExperienceData()
+  href: bot_media/Microsoft.Skype.Bots.Media.AudioSocket.html#Microsoft_Skype_Bots_Media_AudioSocket_GetQualityOfExperienceData
+  commentId: M:Microsoft.Skype.Bots.Media.AudioSocket.GetQualityOfExperienceData
+  fullName: Microsoft.Skype.Bots.Media.AudioSocket.GetQualityOfExperienceData()
+  nameWithType: AudioSocket.GetQualityOfExperienceData()
+- uid: Microsoft.Skype.Bots.Media.AudioSocket.GetQualityOfExperienceData*
+  name: GetQualityOfExperienceData
+  href: bot_media/Microsoft.Skype.Bots.Media.AudioSocket.html#Microsoft_Skype_Bots_Media_AudioSocket_GetQualityOfExperienceData_
+  commentId: Overload:Microsoft.Skype.Bots.Media.AudioSocket.GetQualityOfExperienceData
+  fullName: Microsoft.Skype.Bots.Media.AudioSocket.GetQualityOfExperienceData
+  nameWithType: AudioSocket.GetQualityOfExperienceData
 - uid: Microsoft.Skype.Bots.Media.AudioSocket.MediaStreamFailure
   name: MediaStreamFailure
   href: bot_media/Microsoft.Skype.Bots.Media.AudioSocket.html#Microsoft_Skype_Bots_Media_AudioSocket_MediaStreamFailure
@@ -12985,6 +13069,18 @@ references:
   commentId: E:Microsoft.Skype.Bots.Media.IAudioSocket.DominantSpeakerChanged
   fullName: Microsoft.Skype.Bots.Media.IAudioSocket.DominantSpeakerChanged
   nameWithType: IAudioSocket.DominantSpeakerChanged
+- uid: Microsoft.Skype.Bots.Media.IAudioSocket.GetQualityOfExperienceData
+  name: GetQualityOfExperienceData()
+  href: bot_media/Microsoft.Skype.Bots.Media.IAudioSocket.html#Microsoft_Skype_Bots_Media_IAudioSocket_GetQualityOfExperienceData
+  commentId: M:Microsoft.Skype.Bots.Media.IAudioSocket.GetQualityOfExperienceData
+  fullName: Microsoft.Skype.Bots.Media.IAudioSocket.GetQualityOfExperienceData()
+  nameWithType: IAudioSocket.GetQualityOfExperienceData()
+- uid: Microsoft.Skype.Bots.Media.IAudioSocket.GetQualityOfExperienceData*
+  name: GetQualityOfExperienceData
+  href: bot_media/Microsoft.Skype.Bots.Media.IAudioSocket.html#Microsoft_Skype_Bots_Media_IAudioSocket_GetQualityOfExperienceData_
+  commentId: Overload:Microsoft.Skype.Bots.Media.IAudioSocket.GetQualityOfExperienceData
+  fullName: Microsoft.Skype.Bots.Media.IAudioSocket.GetQualityOfExperienceData
+  nameWithType: IAudioSocket.GetQualityOfExperienceData
 - uid: Microsoft.Skype.Bots.Media.IAudioSocket.MediaStreamFailure
   name: MediaStreamFailure
   href: bot_media/Microsoft.Skype.Bots.Media.IAudioSocket.html#Microsoft_Skype_Bots_Media_IAudioSocket_MediaStreamFailure
@@ -13258,6 +13354,18 @@ references:
   commentId: T:Microsoft.Skype.Bots.Media.IVideoSocket
   fullName: Microsoft.Skype.Bots.Media.IVideoSocket
   nameWithType: IVideoSocket
+- uid: Microsoft.Skype.Bots.Media.IVideoSocket.GetQualityOfExperienceData
+  name: GetQualityOfExperienceData()
+  href: bot_media/Microsoft.Skype.Bots.Media.IVideoSocket.html#Microsoft_Skype_Bots_Media_IVideoSocket_GetQualityOfExperienceData
+  commentId: M:Microsoft.Skype.Bots.Media.IVideoSocket.GetQualityOfExperienceData
+  fullName: Microsoft.Skype.Bots.Media.IVideoSocket.GetQualityOfExperienceData()
+  nameWithType: IVideoSocket.GetQualityOfExperienceData()
+- uid: Microsoft.Skype.Bots.Media.IVideoSocket.GetQualityOfExperienceData*
+  name: GetQualityOfExperienceData
+  href: bot_media/Microsoft.Skype.Bots.Media.IVideoSocket.html#Microsoft_Skype_Bots_Media_IVideoSocket_GetQualityOfExperienceData_
+  commentId: Overload:Microsoft.Skype.Bots.Media.IVideoSocket.GetQualityOfExperienceData
+  fullName: Microsoft.Skype.Bots.Media.IVideoSocket.GetQualityOfExperienceData
+  nameWithType: IVideoSocket.GetQualityOfExperienceData
 - uid: Microsoft.Skype.Bots.Media.IVideoSocket.MediaStreamFailure
   name: MediaStreamFailure
   href: bot_media/Microsoft.Skype.Bots.Media.IVideoSocket.html#Microsoft_Skype_Bots_Media_IVideoSocket_MediaStreamFailure
@@ -13885,6 +13993,48 @@ references:
   commentId: Overload:Microsoft.Skype.Bots.Media.MediaPlatformSettings.RegionAffinity
   fullName: Microsoft.Skype.Bots.Media.MediaPlatformSettings.RegionAffinity
   nameWithType: MediaPlatformSettings.RegionAffinity
+- uid: Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData
+  name: MediaQualityOfExperienceData
+  href: bot_media/Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.html
+  commentId: T:Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData
+  fullName: Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData
+  nameWithType: MediaQualityOfExperienceData
+- uid: Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.#ctor
+  name: MediaQualityOfExperienceData()
+  href: bot_media/Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.html#Microsoft_Skype_Bots_Media_MediaQualityOfExperienceData__ctor
+  commentId: M:Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.#ctor
+  fullName: Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.MediaQualityOfExperienceData()
+  nameWithType: MediaQualityOfExperienceData.MediaQualityOfExperienceData()
+- uid: Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.#ctor*
+  name: MediaQualityOfExperienceData
+  href: bot_media/Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.html#Microsoft_Skype_Bots_Media_MediaQualityOfExperienceData__ctor_
+  commentId: Overload:Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.#ctor
+  fullName: Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.MediaQualityOfExperienceData
+  nameWithType: MediaQualityOfExperienceData.MediaQualityOfExperienceData
+- uid: Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.NetworkMetrics
+  name: NetworkMetrics
+  href: bot_media/Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.html#Microsoft_Skype_Bots_Media_MediaQualityOfExperienceData_NetworkMetrics
+  commentId: P:Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.NetworkMetrics
+  fullName: Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.NetworkMetrics
+  nameWithType: MediaQualityOfExperienceData.NetworkMetrics
+- uid: Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.NetworkMetrics*
+  name: NetworkMetrics
+  href: bot_media/Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.html#Microsoft_Skype_Bots_Media_MediaQualityOfExperienceData_NetworkMetrics_
+  commentId: Overload:Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.NetworkMetrics
+  fullName: Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.NetworkMetrics
+  nameWithType: MediaQualityOfExperienceData.NetworkMetrics
+- uid: Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.TotalMediaDuration
+  name: TotalMediaDuration
+  href: bot_media/Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.html#Microsoft_Skype_Bots_Media_MediaQualityOfExperienceData_TotalMediaDuration
+  commentId: P:Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.TotalMediaDuration
+  fullName: Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.TotalMediaDuration
+  nameWithType: MediaQualityOfExperienceData.TotalMediaDuration
+- uid: Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.TotalMediaDuration*
+  name: TotalMediaDuration
+  href: bot_media/Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.html#Microsoft_Skype_Bots_Media_MediaQualityOfExperienceData_TotalMediaDuration_
+  commentId: Overload:Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.TotalMediaDuration
+  fullName: Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.TotalMediaDuration
+  nameWithType: MediaQualityOfExperienceData.TotalMediaDuration
 - uid: Microsoft.Skype.Bots.Media.MediaQualityState
   name: MediaQualityState
   href: bot_media/Microsoft.Skype.Bots.Media.MediaQualityState.html
@@ -13987,6 +14137,144 @@ references:
   commentId: F:Microsoft.Skype.Bots.Media.MediaType.Video
   fullName: Microsoft.Skype.Bots.Media.MediaType.Video
   nameWithType: MediaType.Video
+- uid: Microsoft.Skype.Bots.Media.NetworkMetrics
+  name: NetworkMetrics
+  href: bot_media/Microsoft.Skype.Bots.Media.NetworkMetrics.html
+  commentId: T:Microsoft.Skype.Bots.Media.NetworkMetrics
+  fullName: Microsoft.Skype.Bots.Media.NetworkMetrics
+  nameWithType: NetworkMetrics
+- uid: Microsoft.Skype.Bots.Media.NetworkMetrics.#ctor
+  name: NetworkMetrics()
+  href: bot_media/Microsoft.Skype.Bots.Media.NetworkMetrics.html#Microsoft_Skype_Bots_Media_NetworkMetrics__ctor
+  commentId: M:Microsoft.Skype.Bots.Media.NetworkMetrics.#ctor
+  fullName: Microsoft.Skype.Bots.Media.NetworkMetrics.NetworkMetrics()
+  nameWithType: NetworkMetrics.NetworkMetrics()
+- uid: Microsoft.Skype.Bots.Media.NetworkMetrics.#ctor*
+  name: NetworkMetrics
+  href: bot_media/Microsoft.Skype.Bots.Media.NetworkMetrics.html#Microsoft_Skype_Bots_Media_NetworkMetrics__ctor_
+  commentId: Overload:Microsoft.Skype.Bots.Media.NetworkMetrics.#ctor
+  fullName: Microsoft.Skype.Bots.Media.NetworkMetrics.NetworkMetrics
+  nameWithType: NetworkMetrics.NetworkMetrics
+- uid: Microsoft.Skype.Bots.Media.NetworkMetrics.AverageInboundPacketLossRateInPercentage
+  name: AverageInboundPacketLossRateInPercentage
+  href: bot_media/Microsoft.Skype.Bots.Media.NetworkMetrics.html#Microsoft_Skype_Bots_Media_NetworkMetrics_AverageInboundPacketLossRateInPercentage
+  commentId: P:Microsoft.Skype.Bots.Media.NetworkMetrics.AverageInboundPacketLossRateInPercentage
+  fullName: Microsoft.Skype.Bots.Media.NetworkMetrics.AverageInboundPacketLossRateInPercentage
+  nameWithType: NetworkMetrics.AverageInboundPacketLossRateInPercentage
+- uid: Microsoft.Skype.Bots.Media.NetworkMetrics.AverageInboundPacketLossRateInPercentage*
+  name: AverageInboundPacketLossRateInPercentage
+  href: bot_media/Microsoft.Skype.Bots.Media.NetworkMetrics.html#Microsoft_Skype_Bots_Media_NetworkMetrics_AverageInboundPacketLossRateInPercentage_
+  commentId: Overload:Microsoft.Skype.Bots.Media.NetworkMetrics.AverageInboundPacketLossRateInPercentage
+  fullName: Microsoft.Skype.Bots.Media.NetworkMetrics.AverageInboundPacketLossRateInPercentage
+  nameWithType: NetworkMetrics.AverageInboundPacketLossRateInPercentage
+- uid: Microsoft.Skype.Bots.Media.NetworkMetrics.AverageInboundRoundTripDelay
+  name: AverageInboundRoundTripDelay
+  href: bot_media/Microsoft.Skype.Bots.Media.NetworkMetrics.html#Microsoft_Skype_Bots_Media_NetworkMetrics_AverageInboundRoundTripDelay
+  commentId: P:Microsoft.Skype.Bots.Media.NetworkMetrics.AverageInboundRoundTripDelay
+  fullName: Microsoft.Skype.Bots.Media.NetworkMetrics.AverageInboundRoundTripDelay
+  nameWithType: NetworkMetrics.AverageInboundRoundTripDelay
+- uid: Microsoft.Skype.Bots.Media.NetworkMetrics.AverageInboundRoundTripDelay*
+  name: AverageInboundRoundTripDelay
+  href: bot_media/Microsoft.Skype.Bots.Media.NetworkMetrics.html#Microsoft_Skype_Bots_Media_NetworkMetrics_AverageInboundRoundTripDelay_
+  commentId: Overload:Microsoft.Skype.Bots.Media.NetworkMetrics.AverageInboundRoundTripDelay
+  fullName: Microsoft.Skype.Bots.Media.NetworkMetrics.AverageInboundRoundTripDelay
+  nameWithType: NetworkMetrics.AverageInboundRoundTripDelay
+- uid: Microsoft.Skype.Bots.Media.NetworkMetrics.AverageOutboundPacketLossRateInPercentage
+  name: AverageOutboundPacketLossRateInPercentage
+  href: bot_media/Microsoft.Skype.Bots.Media.NetworkMetrics.html#Microsoft_Skype_Bots_Media_NetworkMetrics_AverageOutboundPacketLossRateInPercentage
+  commentId: P:Microsoft.Skype.Bots.Media.NetworkMetrics.AverageOutboundPacketLossRateInPercentage
+  fullName: Microsoft.Skype.Bots.Media.NetworkMetrics.AverageOutboundPacketLossRateInPercentage
+  nameWithType: NetworkMetrics.AverageOutboundPacketLossRateInPercentage
+- uid: Microsoft.Skype.Bots.Media.NetworkMetrics.AverageOutboundPacketLossRateInPercentage*
+  name: AverageOutboundPacketLossRateInPercentage
+  href: bot_media/Microsoft.Skype.Bots.Media.NetworkMetrics.html#Microsoft_Skype_Bots_Media_NetworkMetrics_AverageOutboundPacketLossRateInPercentage_
+  commentId: Overload:Microsoft.Skype.Bots.Media.NetworkMetrics.AverageOutboundPacketLossRateInPercentage
+  fullName: Microsoft.Skype.Bots.Media.NetworkMetrics.AverageOutboundPacketLossRateInPercentage
+  nameWithType: NetworkMetrics.AverageOutboundPacketLossRateInPercentage
+- uid: Microsoft.Skype.Bots.Media.NetworkMetrics.AverageOutboundRoundTripDelay
+  name: AverageOutboundRoundTripDelay
+  href: bot_media/Microsoft.Skype.Bots.Media.NetworkMetrics.html#Microsoft_Skype_Bots_Media_NetworkMetrics_AverageOutboundRoundTripDelay
+  commentId: P:Microsoft.Skype.Bots.Media.NetworkMetrics.AverageOutboundRoundTripDelay
+  fullName: Microsoft.Skype.Bots.Media.NetworkMetrics.AverageOutboundRoundTripDelay
+  nameWithType: NetworkMetrics.AverageOutboundRoundTripDelay
+- uid: Microsoft.Skype.Bots.Media.NetworkMetrics.AverageOutboundRoundTripDelay*
+  name: AverageOutboundRoundTripDelay
+  href: bot_media/Microsoft.Skype.Bots.Media.NetworkMetrics.html#Microsoft_Skype_Bots_Media_NetworkMetrics_AverageOutboundRoundTripDelay_
+  commentId: Overload:Microsoft.Skype.Bots.Media.NetworkMetrics.AverageOutboundRoundTripDelay
+  fullName: Microsoft.Skype.Bots.Media.NetworkMetrics.AverageOutboundRoundTripDelay
+  nameWithType: NetworkMetrics.AverageOutboundRoundTripDelay
+- uid: Microsoft.Skype.Bots.Media.NetworkMetrics.MaximumInboundPacketLossRateInPercentage
+  name: MaximumInboundPacketLossRateInPercentage
+  href: bot_media/Microsoft.Skype.Bots.Media.NetworkMetrics.html#Microsoft_Skype_Bots_Media_NetworkMetrics_MaximumInboundPacketLossRateInPercentage
+  commentId: P:Microsoft.Skype.Bots.Media.NetworkMetrics.MaximumInboundPacketLossRateInPercentage
+  fullName: Microsoft.Skype.Bots.Media.NetworkMetrics.MaximumInboundPacketLossRateInPercentage
+  nameWithType: NetworkMetrics.MaximumInboundPacketLossRateInPercentage
+- uid: Microsoft.Skype.Bots.Media.NetworkMetrics.MaximumInboundPacketLossRateInPercentage*
+  name: MaximumInboundPacketLossRateInPercentage
+  href: bot_media/Microsoft.Skype.Bots.Media.NetworkMetrics.html#Microsoft_Skype_Bots_Media_NetworkMetrics_MaximumInboundPacketLossRateInPercentage_
+  commentId: Overload:Microsoft.Skype.Bots.Media.NetworkMetrics.MaximumInboundPacketLossRateInPercentage
+  fullName: Microsoft.Skype.Bots.Media.NetworkMetrics.MaximumInboundPacketLossRateInPercentage
+  nameWithType: NetworkMetrics.MaximumInboundPacketLossRateInPercentage
+- uid: Microsoft.Skype.Bots.Media.NetworkMetrics.MaximumInboundRoundTripDelay
+  name: MaximumInboundRoundTripDelay
+  href: bot_media/Microsoft.Skype.Bots.Media.NetworkMetrics.html#Microsoft_Skype_Bots_Media_NetworkMetrics_MaximumInboundRoundTripDelay
+  commentId: P:Microsoft.Skype.Bots.Media.NetworkMetrics.MaximumInboundRoundTripDelay
+  fullName: Microsoft.Skype.Bots.Media.NetworkMetrics.MaximumInboundRoundTripDelay
+  nameWithType: NetworkMetrics.MaximumInboundRoundTripDelay
+- uid: Microsoft.Skype.Bots.Media.NetworkMetrics.MaximumInboundRoundTripDelay*
+  name: MaximumInboundRoundTripDelay
+  href: bot_media/Microsoft.Skype.Bots.Media.NetworkMetrics.html#Microsoft_Skype_Bots_Media_NetworkMetrics_MaximumInboundRoundTripDelay_
+  commentId: Overload:Microsoft.Skype.Bots.Media.NetworkMetrics.MaximumInboundRoundTripDelay
+  fullName: Microsoft.Skype.Bots.Media.NetworkMetrics.MaximumInboundRoundTripDelay
+  nameWithType: NetworkMetrics.MaximumInboundRoundTripDelay
+- uid: Microsoft.Skype.Bots.Media.NetworkMetrics.MaximumOutboundPacketLossRateInPercentage
+  name: MaximumOutboundPacketLossRateInPercentage
+  href: bot_media/Microsoft.Skype.Bots.Media.NetworkMetrics.html#Microsoft_Skype_Bots_Media_NetworkMetrics_MaximumOutboundPacketLossRateInPercentage
+  commentId: P:Microsoft.Skype.Bots.Media.NetworkMetrics.MaximumOutboundPacketLossRateInPercentage
+  fullName: Microsoft.Skype.Bots.Media.NetworkMetrics.MaximumOutboundPacketLossRateInPercentage
+  nameWithType: NetworkMetrics.MaximumOutboundPacketLossRateInPercentage
+- uid: Microsoft.Skype.Bots.Media.NetworkMetrics.MaximumOutboundPacketLossRateInPercentage*
+  name: MaximumOutboundPacketLossRateInPercentage
+  href: bot_media/Microsoft.Skype.Bots.Media.NetworkMetrics.html#Microsoft_Skype_Bots_Media_NetworkMetrics_MaximumOutboundPacketLossRateInPercentage_
+  commentId: Overload:Microsoft.Skype.Bots.Media.NetworkMetrics.MaximumOutboundPacketLossRateInPercentage
+  fullName: Microsoft.Skype.Bots.Media.NetworkMetrics.MaximumOutboundPacketLossRateInPercentage
+  nameWithType: NetworkMetrics.MaximumOutboundPacketLossRateInPercentage
+- uid: Microsoft.Skype.Bots.Media.NetworkMetrics.MaximumOutboundRoundTripDelay
+  name: MaximumOutboundRoundTripDelay
+  href: bot_media/Microsoft.Skype.Bots.Media.NetworkMetrics.html#Microsoft_Skype_Bots_Media_NetworkMetrics_MaximumOutboundRoundTripDelay
+  commentId: P:Microsoft.Skype.Bots.Media.NetworkMetrics.MaximumOutboundRoundTripDelay
+  fullName: Microsoft.Skype.Bots.Media.NetworkMetrics.MaximumOutboundRoundTripDelay
+  nameWithType: NetworkMetrics.MaximumOutboundRoundTripDelay
+- uid: Microsoft.Skype.Bots.Media.NetworkMetrics.MaximumOutboundRoundTripDelay*
+  name: MaximumOutboundRoundTripDelay
+  href: bot_media/Microsoft.Skype.Bots.Media.NetworkMetrics.html#Microsoft_Skype_Bots_Media_NetworkMetrics_MaximumOutboundRoundTripDelay_
+  commentId: Overload:Microsoft.Skype.Bots.Media.NetworkMetrics.MaximumOutboundRoundTripDelay
+  fullName: Microsoft.Skype.Bots.Media.NetworkMetrics.MaximumOutboundRoundTripDelay
+  nameWithType: NetworkMetrics.MaximumOutboundRoundTripDelay
+- uid: Microsoft.Skype.Bots.Media.NetworkMetrics.TotalInboundPackets
+  name: TotalInboundPackets
+  href: bot_media/Microsoft.Skype.Bots.Media.NetworkMetrics.html#Microsoft_Skype_Bots_Media_NetworkMetrics_TotalInboundPackets
+  commentId: P:Microsoft.Skype.Bots.Media.NetworkMetrics.TotalInboundPackets
+  fullName: Microsoft.Skype.Bots.Media.NetworkMetrics.TotalInboundPackets
+  nameWithType: NetworkMetrics.TotalInboundPackets
+- uid: Microsoft.Skype.Bots.Media.NetworkMetrics.TotalInboundPackets*
+  name: TotalInboundPackets
+  href: bot_media/Microsoft.Skype.Bots.Media.NetworkMetrics.html#Microsoft_Skype_Bots_Media_NetworkMetrics_TotalInboundPackets_
+  commentId: Overload:Microsoft.Skype.Bots.Media.NetworkMetrics.TotalInboundPackets
+  fullName: Microsoft.Skype.Bots.Media.NetworkMetrics.TotalInboundPackets
+  nameWithType: NetworkMetrics.TotalInboundPackets
+- uid: Microsoft.Skype.Bots.Media.NetworkMetrics.TotalOutboundPackets
+  name: TotalOutboundPackets
+  href: bot_media/Microsoft.Skype.Bots.Media.NetworkMetrics.html#Microsoft_Skype_Bots_Media_NetworkMetrics_TotalOutboundPackets
+  commentId: P:Microsoft.Skype.Bots.Media.NetworkMetrics.TotalOutboundPackets
+  fullName: Microsoft.Skype.Bots.Media.NetworkMetrics.TotalOutboundPackets
+  nameWithType: NetworkMetrics.TotalOutboundPackets
+- uid: Microsoft.Skype.Bots.Media.NetworkMetrics.TotalOutboundPackets*
+  name: TotalOutboundPackets
+  href: bot_media/Microsoft.Skype.Bots.Media.NetworkMetrics.html#Microsoft_Skype_Bots_Media_NetworkMetrics_TotalOutboundPackets_
+  commentId: Overload:Microsoft.Skype.Bots.Media.NetworkMetrics.TotalOutboundPackets
+  fullName: Microsoft.Skype.Bots.Media.NetworkMetrics.TotalOutboundPackets
+  nameWithType: NetworkMetrics.TotalOutboundPackets
 - uid: Microsoft.Skype.Bots.Media.PerfCounterConfiguration
   name: PerfCounterConfiguration
   href: bot_media/Microsoft.Skype.Bots.Media.PerfCounterConfiguration.html
@@ -15373,6 +15661,102 @@ references:
   commentId: Overload:Microsoft.Skype.Bots.Media.VideoMediaStreamQualityChangedEventArgs.VideoQualityType
   fullName: Microsoft.Skype.Bots.Media.VideoMediaStreamQualityChangedEventArgs.VideoQualityType
   nameWithType: VideoMediaStreamQualityChangedEventArgs.VideoQualityType
+- uid: Microsoft.Skype.Bots.Media.VideoMetrics
+  name: VideoMetrics
+  href: bot_media/Microsoft.Skype.Bots.Media.VideoMetrics.html
+  commentId: T:Microsoft.Skype.Bots.Media.VideoMetrics
+  fullName: Microsoft.Skype.Bots.Media.VideoMetrics
+  nameWithType: VideoMetrics
+- uid: Microsoft.Skype.Bots.Media.VideoMetrics.#ctor
+  name: VideoMetrics()
+  href: bot_media/Microsoft.Skype.Bots.Media.VideoMetrics.html#Microsoft_Skype_Bots_Media_VideoMetrics__ctor
+  commentId: M:Microsoft.Skype.Bots.Media.VideoMetrics.#ctor
+  fullName: Microsoft.Skype.Bots.Media.VideoMetrics.VideoMetrics()
+  nameWithType: VideoMetrics.VideoMetrics()
+- uid: Microsoft.Skype.Bots.Media.VideoMetrics.#ctor*
+  name: VideoMetrics
+  href: bot_media/Microsoft.Skype.Bots.Media.VideoMetrics.html#Microsoft_Skype_Bots_Media_VideoMetrics__ctor_
+  commentId: Overload:Microsoft.Skype.Bots.Media.VideoMetrics.#ctor
+  fullName: Microsoft.Skype.Bots.Media.VideoMetrics.VideoMetrics
+  nameWithType: VideoMetrics.VideoMetrics
+- uid: Microsoft.Skype.Bots.Media.VideoMetrics.AverageInboundBitRatePerSecond
+  name: AverageInboundBitRatePerSecond
+  href: bot_media/Microsoft.Skype.Bots.Media.VideoMetrics.html#Microsoft_Skype_Bots_Media_VideoMetrics_AverageInboundBitRatePerSecond
+  commentId: P:Microsoft.Skype.Bots.Media.VideoMetrics.AverageInboundBitRatePerSecond
+  fullName: Microsoft.Skype.Bots.Media.VideoMetrics.AverageInboundBitRatePerSecond
+  nameWithType: VideoMetrics.AverageInboundBitRatePerSecond
+- uid: Microsoft.Skype.Bots.Media.VideoMetrics.AverageInboundBitRatePerSecond*
+  name: AverageInboundBitRatePerSecond
+  href: bot_media/Microsoft.Skype.Bots.Media.VideoMetrics.html#Microsoft_Skype_Bots_Media_VideoMetrics_AverageInboundBitRatePerSecond_
+  commentId: Overload:Microsoft.Skype.Bots.Media.VideoMetrics.AverageInboundBitRatePerSecond
+  fullName: Microsoft.Skype.Bots.Media.VideoMetrics.AverageInboundBitRatePerSecond
+  nameWithType: VideoMetrics.AverageInboundBitRatePerSecond
+- uid: Microsoft.Skype.Bots.Media.VideoMetrics.AverageInboundFrameRatePerSecond
+  name: AverageInboundFrameRatePerSecond
+  href: bot_media/Microsoft.Skype.Bots.Media.VideoMetrics.html#Microsoft_Skype_Bots_Media_VideoMetrics_AverageInboundFrameRatePerSecond
+  commentId: P:Microsoft.Skype.Bots.Media.VideoMetrics.AverageInboundFrameRatePerSecond
+  fullName: Microsoft.Skype.Bots.Media.VideoMetrics.AverageInboundFrameRatePerSecond
+  nameWithType: VideoMetrics.AverageInboundFrameRatePerSecond
+- uid: Microsoft.Skype.Bots.Media.VideoMetrics.AverageInboundFrameRatePerSecond*
+  name: AverageInboundFrameRatePerSecond
+  href: bot_media/Microsoft.Skype.Bots.Media.VideoMetrics.html#Microsoft_Skype_Bots_Media_VideoMetrics_AverageInboundFrameRatePerSecond_
+  commentId: Overload:Microsoft.Skype.Bots.Media.VideoMetrics.AverageInboundFrameRatePerSecond
+  fullName: Microsoft.Skype.Bots.Media.VideoMetrics.AverageInboundFrameRatePerSecond
+  nameWithType: VideoMetrics.AverageInboundFrameRatePerSecond
+- uid: Microsoft.Skype.Bots.Media.VideoMetrics.AverageOutboundBitRatePerSecond
+  name: AverageOutboundBitRatePerSecond
+  href: bot_media/Microsoft.Skype.Bots.Media.VideoMetrics.html#Microsoft_Skype_Bots_Media_VideoMetrics_AverageOutboundBitRatePerSecond
+  commentId: P:Microsoft.Skype.Bots.Media.VideoMetrics.AverageOutboundBitRatePerSecond
+  fullName: Microsoft.Skype.Bots.Media.VideoMetrics.AverageOutboundBitRatePerSecond
+  nameWithType: VideoMetrics.AverageOutboundBitRatePerSecond
+- uid: Microsoft.Skype.Bots.Media.VideoMetrics.AverageOutboundBitRatePerSecond*
+  name: AverageOutboundBitRatePerSecond
+  href: bot_media/Microsoft.Skype.Bots.Media.VideoMetrics.html#Microsoft_Skype_Bots_Media_VideoMetrics_AverageOutboundBitRatePerSecond_
+  commentId: Overload:Microsoft.Skype.Bots.Media.VideoMetrics.AverageOutboundBitRatePerSecond
+  fullName: Microsoft.Skype.Bots.Media.VideoMetrics.AverageOutboundBitRatePerSecond
+  nameWithType: VideoMetrics.AverageOutboundBitRatePerSecond
+- uid: Microsoft.Skype.Bots.Media.VideoMetrics.AverageOutboundFrameRatePerSecond
+  name: AverageOutboundFrameRatePerSecond
+  href: bot_media/Microsoft.Skype.Bots.Media.VideoMetrics.html#Microsoft_Skype_Bots_Media_VideoMetrics_AverageOutboundFrameRatePerSecond
+  commentId: P:Microsoft.Skype.Bots.Media.VideoMetrics.AverageOutboundFrameRatePerSecond
+  fullName: Microsoft.Skype.Bots.Media.VideoMetrics.AverageOutboundFrameRatePerSecond
+  nameWithType: VideoMetrics.AverageOutboundFrameRatePerSecond
+- uid: Microsoft.Skype.Bots.Media.VideoMetrics.AverageOutboundFrameRatePerSecond*
+  name: AverageOutboundFrameRatePerSecond
+  href: bot_media/Microsoft.Skype.Bots.Media.VideoMetrics.html#Microsoft_Skype_Bots_Media_VideoMetrics_AverageOutboundFrameRatePerSecond_
+  commentId: Overload:Microsoft.Skype.Bots.Media.VideoMetrics.AverageOutboundFrameRatePerSecond
+  fullName: Microsoft.Skype.Bots.Media.VideoMetrics.AverageOutboundFrameRatePerSecond
+  nameWithType: VideoMetrics.AverageOutboundFrameRatePerSecond
+- uid: Microsoft.Skype.Bots.Media.VideoQualityOfExperienceData
+  name: VideoQualityOfExperienceData
+  href: bot_media/Microsoft.Skype.Bots.Media.VideoQualityOfExperienceData.html
+  commentId: T:Microsoft.Skype.Bots.Media.VideoQualityOfExperienceData
+  fullName: Microsoft.Skype.Bots.Media.VideoQualityOfExperienceData
+  nameWithType: VideoQualityOfExperienceData
+- uid: Microsoft.Skype.Bots.Media.VideoQualityOfExperienceData.#ctor
+  name: VideoQualityOfExperienceData()
+  href: bot_media/Microsoft.Skype.Bots.Media.VideoQualityOfExperienceData.html#Microsoft_Skype_Bots_Media_VideoQualityOfExperienceData__ctor
+  commentId: M:Microsoft.Skype.Bots.Media.VideoQualityOfExperienceData.#ctor
+  fullName: Microsoft.Skype.Bots.Media.VideoQualityOfExperienceData.VideoQualityOfExperienceData()
+  nameWithType: VideoQualityOfExperienceData.VideoQualityOfExperienceData()
+- uid: Microsoft.Skype.Bots.Media.VideoQualityOfExperienceData.#ctor*
+  name: VideoQualityOfExperienceData
+  href: bot_media/Microsoft.Skype.Bots.Media.VideoQualityOfExperienceData.html#Microsoft_Skype_Bots_Media_VideoQualityOfExperienceData__ctor_
+  commentId: Overload:Microsoft.Skype.Bots.Media.VideoQualityOfExperienceData.#ctor
+  fullName: Microsoft.Skype.Bots.Media.VideoQualityOfExperienceData.VideoQualityOfExperienceData
+  nameWithType: VideoQualityOfExperienceData.VideoQualityOfExperienceData
+- uid: Microsoft.Skype.Bots.Media.VideoQualityOfExperienceData.VideoMetrics
+  name: VideoMetrics
+  href: bot_media/Microsoft.Skype.Bots.Media.VideoQualityOfExperienceData.html#Microsoft_Skype_Bots_Media_VideoQualityOfExperienceData_VideoMetrics
+  commentId: P:Microsoft.Skype.Bots.Media.VideoQualityOfExperienceData.VideoMetrics
+  fullName: Microsoft.Skype.Bots.Media.VideoQualityOfExperienceData.VideoMetrics
+  nameWithType: VideoQualityOfExperienceData.VideoMetrics
+- uid: Microsoft.Skype.Bots.Media.VideoQualityOfExperienceData.VideoMetrics*
+  name: VideoMetrics
+  href: bot_media/Microsoft.Skype.Bots.Media.VideoQualityOfExperienceData.html#Microsoft_Skype_Bots_Media_VideoQualityOfExperienceData_VideoMetrics_
+  commentId: Overload:Microsoft.Skype.Bots.Media.VideoQualityOfExperienceData.VideoMetrics
+  fullName: Microsoft.Skype.Bots.Media.VideoQualityOfExperienceData.VideoMetrics
+  nameWithType: VideoQualityOfExperienceData.VideoMetrics
 - uid: Microsoft.Skype.Bots.Media.VideoQualityType
   name: VideoQualityType
   href: bot_media/Microsoft.Skype.Bots.Media.VideoQualityType.html
@@ -15679,6 +16063,18 @@ references:
   commentId: Overload:Microsoft.Skype.Bots.Media.VideoSocket.Dispose
   fullName: Microsoft.Skype.Bots.Media.VideoSocket.Dispose
   nameWithType: VideoSocket.Dispose
+- uid: Microsoft.Skype.Bots.Media.VideoSocket.GetQualityOfExperienceData
+  name: GetQualityOfExperienceData()
+  href: bot_media/Microsoft.Skype.Bots.Media.VideoSocket.html#Microsoft_Skype_Bots_Media_VideoSocket_GetQualityOfExperienceData
+  commentId: M:Microsoft.Skype.Bots.Media.VideoSocket.GetQualityOfExperienceData
+  fullName: Microsoft.Skype.Bots.Media.VideoSocket.GetQualityOfExperienceData()
+  nameWithType: VideoSocket.GetQualityOfExperienceData()
+- uid: Microsoft.Skype.Bots.Media.VideoSocket.GetQualityOfExperienceData*
+  name: GetQualityOfExperienceData
+  href: bot_media/Microsoft.Skype.Bots.Media.VideoSocket.html#Microsoft_Skype_Bots_Media_VideoSocket_GetQualityOfExperienceData_
+  commentId: Overload:Microsoft.Skype.Bots.Media.VideoSocket.GetQualityOfExperienceData
+  fullName: Microsoft.Skype.Bots.Media.VideoSocket.GetQualityOfExperienceData
+  nameWithType: VideoSocket.GetQualityOfExperienceData
 - uid: Microsoft.Skype.Bots.Media.VideoSocket.MediaStreamFailure
   name: MediaStreamFailure
   href: bot_media/Microsoft.Skype.Bots.Media.VideoSocket.html#Microsoft_Skype_Bots_Media_VideoSocket_MediaStreamFailure

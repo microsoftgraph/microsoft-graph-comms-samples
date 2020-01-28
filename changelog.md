@@ -2,13 +2,14 @@
 
 This changelog covers what's changed in Microsoft Graph Communications SDK and its associated samples.
 
-## Jan 2019
+## Jan 2020
 
 - Promoted IncidentBot to v1.0 samples.
 - Migrated v1.0 samples to use the 1.2.0.1 SDK and the https://graph.microsoft.com/v1.0 endpoint.
+- Migrated beta samples to use the 1.2.0-beat.1 SDK.
 - Added `POST ~/call/{id}/keepAlive` API to v1.0 samples.
   - Required to persist the call.
-- Migrated samples from the `~/app/` endpoint to the `~/communications/` endpoint
+- Migrated samples from the `~/app/` endpoint to the `~/communications/` endpoint.
 
 ## Dec 2019
 

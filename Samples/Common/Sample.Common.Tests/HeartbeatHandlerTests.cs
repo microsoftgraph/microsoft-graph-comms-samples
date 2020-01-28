@@ -85,14 +85,8 @@ namespace Samples.Common.Tests
                 return Task.CompletedTask;
             });
 
-            Thread.Sleep(TimeSpan.FromSeconds(3));
+            Thread.Sleep(TimeSpan.FromSeconds(4));
             Assert.IsTrue(loggerCount >= 4, $"loggerCount >= 4 failed: loggerCount = {loggerCount}");
-
-            handler.Dispose();
-            loggerCount = 0;
-
-            Thread.Sleep(TimeSpan.FromSeconds(1));
-            Assert.AreEqual(0, loggerCount);
 
             handler.Dispose();
         }
@@ -125,14 +119,8 @@ namespace Samples.Common.Tests
                 throw new Exception("Something went wrong!!!");
             });
 
-            Thread.Sleep(TimeSpan.FromSeconds(3));
+            Thread.Sleep(TimeSpan.FromSeconds(4));
             Assert.IsTrue(errorCount >= 2, $"errorCount >= 2 failed: errorCount = {errorCount}");
-
-            handler.Dispose();
-            errorCount = 0;
-
-            Thread.Sleep(TimeSpan.FromSeconds(1));
-            Assert.AreEqual(0, errorCount);
 
             handler.Dispose();
         }

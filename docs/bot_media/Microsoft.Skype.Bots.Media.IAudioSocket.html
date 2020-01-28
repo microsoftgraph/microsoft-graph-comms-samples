@@ -100,17 +100,39 @@
   </div>
   <h3 id="methods">Methods
   </h3>
+  <a id="Microsoft_Skype_Bots_Media_IAudioSocket_GetQualityOfExperienceData_" data-uid="Microsoft.Skype.Bots.Media.IAudioSocket.GetQualityOfExperienceData*"></a>
+  <h4 id="Microsoft_Skype_Bots_Media_IAudioSocket_GetQualityOfExperienceData" data-uid="Microsoft.Skype.Bots.Media.IAudioSocket.GetQualityOfExperienceData">GetQualityOfExperienceData()</h4>
+  <div class="markdown level1 summary"><p>Get the Quality of Experience (QoE) data for the audio socket.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">AudioQualityOfExperienceData GetQualityOfExperienceData()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Skype.Bots.Media.AudioQualityOfExperienceData.html">AudioQualityOfExperienceData</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Microsoft_Skype_Bots_Media_IAudioSocket_GetQualityOfExperienceData_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The bot should fetch the QoE data no more than once every 30 seconds.
+To get accurate metrics, the bot should let media flow for at least 
+30 seconds before fetching the QoE data.</p>
+</div>
   <a id="Microsoft_Skype_Bots_Media_IAudioSocket_Send_" data-uid="Microsoft.Skype.Bots.Media.IAudioSocket.Send*"></a>
   <h4 id="Microsoft_Skype_Bots_Media_IAudioSocket_Send_Microsoft_Skype_Bots_Media_AudioMediaBuffer_" data-uid="Microsoft.Skype.Bots.Media.IAudioSocket.Send(Microsoft.Skype.Bots.Media.AudioMediaBuffer)">Send(AudioMediaBuffer)</h4>
-  <div class="markdown level1 summary"><p>Allows the application to send a packet of audio media if the application
-has configured the AudioSocket to send media.
-The application should be sending about 50 packets of audio media per
-second; each buffer containing 20 milliseconds worth of audio content.
-The application must create a concrete class which derives from the
-AudioMediaBuffer abstract class. The buffer object passed to the Send
-method is still potentially in-use after the method returns to the
-caller. The application must not free the buffer&apos;s data until the
-the buffer object&apos;s Dispose() method is invoked by the Media Platform.</p>
+  <div class="markdown level1 summary"><p>Sends a frame of audio media, where a frame contains 20 milliseconds
+of audio content (PCM samples).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -130,11 +152,26 @@ the buffer object&apos;s Dispose() method is invoked by the Media Platform.</p>
       <tr>
         <td><a class="xref" href="Microsoft.Skype.Bots.Media.AudioMediaBuffer.html">AudioMediaBuffer</a></td>
         <td><span class="parametername">buffer</span></td>
-        <td><p>AudioMediaBuffer to send.</p>
+        <td><p>AudioMediaBuffer containing the frame of audio media to send.</p>
 </td>
       </tr>
     </tbody>
   </table>
+  <h5 id="Microsoft_Skype_Bots_Media_IAudioSocket_Send_Microsoft_Skype_Bots_Media_AudioMediaBuffer__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The application must create a concrete class which derives from the
+AudioMediaBuffer abstract class. The buffer object passed to the Send
+method is still potentially in-use after the method returns to the
+caller. The application must not free the buffer&apos;s frame data until the
+the buffer object&apos;s Dispose() method is invoked by the Media Platform.
+<p>
+The application should be sending 50 frames of audio media per
+second with each frame containing 20 milliseconds of audio content.
+</p>
+<p>
+The AudioSocket must be enabled to send media via the <code>AudioSocketSettings.StreamDirections</code>
+property.
+</p></p>
+</div>
   <a id="Microsoft_Skype_Bots_Media_IAudioSocket_SendDtmfTone_" data-uid="Microsoft.Skype.Bots.Media.IAudioSocket.SendDtmfTone*"></a>
   <h4 id="Microsoft_Skype_Bots_Media_IAudioSocket_SendDtmfTone_Microsoft_Skype_Bots_Media_ToneId_" data-uid="Microsoft.Skype.Bots.Media.IAudioSocket.SendDtmfTone(Microsoft.Skype.Bots.Media.ToneId)">SendDtmfTone(ToneId)</h4>
   <div class="markdown level1 summary"><p>Sends a DTMF tone.</p>
@@ -205,12 +242,10 @@ the buffer object&apos;s Dispose() method is invoked by the Media Platform.</p>
   </h3>
   <h4 id="Microsoft_Skype_Bots_Media_IAudioSocket_AudioMediaReceived" data-uid="Microsoft.Skype.Bots.Media.IAudioSocket.AudioMediaReceived">AudioMediaReceived</h4>
   <div class="markdown level1 summary"><p>If the application has configured the AudioSocket to receive media, this
-event is raised each time a packet of audio media is received.
+event is raised each time a frame of audio media is received, where a frame
+contains 20 milliseconds of audio content (PCM samples).
 Once the application has consumed the buffer, it must call the buffer&apos;s
-Dispose() method.
-The application must be able to handle at least 50 incoming audio buffers
-per second.
-Events are serialized, so only one event at a time is raised to the app.</p>
+Dispose() method.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -232,6 +267,13 @@ Events are serialized, so only one event at a time is raised to the app.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="Microsoft_Skype_Bots_Media_IAudioSocket_AudioMediaReceived_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The application must be able to handle at least 50 incoming audio buffers
+per second.
+Events are serialized, so only one event at a time is raised to the app.
+The event handler should return as quickly as possible; any time-consuming
+per-frame processing should be performed asynchronously from the event handler.</p>
+</div>
   <h4 id="Microsoft_Skype_Bots_Media_IAudioSocket_AudioSendStatusChanged" data-uid="Microsoft.Skype.Bots.Media.IAudioSocket.AudioSendStatusChanged">AudioSendStatusChanged</h4>
   <div class="markdown level1 summary"><p>If the application has configured the AudioSocket to send media, this
 event is raised to inform the application when it may begin sending
