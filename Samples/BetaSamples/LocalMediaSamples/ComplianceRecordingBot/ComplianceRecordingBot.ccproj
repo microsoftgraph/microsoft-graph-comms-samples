@@ -48,6 +48,9 @@
       <RoleName>CRWorkerRole</RoleName>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <PublishProfile Include="Profiles\SampleGraphBotProduction.azurePubxml" />
+  </ItemGroup>
   <!-- Import the target files for this project template -->
   <PropertyGroup>
     <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>

@@ -200,6 +200,7 @@ namespace Sample.Common.Authentication
                 return new RequestValidationResult { IsValid = false };
             }
 
+            request.Properties.Add(HttpConstants.HeaderNames.Tenant, tenantClaim.Value);
             return new RequestValidationResult { IsValid = true, TenantId = tenantClaim.Value };
         }
 

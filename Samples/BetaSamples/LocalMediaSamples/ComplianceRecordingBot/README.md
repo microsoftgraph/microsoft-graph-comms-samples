@@ -2,7 +2,7 @@
 
 ## About
 
-The Compliance Recording bot sample guides you through building, deploying and testing a bot. This sample demonstrates how a bot can receive media streams for recording.
+The Compliance Recording bot sample guides you through building, deploying and testing a bot. This sample demonstrates how a bot can receive media streams for recording. Please note that the sample does not actually record. This logic is left up to the developer.
 
 ## Getting Started
 
@@ -23,8 +23,8 @@ This section walks you through the process of deploying and testing the sample b
 
 Open powershell (in admin mode) and run the following commands. When prompted for authentication, login with the tenant admin.
   * `> Import-Module SkypeOnlineConnector`
-  * `> $userCredential = Get-Credential`
-  * `> $sfbSession = New-CsOnlineSession -Credential $userCredential -Verbose`
+  * `> $userCredentialÂ =Â Get-Credential`
+  * `> $sfbSessionÂ =Â New-CsOnlineSessionÂ -CredentialÂ $userCredentialÂ -Verbose`
   * `> Import-PSSession $sfbSession`
   * `> New-CsOnlineApplicationInstance -UserPrincipalName <upn@contoso.com> -DisplayName <displayName> -ApplicationId <your_botappId>`
   * `> Sync-CsOnlineApplicationInstance -ObjectId <objectId>`

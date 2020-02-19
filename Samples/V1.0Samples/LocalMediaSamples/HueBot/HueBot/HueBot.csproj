@@ -19,8 +19,8 @@
     <PackageReference Include="Microsoft.ServiceFabric.AspNetCore.HttpSys" Version="3.2.176" />
     <!-- Although Bots.Media is implicitly imported by Calls.Media, this library requires an explicit reference for
     some scripts included within the nuget package. -->
-    <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.13.1.324-alpha" />
-    <PackageReference Include="Microsoft.Graph.Communications.Calls.Media" Version="1.1.0-prerelease.2237" />
+    <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.14.1.234-alpha" />
+    <PackageReference Include="Microsoft.Graph.Communications.Calls.Media" Version="1.2.0.1" />
   </ItemGroup>
 
   <ItemGroup>

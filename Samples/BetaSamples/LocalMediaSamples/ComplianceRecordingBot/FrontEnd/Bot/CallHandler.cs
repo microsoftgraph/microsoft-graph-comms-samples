@@ -22,7 +22,7 @@ namespace Sample.ComplianceRecordingBot.FrontEnd.Bot
     /// <summary>
     /// Call Handler Logic.
     /// </summary>
-    internal class CallHandler : IDisposable
+    internal class CallHandler : HeartbeatHandler
     {
         /// <summary>
         /// MSI when there is no dominant speaker.
@@ -41,9 +41,6 @@ namespace Sample.ComplianceRecordingBot.FrontEnd.Bot
         // This dictionnary helps maintaining a mapping of the sockets subscriptions
         private readonly ConcurrentDictionary<uint, uint> msiToSocketIdMapping = new ConcurrentDictionary<uint, uint>();
 
-        // Graph logger.
-        private readonly IGraphLogger logger;
-
         private readonly Timer recordingStatusFlipTimer;
 
         private int recordingStatusIndex = -1;
@@ -53,10 +50,9 @@ namespace Sample.ComplianceRecordingBot.FrontEnd.Bot
         /// </summary>
         /// <param name="statefulCall">The stateful call.</param>
         public CallHandler(ICall statefulCall)
+            : base(TimeSpan.FromMinutes(10), statefulCall?.GraphLogger)
         {
             this.Call = statefulCall;
-            this.logger = statefulCall.GraphLogger;
-
             this.Call.OnUpdated += this.CallOnUpdated;
 
             // subscribe to dominant speaker event on the audioSocket
@@ -67,7 +63,7 @@ namespace Sample.ComplianceRecordingBot.FrontEnd.Bot
             this.Call.Participants.OnUpdated += this.ParticipantsOnUpdated;
 
             // attach the botMediaStream
-            this.BotMediaStream = new BotMediaStream(this.Call.GetLocalMediaSession(), this.logger);
+            this.BotMediaStream = new BotMediaStream(this.Call.GetLocalMediaSession(), this.GraphLogger);
 
             // initialize the timer
             var timer = new Timer(1000 * 60); // every 60 seconds
@@ -86,9 +82,17 @@ namespace Sample.ComplianceRecordingBot.FrontEnd.Bot
         /// </summary>
         public BotMediaStream BotMediaStream { get; private set; }
 
-        /// <inheritdoc />
-        public void Dispose()
+        /// <inheritdoc/>
+        protected override Task HeartbeatAsync(ElapsedEventArgs args)
         {
+            return this.Call.KeepAliveAsync();
+        }
+
+        /// <inheritdoc />
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+
             var audioSocket = this.Call.GetLocalMediaSession().AudioSocket;
             audioSocket.DominantSpeakerChanged -= this.OnDominantSpeakerChanged;
 
@@ -109,7 +113,7 @@ namespace Sample.ComplianceRecordingBot.FrontEnd.Bot
         /// Called when recording status flip timer fires.
         /// </summary>
         /// <param name="source">The source.</param>
-        /// <param name="e">The <see cref="System.Timers.ElapsedEventArgs" /> instance containing the event data.</param>
+        /// <param name="e">The <see cref="ElapsedEventArgs" /> instance containing the event data.</param>
         private void OnRecordingStatusFlip(object source, ElapsedEventArgs e)
         {
             _ = Task.Run(async () =>
@@ -120,7 +124,7 @@ namespace Sample.ComplianceRecordingBot.FrontEnd.Bot
                 {
                     var recordedParticipantId = this.Call.Resource.IncomingContext.ObservedParticipantId;
 
-                    this.logger.Warn($"We've rolled through all the status'... removing participant {recordedParticipantId}");
+                    this.GraphLogger.Warn($"We've rolled through all the status'... removing participant {recordedParticipantId}");
                     var recordedParticipant = this.Call.Participants[recordedParticipantId];
                     await recordedParticipant.DeleteAsync().ConfigureAwait(false);
                     return;
@@ -128,7 +132,7 @@ namespace Sample.ComplianceRecordingBot.FrontEnd.Bot
 
                 var newStatus = recordingStatus[recordingIndex];
 
-                this.logger.Info($"Flipping recording status to {newStatus}");
+                this.GraphLogger.Info($"Flipping recording status to {newStatus}");
 
                 try
                 {
@@ -141,9 +145,9 @@ namespace Sample.ComplianceRecordingBot.FrontEnd.Bot
                 }
                 catch (Exception exc)
                 {
-                    this.logger.Error(exc, $"Failed to flip the recording status to {newStatus}");
+                    this.GraphLogger.Error(exc, $"Failed to flip the recording status to {newStatus}");
                 }
-            }).ForgetAndLogExceptionAsync(this.logger);
+            }).ForgetAndLogExceptionAsync(this.GraphLogger);
         }
 
         /// <summary>
@@ -269,7 +273,7 @@ namespace Sample.ComplianceRecordingBot.FrontEnd.Bot
                         }
 
                         updateMSICache = true;
-                        this.logger.Info($"[{this.Call.Id}:SubscribeToParticipant(socket {socketId} available, the number of remaining sockets is {this.availableSocketIds.Count}, subscribing to the participant {participant.Id})");
+                        this.GraphLogger.Info($"[{this.Call.Id}:SubscribeToParticipant(socket {socketId} available, the number of remaining sockets is {this.availableSocketIds.Count}, subscribing to the participant {participant.Id})");
                     }
                     else if (forceSubscribe)
                     {
@@ -294,7 +298,7 @@ namespace Sample.ComplianceRecordingBot.FrontEnd.Bot
                 {
                     this.msiToSocketIdMapping.AddOrUpdate(msi, socketId, (k, v) => socketId);
 
-                    this.logger.Info($"[{this.Call.Id}:SubscribeToParticipant(subscribing to the participant {participant.Id} on socket {socketId})");
+                    this.GraphLogger.Info($"[{this.Call.Id}:SubscribeToParticipant(subscribing to the participant {participant.Id} on socket {socketId})");
                     this.BotMediaStream.Subscribe(MediaType.Video, msi, VideoResolution.HD1080p, socketId);
                 }
             }
@@ -305,7 +309,7 @@ namespace Sample.ComplianceRecordingBot.FrontEnd.Bot
             if (vbssParticipant != null)
             {
                 // new sharer
-                this.logger.Info($"[{this.Call.Id}:SubscribeToParticipant(subscribing to the VBSS sharer {participant.Id})");
+                this.GraphLogger.Info($"[{this.Call.Id}:SubscribeToParticipant(subscribing to the VBSS sharer {participant.Id})");
                 this.BotMediaStream.Subscribe(MediaType.Vbss, uint.Parse(vbssParticipant.SourceId), VideoResolution.HD1080p, socketId);
             }
         }
@@ -321,7 +325,7 @@ namespace Sample.ComplianceRecordingBot.FrontEnd.Bot
         /// </param>
         private void OnDominantSpeakerChanged(object sender, DominantSpeakerChangedEventArgs e)
         {
-            this.logger.Info($"[{this.Call.Id}:OnDominantSpeakerChanged(DominantSpeaker={e.CurrentDominantSpeaker})]");
+            this.GraphLogger.Info($"[{this.Call.Id}:OnDominantSpeakerChanged(DominantSpeaker={e.CurrentDominantSpeaker})]");
 
             if (e.CurrentDominantSpeaker != DominantSpeakerNone)
             {

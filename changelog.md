@@ -2,12 +2,26 @@
 
 This changelog covers what's changed in Microsoft Graph Communications SDK and its associated samples.
 
+## Jan 2020
+
+- Promoted IncidentBot to v1.0 samples.
+- Migrated v1.0 samples to use the 1.2.0.1 SDK and the https://graph.microsoft.com/v1.0 endpoint.
+- Migrated beta samples to use the 1.2.0-beta.1 SDK.
+- Added `POST ~/call/{id}/keepAlive` API to v1.0 samples.
+  - Required to persist the call.
+- Migrated samples from the `~/app/` endpoint to the `~/communications/` endpoint.
+
+## Dec 2019
+
+- Updated Documentation to be based on the 1.2.0.1 SDK.
+- Updated Communications libraries to 1.2.0-beta.1
+
 ## Nov 2019
 
-- Updated Communications libraries 1.1.0-prerelease.2237
+- Updated Communications libraries to 1.1.0-prerelease.2237
   - Exposed delete participant API
 
-- Updated Communications libraries 1.1.0-prerelease.2027
+- Updated Communications libraries to 1.1.0-prerelease.2027
   - Exposed recording APIs
 
 | **Change type** | **Version**   | **Description**                          |
@@ -23,13 +37,13 @@ This changelog covers what's changed in Microsoft Graph Communications SDK and i
 
 ## Oct 2019
 
-- Updated Communications libraries 1.1.0-prerelease.1855
+- Updated Communications libraries to 1.1.0-prerelease.1855
 - Updated to latest /beta contacts.
   - For a full list of changes refer to the [graph blog](https://developer.microsoft.com/en-us/graph/blogs/breaking-changes-calls-and-online-meetings-api-updates-in-microsoft-graph-beta-2/).
 
 ## Sept 2019
 
-- Updated Communications libraries 1.1.0-prerelease.1511
+- Updated Communications libraries to 1.1.0-prerelease.1511
 - Updated Media library 1.13.1.324-alpha
 
 ### Communications 1.1.0-prerelease.1511 Changes
@@ -53,7 +67,7 @@ This changelog covers what's changed in Microsoft Graph Communications SDK and i
 ## May 2019
 
 - Updated Media library 1.12.1.6-alpha
-- Updated Communications libraries 1.1.0-prerelease.581
+- Updated Communications libraries to 1.1.0-prerelease.581
 
 ### Communications 1.1.0-prerelease.581 Changes
 
@@ -88,14 +102,14 @@ ICallParticipant => IParticipant
 - Updated to `Microsoft.Graph` 1.14.0 SDK.
 - Updated to `Microsoft.Skype.Bots.Media` 1.12.1.6-alpha SDK.
 - Added `promptsQueued` callback to be notified when a prompt has been queued, and the next one can be added.  This is only valid for scenarios where bot developers queue a single prompt at a time.  If 1P developers pass in multiple prompts, order is guaranteed.
-- Added proper cleanup of resources when ESDK resources get garbage collected.  This fixes a memory leak where internal notification queues were not getting removed when resources were GCd without `Dispose()` being called.
-- First stages of HA/DR support.  SDK supports passing in an `ICache` interface that notifies the bot developer whenever internal state has changed.  It is also used to recover state when calling `ICommunicationsClient.RehydrateAsync`.  An implementation of re-hydration from PMA is built in by default, but it does not support AudioRoutingGroupentities.
-- Deprecated support for Chain-Id/Correlation-Id in ESDK.  It is replaced with Scenario-Id, which can be set by the client as a kind of "telemetry identifier" to correlate any calls together.
+- Added proper cleanup of resources when Stateful SDK resources get garbage collected.  This fixes a memory leak where internal notification queues were not getting removed when resources were GCd without `Dispose()` being called.
+- First stages of HA/DR support.  SDK supports passing in an `ICache` interface that notifies the bot developer whenever internal state has changed.  It is also used to recover state when calling `ICommunicationsClient.RehydrateAsync`.  An implementation of re-hydration from PMA is built in by default, but it does not support AudioRoutingGroup entities.
+- Deprecated support for Chain-Id/Correlation-Id in Stateful SDK.  It is replaced with Scenario-Id, which can be set by the client as a kind of "telemetry identifier" to correlate any calls together.
 
 ## January 2019
 
 - Updated Media library 1.11.1.86-alpha
-- Updated Communications libraries 1.0.0-prerelease.1272
+- Updated Communications libraries to 1.0.0-prerelease.1272
 
 | API                            | Update                                     |
 |:-------------------------------|:-------------------------------------------|
@@ -110,7 +124,7 @@ When the stateful SDK receives a notification it validates it, queues it up for 
 ## December 2018
 
 - Updated Media library 1.11.1.2-alpha
-- Updated Communications libraries 1.0.0-prerelease.881
+- Updated Communications libraries to 1.0.0-prerelease.881
 
 | API                            | Update                                     |
 |:-------------------------------|:-------------------------------------------|
@@ -167,7 +181,7 @@ This release cleans up interfaces where some members have been renamed or remove
 ## August 2018
 
 ### Core SDK
-Removed propreties from some graph owned contracts:
+Removed properties from some graph owned contracts:
 - Removed `Identity.TenantId` property.  This still flows through on the wire, but needs to be fetched from `Identity.AdditionalData`.
 - Removed `Identity.IdentityProvider` as it was not required.  `IdentityProvider` is now expected to be inferred using `tenantId`
 ``` json
@@ -181,7 +195,7 @@ Removed propreties from some graph owned contracts:
   }
 }
 ```
-- Guest `Identity` is no longer represented using `IdentitySet.User` with `IndentityProvider.None`.
+- Guest `Identity` is no longer represented using `IdentitySet.User` with `IdentityProvider.None`.
 ``` json
 {
   "@odata.type": "#microsoft.graph.identitySet",

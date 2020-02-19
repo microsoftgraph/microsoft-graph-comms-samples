@@ -10,8 +10,8 @@
   <Import Project="$(MSBuildThisFileDirectory)..\..\Graph.props" />
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Graph.Communications.Client" Version="1.1.0-prerelease.2237" />
-    <PackageReference Include="Microsoft.Graph.Communications.Core.Calls" Version="1.1.0-prerelease.2237" />
+    <PackageReference Include="Microsoft.Graph.Communications.Client" Version="1.2.0.1" />
+    <PackageReference Include="Microsoft.Graph.Communications.Core" Version="1.2.0.1" />
     <PackageReference Include="Microsoft.IdentityModel.Clients.ActiveDirectory" Version="5.2.3" />
     <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="5.5.0" />
   </ItemGroup>

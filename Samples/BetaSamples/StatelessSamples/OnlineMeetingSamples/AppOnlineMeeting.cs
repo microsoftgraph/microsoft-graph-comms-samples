@@ -9,7 +9,6 @@
 namespace Sample.OnlineMeeting
 {
     using System;
-    using System.Diagnostics;
     using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.Graph;
@@ -43,13 +42,13 @@ namespace Sample.OnlineMeeting
         /// <param name="vtcId">The vtcid assoiciated with the meeting.</param>
         /// <param name="scenarioId">The scenario identifier - needed in case of debugging for correlating client side request with server side logs.</param>
         /// <returns> The onlinemeeting. </returns>
-        public async Task<Microsoft.Graph.OnlineMeeting> GetOnlineMeetingByVtcIdAsync(string tenantId, string vtcId, Guid scenarioId)
+        public async Task<OnlineMeeting> GetOnlineMeetingByVtcIdAsync(string tenantId, string vtcId, Guid scenarioId)
         {
-           var statelessClient = new CallsGraphServiceClient(
+           var statelessClient = new GraphServiceClient(
                this.graphEndpointUri.AbsoluteUri,
                this.GetAuthenticationProvider(tenantId, scenarioId));
 
-           var meetingRequestCollection = statelessClient.App.OnlineMeetings.Request();
+           var meetingRequestCollection = statelessClient.Communications.OnlineMeetings.Request();
            meetingRequestCollection.Filter($"VideoTeleconferenceId eq '{vtcId}'");
 
            var meeting = await meetingRequestCollection.GetAsync().ConfigureAwait(false);
@@ -66,15 +65,15 @@ namespace Sample.OnlineMeeting
         /// <param name="scenarioId">The scenario identifier - needed in case of debugging for correlating client side request with server side logs.</param>
         /// <returns> The onlinemeeting. </returns>
         [Obsolete("This way of creating meeting is obsolete. Check CreateUserMeetingRequestAsync for creating meetings.")]
-        public async Task<Microsoft.Graph.OnlineMeeting> CreateOnlineMeetingAsync(string tenantId, string organizerId, Guid scenarioId)
+        public async Task<OnlineMeeting> CreateOnlineMeetingAsync(string tenantId, string organizerId, Guid scenarioId)
         {
-            var statelessClient = new CallsGraphServiceClient(
+            var statelessClient = new GraphServiceClient(
                 this.graphEndpointUri.AbsoluteUri,
                 this.GetAuthenticationProvider(tenantId, scenarioId));
 
-            var meetingRequest = statelessClient.App.OnlineMeetings.Request();
+            var meetingRequest = statelessClient.Communications.OnlineMeetings.Request();
 
-            var onlineMeeting = new Microsoft.Graph.OnlineMeeting()
+            var onlineMeeting = new OnlineMeeting()
             {
                 Participants = new MeetingParticipants()
                 {

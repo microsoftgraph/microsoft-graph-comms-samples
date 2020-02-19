@@ -47,9 +47,9 @@ namespace Sample.Common
             catch (Exception e)
             {
                 // Log and absorb all exceptions here.
-                logger.Error(
+                logger?.Error(
                     e,
-                    $"Caught an Exception running the task: {description ?? string.Empty} {e.Message}\n StackTrace: {e.StackTrace}",
+                    $"Caught an Exception running the task: {description ?? string.Empty}",
                     memberName: memberName,
                     filePath: filePath,
                     lineNumber: lineNumber);

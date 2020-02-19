@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceConfiguration serviceName="AudioVideoPlaybackBot" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="6" osVersion="*" schemaVersion="2015-04.2.6">
-  <Role name="WorkerRole">
+  <Role name="AVPWorkerRole">
     <Instances count="1" />
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=$storage$;AccountKey=$storageKey$" />
@@ -17,7 +17,7 @@
   </Role>
   <NetworkConfiguration>
     <AddressAssignments>
-      <InstanceAddress roleName="WorkerRole">
+      <InstanceAddress roleName="AVPWorkerRole">
         <PublicIPs>
           <PublicIP name="instancePublicIP" domainNameLabel="pip" />
         </PublicIPs>

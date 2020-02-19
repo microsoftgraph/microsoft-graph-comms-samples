@@ -3,14 +3,13 @@
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <Import Project="$(MSBuildThisFileDirectory)..\..\..\..\Graph.props" />
   <PropertyGroup>
-    <RoleType>Worker</RoleType>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EAF11F22-C267-4C02-820D-12B622FEBFC1}</ProjectGuid>
+    <ProjectGuid>{9B6A0025-19B5-41D3-9E7D-F1160FA37E78}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sample.ComplianceRecordingBot.WorkerRole</RootNamespace>
-    <AssemblyName>Sample.ComplianceRecordingBot.WorkerRole</AssemblyName>
+    <RootNamespace>Sample.AudioVideoPlaybackBot.WorkerRole</RootNamespace>
+    <AssemblyName>Sample.AudioVideoPlaybackBot.WorkerRole</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
@@ -38,9 +37,7 @@
     <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.14.1.234-alpha" />
     <PackageReference Include="Microsoft.WindowsAzure.ConfigurationManager" Version="3.2.3" />
     <PackageReference Include="Microsoft.WindowsAzure.SDK" Version="2.9.0" />
-    <PackageReference Include="WindowsAzure.Storage">
-      <Version>8.0.1</Version>
-    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <Reference Include="MonAgentListener, Version=33.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Configuration" />
   </ItemGroup>
@@ -55,18 +52,33 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="mle1080p15vbss_2500Kbps.264">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="output180p.264">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="output360p.264">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="output720p.264">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="startup.cmd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="downsampled.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Common\Sample.Common.Beta\Sample.Common.Beta.csproj">
-      <Project>{88b67fbe-6de8-4dc3-83cf-9f6b4ea10138}</Project>
-      <Name>Sample.Common.Beta</Name>
+    <ProjectReference Include="..\..\..\..\Common\Sample.Common\Sample.Common.csproj">
+      <Project>{3268e59c-90dc-4d7b-97ea-a1dbb2716df3}</Project>
+      <Name>Sample.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FrontEnd\CRFrontEnd.csproj">
-      <Project>{739d09c4-47e8-42b7-9b89-94dcb890ac0f}</Project>
-      <Name>CRFrontEnd</Name>
+    <ProjectReference Include="..\FrontEnd\AVPFrontEnd.csproj">
+      <Project>{7C0DE005-FD92-4AEE-A6A2-03954F9DA631}</Project>
+      <Name>AVPFrontEnd</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
