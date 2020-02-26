@@ -1,12 +1,6 @@
 ### YamlMime:XRefMap
 sorted: true
 references:
-- uid: Microsoft.Graph
-  name: Microsoft.Graph
-  href: common/Microsoft.Graph.html
-  commentId: N:Microsoft.Graph
-  fullName: Microsoft.Graph
-  nameWithType: Microsoft.Graph
 - uid: Microsoft.Graph.AdditionalDataExtensions
   name: AdditionalDataExtensions
   href: common/Microsoft.Graph.AdditionalDataExtensions.html
@@ -5167,7 +5161,7 @@ references:
   nameWithType: TaskQueue.EnqueueAsync
 - uid: Microsoft.Graph.Communications.Common.Telemetry
   name: Microsoft.Graph.Communications.Common.Telemetry
-  href: client/Microsoft.Graph.Communications.Common.Telemetry.html
+  href: common/Microsoft.Graph.Communications.Common.Telemetry.html
   commentId: N:Microsoft.Graph.Communications.Common.Telemetry
   fullName: Microsoft.Graph.Communications.Common.Telemetry
   nameWithType: Microsoft.Graph.Communications.Common.Telemetry
@@ -7883,6 +7877,12 @@ references:
   commentId: F:Microsoft.Graph.Communications.Common.Telemetry.TransactionDirection.Outgoing
   fullName: Microsoft.Graph.Communications.Common.Telemetry.TransactionDirection.Outgoing
   nameWithType: TransactionDirection.Outgoing
+- uid: Microsoft.Graph.Communications.Common.Telemetry2
+  name: Microsoft.Graph.Communications.Common.Telemetry
+  href: client/Microsoft.Graph.Communications.Common.Telemetry.html
+  commentId: N:Microsoft.Graph.Communications.Common.Telemetry
+  fullName: Microsoft.Graph.Communications.Common.Telemetry
+  nameWithType: Microsoft.Graph.Communications.Common.Telemetry
 - uid: Microsoft.Graph.Communications.Common.Transport
   name: Microsoft.Graph.Communications.Common.Transport
   href: common/Microsoft.Graph.Communications.Common.Transport.html
@@ -12073,6 +12073,18 @@ references:
   commentId: F:Microsoft.Graph.Routing.CloudNamespace.Public
   fullName: Microsoft.Graph.Routing.CloudNamespace.Public
   nameWithType: CloudNamespace.Public
+- uid: Microsoft.Graph2
+  name: Microsoft.Graph
+  href: core/Microsoft.Graph.html
+  commentId: N:Microsoft.Graph
+  fullName: Microsoft.Graph
+  nameWithType: Microsoft.Graph
+- uid: Microsoft.Graph3
+  name: Microsoft.Graph
+  href: common/Microsoft.Graph.html
+  commentId: N:Microsoft.Graph
+  fullName: Microsoft.Graph
+  nameWithType: Microsoft.Graph
 - uid: Microsoft.Skype.Bots.Media
   name: Microsoft.Skype.Bots.Media
   href: bot_media/Microsoft.Skype.Bots.Media.html
