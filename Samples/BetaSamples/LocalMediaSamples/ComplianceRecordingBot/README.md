@@ -2,7 +2,7 @@
 
 ## About
 
-The Compliance Recording bot sample guides you through building, deploying and testing a bot. This sample demonstrates how a bot can receive media streams for recording.
+The Compliance Recording bot sample guides you through building, deploying and testing a bot. This sample demonstrates how a bot can receive media streams for recording. Please note that the sample does not actually record. This logic is left up to the developer.
 
 ## Getting Started
 
@@ -11,6 +11,8 @@ This section walks you through the process of deploying and testing the sample b
 ### Bot Registration
 
 1. Follow the steps in [Register Calling Bot](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/register-calling-bot.html). Save the bot name, bot app id and bot secret for configuration.
+    * For the calling webhook, by default the notification will go to https://{your domain}/api/calling. This is configured with the `CallSignalingRoutePrefix` in [HttpRouteConstants.cs](https://github.com/microsoftgraph/microsoft-graph-comms-samples/blob/master/Samples/BetaSamples/LocalMediaSamples/ComplianceRecordingBot/FrontEnd/Http/Controllers/HttpRouteConstants.cs).
+    * Ignore the "Register bot in Microsoft Teams" section as the Compliance Recording bot won't be called directly. These bots are related to the policies discussed below, and are "attached" to users, and will be automatically invited to the call.
 
 1. Add the following Application Permissions to the bot:
 
@@ -31,15 +33,15 @@ Open powershell (in admin mode) and run the following commands. When prompted fo
 
 ### Create a Compliance Recording Policy
 Requires the application instance ID created above. Continue your powershell session and run the following commands.
-  * `> New-CsTeamsComplianceRecordingPolicy -Tenant <tenantId> -Enabled $true -Description "Test policy created by <yourName>" <policyIdentity>`
-  * ```> Set-CsTeamsComplianceRecordingPolicy -Tenant <tenantId> -Identity <policyIdentity> -ComplianceRecordingApplications ` @(New-CsTeamsComplianceRecordingApplication -Tenant <tenantId> -Parent <policyIdentity> -Id <objectId>)```
+  * `> New-CsTeamsComplianceRecordingPolicy -Enabled $true -Description "Test policy created by <yourName>" <policyIdentity>`
+  * ```> Set-CsTeamsComplianceRecordingPolicy -Identity <policyIdentity> -ComplianceRecordingApplications ` @(New-CsTeamsComplianceRecordingApplication -Parent <policyIdentity> -Id <objectId>)```
 
 After 30-60 seconds, the policy should show up. To verify your policy was created correctly:
   * `> Get-CsTeamsComplianceRecordingPolicy <policyIdentity>`
 
 ### Assign the Compliance Recording Policy
 Requries the policy identity created above. Contine your powershell session and run the following commands.
-  * `> Grant-CsTeamsComplianceRecordingPolicy -Identity <userUnderCompliance@contoso.com> -PolicyName <policyIdentity> -Tenant <tenantId>`
+  * `> Grant-CsTeamsComplianceRecordingPolicy -Identity <userUnderCompliance@contoso.com> -PolicyName <policyIdentity>`
 
 To verify your policy was assigned correctly:
   * `> Get-CsOnlineUser <userUnderCompliance@contoso.com> | ft sipaddress, tenantid, TeamsComplianceRecordingPolicy`
