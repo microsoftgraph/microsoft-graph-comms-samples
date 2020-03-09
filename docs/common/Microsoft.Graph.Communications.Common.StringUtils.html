@@ -1,0 +1,923 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class StringUtils
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class StringUtils
+   ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Microsoft.Graph.Communications.Common.StringUtils">
+  
+  
+  <h1 id="Microsoft_Graph_Communications_Common_StringUtils" data-uid="Microsoft.Graph.Communications.Common.StringUtils" class="text-break">Class StringUtils
+  </h1>
+  <div class="markdown level0 summary"><p>String Utils</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">StringUtils</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.Communications.Common.html">Microsoft.Graph.Communications.Common</a></h6>
+  <h6><strong>Assembly</strong>: Microsoft.Graph.Communications.Common.dll</h6>
+  <h5 id="Microsoft_Graph_Communications_Common_StringUtils_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class StringUtils</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Microsoft_Graph_Communications_Common_StringUtils_ConvertOrDefault_" data-uid="Microsoft.Graph.Communications.Common.StringUtils.ConvertOrDefault*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_StringUtils_ConvertOrDefault__1_System_String___0_" data-uid="Microsoft.Graph.Communications.Common.StringUtils.ConvertOrDefault``1(System.String,``0)">ConvertOrDefault&lt;T&gt;(String, T)</h4>
+  <div class="markdown level1 summary"><p>Convert string to type or return default</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static T ConvertOrDefault&lt;T&gt;(string value, T defaultValue = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>input value</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">defaultValue</span></td>
+        <td><p>default value</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><p>result of the conversion</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Type of return value</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Common_StringUtils_EqualsIgnoreCase_" data-uid="Microsoft.Graph.Communications.Common.StringUtils.EqualsIgnoreCase*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_StringUtils_EqualsIgnoreCase_System_String_System_String_" data-uid="Microsoft.Graph.Communications.Common.StringUtils.EqualsIgnoreCase(System.String,System.String)">EqualsIgnoreCase(String, String)</h4>
+  <div class="markdown level1 summary"><p>Case insensitive string comparison</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool EqualsIgnoreCase(this string valueA, string valueB)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">valueA</span></td>
+        <td><p>Input string A</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">valueB</span></td>
+        <td><p>Input string B</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p>Value indicating whether strings are equal in a case insensitive comparision</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Common_StringUtils_FromBase64_" data-uid="Microsoft.Graph.Communications.Common.StringUtils.FromBase64*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_StringUtils_FromBase64_System_String_" data-uid="Microsoft.Graph.Communications.Common.StringUtils.FromBase64(System.String)">FromBase64(String)</h4>
+  <div class="markdown level1 summary"><p>Converts the specified string, which encodes binary data as base-64 digits, to an equivalent 8-bit unsigned integer array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] FromBase64(this string data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">data</span></td>
+        <td><p>The string to convert.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.byte">Byte</a>[]</td>
+        <td><p>An array of 8-bit unsigned integers.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Common_StringUtils_FromBase64Url_" data-uid="Microsoft.Graph.Communications.Common.StringUtils.FromBase64Url*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_StringUtils_FromBase64Url_System_String_" data-uid="Microsoft.Graph.Communications.Common.StringUtils.FromBase64Url(System.String)">FromBase64Url(String)</h4>
+  <div class="markdown level1 summary"><p>Converts the specified string, which encodes binary data as base-64 digits, to an equivalent 8-bit unsigned integer array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static byte[] FromBase64Url(this string data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">data</span></td>
+        <td><p>The string to convert.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.byte">Byte</a>[]</td>
+        <td><p>An array of 8-bit unsigned integers.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Common_StringUtils_GetSHA256Hash_" data-uid="Microsoft.Graph.Communications.Common.StringUtils.GetSHA256Hash*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_StringUtils_GetSHA256Hash_System_String_" data-uid="Microsoft.Graph.Communications.Common.StringUtils.GetSHA256Hash(System.String)">GetSHA256Hash(String)</h4>
+  <div class="markdown level1 summary"><p>Creates a SHA256 hash of the passed string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetSHA256Hash(this string input)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">input</span></td>
+        <td><p>The input string.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>The SHA256 hash.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Common_StringUtils_Join_" data-uid="Microsoft.Graph.Communications.Common.StringUtils.Join*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_StringUtils_Join_System_Collections_Generic_IEnumerable_System_String__System_String_" data-uid="Microsoft.Graph.Communications.Common.StringUtils.Join(System.Collections.Generic.IEnumerable{System.String},System.String)">Join(IEnumerable&lt;String&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Concatenates the members of a constructed <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable&lt;T&gt;</a> collection of type <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>, using the specified separator between each member.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string Join(this IEnumerable&lt;string&gt; values, string separator)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td><span class="parametername">values</span></td>
+        <td><p>A collection that contains the strings to concatenate.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">separator</span></td>
+        <td><p>The string to use as a separator.<code data-dev-comment-type="paramref" class="paramref">separator</code> is included in the returned string only if <code data-dev-comment-type="paramref" class="paramref">values</code> has more than one element.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>A string that consists of the members of <code data-dev-comment-type="paramref" class="paramref">values</code> delimited by the <code data-dev-comment-type="paramref" class="paramref">separator</code> string. If <code data-dev-comment-type="paramref" class="paramref">values</code> has no members, the method returns <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string.empty">Empty</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Common_StringUtils_NamespaceInCamelCase_" data-uid="Microsoft.Graph.Communications.Common.StringUtils.NamespaceInCamelCase*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_StringUtils_NamespaceInCamelCase_System_String_" data-uid="Microsoft.Graph.Communications.Common.StringUtils.NamespaceInCamelCase(System.String)">NamespaceInCamelCase(String)</h4>
+  <div class="markdown level1 summary"><p>Returns a namespace in camel case.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string NamespaceInCamelCase(this string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Value to convert.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>The namespace string in camel case.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Common_StringUtils_NamespaceInPascalCase_" data-uid="Microsoft.Graph.Communications.Common.StringUtils.NamespaceInPascalCase*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_StringUtils_NamespaceInPascalCase_System_String_" data-uid="Microsoft.Graph.Communications.Common.StringUtils.NamespaceInPascalCase(System.String)">NamespaceInPascalCase(String)</h4>
+  <div class="markdown level1 summary"><p>Returns a namespace in pascal case.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string NamespaceInPascalCase(this string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Value to convert.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>The namespace string in pascal case.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Common_StringUtils_SafeFormat_" data-uid="Microsoft.Graph.Communications.Common.StringUtils.SafeFormat*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_StringUtils_SafeFormat_System_String_System_Object___" data-uid="Microsoft.Graph.Communications.Common.StringUtils.SafeFormat(System.String,System.Object[])">SafeFormat(String, Object[])</h4>
+  <div class="markdown level1 summary"><p>Format a string with arguments.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string SafeFormat(this string text, params object[] args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">text</span></td>
+        <td><p>Format string.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>[]</td>
+        <td><span class="parametername">args</span></td>
+        <td><p>Optional arguments.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>Formatted string.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Common_StringUtils_ToBase64_" data-uid="Microsoft.Graph.Communications.Common.StringUtils.ToBase64*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_StringUtils_ToBase64_System_ArraySegment_System_Byte__System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="Microsoft.Graph.Communications.Common.StringUtils.ToBase64(System.ArraySegment{System.Byte},System.Nullable{System.Int32},System.Nullable{System.Int32})">ToBase64(ArraySegment&lt;Byte&gt;, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Convert array segment to base 64 representation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ToBase64(this ArraySegment&lt;byte&gt; data, int? offset = default(int? ), int? count = default(int? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.arraysegment-1">ArraySegment</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.byte">Byte</a>&gt;</td>
+        <td><span class="parametername">data</span></td>
+        <td><p>Data to convert.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td><span class="parametername">offset</span></td>
+        <td><p>Optional override offset.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td><span class="parametername">count</span></td>
+        <td><p>Optional override count.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>Base 64 encoded string.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Common_StringUtils_ToBase64_" data-uid="Microsoft.Graph.Communications.Common.StringUtils.ToBase64*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_StringUtils_ToBase64_System_Byte___" data-uid="Microsoft.Graph.Communications.Common.StringUtils.ToBase64(System.Byte[])">ToBase64(Byte[])</h4>
+  <div class="markdown level1 summary"><p>Convert byte array to base64.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ToBase64(this byte[] data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.byte">Byte</a>[]</td>
+        <td><span class="parametername">data</span></td>
+        <td><p>The data.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>Base64 representation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Common_StringUtils_ToBase64Url_" data-uid="Microsoft.Graph.Communications.Common.StringUtils.ToBase64Url*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_StringUtils_ToBase64Url_System_ArraySegment_System_Byte__System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="Microsoft.Graph.Communications.Common.StringUtils.ToBase64Url(System.ArraySegment{System.Byte},System.Nullable{System.Int32},System.Nullable{System.Int32})">ToBase64Url(ArraySegment&lt;Byte&gt;, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Convert array segment to base 64 URL representation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ToBase64Url(this ArraySegment&lt;byte&gt; data, int? offset = default(int? ), int? count = default(int? ))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.arraysegment-1">ArraySegment</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.byte">Byte</a>&gt;</td>
+        <td><span class="parametername">data</span></td>
+        <td><p>Data to convert.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td><span class="parametername">offset</span></td>
+        <td><p>Optional override offset.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a>&gt;</td>
+        <td><span class="parametername">count</span></td>
+        <td><p>Optional override count.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>Base 64 encoded string.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Common_StringUtils_ToCamelCase_" data-uid="Microsoft.Graph.Communications.Common.StringUtils.ToCamelCase*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_StringUtils_ToCamelCase_System_String_" data-uid="Microsoft.Graph.Communications.Common.StringUtils.ToCamelCase(System.String)">ToCamelCase(String)</h4>
+  <div class="markdown level1 summary"><p>Converts <code data-dev-comment-type="paramref" class="paramref">value</code> to camel casing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ToCamelCase(this string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Value to convert.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>Returns string in camel case.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Common_StringUtils_ToPascalCase_" data-uid="Microsoft.Graph.Communications.Common.StringUtils.ToPascalCase*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_StringUtils_ToPascalCase_System_String_" data-uid="Microsoft.Graph.Communications.Common.StringUtils.ToPascalCase(System.String)">ToPascalCase(String)</h4>
+  <div class="markdown level1 summary"><p>Converts <code data-dev-comment-type="paramref" class="paramref">value</code> to pascal casing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ToPascalCase(this string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Value to convert.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>Returns string in pascal case.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Common_StringUtils_TrimEnd_" data-uid="Microsoft.Graph.Communications.Common.StringUtils.TrimEnd*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_StringUtils_TrimEnd_System_String_System_String_" data-uid="Microsoft.Graph.Communications.Common.StringUtils.TrimEnd(System.String,System.String)">TrimEnd(String, String)</h4>
+  <div class="markdown level1 summary"><p>Remove a substring from the end of a given string.
+This is called iteratively.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string TrimEnd(this string target, string trimString)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">target</span></td>
+        <td><p>The target.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">trimString</span></td>
+        <td><p>The trim string.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>The string after being trimmed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Common_StringUtils_TrimStart_" data-uid="Microsoft.Graph.Communications.Common.StringUtils.TrimStart*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_StringUtils_TrimStart_System_String_System_String_" data-uid="Microsoft.Graph.Communications.Common.StringUtils.TrimStart(System.String,System.String)">TrimStart(String, String)</h4>
+  <div class="markdown level1 summary"><p>Remove a substring from the beginning of a given string.
+This is called iteratively.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string TrimStart(this string target, string trimString)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">target</span></td>
+        <td><p>The target.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">trimString</span></td>
+        <td><p>The trim string.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>The string after being trimmed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

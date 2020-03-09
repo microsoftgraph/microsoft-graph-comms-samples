@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>State Management </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="State Management ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../resources/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="state-management">State Management</h1>
+
+<p>All states of resources associated with a Call in the Graph Communications Calling SDK are handled internally.</p>
+<ol>
+<li>The notifications and events for a particular <code>ICall</code> or a particular resource contained in <code>ICall</code> are always received on a single application instance. This means that the instance should be maintaining the state of a call in memory and a single <code>ICall</code> object exists throughout the duration of the call. These are called <strong>Stateful</strong> calls and the bots are called Stateful bots.</li>
+<li>The notification or events for any call can hit any instance of the application. This means that everytime a notification comes to an instance, a new <code>Call</code> object is created by the Graph Communications Calling Core SDK and is destroyed once the notification/event has been handled. Any state required for the call should be maintained by the bot logic. These type of bots are called <strong>Stateless</strong> bots signifying that the Graph Communications Calling Core SDK itself does not maintain any state for the bot.</li>
+</ol>
+<h2 id="differences-between-stateless-and-stateful-bots">Differences Between Stateless and Stateful Bots</h2>
+<p>The major difference between Stateless and Stateful bots is that maintaining Stateful bots requires that the bot instance would not go down when a call is in progress. If the instance goes down, the call object is lost and no notifications or events are received by the Graph Communications Calling SDK and the calls gets dropped by the server. On the contrast, in Stateless bots, even if the bot instance goes down, the events and notifications go to the other instances of the bot and the bot can continue its logic.</p>
+<div class="IMPORTANT"><h5>Important</h5><p>In <strong>Application Hosted Media Calls</strong>, the media is handled by a single instance of the bot. Therefore, all the notifications should reach the same instance of the bot for signaling of the media to be properly handled. Thus stateless scenarios for Application Hosted Media bots are not supported.</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

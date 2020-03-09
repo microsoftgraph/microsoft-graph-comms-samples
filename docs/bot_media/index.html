@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Graph Communications Bot Media SDK </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Graph Communications Bot Media SDK ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="graph-communications-bot-media-sdk">Graph Communications Bot Media SDK</h1>
+
+<p>The Real-time Media Platform enables bots to interact with Microsoft Teams calls and meetings using real-time voice, video and screen sharing. This is an advanced capability which allows the bot to send and receive voice and video content frame by frame. The bot has &quot;raw&quot; access to the voice, video and screen sharing media streams. (Bots which process media themselves are called application-hosted media bots, as opposed to simpler service-hosted media bots that rely on the Real-time Media platform for all media processing.)</p>
+<p>For example, in a 1:1 call with a bot, as the user speaks, the bot will receive 50 audio frames per second, with each frame containing 20 milliseconds (ms) of audio. An application-hosted media bot can perform real-time speech recognition as the audio frames are received, rather than having to wait for a recording after the user has stopped speaking. The bot can also send and receive high-definition-resolution video, including video-based screen sharing content.</p>
+<p>The platform provides a simple &quot;socket&quot;-like API for the bot to send and receive media, and handles the real-time encoding and decoding of audio/video packets, using codecs such as SILK and G.722 for audio and H.264 for video. The platform also handles all media packet encryption/decryption and packet network transmission automatically, so the bot just needs to concern itself with the actual audio/video content. A real-time media bot may participate in 1:1 calls as well as meetings with multiple participants.</p>
+<h2 id="microsoft-real-time-media-platform-for-bots-api-media-access-api">Microsoft Real-Time Media Platform for Bots API (&quot;Media Access API&quot;)</h2>
+<h3 id="accompanying-documentation">Accompanying Documentation</h3>
+<p>The Media Access API is offered under the terms of the Microsoft APIs Terms of Use (<a href="https://docs.microsoft.com/en-us/legal/microsoft-apis/terms-of-use">https://docs.microsoft.com/en-us/legal/microsoft-apis/terms-of-use</a>) and this accompanying documentation.</p>
+<p>&quot;Media Access API&quot; means (i) any form of machine accessible application programming interface that Microsoft makes publicly available which provides access to a Microsoft Offering that includes media content (e.g., audio or video), including all associated tools, elements, components and executables therein, (ii) any Microsoft sample code that enables interactions with a Microsoft Offering, and (iii) documentation that Microsoft makes available to help enable your access to the Media Access API.</p>
+<p><strong>Additional Restriction</strong>: You may NOT use the Media Access API to record or otherwise persist media content from calls or meetings that your Application accesses, or data derived from that media content.</p>
+<hr>
+<p>Select a class on the left to dive into the reference docs</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,307 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IGraphHttpClient
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IGraphHttpClient
+   ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Microsoft.Graph.Communications.Common.Transport.IGraphHttpClient">
+  
+  
+  <h1 id="Microsoft_Graph_Communications_Common_Transport_IGraphHttpClient" data-uid="Microsoft.Graph.Communications.Common.Transport.IGraphHttpClient" class="text-break">Interface IGraphHttpClient
+  </h1>
+  <div class="markdown level0 summary"><p>Interface for Http transport client. Gives us a way to
+work with different instances of GraphClient through Dependency Injection.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Transport.IGraphClient.html#Microsoft_Graph_Communications_Common_Transport_IGraphClient_SendAsync__1_Microsoft_Graph_Communications_Common_Transport_IGraphRequest___0__System_Threading_CancellationToken_">IGraphClient.SendAsync&lt;TRequest&gt;(IGraphRequest&lt;TRequest&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Transport.IGraphClient.html#Microsoft_Graph_Communications_Common_Transport_IGraphClient_SendAsync__2_Microsoft_Graph_Communications_Common_Transport_IGraphRequest___0__System_Threading_CancellationToken_">IGraphClient.SendAsync&lt;TRequest, TResponse&gt;(IGraphRequest&lt;TRequest&gt;, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Transport.IGraphClient.html#Microsoft_Graph_Communications_Common_Transport_IGraphClient_GraphLogger">IGraphClient.GraphLogger</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Transport.IGraphClient.html#Microsoft_Graph_Communications_Common_Transport_IGraphClient_DefaultProperties">IGraphClient.DefaultProperties</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.Communications.Common.Transport.html">Microsoft.Graph.Communications.Common.Transport</a></h6>
+  <h6><strong>Assembly</strong>: Microsoft.Graph.Communications.Common.dll</h6>
+  <h5 id="Microsoft_Graph_Communications_Common_Transport_IGraphHttpClient_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IGraphHttpClient : IGraphClient</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="Microsoft_Graph_Communications_Common_Transport_IGraphHttpClient_CustomRedirectUriGenerator_" data-uid="Microsoft.Graph.Communications.Common.Transport.IGraphHttpClient.CustomRedirectUriGenerator*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_Transport_IGraphHttpClient_CustomRedirectUriGenerator" data-uid="Microsoft.Graph.Communications.Common.Transport.IGraphHttpClient.CustomRedirectUriGenerator">CustomRedirectUriGenerator</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the custom redirect URI generator.
+This is called in case of a redirect (3XX) response from the request.
+Clients can use this to read the response and give the new redirect url to call in the next request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Func&lt;HttpResponseMessage, Uri&gt; CustomRedirectUriGenerator { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.httpresponsemessage">HttpResponseMessage</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uri">Uri</a>&gt;</td>
+        <td><p>The custom redirect URI generator.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Microsoft_Graph_Communications_Common_Transport_IGraphHttpClient_Clone_" data-uid="Microsoft.Graph.Communications.Common.Transport.IGraphHttpClient.Clone*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_Transport_IGraphHttpClient_Clone_System_Net_Http_HttpClient_" data-uid="Microsoft.Graph.Communications.Common.Transport.IGraphHttpClient.Clone(System.Net.Http.HttpClient)">Clone(HttpClient)</h4>
+  <div class="markdown level1 summary"><p>Clones this instance with optional overrides.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IGraphHttpClient Clone(HttpClient httpClient = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.httpclient">HttpClient</a></td>
+        <td><span class="parametername">httpClient</span></td>
+        <td><p>The HTTP client to replace the original.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.Communications.Common.Transport.IGraphHttpClient.html">IGraphHttpClient</a></td>
+        <td><p>Cloned client with the updated properties.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Common_Transport_IGraphHttpClient_SendRawHttpRequestAsync_" data-uid="Microsoft.Graph.Communications.Common.Transport.IGraphHttpClient.SendRawHttpRequestAsync*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_Transport_IGraphHttpClient_SendRawHttpRequestAsync_System_Net_Http_HttpRequestMessage_System_Threading_CancellationToken_" data-uid="Microsoft.Graph.Communications.Common.Transport.IGraphHttpClient.SendRawHttpRequestAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)">SendRawHttpRequestAsync(HttpRequestMessage, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Send a Http request as an asynchronous operation.
+The content sent using this is not parsed or logged.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;HttpResponseMessage&gt; SendRawHttpRequestAsync(HttpRequestMessage httpRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.httprequestmessage">HttpRequestMessage</a></td>
+        <td><span class="parametername">httpRequest</span></td>
+        <td><p>The http request message to send.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.net.http.httpresponsemessage">HttpResponseMessage</a>&gt;</td>
+        <td><p>The task object representing the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Microsoft.Graph.AdditionalDataExtensions.html#Microsoft_Graph_AdditionalDataExtensions_SetInAdditionalData_System_Object_System_String_System_Object_">AdditionalDataExtensions.SetInAdditionalData(Object, String, Object)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Extensions.html#Microsoft_Graph_Communications_Common_Extensions_Pin_System_Object_">Extensions.Pin(Object)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Extensions.html#Microsoft_Graph_Communications_Common_Extensions_ChangeType_System_Object_System_Type_">Extensions.ChangeType(Object, Type)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Extensions.html#Microsoft_Graph_Communications_Common_Extensions_ChangeType__1_System_Object_">Extensions.ChangeType&lt;T&gt;(Object)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Extensions.html#Microsoft_Graph_Communications_Common_Extensions_TryDispose_System_Object_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_">Extensions.TryDispose(Object, IGraphLogger)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.ReflectionUtils.html#Microsoft_Graph_Communications_Common_ReflectionUtils_GetPropertyUsingReflection_System_Object_System_String_">ReflectionUtils.GetPropertyUsingReflection(Object, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.ReflectionUtils.html#Microsoft_Graph_Communications_Common_ReflectionUtils_SetPropertyUsingReflection_System_Object_System_String_System_Object_">ReflectionUtils.SetPropertyUsingReflection(Object, String, Object)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Validator.html#Microsoft_Graph_Communications_Common_Validator_IsNull_System_Object_System_String_System_String_">Validator.IsNull(Object, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Validator.html#Microsoft_Graph_Communications_Common_Validator_NotNull__1___0_System_String_System_String_">Validator.NotNull&lt;T&gt;(T, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Validator.html#Microsoft_Graph_Communications_Common_Validator_Equals__1___0___0_System_String_System_String_">Validator.Equals&lt;T&gt;(T, T, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Validator.html#Microsoft_Graph_Communications_Common_Validator_Equals__2___0___0_System_String_">Validator.Equals&lt;T, TE&gt;(T, T, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Validator.html#Microsoft_Graph_Communications_Common_Validator_NotEquals__1___0___0_System_String_System_String_">Validator.NotEquals&lt;T&gt;(T, T, String, String)</a>
+  </div>
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="Microsoft.Graph.Communications.Common.Transport.IGraphClient.html">IGraphClient</a></div>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

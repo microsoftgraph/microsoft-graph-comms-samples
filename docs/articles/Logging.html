@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Logging in SDK </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Logging in SDK ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="logging-in-sdk">Logging in SDK</h1>
+
+<p>The Graph SDK uses a custom logger named <a class="xref" href="../common/Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger.html">IGraphLogger</a> which allows custom subscribers for log events. These events can be observed and logged as required by the bot developers.</p>
+<p>You need to create an <code>IObserver</code> for log events (the <a class="xref" href="../common/Microsoft.Graph.Communications.Common.Telemetry.LogEvent.html">LogEvent</a> class).</p>
+<pre><code class="lang-cs">private class LogObserver : IObserver&lt;LogEvent&gt;
+{
+    private readonly LogEventFormatter formatter = new LogEventFormatter();
+
+    /// &lt;summary&gt;
+    /// Provides the observer with new data.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;logEvent&quot;&gt;The current notification information.&lt;/param&gt;
+    public void OnNext(LogEvent logEvent)
+    {
+        // Log event.
+        // Event Severity: logEvent.Level
+        // Http trace: logEvent.EventType == LogEventType.HttpTrace
+        // Log trace: logEvent.EventType == LogEventType.Trace
+        var logString = this.formatter.Format(logEvent);
+
+        MyLogger.Log(logEvent.Level, logString)
+    }
+
+    /// &lt;summary&gt;
+    /// Notifies the observer that the provider has experienced an error condition.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;error&quot;&gt;An object that provides additional information about the error.&lt;/param&gt;
+    public void OnError(Exception error)
+    {
+        // Error occurred with the logger, not with the SDK.
+    }
+
+    /// &lt;summary&gt;
+    /// Notifies the observer that the provider has finished sending push-based notifications.
+    /// &lt;/summary&gt;
+    public void OnCompleted()
+    {
+        // Graph Logger has completed logging (shutdown).
+    }
+}
+</code></pre><p>After a class is ready, you need to subscribe to the log events.</p>
+<pre><code class="lang-cs">ICommunicationsClient client; // Substitute this with the instance of the SDK. 
+var observer = new LogObserver();
+var disposableSubsription = client.GraphLogger.Subscribe(observer);
+</code></pre><div class="NOTE"><h5>Note</h5><p>The <code>disposableSubscription</code> object should be persisted, otherwise logging will not work once it is garbage collected.</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

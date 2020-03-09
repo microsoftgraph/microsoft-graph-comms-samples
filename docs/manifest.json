@@ -1,0 +1,3914 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/Dev/service-shared_platform_samples/docfx",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      },
+      "is_incremental": false
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "README.Internal.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.Internal.html",
+          "hash": "Aq/t6PFcW2AYRycD+/OiqQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "README.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.html",
+          "hash": "x1goWeX23Isy03wwOzZm/Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/Logging.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/Logging.html",
+          "hash": "odfH40dACl3Fh8rR5Dt3+g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/Testing.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/Testing.html",
+          "hash": "VLBLQTFfvBB65DP0lFvMYA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/calls/IVR.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/calls/IVR.html",
+          "hash": "yZJFnfrx1SGmbiCI8L3c5Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/calls/MultipleAppSupport.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/calls/MultipleAppSupport.html",
+          "hash": "iA29ywKdWCtVJyPgn8Napg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/calls/StateManagement.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/calls/StateManagement.html",
+          "hash": "LTpCyEPrpwIjkCw9hrxDxQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/calls/appHostedMediaCalls.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/calls/appHostedMediaCalls.html",
+          "hash": "UEYWigiODE5IF3a3LKqgag=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/calls/calling-notifications.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/calls/calling-notifications.html",
+          "hash": "7QWIJHdmMnt6Pq5ZMKK4sw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/calls/register-calling-bot.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/calls/register-calling-bot.html",
+          "hash": "6TJLi1E6wgvtxD7wqYPtNQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/calls/serviceHostedMediaCalls.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/calls/serviceHostedMediaCalls.html",
+          "hash": "pgVfe5DuL2mOTpLplMaWew=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/index.html",
+          "hash": "skP+1IhOrAjthwxj+e/mRg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "hdhiJtpgGUjEY8aDfYPZJQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "bot_media/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/index.html",
+          "hash": "nZKj5WkWEauW1qjIuouRIw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "calls/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "calls/index.html",
+          "hash": "nC7Ztos5CkM3sMtKcQCuQw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "calls_media/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "calls_media/index.html",
+          "hash": "H+e77CabInIhgkgJ4YZq2g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "client/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "client/index.html",
+          "hash": "FDW4/51kZ812xCb/DjEeQA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "common/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "common/index.html",
+          "hash": "+ZVcRd08F0OKsbfhUpoSZw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "core/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "core/index.html",
+          "hash": "foCIaMi+lb37huY5sXnLtA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "48hBHr0N/ymXkkZ8cGHBPQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.AudioFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioFormat.html",
+          "hash": "EpLGDgwVSvoJVe8a1SxRBg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.AudioLowOnFramesEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioLowOnFramesEventArgs.html",
+          "hash": "8ggS9IyUFRUWec9fYY19rQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.AudioMediaBuffer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioMediaBuffer.html",
+          "hash": "D3oAOYvJ8uiCcRfnoy8fQw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.AudioMediaReceivedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioMediaReceivedEventArgs.html",
+          "hash": "XMcebuujeb+JFbxDwqPDmQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.AudioMetrics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioMetrics.html",
+          "hash": "UY2oO+zvHpgWnMh/EC+47g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.AudioQualityOfExperienceData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioQualityOfExperienceData.html",
+          "hash": "Cumr4B5XdLsMJuTrkrcGjw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.AudioSendStatusChangedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioSendStatusChangedEventArgs.html",
+          "hash": "oMF3o+pnK09pEKhQWUiSqg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.AudioSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioSettings.html",
+          "hash": "Ml+7fN5V6xpKER2yIpLyKA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.AudioSocket.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioSocket.html",
+          "hash": "U9OHDMRlUX+CNJQbMhAPnQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.AudioSocketSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioSocketSettings.html",
+          "hash": "JMdx630F7MLB/Pujlq+d0w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.AudioVideoFramePlayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioVideoFramePlayer.html",
+          "hash": "R36fbay2J6ac2YrA6Qgg5A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.AudioVideoFramePlayerSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.AudioVideoFramePlayerSettings.html",
+          "hash": "EZK5fAgNMB4XILnPIRHzlw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.DataMediaBuffer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.DataMediaBuffer.html",
+          "hash": "h0Pr5AA53IrZwhIS+r7m/w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.DataMediaReceivedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.DataMediaReceivedEventArgs.html",
+          "hash": "kWYHm+ZvU7r6QT/TvpT15w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.DataSendStatusChangedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.DataSendStatusChangedEventArgs.html",
+          "hash": "W4x0AW007fFBty06U/wzSg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.DataSocket.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.DataSocket.html",
+          "hash": "NJORvldmCVqLhVk2OWE1cg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.DataSocketSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.DataSocketSettings.html",
+          "hash": "h5zeIrqWCISfuS4Rfr7GZQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.DataType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.DataType.html",
+          "hash": "DEK7aDY/aJrtrc5ATiHv2g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.DominantSpeakerChangedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.DominantSpeakerChangedEventArgs.html",
+          "hash": "nHWUUQLEVhPIN7jWlAzWpg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.HostingEnvironmentConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.HostingEnvironmentConfiguration.html",
+          "hash": "Kq/O2Dke7UqcsUNn3FvuvQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.IAudioSocket.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.IAudioSocket.html",
+          "hash": "tqLblqdOBCVaxVck1Jx0rw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.IAudioVideoFramePlayer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.IAudioVideoFramePlayer.html",
+          "hash": "WJ0X6FxTXKrXpQViTIYxWQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.IDataSocket.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.IDataSocket.html",
+          "hash": "kML8dY5QNwxD+ASDEFMsEQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.IMediaPlatform.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.IMediaPlatform.html",
+          "hash": "CkYVM6ovh0V0FboA3Fl6dg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.IMediaPlatformLogger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.IMediaPlatformLogger.html",
+          "hash": "ErFZwwyYsKNhn6DgKvZrDQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.IVideoSocket.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.IVideoSocket.html",
+          "hash": "4FzQiisKDzzwH3PmZTOiFw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.LogLevel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.LogLevel.html",
+          "hash": "mvIvkHwVpg1AxOllZkAh0w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.LowOnFramesEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.LowOnFramesEventArgs.html",
+          "hash": "WncBUSFCl/6ayo7NKYRbTA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.MediaPlatform.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.MediaPlatform.html",
+          "hash": "uQ+4iCLKpYp7LTyulvvp7Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.MediaPlatformFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.MediaPlatformFactory.html",
+          "hash": "W23vHRIlzWEMuwkCZMTgjg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.MediaPlatformHealthChangedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.MediaPlatformHealthChangedEventArgs.html",
+          "hash": "0SoAWulqbnZ1+Ke7pMNPNQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.MediaPlatformHealthStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.MediaPlatformHealthStatus.html",
+          "hash": "scpX9gYkPNsinybG74i4lg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.MediaPlatformInstanceSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.MediaPlatformInstanceSettings.html",
+          "hash": "+KtvRRtESuW+lL23yIKccQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.MediaPlatformSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.MediaPlatformSettings.html",
+          "hash": "K3bPmhRZe+r483I+ru9LjQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.MediaQualityOfExperienceData.html",
+          "hash": "+eYUqZcdUaYPAVJbEAXVrQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.MediaQualityState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.MediaQualityState.html",
+          "hash": "F0tgZTrX01fQAJhVnpeHRg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.MediaReceiveStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.MediaReceiveStatus.html",
+          "hash": "izKuZ48mOp118K3UJbgHXw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.MediaSendStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.MediaSendStatus.html",
+          "hash": "QU/y+YqOkifDF1Ig0hTXRw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.MediaStreamFailureEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.MediaStreamFailureEventArgs.html",
+          "hash": "UJ10UrhYwbSFsPAQRCDspA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.MediaType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.MediaType.html",
+          "hash": "wGkRzrbIlJlHSImx6bBJ6g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.NetworkMetrics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.NetworkMetrics.html",
+          "hash": "/mwKAqA4dBdlUry7q89O6w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.PerfCounterConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.PerfCounterConfiguration.html",
+          "hash": "iwDJHsiHm71Hu0sNNuciTw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.PortRange.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.PortRange.html",
+          "hash": "uOjogAy1vi1xxgPxU7Lv1Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.SkypeMediaException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.SkypeMediaException.html",
+          "hash": "ADnr8S//Y6ez8Z4/7hlldQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.StreamDirection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.StreamDirection.html",
+          "hash": "ujxTZo8AzT1o5vILd+05yg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.ToneId.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.ToneId.html",
+          "hash": "651El3Y1DYpoLY6infYZ3A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.ToneReceivedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.ToneReceivedEventArgs.html",
+          "hash": "AQkhtliIdzO4+Mr6sZSlQA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.UnmixedAudioBuffer.html",
+          "hash": "Afe6S0epO5yzoJ1qWb2k5Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoColorFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoColorFormat.html",
+          "hash": "hvomak0vFximS9abwhfn6g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoFormat.html",
+          "hash": "WHvWLyySdUR+TnSWDQezfA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoKeyFrameNeededEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoKeyFrameNeededEventArgs.html",
+          "hash": "p8OUqxcwfHoF4rNRZ1ZHug=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoLowOnFramesEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoLowOnFramesEventArgs.html",
+          "hash": "ENquUQoF3otDPGB2Xtut8Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoMediaBuffer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoMediaBuffer.html",
+          "hash": "omWcRc4eRHtcFlilihOwXw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoMediaReceivedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoMediaReceivedEventArgs.html",
+          "hash": "tOWF5uPpHfDH9ApHnr5Fqw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoMediaStreamQualityChangedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoMediaStreamQualityChangedEventArgs.html",
+          "hash": "Eu9Czpbdm1BITJ3Gpvf29A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoMetrics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoMetrics.html",
+          "hash": "xE4H00p+154QJn3Hb/72ag=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoQualityOfExperienceData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoQualityOfExperienceData.html",
+          "hash": "W14zQWLYvm3d98VRBwK1ow=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoQualityType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoQualityType.html",
+          "hash": "6+Ztm95WitufEFOs3wBCxg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoReceiveStatusChangedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoReceiveStatusChangedEventArgs.html",
+          "hash": "sdkUntAjp1muyM5EEdkqug=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoResolution.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoResolution.html",
+          "hash": "DICJzP38Bi5rORqtio2vqQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoSendCapability.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoSendCapability.html",
+          "hash": "DICvBzIsBkZX8/qtbOg+Ow=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoSendStatusChangedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoSendStatusChangedEventArgs.html",
+          "hash": "RbkXGJ+F/j60AOih+A4JhA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoSettings.html",
+          "hash": "BDD3BgyVHt9q1rdtbtaN2A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoSinkEncodingFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoSinkEncodingFormat.html",
+          "hash": "imQmZI8stlx/WTRO4tddpg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoSocket.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoSocket.html",
+          "hash": "wDsPm/N2FdlzNH8X50zs7g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.VideoSocketSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.VideoSocketSettings.html",
+          "hash": "kU/XwfT7D+rtUL2h2JPPGQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/bot_media/Microsoft.Skype.Bots.Media.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/Microsoft.Skype.Bots.Media.html",
+          "hash": "BqUFrag4/DhOztTMmjNSRA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "obj/bot_media/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "bot_media/toc.html",
+          "hash": "npefBbeA5y2i1OKAgTjRqQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/calls/Microsoft.Graph.Communications.Calls.CallCollectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "calls/Microsoft.Graph.Communications.Calls.CallCollectionExtensions.html",
+          "hash": "4ih1WUHFdO0C7e+o6QMdyg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/calls/Microsoft.Graph.Communications.Calls.CallExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "calls/Microsoft.Graph.Communications.Calls.CallExtensions.html",
+          "hash": "iapa/SaZsBRd4MWrwcTDuw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/calls/Microsoft.Graph.Communications.Calls.CommunicationsClientExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "calls/Microsoft.Graph.Communications.Calls.CommunicationsClientExtensions.html",
+          "hash": "k78KkgCnPfhNeKizv2TPtw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/calls/Microsoft.Graph.Communications.Calls.ICall.yml",
+      "output": {
+        ".html": {
+          "relative_path": "calls/Microsoft.Graph.Communications.Calls.ICall.html",
+          "hash": "cZKtDkrc+kGXrEsiGbdTiw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/calls/Microsoft.Graph.Communications.Calls.ICallCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "calls/Microsoft.Graph.Communications.Calls.ICallCollection.html",
+          "hash": "iJ/f27k7u3F6/PL2XNb2uQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/calls/Microsoft.Graph.Communications.Calls.IMediaSession.yml",
+      "output": {
+        ".html": {
+          "relative_path": "calls/Microsoft.Graph.Communications.Calls.IMediaSession.html",
+          "hash": "8zKLTkPuzSHsHQYBlKy48w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/calls/Microsoft.Graph.Communications.Calls.IParticipant.yml",
+      "output": {
+        ".html": {
+          "relative_path": "calls/Microsoft.Graph.Communications.Calls.IParticipant.html",
+          "hash": "xCcJWJETHjS+V8OL50wq8Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/calls/Microsoft.Graph.Communications.Calls.IParticipantCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "calls/Microsoft.Graph.Communications.Calls.IParticipantCollection.html",
+          "hash": "5DWmosAVwntQhnpjDCYNmg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/calls/Microsoft.Graph.Communications.Calls.JoinMeetingParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "calls/Microsoft.Graph.Communications.Calls.JoinMeetingParameters.html",
+          "hash": "4PbX0O5WIJC4a8UyYRKF2A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/calls/Microsoft.Graph.Communications.Calls.ParticipantExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "calls/Microsoft.Graph.Communications.Calls.ParticipantExtensions.html",
+          "hash": "oMETjwwKmpRh8hgP3wzPpg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/calls/Microsoft.Graph.Communications.Calls.PlayOperationResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "calls/Microsoft.Graph.Communications.Calls.PlayOperationResult.html",
+          "hash": "onzWJlpPXn4mTwz05UnM4w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/calls/Microsoft.Graph.Communications.Calls.RecordOperationResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "calls/Microsoft.Graph.Communications.Calls.RecordOperationResult.html",
+          "hash": "nHLLSZHNZBBnLK3cP0+1Iw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/calls/Microsoft.Graph.Communications.Calls.yml",
+      "output": {
+        ".html": {
+          "relative_path": "calls/Microsoft.Graph.Communications.Calls.html",
+          "hash": "/p+X7IC1LLwBgPFi7ySViA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "obj/calls/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "calls/toc.html",
+          "hash": "ZANCU8U2NulyDq5H6tvEHg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/calls_media/Microsoft.Graph.Communications.Calls.Media.AudioSendBuffer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "calls_media/Microsoft.Graph.Communications.Calls.Media.AudioSendBuffer.html",
+          "hash": "wBPgKGpLoJFjsbDEefWxBw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/calls_media/Microsoft.Graph.Communications.Calls.Media.ILocalMediaSession.yml",
+      "output": {
+        ".html": {
+          "relative_path": "calls_media/Microsoft.Graph.Communications.Calls.Media.ILocalMediaSession.html",
+          "hash": "wUUSh/8tmZLaYLmWFeDgQA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/calls_media/Microsoft.Graph.Communications.Calls.Media.MediaCallExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "calls_media/Microsoft.Graph.Communications.Calls.Media.MediaCallExtensions.html",
+          "hash": "j62X1rgDBs90ETwaNdnDyA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/calls_media/Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientBuilderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "calls_media/Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientBuilderExtensions.html",
+          "hash": "ZCBS4ELigZDanEVvkYBJww=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/calls_media/Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "calls_media/Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.html",
+          "hash": "Pmqyiex1a0qBYnQatyJGpw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/calls_media/Microsoft.Graph.Communications.Calls.Media.MediaSession.MediaProperties.yml",
+      "output": {
+        ".html": {
+          "relative_path": "calls_media/Microsoft.Graph.Communications.Calls.Media.MediaSession.MediaProperties.html",
+          "hash": "hQRRcsA6EiWQN5idUrihrg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/calls_media/Microsoft.Graph.Communications.Calls.Media.MediaSession.yml",
+      "output": {
+        ".html": {
+          "relative_path": "calls_media/Microsoft.Graph.Communications.Calls.Media.MediaSession.html",
+          "hash": "uR72bLqwL5izQmL9l65woA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/calls_media/Microsoft.Graph.Communications.Calls.Media.VideoSendBuffer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "calls_media/Microsoft.Graph.Communications.Calls.Media.VideoSendBuffer.html",
+          "hash": "nS4pZ/Fjg0aOUtFoyhxOUg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/calls_media/Microsoft.Graph.Communications.Calls.Media.yml",
+      "output": {
+        ".html": {
+          "relative_path": "calls_media/Microsoft.Graph.Communications.Calls.Media.html",
+          "hash": "ZlKTjpkjZtrNQpIq2znpPQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "obj/calls_media/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "calls_media/toc.html",
+          "hash": "ArnK0zS4DNCfbH5gzrcEzA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Client.Authentication.IRequestAuthenticationProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Client.Authentication.IRequestAuthenticationProvider.html",
+          "hash": "LtP48p3URIdvuTJArWncsw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Client.Authentication.RequestValidationResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Client.Authentication.RequestValidationResult.html",
+          "hash": "tVohpHhOMjeqHrod+UVfIg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Client.Authentication.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Client.Authentication.html",
+          "hash": "EU1abhroKD52VREY27gmWQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Client.Cache.CacheContext-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Client.Cache.CacheContext-1.html",
+          "hash": "LTgJFu6LpaZTAS8O5Ea4Bw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Client.Cache.ICache.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Client.Cache.ICache.html",
+          "hash": "yKxAT/1DAyPn8TShwgRZrA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Client.Cache.ServiceCache.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Client.Cache.ServiceCache.html",
+          "hash": "rTGrF7ALgB7/NAXooTcORg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Client.Cache.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Client.Cache.html",
+          "hash": "Vqk0EqdH1Wj9dU3LWxu8ow=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Client.CommunicationsClientBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Client.CommunicationsClientBuilder.html",
+          "hash": "aKUbizFub7PRA4TGD7AtAw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Client.CommunicationsClientExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Client.CommunicationsClientExtensions.html",
+          "hash": "u2morAaLDY10XBXOJ6XhZQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Client.GraphLoggerExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Client.GraphLoggerExtensions.html",
+          "hash": "jEJ4Gs0NkWzeQhkMgs+evQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Client.ICommunicationsClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Client.ICommunicationsClient.html",
+          "hash": "O9EKi84FDRdOaEJOk2LqWQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Client.ICommunicationsClientBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Client.ICommunicationsClientBuilder.html",
+          "hash": "rF0DysYb1NnHiElCqc26tQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Client.IPagedList-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Client.IPagedList-1.html",
+          "hash": "6PB6zURaXbNSCtqAPnc2zA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Client.IStateManager-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Client.IStateManager-1.html",
+          "hash": "x7sQJKl4SWA1Lub4z+dlaw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Client.Notifications.FixedSizeQueue-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Client.Notifications.FixedSizeQueue-1.html",
+          "hash": "KC/teBdm7VEwZksYDoK0kA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Client.Notifications.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Client.Notifications.html",
+          "hash": "VK/3niTi0aQIOsLA0mzbYQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Client.PagedList-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Client.PagedList-1.html",
+          "hash": "0bxbOA2gT0irlI1hGq0Xag=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Client.StateManager-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Client.StateManager-2.html",
+          "hash": "2iyUbZPKGbLRUU5GSan/Pw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Client.Transport.GraphAuthClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Client.Transport.GraphAuthClient.html",
+          "hash": "tfmELFZRdOGdJmwX9nb1JQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Client.Transport.GraphAuthClientFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Client.Transport.GraphAuthClientFactory.html",
+          "hash": "twERnw4KEUZzp3qiRO2pcg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Client.Transport.GraphClientContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Client.Transport.GraphClientContext.html",
+          "hash": "29hHFzVqXVrIKMR+nc+6eA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Client.Transport.GraphClientWrapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Client.Transport.GraphClientWrapper.html",
+          "hash": "xfUqkQs8l9YS5vLkUlAvZQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Client.Transport.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Client.Transport.html",
+          "hash": "J250PV7qShyIzSEjHt5tBw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Client.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Client.html",
+          "hash": "SZepewJLOaaNnLeXTtgQOA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Common.Telemetry.CommsLogEventFormatter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Common.Telemetry.CommsLogEventFormatter.html",
+          "hash": "RTrC4SZmQritz9iEch1REg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Common.Telemetry.LogProperties.CallData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Common.Telemetry.LogProperties.CallData.html",
+          "hash": "R3HhJiu3eDv3uvp/Pq7PgQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Common.Telemetry.LogProperties.ChatData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Common.Telemetry.LogProperties.ChatData.html",
+          "hash": "dapMVw9lgnb+g1DIBcbXiQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Common.Telemetry.LogProperties.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Common.Telemetry.LogProperties.html",
+          "hash": "PBntpaOIla0073qpX0JQ4w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Common.Telemetry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Common.Telemetry.html",
+          "hash": "8ldtwL5+EwA4u2uBoLOF6w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Resources.CollectionEventArgs-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Resources.CollectionEventArgs-1.html",
+          "hash": "sCM3jYPRJjEODCfiYe7nfQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Resources.CollectionEventHandler-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Resources.CollectionEventHandler-2.html",
+          "hash": "A7oQwumddo0ukSM3ALzqhw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Resources.IResource-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Resources.IResource-2.html",
+          "hash": "RC9+gqJNzLfY2NK8OnVwPw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Resources.IResource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Resources.IResource.html",
+          "hash": "P1PcKfoXbxUDuVSjBH4icg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Resources.IResourceBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Resources.IResourceBase.html",
+          "hash": "R+/LjujOh/rtI+SMAV5ZoA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Resources.IResourceCollection-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Resources.IResourceCollection-2.html",
+          "hash": "Auqhao6TUdUZdXKDDaEZZA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Resources.IResourceCollection-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Resources.IResourceCollection-3.html",
+          "hash": "vxQhJdRQcOvVuPRQPxbdMQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Resources.IResourceCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Resources.IResourceCollection.html",
+          "hash": "JFlAR+Mb3Bu955oHNmUUNg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Resources.ResourceEventArgs-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Resources.ResourceEventArgs-1.html",
+          "hash": "vQ+roPVVt+bBtOaCUSR9OQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Resources.ResourceEventHandler-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Resources.ResourceEventHandler-2.html",
+          "hash": "inH3EIvH1rchcjPY6ifGPA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/client/Microsoft.Graph.Communications.Resources.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/Microsoft.Graph.Communications.Resources.html",
+          "hash": "suRkZVAus95Q/DwqAWc+sQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "obj/client/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/toc.html",
+          "hash": "47U8eiZLuRYX+ickBi55yw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.AdditionalDataExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.AdditionalDataExtensions.html",
+          "hash": "PCkIq5yNjbUUVjFwmJjBBA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.AutoClean-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.AutoClean-1.html",
+          "hash": "WrM/wSzZreve5nZtEXhI1Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.AutoClean.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.AutoClean.html",
+          "hash": "ZJ4U6f8GQaT42g1ndNp6nw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.CertUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.CertUtils.html",
+          "hash": "44slHCTFWLeIQ2U+lpE+9Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.CollectionUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.CollectionUtils.html",
+          "hash": "PsTh4A7tnxZSK5I99cqyXA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Disposable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Disposable.html",
+          "hash": "Gii7W9HyRju6UeU44O5T3A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.EnumUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.EnumUtils.html",
+          "hash": "qeqpxNSHgRz0RRoBTVNpuw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.ExceptionUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.ExceptionUtils.html",
+          "hash": "T09NPPOkzOvkV8ohzpRcFw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Exceptions.ConfigurationException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Exceptions.ConfigurationException.html",
+          "hash": "W24H3TahPG2EiTSNYqcNfQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Exceptions.InvalidStateTransitionException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Exceptions.InvalidStateTransitionException.html",
+          "hash": "K/rLVQF3vovILLF21jMDcQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Exceptions.RoutingBadRequestException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Exceptions.RoutingBadRequestException.html",
+          "hash": "ZEv72kvGo9uO+7TstmZ/UQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Exceptions.RoutingException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Exceptions.RoutingException.html",
+          "hash": "cjW6hAfrbZlQFeGFYt36nQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Exceptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Exceptions.html",
+          "hash": "Wb4oqadgND9kpkVh0mUGPA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Extensions.html",
+          "hash": "DO6LKfwtcSXvvH1g4bH1qw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.GuidUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.GuidUtils.html",
+          "hash": "ktqmRe58CYVnVfOsgxM+OA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.HighResolutionDateTime.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.HighResolutionDateTime.html",
+          "hash": "cTHFbjE+TRXikdydE8mx2Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.HttpConstants.HeaderNames.html",
+          "hash": "CCgyK7zq7Rxpasi3rIxhbQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.HttpConstants.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.HttpConstants.html",
+          "hash": "1XV+tyOcZDqPwJt2G/y6hA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.JsonUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.JsonUtils.html",
+          "hash": "Vu9a3jKwHo7Gm5erMA1qaA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.MathUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.MathUtils.html",
+          "hash": "e7+Y5j3n6572luBkyjSa7A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.MetricUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.MetricUtils.html",
+          "hash": "7ZEP3Ph6f4aTrUkWQpUCqg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.OData.CamelCaseStringEnumConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.OData.CamelCaseStringEnumConverter.html",
+          "hash": "0OKHpw6/krnCxdD9PdJ3GA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.OData.ODataConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.OData.ODataConfiguration.html",
+          "hash": "5/qsDKqgpGoBEgim/isTjg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.OData.ODataConstants.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.OData.ODataConstants.html",
+          "hash": "JItX84S2TCxG3eTrH/tsEw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.OData.ODataJsonConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.OData.ODataJsonConverter.html",
+          "hash": "WmI8Ez7C4GgIH32vx39SDg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.OData.ODataResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.OData.ODataResolver.html",
+          "hash": "hxSb1J5iAhn+FwsxdI3FkQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.OData.ODataSerializeAsTypeAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.OData.ODataSerializeAsTypeAttribute.html",
+          "hash": "eMIfyYnLzzRlcK6m5/TyVg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.OData.ODataTimeSpanConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.OData.ODataTimeSpanConverter.html",
+          "hash": "lRDl90MmpVq0TM8IjpKVkQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.OData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.OData.html",
+          "hash": "4arecZgs9kA4nNQrHHgnng=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.ObjectRoot.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.ObjectRoot.html",
+          "hash": "rnY2QBne0IzZSCuUx5+bqw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.ObjectRootDisposable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.ObjectRootDisposable.html",
+          "hash": "3M+gingYV822oxic5LQQXw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Observable-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Observable-1.html",
+          "hash": "Vv58W4pKJwXduqxVrxf7Og=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Observer-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Observer-1.html",
+          "hash": "fQ6U6g6ixM7yLaX/A6Ql7A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.ReflectionUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.ReflectionUtils.html",
+          "hash": "/ajboHibLoVoKS0dayhKtQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.SafeNativeMethods.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.SafeNativeMethods.html",
+          "hash": "gm1qrd8Lr2ITLctWoJAt0A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.SecureStringUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.SecureStringUtils.html",
+          "hash": "MA1cSBtb7p9ql1JDv15VdQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.SlimLock.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.SlimLock.html",
+          "hash": "yJMINcFG/ee+IncYI2KysQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.StateMachine-1.Transition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.StateMachine-1.Transition.html",
+          "hash": "cvascs02yPxANhNmRoT8zg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.StateMachine-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.StateMachine-1.html",
+          "hash": "mMIL4G6H2R7dOLcDIQJVGA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.StringUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.StringUtils.html",
+          "hash": "bf9lGUqbFL9EVxZoJ6Rfhg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.TaskExtension.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.TaskExtension.html",
+          "hash": "VrwqiSU5hJagoIv2hurTwA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.TaskQueue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.TaskQueue.html",
+          "hash": "PuBcQk33N8QW6E0QnJndfA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.AadApplicationIdentity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.AadApplicationIdentity.html",
+          "hash": "AzXYfc06SHoQKSauy9/E/Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.CallerInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.CallerInfo.html",
+          "hash": "J4q6v8sxLmeaYNvYpL47IQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.html",
+          "hash": "IXbkV0jCad2FgFlLMFiSFw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.ClientLogEventId.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.ClientLogEventId.html",
+          "hash": "VCCvS1Xz0RqNrzOY2mGAmA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.GraphLogger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.GraphLogger.html",
+          "hash": "p0bMMoPslZSETmmGsNOMeA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.GraphLoggerShim.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.GraphLoggerShim.html",
+          "hash": "IVyUEz5ZTtxtNC5bsR6Jdg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.GraphLoggerWrapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.GraphLoggerWrapper.html",
+          "hash": "H29/xM4FiF7QVxDxYdBcTA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.Filters.BaseFilter-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.Filters.BaseFilter-2.html",
+          "hash": "N/556ze/tcwnWSq4GddtPw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.Filters.BaseFilter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.Filters.BaseFilter.html",
+          "hash": "QAkWEzH3EVbRnV1tx0+5Kw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.Filters.ContentDispositionFilter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.Filters.ContentDispositionFilter.html",
+          "hash": "0tiyne4q8gPFOFCL17VpyQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.Filters.ContentTypeFilter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.Filters.ContentTypeFilter.html",
+          "hash": "Ud4tQlnbVFWskbGuDZ2klQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.Filters.GraphUriFilters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.Filters.GraphUriFilters.html",
+          "hash": "q4G5G4hdnDdy5i4vn4YW/g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.Filters.HeaderFilter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.Filters.HeaderFilter.html",
+          "hash": "p+eG0mJsTLZ9VkHGCEJNVA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.Filters.UriFilter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.Filters.UriFilter.html",
+          "hash": "bA2yHQo7jEzBpTZo8uFH3g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.Filters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.Filters.html",
+          "hash": "pFwEUYDY9Fd9BpUSmGse4g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.HttpLogData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.HttpLogData.html",
+          "hash": "ATLDcMY3YsA/T0KATT944w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.HttpObfuscationHelpers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.HttpObfuscationHelpers.html",
+          "hash": "g2xt6Kv7kNPvG8Y95wNbYQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.HttpLogging.html",
+          "hash": "AYvdKzHerH8NtQMEEl/tTA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.HttpTraceType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.HttpTraceType.html",
+          "hash": "Y6Kc3fDahb0gw1/g62lxOQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger.html",
+          "hash": "m/16Rv/IPdhdcz984xPuSQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.ILogEventFormatter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.ILogEventFormatter.html",
+          "hash": "2PzYv7Jv30ExGOpdc8636w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.JsonConverters.TypedPropertiesConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.JsonConverters.TypedPropertiesConverter.html",
+          "hash": "KlqtouGZNaPIjAqYJ34tng=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.JsonConverters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.JsonConverters.html",
+          "hash": "yK4zROyzGrpLQEZMaLkFdw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.LogEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.LogEvent.html",
+          "hash": "zbNVgDEldeuwxhj5aiXwGA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.LogEventFormatter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.LogEventFormatter.html",
+          "hash": "O917NNaJ6n9dOXInVK5NXw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.LogEventFormatterFlags.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.LogEventFormatterFlags.html",
+          "hash": "2er4FaNqNVDoYDZP0jQdmQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.LogEventType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.LogEventType.html",
+          "hash": "dPOIrfU6LHXVRbsxXzVmVA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.LoggingConstants.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.LoggingConstants.html",
+          "hash": "uF0BAs8CjB0YaBHWV+ajKw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.LoggingExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.LoggingExtensions.html",
+          "hash": "XXKnBk6fFQz9sbZTOFz8FA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.MetricLogData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.MetricLogData.html",
+          "hash": "vTur1Wkhq3Fn88hyWmJWDA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.GraphObfuscationAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.GraphObfuscationAttribute.html",
+          "hash": "OtzNMJYA3tqIgyDSv3VHYQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.GraphObfuscationContractResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.GraphObfuscationContractResolver.html",
+          "hash": "bhzHqnT6CJNvIGJJbZd1og=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.HashingObfuscationConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.HashingObfuscationConfiguration.html",
+          "hash": "JlfX8Iulkc5wPu+G83fI2Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.HashingObfuscationEngine.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.HashingObfuscationEngine.html",
+          "hash": "KIpAT/WWhp5Tzt0XzJbUfw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.IObfuscationEngine.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.IObfuscationEngine.html",
+          "hash": "6A2CqyhbkmwE+w7JFIjb4A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscatedValueProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscatedValueProvider.html",
+          "hash": "VswPdw6FsZTXFuoI6vw6qQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationConfiguration.html",
+          "hash": "L0ZBYArOUG/AQTrTJLo5Bg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationMember.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationMember.html",
+          "hash": "H6yiz4W+LEm+bUz0vkyRhg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationSerializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationSerializer.html",
+          "hash": "hD+WmbRI+/c0I00DIPEUXA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationTag.html",
+          "hash": "scbmLN/NXJW0+zHVTbJ6LA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.html",
+          "hash": "qzxaX8RWzJCcUYy9dy30Fw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.TransactionDirection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.TransactionDirection.html",
+          "hash": "JPO4dcICd2SnV9ckPSBZ/g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Telemetry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Telemetry.html",
+          "hash": "fIKQAK+nJdU4rgV48s80AQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.GraphHttpClient.html",
+          "hash": "3imL6Oag8pFNjS6MYtOqaQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.GraphHttpClientContainer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.GraphHttpClientContainer.html",
+          "hash": "JQzhFtY67G9kVMCjxFAJIw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.GraphHttpClientFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.GraphHttpClientFactory.html",
+          "hash": "ezfdp+reCUfCE9U+5wj4XA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.GraphProperty-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.GraphProperty-1.html",
+          "hash": "Gc10U7iAtjkW5rDl2zeGCw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.GraphProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.GraphProperty.html",
+          "hash": "7DWXSKHSLTRbHba1OfTn+g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.GraphRequest-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.GraphRequest-1.html",
+          "hash": "6Qa5RCmbInV9dPwIJAdqvg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.GraphRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.GraphRequest.html",
+          "hash": "UbBHNjWVxtwxR2zr9GmOZg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.GraphRequestExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.GraphRequestExtensions.html",
+          "hash": "ziqPAXgEiKU7TLFm0THP2w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.GraphResponse-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.GraphResponse-1.html",
+          "hash": "MArY1t2r6qyRT/58CtZi3Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.GraphResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.GraphResponse.html",
+          "hash": "1x0it4yRPXolIk5BadRIDg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.GraphResponseException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.GraphResponseException.html",
+          "hash": "IN4RHfuH9cXjTdEHSVIppw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.GraphResponseExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.GraphResponseExtensions.html",
+          "hash": "MTA0WHROGhMjq3jONcES6Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.Http.HttpUtils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.Http.HttpUtils.html",
+          "hash": "hExzR7+yb5ElVTxVxuNfhQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.Http.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.Http.html",
+          "hash": "3+nHnWQXneTl0Ro2+y9cCA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.HttpRequestMessageExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.HttpRequestMessageExtensions.html",
+          "hash": "PMqcOQg4ukcVdVrsjOQNcw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.HttpResponseMessageExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.HttpResponseMessageExtensions.html",
+          "hash": "7PhdLWPj0+fVAlisqSODkQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.IGraphClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.IGraphClient.html",
+          "hash": "nx9Bdss0bAFz0MdLvkipQg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.IGraphClientFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.IGraphClientFactory.html",
+          "hash": "fVVvwUmtbOSEVa5kgIfbJA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.IGraphExchange-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.IGraphExchange-1.html",
+          "hash": "QbCN+Gc37J1wrPZfW2gxzw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.IGraphExchange.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.IGraphExchange.html",
+          "hash": "PbG9XVcWhgJnCU8mz6lBnw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.IGraphHttpClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.IGraphHttpClient.html",
+          "hash": "wMZe0ayzFdXAJEvVIHo6Ng=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.IGraphProperty-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.IGraphProperty-1.html",
+          "hash": "ofj2YKf9Trat/HuzomBk7w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.IGraphProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.IGraphProperty.html",
+          "hash": "2jyBBwgRdxL+II2z7+hNpA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.IGraphRequest-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.IGraphRequest-1.html",
+          "hash": "NMtdmD0wM+HdzZhHrUJclw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.IGraphRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.IGraphRequest.html",
+          "hash": "Qdmwrcf43mcczoGz1hUv0A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.IGraphResponse-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.IGraphResponse-1.html",
+          "hash": "kGeo5AdtbKR6L1CMNmgtwQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.IGraphResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.IGraphResponse.html",
+          "hash": "Cx4hcy/zfjvcRB42DVJOMw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.NoContentMessage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.NoContentMessage.html",
+          "hash": "lTfQPG52KJnC9ZxC3WpaWg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.RequestType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.RequestType.html",
+          "hash": "Ds9FjJh/d5uD+TDCon/awQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.ResponseStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.ResponseStatus.html",
+          "hash": "FXcqyELoaH9lB+OQQiBewQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Transport.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Transport.html",
+          "hash": "NJpCkkJI2ojq3Xt/Uaq1Fg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Utilities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Utilities.html",
+          "hash": "9xADBJir0eFQ+m3keou1uw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.Validator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.Validator.html",
+          "hash": "hkvghL/P4CKxWUwc33jf7Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.WeakKey-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.WeakKey-1.html",
+          "hash": "H+Pplh2DCP90yRaJy8fwMw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.WeakKeyDictionary-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.WeakKeyDictionary-2.html",
+          "hash": "EzJeDzmZTt27UPFyBTUtHQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.Communications.Common.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.Communications.Common.html",
+          "hash": "QWinpQSDmTRjrTVswIIz2A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/common/Microsoft.Graph.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/Microsoft.Graph.html",
+          "hash": "r3OlJW2sBOTBavbPC8jdCQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "obj/common/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "common/toc.html",
+          "hash": "I12KObh6KjxvDVovQKvUmw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.Communications.Core.CommsConstants.HttpPropertyNames.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.Communications.Core.CommsConstants.HttpPropertyNames.html",
+          "hash": "ZbSvz+l0I4u+Yt/8ebOydg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.Communications.Core.CommsConstants.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.Communications.Core.CommsConstants.html",
+          "hash": "3ZYRdNUILUzvm3OuQ4m7Zg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.Communications.Core.CommsGeneratedErrorConstants.Codes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.Communications.Core.CommsGeneratedErrorConstants.Codes.html",
+          "hash": "5cYqGIuPT3S9QczhAclJhA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.Communications.Core.CommsGeneratedErrorConstants.Messages.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.Communications.Core.CommsGeneratedErrorConstants.Messages.html",
+          "hash": "5SzsF3rCt/d2c18NEnypag=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.Communications.Core.CommsGeneratedErrorConstants.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.Communications.Core.CommsGeneratedErrorConstants.html",
+          "hash": "e7cQ0BRlfJeyEhe+gZCmMQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.Communications.Core.Exceptions.ClientException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.Communications.Core.Exceptions.ClientException.html",
+          "hash": "LfSiCkWmNwKK5OWVRj9QSw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.Communications.Core.Exceptions.ErrorConstants.Codes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.Communications.Core.Exceptions.ErrorConstants.Codes.html",
+          "hash": "EPgfcxk8MS4w4Hd3Mnamsg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.Communications.Core.Exceptions.ErrorConstants.Messages.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.Communications.Core.Exceptions.ErrorConstants.Messages.html",
+          "hash": "RPIiysWYKp5hSrIPVbQDgg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.Communications.Core.Exceptions.ErrorConstants.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.Communications.Core.Exceptions.ErrorConstants.html",
+          "hash": "VbG03GqZWqbUDZIoLP059g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.Communications.Core.Exceptions.ServiceException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.Communications.Core.Exceptions.ServiceException.html",
+          "hash": "BOhclgHytsR38osGSL6IWw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.Communications.Core.Exceptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.Communications.Core.Exceptions.html",
+          "hash": "a8ywoMCgzVaDaRtlmHU5yA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.Communications.Core.GraphModelExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.Communications.Core.GraphModelExtensions.html",
+          "hash": "sq4mVURI+rZaTzR2AnQoZg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.Communications.Core.Notifications.CollectionNotificationEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.Communications.Core.Notifications.CollectionNotificationEventArgs.html",
+          "hash": "tX6pQNTKe2uX5LQmTCcZyA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.Communications.Core.Notifications.FailedNotificationEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.Communications.Core.Notifications.FailedNotificationEventArgs.html",
+          "hash": "8uWV67FqXrphIbRq5Ncbrw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.Communications.Core.Notifications.INotificationProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.Communications.Core.Notifications.INotificationProcessor.html",
+          "hash": "D/Iq3kYHKoy8V+HfIXwD9w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.Communications.Core.Notifications.NotificationEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.Communications.Core.Notifications.NotificationEventArgs.html",
+          "hash": "4gl9Wimta7NCCvLxw/52jg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.Communications.Core.Notifications.NotificationProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.Communications.Core.Notifications.NotificationProcessor.html",
+          "hash": "uizvKm60vLo2JYQn2VlMog=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.Communications.Core.Notifications.NotificationProcessorExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.Communications.Core.Notifications.NotificationProcessorExtensions.html",
+          "hash": "a/N8Abmfai1PvmD+YVU8Gg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.Communications.Core.Notifications.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.Communications.Core.Notifications.html",
+          "hash": "uPG28ZVEyyteypNYEPut6g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.Communications.Core.Serialization.CommsSerializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.Communications.Core.Serialization.CommsSerializer.html",
+          "hash": "/LdXgtFDs2UFsBsG1PvpWA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.Communications.Core.Serialization.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.Communications.Core.Serialization.html",
+          "hash": "aL3LDN32c8JJZ241y0piSg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.Communications.Core.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.Communications.Core.html",
+          "hash": "+Fa9WnWlo09bJDRitp+6NQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.ContractsConstants.AuthConstants.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.ContractsConstants.AuthConstants.html",
+          "hash": "SlE+N6Uguc19PRalXv7JgA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.ContractsConstants.CallProperties.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.ContractsConstants.CallProperties.html",
+          "hash": "QmVC7doGbXDo+t4wN3yLkw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.ContractsConstants.EntityContainerNames.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.ContractsConstants.EntityContainerNames.html",
+          "hash": "WWPFh8H8PrxNiY0xx6d7Og=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.ContractsConstants.IdentityProperties.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.ContractsConstants.IdentityProperties.html",
+          "hash": "iKQKRNtV9WtO5fkklcd+Yw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.ContractsConstants.NotificationProperties.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.ContractsConstants.NotificationProperties.html",
+          "hash": "Y5jElmL6FmLVHIFJteGdvQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.ContractsConstants.Signature.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.ContractsConstants.Signature.html",
+          "hash": "9cu0slcPS/f6DEpCpHVvyQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.ContractsConstants.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.ContractsConstants.html",
+          "hash": "y20VzkQq1z+QCqA3pGM+kg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.IdentityExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.IdentityExtensions.html",
+          "hash": "MWEwrAvxSffld706qesYkw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.IdentitySetExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.IdentitySetExtensions.html",
+          "hash": "5KZ9qmcmBmN1LMP8o6jNxQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.NotificationsExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.NotificationsExtensions.html",
+          "hash": "nxS2e3/MCNF/obXL+QLGAA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.Routing.CloudNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.Routing.CloudNamespace.html",
+          "hash": "PjQC2qlbCEE7yhl/kPtZnA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.Routing.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.Routing.html",
+          "hash": "G/jm96f9ai3qozYyHnjWiQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/core/Microsoft.Graph.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/Microsoft.Graph.html",
+          "hash": "DkM5DYy6ZTkDBV1O/xsayQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "obj/core/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "core/toc.html",
+          "hash": "fzSSe/yeEUeeyzAKLwBeWA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/app-studio-create-new.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/app-studio-create-new.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/app-studio-set-up-a-bot.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/app-studio-set-up-a-bot.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/app-studio-set-up-bots.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/app-studio-set-up-bots.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/azure-application-properties.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/azure-application-properties.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/logo.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/logo.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/msteams-enable-calling.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/msteams-enable-calling.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/permissions-add-graph.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/permissions-add-graph.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/registration-settings-manage-link.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/registration-settings-manage-link.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/teams-client-app-studio.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/teams-client-app-studio.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "+56BBZwEMqU8eDzh9JUvQA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build"
+      },
+      "processors": {
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build"
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build"
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
+        "incrementalPhase": "postProcessing"
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

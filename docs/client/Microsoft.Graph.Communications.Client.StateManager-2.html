@@ -1,0 +1,775 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class StateManager&lt;TResource, TEntity&gt;
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class StateManager&lt;TResource, TEntity&gt;
+   ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Microsoft.Graph.Communications.Client.StateManager`2">
+  
+  
+  <h1 id="Microsoft_Graph_Communications_Client_StateManager_2" data-uid="Microsoft.Graph.Communications.Client.StateManager`2" class="text-break">Class StateManager&lt;TResource, TEntity&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>The state manager implementation.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">StateManager&lt;TResource, TEntity&gt;</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Microsoft.Graph.Communications.Client.IStateManager-1.html">IStateManager</a>&lt;TResource&gt;</div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection</a>&lt;TResource&gt;</div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TResource&gt;</div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.Communications.Client.html">Microsoft.Graph.Communications.Client</a></h6>
+  <h6><strong>Assembly</strong>: Microsoft.Graph.Communications.Client.dll</h6>
+  <h5 id="Microsoft_Graph_Communications_Client_StateManager_2_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class StateManager&lt;TResource, TEntity&gt; : Disposable, IStateManager&lt;TResource&gt;, ICollection&lt;TResource&gt;, IEnumerable&lt;TResource&gt;, IEnumerable, IDisposable where TResource : IResource&lt;TResource, TEntity&gt; where TEntity : Entity</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResource</span></td>
+        <td><p>The type of the resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TEntity</span></td>
+        <td><p>The type of the entity.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="Microsoft_Graph_Communications_Client_StateManager_2__ctor_" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.#ctor*"></a>
+  <h4 id="Microsoft_Graph_Communications_Client_StateManager_2__ctor_Microsoft_Graph_ISerializer_Microsoft_Graph_Communications_Client_Cache_ICache_" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.#ctor(Microsoft.Graph.ISerializer,Microsoft.Graph.Communications.Client.Cache.ICache)">StateManager(ISerializer, ICache)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Microsoft.Graph.Communications.Client.StateManager-2.html">StateManager&lt;TResource, TEntity&gt;</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StateManager(ISerializer serializer, ICache cache)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/microsoft.graph.iserializer">ISerializer</a></td>
+        <td><span class="parametername">serializer</span></td>
+        <td><p>The serializer.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.Communications.Client.Cache.ICache.html">ICache</a></td>
+        <td><span class="parametername">cache</span></td>
+        <td><p>The cache.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="Microsoft_Graph_Communications_Client_StateManager_2_Count_" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.Count*"></a>
+  <h4 id="Microsoft_Graph_Communications_Client_StateManager_2_Count" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.Count">Count</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Client_StateManager_2_IsReadOnly_" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.IsReadOnly*"></a>
+  <h4 id="Microsoft_Graph_Communications_Client_StateManager_2_IsReadOnly" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.IsReadOnly">IsReadOnly</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsReadOnly { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Client_StateManager_2_Item_" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.Item*"></a>
+  <h4 id="Microsoft_Graph_Communications_Client_StateManager_2_Item_System_String_" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.Item(System.String)">Item[String]</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TResource this[string id] { get; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">id</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResource</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Microsoft_Graph_Communications_Client_StateManager_2_Add_" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.Add*"></a>
+  <h4 id="Microsoft_Graph_Communications_Client_StateManager_2_Add__0_" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.Add(`0)">Add(TResource)</h4>
+  <div class="markdown level1 summary"><p>Adds an item to the <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection&lt;T&gt;</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Add(TResource item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResource</span></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>The object to add to the <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection&lt;T&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="../core/Microsoft.Graph.Communications.Core.Exceptions.ServiceException.html">ServiceException</a></td>
+        <td><p>If the resource already exists in the collection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Client_StateManager_2_Clear_" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.Clear*"></a>
+  <h4 id="Microsoft_Graph_Communications_Client_StateManager_2_Clear" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.Clear">Clear()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
+  </div>
+  <a id="Microsoft_Graph_Communications_Client_StateManager_2_Contains_" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.Contains*"></a>
+  <h4 id="Microsoft_Graph_Communications_Client_StateManager_2_Contains__0_" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.Contains(`0)">Contains(TResource)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Contains(TResource item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResource</span></td>
+        <td><span class="parametername">item</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Client_StateManager_2_CopyContent_" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.CopyContent*"></a>
+  <h4 id="Microsoft_Graph_Communications_Client_StateManager_2_CopyContent" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.CopyContent">CopyContent()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICollection&lt;TResource&gt; CopyContent()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.icollection-1">ICollection</a>&lt;TResource&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Client_StateManager_2_CopyTo_" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.CopyTo*"></a>
+  <h4 id="Microsoft_Graph_Communications_Client_StateManager_2_CopyTo__0___System_Int32_" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.CopyTo(`0[],System.Int32)">CopyTo(TResource[], Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void CopyTo(TResource[] array, int arrayIndex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>TResource[]</td>
+        <td><span class="parametername">array</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">arrayIndex</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Client_StateManager_2_Dispose_" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.Dispose*"></a>
+  <h4 id="Microsoft_Graph_Communications_Client_StateManager_2_Dispose_System_Boolean_" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.Dispose(System.Boolean)">Dispose(Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Dispose(bool disposing)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">disposing</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Client_StateManager_2_GetEnumerator_" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.GetEnumerator*"></a>
+  <h4 id="Microsoft_Graph_Communications_Client_StateManager_2_GetEnumerator" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerator&lt;TResource&gt; GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1">IEnumerator</a>&lt;TResource&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Client_StateManager_2_GetOrAdd_" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.GetOrAdd*"></a>
+  <h4 id="Microsoft_Graph_Communications_Client_StateManager_2_GetOrAdd_System_String_System_Func__0__" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.GetOrAdd(System.String,System.Func{`0})">GetOrAdd(String, Func&lt;TResource&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TResource GetOrAdd(string id, Func&lt;TResource&gt; resourceFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">id</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;TResource&gt;</td>
+        <td><span class="parametername">resourceFactory</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResource</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Client_StateManager_2_GetOrAddAsync_" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.GetOrAddAsync*"></a>
+  <h4 id="Microsoft_Graph_Communications_Client_StateManager_2_GetOrAddAsync_System_String_System_Func_System_Threading_Tasks_Task__0___" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.GetOrAddAsync(System.String,System.Func{System.Threading.Tasks.Task{`0}})">GetOrAddAsync(String, Func&lt;Task&lt;TResource&gt;&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TResource&gt; GetOrAddAsync(string id, Func&lt;Task&lt;TResource&gt;&gt; resourceFactory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">id</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TResource&gt;&gt;</td>
+        <td><span class="parametername">resourceFactory</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TResource&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Client_StateManager_2_Remove_" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.Remove*"></a>
+  <h4 id="Microsoft_Graph_Communications_Client_StateManager_2_Remove__0_" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.Remove(`0)">Remove(TResource)</h4>
+  <div class="markdown level1 summary"><p>Removes the occurrence of a specific object from the <a class="xref" href="Microsoft.Graph.Communications.Client.IStateManager-1.html">IStateManager&lt;TResource&gt;</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Remove(TResource item)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResource</span></td>
+        <td><span class="parametername">item</span></td>
+        <td><p>The object to remove from the <a class="xref" href="Microsoft.Graph.Communications.Client.IStateManager-1.html">IStateManager&lt;TResource&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p>true if <code data-dev-comment-type="paramref" class="paramref">item</code> was successfully removed from the <a class="xref" href="Microsoft.Graph.Communications.Client.IStateManager-1.html">IStateManager&lt;TResource&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="../core/Microsoft.Graph.Communications.Core.Exceptions.ServiceException.html">ServiceException</a></td>
+        <td><p>If the resource does not exist in the collection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Client_StateManager_2_Remove_" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.Remove*"></a>
+  <h4 id="Microsoft_Graph_Communications_Client_StateManager_2_Remove_System_String_" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.Remove(System.String)">Remove(String)</h4>
+  <div class="markdown level1 summary"><p>Removes the occurrence of a specific object from the <a class="xref" href="Microsoft.Graph.Communications.Client.IStateManager-1.html">IStateManager&lt;TResource&gt;</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TResource Remove(string id)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>The identifier of the object to remove from the <a class="xref" href="Microsoft.Graph.Communications.Client.IStateManager-1.html">IStateManager&lt;TResource&gt;</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResource</span></td>
+        <td><p>The <a class="xref" href="Microsoft.Graph.Communications.Resources.IResource.html">IResource</a> that was removed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="../core/Microsoft.Graph.Communications.Core.Exceptions.ServiceException.html">ServiceException</a></td>
+        <td><p>If the resource does not exist in the collection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Client_StateManager_2_TryRemove_" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.TryRemove*"></a>
+  <h4 id="Microsoft_Graph_Communications_Client_StateManager_2_TryRemove_System_String__0__" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.TryRemove(System.String,`0@)">TryRemove(String, out TResource)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TryRemove(string id, out TResource resource)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">id</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">TResource</span></td>
+        <td><span class="parametername">resource</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  <a id="Microsoft_Graph_Communications_Client_StateManager_2_System_Collections_IEnumerable_GetEnumerator_" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.System#Collections#IEnumerable#GetEnumerator*"></a>
+  <h4 id="Microsoft_Graph_Communications_Client_StateManager_2_System_Collections_IEnumerable_GetEnumerator" data-uid="Microsoft.Graph.Communications.Client.StateManager`2.System#Collections#IEnumerable#GetEnumerator">IEnumerable.GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerator IEnumerable.GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerator">IEnumerator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Client.IStateManager-1.html">IStateManager&lt;TResource&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.icollection-1">System.Collections.Generic.ICollection&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">System.Collections.Generic.IEnumerable&lt;T&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.ienumerable">System.Collections.IEnumerable</a>
+  </div>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable">System.IDisposable</a>
+  </div>
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="Microsoft.Graph.Communications.Client.IStateManager-1.html">IStateManager</a>&lt;TResource&gt;</div>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

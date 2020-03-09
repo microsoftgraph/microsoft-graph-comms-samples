@@ -1,0 +1,662 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class GraphLogger
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class GraphLogger
+   ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Microsoft.Graph.Communications.Common.Telemetry.GraphLogger">
+  
+  
+  <h1 id="Microsoft_Graph_Communications_Common_Telemetry_GraphLogger" data-uid="Microsoft.Graph.Communications.Common.Telemetry.GraphLogger" class="text-break">Class GraphLogger
+  </h1>
+  <div class="markdown level0 summary"><p>Logging portion of graph.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="Microsoft.Graph.Communications.Common.Disposable.html">Disposable</a></div>
+    <div class="level2"><span class="xref">GraphLogger</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    <div><a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger.html">IGraphLogger</a></div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.LogEvent.html">LogEvent</a>&gt;</div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Disposable.html#Microsoft_Graph_Communications_Common_Disposable_Dispose">Disposable.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Disposable.html#Microsoft_Graph_Communications_Common_Disposable_IsDisposed">Disposable.IsDisposed</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.html">Microsoft.Graph.Communications.Common.Telemetry</a></h6>
+  <h6><strong>Assembly</strong>: Microsoft.Graph.Communications.Common.dll</h6>
+  <h5 id="Microsoft_Graph_Communications_Common_Telemetry_GraphLogger_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class GraphLogger : Disposable, IDisposable, IGraphLogger, IObservable&lt;LogEvent&gt;</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="Microsoft_Graph_Communications_Common_Telemetry_GraphLogger__ctor_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.GraphLogger.#ctor*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_GraphLogger__ctor_System_String_System_Collections_Generic_IEnumerable_System_Object__System_Boolean_Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_ObfuscationConfiguration_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.GraphLogger.#ctor(System.String,System.Collections.Generic.IEnumerable{System.Object},System.Boolean,Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationConfiguration)">GraphLogger(String, IEnumerable&lt;Object&gt;, Boolean, ObfuscationConfiguration)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.GraphLogger.html">GraphLogger</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GraphLogger(string component = null, IEnumerable&lt;object&gt; properties = null, bool redirectToTrace = false, ObfuscationConfiguration obfuscationConfiguration = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">component</span></td>
+        <td><p>The component in which log is createdThe component in which this logger is created.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;</td>
+        <td><span class="parametername">properties</span></td>
+        <td><p>Common properties to be set on each event</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">redirectToTrace</span></td>
+        <td><p>if set to <code>true</code> [redirect to trace].</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationConfiguration.html">ObfuscationConfiguration</a></td>
+        <td><span class="parametername">obfuscationConfiguration</span></td>
+        <td><p>The obfuscation configuration</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_GraphLogger_StartupLoggerNameSuffix" data-uid="Microsoft.Graph.Communications.Common.Telemetry.GraphLogger.StartupLoggerNameSuffix">StartupLoggerNameSuffix</h4>
+  <div class="markdown level1 summary"><p>The startup logger name prefix</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string StartupLoggerNameSuffix = &quot;_Startup&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="Microsoft_Graph_Communications_Common_Telemetry_GraphLogger_Component_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.GraphLogger.Component*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_GraphLogger_Component" data-uid="Microsoft.Graph.Communications.Common.Telemetry.GraphLogger.Component">Component</h4>
+  <div class="markdown level1 summary"><p>Gets or the component of logger.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Component { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Common_Telemetry_GraphLogger_CorrelationId_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.GraphLogger.CorrelationId*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_GraphLogger_CorrelationId" data-uid="Microsoft.Graph.Communications.Common.Telemetry.GraphLogger.CorrelationId">CorrelationId</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the correlation identifier. This is used
+to track correlation between multiple requests for one scenario.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Guid CorrelationId { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.guid">Guid</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Common_Telemetry_GraphLogger_DiagnosticLevel_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.GraphLogger.DiagnosticLevel*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_GraphLogger_DiagnosticLevel" data-uid="Microsoft.Graph.Communications.Common.Telemetry.GraphLogger.DiagnosticLevel">DiagnosticLevel</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the diagnostic level for the logger.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TraceLevel DiagnosticLevel { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracelevel">TraceLevel</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Common_Telemetry_GraphLogger_LogicalThreadId_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.GraphLogger.LogicalThreadId*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_GraphLogger_LogicalThreadId" data-uid="Microsoft.Graph.Communications.Common.Telemetry.GraphLogger.LogicalThreadId">LogicalThreadId</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the logical thread identifier.
+This id is used for tracking the flow of one request throughout
+the lifetime until it ends.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint LogicalThreadId { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uint32">UInt32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Common_Telemetry_GraphLogger_ObfuscationConfiguration_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.GraphLogger.ObfuscationConfiguration*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_GraphLogger_ObfuscationConfiguration" data-uid="Microsoft.Graph.Communications.Common.Telemetry.GraphLogger.ObfuscationConfiguration">ObfuscationConfiguration</h4>
+  <div class="markdown level1 summary"><p>Gets the obfuscation configuration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ObfuscationConfiguration ObfuscationConfiguration { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.Obfuscation.ObfuscationConfiguration.html">ObfuscationConfiguration</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Common_Telemetry_GraphLogger_Properties_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.GraphLogger.Properties*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_GraphLogger_Properties" data-uid="Microsoft.Graph.Communications.Common.Telemetry.GraphLogger.Properties">Properties</h4>
+  <div class="markdown level1 summary"><p>Gets the common properties for each event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyDictionary&lt;Type, object&gt; Properties { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ireadonlydictionary-2">IReadOnlyDictionary</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.type">Type</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Microsoft_Graph_Communications_Common_Telemetry_GraphLogger_Dispose_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.GraphLogger.Dispose*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_GraphLogger_Dispose_System_Boolean_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.GraphLogger.Dispose(System.Boolean)">Dispose(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Protected implementation of dispose.
+This will be triggered only once regardless if manually disposed or garbage collected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Dispose(bool disposing)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">disposing</span></td>
+        <td><p><code>true</code> to release both managed and unmanaged resources; <code>false</code> to release only unmanaged resources.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="Microsoft.Graph.Communications.Common.Disposable.html#Microsoft_Graph_Communications_Common_Disposable_Dispose_System_Boolean_">Disposable.Dispose(Boolean)</a></div>
+  <a id="Microsoft_Graph_Communications_Common_Telemetry_GraphLogger_Log_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.GraphLogger.Log*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_GraphLogger_Log_System_Diagnostics_TraceLevel_System_String_System_String_System_Guid_System_Guid_Microsoft_Graph_Communications_Common_Telemetry_LogEventType_System_Collections_Generic_IEnumerable_System_Object__System_String_System_String_System_Int32_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.GraphLogger.Log(System.Diagnostics.TraceLevel,System.String,System.String,System.Guid,System.Guid,Microsoft.Graph.Communications.Common.Telemetry.LogEventType,System.Collections.Generic.IEnumerable{System.Object},System.String,System.String,System.Int32)">Log(TraceLevel, String, String, Guid, Guid, LogEventType, IEnumerable&lt;Object&gt;, String, String, Int32)</h4>
+  <div class="markdown level1 summary"><p>Log messages classified as the provided trace level.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LogEvent Log(TraceLevel level, string message, string component = null, Guid correlationId = default(Guid), Guid requestId = default(Guid), LogEventType eventType = LogEventType.Trace, IEnumerable&lt;object&gt; properties = null, string memberName = null, string filePath = null, int lineNumber = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracelevel">TraceLevel</a></td>
+        <td><span class="parametername">level</span></td>
+        <td><p>The trace level.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>A composite format string that includes one or more format items.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">component</span></td>
+        <td><p>The component in which log is created</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.guid">Guid</a></td>
+        <td><span class="parametername">correlationId</span></td>
+        <td><p>The correlation identifier.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.guid">Guid</a></td>
+        <td><span class="parametername">requestId</span></td>
+        <td><p>The request identifier.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.LogEventType.html">LogEventType</a></td>
+        <td><span class="parametername">eventType</span></td>
+        <td><p>Log event type</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;</td>
+        <td><span class="parametername">properties</span></td>
+        <td><p>Extra properties for the log event</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">memberName</span></td>
+        <td><p>Calling function.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">filePath</span></td>
+        <td><p>File name where code is located.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">lineNumber</span></td>
+        <td><p>Line number where code is located.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.LogEvent.html">LogEvent</a></td>
+        <td><p>Log Event object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Common_Telemetry_GraphLogger_Subscribe_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.GraphLogger.Subscribe*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_GraphLogger_Subscribe_System_IObserver_Microsoft_Graph_Communications_Common_Telemetry_LogEvent__" data-uid="Microsoft.Graph.Communications.Common.Telemetry.GraphLogger.Subscribe(System.IObserver{Microsoft.Graph.Communications.Common.Telemetry.LogEvent})">Subscribe(IObserver&lt;LogEvent&gt;)</h4>
+  <div class="markdown level1 summary"><p>Create a subscription for logging events.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDisposable Subscribe(IObserver&lt;LogEvent&gt; observer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iobserver-1">IObserver</a>&lt;<a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.LogEvent.html">LogEvent</a>&gt;</td>
+        <td><span class="parametername">observer</span></td>
+        <td><p>The object that is to receive notifications.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></td>
+        <td><p>A reference to an interface that allows observers to stop receiving notifications before the provider has finished sending them.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable">System.IDisposable</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger.html">IGraphLogger</a>
+  </div>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iobservable-1">System.IObservable&lt;T&gt;</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Microsoft.Graph.AdditionalDataExtensions.html#Microsoft_Graph_AdditionalDataExtensions_SetInAdditionalData_System_Object_System_String_System_Object_">AdditionalDataExtensions.SetInAdditionalData(Object, String, Object)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Extensions.html#Microsoft_Graph_Communications_Common_Extensions_Pin_System_Object_">Extensions.Pin(Object)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Extensions.html#Microsoft_Graph_Communications_Common_Extensions_ChangeType_System_Object_System_Type_">Extensions.ChangeType(Object, Type)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Extensions.html#Microsoft_Graph_Communications_Common_Extensions_ChangeType__1_System_Object_">Extensions.ChangeType&lt;T&gt;(Object)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Extensions.html#Microsoft_Graph_Communications_Common_Extensions_CreateObserver__1_System_IObservable___0__System_Action___0__System_Action_System_Exception__System_Action_">Extensions.CreateObserver&lt;T&gt;(IObservable&lt;T&gt;, Action&lt;T&gt;, Action&lt;Exception&gt;, Action)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Extensions.html#Microsoft_Graph_Communications_Common_Extensions_TryDispose_System_Object_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_">Extensions.TryDispose(Object, IGraphLogger)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.ReflectionUtils.html#Microsoft_Graph_Communications_Common_ReflectionUtils_GetPropertyUsingReflection_System_Object_System_String_">ReflectionUtils.GetPropertyUsingReflection(Object, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.ReflectionUtils.html#Microsoft_Graph_Communications_Common_ReflectionUtils_SetPropertyUsingReflection_System_Object_System_String_System_Object_">ReflectionUtils.SetPropertyUsingReflection(Object, String, Object)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Validator.html#Microsoft_Graph_Communications_Common_Validator_IsNull_System_Object_System_String_System_String_">Validator.IsNull(Object, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Validator.html#Microsoft_Graph_Communications_Common_Validator_NotNull__1___0_System_String_System_String_">Validator.NotNull&lt;T&gt;(T, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Validator.html#Microsoft_Graph_Communications_Common_Validator_Equals__1___0___0_System_String_System_String_">Validator.Equals&lt;T&gt;(T, T, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Validator.html#Microsoft_Graph_Communications_Common_Validator_Equals__2___0___0_System_String_">Validator.Equals&lt;T, TE&gt;(T, T, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Validator.html#Microsoft_Graph_Communications_Common_Validator_NotEquals__1___0___0_System_String_System_String_">Validator.NotEquals&lt;T&gt;(T, T, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.LoggingExtensions.html#Microsoft_Graph_Communications_Common_Telemetry_LoggingExtensions_Log_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_System_Diagnostics_TraceLevel_System_Exception_System_String_System_String_System_Guid_System_String_System_String_System_Int32_">LoggingExtensions.Log(IGraphLogger, TraceLevel, Exception, String, String, Guid, String, String, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.LoggingExtensions.html#Microsoft_Graph_Communications_Common_Telemetry_LoggingExtensions_Error_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_System_Exception_System_String_System_String_System_Guid_System_String_System_String_System_Int32_">LoggingExtensions.Error(IGraphLogger, Exception, String, String, Guid, String, String, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.LoggingExtensions.html#Microsoft_Graph_Communications_Common_Telemetry_LoggingExtensions_Error_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_System_String_System_String_System_Guid_System_String_System_String_System_Int32_">LoggingExtensions.Error(IGraphLogger, String, String, Guid, String, String, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.LoggingExtensions.html#Microsoft_Graph_Communications_Common_Telemetry_LoggingExtensions_Info_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_System_String_System_String_System_Guid_System_String_System_String_System_Int32_">LoggingExtensions.Info(IGraphLogger, String, String, Guid, String, String, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.LoggingExtensions.html#Microsoft_Graph_Communications_Common_Telemetry_LoggingExtensions_Warn_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_System_Exception_System_String_System_String_System_Guid_System_String_System_String_System_Int32_">LoggingExtensions.Warn(IGraphLogger, Exception, String, String, Guid, String, String, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.LoggingExtensions.html#Microsoft_Graph_Communications_Common_Telemetry_LoggingExtensions_Warn_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_System_String_System_String_System_Guid_System_String_System_String_System_Int32_">LoggingExtensions.Warn(IGraphLogger, String, String, Guid, String, String, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.LoggingExtensions.html#Microsoft_Graph_Communications_Common_Telemetry_LoggingExtensions_Verbose_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_System_String_System_String_System_Guid_System_String_System_String_System_Int32_">LoggingExtensions.Verbose(IGraphLogger, String, String, Guid, String, String, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.LoggingExtensions.html#Microsoft_Graph_Communications_Common_Telemetry_LoggingExtensions_LogHttpMessage_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_System_Diagnostics_TraceLevel_Microsoft_Graph_Communications_Common_Telemetry_TransactionDirection_Microsoft_Graph_Communications_Common_Telemetry_HttpTraceType_System_String_System_String_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_Collections_Generic_IEnumerable_System_String____System_Int32_System_String_System_Nullable_System_Int64__System_Guid_System_Guid_System_String_System_String_System_Int32_">LoggingExtensions.LogHttpMessage(IGraphLogger, TraceLevel, TransactionDirection, HttpTraceType, String, String, String, IEnumerable&lt;KeyValuePair&lt;String, IEnumerable&lt;String&gt;&gt;&gt;, Int32, String, Nullable&lt;Int64&gt;, Guid, Guid, String, String, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.LoggingExtensions.html#Microsoft_Graph_Communications_Common_Telemetry_LoggingExtensions_Metric_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_System_String_System_String_System_Int64_System_Collections_Generic_Dictionary_System_String_System_String__System_Boolean_System_String_System_Guid_System_String_System_String_System_Int32_">LoggingExtensions.Metric(IGraphLogger, String, String, Int64, Dictionary&lt;String, String&gt;, Boolean, String, Guid, String, String, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.LoggingExtensions.html#Microsoft_Graph_Communications_Common_Telemetry_LoggingExtensions_SerializeAndObfuscate_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_System_Object_Newtonsoft_Json_Formatting_">LoggingExtensions.SerializeAndObfuscate(IGraphLogger, Object, Formatting)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.LoggingExtensions.html#Microsoft_Graph_Communications_Common_Telemetry_LoggingExtensions_Obfuscate_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_System_Object_Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_ObfuscationTag_">LoggingExtensions.Obfuscate(IGraphLogger, Object, ObfuscationTag)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.LoggingExtensions.html#Microsoft_Graph_Communications_Common_Telemetry_LoggingExtensions_GetHeaderText_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_Collections_Generic_IEnumerable_System_String____">LoggingExtensions.GetHeaderText(IGraphLogger, IEnumerable&lt;KeyValuePair&lt;String, IEnumerable&lt;String&gt;&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.LoggingExtensions.html#Microsoft_Graph_Communications_Common_Telemetry_LoggingExtensions_CreateShim_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_System_String_System_Nullable_System_Guid__System_Collections_Generic_IEnumerable_System_Object__Microsoft_Graph_Communications_Common_Telemetry_Obfuscation_ObfuscationConfiguration_">LoggingExtensions.CreateShim(IGraphLogger, String, Nullable&lt;Guid&gt;, IEnumerable&lt;Object&gt;, ObfuscationConfiguration)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.LoggingExtensions.html#Microsoft_Graph_Communications_Common_Telemetry_LoggingExtensions_CreateILogger_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_System_String_System_Guid_Microsoft_Graph_Communications_Common_Telemetry_LogEventType_System_Collections_Generic_IEnumerable_System_Object__">LoggingExtensions.CreateILogger(IGraphLogger, String, Guid, LogEventType, IEnumerable&lt;Object&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.LoggingExtensions.html#Microsoft_Graph_Communications_Common_Telemetry_LoggingExtensions_BindToILoggerFactory_Microsoft_Graph_Communications_Common_Telemetry_GraphLogger_Microsoft_Extensions_Logging_ILoggerFactory_Microsoft_Graph_Communications_Common_Telemetry_ILogEventFormatter_">LoggingExtensions.BindToILoggerFactory(GraphLogger, ILoggerFactory, ILogEventFormatter)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.LoggingExtensions.html#Microsoft_Graph_Communications_Common_Telemetry_LoggingExtensions_EnterMethod_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_System_Guid_System_String_System_String_System_Int32_">LoggingExtensions.EnterMethod(IGraphLogger, Guid, String, String, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.LoggingExtensions.html#Microsoft_Graph_Communications_Common_Telemetry_LoggingExtensions_LeaveMethod_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_System_Guid_System_String_System_String_System_Int32_">LoggingExtensions.LeaveMethod(IGraphLogger, Guid, String, String, Int32)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

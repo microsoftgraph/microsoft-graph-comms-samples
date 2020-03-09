@@ -1,0 +1,559 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ClientEtwLogger
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ClientEtwLogger
+   ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger">
+  
+  
+  <h1 id="Microsoft_Graph_Communications_Common_Telemetry_ClientEtwLogger" data-uid="Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger" class="text-break">Class ClientEtwLogger
+  </h1>
+  <div class="markdown level0 summary"><p>Logger for client that publishes to ETW.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource">EventSource</a></div>
+    <div class="level2"><span class="xref">ClientEtwLogger</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.isenabled#System_Diagnostics_Tracing_EventSource_IsEnabled">EventSource.IsEnabled()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.isenabled#System_Diagnostics_Tracing_EventSource_IsEnabled_System_Diagnostics_Tracing_EventLevel_System_Diagnostics_Tracing_EventKeywords_">EventSource.IsEnabled(EventLevel, EventKeywords)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.isenabled#System_Diagnostics_Tracing_EventSource_IsEnabled_System_Diagnostics_Tracing_EventLevel_System_Diagnostics_Tracing_EventKeywords_System_Diagnostics_Tracing_EventChannel_">EventSource.IsEnabled(EventLevel, EventKeywords, EventChannel)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.getguid#System_Diagnostics_Tracing_EventSource_GetGuid_System_Type_">EventSource.GetGuid(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.getname#System_Diagnostics_Tracing_EventSource_GetName_System_Type_">EventSource.GetName(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.generatemanifest#System_Diagnostics_Tracing_EventSource_GenerateManifest_System_Type_System_String_">EventSource.GenerateManifest(Type, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.generatemanifest#System_Diagnostics_Tracing_EventSource_GenerateManifest_System_Type_System_String_System_Diagnostics_Tracing_EventManifestOptions_">EventSource.GenerateManifest(Type, String, EventManifestOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.getsources#System_Diagnostics_Tracing_EventSource_GetSources">EventSource.GetSources()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.sendcommand#System_Diagnostics_Tracing_EventSource_SendCommand_System_Diagnostics_Tracing_EventSource_System_Diagnostics_Tracing_EventCommand_System_Collections_Generic_IDictionary_System_String_System_String__">EventSource.SendCommand(EventSource, EventCommand, IDictionary&lt;String, String&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid#System_Diagnostics_Tracing_EventSource_SetCurrentThreadActivityId_System_Guid_">EventSource.SetCurrentThreadActivityId(Guid)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid#System_Diagnostics_Tracing_EventSource_SetCurrentThreadActivityId_System_Guid_System_Guid__">EventSource.SetCurrentThreadActivityId(Guid, Guid)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.gettrait#System_Diagnostics_Tracing_EventSource_GetTrait_System_String_">EventSource.GetTrait(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.tostring#System_Diagnostics_Tracing_EventSource_ToString">EventSource.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.oneventcommand#System_Diagnostics_Tracing_EventSource_OnEventCommand_System_Diagnostics_Tracing_EventCommandEventArgs_">EventSource.OnEventCommand(EventCommandEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.writeevent#System_Diagnostics_Tracing_EventSource_WriteEvent_System_Int32_">EventSource.WriteEvent(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.writeevent#System_Diagnostics_Tracing_EventSource_WriteEvent_System_Int32_System_Int32_">EventSource.WriteEvent(Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.writeevent#System_Diagnostics_Tracing_EventSource_WriteEvent_System_Int32_System_Int32_System_Int32_">EventSource.WriteEvent(Int32, Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.writeevent#System_Diagnostics_Tracing_EventSource_WriteEvent_System_Int32_System_Int32_System_Int32_System_Int32_">EventSource.WriteEvent(Int32, Int32, Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.writeevent#System_Diagnostics_Tracing_EventSource_WriteEvent_System_Int32_System_Int64_">EventSource.WriteEvent(Int32, Int64)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.writeevent#System_Diagnostics_Tracing_EventSource_WriteEvent_System_Int32_System_Int64_System_Int64_">EventSource.WriteEvent(Int32, Int64, Int64)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.writeevent#System_Diagnostics_Tracing_EventSource_WriteEvent_System_Int32_System_Int64_System_Int64_System_Int64_">EventSource.WriteEvent(Int32, Int64, Int64, Int64)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.writeevent#System_Diagnostics_Tracing_EventSource_WriteEvent_System_Int32_System_String_">EventSource.WriteEvent(Int32, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.writeevent#System_Diagnostics_Tracing_EventSource_WriteEvent_System_Int32_System_String_System_String_">EventSource.WriteEvent(Int32, String, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.writeevent#System_Diagnostics_Tracing_EventSource_WriteEvent_System_Int32_System_String_System_String_System_String_">EventSource.WriteEvent(Int32, String, String, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.writeevent#System_Diagnostics_Tracing_EventSource_WriteEvent_System_Int32_System_String_System_Int32_">EventSource.WriteEvent(Int32, String, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.writeevent#System_Diagnostics_Tracing_EventSource_WriteEvent_System_Int32_System_String_System_Int32_System_Int32_">EventSource.WriteEvent(Int32, String, Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.writeevent#System_Diagnostics_Tracing_EventSource_WriteEvent_System_Int32_System_String_System_Int64_">EventSource.WriteEvent(Int32, String, Int64)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.writeevent#System_Diagnostics_Tracing_EventSource_WriteEvent_System_Int32_System_Int64_System_String_">EventSource.WriteEvent(Int32, Int64, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.writeevent#System_Diagnostics_Tracing_EventSource_WriteEvent_System_Int32_System_Int32_System_String_">EventSource.WriteEvent(Int32, Int32, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.writeevent#System_Diagnostics_Tracing_EventSource_WriteEvent_System_Int32_System_Byte___">EventSource.WriteEvent(Int32, Byte[])</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.writeevent#System_Diagnostics_Tracing_EventSource_WriteEvent_System_Int32_System_Int64_System_Byte___">EventSource.WriteEvent(Int32, Int64, Byte[])</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.writeeventcore#System_Diagnostics_Tracing_EventSource_WriteEventCore_System_Int32_System_Int32_System_Diagnostics_Tracing_EventSource_EventData__">EventSource.WriteEventCore(Int32, Int32, EventSource.EventData*)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.writeeventwithrelatedactivityidcore#System_Diagnostics_Tracing_EventSource_WriteEventWithRelatedActivityIdCore_System_Int32_System_Guid__System_Int32_System_Diagnostics_Tracing_EventSource_EventData__">EventSource.WriteEventWithRelatedActivityIdCore(Int32, Guid*, Int32, EventSource.EventData*)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.writeevent#System_Diagnostics_Tracing_EventSource_WriteEvent_System_Int32_System_Object___">EventSource.WriteEvent(Int32, Object[])</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.writeeventwithrelatedactivityid#System_Diagnostics_Tracing_EventSource_WriteEventWithRelatedActivityId_System_Int32_System_Guid_System_Object___">EventSource.WriteEventWithRelatedActivityId(Int32, Guid, Object[])</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.dispose#System_Diagnostics_Tracing_EventSource_Dispose">EventSource.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.dispose#System_Diagnostics_Tracing_EventSource_Dispose_System_Boolean_">EventSource.Dispose(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.write#System_Diagnostics_Tracing_EventSource_Write_System_String_">EventSource.Write(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.write#System_Diagnostics_Tracing_EventSource_Write_System_String_System_Diagnostics_Tracing_EventSourceOptions_">EventSource.Write(String, EventSourceOptions)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.write#System_Diagnostics_Tracing_EventSource_Write__1_System_String___0_">EventSource.Write&lt;T&gt;(String, T)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.write#System_Diagnostics_Tracing_EventSource_Write__1_System_String_System_Diagnostics_Tracing_EventSourceOptions___0_">EventSource.Write&lt;T&gt;(String, EventSourceOptions, T)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.write#System_Diagnostics_Tracing_EventSource_Write__1_System_String_System_Diagnostics_Tracing_EventSourceOptions____0__">EventSource.Write&lt;T&gt;(String, EventSourceOptions, T)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.write#System_Diagnostics_Tracing_EventSource_Write__1_System_String_System_Diagnostics_Tracing_EventSourceOptions__System_Guid__System_Guid____0__">EventSource.Write&lt;T&gt;(String, EventSourceOptions, Guid, Guid, T)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.name#System_Diagnostics_Tracing_EventSource_Name">EventSource.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.guid#System_Diagnostics_Tracing_EventSource_Guid">EventSource.Guid</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.settings#System_Diagnostics_Tracing_EventSource_Settings">EventSource.Settings</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.currentthreadactivityid#System_Diagnostics_Tracing_EventSource_CurrentThreadActivityId">EventSource.CurrentThreadActivityId</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.constructionexception#System_Diagnostics_Tracing_EventSource_ConstructionException">EventSource.ConstructionException</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource.eventcommandexecuted">EventSource.EventCommandExecuted</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.html">Microsoft.Graph.Communications.Common.Telemetry</a></h6>
+  <h6><strong>Assembly</strong>: Microsoft.Graph.Communications.Common.dll</h6>
+  <h5 id="Microsoft_Graph_Communications_Common_Telemetry_ClientEtwLogger_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EventSource(Name = &quot;Microsoft-Graph-Telemetry-Client&quot;)]
+public class ClientEtwLogger : EventSource, IDisposable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="Microsoft_Graph_Communications_Common_Telemetry_ClientEtwLogger__ctor_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.#ctor*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_ClientEtwLogger__ctor_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.#ctor(Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger)">ClientEtwLogger(IGraphLogger)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.html">ClientEtwLogger</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ClientEtwLogger(IGraphLogger logger)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger.html">IGraphLogger</a></td>
+        <td><span class="parametername">logger</span></td>
+        <td><p>The logger.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Microsoft_Graph_Communications_Common_Telemetry_ClientEtwLogger_HttpTrace_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.HttpTrace*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_ClientEtwLogger_HttpTrace_System_Guid_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_Int32_System_String_System_String_System_String_System_String_System_String_System_String_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.HttpTrace(System.Guid,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String)">HttpTrace(Guid, String, String, String, String, String, String, String, Int32, String, String, String, String, String, String)</h4>
+  <div class="markdown level1 summary"><p>Trace for client&apos;s http calls.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Event(100, Level = EventLevel.Informational, Message = &quot;{5}&quot;)]
+public void HttpTrace(Guid correlationId, string component, string traceLevel, string url, string transactionDirection, string message, string appName, string appId, int mtid, string callingLine, string traceType, string headers, string method, string responseCode, string responseTime)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.guid">Guid</a></td>
+        <td><span class="parametername">correlationId</span></td>
+        <td><p>The correlation identifier.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">component</span></td>
+        <td><p>The component.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">traceLevel</span></td>
+        <td><p>The trace level.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">url</span></td>
+        <td><p>The URL for the request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">transactionDirection</span></td>
+        <td><p>The direction of the request this request/response corresponds to.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The body for the request/response.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">appName</span></td>
+        <td><p>Name of the application.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">appId</span></td>
+        <td><p>The application identifier.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">mtid</span></td>
+        <td><p>The managed tid.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">callingLine</span></td>
+        <td><p>The line in which log is produced.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">traceType</span></td>
+        <td><p>Denote whether this is request/response.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">headers</span></td>
+        <td><p>The headers.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">method</span></td>
+        <td><p>The method for the request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">responseCode</span></td>
+        <td><p>The response code from response.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">responseTime</span></td>
+        <td><p>Time taken to process the request.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Graph_Communications_Common_Telemetry_ClientEtwLogger_Trace_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.Trace*"></a>
+  <h4 id="Microsoft_Graph_Communications_Common_Telemetry_ClientEtwLogger_Trace_System_Guid_System_String_System_String_System_String_System_String_System_String_System_Int32_System_String_" data-uid="Microsoft.Graph.Communications.Common.Telemetry.ClientEtwLogger.Trace(System.Guid,System.String,System.String,System.String,System.String,System.String,System.Int32,System.String)">Trace(Guid, String, String, String, String, String, Int32, String)</h4>
+  <div class="markdown level1 summary"><p>Trace for client&apos;s normal trace calls.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Event(101, Level = EventLevel.Informational, Message = &quot;{3}&quot;)]
+public void Trace(Guid correlationId, string component, string traceLevel, string message, string appName, string appId, int mtid, string callingLine)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.guid">Guid</a></td>
+        <td><span class="parametername">correlationId</span></td>
+        <td><p>The correlation identifier.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">component</span></td>
+        <td><p>The component.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">traceLevel</span></td>
+        <td><p>The trace level.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">appName</span></td>
+        <td><p>Name of the application.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">appId</span></td>
+        <td><p>The application identifier.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">mtid</span></td>
+        <td><p>The managed tid.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">callingLine</span></td>
+        <td><p>The line in which log is produced.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable">System.IDisposable</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Microsoft.Graph.AdditionalDataExtensions.html#Microsoft_Graph_AdditionalDataExtensions_SetInAdditionalData_System_Object_System_String_System_Object_">AdditionalDataExtensions.SetInAdditionalData(Object, String, Object)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Extensions.html#Microsoft_Graph_Communications_Common_Extensions_Pin_System_Object_">Extensions.Pin(Object)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Extensions.html#Microsoft_Graph_Communications_Common_Extensions_ChangeType_System_Object_System_Type_">Extensions.ChangeType(Object, Type)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Extensions.html#Microsoft_Graph_Communications_Common_Extensions_ChangeType__1_System_Object_">Extensions.ChangeType&lt;T&gt;(Object)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Extensions.html#Microsoft_Graph_Communications_Common_Extensions_TryDispose_System_Object_Microsoft_Graph_Communications_Common_Telemetry_IGraphLogger_">Extensions.TryDispose(Object, IGraphLogger)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.ReflectionUtils.html#Microsoft_Graph_Communications_Common_ReflectionUtils_GetPropertyUsingReflection_System_Object_System_String_">ReflectionUtils.GetPropertyUsingReflection(Object, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.ReflectionUtils.html#Microsoft_Graph_Communications_Common_ReflectionUtils_SetPropertyUsingReflection_System_Object_System_String_System_Object_">ReflectionUtils.SetPropertyUsingReflection(Object, String, Object)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Validator.html#Microsoft_Graph_Communications_Common_Validator_IsNull_System_Object_System_String_System_String_">Validator.IsNull(Object, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Validator.html#Microsoft_Graph_Communications_Common_Validator_NotNull__1___0_System_String_System_String_">Validator.NotNull&lt;T&gt;(T, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Validator.html#Microsoft_Graph_Communications_Common_Validator_Equals__1___0___0_System_String_System_String_">Validator.Equals&lt;T&gt;(T, T, String, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Validator.html#Microsoft_Graph_Communications_Common_Validator_Equals__2___0___0_System_String_">Validator.Equals&lt;T, TE&gt;(T, T, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Microsoft.Graph.Communications.Common.Validator.html#Microsoft_Graph_Communications_Common_Validator_NotEquals__1___0___0_System_String_System_String_">Validator.NotEquals&lt;T&gt;(T, T, String, String)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

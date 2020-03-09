@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interactive Voice Response (IVR) </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interactive Voice Response (IVR) ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../resources/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="interactive-voice-response-ivr">Interactive Voice Response (IVR)</h1>
+
+<p>Graph Communications Calling SDK and Core SDK can be used to make and manage IVR calls.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li>Join exiting calls</li>
+<li>Answer incoming calls</li>
+<li>Subscribe to tones</li>
+<li>Transfer call</li>
+<li>Play media</li>
+<li>Record</li>
+<li>Cancel media operations</li>
+</ul>
+<h2 id="calling-sdk-snippets">Calling SDK Snippets</h2>
+<h2 id="join-existing-call-and-answer-incoming-call">Join Existing Call and Answer Incoming Call</h2>
+<p>Please refer to the <a href="../index.html">concept articles</a></p>
+<h2 id="redirect-and-transfer">Redirect and Transfer</h2>
+<p>In order to do a redirect or transfer, you need to create an invitation object.</p>
+<p>This invitation target is the transferee in blind transfer and the original caller in consultative transfer.</p>
+<pre><code class="lang-cs">var target = new InvitationParticipantInfo
+{
+  Identity = new IdentitySet
+  {
+    User = new Identity {
+      Id = &quot;**The Target&#39;s AAD ID**&quot;,
+      DisplayName = &quot;**(optional) The Target&#39;s Display Name**&quot;,
+    }
+  }
+};
+
+ICall call = this.GetIncomingCall();
+await call.RedirectAsync(new[] { target }).ConfigureAwait(false);
+</code></pre><h3 id="blind-transfer">Blind transfer</h3>
+<p>To make a blind transfer, only the target needs to be specified.</p>
+<pre><code class="lang-cs">ICall oritinalCall = this.Client.Calls()[&quot;*call id to transfer*&quot;];
+await oritinalCall.TransferAsync(target).ConfigureAwait(false);
+</code></pre><h3 id="consultative-transfer">Consultative transfer</h3>
+<pre><code class="lang-cs">ICall newCall = this.Client.Calls()[&quot;*call id of second call*&quot;];
+await newCall.TransferAsync(target, &quot;*id of the original call*&quot;).ConfigureAwait(false);
+</code></pre><h2 id="subscribe-to-tones">Subscribe to tones</h2>
+<pre><code class="lang-cs">ICall call = this.Client.Calls()[&quot;*id of the call*&quot;];
+await call.SubscribeToToneAsync().ConfigureAwait(false);
+</code></pre><p>Any tones that are received are sent as part of a call update in <code>ToneInfo</code> property of the call resource.</p>
+<h2 id="play-media-prompts">Play media prompts</h2>
+<pre><code class="lang-cs">ICall call = this.Client.Calls()[&quot;*id of the call*&quot;];
+await call.PlayPromptAsync(*A list of media prompts to play*).ConfigureAwait(false);
+</code></pre><h2 id="record">Record</h2>
+<pre><code class="lang-cs">ICall call = this.Client.Calls()[&quot;*id of the call*&quot;];
+HttpClient httpClient = this.HttpClient;
+
+RecordOperationResult result = await call.RecordAsync(*record options*).ConfigureAwait(false);
+string location = result.RecordResourceLocation;
+string token = result.RecordResourceAccessToken;
+
+// Stream the content of the recording somewhere.
+using (var outputStream = new MemoryStream())
+using (var request = new HttpRequestMessage(HttpMethod.Get, new Uri(location)))
+{
+  // Set the authorization header.
+  request.Headers.Authorization = new AuthenticationHeaderValue(&quot;Bearer&quot;, token);
+
+  using(var response = await httpClient.SendAsync(request).ConfigureAwait(false))
+  using(var content = await response.Content.ReadAsStreamAsync().ConfigureAwait(false))
+  {
+    await content.CopyToAsync(outputStream);
+    outputStream?.Seek(0, SeekOrigin.Begin);
+
+    // Do something with stream.
+  }
+}
+</code></pre><h2 id="cancel-media-processing">Cancel media processing</h2>
+<p>This API will cancel all prompts that are queued to be played.</p>
+<pre><code class="lang-cs">ICall call = this.Client.Calls()[&quot;*id of the call*&quot;];
+await call.CancelMediaProcessingAsync().ConfigureAwait(false);
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

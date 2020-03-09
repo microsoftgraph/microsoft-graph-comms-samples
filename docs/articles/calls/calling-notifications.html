@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Notifications in Calling </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Notifications in Calling ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../resources/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="notifications-in-calling">Notifications in Calling</h1>
+
+<p>Refer to <a href="register-calling-bot.html">Registering a Calling Bot</a> on how to register the callback URL. This callback is used for all incoming calls to the application.</p>
+<h2 id="protocol-determination">Protocol determination</h2>
+<p>The incoming notification is provided in legacy format for compatibility with the previous <a href="https://docs.microsoft.com/en-us/azure/bot-service/dotnet/bot-builder-dotnet-real-time-media-concepts?view=azure-bot-service-3.0">protocol</a>. In order to convert the call to the Microsoft Graph protocol, the bot must determine the notification is in legacy format and reply with:</p>
+<pre><code class="lang-http">HTTP/1.1 204 No Content
+</code></pre><p>The application will again receive the notification but this time it will be in the Microsoft Graph protocol.</p>
+<p>You may configure the protocol your application supports and avoid receiving the initial callback in legacy format. The setting is available as a configuration option in the Skype Channel.</p>
+<h2 id="redirects-for-region-affinity">Redirects for region affinity</h2>
+<p>We will invoke your callback from the data-center hosting the call. The call may start in any data-center and does not take into account region affinities. The notification will be sent to your deployment depending on the GeoDNS resolution. If your application determines, by inspecting the initial notification payload or otherwise, that it needs to run in a different deployment, the application may reply with:</p>
+<pre><code class="lang-http">HTTP/1.1 302 Found
+Location: your-new-location
+</code></pre><p>You may decide to pickup the call and <a href="https://docs.microsoft.com/en-us/graph/api/call-answer?view=graph-rest-beta">answer</a>. You can specify the callback URL to handle this particular call. This is useful for <em>stateful</em> instances where your call is handled by a particular partition and you want to embed this information on the callback URL for routing to the right instance.</p>
+<h2 id="authenticating-the-callback">Authenticating the callback</h2>
+<p>Application should inspect the token passed by on the notification to validate the request. Whenever the API raises a web hook event, the API gets an OAUTH token from us, with audience as the application&#39;s App ID and adds it in the Authorization header as a Bearer token.</p>
+<p><img src="../../resources/azure-application-properties.png" alt="Azure-application-properties"></p>
+<p>The application is expected to validate this token before accepting the callback request.</p>
+<pre><code class="lang-http">POST https://bot.contoso.com/api/calls
+Content-Type: application/json
+Authentication: Bearer &lt;TOKEN&gt;
+
+&quot;value&quot;: [
+    &quot;subscriptionId&quot;: &quot;2887CEE8344B47C291F1AF628599A93C&quot;,
+    &quot;subscriptionExpirationDateTime&quot;: &quot;2016-11-20T18:23:45.9356913Z&quot;,
+    &quot;changeType&quot;: &quot;updated&quot;,
+    &quot;resource&quot;: &quot;/app/calls/8A934F51F25B4EE19613D4049491857B&quot;,
+    &quot;resourceData&quot;: {
+        &quot;@odata.type&quot;: &quot;#microsoft.graph.call&quot;,
+        &quot;state&quot;: &quot;Established&quot;
+    }
+]
+</code></pre><p>The OAUTH token would have values like the following, and will be signed by us. The openid configuration published at <a href="https://api.aps.skype.com/v1/.well-known/OpenIdConfiguration">https://api.aps.skype.com/v1/.well-known/OpenIdConfiguration</a> can be used to verify the token.</p>
+<pre><code class="lang-json">{
+    &quot;aud&quot;: &quot;0efc74f7-41c3-47a4-8775-7259bfef4241&quot;,
+    &quot;iss&quot;: &quot;https://api.botframework.com&quot;,
+    &quot;iat&quot;: 1466741440,
+    &quot;nbf&quot;: 1466741440,
+    &quot;exp&quot;: 1466745340,
+    &quot;tid&quot;: &quot;1fdd12d0-4620-44ed-baec-459b611f84b2&quot;
+}
+</code></pre><ul>
+<li><strong>aud</strong> audience is the App ID URI specified for the application.</li>
+<li><strong>tid</strong> is the tenant id for contoso</li>
+<li><strong>iss</strong> is the token issuer, <code>https://api.botframework.com</code></li>
+</ul>
+<p>The listener interface on the web hook URL can validate the token, ensure it has not expired, checking whether it has been signed by our published openid configuration. You must also check whether audience matches your App ID before accepting the callback request.</p>
+<p><a href="https://github.com/microsoftgraph/microsoft-graph-comms-samples/blob/master/Samples/Common/Sample.Common/Authentication/AuthenticationProvider.cs">Sample</a> shows how to validate inbound requests.</p>
+<h2 id="additional-information">Additional information</h2>
+<p>You can read more about <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-id-and-access-tokens">AAD tokens and Validation</a></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Graph Communications Media SDK </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Graph Communications Media SDK ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="graph-communications-media-sdk">Graph Communications Media SDK</h1>
+
+<p>The Media components can be found in the <a class="xref" href="Microsoft.Graph.Communications.Calls.Media.html">Microsoft.Graph.Communications.Calls.Media</a> namespace.</p>
+<p>More information of utilizing Real-time Media Calling functionality in bots can be found <a href="https://docs.microsoft.com/en-us/bot-framework/dotnet/bot-builder-dotnet-real-time-media-concepts">here</a></p>
+<p>This is presented as an extension on top of the Graph Communications Calling SDK to provide extra functionalities with <a href="https://www.nuget.org/packages/Microsoft.Skype.Bots.Media/">Microsoft.Skype.Bots.Media</a> library.</p>
+<h2 id="imediasession">IMediaSession</h2>
+<p>The Media SDK provides very light integration with the <a href="https://www.nuget.org/packages/Microsoft.Skype.Bots.Media/">Microsoft.Skype.Bots.Media</a> library.  There are only a few pieces of data that the signaling SDK requires to integrate with the media libraries.  As a convenience the Media SDK provides an <a class="xref" href="Microsoft.Graph.Communications.Calls.Media.MediaCommunicationsClientExtensions.html#Microsoft_Graph_Communications_Calls_Media_MediaCommunicationsClientExtensions_CreateMediaSession_Microsoft_Graph_Communications_Client_ICommunicationsClient_Microsoft_Skype_Bots_Media_AudioSocketSettings_Microsoft_Skype_Bots_Media_VideoSocketSettings_Microsoft_Skype_Bots_Media_VideoSocketSettings_Microsoft_Skype_Bots_Media_DataSocketSettings_System_Guid_">IMediaSession generator</a>. For greater customization of media libraries developers are welcome to exclude this package and implement their own <a class="xref" href="../calls/Microsoft.Graph.Communications.Calls.IMediaSession.html">IMediaSession</a>.</p>
+<h2 id="media-requirements">Media Requirements</h2>
+<p>The Communications SDK is quite flexible, however, the media library has it&#39;s own set of <a href="https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/calls-and-meetings/requirements-considerations-application-hosted-media-bots">Requirements</a>.</p>
+<h2 id="local-testing">Local Testing</h2>
+<p>Local testing of Application Hosted Media scenarios is possible in some environments.  Please refer to the <a href="../articles/Testing.html">testing guide</a> to enable local testing.</p>
+<hr>
+<p>Select a class on the left to dive into the reference docs</p>
+<h2 id="accompanying-information">Accompanying Information</h2>
+<p>Accessing the Microsoft Teams Service through a Microsoft API Cloud Video Interop (CVI) partners and contact centers may integrate with Microsoft Teams to aid their solution. Contact centers may route calls to Microsoft Teams but may not build a separate or independent communications related solution while using Microsoft Teams as a base for the solution.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

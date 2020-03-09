@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Graph Communications Calling SDK </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Graph Communications Calling SDK ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="">
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                <img id="logo" class="svg" src="resources/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="graph-communications-calling-sdk">Graph Communications Calling SDK</h1>
+
+<h2 id="introduction">Introduction</h2>
+<p>The Graph Communications Calling SDK simplifies the creation of calling and meetings bots that use the <a href="https://docs.microsoft.com/en-us/graph/cloud-communications-concept-overview">Cloud Communications APIs</a>.  The SDK provides the functionality to manage states of resources in memory and simplify tasks like call setup and media session establishment. It provides interfaces for bot&#39;s service-to-service interactions with calls and meetings, including an optional Media Extension SDK that enables a bot developer to host media on their machines and gain access to low level Audio/Video sockets and media streams.</p>
+<h2 id="sdk">SDK</h2>
+<p>The Graph Communications Calling SDK is built on top of the Microsoft Graph API and distributed as NuGet packages. The <a href="articles/index.html">Core Concepts</a> article is designed to better explain all the constructs used by the SDKs. To dive right in and deploy a Calling Bot refer to the documentation in each sample for further instructions.</p>
+<p>The SDK is divided into multiple nuget packages each described as below.</p>
+<ul>
+<li><a href="common/index.html">Microsoft.Graph.Communications.Common</a> (<a href="https://www.nuget.org/packages/Microsoft.Graph.Communications.Common/">nuget</a>): This is the nuget containing all the utilities used throughout the Stateful SDK. It contains telemetry, http, obfuscation support along with helper methods.</li>
+<li><a href="core/index.html">Microsoft.Graph.Communications.Core</a> (<a href="https://www.nuget.org/packages/Microsoft.Graph.Communications.Core/">nuget</a>): This library contains the serialization and notification for the communications APIs.</li>
+<li><a href="client/index.html">Microsoft.Graph.Communications.Client</a> (<a href="https://www.nuget.org/packages/Microsoft.Graph.Communications.Client/">nuget</a>): This is the base client for the Stateful SDK. This implements all the common SDK features used within different verticals like calling, etc. </li>
+<li><a href="calls/index.html">Microsoft.Graph.Communications.Calls</a> (<a href="https://www.nuget.org/packages/Microsoft.Graph.Communications.Calls/">nuget</a>): This is the SDK that implements calling APIs. This supports making, receiving, and joining calls with Microsoft Teams users, and creating voice and video enabled bots.</li>
+<li><a href="calls_media/index.html">Microsoft.Graph.Communications.Calls.Media</a> (<a href="https://www.nuget.org/packages/Microsoft.Graph.Communications.Calls.Media/">nuget</a>): This library allows developers to use the <code>Microsoft.Graph.Communications.Calls</code> SDK and gain direct access to the audio, video, screen sharing, and data streams. This is an optional library on top of <code>Microsoft.Graph.Communications.Calls</code></li>
+<li><a href="bot_media/index.html">Microsoft.Skype.Bots.Media</a> (<a href="https://www.nuget.org/packages/Microsoft.Skype.Bots.Media/">nuget</a>): The Real-Time Media Platform for Bots adds a new dimension to how bots can interact with users: by enabling real-time voice, video and screen sharing modalities.</li>
+</ul>
+<h3 id="concepts-and-examples">Concepts and Examples</h3>
+<p>For more details on concepts used by the SDK and examples on joining calls and receiving calls please refer to the <a href="articles/index.html">concepts and examples</a> page.</p>
+<p>You can find samples using the following service:</p>
+<ul>
+<li>Stateful bot using Application Hosted Media on <a href="https://github.com/microsoftgraph/microsoft-graph-comms-samples/tree/master/Samples/V1.0Samples/LocalMediaSamples/AudioVideoPlaybackBot">Azure Cloud Service</a></li>
+<li>Stateful bot using Application Hosted Media on <a href="https://github.com/microsoftgraph/microsoft-graph-comms-samples/tree/master/Samples/V1.0Samples/LocalMediaSamples/HueBot">Azure Service Fabric</a></li>
+<li>Stateful bot using Service Hosted Media running on <a href="https://github.com/microsoftgraph/microsoft-graph-comms-samples/tree/master/Samples/V1.0Samples/RemoteMediaSamples/IncidentBot">Azure App Service</a>.</li>
+</ul>
+<h3 id="icommunicationsclient-and-extension-methods">ICommunicationsClient and Extension Methods</h3>
+<p>The Stateful SDK is exposed using a single class <a class="xref" href="client/Microsoft.Graph.Communications.Client.ICommunicationsClient.html">ICommunicationsClient</a>. This class is defined in the <code>Microsoft.Graph.Communications.Client</code> nuget and has no dependency on the <code>Microsoft.Graph.Communications.Calls</code> calling vertical nuget package. The different verticals therefore make heavy usage of extension methods on <code>ICommunicationsClient</code> rather than standalone functions or properties. The intention here is to add new verticals into the <code>ICommunicationsClient</code> using the same pattern without the <code>ICommunicationsClient</code> itself taking a dependency on the new vertical&#39;s nuget, which provides greater decoupling between future verticals we will support.  For a usage example please see the <a class="xref" href="calls/Microsoft.Graph.Communications.Calls.CommunicationsClientExtensions.html#Microsoft_Graph_Communications_Calls_CommunicationsClientExtensions_Calls_Microsoft_Graph_Communications_Client_ICommunicationsClient_System_Boolean_">ICommunicationsClient.Calls()</a> extension method.</p>
+<h3 id="accompanying-information">Accompanying Information</h3>
+<p>Accessing the Microsoft Teams Service through a Microsoft API Cloud Video Interop (CVI) partners and contact centers may integrate with Microsoft Teams to aid their solution. Contact centers may route calls to Microsoft Teams but may not build a separate or independent communications related solution while using Microsoft Teams as a base for the solution.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

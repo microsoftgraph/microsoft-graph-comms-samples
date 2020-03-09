@@ -1,0 +1,769 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class VideoSocket
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class VideoSocket
+   ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    <meta property="docfx:newtab" content="true">
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../resources/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Microsoft.Skype.Bots.Media.VideoSocket">
+  
+  
+  <h1 id="Microsoft_Skype_Bots_Media_VideoSocket" data-uid="Microsoft.Skype.Bots.Media.VideoSocket" class="text-break">Class VideoSocket
+  </h1>
+  <div class="markdown level0 summary"><p>Provides Send and Receive I/O access to a video stream.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">VideoSocket</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Microsoft.Skype.Bots.Media.IVideoSocket.html">IVideoSocket</a></div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#System_Object_ToString">Object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Microsoft.Skype.Bots.Media.html">Microsoft.Skype.Bots.Media</a></h6>
+  <h6><strong>Assembly</strong>: Microsoft.Skype.Bots.Media.dll</h6>
+  <h5 id="Microsoft_Skype_Bots_Media_VideoSocket_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class VideoSocket : IVideoSocket, IDisposable, IInternalVideoSocket, IInternalSocket</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="Microsoft_Skype_Bots_Media_VideoSocket__ctor_" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.#ctor*"></a>
+  <h4 id="Microsoft_Skype_Bots_Media_VideoSocket__ctor_Microsoft_Skype_Bots_Media_VideoSocketSettings_" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.#ctor(Microsoft.Skype.Bots.Media.VideoSocketSettings)">VideoSocket(VideoSocketSettings)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new VideoSocket object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VideoSocket(VideoSocketSettings settings)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Skype.Bots.Media.VideoSocketSettings.html">VideoSocketSettings</a></td>
+        <td><span class="parametername">settings</span></td>
+        <td><p>Configuration settings for the VideoSocket</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="Microsoft_Skype_Bots_Media_VideoSocket_MediaType_" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.MediaType*"></a>
+  <h4 id="Microsoft_Skype_Bots_Media_VideoSocket_MediaType" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.MediaType">MediaType</h4>
+  <div class="markdown level1 summary"><p>MediaType of the video socket. This could be Video or Vbss. The MediaType is set after
+the socket is passed to the CreateMediaConfiguration API. It may also be set via the
+VideoSocketSettings during socket creation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MediaType MediaType { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Skype.Bots.Media.MediaType.html">MediaType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Skype_Bots_Media_VideoSocket_ReceiveColorFormat_" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.ReceiveColorFormat*"></a>
+  <h4 id="Microsoft_Skype_Bots_Media_VideoSocket_ReceiveColorFormat" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.ReceiveColorFormat">ReceiveColorFormat</h4>
+  <div class="markdown level1 summary"><p>VideoColorFormat to receive</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VideoColorFormat ReceiveColorFormat { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Skype.Bots.Media.VideoColorFormat.html">VideoColorFormat</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Skype_Bots_Media_VideoSocket_SocketId_" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.SocketId*"></a>
+  <h4 id="Microsoft_Skype_Bots_Media_VideoSocket_SocketId" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.SocketId">SocketId</h4>
+  <div class="markdown level1 summary"><p>The 0-based ID of the socket. This socket ID is useful to identify a socket in a 
+multiview (ie. more than 1 video socket) call. The same ID is used in the event 
+args of the VideoMediaReceived and VideoSendStatusChanged events that this class
+may raise. The socket ID property will be present in both single view and multiview 
+cases. The ID maps to the order in which the video sockets are provided to the 
+CreateMediaConfiguration API. 
+Eg., if the collection of IVideoSocket objects in the CreateMediaConfiguration API contains 
+{socketA, socketB, socketC}, the sockets will have the ID mapping of: 0 for socketA, 
+1 for socketB and 2 for socketC.
+Before the call to CreateMediaConfiguration, the SocketId has a value of -1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int SocketId { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Microsoft_Skype_Bots_Media_VideoSocket_Dispose_" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.Dispose*"></a>
+  <h4 id="Microsoft_Skype_Bots_Media_VideoSocket_Dispose" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.Dispose">Dispose()</h4>
+  <div class="markdown level1 summary"><p>Disposes the object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+  <a id="Microsoft_Skype_Bots_Media_VideoSocket_GetQualityOfExperienceData_" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.GetQualityOfExperienceData*"></a>
+  <h4 id="Microsoft_Skype_Bots_Media_VideoSocket_GetQualityOfExperienceData" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.GetQualityOfExperienceData">GetQualityOfExperienceData()</h4>
+  <div class="markdown level1 summary"><p>Get the Quality of Experience (QoE) data for the audio socket.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VideoQualityOfExperienceData GetQualityOfExperienceData()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Skype.Bots.Media.VideoQualityOfExperienceData.html">VideoQualityOfExperienceData</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Microsoft_Skype_Bots_Media_VideoSocket_GetQualityOfExperienceData_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The bot should fetch the QoE data no more than once every 30 seconds.
+To get accurate metrics, the bot should let media flow for at least 
+30 seconds before fetching the QoE data.</p>
+</div>
+  <a id="Microsoft_Skype_Bots_Media_VideoSocket_RequestKeyFrame_" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.RequestKeyFrame*"></a>
+  <h4 id="Microsoft_Skype_Bots_Media_VideoSocket_RequestKeyFrame" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.RequestKeyFrame">RequestKeyFrame()</h4>
+  <div class="markdown level1 summary"><p>Allows the application to request for key frame.
+Only valid for sockets with the ReceiveColorFormat as H264</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RequestKeyFrame()</code></pre>
+  </div>
+  <a id="Microsoft_Skype_Bots_Media_VideoSocket_Send_" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.Send*"></a>
+  <h4 id="Microsoft_Skype_Bots_Media_VideoSocket_Send_Microsoft_Skype_Bots_Media_VideoMediaBuffer_" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.Send(Microsoft.Skype.Bots.Media.VideoMediaBuffer)">Send(VideoMediaBuffer)</h4>
+  <div class="markdown level1 summary"><p>Sends a frame of video media.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Send(VideoMediaBuffer buffer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Skype.Bots.Media.VideoMediaBuffer.html">VideoMediaBuffer</a></td>
+        <td><span class="parametername">buffer</span></td>
+        <td><p>VideoMediaBuffer containing the frame of video media to send.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Microsoft_Skype_Bots_Media_VideoSocket_Send_Microsoft_Skype_Bots_Media_VideoMediaBuffer__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The application must create a concrete class which derives from the
+VideoMediaBuffer abstract class. The buffer object passed to the Send
+method is still potentially in-use after the method returns to the
+caller. The application must not free the buffer&apos;s data until the
+the buffer object&apos;s Dispose() method is invoked by the Media Platform.
+<p>
+The application should be sending up to 30 video frames per second.
+</p>
+<p>
+The VideoSocket must be enabled to send media via the <code>VideoSocketSettings.StreamDirections</code>
+property.
+</p></p>
+</div>
+  <a id="Microsoft_Skype_Bots_Media_VideoSocket_SetReceiveBandwidthLimit_" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.SetReceiveBandwidthLimit*"></a>
+  <h4 id="Microsoft_Skype_Bots_Media_VideoSocket_SetReceiveBandwidthLimit_System_UInt32_" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.SetReceiveBandwidthLimit(System.UInt32)">SetReceiveBandwidthLimit(UInt32)</h4>
+  <div class="markdown level1 summary"><p>Sets the bandwidth limit on the receive stream of the VideoSocket.
+This is only supported if the socket supports receiving H264 video format.
+It is recommended to wait for the VideoReceiveStatusChanged event with MediaReceiveStatus Active state 
+during the initial call setup before applying the receive bandwidth limit on the socket.
+Bandwidth range (in bits per second) for various resolutions and frame rates per media type:
+<p>Media type: Video
+<p>1000000 - 4000000  1080p at 30 fps
+<p> 550000 - 2500000  720p at 30 fps
+<p> 375000 - 1500000  540p at 30 fps
+<p> 200000 -  800000  360p at 30 fps
+<p> 150000 -  250000  360p at 15 fps
+<p> 120000 -  220000  240p at 15 fps
+<p>  60000 -  200000  180p at 15 fps
+<p>  20000 -  100000  180p at 7.5 fps
+<p>  10000 -   25000  180p at 3.75 fps
+<p>   1000 -   12500  180p at 1.875 fps
+<p>Media type: Vbss
+<p>Resolution: 1080p
+<p>2000000 - 4000000 at 30 fps
+<p> 600000 - 3000000 at 15 fps
+<p> 300000 -  700000  at 7.5 fps
+<p> 150000 -  350000  at 3.75 fps
+<p>  70000 -  200000  at 1.875 fps</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetReceiveBandwidthLimit(uint bitsPerSecond)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uint32">UInt32</a></td>
+        <td><span class="parametername">bitsPerSecond</span></td>
+        <td><p>The receive bitrate</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Skype_Bots_Media_VideoSocket_SetSendBandwidthLimit_" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.SetSendBandwidthLimit*"></a>
+  <h4 id="Microsoft_Skype_Bots_Media_VideoSocket_SetSendBandwidthLimit_System_UInt32_" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.SetSendBandwidthLimit(System.UInt32)">SetSendBandwidthLimit(UInt32)</h4>
+  <div class="markdown level1 summary"><p>Sets the bandwidth limit on the send stream of the VideoSocket.
+This is only supported if the socket supports sending H264 video formats.
+It is recommended to wait for the VideoSendStatusChanged event with MediaSendStatus Active state 
+during the initial call setup before applying the send bandwidth limit on the socket.
+<p>Bandwidth range (in bits per second) for various resolutions and frame rates per media type:
+<p>Media type: Video
+<p>1000000 - 4000000  1080p at 30 fps
+<p> 550000 - 2500000  720p at 30 fps
+<p> 375000 - 1500000  540p at 30 fps
+<p> 200000 -  800000  360p at 30 fps
+<p> 150000 -  250000  360p at 15 fps
+<p> 120000 -  220000  240p at 15 fps
+<p>  60000 -  200000  180p at 15 fps
+<p>  20000 -  100000  180p at 7.5 fps
+<p>  10000 -   25000  180p at 3.75 fps
+<p>   1000 -   12500  180p at 1.875 fps
+<p>Media type: Vbss
+<p>Resolution: 1080p
+<p>2000000 - 4000000 at 30 fps
+<p> 600000 - 3000000 at 15 fps
+<p> 300000 -  700000  at 7.5 fps
+<p> 150000 -  350000  at 3.75 fps
+<p>  70000 -  200000  at 1.875 fps</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetSendBandwidthLimit(uint bitsPerSecond)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uint32">UInt32</a></td>
+        <td><span class="parametername">bitsPerSecond</span></td>
+        <td><p>The send bitrate</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Skype_Bots_Media_VideoSocket_Subscribe_" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.Subscribe*"></a>
+  <h4 id="Microsoft_Skype_Bots_Media_VideoSocket_Subscribe_Microsoft_Skype_Bots_Media_VideoResolution_" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.Subscribe(Microsoft.Skype.Bots.Media.VideoResolution)">Subscribe(VideoResolution)</h4>
+  <div class="markdown level1 summary"><p>Request to receive the video of the peer in a 1:1 call. No need to specify a MediaSourceId.
+The bot cannot subscribe to a video source unless the <code>VideoReceiveStatusChanged</code> event is raised
+indicating the VideoSocket&apos;s <code>MediaReceiveStatus</code> is <code>Active</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Subscribe(VideoResolution preferredVideoResolution)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Skype.Bots.Media.VideoResolution.html">VideoResolution</a></td>
+        <td><span class="parametername">preferredVideoResolution</span></td>
+        <td><p>The requested video resolution.
+The received video frames should have this resolution if the bandwidth constraints and sender capabilities allow,
+however the bot may receive video frames at a resolution lower than requested.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Skype_Bots_Media_VideoSocket_Subscribe_" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.Subscribe*"></a>
+  <h4 id="Microsoft_Skype_Bots_Media_VideoSocket_Subscribe_Microsoft_Skype_Bots_Media_VideoResolution_System_UInt32_" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.Subscribe(Microsoft.Skype.Bots.Media.VideoResolution,System.UInt32)">Subscribe(VideoResolution, UInt32)</h4>
+  <div class="markdown level1 summary"><p>Request to receive the video source of a participant in a meeting or group call.
+The video source must be identified by its MediaSourceId available from the roster.
+The bot cannot subscribe to a video source unless the <code>VideoReceiveStatusChanged</code> event is raised
+indicating the VideoSocket&apos;s <code>MediaReceiveStatus</code> is <code>Active</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Subscribe(VideoResolution preferredVideoResolution, uint MediaSourceId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Skype.Bots.Media.VideoResolution.html">VideoResolution</a></td>
+        <td><span class="parametername">preferredVideoResolution</span></td>
+        <td><p>The requested video resolution.
+The received video frames should have this resolution if the bandwidth constraints and sender capabilities allow,
+however the bot may receive video frames at a resolution lower than requested.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uint32">UInt32</a></td>
+        <td><span class="parametername">MediaSourceId</span></td>
+        <td><p>Media source identifier of the video source to be received</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></td>
+        <td><p>Thrown if the VideoSocket is disposed.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Thrown if the subscription is invalid.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Microsoft.Skype.Bots.Media.SkypeMediaException.html">SkypeMediaException</a></td>
+        <td><p>Thrown if an internal media failure occurs.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Microsoft_Skype_Bots_Media_VideoSocket_Unsubscribe_" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.Unsubscribe*"></a>
+  <h4 id="Microsoft_Skype_Bots_Media_VideoSocket_Unsubscribe" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.Unsubscribe">Unsubscribe()</h4>
+  <div class="markdown level1 summary"><p>Stops the current video subscription on the VideoSocket.
+The <code>VideoMediaReceived</code> events will stop raising video buffers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Unsubscribe()</code></pre>
+  </div>
+  <a id="Microsoft_Skype_Bots_Media_VideoSocket_UpdateVideoSendCapability_" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.UpdateVideoSendCapability*"></a>
+  <h4 id="Microsoft_Skype_Bots_Media_VideoSocket_UpdateVideoSendCapability_Microsoft_Skype_Bots_Media_VideoSendCapability_" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.UpdateVideoSendCapability(Microsoft.Skype.Bots.Media.VideoSendCapability)">UpdateVideoSendCapability(VideoSendCapability)</h4>
+  <div class="markdown level1 summary"><p>Allows the application to update dynamically the send capability (such as SupportedSendVideoFormats or MaxConcurrentSendStreams) 
+of the video socket. 
+The purpose of this API is to allow the application to communicate changes in VideoSocket&apos;s send capability 
+to the platform during the call.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UpdateVideoSendCapability(VideoSendCapability capability)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Microsoft.Skype.Bots.Media.VideoSendCapability.html">VideoSendCapability</a></td>
+        <td><span class="parametername">capability</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="events">Events
+  </h3>
+  <h4 id="Microsoft_Skype_Bots_Media_VideoSocket_MediaStreamFailure" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.MediaStreamFailure">MediaStreamFailure</h4>
+  <div class="markdown level1 summary"><p>This event is raised if there is a network connection failure with the peer. To recover, the bot
+will need to start a new call or rejoin the meeting.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;MediaStreamFailureEventArgs&gt; MediaStreamFailure</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Microsoft.Skype.Bots.Media.MediaStreamFailureEventArgs.html">MediaStreamFailureEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Microsoft_Skype_Bots_Media_VideoSocket_MediaStreamFailure_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Note: this event can be raised even if there is no active video subscription; i.e., the VideoSocket is &quot;idle&quot;
+and not receiving media.</p>
+</div>
+  <h4 id="Microsoft_Skype_Bots_Media_VideoSocket_MediaStreamQualityChanged" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.MediaStreamQualityChanged">MediaStreamQualityChanged</h4>
+  <div class="markdown level1 summary"><p>The event is raised if a media stream quality change was detected</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;VideoMediaStreamQualityChangedEventArgs&gt; MediaStreamQualityChanged</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Microsoft.Skype.Bots.Media.VideoMediaStreamQualityChangedEventArgs.html">VideoMediaStreamQualityChangedEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h4 id="Microsoft_Skype_Bots_Media_VideoSocket_VideoKeyFrameNeeded" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.VideoKeyFrameNeeded">VideoKeyFrameNeeded</h4>
+  <div class="markdown level1 summary"><p>If the application has configured the VideoSocket to receive encoded media, this
+event is raised each time a key frame is needed.
+Events are serialized, so only one event at a time is raised to the app.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;VideoKeyFrameNeededEventArgs&gt; VideoKeyFrameNeeded</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Microsoft.Skype.Bots.Media.VideoKeyFrameNeededEventArgs.html">VideoKeyFrameNeededEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h4 id="Microsoft_Skype_Bots_Media_VideoSocket_VideoMediaReceived" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.VideoMediaReceived">VideoMediaReceived</h4>
+  <div class="markdown level1 summary"><p>If the application has configured the VideoSocket to receive media, this
+event is raised each time a frame of video media is received.
+Once the application has consumed the buffer, it must call the buffer&apos;s
+Dispose() method.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;VideoMediaReceivedEventArgs&gt; VideoMediaReceived</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Microsoft.Skype.Bots.Media.VideoMediaReceivedEventArgs.html">VideoMediaReceivedEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Microsoft_Skype_Bots_Media_VideoSocket_VideoMediaReceived_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The incoming video frame rate is variable. The frame rate can vary between
+1.875 frames per second (fps) up to 30 fps. The application must be able
+to receive up to 30 video buffers per second.
+Events are serialized, so only one event at a time is raised to the app.
+The event handler should return as quickly as possible; any time-consuming
+per-frame processing should be performed asynchronously from the event handler.</p>
+</div>
+  <h4 id="Microsoft_Skype_Bots_Media_VideoSocket_VideoReceiveStatusChanged" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.VideoReceiveStatusChanged">VideoReceiveStatusChanged</h4>
+  <div class="markdown level1 summary"><p>If the application has configured the VideoSocket to receive media,
+this event is raised to inform the application when it is ready to receive media.
+When the status is active the application can subscribe to a video source,
+when inactive video subscription won&apos;t be allowed</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;VideoReceiveStatusChangedEventArgs&gt; VideoReceiveStatusChanged</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Microsoft.Skype.Bots.Media.VideoReceiveStatusChangedEventArgs.html">VideoReceiveStatusChangedEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h4 id="Microsoft_Skype_Bots_Media_VideoSocket_VideoSendStatusChanged" data-uid="Microsoft.Skype.Bots.Media.VideoSocket.VideoSendStatusChanged">VideoSendStatusChanged</h4>
+  <div class="markdown level1 summary"><p>If the application has configured the VideoSocket to send media, this
+event is raised to inform the application when it may begin sending
+media and when it should stop. The application cannot send media before
+receiving a VideoMediaSendStatusChanged event indicating the SendStatus is 
+Active, such media will be discarded.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;VideoSendStatusChangedEventArgs&gt; VideoSendStatusChanged</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="Microsoft.Skype.Bots.Media.VideoSendStatusChangedEventArgs.html">VideoSendStatusChangedEventArgs</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Microsoft.Skype.Bots.Media.IVideoSocket.html">IVideoSocket</a>
+  </div>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable">System.IDisposable</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright (c) <b>Microsoft Corporation</b>. All rights reserved.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
