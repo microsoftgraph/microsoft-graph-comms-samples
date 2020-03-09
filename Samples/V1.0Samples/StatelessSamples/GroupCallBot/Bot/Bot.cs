@@ -3,7 +3,7 @@
 // Licensed under the MIT license.
 // </copyright>
 
-namespace Sample.SimpleIvrBot.Bot
+namespace Sample.GroupCallBot.Bot
 {
     using System;
     using System.Collections.Generic;
@@ -28,24 +28,18 @@ namespace Sample.SimpleIvrBot.Bot
     using Sample.Common;
     using Sample.Common.Authentication;
     using Sample.Common.Transport;
-    using Sample.SimpleIvrBot.Controller;
-    using Sample.SimpleIvrBot.Data;
-    using Sample.SimpleIvrBot.Extensions;
+    using Sample.GroupCallBot.Data;
+    using Sample.GroupCallBot.Controller;
+    using Sample.GroupCallBot.Extensions;
 
     /// <summary>
     /// The core bot class.
     /// </summary>
     public class Bot
     {
-        /// <summary>
-        /// The prompt audio name for transfering the call.
-        /// </summary>
-        /// <remarks>
-        /// message: "Please press 1 for Sales, press 2 for Service, press 3 for other questions".
-        /// </remarks>
-        private const string BotIncomingPromptName = "BotIncomingPrompt";
-
         private readonly Uri botBaseUri;
+
+		private readonly string appId;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Bot" /> class.
@@ -55,6 +49,8 @@ namespace Sample.SimpleIvrBot.Bot
         public Bot(BotOptions options, IGraphLogger graphLogger)
         {
             this.botBaseUri = options.BotBaseUrl;
+			this.appId = options.AppId;
+
             this.GraphLogger = graphLogger;
             var name = this.GetType().Assembly.GetName().Name;
             this.AuthenticationProvider = new AuthenticationProvider(name, options.AppId, options.AppSecret, graphLogger);
@@ -84,16 +80,6 @@ namespace Sample.SimpleIvrBot.Bot
                 this.AuthenticationProvider,
                 productInfo,
                 defaultProperties);
-
-            // setup media prompt
-            this.MediaMap[BotIncomingPromptName] = new MediaPrompt
-            {
-                MediaInfo = new MediaInfo
-                {
-                    Uri = new Uri(options.BotBaseUrl, "audio/speech.wav").ToString(),
-                    ResourceId = Guid.NewGuid().ToString(),
-                },
-            };
         }
 
         /// <summary>
@@ -104,32 +90,84 @@ namespace Sample.SimpleIvrBot.Bot
         /// <summary>
         /// Gets the authentication provider.
         /// </summary>
-        public IRequestAuthenticationProvider AuthenticationProvider { get; }
+        private IRequestAuthenticationProvider AuthenticationProvider { get; }
 
         /// <summary>
         /// Gets the notification processor.
         /// </summary>
-        public INotificationProcessor NotificationProcessor { get; }
+        private INotificationProcessor NotificationProcessor { get; }
 
         /// <summary>
         /// Gets the URI builder.
         /// </summary>
-        public GraphServiceClient RequestBuilder { get; }
+        private GraphServiceClient RequestBuilder { get; }
 
         /// <summary>
         /// Gets the serializer.
         /// </summary>
-        public CommsSerializer Serializer { get; }
+        private CommsSerializer Serializer { get; }
 
         /// <summary>
         /// Gets the stateless graph client.
         /// </summary>
-        public IGraphClient GraphApiClient { get; }
+        private IGraphClient GraphApiClient { get; }
 
         /// <summary>
-        /// Gets the prompts dictionary.
+        /// Bot calls users.
         /// </summary>
-        public IDictionary<string, MediaPrompt> MediaMap { get; } = new Dictionary<string, MediaPrompt>();
+        /// <param name="participantsCallingRequestData">Input data.</param>
+        /// <returns>Returns when call is done.</returns>
+        public async Task BotCallsUsersAsync(ParticipantsCallingRequestData participantsCallingRequestData)
+        {
+            Guid scenarioId = Guid.NewGuid();
+            ParticipantInfo source = new ParticipantInfo
+            {
+                Identity = new IdentitySet
+                {
+                    Application = new Identity
+                    {
+                        Id = this.appId,
+                    },
+                },
+            };
+
+            Call requestCall = new Call
+            {
+                Source = source,
+                Targets = new List<InvitationParticipantInfo>(),
+                MediaConfig = new ServiceHostedMediaConfig {  },
+                RequestedModalities = new List<Modality> { Modality.Audio },
+                TenantId = participantsCallingRequestData.TenantId,
+                Direction = CallDirection.Outgoing,
+                CallbackUri = new Uri(this.botBaseUri, ControllerConstants.CallbackPrefix).ToString(),
+            };
+
+            List<InvitationParticipantInfo> listTargets = new List<InvitationParticipantInfo>();
+            foreach (string userId in participantsCallingRequestData.ObjectIds)
+            {                
+                InvitationParticipantInfo target = new InvitationParticipantInfo
+                {
+                    Identity = new IdentitySet
+                    {
+                        User = new Identity 
+                        {
+                            Id = userId,                            
+                        },
+                    }
+                };
+                listTargets.Add(target);
+            }
+            requestCall.Targets = listTargets;
+                var callRequest = this.RequestBuilder.Communications.Calls;
+                var request = new GraphRequest<Call>(new Uri(callRequest.RequestUrl), requestCall, RequestType.Create);
+                var response = await this.GraphApiClient.SendAsync<Call, Call>(request, requestCall.TenantId, scenarioId).ConfigureAwait(false);
+                Call responseMeetingCall = response.Content;
+
+                this.GraphLogger.Log(
+                    TraceLevel.Verbose,
+                    $"Bot called users {participantsCallingRequestData.ObjectIds}, the responded state is {responseMeetingCall?.State}");            
+        }
+
 
         /// <summary>
         /// Processes the notification asynchronously.
@@ -301,164 +339,24 @@ namespace Sample.SimpleIvrBot.Bot
 
             if (args.ResourceData is Call call)
             {
-                if (args.ChangeType == ChangeType.Created && call.State == CallState.Incoming)
+                if (call.State == CallState.Established && call.MediaState.Audio == MediaState.Active)
                 {
-                    await this.BotAnswerIncomingCallAsync(call.Id, args.TenantId, args.ScenarioId).ConfigureAwait(false);
-                }
-                else if (args.ChangeType == ChangeType.Updated && call.State == CallState.Established)
-                {
-                    this.GraphLogger.Log(TraceLevel.Info, "In Established");
-
-                    if (call.ToneInfo == null && call.MediaState.Audio == MediaState.Active)
-                    {
-                        await this.BotPlayNotificationPromptAsync(call.Id, args.TenantId, args.ScenarioId).ConfigureAwait(false);
-                    }
-                    else if (call.ToneInfo?.SequenceId == 1)
-                    {
-                        InvitationParticipantInfo transferTarget = null;
-						 
-                        if (call.ToneInfo.Tone == Tone.Tone1)
-                            {
-                                transferTarget = new InvitationParticipantInfo
-                                {
-                                    Identity = new IdentitySet
-                                    {
-                                        User = new Identity
-                                        {
-                                            Id = ConfigurationManager.AppSetting["ObjectIds:First"],
-                                        },
-                                    },
-                                };
-                            }
-                        else if (call.ToneInfo.Tone == Tone.Tone2)
-                            {
-                                transferTarget = new InvitationParticipantInfo
-                                {
-                                    Identity = new IdentitySet
-                                    {
-                                        User = new Identity
-                                        {
-                                            Id = ConfigurationManager.AppSetting["ObjectIds:Second"],
-                                        },
-                                    },
-                                };
-                            }
-                        else
-                            {
-                                transferTarget = new InvitationParticipantInfo
-                                {
-                                    Identity = new IdentitySet
-                                    {
-                                        User = new Identity
-                                        {
-                                            Id = ConfigurationManager.AppSetting["ObjectIds:Third"],
-                                        },
-                                    },
-                                };
-                            }
-
-                        await this.BotTransferCallAsync(transferTarget, call.Id, args.TenantId, args.ScenarioId).ConfigureAwait(false);
-                    }
-
-                    return;
+                    this.GraphLogger.Log(TraceLevel.Info, "Call State: Established");
                 }
                 else if (args.ChangeType == ChangeType.Deleted && call.State == CallState.Terminated)
                 {
-                   this.GraphLogger.Log(TraceLevel.Info, "Call is Terminated now");
+                    this.GraphLogger.Log(TraceLevel.Info, "Call State: Terminated");
                 }
-
-                return;
             }
-            else if (args.ResourceData is PlayPromptOperation playPromptOperation)
+            else if (args.Notification.ResourceUrl.EndsWith("/participants") && args.ResourceData is List<object> participantObjects)
             {
-                //  checking for the call id sent in ClientContext.
-                if (string.IsNullOrWhiteSpace(playPromptOperation.ClientContext))
+                this.GraphLogger.Log(TraceLevel.Info, "Total count of participants found in this roster is " + participantObjects.Count());
+                foreach (var participantObject in participantObjects)
                 {
-                    throw new ServiceException(new Error()
-                    {
-                        Message = "No call id provided in PlayPromptOperation.ClientContext.",
-                    });
+                    var participant = participantObject as Participant;
+                    this.GraphLogger.Log(TraceLevel.Info, "Id: " + participant?.Info?.Identity?.User?.Id.ToString(), "DisplayName: " + participant?.Info?.Identity?.User?.DisplayName.ToString());
                 }
-                else if (playPromptOperation.Status == OperationStatus.Completed)
-                {
-                    await this.BotSubscribesToToneAsync(playPromptOperation.ClientContext, args.TenantId, args.ScenarioId).ConfigureAwait(false);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Subscribes to Tone.
-        /// </summary>
-        /// <param name="callId">Call Id.</param>
-        /// <param name="tenantId">Tenant Id.</param>
-        /// <param name="scenarioId">ScenarioId.</param>
-        /// <returns>
-        /// user subscribesToTone.
-        /// </returns>
-        private async Task BotSubscribesToToneAsync(string callId, string tenantId, Guid scenarioId)
-        {
-            await this.GraphApiClient.SendAsync(this.RequestBuilder.Communications.Calls[callId].SubscribeToTone(callId).Request(), RequestType.Create, tenantId, scenarioId).ConfigureAwait(false);
-            return;
-        }
-
-        /// <summary>
-        /// Bot answers incoming call.
-        /// </summary>
-        /// <param name="callId">The identifier of the call to transfer.</param>
-        /// <param name="tenantId">The tenant identifier.</param>
-        /// <param name="scenarioId">The scenario identifier.</param>
-        /// <returns>
-        /// When the call has been answered.
-        /// </returns>
-        private async Task BotAnswerIncomingCallAsync(string callId, string tenantId, Guid scenarioId)
-        {
-            var mediaToPrefetch = new List<MediaInfo>();
-            foreach (var m in this.MediaMap)
-            {
-                mediaToPrefetch.Add(m.Value.MediaInfo);
-            }
-
-            var answerRequest = this.RequestBuilder.Communications.Calls[callId].Answer(
-                callbackUri: new Uri(this.botBaseUri, ControllerConstants.CallbackPrefix).ToString(),
-                mediaConfig: new ServiceHostedMediaConfig { PreFetchMedia = mediaToPrefetch },
-                acceptedModalities: new List<Modality> { Modality.Audio }).Request();
-            await this.GraphApiClient.SendAsync(answerRequest, RequestType.Create, tenantId, scenarioId).ConfigureAwait(false);
-        }
-
-        /// <summary>
-        /// Bot transfers incoming call.
-        /// </summary>
-        /// <param name="target">The identifier of the transfer target.</param>
-        /// <param name="callId">The call identifier.</param>
-        /// <param name="tenantId">The tenant identifier.</param>
-        /// <param name="scenarioId">The scenario identifier.</param>
-        /// <returns>
-        /// When the call has been answered.
-        /// </returns>
-        private async Task BotTransferCallAsync(InvitationParticipantInfo target, string callId, string tenantId, Guid scenarioId)
-        {
-            await this.GraphApiClient.SendAsync(this.RequestBuilder.Communications.Calls[callId].Transfer(target).Request(), RequestType.Create, tenantId, scenarioId).ConfigureAwait(false);
-        }
-
-        /// <summary>
-        /// Bot plays notification.
-        /// </summary>
-        /// <param name="callId">The call identifier.</param>
-        /// <param name="tenantId">The Tenant identifier.</param>
-        /// <param name="scenarioId">The scenario identifier.</param>
-        /// <returns>
-        /// Returns when prompt is played.
-        /// </returns>
-        private async Task BotPlayNotificationPromptAsync(string callId, string tenantId, Guid scenarioId)
-        {
-            var prompts = new Prompt[] { this.MediaMap[BotIncomingPromptName] };
-
-            var playPromptRequest = this.RequestBuilder.Communications.Calls[callId].PlayPrompt(
-                prompts: prompts,
-                clientContext: callId).Request();
-
-            await this.GraphApiClient.SendAsync<PlayPromptOperation>(playPromptRequest, RequestType.Create, tenantId, scenarioId).ConfigureAwait(false);
-            return;
+            }          
         }
     }
 }
