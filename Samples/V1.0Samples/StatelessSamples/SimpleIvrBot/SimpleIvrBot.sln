@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Common", "..\..\..\Common\Sample.Common\Sample.Common.csproj", "{2EB16C19-6717-4988-BD51-98F1A4074561}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleIvrBot", "SimpleIvrBot.csproj", "{9A5D226F-3192-4796-A073-015A7169CFB6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2EB16C19-6717-4988-BD51-98F1A4074561}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EB16C19-6717-4988-BD51-98F1A4074561}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EB16C19-6717-4988-BD51-98F1A4074561}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EB16C19-6717-4988-BD51-98F1A4074561}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A5D226F-3192-4796-A073-015A7169CFB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A5D226F-3192-4796-A073-015A7169CFB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A5D226F-3192-4796-A073-015A7169CFB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A5D226F-3192-4796-A073-015A7169CFB6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {02FE724C-EE66-4A16-A95D-235E23BC73CE}
+	EndGlobalSection
+EndGlobal

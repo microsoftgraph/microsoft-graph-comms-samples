@@ -2,6 +2,9 @@
 
 This changelog covers what's changed in Microsoft Graph Communications SDK and its associated samples.
 
+## Feb 2020
+- Updated Compliance Recording sample docs.
+
 ## Jan 2020
 
 - Promoted IncidentBot to v1.0 samples.
