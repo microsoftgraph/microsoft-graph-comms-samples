@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{36341412-BFDE-495F-8216-7736CE191F39}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\configure_cloud.ps1 = ..\..\configure_cloud.ps1
+		..\..\Graph.props = ..\..\Graph.props
+		..\..\nuget.config = ..\..\nuget.config
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Common", "..\..\Common\Sample.Common\Sample.Common.csproj", "{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRFrontEnd", "PolicyRecordingBot\FrontEnd\CRFrontEnd.csproj", "{739D09C4-47E8-42B7-9B89-94DCB890AC0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRWorkerRole", "PolicyRecordingBot\WorkerRole\CRWorkerRole.csproj", "{EAF11F22-C267-4C02-820D-12B622FEBFC1}"
+EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "PolicyRecordingBot", "PolicyRecordingBot\PolicyRecordingBot.ccproj", "{69051056-B313-432E-8CE3-D7164CD82DC9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3268E59C-90DC-4D7B-97EA-A1DBB2716DF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{739D09C4-47E8-42B7-9B89-94DCB890AC0F}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{739D09C4-47E8-42B7-9B89-94DCB890AC0F}.Debug|Any CPU.Build.0 = Debug|x64
+		{739D09C4-47E8-42B7-9B89-94DCB890AC0F}.Release|Any CPU.ActiveCfg = Release|x64
+		{739D09C4-47E8-42B7-9B89-94DCB890AC0F}.Release|Any CPU.Build.0 = Release|x64
+		{EAF11F22-C267-4C02-820D-12B622FEBFC1}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{EAF11F22-C267-4C02-820D-12B622FEBFC1}.Debug|Any CPU.Build.0 = Debug|x64
+		{EAF11F22-C267-4C02-820D-12B622FEBFC1}.Release|Any CPU.ActiveCfg = Release|x64
+		{EAF11F22-C267-4C02-820D-12B622FEBFC1}.Release|Any CPU.Build.0 = Release|x64
+		{69051056-B313-432E-8CE3-D7164CD82DC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69051056-B313-432E-8CE3-D7164CD82DC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69051056-B313-432E-8CE3-D7164CD82DC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69051056-B313-432E-8CE3-D7164CD82DC9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {78C15135-C90B-4BD3-B948-FC8B87102C73}
+	EndGlobalSection
+EndGlobal

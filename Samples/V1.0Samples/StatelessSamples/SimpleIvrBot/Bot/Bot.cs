@@ -37,15 +37,7 @@ namespace Sample.SimpleIvrBot.Bot
     /// </summary>
     public class Bot
     {
-        /// <summary>
-        /// The prompt audio name for transfering the call.
-        /// </summary>
-        /// <remarks>
-        /// message: "Please press 1 for Sales, press 2 for Service, press 3 for other questions".
-        /// </remarks>
-        private const string BotIncomingPromptName = "BotIncomingPrompt";
-
-        private readonly Uri botBaseUri;
+     	private readonly Uri botBaseUri;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Bot" /> class.
@@ -84,16 +76,6 @@ namespace Sample.SimpleIvrBot.Bot
                 this.AuthenticationProvider,
                 productInfo,
                 defaultProperties);
-
-            // setup media prompt
-            this.MediaMap[BotIncomingPromptName] = new MediaPrompt
-            {
-                MediaInfo = new MediaInfo
-                {
-                    Uri = new Uri(options.BotBaseUrl, "audio/speech.wav").ToString(),
-                    ResourceId = Guid.NewGuid().ToString(),
-                },
-            };
         }
 
         /// <summary>
@@ -127,18 +109,12 @@ namespace Sample.SimpleIvrBot.Bot
         public IGraphClient GraphApiClient { get; }
 
         /// <summary>
-        /// Gets the prompts dictionary.
-        /// </summary>
-        public IDictionary<string, MediaPrompt> MediaMap { get; } = new Dictionary<string, MediaPrompt>();
-
-        /// <summary>
         /// Processes the notification asynchronously.
-        /// Here we make sure we log the http request and
-        /// catch/log any errors.
+        /// Here we make sure we log the http request and catch/log any errors.
         /// </summary>
         /// <param name="request">The request.</param>
         /// <param name="response">The response.</param>
-        /// <returns>Returns after notification is processed.</returns>
+        /// <returns>The <see cref="Task"/>.</returns>
         public async Task ProcessNotificationAsync(
             HttpRequest request,
             HttpResponse response)
@@ -305,69 +281,64 @@ namespace Sample.SimpleIvrBot.Bot
                 {
                     await this.BotAnswerIncomingCallAsync(call.Id, args.TenantId, args.ScenarioId).ConfigureAwait(false);
                 }
-                else if (args.ChangeType == ChangeType.Updated && call.State == CallState.Established)
+                else if (args.ChangeType == ChangeType.Updated && (call.State == CallState.Established || call.State == CallState.Establishing))
                 {
-                    this.GraphLogger.Log(TraceLevel.Info, "In Established");
+                    this.GraphLogger.Log(TraceLevel.Info, $"In {call.State}");
 
-                    if (call.ToneInfo == null && call.MediaState.Audio == MediaState.Active)
+                    if (call.ToneInfo == null && call.MediaState?.Audio == MediaState.Active)
                     {
                         await this.BotPlayNotificationPromptAsync(call.Id, args.TenantId, args.ScenarioId).ConfigureAwait(false);
                     }
                     else if (call.ToneInfo?.SequenceId == 1)
                     {
-                        InvitationParticipantInfo transferTarget = null;
-						 
+                        InvitationParticipantInfo transferTarget = null;						 
                         if (call.ToneInfo.Tone == Tone.Tone1)
+                        {
+                            transferTarget = new InvitationParticipantInfo
                             {
-                                transferTarget = new InvitationParticipantInfo
+                                Identity = new IdentitySet
                                 {
-                                    Identity = new IdentitySet
+                                    User = new Identity
                                     {
-                                        User = new Identity
-                                        {
-                                            Id = ConfigurationManager.AppSetting["ObjectIds:First"],
-                                        },
+                                        Id = ConfigurationManager.AppSetting["ObjectIds:First"],
                                     },
-                                };
-                            }
+                                },
+                            };
+                        }
                         else if (call.ToneInfo.Tone == Tone.Tone2)
-                            {
-                                transferTarget = new InvitationParticipantInfo
+                        {
+                            transferTarget = new InvitationParticipantInfo
+							{
+								Identity = new IdentitySet
                                 {
-                                    Identity = new IdentitySet
+									User = new Identity
                                     {
-                                        User = new Identity
-                                        {
-                                            Id = ConfigurationManager.AppSetting["ObjectIds:Second"],
-                                        },
+                                        Id = ConfigurationManager.AppSetting["ObjectIds:Second"],
                                     },
-                                };
-                            }
+                                },
+                            };
+                        }
                         else
+                        {
+                            transferTarget = new InvitationParticipantInfo
                             {
-                                transferTarget = new InvitationParticipantInfo
-                                {
-                                    Identity = new IdentitySet
-                                    {
-                                        User = new Identity
-                                        {
-                                            Id = ConfigurationManager.AppSetting["ObjectIds:Third"],
-                                        },
-                                    },
-                                };
-                            }
+                               Identity = new IdentitySet
+                               {
+                                   User = new Identity
+                                   {
+                                      Id = ConfigurationManager.AppSetting["ObjectIds:Third"],
+                                   },
+                               },
+                            };
+                        }
 
                         await this.BotTransferCallAsync(transferTarget, call.Id, args.TenantId, args.ScenarioId).ConfigureAwait(false);
                     }
-
-                    return;
                 }
                 else if (args.ChangeType == ChangeType.Deleted && call.State == CallState.Terminated)
                 {
-                   this.GraphLogger.Log(TraceLevel.Info, "Call is Terminated now");
+                   this.GraphLogger.Log(TraceLevel.Info, $"Call State:{call.State}");
                 }
-
-                return;
             }
             else if (args.ResourceData is PlayPromptOperation playPromptOperation)
             {
@@ -379,7 +350,7 @@ namespace Sample.SimpleIvrBot.Bot
                         Message = "No call id provided in PlayPromptOperation.ClientContext.",
                     });
                 }
-                else if (playPromptOperation.CompletionReason == PlayPromptCompletionReason.CompletedSuccessfully && playPromptOperation.Status == OperationStatus.Completed)
+                else if (playPromptOperation.Status == OperationStatus.Completed)
                 {
                     await this.BotSubscribesToToneAsync(playPromptOperation.ClientContext, args.TenantId, args.ScenarioId).ConfigureAwait(false);
                 }
@@ -389,16 +360,13 @@ namespace Sample.SimpleIvrBot.Bot
         /// <summary>
         /// Subscribes to Tone.
         /// </summary>
-        /// <param name="callId">Call Id.</param>
-        /// <param name="tenantId">Tenant Id.</param>
-        /// <param name="scenarioId">ScenarioId.</param>
-        /// <returns>
-        /// user subscribesToTone.
-        /// </returns>
+        /// <param name="callId">The call identifier.</param>
+        /// <param name="tenantId">The tenant identifier.</param>
+        /// <param name="scenarioId">The scenario identifier.</param>
+        /// <returns>The <see cref="Task"/>.</returns>
         private async Task BotSubscribesToToneAsync(string callId, string tenantId, Guid scenarioId)
         {
             await this.GraphApiClient.SendAsync(this.RequestBuilder.Communications.Calls[callId].SubscribeToTone(callId).Request(), RequestType.Create, tenantId, scenarioId).ConfigureAwait(false);
-            return;
         }
 
         /// <summary>
@@ -407,20 +375,22 @@ namespace Sample.SimpleIvrBot.Bot
         /// <param name="callId">The identifier of the call to transfer.</param>
         /// <param name="tenantId">The tenant identifier.</param>
         /// <param name="scenarioId">The scenario identifier.</param>
-        /// <returns>
-        /// When the call has been answered.
-        /// </returns>
+        /// <returns>The <see cref="Task"/>.</returns>
         private async Task BotAnswerIncomingCallAsync(string callId, string tenantId, Guid scenarioId)
         {
-            var mediaToPrefetch = new List<MediaInfo>();
-            foreach (var m in this.MediaMap)
-            {
-                mediaToPrefetch.Add(m.Value.MediaInfo);
-            }
-
             var answerRequest = this.RequestBuilder.Communications.Calls[callId].Answer(
                 callbackUri: new Uri(this.botBaseUri, ControllerConstants.CallbackPrefix).ToString(),
-                mediaConfig: new ServiceHostedMediaConfig { PreFetchMedia = mediaToPrefetch },
+                mediaConfig: new ServiceHostedMediaConfig
+                { 
+                    PreFetchMedia = new List<MediaInfo>()
+                    {
+                        new MediaInfo()
+                        {
+                            Uri = new Uri(this.botBaseUri, "audio/speech.wav").ToString(),
+                            ResourceId = Guid.NewGuid().ToString(),
+                        },
+                    },
+				},
                 acceptedModalities: new List<Modality> { Modality.Audio }).Request();
             await this.GraphApiClient.SendAsync(answerRequest, RequestType.Create, tenantId, scenarioId).ConfigureAwait(false);
         }
@@ -432,9 +402,7 @@ namespace Sample.SimpleIvrBot.Bot
         /// <param name="callId">The call identifier.</param>
         /// <param name="tenantId">The tenant identifier.</param>
         /// <param name="scenarioId">The scenario identifier.</param>
-        /// <returns>
-        /// When the call has been answered.
-        /// </returns>
+        /// <returns>The <see cref="Task"/>.</returns>
         private async Task BotTransferCallAsync(InvitationParticipantInfo target, string callId, string tenantId, Guid scenarioId)
         {
             await this.GraphApiClient.SendAsync(this.RequestBuilder.Communications.Calls[callId].Transfer(target).Request(), RequestType.Create, tenantId, scenarioId).ConfigureAwait(false);
@@ -446,19 +414,26 @@ namespace Sample.SimpleIvrBot.Bot
         /// <param name="callId">The call identifier.</param>
         /// <param name="tenantId">The Tenant identifier.</param>
         /// <param name="scenarioId">The scenario identifier.</param>
-        /// <returns>
-        /// Returns when prompt is played.
-        /// </returns>
+        /// <returns>The <see cref="Task"/>.</returns>
         private async Task BotPlayNotificationPromptAsync(string callId, string tenantId, Guid scenarioId)
         {
-            var prompts = new Prompt[] { this.MediaMap[BotIncomingPromptName] };
+            var prompts = new Prompt[]
+            {
+                new MediaPrompt
+                {
+                    MediaInfo = new MediaInfo()
+                    {
+                         Uri = new Uri(this.botBaseUri, "audio/speech.wav").ToString(),
+                         ResourceId = Guid.NewGuid().ToString(),
+                    },
+                },
+            };
 
             var playPromptRequest = this.RequestBuilder.Communications.Calls[callId].PlayPrompt(
                 prompts: prompts,
                 clientContext: callId).Request();
 
             await this.GraphApiClient.SendAsync<PlayPromptOperation>(playPromptRequest, RequestType.Create, tenantId, scenarioId).ConfigureAwait(false);
-            return;
         }
     }
 }
