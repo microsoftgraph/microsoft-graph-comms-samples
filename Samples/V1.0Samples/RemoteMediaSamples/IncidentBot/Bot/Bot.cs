@@ -480,7 +480,7 @@ namespace Sample.IncidentBot.Bot
             var statusData = this.IncidentStatusManager.GetIncident(incidentCallContext.IncidentId);
 
             CallHandler callHandler;
-            ParticipantInfo callee;
+            InvitationParticipantInfo callee;
             switch (incidentCallContext.CallType)
             {
                 case IncidentCallType.BotMeeting:

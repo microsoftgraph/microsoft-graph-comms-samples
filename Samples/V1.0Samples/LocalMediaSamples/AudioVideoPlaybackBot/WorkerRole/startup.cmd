@@ -1,6 +1,9 @@
 REM --- Move to this scripts location ---
 pushd "%~dp0"
 
+REM --- Ensure the VC_redist is installed for the Microsoft.Skype.Bots.Media Library ---
+.\VC_redist.x64.exe /quiet
+
 REM --- Print out environment variables for debugging ---
 set
 
