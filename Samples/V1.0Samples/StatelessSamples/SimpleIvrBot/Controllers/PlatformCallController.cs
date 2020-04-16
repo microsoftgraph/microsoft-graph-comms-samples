@@ -3,7 +3,7 @@
 // Licensed under the MIT license.
 // </copyright>
 
-namespace Sample.SimpleIvrBot.Controller
+namespace Sample.SimpleIvrBot.Controllers
 {
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;

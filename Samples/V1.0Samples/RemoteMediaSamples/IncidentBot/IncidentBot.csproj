@@ -24,7 +24,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.WebApiCompatShim" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.AzureAppServices" Version="2.1.1" />
-    <PackageReference Include="Microsoft.Graph.Communications.Calls" Version="1.2.0.791" />
+    <PackageReference Include="Microsoft.Graph.Communications.Calls" Version="1.2.0.850" />
     <PackageReference Include="System.Threading.Tasks.Dataflow" Version="4.9.0" />
     <ProjectReference Include="..\..\..\Common\Sample.Common\Sample.Common.csproj" />
     <Reference Include="System.Net.Http" />

@@ -3,7 +3,7 @@
 // Licensed under the MIT license.
 // </copyright>
 
-namespace Sample.SimpleIvrBot.Controller
+namespace Sample.SimpleIvrBot.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
     using Sample.Common.Logging;
