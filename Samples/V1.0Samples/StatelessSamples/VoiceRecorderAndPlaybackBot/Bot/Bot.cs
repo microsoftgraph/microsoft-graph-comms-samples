@@ -445,10 +445,7 @@ namespace Sample.VoiceRecorderAndPlaybackBot.Bot
             }
             else
             {
-                throw new ServiceException(new Error()
-                {
-                    Message = "File does not exist to be deleted.",
-                });
+                this.GraphLogger.Log(TraceLevel.Info, "File to be deleted does not exist.");
             }
         }
 

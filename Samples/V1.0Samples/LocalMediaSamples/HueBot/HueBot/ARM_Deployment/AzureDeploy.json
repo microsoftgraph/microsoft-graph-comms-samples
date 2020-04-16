@@ -7,7 +7,7 @@
   "parameters": {
     "clusterLocation": {
       "type": "string",
-      "defaultValue": "westus",
+      "defaultValue": "westus2",
       "metadata": {
         "description": "Location of the Cluster"
       }
