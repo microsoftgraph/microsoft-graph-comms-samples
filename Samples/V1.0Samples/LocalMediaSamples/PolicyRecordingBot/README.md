@@ -82,11 +82,11 @@ To verify your policy was assigned correctly:
 
 1. Set up the test meeting and test clients:
    1. Sign in to Teams client with a non-recorded test tenant user.
-   2. Use another Teams client to sign in with the recorded user. (You could use an private browser window at https://teams.microsoft.com). Use Teams client if you couldn't see the call notification by using Teams browser for some reason.
+   2. Use another Teams client to sign in with the recorded user. You could use an private browser window and open up https://teams.microsoft.com. If the call notification doesn't appear on web, use the Teams desktop client.
 
 2. Place a call from the Teams client with the non-recorded user to the recorded user.
 
-3. Your bot should now receive an incoming call, and join the call (See next step for retrieving logs). Use the recorded user's Teams client to accept the call. A banner should show up once the call get established.
+3. Your recording bot should receive the incoming call and join the call immediately. Use the recorded users' Teams client to accept the call. Once the P2P call is established, you'll see a banner indicating that the recording has started. See the next step to learn how you can retrieve the call log.
      ![Test PrBot1](Images/TestPrBot1.png)
 
 3. Interact with your service, _adjusting the service URL appropriately_.
