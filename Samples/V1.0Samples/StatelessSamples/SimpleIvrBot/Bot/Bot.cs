@@ -28,7 +28,7 @@ namespace Sample.SimpleIvrBot.Bot
     using Sample.Common;
     using Sample.Common.Authentication;
     using Sample.Common.Transport;
-    using Sample.SimpleIvrBot.Controller;
+    using Sample.SimpleIvrBot.Controllers;
     using Sample.SimpleIvrBot.Data;
     using Sample.SimpleIvrBot.Extensions;
 

@@ -7,7 +7,7 @@ This changelog covers what's changed in Microsoft Graph Communications SDK and i
   - For a full list of changes refer to the [graph blog](https://developer.microsoft.com/en-us/graph/blogs/microsoft-graph-net-sdk-updates/).
 - Changed name of Compliance Recording to Policy Recording
 - Migrated the Policy Recording sample to the https://graph.microsoft.com/v1.0 endpoint.
-- Updated Communications libraries in v1 bots to use the 1.2.0.791 SDK.
+- Updated Communications libraries in v1 bots to use the 1.2.0.850 SDK.
   - Exposed the Policy Recording API's in v1.
 - Updated Media library in v1 bots to 1.17.0.39-alpha
 

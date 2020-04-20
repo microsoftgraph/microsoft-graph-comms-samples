@@ -5,7 +5,7 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <Folder Include="Controller\" />
+    <Folder Include="Controllers\" />
     <Folder Include="Extensions\" />
     <Folder Include="wwwroot\audio\" />
   </ItemGroup>  
@@ -13,6 +13,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.Extensions.Logging.AzureAppServices" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Graph.Communications.Common" Version="1.2.0.850" />
+    <PackageReference Include="Microsoft.Graph.Communications.Client" Version="1.2.0.850" />
+    <PackageReference Include="Microsoft.Graph.Communications.Core" Version="1.2.0.850" />
   </ItemGroup>
 
   <ItemGroup>

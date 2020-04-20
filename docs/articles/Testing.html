@@ -133,7 +133,7 @@ Forwarding  tcp://1.tcp.ngrok.io:12332 -&gt; localhost:8445
 <div class="IMPORTANT"><h5>Important</h5><p>Your local instance must be listening to http traffic on the signaling port. The requests made by Graph Platform will reach the bot as localhost http traffic when End to End encryption is not setup.</p>
 </div>
 <h4 id="update-media">Update Media</h4>
-<p>Update your <a class="xref" href="../bot_media/Microsoft.Skype.Bots.Media.MediaPlatformSettings.html">MediaPlatformSettings</a> to the following.</p>
+<p>Update your @Microsoft.Skype.Bots.Media.MediaPlatformSettings to the following.</p>
 <pre><code>var mediaPlatform = new MediaPlatformSettings 
 {
     ApplicationId = &lt;Your application id&gt;

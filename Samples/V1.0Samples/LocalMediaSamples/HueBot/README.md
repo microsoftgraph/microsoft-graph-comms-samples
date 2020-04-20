@@ -138,15 +138,15 @@ Click `Start` on the top toolbar to deploy the sample to the local cluster.
 
     ![Test Meeting1](Images/TestMeeting1.png)
 
-1. Copy the Join Microsoft Teams Meeting link. Depending on where you copy this, this may be encoded as a safe link in Outlook. If it's encoded, first decode the link and replace the " with \".
+2. Copy the Join Microsoft Teams Meeting link. Depending on where you copy this, this may be encoded as a safe link in Outlook. If it's encoded, you can use it directly. If it's decoded, replace every " in the link with \\".
 
     ![Test Meeting2](Images/TestMeeting2.png)
 
     Example, `https://teams.microsoft.com/l/meetup-join/19:cd9ce3da56624fe69c9d7cd026f9126d@thread.skype/1509579179399?context={"Tid":"72f988bf-86f1-41af-91ab-2d7cd011db47","Oid":"550fae72-d251-43ec-868c-373732c2704f","MessageId":"1536978844957"}`
 
-1. Join the meeting from the Teams client and start up video.
+3. Join the meeting from the Teams client and start up video.
 
-1. Interact with your service, _adjusting the service URL appropriately_. Target port 9441 for the first request to the load balancer. The returned URL will be on a different port/node that picked up the call.
+4. Interact with your service, _adjusting the service URL appropriately_. Target port 9441 for the first request to the load balancer. The returned URL will be on a different port/node that picked up the call.
     1. Use Postman to post the following `JSON` payload.
 
         ##### Request
@@ -155,7 +155,7 @@ Click `Start` on the top toolbar to deploy the sample to the local cluster.
             Content-Type: application/json
 
             {
-              "JoinURL": "https://teams.microsoft.com/l/meetup-join/..."
+              "JoinURL": "{URL to join the meeting, copied from step 2}"
             }
         ```
 
