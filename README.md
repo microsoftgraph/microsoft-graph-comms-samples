@@ -13,13 +13,15 @@ The Microsoft Graph Communications API allows developers to programmatically int
 * Mirosoft Azure Subscription (If you do not already have a subscription, you can register for a <a href="https://azure.microsoft.com/en-us/free/" target="_blank">free account</a>)
 * [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.8.1)
+* [Skype for Business Online Connector module](https://docs.microsoft.com/en-us/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell)
 * Install .Net Framework 4.7.1. Some samples will not build if you do not install this.
 * You will need Postman, Fiddler, or an equivalent installed to formulate HTTP requests and inspect the responses.  The following tools are widely used in web development, but if you are familiar with another tool, the instructions in this sample should still apply.
     + [Postman desktop app](https://www.getpostman.com/)
     + [Telerik Fiddler](http://www.telerik.com/fiddler)
 
-* [ngrok](https://ngrok.com/)
+* [ngrok](https://ngrok.com/) for [Local Testing of the bot](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/index.html)
 
+* If you have Visual Studio Enterprise Subscription, you can [Activate office 365] (https://my.visualstudio.com/)
 # Samples
 
 The Graph Calling Bot Samples are split into 2
@@ -81,25 +83,28 @@ To run the sample, open [Samples\V1.0Samples\StatelessSamples\VoiceRecorderAndPl
 
 ## More Details
 
-1.[Graph Communications Core SDK](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/core/index.htm)
+- [Graph Communications Core SDK](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/core/index.htm)
 
-2.[Graph Communications SDK/Client SDK](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/client/index.html)
+- [Graph Communications SDK/Client SDK](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/client/index.html)
 
-3.[Graph Communications Calling SDK](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/calls/index.html)
+- [Graph Communications Calling SDK](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/calls/index.html)
 
-4.[Graph Communications Media SDK](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/calls_media/index.html)
+- [Graph Communications Media SDK](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/calls_media/index.html)
 
-5.[Graph Communications Bot Media SDK](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/bot_media/index.html)
+- [Graph Communications Bot Media SDK](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/bot_media/index.html)
 
-6.[Graph Common Utilities Documentation](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/common/index.html)
+- [Graph Common Utilities Documentation](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/common/index.html)
 
-7.[Local Testing of the bot](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/index.html)
+- [Local Testing of the bot](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/index.html)
 
-8.[State Management](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/StateManagement.html)
+- [State Management](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/StateManagement.html)
 
-9.[Register bot in Microsoft Teams](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/register-calling-bot.html#register-bot-in-microsoft-teams)
+- [Register bot in Microsoft Teams](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/register-calling-bot.html#register-bot-in-microsoft-teams)
 
-10.[Register calling bot in the Azure Bot Service](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/register-calling-bot.html)
+- [Register calling bot in the Azure Bot Service](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/register-calling-bot.html)
+
+- [Use the Microsoft Graph API to work with Microsoft Teams](https://docs.microsoft.com/en-us/graph/api/resources/teams-api-overview?view=graph-rest-1.0)
+
 
 # Contributing
 
