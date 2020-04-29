@@ -71,13 +71,13 @@ To run the sample, open [Samples\BetaSamples\StatelessSamples\OnlineMeetingsSamp
 ### [Simple IVR Bot](Samples\V1.0Samples\StatelessSamples\SimpleIvrBot\README.md)
 The sample demonstrates a playing a prompt with a simple IVR menu, subscribing to tones and call transfer to an agent.
 
-To run the sample, open[Samples\V1.0Samples\StatelessSamples\SimpleIvrBot.sln](Samples\V1.0Samples\StatelessSamples\SimpleIvrBot.sln)
+To run the sample, open [Samples\V1.0Samples\StatelessSamples\SimpleIvrBot.sln](Samples\V1.0Samples\StatelessSamples\SimpleIvrBot.sln)
 
 ### [Voice Recorder And Playback Bot](Samples\V1.0Samples\StatelessSamples\VoiceRecorderAndPlaybackBot\README.md)
 
 The sample demostrate a recording audio by user and playing back to user workflow.
 
-To run the sample, open[Samples\V1.0Samples\StatelessSamples\VoiceRecorderAndPlaybackBot.sln](Samples\V1.0Samples\StatelessSamples\VoiceRecorderAndPlaybackBot.sln)
+To run the sample, open [Samples\V1.0Samples\StatelessSamples\VoiceRecorderAndPlaybackBot.sln](Samples\V1.0Samples\StatelessSamples\VoiceRecorderAndPlaybackBot.sln)
 
 ## More Details
 
