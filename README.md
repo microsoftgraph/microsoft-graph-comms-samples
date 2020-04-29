@@ -22,12 +22,12 @@ The Microsoft Graph Communications API allows developers to programmatically int
 
 # Samples
 
-<B>The Graph Calling Bot Samples are split into 2 </B>
+The Graph Calling Bot Samples are split into 2
 categories: Remote Media Bot Samples and Local Media Bot Samples.
 
 ## Local media samples
 
-Local media samples give the developer direct access to the inbound and outbound media streams.  
+Local media samples gives direct access to the inbound and outbound media streams.  
 
 ### [AudioVideoPlaybackBot](Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot\README.md)
 
@@ -36,19 +36,19 @@ The AudioVideoPlaybackBot demostrates several features of local media scenarios:
 - Listens to dominant speaker events and subscribes to inbound video feeds of those participants.
 - Allows switching between screen viewing sharer and viewer, and publishes video through the screen sharing socket.
 
-[code:](Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln)
+To run the sample, open [Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln](Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln)
 
 ### [HueBot](Samples\V1.0Samples\LocalMediaSamples\HueBot\README.md)
 
 The HueBot demonstrates local media scenarios.
 - Listens to dominant speaker events and changes the hue color of the dominant speaker video.
 
-[code:](Samples\V1.0Samples\LocalMediaSamples\HueBot.sln)
+To run the sample, open [Samples\V1.0Samples\LocalMediaSamples\HueBot.sln](Samples\V1.0Samples\LocalMediaSamples\HueBot.sln)
 
 ### [Policy Recording bot sample](Samples\V1.0Samples\LocalMediaSamples\PolicyRecordingBot\README.md)
 This sample demonstrates how a bot can receive media streams for recording. Please note that the sample does not actually record. This logic is left up to the developer.The system will load the bot and join it to appropriate calls and meetings in order for the bot to enforce compliance with the administrative set policy.
 
-[code:](Samples\V1.0Samples\LocalMediaSamples\PolicyRecordingBot.sln)
+To run the sample, open [Samples\V1.0Samples\LocalMediaSamples\PolicyRecordingBot.sln](Samples\V1.0Samples\LocalMediaSamples\PolicyRecordingBot.sln)
 
 ## Remote Media Graph Calling Bot Samples
 
@@ -56,7 +56,7 @@ This sample demonstrates how a bot can receive media streams for recording. Plea
 
 The Incident Bot sample is a Remote Media sample demonstrating a simple incident process workflow started by a Calling Bot.  When an incident is raised (through a custom Web API call to the bot or some other trigger), the bot will join a pre-existing Teams meeting, voice call incident responder team members via Microsoft Teams, play an audio prompt about the incident, and connect users to the incident meeting after having the callers press "1". The whole process is kicked off by a Web API call that passes the scheduled Teams meeting information and incident responders Azure AD Identities. The sample also supports incoming direct voice calls to the bot.
 
-[code:](Samples\V1.0Samples\RemoteMediaSamples\IncidentBot.sln)
+To run the sample, open [Samples\V1.0Samples\RemoteMediaSamples\IncidentBot.sln](Samples\V1.0Samples\RemoteMediaSamples\IncidentBot.sln)
 
 ## Stateless Samples
 
@@ -66,25 +66,24 @@ The online meeting stateless sample demonstrates how one can consume Microsoft.G
 - Get an online meeting based on on [vtcid](https://docs.microsoft.com/en-us/microsoftteams/cloud-video-interop)).
 - Create a online meeting on behalf a user (delegated auth) in your tenant.
 
-[code:](Samples\BetaSamples\StatelessSamples\OnlineMeetingsSample.sln)
+To run the sample, open [Samples\BetaSamples\StatelessSamples\OnlineMeetingsSample.sln](Samples\BetaSamples\StatelessSamples\OnlineMeetingsSample.sln)
 
 ### [Simple IVR Bot](Samples\V1.0Samples\StatelessSamples\SimpleIvrBot\README.md)
 The sample demonstrates a playing a prompt with a simple IVR menu, subscribing to tones and call transfer to an agent.
 
-[code:](Samples\V1.0Samples\StatelessSamples\SimpleIvrBot.sln)
+To run the sample, open[Samples\V1.0Samples\StatelessSamples\SimpleIvrBot.sln](Samples\V1.0Samples\StatelessSamples\SimpleIvrBot.sln)
 
 ### [Voice Recorder And Playback Bot](Samples\V1.0Samples\StatelessSamples\VoiceRecorderAndPlaybackBot\README.md)
 
-The sample demostrate a recording audio by user and playing back to user workflow. 
+The sample demostrate a recording audio by user and playing back to user workflow.
 
-[code:](Samples\V1.0Samples\StatelessSamples\VoiceRecorderAndPlaybackBot.sln)
-
+To run the sample, open[Samples\V1.0Samples\StatelessSamples\VoiceRecorderAndPlaybackBot.sln](Samples\V1.0Samples\StatelessSamples\VoiceRecorderAndPlaybackBot.sln)
 
 ## More Details
 
-1. [Graph Communications Core SDK](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/core/index.htm)
+1.[Graph Communications Core SDK](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/core/index.htm)
 
-2. [Graph Communications SDK/Client SDK](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/client/index.html)
+2.[Graph Communications SDK/Client SDK](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/client/index.html)
 
 3.[Graph Communications Calling SDK](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/calls/index.html)
 
@@ -94,14 +93,13 @@ The sample demostrate a recording audio by user and playing back to user workflo
 
 6.[Graph Common Utilities Documentation](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/common/index.html)
 
-7. [Local Testing of the bot](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/index.html)
+7.[Local Testing of the bot](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/index.html)
 
-8. [State Management](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/StateManagement.html)
+8.[State Management](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/StateManagement.html)
 
 9.[Register bot in Microsoft Teams](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/register-calling-bot.html#register-bot-in-microsoft-teams)
 
 10.[Register calling bot in the Azure Bot Service](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/register-calling-bot.html)
-
 
 # Contributing
 
