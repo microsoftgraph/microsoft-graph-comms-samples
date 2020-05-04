@@ -10,11 +10,11 @@ The Microsoft Graph Communications API allows developers to programmatically int
 ## Prerequisites
 
 * Visual Studio. You can download the community version [here](http://www.visualstudio.com) for free.
-* Mirosoft Azure Subscription (If you do not already have a subscription, you can register for a <a href="https://azure.microsoft.com/en-us/free/" target="_blank">free account</a>)
+* Mirosoft Azure Subscription (If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/en-us/free/))
 * [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.8.1)
 * [Skype for Business Online Connector module](https://docs.microsoft.com/en-us/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell)
-* Install .Net Framework 4.7.1. Some samples will not build if you do not install this.
+* [.Net Framework 4.7.1](https://dotnet.microsoft.com/download/dotnet-framework/net471), some samples will not build if you do not install this.
 * You will need Postman, Fiddler, or an equivalent installed to formulate HTTP requests and inspect the responses.  The following tools are widely used in web development, but if you are familiar with another tool, the instructions in this sample should still apply.
     + [Postman desktop app](https://www.getpostman.com/)
     + [Telerik Fiddler](http://www.telerik.com/fiddler)
@@ -44,16 +44,18 @@ To run the sample, open [Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybac
 ### [HueBot](Samples\V1.0Samples\LocalMediaSamples\HueBot\README.md)
 
 The HueBot demonstrates local media scenarios.
-- Listens to dominant speaker events and changes the hue color of the dominant speaker video.
+- Listens to dominant speaker events and changes the color of the dominant speaker video.
 
 To run the sample, open [Samples\V1.0Samples\LocalMediaSamples\HueBot.sln](Samples\V1.0Samples\LocalMediaSamples\HueBot.sln)
 
 ### [Policy Recording bot sample](Samples\V1.0Samples\LocalMediaSamples\PolicyRecordingBot\README.md)
-This sample demonstrates how a bot can receive media streams for recording. Please note that the sample does not actually record. This logic is left up to the developer.The system will load the bot and join it to appropriate calls and meetings in order for the bot to enforce compliance with the administrative set policy.
+This sample demonstrates how a bot can receive media streams for recording. Please note that the sample does not actually record. This logic is left up to the developer. The system will load the bot and join it to appropriate calls and meetings in order for the bot to enforce compliance with the administrative set policy.
 
 To run the sample, open [Samples\V1.0Samples\LocalMediaSamples\PolicyRecordingBot.sln](Samples\V1.0Samples\LocalMediaSamples\PolicyRecordingBot.sln)
 
 ## Remote Media Graph Calling Bot Samples
+
+Remote Media sample shows how to play the specified media prompts and notified when the user presses keys on a "touchtone" phone.
 
 ### [Incident Bot Sample](Samples\V1.0Samples\RemoteMediaSamples\README.md)
 
@@ -62,6 +64,8 @@ The Incident Bot sample is a Remote Media sample demonstrating a simple incident
 To run the sample, open [Samples\V1.0Samples\RemoteMediaSamples\IncidentBot.sln](Samples\V1.0Samples\RemoteMediaSamples\IncidentBot.sln)
 
 ## Stateless Samples
+
+In Stateless bots, even if the bot instance goes down, the events and notifications go to the other instances of the bot and the bot can continue its logic.
 
 ### [Online Meeting Stateless Sample](Samples\BetaSamples\StatelessSamples\OnlineMeetingSamples\README.md)
 
@@ -82,7 +86,7 @@ The sample demostrate a recording audio by user and playing back to user workflo
 
 To run the sample, open [Samples\V1.0Samples\StatelessSamples\VoiceRecorderAndPlaybackBot.sln](Samples\V1.0Samples\StatelessSamples\VoiceRecorderAndPlaybackBot.sln)
 
-## More Details
+## Further Reading
 
 - [Graph Communications Core SDK](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/core/index.htm)
 
