@@ -79,8 +79,8 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="logging-in-sdk">Logging in SDK</h1>
 
-<p>The Graph SDK uses a custom logger named @Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger which allows custom subscribers for log events. These events can be observed and logged as required by the bot developers.</p>
-<p>You need to create an <code>IObserver</code> for log events (the @Microsoft.Graph.Communications.Common.Telemetry.LogEvent class).</p>
+<p>The Graph SDK uses a custom logger named <a class="xref" href="../common/Microsoft.Graph.Communications.Common.Telemetry.IGraphLogger.html">IGraphLogger</a> which allows custom subscribers for log events. These events can be observed and logged as required by the bot developers.</p>
+<p>You need to create an <code>IObserver</code> for log events (the <a class="xref" href="../common/Microsoft.Graph.Communications.Common.Telemetry.LogEvent.html">LogEvent</a> class).</p>
 <pre><code class="lang-cs">private class LogObserver : IObserver&lt;LogEvent&gt;
 {
     private readonly LogEventFormatter formatter = new LogEventFormatter();

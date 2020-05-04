@@ -18,7 +18,7 @@ namespace Sample.IncidentBot.Data
         /// <summary>
         /// Gets or sets the meeting identifier.
         /// </summary>
-        public string MeetingId { get; set; }
+        public string VideoTeleconferenceId { get; set; }
 
         /// <summary>
         /// Gets or sets the tenant id.

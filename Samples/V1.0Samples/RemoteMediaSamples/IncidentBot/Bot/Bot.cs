@@ -239,11 +239,11 @@ namespace Sample.IncidentBot.Bot
 
             Microsoft.Graph.MeetingInfo meetingInfo;
             ChatInfo chatInfo;
-            if (!string.IsNullOrWhiteSpace(joinCallBody.MeetingId))
+            if (!string.IsNullOrWhiteSpace(joinCallBody.VideoTeleconferenceId))
             {
                 // Meeting id is a cloud-video-interop numeric meeting id.
                 var onlineMeeting = await this.OnlineMeetings
-                    .GetOnlineMeetingAsync(joinCallBody.TenantId, joinCallBody.MeetingId, scenarioId)
+                    .GetOnlineMeetingAsync(joinCallBody.TenantId, joinCallBody.VideoTeleconferenceId, scenarioId)
                     .ConfigureAwait(false);
 
                 meetingInfo = new OrganizerMeetingInfo { Organizer = onlineMeeting.Participants.Organizer.Identity, };
