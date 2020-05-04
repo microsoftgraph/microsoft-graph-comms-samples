@@ -69,28 +69,33 @@ The sample demostrate an incident process workflow. When a incident raised (thro
 4. Login Teams with user1. Create a teams channel and add a meeting there. 
   * Meeting uri should be in format https://teams.microsoft.com/l/meetup-join/... 
 
-5. Use the postman to send request to "\{WebSiteRootUri\}/incidents/raise", with header "Content-Type:application/json" and the json content in body as below:
-```json
-{
-  "name": "<name-of-incident>", 
-  "time": "<start-time-of-the-incident-in-ISO-8601-format>", 
-  "tenantId": "{TenantId}",
-  "objectIds": [
-    "{UserObjectId-1}",
-    "{UserObjectId-2}"
-  ],
-  "meetingId": "{MeetingId}",
-  "joinURL": "https://teams.microsoft.com/l/meetup-join/...",
-  "removeFromDefaultRoutingGroup": true,
-  "allowConversationWithoutHost": true
-}
-```
+5. If the meeting created is a VTC meeting and **{videoTeleconferenceId}** is provided in request body, then **{videoTeleconferenceId}** will be used as a replacement of **{joinURL}**.
+  ![Test Meeting1](Images/TestMeeting1.png)
+
+6. Use the postman to send request to "**{WebSiteRootUri}/incidents/raise**", with header "Content-Type:application/json" and the json content in body as below:
+    ```json
+    {
+      "name": "<name-of-incident>",
+      "time": "<start-time-of-the-incident-in-ISO-8601-format>",
+      "tenantId": "{TenantId}",
+      "objectIds": [
+        "{UserObjectId-1}",
+        "{UserObjectId-2}"
+      ],
+      "videoTeleconferenceId": "{VTC Conference ID}, alternative parameter",
+      "joinURL": "https://teams.microsoft.com/l/meetup-join/..., alternative parameter",
+      "removeFromDefaultRoutingGroup": true,
+      "allowConversationWithoutHost": true
+    }
+    ```
 
 6. user1 & user2 should get audio call, and bot should joined the schedule meeting. 
 
-7. Choose user1 as a example, when the call is picked up, user1 should be able to hear the audio prompt to notice an incident is occured, and press "1" or "0" for different actions. 
+7. Choose user1 as a example(currently, user2's behaviors are same as user1's), when the call is picked up, user1 should be able to hear the audio prompt to notice an incident is occured, and press "1" or "0" for different actions.
 
-8. If user1 pressed "1", an new invitation will be sent from the bot to invite user1 to join the incident meeting, user1 could click "video" or "voice only" button to join the incident meeting.
+8. If user1 pressed "1", an new invitation will be sent from the bot to invite user1 to join the incident meeting.
+  * If Teams Client is in the P2P call panel layout with Incident Bot, user1 will join the Incident Meeting directly with "voice only" by default.
+  * If Teams Client is in the menu layout with P2P call layout minimized on Top-left, user1 will received an invitation from Bot, with choices of "video" or "voice only" to join the incident meeting.
 
 # Contribute
 TODO: Explain how other users and developers can contribute to make your code better. 
