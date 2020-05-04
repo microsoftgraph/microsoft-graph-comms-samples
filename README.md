@@ -21,7 +21,7 @@ The Microsoft Graph Communications API allows developers to programmatically int
 
 * [ngrok](https://ngrok.com/) for [Local Testing of the bot](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/index.html)
 
-* If you have Visual Studio Enterprise Subscription, you can [Activate office 365] (https://my.visualstudio.com/)
+* If you have Visual Studio Enterprise Subscription, you can [Activate Office365](https://my.visualstudio.com/)
 
 # Samples
 
