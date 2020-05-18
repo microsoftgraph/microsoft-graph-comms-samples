@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.Extensions.Logging.AzureAppServices" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Graph.Communications.Common" Version="1.2.0.850" />
+    <PackageReference Include="Microsoft.Graph.Communications.Client" Version="1.2.0.850" />
+    <PackageReference Include="Microsoft.Graph.Communications.Core" Version="1.2.0.850" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\Sample.Common\Sample.Common.csproj" />
+  </ItemGroup>
+
+
+</Project>

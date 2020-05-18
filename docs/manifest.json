@@ -42,7 +42,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/Logging.html",
-          "hash": "odfH40dACl3Fh8rR5Dt3+g=="
+          "hash": "cAZrNrk4ylqLQSMRllIJvw=="
         }
       },
       "is_incremental": false,
@@ -54,7 +54,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/Testing.html",
-          "hash": "VLBLQTFfvBB65DP0lFvMYA=="
+          "hash": "Dh1m0k4Tx1Sa6AZUWDJpUA=="
         }
       },
       "is_incremental": false,
@@ -97,12 +97,15 @@
       "version": ""
     },
     {
+      "log_codes": [
+        "UidNotFound"
+      ],
       "type": "Conceptual",
       "source_relative_path": "articles/calls/appHostedMediaCalls.md",
       "output": {
         ".html": {
           "relative_path": "articles/calls/appHostedMediaCalls.html",
-          "hash": "UEYWigiODE5IF3a3LKqgag=="
+          "hash": "RT3NeUYo0xjnOu1U5ym0AQ=="
         }
       },
       "is_incremental": false,
@@ -126,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/calls/register-calling-bot.html",
-          "hash": "6TJLi1E6wgvtxD7wqYPtNQ=="
+          "hash": "jhO8QHjC0P778ZDSz9QBsA=="
         }
       },
       "is_incremental": false,
@@ -145,12 +148,15 @@
       "version": ""
     },
     {
+      "log_codes": [
+        "UidNotFound"
+      ],
       "type": "Conceptual",
       "source_relative_path": "articles/index.md",
       "output": {
         ".html": {
           "relative_path": "articles/index.html",
-          "hash": "skP+1IhOrAjthwxj+e/mRg=="
+          "hash": "Yz7PIwdBNpI6jpdhpFdMmA=="
         }
       },
       "is_incremental": false,
@@ -241,12 +247,15 @@
       "version": ""
     },
     {
+      "log_codes": [
+        "UidNotFound"
+      ],
       "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "48hBHr0N/ymXkkZ8cGHBPQ=="
+          "hash": "+Wy+ceZgotx/d1DgrVZc8A=="
         }
       },
       "is_incremental": false,
@@ -3758,6 +3767,39 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "resources/app-studio-app-details-app-id.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/app-studio-app-details-app-id.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/app-studio-connect-to-a-bot-id.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/app-studio-connect-to-a-bot-id.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "resources/app-studio-connect-to-bot-id.png",
+      "output": {
+        "resource": {
+          "relative_path": "resources/app-studio-connect-to-bot-id.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "resources/app-studio-create-new.png",
       "output": {
         "resource": {
@@ -3880,17 +3922,17 @@
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
-        "ResourceDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
           "incrementalPhase": "build"
         },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build"
         },
-        "ConceptualDocumentProcessor": {
-          "can_incremental": true,
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         }
       }
