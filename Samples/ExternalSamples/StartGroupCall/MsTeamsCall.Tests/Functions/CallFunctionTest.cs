@@ -42,7 +42,7 @@ namespace MsTeamsCall.Tests
             var result = await callFunction.Calls(this.CreateHttpRequest().Object, new Mock<ILogger>().Object);
 
             // Assert
-            Assert.IsType<OkObjectResult>(result);
+            Assert.IsType<OkResult>(result);
         }
 
         [Fact]
