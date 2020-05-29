@@ -24,7 +24,7 @@ namespace HueBot
     /// <summary>
     /// The FabricRuntime creates an instance of this class for each service type instance.
     /// </summary>
-    internal sealed class HueBot : StatefulService
+    internal sealed class HueBot : StatelessService
     {
         private IGraphLogger logger;
         private SampleObserver observer;
@@ -35,10 +35,10 @@ namespace HueBot
         /// <summary>
         /// Initializes a new instance of the <see cref="HueBot" /> class.
         /// </summary>
-        /// <param name="context">Stateful service context from service fabric.</param>
+        /// <param name="context">Stateless service context from service fabric.</param>
         /// <param name="logger">Global logger instance.</param>
         /// <param name="observer">Global observer instance.</param>
-        public HueBot(StatefulServiceContext context, IGraphLogger logger, SampleObserver observer)
+        public HueBot(StatelessServiceContext context, IGraphLogger logger, SampleObserver observer)
             : base(context)
         {
             this.logger = logger;
@@ -54,7 +54,7 @@ namespace HueBot
         /// Optional override to create listeners (like tcp, http) for this service instance.
         /// </summary>
         /// <returns>The collection of listeners.</returns>
-        protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+        protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
         {
             this.configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
@@ -65,10 +65,10 @@ namespace HueBot
 
             this.bot = new Bot(this.botOptions, this.logger, this.Context);
 
-            var serviceReplicaListeners = new List<ServiceReplicaListener>();
+            var serviceInstanceListeners = new List<ServiceInstanceListener>();
             foreach (string endpointName in new[] { "ServiceEndpoint", "SignalingPort", "LocalEndpoint" })
             {
-                serviceReplicaListeners.Add(new ServiceReplicaListener(
+                serviceInstanceListeners.Add(new ServiceInstanceListener(
                     serviceContext =>
                         new HttpSysCommunicationListener(serviceContext, endpointName, (url, listener) =>
                         {
@@ -78,7 +78,7 @@ namespace HueBot
                     endpointName));
             }
 
-            return serviceReplicaListeners.ToArray();
+            return serviceInstanceListeners.ToArray();
         }
 
         /// <summary>
@@ -102,7 +102,6 @@ namespace HueBot
                     services => services
                         .AddSingleton(this.logger)
                         .AddSingleton(this.observer)
-                        .AddSingleton(this.StateManager)
                         .AddSingleton(this.Context)
                         .AddSingleton(this.botOptions)
                         .AddSingleton(this.bot)
