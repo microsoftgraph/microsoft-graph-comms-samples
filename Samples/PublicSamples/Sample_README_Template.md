@@ -5,9 +5,9 @@ Use them directly in Production is not recommended. Please consider contract Sam
 
 
 ---
-title: "Your Sample Name in PascalCase"
-description: "Short description of this sample."
-author: "Github username of the author"
+title: "Your Sample Name in PascalCase"  
+description: "Short description of this sample."  
+author: "Github username of the author"  
 ---
 
 # Introduction
