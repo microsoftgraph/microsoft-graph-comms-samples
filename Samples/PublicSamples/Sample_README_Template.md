@@ -1,13 +1,14 @@
-Public Samples are created by developers who would like to share their features.
+Please use content below as template in your Sample's READM.md file.
+====================================================================
 
-Public Samples are not Official microsoft communication samples. Microsoft Communication does not support these samples. 
-Use them directly in Production is not recommended. Please consider contract Sample owner before consuming it in Production. 
-
+> **Note:**  
+> Public Samples are provided by developers from the Microsoft Graph community.  
+> Public Samples are not official Microsoft Communication samples, and not supported by the Microsoft Communication engineering team. It is recommended that you contact the sample owner before using code from Public Samples in production systems.
 
 ---
-title: "Your Sample Name in PascalCase"  
-description: "Short description of this sample."  
-author: "Github username of the author"  
+Title: "Your Sample Name in PascalCase"  
+Description: "Short description of this sample."  
+author: "Github username of the author, for contact"  
 ---
 
 # Introduction
