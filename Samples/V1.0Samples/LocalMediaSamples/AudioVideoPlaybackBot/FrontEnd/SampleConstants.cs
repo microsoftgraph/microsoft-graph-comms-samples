@@ -24,6 +24,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
         /// </summary>
         public const uint NumberOfMultiviewSockets = 3;
 
+#if PLAY_MEDIA_FILE
         /// <summary>
         /// Stores a list of supported video formats.
         /// </summary>
@@ -33,5 +34,6 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
             VideoFormat.H264_640x360_30Fps,
             VideoFormat.H264_320x180_15Fps,
         };
+#endif
     }
 }
