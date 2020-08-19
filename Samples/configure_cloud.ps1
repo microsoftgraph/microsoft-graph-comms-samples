@@ -30,6 +30,15 @@ Enter your Bot's Microsoft AppId as in the registation page.
 .PARAMETER AppSecret
 Enter your Bot's Microsoft AppPassword as in the registration page.
 
+.PARAMETER SignalingPort
+Enter your ngrok Signaling Port number.
+
+.PARAMETER MediaPort
+Enter your ngrok Media Port number.
+
+.PARAMETER TcpForwardingPort
+Enter your ngrok Tcp Forwarding Port number.
+
 .PARAMETER Reset
 If set to true, restores the configurations files with the backups.  If no backups exist, nothing will be done.
 
@@ -51,6 +60,9 @@ param(
     [parameter(Mandatory=$false,HelpMessage="Enter your Bot Display Name from your bot registration portal.")][alias("bid")] $BotName,
     [parameter(Mandatory=$false,HelpMessage="Enter your Bot's Microsoft application id from your bot registration portal.")][alias("aid")] $AppId,
     [parameter(Mandatory=$false,HelpMessage="Enter your Bot's Microsoft application secret from your bot registration portal.")][alias("as")] $AppSecret,
+    [parameter(Mandatory=$false,HelpMessage="Enter your ngrok Signaling Port number.")][alias("sp")] $SignalPort,
+    [parameter(Mandatory=$false,HelpMessage="Enter your ngrok Media Port number.")][alias("mp")] $MediaPort,
+    [parameter(Mandatory=$false,HelpMessage="Enter your ngrok Tcp Forwarding Port number.")][alias("tcp")] $TcpForwardingPort,
     [switch] $Reset
 )
 
@@ -116,6 +128,18 @@ if (-not $AppSecret) {
     $AppSecret = (Read-Host "Enter your Bot's Microsoft application secret from your bot registration portal.").Trim()
 }
 
+if (-not $SignalPort) {
+    $SignalPort = (Read-Host "Enter your ngrok Signaling Port number.").Trim()
+}
+
+if (-not $MediaPort) {
+    $MediaPort = (Read-Host "Enter your ngrok Media Port number.").Trim()
+}
+
+if (-not $TcpForwardingPort) {
+    $TcpForwardingPort = (Read-Host "Enter your ngrok Tcp Forwarding Port number.").Trim()
+}
+
 function ReplaceInFile ($file, [string]$pattern, [string]$replaceWith) {
     $fileName = $file.Name
     Write-Output "  Replacing $pattern with $replaceWith in $fileName"
@@ -147,6 +171,9 @@ foreach($file in $FilesToReplace)
     ReplaceInFile $file "%BotNameLower%" $BotName.ToLower()
     ReplaceInFile $file "%AppId%" $AppId
     ReplaceInFile $file "%AppSecret%" $AppSecret
+    ReplaceInFile $file "%SignalingPort%" $SignalPort
+    ReplaceInFile $file "%MediaPort%" $MediaPort
+    ReplaceInFile $file "%TcpForwardingPort%" $TcpForwardingPort
 }
 
 Write-Output "Update Complete."

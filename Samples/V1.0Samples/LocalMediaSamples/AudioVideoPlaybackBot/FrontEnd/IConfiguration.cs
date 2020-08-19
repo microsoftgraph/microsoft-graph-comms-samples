@@ -40,7 +40,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
         /// Gets the List of HTTP URLs the app should listen on for incoming call
         /// signaling requests from Skype Platform.
         /// </summary>
-        IEnumerable<Uri> CallControlListeningUrls { get; }
+        IEnumerable<string> CallControlListeningUrls { get; }
 
         /// <summary>
         /// Gets the base callback URL for this instance.  To ensure that all requests
@@ -83,5 +83,20 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
         /// Gets the lenghth of the audio video file.
         /// </summary>
         int AudioVideoFileLengthInSec { get; }
+
+        /// <summary>
+        /// Gets the port for Signaling.
+        /// </summary>
+        int SignalingPort { get; }
+
+        /// <summary>
+        /// Gets the port for Media stream.
+        /// </summary>
+        int MediaPort { get; }
+
+        /// <summary>
+        /// Gets the ngrok TCP forwarding port.
+        /// </summary>
+        int TcpForwardingPort { get; }
     }
 }
