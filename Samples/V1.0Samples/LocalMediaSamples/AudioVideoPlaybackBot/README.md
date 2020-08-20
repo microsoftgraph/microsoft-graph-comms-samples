@@ -27,6 +27,16 @@ This section walks you through the process of deploying and testing the sample b
     * [Visual Studio 2017+](https://visualstudio.microsoft.com/downloads/)
     * [PostMan](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop)
 
+### Toggle between features
+
+* Play a movie in multiple resolutions
+   
+    * This feature is turned on by deafult and has a conditional compilation constant `PLAY_MEDIA_FILE` in the `AVPFrontEnd` project to turn the feature ON or OFF.
+
+*  Loopback of meeting attendees video chosen randomly and show it in the main video's output feed.
+    
+    * Use the compilation constants `USE_NV12` and `SPOTLIGHT_VIDEO` in the `AVPFrontEnd` project to see this feature spotlighting a user's video. This feature basically shows you how to handle an incoming video buffer in the raw `NV12` format. Look the function `OnVideoMediaReceived` in `BotMediaStream.cs` to see how this done.
+
 ### Deploy
 
 #### [Azure] deployment
