@@ -72,12 +72,14 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             }
 
             this.audioSocket.AudioSendStatusChanged += this.OnAudioSendStatusChanged;
+            this.audioSocket.AudioMediaReceived += this.OnAudioMediaReceived;
 
             this.mainVideoSocket = this.mediaSession.VideoSockets?.FirstOrDefault();
             if (this.mainVideoSocket != null)
             {
                 this.mainVideoSocket.VideoSendStatusChanged += this.OnVideoSendStatusChanged;
                 this.mainVideoSocket.VideoKeyFrameNeeded += this.OnVideoKeyFrameNeeded;
+                this.mainVideoSocket.VideoMediaReceived += this.OnVideoMediaReceived;
             }
 
             this.videoSockets = this.mediaSession.VideoSockets?.ToList();
@@ -185,12 +187,14 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             if (this.audioSocket != null)
             {
                 this.audioSocket.AudioSendStatusChanged -= this.OnAudioSendStatusChanged;
+                this.audioSocket.AudioMediaReceived -= this.OnAudioMediaReceived;
             }
 
             if (this.mainVideoSocket != null)
             {
                 this.mainVideoSocket.VideoKeyFrameNeeded -= this.OnVideoKeyFrameNeeded;
                 this.mainVideoSocket.VideoSendStatusChanged -= this.OnVideoSendStatusChanged;
+                this.mainVideoSocket.VideoMediaReceived -= this.OnVideoMediaReceived;
             }
 
             if (this.vbssSocket != null)
@@ -326,6 +330,25 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         }
 
         /// <summary>
+        /// Save screenshots when we receive audio from the subscribed participant.
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="e">
+        /// The audio media received arguments.
+        /// </param>
+        private void OnAudioMediaReceived(object sender, AudioMediaReceivedEventArgs e)
+        {
+            // leave only logging in here
+            this.logger.Info($"[AudioMediaReceivedEventArgs(Data=<{e.Buffer.Data.ToString()}>, Length={e.Buffer.Length}, Timestamp={e.Buffer.Timestamp}, AudioFormat={e.Buffer.AudioFormat}, IsSilence={e.Buffer.IsSilence}, ActiveSpeakers=[{string.Join(", ", e.Buffer.ActiveSpeakers)}])]");
+
+            /* TODO: Do something with audio here */
+
+            e.Buffer.Dispose();
+        }
+
+        /// <summary>
         /// Callback for informational updates from the media plaform about video status changes.
         /// Once the Status becomes active, then video can be sent.
         /// </summary>
@@ -373,6 +396,25 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                     this.audioVideoFramePlayer?.ClearAsync().ForgetAndLogExceptionAsync(this.logger);
                 }
             }
+        }
+
+        /// <summary>
+        /// Save screenshots when we receive video from the subscribed participant.
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="e">
+        /// The video media received arguments.
+        /// </param>
+        private void OnVideoMediaReceived(object sender, VideoMediaReceivedEventArgs e)
+        {
+            // leave only logging in here
+            this.logger.Info($"[VideoMediaReceivedEventArgs(Data=<{e.Buffer.Data.ToString()}>, Length={e.Buffer.Length}, Timestamp={e.Buffer.Timestamp}, Width={e.Buffer.VideoFormat.Width}, Height={e.Buffer.VideoFormat.Height}, ColorFormat={e.Buffer.VideoFormat.VideoColorFormat}, FrameRate={e.Buffer.VideoFormat.FrameRate})]");
+
+            /* TODO: Do something with video here */
+
+            e.Buffer.Dispose();
         }
 
         /// <summary>
