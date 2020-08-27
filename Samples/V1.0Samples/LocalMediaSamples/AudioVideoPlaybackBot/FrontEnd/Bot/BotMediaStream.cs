@@ -86,7 +86,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
 #endif
 
 #if SPOTLIGHT_VIDEO
-        private Stopwatch currentStoplightedDuration = Stopwatch.StartNew();
+        private Stopwatch currentSpotlightedDuration = Stopwatch.StartNew();
         private int currentSpotlightSocket = -1;
 #endif
 
@@ -498,7 +498,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                     if (e.SocketId != this.currentSpotlightSocket)
                     {
                         // And if we haven't finished 5 seconds worth of spotlighting for the current person,
-                        if (this.currentStoplightedDuration.Elapsed.TotalSeconds < 5)
+                        if (this.currentSpotlightedDuration.Elapsed.TotalSeconds < 5)
                         {
                             // Just ignore this incoming video data.
                             return;
@@ -506,7 +506,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                         else
                         {
                             // Otherwise it's been enough time and we can switch to this new person.
-                            this.currentStoplightedDuration.Restart();
+                            this.currentSpotlightedDuration.Restart();
                             this.currentSpotlightSocket = e.SocketId;
                         }
                     }
