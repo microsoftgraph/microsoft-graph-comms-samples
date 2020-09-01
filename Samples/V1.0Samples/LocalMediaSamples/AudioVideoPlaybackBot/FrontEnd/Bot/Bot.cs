@@ -9,6 +9,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
     using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Data;
+    using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.Graph;
     using Microsoft.Graph.Communications.Calls;
@@ -226,12 +227,21 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                 new VideoSocketSettings
                 {
                     StreamDirections = StreamDirection.Sendrecv,
+
+#if USE_NV12
+                    ReceiveColorFormat = VideoColorFormat.NV12,
+#else
                     ReceiveColorFormat = VideoColorFormat.H264,
+#endif
 
-                    // We loop back the video in this sample. The MediaPlatform always sends only NV12 frames.
-                    // So include only NV12 video in supportedSendVideoFormats
+#if PLAY_MEDIA_FILE
+                    // We play a pre-recorded video from disk in this sample. The MediaPlatform always sends only H264 frames.
+                    // So include only H264 video in supportedSendVideoFormats
                     SupportedSendVideoFormats = SampleConstants.SupportedSendVideoFormats,
-
+#else
+                    // Otherwise we can support a wide range of formats when manipulating raw video frames.
+                    SupportedSendVideoFormats = BotMediaStream.VideoFormatMap.Values.OfType<VideoFormat>().ToList(),
+#endif
                     MaxConcurrentSendStreams = 1,
                 },
             };
@@ -242,7 +252,11 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                 videoSocketSettings.Add(new VideoSocketSettings
                 {
                     StreamDirections = StreamDirection.Recvonly,
+#if USE_NV12
+                    ReceiveColorFormat = VideoColorFormat.NV12,
+#else
                     ReceiveColorFormat = VideoColorFormat.H264,
+#endif
                 });
             }
 
@@ -250,12 +264,20 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             var vbssSocketSettings = new VideoSocketSettings
             {
                 StreamDirections = StreamDirection.Recvonly,
+#if USE_NV12
+                ReceiveColorFormat = VideoColorFormat.NV12,
+#else
                 ReceiveColorFormat = VideoColorFormat.H264,
+#endif
                 MediaType = MediaType.Vbss,
                 SupportedSendVideoFormats = new List<VideoFormat>
                 {
                     // fps 1.875 is required for h264 in vbss scenario.
+#if USE_NV12
+                    VideoFormat.NV12_1920x1080_1_875Fps,
+#else
                     VideoFormat.H264_1920x1080_1_875Fps,
+#endif
                 },
             };
 
