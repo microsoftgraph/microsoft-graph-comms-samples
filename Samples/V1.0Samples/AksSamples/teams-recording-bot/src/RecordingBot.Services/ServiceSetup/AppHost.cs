@@ -4,133 +4,149 @@
 // Created          : 09-07-2020
 //
 // Last Modified By : dannygar
-// Last Modified On : 09-03-2020
+// Last Modified On : 09-07-2020
 // ***********************************************************************
-// <copyright file="JoinCallController.cs" company="Microsoft">
+// <copyright file="AppHost.cs" company="Microsoft">
 //     Copyright ©  2020
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Microsoft.Graph;
 using Microsoft.Graph.Communications.Common.Telemetry;
-using Microsoft.Graph.Communications.Core.Serialization;
-using RecordingBot.Model.Constants;
-using RecordingBot.Model.Models;
+using Microsoft.Owin.Hosting;
 using RecordingBot.Services.Contract;
-using RecordingBot.Services.ServiceSetup;
+using RecordingBot.Services.Http;
 using System;
-using System.Net;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Http;
 
-namespace RecordingBot.Services.Http.Controllers
+namespace RecordingBot.Services.ServiceSetup
 {
     /// <summary>
-    /// JoinCallController is a third-party controller (non-Bot Framework) that can be called in CVI scenario to trigger the bot to join a call.
+    /// Class AppHost.
     /// </summary>
-    public class JoinCallController : ApiController
+    public class AppHost
     {
         /// <summary>
-        /// The logger
+        /// Gets or sets the service provider.
         /// </summary>
-        private readonly IGraphLogger _logger;
+        /// <value>The service provider.</value>
+        private IServiceProvider ServiceProvider { get; set; }
         /// <summary>
-        /// The bot service
+        /// Gets or sets the service collection.
         /// </summary>
-        private readonly IBotService _botService;
+        /// <value>The service collection.</value>
+        private IServiceCollection ServiceCollection { get; set; }
+        /// <summary>
+        /// Gets the application host instance.
+        /// </summary>
+        /// <value>The application host instance.</value>
+        public static AppHost AppHostInstance { get; private set; }
+
+        /// <summary>
+        /// The call HTTP server
+        /// </summary>
+        private IDisposable _callHttpServer;
+
         /// <summary>
         /// The settings
         /// </summary>
-        private readonly AzureSettings _settings;
+        private IAzureSettings _settings;
         /// <summary>
-        /// The event publisher
+        /// The bot service
         /// </summary>
-        private readonly IEventPublisher _eventPublisher;
+        private IBotService _botService;
+        /// <summary>
+        /// The logger
+        /// </summary>
+        private IGraphLogger _logger;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="JoinCallController" /> class.
+        /// Initializes a new instance of the <see cref="AppHost" /> class.
 
         /// </summary>
-        public JoinCallController()
+        public AppHost()
         {
-            _logger = AppHost.AppHostInstance.Resolve<IGraphLogger>();
-            _eventPublisher = AppHost.AppHostInstance.Resolve<IEventPublisher>();
-            _botService = AppHost.AppHostInstance.Resolve<IBotService>();
-            _settings = AppHost.AppHostInstance.Resolve<IOptions<AzureSettings>>().Value;
+            AppHostInstance = this;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="JoinCallController" /> class.
-
+        /// Boots this instance.
         /// </summary>
-        /// <param name="logger">The logger.</param>
-        /// <param name="eventPublisher">The event publisher.</param>
-        /// <param name="botService">The bot service.</param>
-        /// <param name="settings">The settings.</param>
-        public JoinCallController(IGraphLogger logger, IEventPublisher eventPublisher, IBotService botService, IAzureSettings settings)
+        public void Boot()
         {
-            _logger = logger;
-            _botService = botService;
-            _settings = (AzureSettings)settings;
-            _eventPublisher = eventPublisher;
-        }
+            DotNetEnv.Env.Load(new DotNetEnv.Env.LoadOptions(parseVariables: false));
 
-        /// <summary>
-        /// The join call async.
-        /// </summary>
-        /// <param name="joinCallBody">The join call body.</param>
-        /// <returns>The <see cref="HttpResponseMessage" />.</returns>
-        [HttpPost]
-        [Route(HttpRouteConstants.JoinCall)]
-        public async Task<HttpResponseMessage> JoinCallAsync([FromBody] JoinCallBody joinCallBody)
-        {
+            var builder = new ConfigurationBuilder();
+
+            // tell the builder to look for the appsettings.json file
+            builder
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddEnvironmentVariables();
+
+            var configuration = builder.Build();
+
+            ServiceCollection = new ServiceCollection();
+            ServiceCollection.AddCoreServices(configuration);
+
+            ServiceProvider = ServiceCollection.BuildServiceProvider();
+
+            _logger = Resolve<IGraphLogger>();
+
             try
             {
-                var call = await _botService.JoinCallAsync(joinCallBody).ConfigureAwait(false);
-                var callPath = $"/{HttpRouteConstants.CallRoute.Replace("{callLegId}", call.Id)}";
-                var callUri = $"{_settings.ServiceCname}{callPath}";
-                _eventPublisher.Publish("JoinCall", $"Call.id = {call.Id}");
-
-                var values = new JoinURLResponse()
-                {
-                    Call = callUri,
-                    CallId = call.Id,
-                    ScenarioId = call.ScenarioId
-                };
-
-                var serializer = new CommsSerializer(pretty: true);
-                var json = serializer.SerializeObject(values);
-                var response = this.Request.CreateResponse(HttpStatusCode.OK);
-                response.Content = new StringContent(json, Encoding.UTF8, "application/json");
-                return response;
-            }
-            catch (ServiceException e)
-            {
-                HttpResponseMessage response = (int)e.StatusCode >= 300
-                    ? this.Request.CreateResponse(e.StatusCode)
-                    : this.Request.CreateResponse(HttpStatusCode.InternalServerError);
-
-                if (e.ResponseHeaders != null)
-                {
-                    foreach (var responseHeader in e.ResponseHeaders)
-                    {
-                        response.Headers.TryAddWithoutValidation(responseHeader.Key, responseHeader.Value);
-                    }
-                }
-
-                response.Content = new StringContent(e.ToString());
-                return response;
+                _settings = Resolve<IOptions<AzureSettings>>().Value;
+                _settings.Initialize();
+                Resolve<IEventPublisher>();
+                _botService = Resolve<IBotService>();
             }
             catch (Exception e)
             {
-                _logger.Error(e, $"Received HTTP {this.Request.Method}, {this.Request.RequestUri}");
-                HttpResponseMessage response = this.Request.CreateResponse(HttpStatusCode.InternalServerError);
-                response.Content = new StringContent(e.Message);
-                return response;
+                _logger.Error(e, "Unhandled exception in Boot()");
             }
+
+        }
+
+        /// <summary>
+        /// Starts the server.
+        /// </summary>
+        public void StartServer()
+        {
+            try
+            {
+                _botService.Initialize();
+
+                var callStartOptions = new StartOptions();
+
+                foreach (var url in ((AzureSettings)_settings).CallControlListeningUrls)
+                {
+                    callStartOptions.Urls.Add(url);
+                    _logger.Info("Listening on: {url}", url);
+                }
+
+                _callHttpServer = WebApp.Start(
+                    callStartOptions,
+                    (appBuilder) =>
+                    {
+                        var startup = new HttpConfigurationInitializer();
+                        startup.ConfigureSettings(appBuilder, _logger);
+                    });
+            }
+            catch (Exception e)
+            {
+                _logger.Error(e, "Unhandled exception in StartServer()");
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Resolves this instance.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns>T.</returns>
+        public T Resolve<T>()
+        {
+            return ServiceProvider.GetService<T>();
         }
     }
 }
