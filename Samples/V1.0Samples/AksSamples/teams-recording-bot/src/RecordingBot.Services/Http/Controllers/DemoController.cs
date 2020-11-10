@@ -13,14 +13,12 @@
 // <summary>ScreenshotsController retrieves the screenshots stored by the bot</summary>
 // ***********************************************************************-
 
+using Microsoft.Extensions.Options;
 using Microsoft.Graph.Communications.Common.Telemetry;
 using Microsoft.Graph.Communications.Core.Serialization;
-using Microsoft.Skype.Internal.Bots.Media;
 using RecordingBot.Model.Constants;
 using RecordingBot.Services.Contract;
-using RecordingBot.Services.Media;
 using RecordingBot.Services.ServiceSetup;
-using RecordingBot.Services.Util;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -64,7 +62,7 @@ namespace RecordingBot.Services.Http.Controllers
             _logger = AppHost.AppHostInstance.Resolve<IGraphLogger>();
             _eventPublisher = AppHost.AppHostInstance.Resolve<IEventPublisher>();
             _botService = AppHost.AppHostInstance.Resolve<IBotService>();
-            _settings = AppHost.AppHostInstance.Resolve<AzureSettings>();
+            _settings = AppHost.AppHostInstance.Resolve<IOptions<AzureSettings>>().Value;
         }
 
         /// <summary>
