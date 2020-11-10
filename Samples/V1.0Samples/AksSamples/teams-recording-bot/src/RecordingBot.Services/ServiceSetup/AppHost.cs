@@ -18,8 +18,6 @@ using Microsoft.Graph.Communications.Common.Telemetry;
 using Microsoft.Owin.Hosting;
 using RecordingBot.Services.Contract;
 using RecordingBot.Services.Http;
-using RecordingBot.Services.Media;
-using RecordingBot.Services.Util;
 using System;
 
 namespace RecordingBot.Services.ServiceSetup
