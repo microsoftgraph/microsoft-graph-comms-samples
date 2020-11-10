@@ -4,11 +4,10 @@ Local media samples give the developer direct access to the inbound and outbound
 
 ## AudioVideoPlaybackBot
 
-The [AudioVideoPlaybackBot](AudioVideoPlaybackBot/README.md) demonstrates several features of local media scenarios:
-- Plays a movie in multiple resolutions as the main video output feed. (This functionality is turned on by default using the conditional compilation constant PLAY_MEDIA_FILE)
+The [AudioVideoPlaybackBot](AudioVideoPlaybackBot/README.md) demostrates several features of local media scenarios:
+- Plays a movie in multiple resolutions as the main video output feed.
 - Listens to dominant speaker events and subscribes to inbound video feeds of those participants.
 - Allows switching between screen viewing sharer and viewer, and publishes video through the screen sharing socket.
-- Allows a randomly selected user's video to be spotlighted through the main video output feed of the bot (This feature can be controlled using the compile time conditional constants SPOTLIGHT_VIDEO and USE_NV12). 
 
 ## HueBot
 

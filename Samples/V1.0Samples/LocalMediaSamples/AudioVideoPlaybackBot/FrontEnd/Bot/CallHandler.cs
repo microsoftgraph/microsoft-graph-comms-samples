@@ -54,6 +54,9 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             // subscribe to dominant speaker event on the audioSocket
             this.Call.GetLocalMediaSession().AudioSocket.DominantSpeakerChanged += this.OnDominantSpeakerChanged;
 
+            // subscribe to the VideoMediaReceived event on the main video socket
+            this.Call.GetLocalMediaSession().VideoSockets.FirstOrDefault().VideoMediaReceived += this.OnVideoMediaReceived;
+
             // susbscribe to the participants updates, this will inform the bot if a particpant left/joined the conference
             this.Call.Participants.OnUpdated += this.ParticipantsOnUpdated;
 
@@ -88,6 +91,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             base.Dispose(disposing);
 
             this.Call.GetLocalMediaSession().AudioSocket.DominantSpeakerChanged -= this.OnDominantSpeakerChanged;
+            this.Call.GetLocalMediaSession().VideoSockets.FirstOrDefault().VideoMediaReceived -= this.OnVideoMediaReceived;
 
             this.Call.OnUpdated -= this.CallOnUpdated;
             this.Call.Participants.OnUpdated -= this.ParticipantsOnUpdated;
@@ -283,6 +287,23 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                     this.SubscribeToParticipantVideo(participant, forceSubscribe: true);
                 }
             }
+        }
+
+        /// <summary>
+        /// Save screenshots when we receive video from subscribed participant.
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="e">
+        /// The video media received arguments.
+        /// </param>
+        private void OnVideoMediaReceived(object sender, VideoMediaReceivedEventArgs e)
+        {
+            // leave only logging in here
+            this.GraphLogger.Info($"[{this.Call.Id}]: Capturing image: [VideoMediaReceivedEventArgs(Data=<{e.Buffer.Data.ToString()}>, Length={e.Buffer.Length}, Timestamp={e.Buffer.Timestamp}, Width={e.Buffer.VideoFormat.Width}, Height={e.Buffer.VideoFormat.Height}, ColorFormat={e.Buffer.VideoFormat.VideoColorFormat}, FrameRate={e.Buffer.VideoFormat.FrameRate})]");
+
+            e.Buffer.Dispose();
         }
 
         /// <summary>
