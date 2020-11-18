@@ -8,7 +8,7 @@ The sample demostrates calling a group of users.
     4. The incident is handled and the call ends.
     
 # Note
-    For a call created by the Group Call Bot, some regular Team's features are not enabled for the users. Such as call ended and started notifications on a shared group chat, call history (may not be updated correctly), Companion Mode, transferring between a user's devices, recording, transcription and dialout to PSTN numbers from the group call.
+    For a call created by the Group Call Bot, some regular Team's features are not enabled for the users, such as call ended and started notifications on a shared group chat, call history (may not be updated correctly), Companion Mode, transferring between a user's devices, recording, transcription and dialout to PSTN numbers from the group call.
 
 
 # Installation process
