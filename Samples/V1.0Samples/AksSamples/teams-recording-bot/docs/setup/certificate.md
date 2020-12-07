@@ -10,15 +10,15 @@ Once you have finished [Setting up Ngrok](https://github.com/microsoft/netcorete
 4. Add `Certificates`. You'll see a popup. Make sure you select `Computer account` and `Local computer` is selected before clicking `Finish`.
 5. Next, expand `Certificates (Local Computer)` -> `Personal` and click on `Certificates`.
 6. You should see a bunch of certificates. Right click -> `All Tasks` -> `Import...`
-7. Browse for your `certificate.pfx`. Make sure you change the file extention to `Personal Information Exchange...`. Click next, enter your certificate's password, and click through until the certificate is loaded.
+7. Browse for your `certificate.pfx`. Make sure you change the file extension to `Personal Information Exchange...`. Click next, enter your certificate's password, and click through until the certificate is loaded.
 8. Now you should see your certificate. Double click on it -> click on `Details` -> scroll down to the bottom and you'll see `Thumbprint`. Copy and paste it somewhere save. We'll refer to this as `THUMBPRINT`.
 
-Once you've got your thumbprint... 
+Once you've got your thumbprint...
 
 1. Create a new file in `build/` called `certs.bat`.
 2. Copy the contents of [certs.bat-template](../../scripts/certs.bat-template) to `certs.bat`.
 3. Replace `YOUR_CERT_THUMBPRINT` in [certs.bat](../../scripts/certs.bat-template#L20-#L21) with `THUMBPRINT`.
-4. Run the bat file in a new command prompt with adminstrator privliages.
+4. Run the bat file in a new command prompt with administrator privileges.
 
 **NOTE:** if your certificate expires, you'll need to regenerate it and repeat all the steps again, including running `certs.bat` with the new `THUMBPRINT`. You'll also need to update `AzureSettings__CertificateThumbprint` in your `.env` file.
 
@@ -32,22 +32,22 @@ Once you've got your thumbprint...
 
 ### Instructions
 
-For this example, I'm using my ngrok reserved domain of jodogrok. Go get your own!
+For this example, I'm using my Ngrok reserved domain of jodogrok. Go get your own!
 
-This will connect ngrok, set up SSL and save it to `/letsencrypt` or the `etc` folder if you run it on Windows.
+This will connect Ngrok, set up SSL and save it to `/letsencrypt` or the `etc` folder if you run it on Windows.
 
-Please note, there is a limit on how many times you can do letsencrypt (like maybe 5 a week!) so save your `letsencrypt` folder.
+Please note, there is a limit on how many times you can do LetsEncrypt (like maybe 5 a week!) so save your `letsencrypt` folder.
 
 If the `letsencrypt` folder exists, it will use these certs instead (will copy them to the right place in the container). If you change your ngrok domain name, you will have to delete this folder first as the certs will not work.
 
-- Go to [ngrok](https://dashboard.ngrok.com/get-started) and login. You will need a pro plan for this
+- Go to [Ngrok](https://dashboard.ngrok.com/get-started) and login. You will need a pro plan for this
 - Reserve your name (I did jordogrok)
-- Edit `config.ini` and replace with your email and your domain name (`jordogrok.ngrok.io` was mine. Note, the example on ngrok site has "au" in it - leave this out)
+- Edit `config.ini` and replace with your email and your domain name (`jordogrok.ngrok.io` was mine. Note, the example on Ngrok site has "au" in it - leave this out)
 - Edit `config.sh` and replace
-  - SUBDOMAIN=jodogrok
-  - AUTHTOKEN=get from ngrok dash under (3) Connect your account
-  - CERTIFICATEPASSWORD=password used when saving certificate.pfx
-- Edit `ngrok.yaml` and replace SUBDOMAIN with your subdomain.
+  - `SUBDOMAIN=jodogrok`
+  - `AUTHTOKEN=get from Ngrok dash under (3) Connect your account`
+  - `CERTIFICATEPASSWORD=password used when saving certificate.pfx`
+- Edit `ngrok.yaml` and replace `SUBDOMAIN` with your subdomain.
 
 Open a Windows Terminal, run './host.sh' and you're off to the races! Access your domain to see the site that you're redirecting to.
 
