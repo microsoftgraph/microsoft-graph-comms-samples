@@ -18,19 +18,19 @@ namespace Sample.HueBot.Controllers
     public class JoinCallController : Controller
     {
         private Bot bot;
-        private StatefulServiceContext statefulServiceContext;
+        private StatelessServiceContext statelessServiceContext;
         private BotOptions botOptions;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="JoinCallController"/> class.
         /// </summary>
         /// <param name="bot">Bot instance.</param>
-        /// <param name="statefulServiceContext">The service context.</param>
+        /// <param name="statelessServiceContext">The service context.</param>
         /// <param name="botOptions">The bot options.</param>
-        public JoinCallController(Bot bot, StatefulServiceContext statefulServiceContext, BotOptions botOptions)
+        public JoinCallController(Bot bot, StatelessServiceContext statelessServiceContext, BotOptions botOptions)
         {
             this.bot = bot;
-            this.statefulServiceContext = statefulServiceContext;
+            this.statelessServiceContext = statelessServiceContext;
             this.botOptions = botOptions;
         }
 
@@ -48,7 +48,7 @@ namespace Sample.HueBot.Controllers
             var call = await this.bot.JoinCallAsync(joinCallBody).ConfigureAwait(false);
 
             var serviceURL = new UriBuilder($"{this.Request.Scheme}://{this.Request.Host}");
-            serviceURL.Port = this.botOptions.BotBaseUrl.Port + this.statefulServiceContext.NodeInstance();
+            serviceURL.Port = this.botOptions.BotBaseUrl.Port + this.statelessServiceContext.NodeInstance();
 
             return this.Ok(new JoinCallResponseBody
             {

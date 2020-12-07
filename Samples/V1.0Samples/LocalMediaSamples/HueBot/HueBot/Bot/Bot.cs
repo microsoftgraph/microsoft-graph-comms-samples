@@ -43,7 +43,7 @@ namespace Sample.HueBot.Bot
         /// <param name="options">The bot options.</param>
         /// <param name="graphLogger">The graph logger.</param>
         /// <param name="serviceContext">Service context.</param>
-        public Bot(BotOptions options, IGraphLogger graphLogger, StatefulServiceContext serviceContext)
+        public Bot(BotOptions options, IGraphLogger graphLogger, StatelessServiceContext serviceContext)
         {
             this.Options = options;
             this.logger = graphLogger;
@@ -320,7 +320,7 @@ namespace Sample.HueBot.Bot
         /// <param name="options">The bot options.</param>
         /// <param name="serviceContext">Service context.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-        private MediaPlatformSettings MediaInit(BotOptions options, StatefulServiceContext serviceContext)
+        private MediaPlatformSettings MediaInit(BotOptions options, StatelessServiceContext serviceContext)
         {
             var instanceNumber = serviceContext.NodeInstance();
             var publicMediaUrl = options.BotMediaProcessorUrl ?? options.BotBaseUrl;

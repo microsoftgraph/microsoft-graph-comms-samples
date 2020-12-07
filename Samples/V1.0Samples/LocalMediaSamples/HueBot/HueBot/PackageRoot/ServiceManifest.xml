@@ -7,7 +7,7 @@
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
          This name must match the string used in RegisterServiceType call in Program.cs. -->
-    <StatefulServiceType ServiceTypeName="HueBotType"  HasPersistedState="true" />
+    <StatelessServiceType ServiceTypeName="HueBotType" />
   </ServiceTypes>
 
   <!-- Code package is your service executable. -->
