@@ -6,10 +6,10 @@ scale:
   maxReplicaCount: 3
   replicaCount: 3
 
-host: ms.com
+host: null
 
 image:
-  domain: acr.azurecr.io
+  domain: null
   pullPolicy: IfNotPresent
   tag: ""
 
@@ -26,7 +26,7 @@ internal:
 
 public:
   media: 28550
-  ip:
+  ip: null
 
 node:
   target: scale

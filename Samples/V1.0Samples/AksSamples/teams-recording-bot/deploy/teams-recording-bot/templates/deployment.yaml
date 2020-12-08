@@ -1,10 +1,9 @@
 {{- $fullName := include "fullName" . -}}
-{{- $namespace := include "namespace" . -}}
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: {{ $fullName }}
-  namespace: {{ $namespace }}
+  namespace: {{ include "namespace" . }}
   labels:
     app: {{ $fullName }}
     helmVersion: {{ .Chart.Version }}
@@ -47,7 +46,7 @@ spec:
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriod }}
       containers:
       - name: recording-bot
-        image: "{{ .Values.image.domain }}/teams-recording-bot:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        image: "{{ include "imageDomain" . }}/teams-recording-bot:{{ .Values.image.tag | default .Chart.AppVersion }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         lifecycle:
           preStop:
@@ -80,7 +79,7 @@ spec:
               name: bot-application-secrets
               key: applicationSecret
         - name: AzureSettings__ServiceDnsName
-          value: {{ .Values.host }}
+          value: {{ include "hostName" . }}
         - name: AzureSettings__InstancePublicPort
           value: "{{ .Values.public.media }}"
         - name: AzureSettings__InstanceInternalPort
