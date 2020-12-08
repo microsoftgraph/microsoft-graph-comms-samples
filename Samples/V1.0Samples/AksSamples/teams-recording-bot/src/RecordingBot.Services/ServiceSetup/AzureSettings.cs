@@ -149,7 +149,6 @@ namespace RecordingBot.Services.ServiceSetup
         /// <value>The topic key.</value>
         public string TopicKey { get; set; }
 
-
         /// <summary>
         /// Gets or sets the audio settings.
         /// </summary>
@@ -161,11 +160,13 @@ namespace RecordingBot.Services.ServiceSetup
         /// </summary>
         /// <value><c>true</c> if this instance is stereo; otherwise, <c>false</c>.</value>
         public bool IsStereo { get; set; }
+
         /// <summary>
         /// Gets or sets the wav sample rate.
         /// </summary>
         /// <value>The wav sample rate.</value>
         public int WAVSampleRate { get; set; }
+
         /// <summary>
         /// Gets or sets the wav quality.
         /// </summary>
