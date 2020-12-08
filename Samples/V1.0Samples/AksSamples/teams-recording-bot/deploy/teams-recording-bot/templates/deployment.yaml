@@ -89,10 +89,6 @@ spec:
           value: "{{ .Values.internal.port }}"
         - name: AzureSettings__PlaceCallEndpointUrl
           value: https://graph.microsoft.com/v1.0
-        - name: AzureSettings__ArchiveDuration
-          value: "{{ .Values.container.env.azureSetting.archiveDuration }}"
-        - name: AzureSettings__AudioFrameDuration
-          value: "{{ .Values.container.env.azureSetting.audioFrameDuration }}"
         - name: AzureSettings__CaptureEvents
           value: "{{ .Values.container.env.azureSetting.captureEvents }}"
         - name: AzureSettings__EventsFolder

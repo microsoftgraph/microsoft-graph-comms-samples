@@ -36,8 +36,6 @@ terminationGracePeriod: 54000
 container:
   env:
     azureSetting:
-      archiveDuration: 300 # 5 minutes
-      audioFrameDuration: 640 # Default PCM frame size in bytes on a teams call
       captureEvents: false
       eventsFolder: events
       mediaFolder: archive
