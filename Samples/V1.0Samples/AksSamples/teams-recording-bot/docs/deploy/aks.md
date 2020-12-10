@@ -25,10 +25,11 @@ The following documents the steps required to deploy the bot in Azure Kubernetes
 ### Create an AKS cluster
 
 Before getting started, you need an AKS cluster deployed to Azure. For more detailed steps, see the AKS docs for [deploying an AKS cluster](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal). Keep the following in mind when creating the cluster:
+
 - You will need a Windows VM Scale Set with more than 2 vCPU. If you deploy the bot to a VM that does not, the bot will not run. `Standard_DS3_v2` should be enough to get the bot running.
 - By default, the bot deploys to a node pool called `scale`. If you call your node pool  something else, note down the name for future use.
 - By default, the AKS cluster comes with a static IP address. Note down this IP address for future use.
-    - If you do not have a static IP address, you can [deploy a static IP address](https://docs.microsoft.com/en-us/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) with the `Standard` SKU in the **resource group your AKS deployment generated** (see [Create a static IP address](https://docs.microsoft.com/en-us/azure/aks/static-ip#create-a-static-ip-address)). This static IP needs to be associated to the Load Balancer created by AKS.
+  - If you do not have a static IP address, you can [deploy a static IP address](https://docs.microsoft.com/en-us/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) with the `Standard` SKU in the **resource group your AKS deployment generated** (see [Create a static IP address](https://docs.microsoft.com/en-us/azure/aks/static-ip#create-a-static-ip-address)). This static IP needs to be associated to the Load Balancer created by AKS.
     To create a new IP address and then associate it with the AKS Load Balancer, use the following Azure CLI commands:
 
     ```powershell
@@ -38,7 +39,7 @@ Before getting started, you need an AKS cluster deployed to Azure. For more deta
         --sku Standard `
         --allocation-method static
     ```
-    
+
     Note down the public IP address, as shown in the following condensed example output:
 
     ```json
@@ -69,9 +70,9 @@ Make sure you also integrate the ACR with AKS. For more detailed steps, see the 
 
 In your cluster, you need to install `cert-manager` (which will manage TLS certificates for you) and `nginx-ingress`.
 
-1. Modify [`cluster-issuer.yaml`](/deploy/cluster-issuer.yaml) by adding a contact [email](/deploy/cluster-issuer.yaml#L8).
-2. Run the [`cert-manager.bat`](/deploy/cert-manager.bat) script.
-3. Run the [`ingress-nginx.bat`](/deploy/ingress-nginx.bat) script.
+1. Modify [`cluster-issuer.yaml`](../../deploy/cluster-issuer.yaml) by adding a contact [email](../../deploy/cluster-issuer.yaml#L8).
+2. Run the [`cert-manager.bat`](../../deploy/cert-manager.bat) script.
+3. Run the [`ingress-nginx.bat`](../../deploy/ingress-nginx.bat) script.
 
 >Note: After executing the last script `ingress-nginx.bat` and checking the status of the deployed kubernetes pods, you may see that the pod deployed into `ingress-nginx` namespace has either the `Error` or `CrashLoopBackOff` status. Don't worry, it is expected, because there's no default backend installed and the load balancer which will be installed in a later stage doesn't yet exist. Eventually, once you have deployed the bot, that `nginx` pod will work as expected.
 
