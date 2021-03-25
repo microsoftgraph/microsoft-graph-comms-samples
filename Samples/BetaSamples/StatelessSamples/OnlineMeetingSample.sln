@@ -1,12 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27428.2027
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineMeetingSamples", "OnlineMeetingSamples\OnlineMeeting.csproj", "{EBF1B928-F642-4A78-AE51-F4AFE31E0B3B}"
-    ProjectSection(SolutionItems) = preProject		
-		..\nuget.config = ..\nuget.config
-    EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineMeeting", "OnlineMeetingSample\OnlineMeeting.csproj", "{EBF1B928-F642-4A78-AE51-F4AFE31E0B3B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Common.Beta", "..\..\Common\Sample.Common.Beta\Sample.Common.Beta.csproj", "{94B20967-65CF-4192-AE06-0D01E1453969}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,6 +17,10 @@ Global
 		{EBF1B928-F642-4A78-AE51-F4AFE31E0B3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBF1B928-F642-4A78-AE51-F4AFE31E0B3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBF1B928-F642-4A78-AE51-F4AFE31E0B3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94B20967-65CF-4192-AE06-0D01E1453969}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94B20967-65CF-4192-AE06-0D01E1453969}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94B20967-65CF-4192-AE06-0D01E1453969}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94B20967-65CF-4192-AE06-0D01E1453969}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

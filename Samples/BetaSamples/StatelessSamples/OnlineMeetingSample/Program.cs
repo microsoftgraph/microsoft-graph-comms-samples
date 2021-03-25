@@ -9,6 +9,7 @@
 namespace Sample.OnlineMeeting
 {
     using System;
+    using System.Configuration;
     using System.Threading.Tasks;
     using Microsoft.Graph.Communications.Common.Telemetry;
     using Sample.Common.Authentication;
@@ -19,16 +20,16 @@ namespace Sample.OnlineMeeting
     public class Program
     {
         // Common settings.
-        private static string appSecret = "__placeholder__";
-        private static string appId = "__placeholder__";
-        private static string tenantId = "__placeholder__";
+        private static string appSecret;
+        private static string appId;
+        private static string tenantId;
 
         // Needed for app token meetings.
-        private static string vtcId = "__placeholder__";
+        private static string vtcId;
 
         // Needed for user token meetings.
-        private static string userName = "__placeholder__";
-        private static string password = "__placeholder__";
+        private static string userName;
+        private static string password;
 
         private static Uri graphUri = new Uri("https://graph.microsoft.com/beta/");
 
@@ -109,6 +110,13 @@ namespace Sample.OnlineMeeting
             {
                 try
                 {
+                    appSecret = ConfigurationManager.AppSettings[nameof(appSecret)];
+                    appId = ConfigurationManager.AppSettings[nameof(appId)];
+                    tenantId = ConfigurationManager.AppSettings[nameof(tenantId)];
+                    vtcId = ConfigurationManager.AppSettings[nameof(vtcId)];
+                    userName = ConfigurationManager.AppSettings[nameof(userName)];
+                    password = ConfigurationManager.AppSettings[nameof(password)];
+
                     var meetingDetails = await GetOnlineMeetingByVtcIdAsync(tenantId, vtcId).ConfigureAwait(false);
 
                     /*

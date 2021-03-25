@@ -88,21 +88,30 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
 
         /// <summary>
         /// The join call body.
+        /// Provide either:
+        ///     1) JoinURL or
+        ///     2) VideoTeleconferenceId and TenantId
+        /// The second method is reserved for cloud-video-interop partners.
+        /// The VideoTeleconferenceId is the short key generated for the room system devices.
         /// </summary>
         public class JoinCallBody
         {
             /// <summary>
-            /// Gets or sets the meeting identifier.
+            /// Gets or sets the VTC Id.
+            /// This id is used to retrieve meeting info through Graph endpoint.
+            /// Please see README regarding how to obtain a VTC Id.
             /// </summary>
-            public string MeetingId { get; set; }
+            public string VideoTeleconferenceId { get; set; }
 
             /// <summary>
             /// Gets or sets the tenant id.
+            /// The tenant id is needed to acquire authentication to get meeting info.
             /// </summary>
             public string TenantId { get; set; }
 
             /// <summary>
             /// Gets or sets the Teams meeting join URL.
+            /// This URL is used to join a Teams meeting.
             /// </summary>
             public string JoinURL { get; set; }
 

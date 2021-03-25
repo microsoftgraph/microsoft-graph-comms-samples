@@ -20,7 +20,7 @@ The online meeting stateless sample demonstrates how one can consume Microsoft.G
 
 ## Build and Test
 
-1. Open OnlineMeetingsSample.sln in Visual Studio and update the values of the following in `program.cs`
+1. Open OnlineMeetingSample.sln in Visual Studio and update the values of the following in `App.config`
   * `appId, appSecret` : AppId, Appsecret of your bot application
   * `tenantId` : Tenant against which to fetch/create the online meeting.
   * `vtcid (Only needed for GET)` : The VTC conference id.
