@@ -10,7 +10,10 @@
   <Import Project="$(MSBuildThisFileDirectory)..\..\Graph.props" />
 
   <ItemGroup>
+    <PackageReference Include="MSTest.TestFramework" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Graph.Communications.Calls" Version="1.2.0.850" />
     <PackageReference Include="Microsoft.Graph.Communications.Client" Version="1.2.0.850" />
+    <PackageReference Include="Microsoft.Graph.Communications.Common" Version="1.2.0.850" />
     <PackageReference Include="Microsoft.Graph.Communications.Core" Version="1.2.0.850" />
     <PackageReference Include="Microsoft.IdentityModel.Clients.ActiveDirectory" Version="5.2.3" />
     <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="5.5.0" />

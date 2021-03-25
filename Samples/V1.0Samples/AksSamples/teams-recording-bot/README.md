@@ -94,11 +94,18 @@ If you are running the project locally, you will need Ngrok running to forward t
 1. Create a new file called `ngrok.yaml` in the [scripts](scripts) folder.
 2. Copy the contents of [ngrok.yaml-template](scripts/ngrok.yaml-template) over to `ngrok.yaml`.
 3. Update `ngrok.yaml` with 
-    * Your Ngrok authentication token.
-    * The subdomain portion of your Ngrok reserved domain.
-        * For example: if your reserved domain is `bot.ngrok.io`, then this value would be `bot`.
-    * Your full TCP reserved Ngrok address.
-        * For example: `1.tcp.ngrok.io:000000`
+    ```
+    <AUTH_TOKEN>: Your Ngrok authentication token.
+
+    <YOUR_SUBDOMAIN>: The subdomain portion of your Ngrok reserved domain.
+    For example: if your reserved domain is `bot.ngrok.io`, then this value would be `bot`.
+
+    <CALL_SIGNALING_PORT>: LOCALHOST_HTTP_PORT
+    For example: 9441
+
+    <INSTANT_INTERNAL_PORT>: LOCALHOST_TCP_PORT
+    For example 8445
+    ```
 
 Once you've done that, run [runngrok.bat](scripts/runngrok.bat) in command prompt and leave it running.
 
