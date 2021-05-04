@@ -119,7 +119,7 @@ namespace Sample.IncidentBot.Bot
                     this.GraphLogger.Error(ex, $"Failed to play transfering prompt.");
                     throw;
                 }
-            });
+            }).Wait();
         }
 
         /// <summary>
