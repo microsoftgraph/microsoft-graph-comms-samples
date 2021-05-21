@@ -68,8 +68,7 @@ namespace Sample.IncidentBot.Bot
                     switch (tone)
                     {
                         case Tone.Tone1:
-                            this.PlayTransferingPrompt();
-                            this.TransferToIncidentMeeting();
+                            this.PlayPromptAndTransferToMeeting();
                             break;
                         case Tone.Tone0:
                         default:
@@ -80,6 +79,18 @@ namespace Sample.IncidentBot.Bot
                     sender.Resource.ToneInfo.Tone = null;
                 }
             }
+        }
+
+        /// <summary>
+        /// Play prompt and transfer to the incident meeting.
+        /// </summary>
+        private void PlayPromptAndTransferToMeeting()
+        {
+            Task.Run(async () =>
+            {
+                await this.PlayTransferingPromptAsync().ConfigureAwait(false);
+                this.TransferToIncidentMeeting();
+            });
         }
 
         /// <summary>
@@ -105,21 +116,21 @@ namespace Sample.IncidentBot.Bot
         /// <summary>
         /// Play the transfering prompt.
         /// </summary>
-        private void PlayTransferingPrompt()
+        /// <returns>
+        /// A <see cref="Task" /> representing the asynchronous operation.
+        /// </returns>
+        private async Task PlayTransferingPromptAsync()
         {
-            Task.Run(async () =>
+            try
             {
-                try
-                {
-                    await this.Call.PlayPromptAsync(new List<MediaPrompt> { this.Bot.MediaMap[Bot.TransferingPromptName] }).ConfigureAwait(false);
-                    this.GraphLogger.Info("Started playing transfering prompt");
-                }
-                catch (Exception ex)
-                {
-                    this.GraphLogger.Error(ex, $"Failed to play transfering prompt.");
-                    throw;
-                }
-            }).Wait();
+                await this.Call.PlayPromptAsync(new List<MediaPrompt> { this.Bot.MediaMap[Bot.TransferingPromptName] }).ConfigureAwait(false);
+                this.GraphLogger.Info("Started playing transfering prompt");
+            }
+            catch (Exception ex)
+            {
+                this.GraphLogger.Error(ex, $"Failed to play transfering prompt.");
+                throw;
+            }
         }
 
         /// <summary>
