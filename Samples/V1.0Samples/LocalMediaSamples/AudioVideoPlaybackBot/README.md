@@ -44,9 +44,17 @@ This section walks you through the process of deploying and testing the sample b
 
         `.\configure_cloud.ps1 -p {path to project} -dns {your DNS name} -cn {your CN name, should be the same as your DNS name} -thumb {your certificate thumbprint} -bid {your bot name} -aid {your bot app id} -as {your bot secret}`
 
-        For example:
+        For example: 
 
         `.\configure_cloud.ps1 -p .\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot\ -dns bot.contoso.com -cn bot.contoso.com -thumb ABC0000000000000000000000000000000000CBA -bid bot -aid 3853f935-2c6f-43d7-859d-6e8f83b519ae -as 123456!@#$%^`
+        
+1. Incase of custom domain setup in Azure
+   - Dns name should be the cloud service name, example `bot.cloudapp.net`
+   - CN name should point to your custom domain, example `bot.contoso.com`
+   
+        For example:
+        
+         `.\configure_cloud.ps1 -p .\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot\ -dns bot.cloudapp.net -cn bot.contoso.com -thumb ABC0000000000000000000000000000000000CBA -bid bot -aid 3853f935-2c6f-43d7-859d-6e8f83b519ae -as 123456!@#$%^`
 
 1. Publish AudioVideoPlaybackBot from VS:
     1. Right click AudioVideoPlaybackBot, then click Publish.... Publish it to the cloud service you created earlier.
