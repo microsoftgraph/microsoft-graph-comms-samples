@@ -105,3 +105,10 @@ To verify your policy was assigned correctly:
 
     **Solution**: Make sure Microsoft Teams Channel is enabled under Bot Channels Registration.
     ![Enable Microsoft Teams Channel](Images/EnableMicrosoftTeamsChannel.png)
+
+2. **Question**: Answering incoming call notification taking too long resulting in call not found error.
+    
+    **Solution**: Policy Recording scenario has a rather small timeout window set to receive answer from the bot, in order to make sure user can have time to pick up the call after bot joins the call.
+    Something to consider to improve the performance of answering incoming call:
+    1. Make sure the AAD token used to authenticate outbound request is cached, instead of acquiring one everytime.
+    2. Make sure the bot server is located in the same geo-region as the user.

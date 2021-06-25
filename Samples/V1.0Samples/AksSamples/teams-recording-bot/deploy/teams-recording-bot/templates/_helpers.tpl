@@ -19,30 +19,3 @@
     {{- printf "%d" (int .Values.scale.maxReplicaCount) -}}
   {{- end -}}
 {{- end -}}
-
-{{/* Check if host is set */}}
-{{- define "hostName" -}}
-  {{- if .Values.host -}}
-    {{- printf "%s" .Values.host -}}
-  {{- else -}}
-    {{- fail "You need to specify a host" -}}
-  {{- end -}}
-{{- end -}}
-
-{{/* Check if image.domain is set */}}
-{{- define "imageDomain" -}}
-  {{- if .Values.image.domain -}}
-    {{- printf "%s" .Values.image.domain -}}
-  {{- else -}}
-    {{- fail "You need to specify image.domain" -}}
-  {{- end -}}
-{{- end -}}
-
-{{/* Check if public.ip is set */}}
-{{- define "publicIP" -}}
-  {{- if .Values.public.ip -}}
-    {{- printf "%s" .Values.public.ip -}}
-  {{- else -}}
-    {{- fail "You need to specify public.ip" -}}
-  {{- end -}}
-{{- end -}}

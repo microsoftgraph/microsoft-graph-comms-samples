@@ -20,10 +20,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - {{ include "hostName" . }}
+    - {{ .Values.host }}
     secretName: {{ .Values.ingress.tls.secretName }}
   rules:
-  - host: {{ include "hostName" . }}
+  - host: {{ .Values.host }}
     http:
       paths:
       - backend:

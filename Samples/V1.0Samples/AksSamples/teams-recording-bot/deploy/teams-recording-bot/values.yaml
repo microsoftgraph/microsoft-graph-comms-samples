@@ -6,10 +6,10 @@ scale:
   maxReplicaCount: 3
   replicaCount: 3
 
-host: null
+host: ms.com
 
 image:
-  domain: null
+  domain: acr.azurecr.io
   pullPolicy: IfNotPresent
   tag: ""
 
@@ -26,7 +26,7 @@ internal:
 
 public:
   media: 28550
-  ip: null
+  ip:
 
 node:
   target: scale
@@ -36,6 +36,8 @@ terminationGracePeriod: 54000
 container:
   env:
     azureSetting:
+      archiveDuration: 300 # 5 minutes
+      audioFrameDuration: 640 # Default PCM frame size in bytes on a teams call
       captureEvents: false
       eventsFolder: events
       mediaFolder: archive

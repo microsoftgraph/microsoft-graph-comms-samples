@@ -1,9 +1,10 @@
 {{- $fullName := include "fullName" . -}}
+{{- $namespace := include "namespace" . -}}
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: {{ $fullName }}
-  namespace: {{ include "namespace" . }}
+  namespace: {{ $namespace }}
   labels:
     app: {{ $fullName }}
     helmVersion: {{ .Chart.Version }}
@@ -46,7 +47,7 @@ spec:
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriod }}
       containers:
       - name: recording-bot
-        image: "{{ include "imageDomain" . }}/teams-recording-bot:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        image: "{{ .Values.image.domain }}/teams-recording-bot:{{ .Values.image.tag | default .Chart.AppVersion }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         lifecycle:
           preStop:
@@ -79,7 +80,7 @@ spec:
               name: bot-application-secrets
               key: applicationSecret
         - name: AzureSettings__ServiceDnsName
-          value: {{ include "hostName" . }}
+          value: {{ .Values.host }}
         - name: AzureSettings__InstancePublicPort
           value: "{{ .Values.public.media }}"
         - name: AzureSettings__InstanceInternalPort
@@ -88,6 +89,10 @@ spec:
           value: "{{ .Values.internal.port }}"
         - name: AzureSettings__PlaceCallEndpointUrl
           value: https://graph.microsoft.com/v1.0
+        - name: AzureSettings__ArchiveDuration
+          value: "{{ .Values.container.env.azureSetting.archiveDuration }}"
+        - name: AzureSettings__AudioFrameDuration
+          value: "{{ .Values.container.env.azureSetting.audioFrameDuration }}"
         - name: AzureSettings__CaptureEvents
           value: "{{ .Values.container.env.azureSetting.captureEvents }}"
         - name: AzureSettings__EventsFolder
