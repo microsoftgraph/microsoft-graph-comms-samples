@@ -2,7 +2,7 @@
 
 1. Follow the steps [Register your bot in the Azure Bot Service](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/register-calling-bot.html#register-your-bot-in-the-azure-bot-service). Save the bot name, bot app id and bot secret for configuration. We'll refer to the bot name as `BOT_NAME`, app ID as `BOT_ID` and secret as `BOT_SECRET`.
 
-    * For the calling webhook, by default the notification will go to https://{RESERVED_DOMAIN}/api/calling. This URL prefix is configured with the `CallSignalingRoutePrefix` in [HttpRouteConstants.cs](../../src/RecordingBot.Model/Constants/HttpRouteConstants.cs#L21).
+    * For the calling webhook, by default the notification will go to https://{RESERVED_DOMAIN}/api/calling. This URL prefix is configured with the `CallSignalingRoutePrefix` in [HttpRouteConstants.cs](../../src/RecordingBot.Model/Constants/HttpRouteConstants.cs#L21). 
 
     * Ignore the guidance to [Register bot in Microsoft Teams](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/register-calling-bot.html#register-bot-in-microsoft-teams). The recording bot won't be called directly. These bots are related to the policies discussed below, and are "attached" to users, and will be automatically invited to the call.
 

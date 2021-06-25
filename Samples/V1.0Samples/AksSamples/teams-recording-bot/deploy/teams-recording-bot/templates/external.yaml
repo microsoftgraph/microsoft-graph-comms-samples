@@ -11,7 +11,7 @@ metadata:
 spec:
   type: LoadBalancer
   externalTrafficPolicy: Cluster
-  loadBalancerIP: {{ include "publicIP" . }}
+  loadBalancerIP: {{ .Values.public.ip }}
   ports:
   - name: http
     port: 80

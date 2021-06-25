@@ -1,6 +1,24 @@
-# Introduction
+---
+page_type: sample
+languages:
+- csharp
+products:
+- dotnet
+description: "Add 150 character max description"
+urlFragment: "update-this-to-unique-url-stub"
+---
 
-The teams-recording-bot sample guides you through building, deploying and testing a Teams recording bot running within a container, deployed into Azure Kubernetes Services.
+# Official Microsoft Sample
+
+<!-- 
+Guidelines on README format: https://review.docs.microsoft.com/help/onboard/admin/samples/concepts/readme-template?branch=master
+
+Guidance on onboarding samples to docs.microsoft.com/samples: https://review.docs.microsoft.com/help/onboard/admin/samples/process/onboarding?branch=master
+
+Taxonomies for products and languages: https://review.docs.microsoft.com/new-hope/information-architecture/metadata/taxonomies?branch=master
+-->
+
+Give a short description for your sample here. What does it do and why is it important?
 
 ## Contents
 
@@ -94,18 +112,11 @@ If you are running the project locally, you will need Ngrok running to forward t
 1. Create a new file called `ngrok.yaml` in the [scripts](scripts) folder.
 2. Copy the contents of [ngrok.yaml-template](scripts/ngrok.yaml-template) over to `ngrok.yaml`.
 3. Update `ngrok.yaml` with 
-    ```
-    <AUTH_TOKEN>: Your Ngrok authentication token.
-
-    <YOUR_SUBDOMAIN>: The subdomain portion of your Ngrok reserved domain.
-    For example: if your reserved domain is `bot.ngrok.io`, then this value would be `bot`.
-
-    <CALL_SIGNALING_PORT>: LOCALHOST_HTTP_PORT
-    For example: 9441
-
-    <INSTANT_INTERNAL_PORT>: LOCALHOST_TCP_PORT
-    For example 8445
-    ```
+    * Your Ngrok authentication token.
+    * The subdomain portion of your Ngrok reserved domain.
+        * For example: if your reserved domain is `bot.ngrok.io`, then this value would be `bot`.
+    * Your full TCP reserved Ngrok address.
+        * For example: `1.tcp.ngrok.io:000000`
 
 Once you've done that, run [runngrok.bat](scripts/runngrok.bat) in command prompt and leave it running.
 

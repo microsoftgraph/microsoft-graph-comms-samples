@@ -43,7 +43,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n    \"MeetingId\": \"000000000\",\r\n    \"TenantId\": \"00000000-0000-0000-0000-000000000000\",\r\n    \"DisplayName\": \"(optional) xx\"\r\n}"
+          "raw": "{\r\n    \"VideoTeleconferenceId\": \"000000000\",\r\n    \"TenantId\": \"00000000-0000-0000-0000-000000000000\",\r\n    \"DisplayName\": \"(optional) xx\"\r\n}"
         },
         "url": "https://<bot_service_name>.cloudapp.net/joinCall"
       },

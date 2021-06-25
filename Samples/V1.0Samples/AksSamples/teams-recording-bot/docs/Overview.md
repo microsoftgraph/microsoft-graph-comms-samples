@@ -57,11 +57,11 @@ The bot itself is developed in C# and has to run on a full Windows machine. This
 
 The bot will most likely be deployed to a cloud based server, likely in a container. This however makes development and debugging cumbersome.
 
-For local development purposes it is possible to use Ngrok to act as the signalling and TCP media traffic endpoitn and have it redirected to your local machine. There are notes about how to setup this development environment in the repository.
+For local development purposes it is possible to use ngrok to act as the signalling and TCP media traffic endpoitn and have it redirected to your local machine. There are notes about how to setup this development environment in the repository.
 
 ## Delivered assets
 
-The main asset delivered in this repository is a media receiving bot and associated documentation. The bot is joined into meetings via a Compliance Policy attached to a user. Once connected to a meeting/call a media stream is delivered to the bot and the bot can then do various things with that stream for example:
+The main asset delivered in this repo is a media receiving bot and associated documentation. The bot is joined into meetings via a Compliance Policy attached to a user. Once connected to a meeting/call a media stream is delivered to the bot and the bot can then do various things with that stream for example:
 
 - Persisting the stream and associated metadata to act as a meeting recorded
 
@@ -69,9 +69,9 @@ The main asset delivered in this repository is a media receiving bot and associa
 
 The bot as delivered here is intended to be a sample that can be a starting point for further development. To this end it is intended to be a base starting point and a 'skeleton' that can be built out on. It is also intended to be as flexible as possible so that it can be deployed in different ways.
 
-The repository includes instructions on how to deploy the bot into Kubernetes. This is to support scaling requirements for when a lot of calls are being connected to. The deployment documentation also deals with how to scale the bot. It is a stateful application with potentially long running processes (meetings and calls can be up to 24 hours in duration) therefore scaling the number of bots down must consider ongoing calls and letting them complete.
+The repo includes instructions on how to deploy the bot into Kubernetes. This is to support scaling requirements for when a lot of calls are being connected to. The deployment documentation also deals with how to scale the bot. It is a stateful application with potenitally long running processes (meetings and calls can be up to 24 hours in duration) therefore scaling the number of bots down must consider ongoing calls and letting them complete.
 
-## What is in the repository?
+## What is in the repo?
 
 The repository contains the following items/code/information
 
