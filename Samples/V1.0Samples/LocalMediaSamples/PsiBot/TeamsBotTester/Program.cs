@@ -24,14 +24,14 @@ namespace Microsoft.Psi.TeamsBot
         private static ITeamsBot CreateTeamsBot(Pipeline pipeline)
         {
             // create your Teams bot \psi component
-            // return new ParticipantEngagementScaleBot(pipeline, TimeSpan.FromSeconds(1.0 / 15.0), 1920, 1080, true);
-            return new ParticipantEngagementBallBot(pipeline, TimeSpan.FromSeconds(1.0 / 15.0), 1920, 1080);
+            return new ParticipantEngagementScaleBot(pipeline, TimeSpan.FromSeconds(1.0 / 15.0), 1920, 1080, true);
+            ////return new ParticipantEngagementBallBot(pipeline, TimeSpan.FromSeconds(1.0 / 15.0), 1920, 1080);
         }
 
         private static PsiImporter OpenStore(Pipeline pipeline)
         {
             // open your recorded bot data store
-            return PsiStore.Open(pipeline, "<insert_store_name>", @"<insert_store_path>");
+            return PsiStore.Open(pipeline, "<insert store name>", "<insert store path>");
         }
 
         [STAThread]
@@ -62,69 +62,64 @@ namespace Microsoft.Psi.TeamsBot
 
             new Thread(new ThreadStart(() =>
             {
-                using (var pipeline = Pipeline.Create())
+            using (var pipeline = Pipeline.Create())
+            {
+                var store = OpenStore(pipeline);
+
+                var participantVideoStreams = new List<IProducer<(string, Shared<PsiImage>)>>();
+                var participantAudioStreams = new List<IProducer<(string, AudioBuffer)>>();
+
+                foreach (var streamMetadata in store.AvailableStreams)
                 {
-                    var store = OpenStore(pipeline);
-
-                    var meta = store.GetMetadata("ParticipantVideo");
-                    var streamType = Type.GetType(meta.TypeName, false);
-                    bool isDictionaryOfEncodedImageStream = streamType == typeof(Dictionary<string, Shared<PsiEncodedImage>>);
-                    bool isDictionaryOfImageStream = streamType == typeof(Dictionary<string, Shared<PsiImage>>);
-                    var audio = store.OpenStream<Dictionary<string, AudioBuffer>>("ParticipantAudio");
-
-                    IProducer<Dictionary<string, Shared<PsiImage>>> video;
-                    if (isDictionaryOfImageStream)
+                    var subNames = streamMetadata.Name.Split('.');
+                    if (subNames.Length == 3 && subNames[0] == "Participants" && subNames[2] == "Video")
                     {
-                        // unencoded participant streams
-                        video = store.OpenStream<Dictionary<string, Shared<PsiImage>>>("ParticipantVideo");
-                    }
-                    else if (isDictionaryOfEncodedImageStream)
-                    {
-                        // encoded participant streams (decode them)
-                        video =
-                            store
-                                .OpenStream<Dictionary<string, Shared<PsiEncodedImage>>>("ParticipantVideo")
-                                .Select(dict => dict.Select(kv =>
-                                {
-                                    var img = kv.Value.Resource;
-                                    var shared = ImagePool.GetOrCreate(img.Width, img.Height, PixelFormat.BGR_24bpp);
-                                    shared.Resource.DecodeFrom(img, new ImageFromStreamDecoder());
-                                    return (kv.Key, shared);
-                                }).ToDictionary(x => x.Key, x => x.shared));
-                    }
-                    else
-                    {
-                        throw new ArgumentException("ParticipantVideo stream unsupported.");
+                        participantVideoStreams.Add(store
+                            .OpenStream<Shared<PsiEncodedImage>>(streamMetadata.Name)
+                            .Decode(DeliveryPolicy.LatestMessage)
+                            .Select(img => (subNames[1], img), DeliveryPolicy.LatestMessage));
                     }
 
-                    video.Do(_ => Console.Write('.'));
-
-                    var teamsBot = CreateTeamsBot(pipeline);
-                    audio.PipeTo(teamsBot.AudioIn);
-                    video.PipeTo(teamsBot.VideoIn);
-
-                    teamsBot.ScreenShareOut.Resize(960, 540).Do(frame =>
+                    if (subNames.Length == 3 && subNames[0] == "Participants" && subNames[2] == "Audio")
                     {
-                        var data = new byte[frame.Resource.Size];
-                        Marshal.Copy(frame.Resource.ImageData, data, 0, frame.Resource.Size);
+                        participantAudioStreams.Add(store
+                            .OpenStream<AudioBuffer>(streamMetadata.Name)
+                            .Select(ab => (subNames[1], ab)));
+                    }
+                }
 
-                        // swap R <-> G bytes for Gtk rendering
-                        for (int i = 0; i < data.Length; i += 4)
-                        {
-                            var r = data[i];
-                            data[i] = data[i + 2];
-                            data[i + 2] = r;
-                        }
+                var video = Microsoft.Psi.Operators.Merge(participantVideoStreams, DeliveryPolicy.LatestMessage)
+                    .Select(message => new Dictionary<string, (Shared<PsiImage>, DateTime)>() { { message.Data.Item1, (message.Data.Item2, message.OriginatingTime) } });
 
-                        var buf = new Pixbuf(data, true, 8, frame.Resource.Width, frame.Resource.Height, frame.Resource.Stride);
-                        image.Pixbuf = buf;
-                    });
+                var audio = Microsoft.Psi.Operators.Merge(participantAudioStreams)
+                    .Select(message => new Dictionary<string, (AudioBuffer, DateTime)>() { { message.Data.Item1, (message.Data.Item2, message.OriginatingTime) } });
 
-                    pipeline.RunAsync();
+                var teamsBot = CreateTeamsBot(pipeline);
+                audio.PipeTo(teamsBot.AudioIn);
+                video.PipeTo(teamsBot.VideoIn);
 
-                    Console.WriteLine("Press any key and close main window to exit...");
-                    Console.ReadKey();
-                    Console.WriteLine("Done");
+                teamsBot.ScreenShareOut.Resize(960, 540).Do(frame =>
+                {
+                    var data = new byte[frame.Resource.Size];
+                    Marshal.Copy(frame.Resource.ImageData, data, 0, frame.Resource.Size);
+
+                    // swap R <-> G bytes for Gtk rendering
+                    for (int i = 0; i < data.Length; i += 4)
+                    {
+                        var r = data[i];
+                        data[i] = data[i + 2];
+                        data[i + 2] = r;
+                    }
+
+                    var buf = new Pixbuf(data, true, 8, frame.Resource.Width, frame.Resource.Height, frame.Resource.Stride);
+                    image.Pixbuf = buf;
+                });
+
+                pipeline.RunAsync();
+
+                Console.WriteLine("Press any key and close main window to exit...");
+                Console.ReadKey();
+                Console.WriteLine("Done");
                 }
             })) { IsBackground = true }.Start();
 

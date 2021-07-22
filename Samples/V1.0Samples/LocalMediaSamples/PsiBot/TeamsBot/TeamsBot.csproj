@@ -4,6 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Microsoft.Psi.TeamsBot</AssemblyName>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <CodeAnalysisRuleSet>..\Build\Sample.Psi.ruleset</CodeAnalysisRuleSet>
     <RootNamespace>Microsoft.Psi.TeamsBot</RootNamespace>
     <Description>Provides the ITeamsBot interface for integration \psi with Teams bots.</Description>
   </PropertyGroup>

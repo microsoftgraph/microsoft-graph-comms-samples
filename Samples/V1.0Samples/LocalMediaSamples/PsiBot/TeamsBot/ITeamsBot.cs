@@ -3,6 +3,7 @@
 
 namespace Microsoft.Psi.TeamsBot
 {
+    using System;
     using System.Collections.Generic;
     using Microsoft.Psi.Audio;
     using Microsoft.Psi.Imaging;
@@ -13,14 +14,14 @@ namespace Microsoft.Psi.TeamsBot
     public interface ITeamsBot
     {
         /// <summary>
-        /// Gets the receiver of participant video input.
+        /// Gets the receiver of participant video input with timestamps.
         /// </summary>
-        Receiver<Dictionary<string, Shared<Image>>> VideoIn { get; }
+        Receiver<Dictionary<string, (Shared<Image>, DateTime)>> VideoIn { get; }
 
         /// <summary>
-        /// Gets the receiver of participant audio input.
+        /// Gets the receiver of participant audio input with timestamps.
         /// </summary>
-        Receiver<Dictionary<string, AudioBuffer>> AudioIn { get; }
+        Receiver<Dictionary<string, (AudioBuffer, DateTime)>> AudioIn { get; }
 
         /// <summary>
         /// Gets a value indicating whether to enable screen sharing.

@@ -6,6 +6,7 @@
     <OutputType>Exe</OutputType>
     <StartupObject>Microsoft.Psi.TeamsBot.Program</StartupObject>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <CodeAnalysisRuleSet>..\Build\Sample.Psi.ruleset</CodeAnalysisRuleSet>
     <AssemblyName>TeamsBotTester</AssemblyName>
     <Description>Application for testing Teams bot implementations with \psi locally from a store.</Description>
   </PropertyGroup>

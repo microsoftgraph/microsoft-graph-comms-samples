@@ -3,9 +3,13 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <CodeAnalysisRuleSet>..\Build\Sample.Psi.ruleset</CodeAnalysisRuleSet>
     <AssemblyName>Microsoft.Psi.TeamsBot.Sample</AssemblyName>
     <RootNamespace>Microsoft.Psi.TeamsBot</RootNamespace>
     <Description>Provides a sample implementation of a Teams bot with \psi.</Description>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>DEBUG;TRACE</DefineConstants>
