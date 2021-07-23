@@ -1,4 +1,14 @@
-﻿# Teams Bots with Platform for Situated Intelligence
+﻿> **Note:**  
+> Public Samples are provided by developers from the Microsoft Graph community.  
+> Public Samples are not official Microsoft Communication samples, and not supported by the Microsoft Communication engineering team. It is recommended that you contact the sample owner before using code from Public Samples in production systems.
+
+---
+Title: PsiBot
+Description: This sample application shows how you can integrate \psi with the Teams bot architecture to develop bots that can participate in live meetings.
+authors: AshleyF, SAndrist
+---
+
+# Introduction
 
 Teams bots can be developed which participate in Teams meetings much the same way humans do; joining calls, consuming participant video and audio streams, and producing their own audio and video as well as screen sharing streams.
 
@@ -12,13 +22,13 @@ This is a sample Teams bot implementation, and may be used as a starting point f
 
 ![Teams Bot in PsiStudio](.//TeamsBotSample/psistudio.png)
 
-# Getting Started
+## Getting Started
 
 If you are not familiar with Platform for Situated Intelligence, you'll first want to acquaint yourself with some of the fundamental concepts. The [GitHub page](https://github.com/microsoft/psi) has lots of documentation for familiarizing yourself with the framework, including a [wiki](https://github.com/microsoft/psi/wiki), [samples](https://github.com/Microsoft/psi-samples), [tutorials](https://github.com/microsoft/psi/wiki/Tutorials), and more. A great place to get started is the [Brief Introduction](https://github.com/microsoft/psi/wiki/Brief-Introduction) tutorial.
 
 In the next steps, we'll walk through how to initialize your bot and other necessary resources in Azure. Following these instructions will enable you to execute the bot __on your local development machine__, but you should be able to follow similar steps to build and execute in an [Azure Virtual Machine](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal) (we recommend at least 4vCPU x 16Gib Memory).
 
-## Bot Registration
+### Bot Registration
 
 1. Follow the steps in [Register Calling Bot](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/register-calling-bot.html). Save the bot __name__, __app id__, and __app secret__ for configuration later.
 
@@ -31,7 +41,31 @@ In the next steps, we'll walk through how to initialize your bot and other neces
    
 1. The permission needs to be consented by tenant admin. Go to "https://login.microsoftonline.com/common/adminconsent?client_id=<app_id>&state=<any_number>&redirect_uri=<any_callback_url>" using tenant admin to sign-in, then consent for the whole tenant.
 
-## Setup Custom Domain and SSL Certificate
+### Prerequisites
+
+#### On Windows
+
+Visual Studio 2019 is required to build the `PsiBot.sln` solution on Windows.
+
+__Setup Visual Studio 2019__:
+
+Install [Visual Studio 2019](https://www.visualstudio.com/vs/). The Community Edition of Visual Studio is sufficient. Make sure the following features are installed (you can check these features by running the Visual Studio Installer again and looking at both the Workloads and Individual components tabs):
+
+* Workloads:
+  * __.NET desktop development__
+  * __.NET Core cross-platform development__
+
+#### On Linux
+
+Under Linux, we recommend using [Visual Studio Code](https://code.visualstudio.com/).
+
+__Prerequisites__:
+
+You will need .NET 5 on Linux. You can find the [installation instructions here](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites). To check your installation, run `dotnet --info` in your terminal. You should see lists of information such as Runtime Environment and SDK Versions.
+
+### Local Run
+
+#### Setup Custom Domain and SSL Certificate
 
 1. If you don't already have one, you can purchase a domain name from Azure. This is like creating any other resource in the Azure portal. Create a resource called "App Service Domain" and give it a name (e.g., "mydomain.com").
 
@@ -68,7 +102,7 @@ In the next steps, we'll walk through how to initialize your bot and other neces
 
 ![App Services Domain Setup](./app_services_domain.png)
 
-## Setup ngrok
+#### Setup ngrok
 
 1. Signup for a free [ngrok](https://ngrok.com/) account and get your auth token.
 
@@ -95,7 +129,7 @@ tunnels:
 
 5. If you followed the above steps and only have one subdomain mapped to 0.tcp.ngrok.io, and if ngrok did not assign a 0.tcp address, then just re-run it until it does.
 
-## Edit Configuration File
+#### Edit Configuration File
 
 To execute this PsiBot sample, you'll need to manually edit the `appsettings.json` file in the `PsiBot.Service` project:
 ```json
@@ -119,7 +153,7 @@ To execute this PsiBot sample, you'll need to manually edit the `appsettings.jso
 - Fill in `InstancePublicPort` with the ngrok tcp assigned port.
 - `MediaServiceFQDN` is the subdomain URL that is forwared to the tcp URL assigned by ngrok (e.g., local.{mydomain}.com is forwarded to 0.tcp.ngrok.io).
 
-## Running the Bot
+#### Running the Bot
 
 You should now have everything you need to run the bot and have it join a meeting.
 
