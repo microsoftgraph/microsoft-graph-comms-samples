@@ -27,4 +27,4 @@ This section walks you through the process of deploying and testing the sample b
 
 ### Test (required)
 
-> For this sample related questions, please contact: {github user alias}
+> For this sample related questions, please contact: {sample owner github id}
