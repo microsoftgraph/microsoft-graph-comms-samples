@@ -5,7 +5,7 @@
 ---
 Title: PsiBot
 Description: This sample application shows how you can integrate \psi with the Teams bot architecture to develop bots that can participate in live meetings.
-authors: AshleyF, SAndrist
+authors: The \psi team at [https://github.com/microsoft/psi](https://github.com/microsoft/psi).
 ---
 
 # Introduction
@@ -54,14 +54,6 @@ Install [Visual Studio 2019](https://www.visualstudio.com/vs/). The Community Ed
 * Workloads:
   * __.NET desktop development__
   * __.NET Core cross-platform development__
-
-#### On Linux
-
-Under Linux, we recommend using [Visual Studio Code](https://code.visualstudio.com/).
-
-__Prerequisites__:
-
-You will need .NET 5 on Linux. You can find the [installation instructions here](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites). To check your installation, run `dotnet --info` in your terminal. You should see lists of information such as Runtime Environment and SDK Versions.
 
 ### Local Run
 
