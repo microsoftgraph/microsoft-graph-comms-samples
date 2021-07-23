@@ -26,3 +26,5 @@ This section walks you through the process of deploying and testing the sample b
 ### Local Run (One of Deploy and Local Run is required)
 
 ### Test (required)
+
+> For this sample related questions, please contact: {github user alias}
