@@ -1,4 +1,4 @@
-Please use content below as template in your Sample's READM.md file.
+Please use content below as template in your Sample's README.md file.
 ====================================================================
 
 > **Note:**  

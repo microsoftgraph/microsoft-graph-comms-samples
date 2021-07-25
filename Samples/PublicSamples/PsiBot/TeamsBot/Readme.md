@@ -1,0 +1,5 @@
+﻿# ITeamsBot
+
+The `ITeamsBot` interface is used to create \psi components to be plugged into the offline testing (e.g. [`TeamsBotTester`](../TeamsBotTester/)) and Teams bot infrastructure (e.g. drop-in replacement in the [`PsiBot` sample](../PsiBot/PsiBot.Service/)).
+
+This interface supports a component accepting participant video and audio (`VideoIn` and `AudioIn` receivers) and producing video, audio and screen sharing output (`VideoOut`, `AudioOut`, `ScreenOut`). Outputs are streams of `Shared<Image>` (see [Imaging Overview](https://github.com/microsoft/psi/wiki/Imaging-Overview)) and `AudioBuffer` (see [Audio Overview](https://github.com/microsoft/psi/wiki/Audio-Overview)), while inputs are streams of `Dictionary` of participant ID (`string`) and `Shared<Image>` or `AudioBuffer` with `DateTime`s. The streams of per-participant video and audio may be processed naturally within [a `Parallel` operation](https://github.com/microsoft/psi/wiki/Parallel-Operator).
