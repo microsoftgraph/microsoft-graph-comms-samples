@@ -6,8 +6,8 @@
 
 # Teams Bots with Platform for Situated Intelligence
 
-Description: This sample application shows how you can integrate \psi with the Teams bot architecture to develop bots that can participate in live meetings.  
-Authors: The \psi team at [https://github.com/microsoft/psi](https://github.com/microsoft/psi).  
+**Description:** This sample application shows how you can integrate \psi with the Teams bot architecture to develop bots that can participate in live meetings.  
+**Authors:** The \psi team at [https://github.com/microsoft/psi](https://github.com/microsoft/psi).  
 
 ---
 
