@@ -1,11 +1,14 @@
-﻿> **Note:**  
-> Public Samples are provided by developers from the Microsoft Graph community.  
+﻿> **Note:**
+> Public Samples are provided by developers from the Microsoft Graph community.
 > Public Samples are not official Microsoft Communication samples, and not supported by the Microsoft Communication engineering team. It is recommended that you contact the sample owner before using code from Public Samples in production systems.
 
 ---
-Title: PsiBot
-Description: This sample application shows how you can integrate \psi with the Teams bot architecture to develop bots that can participate in live meetings.
-authors: The \psi team at [https://github.com/microsoft/psi](https://github.com/microsoft/psi).
+
+# Teams Bots with Platform for Situated Intelligence
+
+**Description:** This sample application shows how you can integrate \psi with the Teams bot architecture to develop bots that can participate in live meetings.  
+**Authors:** The \psi team at [https://github.com/microsoft/psi](https://github.com/microsoft/psi).  
+
 ---
 
 # Introduction
