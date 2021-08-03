@@ -1,0 +1,8 @@
+authtoken: <authtoken>
+tunnels:
+  signaling:
+    addr: 9442
+    proto: http
+  media: 
+    addr: 8445
+    proto: tcp
