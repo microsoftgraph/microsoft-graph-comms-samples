@@ -40,6 +40,7 @@
     <PackageReference Include="Microsoft.Psi.Imaging.Windows" Version="0.15.49.1-beta" />
     <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.19.0.25-alpha" />
     <PackageReference Include="Microsoft.Graph.Communications.Calls.Media" Version="1.2.0.850" />
+    <PackageReference Include="System.Text.Encodings.Web" Version="4.5.1" />
   </ItemGroup>
 
   <ItemGroup>
