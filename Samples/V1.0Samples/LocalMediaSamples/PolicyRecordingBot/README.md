@@ -28,9 +28,8 @@ This section walks you through the process of deploying and testing the sample b
 ### Create an Application Instance
 
 Open powershell (in admin mode) and run the following commands. When prompted for authentication, login with the tenant admin.
-  * `Import-Module SkypeOnlineConnector`
-  * `$Session=New-CsOnlineSession`
-  * `Import-PSSession $Session`
+  * `Import-Module MicrosoftTeams`
+  * `Connect-MicrosoftTeams` 
   * `New-CsOnlineApplicationInstance -UserPrincipalName <upn@contoso.com> -DisplayName <displayName> -ApplicationId <your_botappId>`
   * `Sync-CsOnlineApplicationInstance -ObjectId <objectId>`
 
