@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Sample.PolicyRecordingBot.FrontEnd</RootNamespace>
     <AssemblyName>Sample.PolicyRecordingBot.FrontEnd</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -58,10 +58,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.WebApi.Owin" Version="5.2.7" />
-    <PackageReference Include="Microsoft.Graph.Communications.Calls.Media" Version="1.2.0.850" />
-    <PackageReference Include="Microsoft.Owin.Hosting" Version="4.0.1" />
-    <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.19.0.25-alpha" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Microsoft.Graph.Communications.Calls.Media" Version="1.2.0.3742" />
+    <PackageReference Include="Microsoft.Owin.Hosting" Version="4.2.0" />
+    <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.20.0.348-alpha" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <Reference Include="System.Data.Entity" />
   </ItemGroup>
   <ItemGroup>

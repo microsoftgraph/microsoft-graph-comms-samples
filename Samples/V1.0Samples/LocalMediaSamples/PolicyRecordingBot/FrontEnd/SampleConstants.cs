@@ -19,5 +19,10 @@ namespace Sample.PolicyRecordingBot.FrontEnd
         /// Number of sockets to receive video only.
         /// </summary>
         public const uint NumberOfMultiviewSockets = 3;
+
+        /// <summary>
+        /// Size of Recording group.
+        /// </summary>
+        public const uint GroupSize = 3;
     }
 }

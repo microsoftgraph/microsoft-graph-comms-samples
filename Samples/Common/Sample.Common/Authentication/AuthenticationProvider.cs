@@ -80,6 +80,8 @@ namespace Sample.Common.Authentication
         /// In this case we are using the Microsoft.IdentityModel.Clients.ActiveDirectory library
         /// to stamp the outbound http request with the OAuth 2.0 token using an AAD application id
         /// and application secret.  Alternatively, this method can support certificate validation.
+        /// Note that this is only for demonstration purpose. Since acquiring token can be a costly operation,
+        /// it is recomended to acquire token before hand and cache the token, instead of acquiring it for every incoming request.
         /// </summary>
         /// <param name="request">The request.</param>
         /// <param name="tenant">The tenant.</param>
@@ -105,6 +107,7 @@ namespace Sample.Common.Authentication
             AuthenticationResult result;
             try
             {
+                // This request can take some time to complete. It's recommended to acquire it beforehand and use the cached version.
                 result = await this.AcquireTokenWithRetryAsync(context, resource, creds, attempts: 3).ConfigureAwait(false);
             }
             catch (Exception ex)
