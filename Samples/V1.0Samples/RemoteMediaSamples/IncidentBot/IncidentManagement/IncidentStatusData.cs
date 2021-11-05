@@ -7,6 +7,7 @@ namespace Sample.IncidentBot.IncidentStatus
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using Microsoft.Graph;
     using Newtonsoft.Json;
     using Sample.IncidentBot.Data;

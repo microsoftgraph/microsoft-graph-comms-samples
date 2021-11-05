@@ -3,6 +3,7 @@
 ## Note
 
 The system will load the bot and join it to appropriate calls and meetings in order for the bot to enforce compliance with the administrative set policy.
+This sample is only designed for compliance recording scenario. Do not use it for any other scenarios.
 
 ## About
 
@@ -105,3 +106,46 @@ To verify your policy was assigned correctly:
 
     **Solution**: Make sure Microsoft Teams Channel is enabled under Bot Channels Registration.
     ![Enable Microsoft Teams Channel](Images/EnableMicrosoftTeamsChannel.png)
+
+2. **Question**: Answering incoming call notification taking too long resulting in call not found error.
+    
+    **Solution**: Policy Recording scenario has a rather small timeout window set to receive answer from the bot, in order to make sure user can have time to pick up the call after bot joins the call.
+    Something to consider to improve the performance of answering incoming call:
+    1. Make sure the AAD token used to authenticate outbound request is cached, instead of acquiring one everytime.
+    2. Make sure the bot server is located in the same geo-region as the user.
+
+3. **Question**: How to migrate to grouping mode?
+
+    **Solution**:
+    1. Answer the call with **participantCapacity** to specify the capacity of how many policy-based users this bot instance can handle as a group. If the bot passes null or a value of 0 or 1, it means that the bot does not support grouping. We expect the participantCapacity to be quite large, like 100 or more.
+   ```csharp
+   await ICall.AnswerAsync(mediaSession: mediaSession, participantCapacity: capacity);
+   ```
+    2. Handle user joining in same group by hooking **ParticipantJoiningHandler**.
+      * Accept join by returning **AcceptJoinResponse**.
+    ```csharp
+    ICall.ParticipantJoiningHandler = (call) => {
+      // your logic
+      return new AcceptJoinResponse();
+    }
+    ```
+      * Redirect to new bot instance by returning **InviteNewBotResponse** with **InviteUri**.
+    ```csharp
+    ICall.ParticipantJoiningHandler = (call) => {
+      // your logic
+      return new InviteNewBotResponse() { InviteUri = “https://redirect.url/” };
+    }
+    ```
+      * Reject by returning **RejectJoinResponse** with **Reason**.
+    ```csharp
+    ICall.ParticipantJoiningHandler = (call) => {
+      // your logic
+      return new RejectJoinResponse() { Reason = “Busy” };
+    }
+    ```
+    3. Handle user left by hooking **ParticipantLeftHandler**.
+    ```csharp
+    ICall.ParticipantLeftHandler = (call, participantId) => {
+      // your logic
+    }
+    ```

@@ -11,7 +11,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Sample.PolicyRecordingBot.WorkerRole</RootNamespace>
     <AssemblyName>Sample.PolicyRecordingBot.WorkerRole</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -34,8 +34,8 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Data.Services.Client" Version="5.8.4" />
-    <PackageReference Include="Microsoft.Owin.Host.HttpListener" Version="4.0.1" />
-    <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.19.0.25-alpha" />
+    <PackageReference Include="Microsoft.Owin.Host.HttpListener" Version="4.2.0" />
+    <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.20.0.348-alpha" />
     <PackageReference Include="Microsoft.WindowsAzure.ConfigurationManager" Version="3.2.3" />
     <PackageReference Include="Microsoft.WindowsAzure.SDK" Version="2.9.0" />
     <PackageReference Include="WindowsAzure.Storage">
@@ -75,4 +75,17 @@
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
+  <Target
+    Name="BuiltProjectOutputGroupDependencies"
+    DependsOnTargets="$(BuiltProjectOutputGroupDependenciesDependsOn)"
+    Returns="@(BuiltProjectOutputGroupDependency)">
+    <ItemGroup>
+      <BuiltProjectOutputGroupDependency Include="@(ReferenceCopyLocalPaths->'%(FullPath)');
+                                              @(ReferenceDependencyPaths->'%(FullPath)');
+                                              @(NativeReferenceFile->'%(FullPath)');
+                                              @(_DeploymentLooseManifestFile->'%(FullPath)');
+                                              @(ResolvedIsolatedComModules->'%(FullPath)')"/>
+    </ItemGroup>
+  </Target>
 </Project>

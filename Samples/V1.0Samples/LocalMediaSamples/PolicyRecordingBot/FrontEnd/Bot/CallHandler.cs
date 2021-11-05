@@ -45,6 +45,8 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Bot
 
         private int recordingStatusIndex = -1;
 
+        private int participantsCount = 0;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="CallHandler"/> class.
         /// </summary>
@@ -61,15 +63,20 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Bot
 
             // susbscribe to the participants updates, this will inform the bot if a particpant left/joined the conference
             this.Call.Participants.OnUpdated += this.ParticipantsOnUpdated;
+            this.Call.ParticipantLeftHandler += this.ParticipantLeft;
+            this.Call.ParticipantJoiningHandler += this.ParticipantJoining;
 
             // attach the botMediaStream
             this.BotMediaStream = new BotMediaStream(this.Call.GetLocalMediaSession(), this.GraphLogger);
 
             // initialize the timer
-            var timer = new Timer(1000 * 60); // every 60 seconds
+            var timer = new Timer(1000 * 60 * 5); // every 5 minutes
             timer.AutoReset = true;
             timer.Elapsed += this.OnRecordingStatusFlip;
             this.recordingStatusFlipTimer = timer;
+
+            // Count the first answer
+            this.participantsCount = 1;
         }
 
         /// <summary>
@@ -199,6 +206,45 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Bot
                     participant.OnUpdated -= this.OnParticipantUpdated;
                     this.UnsubscribeFromParticipantVideo(participant);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Event fired when a participant associated to the bot has left.
+        /// </summary>
+        /// <param name="call">The call object contains details of the participant left.</param>
+        /// <param name="participantId">The id of the participant that left.</param>
+        private void ParticipantLeft(Call call, string participantId)
+        {
+            this.participantsCount--;
+            this.GraphLogger.Info($"[{this.Call.Id}:The participant {participantId} has left with code {call?.ResultInfo?.Code} and subcode {call?.ResultInfo?.Subcode})");
+        }
+
+        /// <summary>
+        /// Event fired when a participant associated to the bot has join in same group.
+        /// </summary>
+        /// <param name="call">The call object contains details of the participant joining.</param>
+        /// <returns>The response to participant joining notification.</returns>
+        private ParticipantJoiningResponse ParticipantJoining(Call call)
+        {
+            if (this.participantsCount < SampleConstants.GroupSize)
+            {
+                this.participantsCount++;
+                return new AcceptJoinResponse();
+            }
+            else
+            {
+                return new RejectJoinResponse()
+                {
+                    Reason = RejectReason.Busy,
+                };
+
+                /* Use InviteNewBotResponse with url to redirect to another bot instance.
+                return new InviteNewBotResponse()
+                {
+                    InviteUri = "https://redirect.uri",
+                }
+                */
             }
         }
 

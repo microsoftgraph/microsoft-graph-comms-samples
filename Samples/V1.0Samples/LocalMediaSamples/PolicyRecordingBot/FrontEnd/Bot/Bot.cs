@@ -213,7 +213,7 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Bot
                     : this.CreateLocalMediaSession();
 
                 // Answer call
-                call?.AnswerAsync(mediaSession).ForgetAndLogExceptionAsync(
+                call?.AnswerAsync(mediaSession: mediaSession, participantCapacity: (int)SampleConstants.GroupSize).ForgetAndLogExceptionAsync(
                     call.GraphLogger,
                     $"Answering call {call.Id} with scenario {call.ScenarioId}.");
             });
