@@ -48,14 +48,14 @@ jobs:
       run: | 
         echo "${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/"
     - uses: nuget/setup-nuget@v1
-    - run: nuget restore .\Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln
+    - run: nuget restore Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln
     
     - name: Create Build Directory
       run: mkdir ${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
     
     - name: Build Solution
       run: |
-        msbuild.exe .\Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln /nologo /p:platform="x64" /p:OutDir=../${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
+        msbuild.exe Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln /nologo /p:platform="x64" /p:OutDir=../${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
         
     - name: Run pwsh
       shell: pwsh
@@ -82,7 +82,7 @@ jobs:
             OrgName       = $env:OrgName
             Location      = $env:location
           }
-          & ./Samples/V1.0Samples/LocalMediaSamples/ADF/release-az/Sync-AzBuildComponent.ps1 @Params
+          & Samples/V1.0Samples/LocalMediaSamples/ADF/release-az/Sync-AzBuildComponent.ps1 @Params
         azPSVersion: latest
 
     - name: G1_RG_UpdateBuildMeta_to_Blob
@@ -101,6 +101,6 @@ jobs:
             Location      = $env:location
             Environment   = $env:Environment
           }
-          & ./Samples/V1.0Samples/LocalMediaSamples/ADF/release-az/Update-AzBuildMetaData.ps1 @Params
+          & Samples/V1.0Samples/LocalMediaSamples/ADF/release-az/Update-AzBuildMetaData.ps1 @Params
         azPSVersion: latest
 
