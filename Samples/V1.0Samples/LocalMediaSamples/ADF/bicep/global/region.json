@@ -1,0 +1,442 @@
+{
+  "switzerlandnorth": {
+    "displayname": "Switzerland North",
+    "location": "switzerlandnorth",
+    "first": "Switzerland",
+    "second": "North",
+    "third": null,
+    "Name": "SN1",
+    "NameOverRide": null,
+    "PREFIX": "ASN1"
+  },
+  "centralus": {
+    "displayname": "Central US",
+    "location": "centralus",
+    "first": "Central",
+    "second": "US",
+    "third": null,
+    "Name": "CU1",
+    "NameOverRide": null,
+    "PREFIX": "ACU1"
+  },
+  "southcentralus": {
+    "displayname": "South Central US",
+    "location": "southcentralus",
+    "first": "South",
+    "second": "Central",
+    "third": "US",
+    "Name": "SCU",
+    "NameOverRide": null,
+    "PREFIX": "ASCU"
+  },
+  "westcentralus": {
+    "displayname": "West Central US",
+    "location": "westcentralus",
+    "first": "West",
+    "second": "Central",
+    "third": "US",
+    "Name": "WCU",
+    "NameOverRide": null,
+    "PREFIX": "AWCU"
+  },
+  "koreacentral": {
+    "displayname": "Korea Central",
+    "location": "koreacentral",
+    "first": "Korea",
+    "second": "Central",
+    "third": null,
+    "Name": "KC1",
+    "NameOverRide": null,
+    "PREFIX": "AKC1"
+  },
+  "norwayeast": {
+    "displayname": "Norway East",
+    "location": "norwayeast",
+    "first": "Norway",
+    "second": "East",
+    "third": null,
+    "Name": "NE1",
+    "NameOverRide": null,
+    "PREFIX": "ANE1"
+  },
+  "westus2": {
+    "displayname": "West US 2",
+    "location": "westus2",
+    "first": "West",
+    "second": "US",
+    "third": "2",
+    "Name": "WU2",
+    "NameOverRide": null,
+    "PREFIX": "AWU2"
+  },
+  "australiaeast": {
+    "displayname": "Australia East",
+    "location": "australiaeast",
+    "first": "Australia",
+    "second": "East",
+    "third": null,
+    "Name": "AE1",
+    "NameOverRide": null,
+    "PREFIX": "AAE1"
+  },
+  "westindia": {
+    "displayname": "West India",
+    "location": "westindia",
+    "first": "West",
+    "second": "India",
+    "third": null,
+    "Name": "WI1",
+    "NameOverRide": null,
+    "PREFIX": "AWI1"
+  },
+  "germanywestcentral": {
+    "displayname": "Germany West Central",
+    "location": "germanywestcentral",
+    "first": "Germany",
+    "second": "West",
+    "third": "Central",
+    "Name": "GWC",
+    "NameOverRide": null,
+    "PREFIX": "AGWC"
+  },
+  "westus3": {
+    "displayname": "West US 3",
+    "location": "westus3",
+    "first": "West",
+    "second": "US",
+    "third": "3",
+    "Name": "WU3",
+    "NameOverRide": null,
+    "PREFIX": "AWU3"
+  },
+  "australiacentral2": {
+    "displayname": "Australia Central 2",
+    "location": "australiacentral2",
+    "first": "Australia",
+    "second": "Central",
+    "third": "2",
+    "Name": "AC2",
+    "NameOverRide": null,
+    "PREFIX": "AAC2"
+  },
+  "switzerlandwest": {
+    "displayname": "Switzerland West",
+    "location": "switzerlandwest",
+    "first": "Switzerland",
+    "second": "West",
+    "third": null,
+    "Name": "SW1",
+    "NameOverRide": null,
+    "PREFIX": "ASW1"
+  },
+  "uksouth": {
+    "displayname": "UK South",
+    "location": "uksouth",
+    "first": "UK",
+    "second": "South",
+    "third": null,
+    "Name": "US1",
+    "NameOverRide": null,
+    "PREFIX": "AUS1"
+  },
+  "eastus": {
+    "displayname": "East US",
+    "location": "eastus",
+    "first": "East",
+    "second": "US",
+    "third": null,
+    "Name": "EU1",
+    "NameOverRide": null,
+    "PREFIX": "AEU1"
+  },
+  "norwaywest": {
+    "displayname": "Norway West",
+    "location": "norwaywest",
+    "first": "Norway",
+    "second": "West",
+    "third": null,
+    "Name": "NW1",
+    "NameOverRide": null,
+    "PREFIX": "ANW1"
+  },
+  "brazilsoutheast": {
+    "displayname": "Brazil Southeast",
+    "location": "brazilsoutheast",
+    "first": "Brazil",
+    "second": "Southeast",
+    "third": null,
+    "Name": "BS1",
+    "NameOverRide": "BSE",
+    "PREFIX": "ABSE"
+  },
+  "francecentral": {
+    "displayname": "France Central",
+    "location": "francecentral",
+    "first": "France",
+    "second": "Central",
+    "third": null,
+    "Name": "FC1",
+    "NameOverRide": null,
+    "PREFIX": "AFC1"
+  },
+  "uaecentral": {
+    "displayname": "UAE Central",
+    "location": "uaecentral",
+    "first": "UAE",
+    "second": "Central",
+    "third": null,
+    "Name": "UC1",
+    "NameOverRide": null,
+    "PREFIX": "AUC1"
+  },
+  "southafricawest": {
+    "displayname": "South Africa West",
+    "location": "southafricawest",
+    "first": "South",
+    "second": "Africa",
+    "third": "West",
+    "Name": "SAW",
+    "NameOverRide": null,
+    "PREFIX": "ASAW"
+  },
+  "centralindia": {
+    "displayname": "Central India",
+    "location": "centralindia",
+    "first": "Central",
+    "second": "India",
+    "third": null,
+    "Name": "CI1",
+    "NameOverRide": null,
+    "PREFIX": "ACI1"
+  },
+  "japanwest": {
+    "displayname": "Japan West",
+    "location": "japanwest",
+    "first": "Japan",
+    "second": "West",
+    "third": null,
+    "Name": "JW1",
+    "NameOverRide": null,
+    "PREFIX": "AJW1"
+  },
+  "canadaeast": {
+    "displayname": "Canada East",
+    "location": "canadaeast",
+    "first": "Canada",
+    "second": "East",
+    "third": null,
+    "Name": "CE1",
+    "NameOverRide": null,
+    "PREFIX": "ACE1"
+  },
+  "southafricanorth": {
+    "displayname": "South Africa North",
+    "location": "southafricanorth",
+    "first": "South",
+    "second": "Africa",
+    "third": "North",
+    "Name": "SAN",
+    "NameOverRide": null,
+    "PREFIX": "ASAN"
+  },
+  "canadacentral": {
+    "displayname": "Canada Central",
+    "location": "canadacentral",
+    "first": "Canada",
+    "second": "Central",
+    "third": null,
+    "Name": "CC1",
+    "NameOverRide": null,
+    "PREFIX": "ACC1"
+  },
+  "southeastasia": {
+    "displayname": "Southeast Asia",
+    "location": "southeastasia",
+    "first": "Southeast",
+    "second": "Asia",
+    "third": null,
+    "Name": "SA1",
+    "NameOverRide": null,
+    "PREFIX": "ASA1"
+  },
+  "eastus2": {
+    "displayname": "East US 2",
+    "location": "eastus2",
+    "first": "East",
+    "second": "US",
+    "third": "2",
+    "Name": "EU2",
+    "NameOverRide": null,
+    "PREFIX": "AEU2"
+  },
+  "southindia": {
+    "displayname": "South India",
+    "location": "southindia",
+    "first": "South",
+    "second": "India",
+    "third": null,
+    "Name": "SI1",
+    "NameOverRide": null,
+    "PREFIX": "ASI1"
+  },
+  "francesouth": {
+    "displayname": "France South",
+    "location": "francesouth",
+    "first": "France",
+    "second": "South",
+    "third": null,
+    "Name": "FS1",
+    "NameOverRide": null,
+    "PREFIX": "AFS1"
+  },
+  "northeurope": {
+    "displayname": "North Europe",
+    "location": "northeurope",
+    "first": "North",
+    "second": "Europe",
+    "third": null,
+    "Name": "NE1",
+    "NameOverRide": "NEU",
+    "PREFIX": "ANEU"
+  },
+  "australiacentral": {
+    "displayname": "Australia Central",
+    "location": "australiacentral",
+    "first": "Australia",
+    "second": "Central",
+    "third": null,
+    "Name": "AC1",
+    "NameOverRide": null,
+    "PREFIX": "AAC1"
+  },
+  "westus": {
+    "displayname": "West US",
+    "location": "westus",
+    "first": "West",
+    "second": "US",
+    "third": null,
+    "Name": "WU1",
+    "NameOverRide": null,
+    "PREFIX": "AWU1"
+  },
+  "japaneast": {
+    "displayname": "Japan East",
+    "location": "japaneast",
+    "first": "Japan",
+    "second": "East",
+    "third": null,
+    "Name": "JE1",
+    "NameOverRide": null,
+    "PREFIX": "AJE1"
+  },
+  "jioindiacentral": {
+    "displayname": "Jio India Central",
+    "location": "jioindiacentral",
+    "first": "Jio",
+    "second": "India",
+    "third": "Central",
+    "Name": "JIC",
+    "NameOverRide": null,
+    "PREFIX": "AJIC"
+  },
+  "northcentralus": {
+    "displayname": "North Central US",
+    "location": "northcentralus",
+    "first": "North",
+    "second": "Central",
+    "third": "US",
+    "Name": "NCU",
+    "NameOverRide": null,
+    "PREFIX": "ANCU"
+  },
+  "ukwest": {
+    "displayname": "UK West",
+    "location": "ukwest",
+    "first": "UK",
+    "second": "West",
+    "third": null,
+    "Name": "UW1",
+    "NameOverRide": null,
+    "PREFIX": "AUW1"
+  },
+  "westeurope": {
+    "displayname": "West Europe",
+    "location": "westeurope",
+    "first": "West",
+    "second": "Europe",
+    "third": null,
+    "Name": "WE1",
+    "NameOverRide": "WEU",
+    "PREFIX": "AWEU"
+  },
+  "germanynorth": {
+    "displayname": "Germany North",
+    "location": "germanynorth",
+    "first": "Germany",
+    "second": "North",
+    "third": null,
+    "Name": "GN1",
+    "NameOverRide": null,
+    "PREFIX": "AGN1"
+  },
+  "australiasoutheast": {
+    "displayname": "Australia Southeast",
+    "location": "australiasoutheast",
+    "first": "Australia",
+    "second": "Southeast",
+    "third": null,
+    "Name": "AS1",
+    "NameOverRide": null,
+    "PREFIX": "AAS1"
+  },
+  "jioindiawest": {
+    "displayname": "Jio India West",
+    "location": "jioindiawest",
+    "first": "Jio",
+    "second": "India",
+    "third": "West",
+    "Name": "JIW",
+    "NameOverRide": null,
+    "PREFIX": "AJIW"
+  },
+  "koreasouth": {
+    "displayname": "Korea South",
+    "location": "koreasouth",
+    "first": "Korea",
+    "second": "South",
+    "third": null,
+    "Name": "KS1",
+    "NameOverRide": null,
+    "PREFIX": "AKS1"
+  },
+  "brazilsouth": {
+    "displayname": "Brazil South",
+    "location": "brazilsouth",
+    "first": "Brazil",
+    "second": "South",
+    "third": null,
+    "Name": "BS1",
+    "NameOverRide": null,
+    "PREFIX": "ABS1"
+  },
+  "eastasia": {
+    "displayname": "East Asia",
+    "location": "eastasia",
+    "first": "East",
+    "second": "Asia",
+    "third": null,
+    "Name": "EA1",
+    "NameOverRide": null,
+    "PREFIX": "AEA1"
+  },
+  "uaenorth": {
+    "displayname": "UAE North",
+    "location": "uaenorth",
+    "first": "UAE",
+    "second": "North",
+    "third": null,
+    "Name": "UN1",
+    "NameOverRide": null,
+    "PREFIX": "AUN1"
+  }
+}
