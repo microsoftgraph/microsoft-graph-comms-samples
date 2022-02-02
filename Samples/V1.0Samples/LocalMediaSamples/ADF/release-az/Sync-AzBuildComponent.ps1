@@ -42,7 +42,7 @@ Param (
 )
 
 Write-Verbose "Inside Sync-AzBuildComponent.ps1 and script root is ${PSScriptRoot}" -Verbose
-$LocationLookup = Get-Content -Path $PSScriptRoot\..\ADF\bicep\global\region.json | ConvertFrom-Json
+$LocationLookup = Get-Content -Path $PSScriptRoot\..\bicep\global\region.json | ConvertFrom-Json
 $Prefix = $LocationLookup.$Location.Prefix
 
 # Azure Blob Container Info
