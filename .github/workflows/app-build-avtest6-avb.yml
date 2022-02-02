@@ -1,26 +1,26 @@
-name: .NET BOT D1 BUILD avtest5
+name: .NET BOT D1 BUILD avtest6
 
 on:
   workflow_dispatch:
     
   push:
-    branches: [ main ]
+    branches: [ main, sasthana/deploy-vmss ]
     paths:
-      - EchoBot/**
+      - ./Samples/V1.0Samples/LocalMediaSamples/AudioVideoPlaybackBot/**
       - .github/workflows/app-build-*.yml
   pull_request:
-    branches: [ main ]
+    branches: [ main, sasthana/deploy-vmss ]
     paths:
-      - EchoBot/**
+      - ./Samples/V1.0Samples/LocalMediaSamples/AudioVideoPlaybackBot/**
       - .github/workflows/app-build-*.yml
 
 env:
   # /home/runner/work/publish
   Base:        publish
-  Component:   EchoBot
+  Component:   AudioVideoPlaybackBot
   BuildName:   0.1.${{ github.run_number }}
   Environment: D1
-  OrgName:     avtest5
+  OrgName:     avtest6
   Location:    centralus
 
 jobs:
@@ -48,14 +48,14 @@ jobs:
       run: | 
         echo "${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/"
     - uses: nuget/setup-nuget@v1
-    - run: nuget restore EchoBot\EchoBot.sln
+    - run: nuget restore .\Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln
     
     - name: Create Build Directory
       run: mkdir ${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
     
     - name: Build Solution
       run: |
-        msbuild.exe EchoBot\EchoBot.sln /nologo /p:platform="x64" /p:OutDir=../${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
+        msbuild.exe .\Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln /nologo /p:platform="x64" /p:OutDir=../${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
         
     - name: Run pwsh
       shell: pwsh
@@ -65,7 +65,7 @@ jobs:
     - name: Login via Az module
       uses: azure/login@v1
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS_avtest5_BOT }}
+        creds: ${{ secrets.AZURE_CREDENTIALS_avtest6_BOT }}
         enable-AzPSSession: true
 
     - name: G1_RG_UploadArtifacts_to_Blob
@@ -75,14 +75,14 @@ jobs:
           Get-ChildItem -Path $env:GITHUB_WORKSPACE # -Recurse
 
           $Params = @{
-            App           = 'BOT'
+            App           = 'avb'
             BuildName     = $env:BuildName
             ComponentName = $env:Component
             BasePath      = "$env:GITHUB_WORKSPACE/$env:Component/$env:Base"
             OrgName       = $env:OrgName
             Location      = $env:location
           }
-          & ./ADF/release-az/Sync-AzBuildComponent.ps1 @Params
+          & ./Samples/V1.0Samples/LocalMediaSamples/ADF/release-az/Sync-AzBuildComponent.ps1 @Params
         azPSVersion: latest
 
     - name: G1_RG_UpdateBuildMeta_to_Blob
@@ -93,7 +93,7 @@ jobs:
           ls $home
 
           $Params = @{
-            App           = 'BOT'
+            App           = 'avb'
             BuildName     = $env:BuildName
             ComponentName = $env:Component
             BasePath      = "$env:GITHUB_WORKSPACE/$env:Component/$env:Base"
@@ -101,6 +101,6 @@ jobs:
             Location      = $env:location
             Environment   = $env:Environment
           }
-          & ./ADF/release-az/Update-AzBuildMetaData.ps1 @Params
+          & ./Samples/V1.0Samples/LocalMediaSamples/ADF/release-az/Update-AzBuildMetaData.ps1 @Params
         azPSVersion: latest
 
