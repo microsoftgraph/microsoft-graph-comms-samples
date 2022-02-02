@@ -73,7 +73,7 @@ jobs:
       with:
         inlineScript: |
           Get-ChildItem -Path $env:GITHUB_WORKSPACE # -Recurse
-          Get-ChildItem -Path "$env:GITHUB_WORKSPACE/$env:Base/$env.Component" # -Recurse
+          Get-ChildItem -Path "$env:GITHUB_WORKSPACE/$env:Base/$env:Component" # -Recurse
           $Params = @{
             App           = 'avb'
             BuildName     = $env:BuildName
