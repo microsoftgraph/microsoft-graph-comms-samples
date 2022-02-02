@@ -49,6 +49,7 @@ $StorageContainerParams = @{
 }
 
 Get-AzStorageBlob @StorageContainerParams -Blob $ComponentName/$MetaDataFileName | Format-Table -AutoSize
+Write-Verbose -Message "Container name: $ContainerName, Context: $Context checking paths $ComponentName/$MetaDataFileName destination $BasePath/$ComponentName/$MetaDataFileName" -Verbose
 Get-AzStorageBlobContent -Force @StorageContainerParams -Blob $ComponentName/$MetaDataFileName -Destination $BasePath/$ComponentName/$MetaDataFileName -Verbose
 
 $data = Get-Content -Path $BasePath/$ComponentName/$MetaDataFileName | ConvertFrom-Json
