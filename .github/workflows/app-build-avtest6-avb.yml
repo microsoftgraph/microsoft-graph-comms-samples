@@ -55,7 +55,7 @@ jobs:
     
     - name: Build Solution
       run: |
-        msbuild.exe Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln /nologo /p:platform="x64" /p:OutDir=../${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
+        msbuild.exe Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln /nologo /p:Configuration=Release /p:platform="x64" /p:OutDir=../${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
         
     - name: Run pwsh
       shell: pwsh
