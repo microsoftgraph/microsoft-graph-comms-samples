@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
     
   push:
-    branches: [ main ]
+    branches: [ main, sasthana/deploy-vmss ]
     paths:
       - ./Samples/V1.0Samples/LocalMediaSamples/AudioVideoPlaybackBot/**
       - .github/workflows/app-build-*.yml
   pull_request:
-    branches: [ main ]
+    branches: [ main, sasthana/deploy-vmss ]
     paths:
       - ./Samples/V1.0Samples/LocalMediaSamples/AudioVideoPlaybackBot/**
       - .github/workflows/app-build-*.yml
