@@ -17,7 +17,7 @@ on:
 env:
   # /home/runner/work/publish
   Base:        publish
-  Component:   AudioVideoPlaybackBot
+  Component:   avb
   BuildName:   0.1.${{ github.run_number }}
   Environment: D1
   OrgName:     avtest6

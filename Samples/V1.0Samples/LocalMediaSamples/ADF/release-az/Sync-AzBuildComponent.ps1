@@ -31,7 +31,7 @@
 
 Param (
     [String]$BuildName = '4.2',
-    [String]$ComponentName = 'AVBot',
+    [String]$ComponentName = 'avb',
     [String]$BasePath = 'D:\Builds',
     [String]$Environment = 'D1',
     [String]$App = 'avb',
