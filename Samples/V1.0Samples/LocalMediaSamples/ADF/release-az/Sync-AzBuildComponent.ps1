@@ -59,6 +59,7 @@ $StorageContainerParams = @{
 
 # *Builds/<ComponentName>/<BuildName>
 # need to pass this in
+Write-Verbose "BasePath is ${BasePath}, ComponentName is ${ComponentName} BuildName is ${BuildName}" -Verbose
 $CurrentFolder = (Get-Item -Path $BasePath\$ComponentName\$BuildName ).FullName
 
 # Copy up the files and capture a list of the files URI's
