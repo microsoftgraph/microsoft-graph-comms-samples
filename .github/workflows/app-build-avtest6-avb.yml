@@ -55,7 +55,7 @@ jobs:
     
     - name: Build Solution
       run: |
-        msbuild.exe Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln /nologo /p:Configuration=Release /p:platform="Any CPU" /p:OutDir=../${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
+        msbuild.exe Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln /nologo /p:Configuration=Release /p:platform="Any CPU" /p:OutDir=../../../${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
         
     - name: Run pwsh
       shell: pwsh
@@ -73,7 +73,7 @@ jobs:
       with:
         inlineScript: |
           Get-ChildItem -Path $env:GITHUB_WORKSPACE # -Recurse
-          Get-ChildItem -Path $env:GITHUB_WORKSPACE/Samples/V1.0Samples/LocalMediaSamples # -Recurse
+          Get-ChildItem -Path $env:GITHUB_WORKSPACE/Samples # -Recurse
           $Params = @{
             App           = 'avb'
             BuildName     = $env:BuildName
