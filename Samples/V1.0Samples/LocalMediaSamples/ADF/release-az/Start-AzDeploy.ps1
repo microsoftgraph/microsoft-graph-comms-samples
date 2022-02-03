@@ -32,7 +32,7 @@ Function global:AzDeploy
 
         [validateset('BOT')]
         [alias('AppName')]
-        [string] $App = 'BOT',
+        [string] $App = 'avb',
 
         [string] $OrgName,
 
@@ -42,7 +42,7 @@ Function global:AzDeploy
         [string] $TemplateFile = 'main.bicep',
 
         [alias('TP')]
-        [string] $TemplateParameterFile = "azuredeploy${OrgName}.parameters.json",
+        [string] $TemplateParameterFile = "azuredeploy${OrgName}-${App}.parameters.json",
 
         [alias('ComputerName')]
         [string] $CN = '.',
