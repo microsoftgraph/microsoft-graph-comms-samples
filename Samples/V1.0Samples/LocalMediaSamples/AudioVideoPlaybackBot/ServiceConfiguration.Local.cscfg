@@ -4,15 +4,15 @@
     <Instances count="1" />
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=$storage$;AccountKey=$storageKey$" />
-      <Setting name="ServiceDnsName" value="%ServiceDns%" />
+      <Setting name="ServiceDnsName" value="" />
       <!-- xyz.cloudapp.net-->
-      <Setting name="ServiceCNAME" value="%CName%" />
+      <Setting name="ServiceCNAME" value="avbot01.samarthasthana.com" />
       <!-- CNAME pointing to the .cloudapp.net if available.-->
-      <Setting name="DefaultCertificate" value="ABC0000000000000000000000000000000000CBA" />
+      <Setting name="DefaultCertificate" value="075840B3313602E52E906B786A24A9A15AB839D7" />
       <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" value="" />
     </ConfigurationSettings>
     <Certificates>
-      <Certificate name="Default" thumbprint="ABC0000000000000000000000000000000000CBA" thumbprintAlgorithm="sha1" />
+      <Certificate name="Default" thumbprint="075840B3313602E52E906B786A24A9A15AB839D7" thumbprintAlgorithm="sha1" />
     </Certificates>
   </Role>
   <NetworkConfiguration>
