@@ -45,10 +45,9 @@ jobs:
     - name: Run pwsh
       shell: pwsh
       run: | 
-        echo "${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/"
-    - name: Project Restore
-      uses: nuget/setup-nuget@v1
-      run: nuget restore Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln
+        echo "${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/"    
+    - uses: nuget/setup-nuget@v1
+    -  run: nuget restore Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln
     
     - name: Create Build Directory
       run: |
