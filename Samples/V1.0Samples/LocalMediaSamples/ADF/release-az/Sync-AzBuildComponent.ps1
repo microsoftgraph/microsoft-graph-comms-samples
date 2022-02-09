@@ -61,14 +61,14 @@ $StorageContainerParams = @{
 # need to pass this in
 Write-Verbose "BasePath is ${BasePath}, ComponentName is ${ComponentName} BuildName is ${BuildName}" -Verbose
 $CurrentFolder = (Get-Item -Path $BasePath\$ComponentName\$BuildName ).FullName
-
+Write-Verbose "CurrentFolder ${CurrentFolder}"
 # Copy up the files and capture a list of the files URI's
 $SourceFiles = Get-ChildItem -Path $BasePath\$ComponentName\$BuildName -File -Recurse | ForEach-Object {
     $path = $_.FullName.Substring($Currentfolder.Length + 1).Replace('\', '/')
     Write-Output -InputObject "$ComponentName/$BuildName/$path"
     $b = Set-AzStorageBlobContent @StorageContainerParams -File $_.FullName -Blob $ComponentName\$BuildName\$Path -Verbose -Force
 }
-
+Write-Verbose "SourceFiles ${SourceFiles}"
 # Find all of the files in the share including subfolders
 $Path = "$ComponentName/$BuildName/*"
 $DestinationFiles = Get-AzStorageBlob @StorageContainerParams -Blob $Path | ForEach-Object Name
