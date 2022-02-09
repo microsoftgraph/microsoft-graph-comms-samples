@@ -52,6 +52,9 @@ jobs:
     - name: Create Build Directory
       run: |
         mkdir ${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
+        $current_dir = (pwd).path
+      env: 
+        BUILD_PATH: $current_dir/${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
     - name: Build Solution
       run: |
         msbuild.exe Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln /nologo /p:Configuration=Release /p:platform="Any CPU" /p:OutDir=$GITHUB_WORKSPACE/${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
@@ -59,6 +62,7 @@ jobs:
       shell: pwsh
       run: | 
         Get-ChildItem -Path $GITHUB_WORKSPACE/${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
+        echo "${{ env.BUILD_PATH }}"
     - name: Login via Az module
       uses: azure/login@v1
       with:
@@ -69,7 +73,7 @@ jobs:
       uses: Azure/powershell@v1
       with:
         inlineScript: |
-          Get-ChildItem -Path $env:GITHUB_WORKSPACE/$env:Base/$env:Component/$env:BuildName # -Recurse
+          Get-ChildItem -Path $GITHUB_WORKSPACE/$env:Base/$env:Component/$env:BuildName # -Recurse
 
           $Params = @{
             App           = 'avb'
