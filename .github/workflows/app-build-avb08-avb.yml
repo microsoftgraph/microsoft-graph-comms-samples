@@ -47,18 +47,18 @@ jobs:
       run: | 
         echo "${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/"    
     - uses: nuget/setup-nuget@v1
-    -  run: nuget restore Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln
+    - run: nuget restore Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln
     
     - name: Create Build Directory
       run: |
         mkdir ${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
     - name: Build Solution
       run: |
-        msbuild.exe Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln /nologo /p:Configuration=Release /p:platform="Any CPU" /p:OutDir=./${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
+        msbuild.exe Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln /nologo /p:Configuration=Release /p:platform="Any CPU" /p:OutDir=/${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
     - name: Run pwsh
       shell: pwsh
       run: | 
-        Get-ChildItem -Path ./${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
+        Get-ChildItem -Path \${{ env.Base }}\${{ env.Component }}\${{ env.BuildName }}\
     - name: Login via Az module
       uses: azure/login@v1
       with:
@@ -75,7 +75,7 @@ jobs:
             App           = 'avb'
             BuildName     = $env:BuildName
             ComponentName = $env:Component
-            BasePath      = "$env:GITHUB_WORKSPACE/$env:Base"
+            BasePath      = "$env:GITHUB_WORKSPACE\$env:Base"
             OrgName       = $env:OrgName
             Location      = $env:location
           }
@@ -93,7 +93,7 @@ jobs:
             App           = 'avb'
             BuildName     = $env:BuildName
             ComponentName = $env:Component
-            BasePath      = "$env:GITHUB_WORKSPACE/$env:Base"
+            BasePath      = "$env:GITHUB_WORKSPACE\$env:Base"
             OrgName       = $env:OrgName
             Location      = $env:location
             Environment   = $env:Environment
