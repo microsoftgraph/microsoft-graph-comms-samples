@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{7C0DE005-FD92-4AEE-A6A2-03954F9DA631}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Sample.AudioVideoPlaybackBot.FrontEnd</RootNamespace>
     <AssemblyName>Sample.AudioVideoPlaybackBot.FrontEnd</AssemblyName>

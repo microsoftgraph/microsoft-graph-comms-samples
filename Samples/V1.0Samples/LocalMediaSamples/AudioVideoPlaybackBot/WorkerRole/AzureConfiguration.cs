@@ -27,7 +27,7 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
     /// <summary>
     /// Reads the Configuration from service Configuration.
     /// </summary>
-    internal class AzureConfiguration : IConfiguration
+    public class AzureConfiguration : IConfiguration
     {
         /// <summary>
         /// DomainNameLabel in NetworkConfiguration in .cscfg  <PublicIP name="instancePublicIP" domainNameLabel="pip"/>
