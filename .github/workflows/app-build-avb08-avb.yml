@@ -52,7 +52,7 @@ jobs:
     - name: Create Build Directory
       run: |
         mkdir ${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
-        echo "$(realpath $DIRECTORY)"
+        pwd
       env: 
         BUILD_PATH: $current_dir/${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
     - name: Build Solution
