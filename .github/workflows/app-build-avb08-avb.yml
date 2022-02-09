@@ -53,11 +53,10 @@ jobs:
       run: |
         mkdir ${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
         pwd
-      env: 
-        BUILD_PATH: $current_dir/${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
     - name: Build Solution
       run: |
-        msbuild.exe Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln /nologo /p:Configuration=Release /p:platform="Any CPU" /p:OutDir=${{ env.BUILD_PATH }}
+        pwd
+        msbuild.exe Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln /nologo /p:Configuration=Release /p:platform="Any CPU" /p:OutDir=${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
     - name: Run pwsh
       shell: pwsh
       run: | 
