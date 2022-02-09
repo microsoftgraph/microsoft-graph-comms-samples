@@ -42,7 +42,7 @@ jobs:
     
     - name: Navigate to Workspace
       run: cd $GITHUB_WORKSPACE
-
+      run: pwd
     - name: Run pwsh
       shell: pwsh
       run: | 
@@ -51,12 +51,12 @@ jobs:
     - run: nuget restore Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln
     
     - name: Create Build Directory
+      run: pwd
       run: mkdir ${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
-    
     - name: Build Solution
       run: |
         msbuild.exe Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln /nologo /p:Configuration=Release /p:platform="Any CPU" /p:OutDir=../../../${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
-        
+      run: pwd
     - name: Run pwsh
       shell: pwsh
       run: | 
