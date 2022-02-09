@@ -55,7 +55,7 @@ jobs:
         pwd
     - name: Build Solution
       run: |
-        msbuild.exe Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln /nologo /p:Configuration=Release /p:platform="Any CPU" /p:OutDir=./${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
+        msbuild.exe Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln /nologo /p:Configuration=Release /p:platform="Any CPU" /p:OutDir=${{ env.GITHUB_WORKSPACE }}/${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
         pwd
     - name: Run pwsh
       shell: pwsh
@@ -72,7 +72,7 @@ jobs:
       uses: Azure/powershell@v1
       with:
         inlineScript: |
-          Get-ChildItem -Path $env:GITHUB_WORKSPACE/$env:Base/$env:Component/ # -Recurse
+          Get-ChildItem -Path $env:GITHUB_WORKSPACE/$env:Base/$env:Component/$env:BuildName # -Recurse
 
           $Params = @{
             App           = 'avb'
