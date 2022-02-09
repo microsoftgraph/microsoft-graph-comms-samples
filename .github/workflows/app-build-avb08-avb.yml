@@ -56,11 +56,12 @@ jobs:
     - name: Build Solution
       run: |
         msbuild.exe Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln /nologo /p:Configuration=Release /p:platform="Any CPU" /p:OutDir=../../../${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
+        pwd
     - name: Run pwsh
       shell: pwsh
       run: | 
         dir ${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
-    
+        pwd
     - name: Login via Az module
       uses: azure/login@v1
       with:
