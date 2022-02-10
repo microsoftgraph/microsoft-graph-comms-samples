@@ -58,7 +58,7 @@ jobs:
     - name: Run pwsh
       shell: pwsh
       run: | 
-        Get-ChildItem -Path \${{ env.Base }}\${{ env.Component }}\${{ env.BuildName }}\
+        Get-ChildItem -Path ${{ github.workspace }}\${{ env.Base }}\${{ env.Component }}\${{ env.BuildName }}\
         echo ${{ github.workspace }} 
         pwd
     - name: Login via Az module
