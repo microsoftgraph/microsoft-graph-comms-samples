@@ -77,7 +77,7 @@ jobs:
             App           = 'avb'
             BuildName     = $env:BuildName
             ComponentName = $env:Component
-            BasePath      = "$env:GITHUB_WORKSPACE\$env:Base"
+            BasePath      = $env:Base
             OrgName       = $env:OrgName
             Location      = $env:location
           }
@@ -95,7 +95,7 @@ jobs:
             App           = 'avb'
             BuildName     = $env:BuildName
             ComponentName = $env:Component
-            BasePath      = "$env:GITHUB_WORKSPACE\$env:Base"
+            BasePath      = $env:Base
             OrgName       = $env:OrgName
             Location      = $env:location
             Environment   = $env:Environment
