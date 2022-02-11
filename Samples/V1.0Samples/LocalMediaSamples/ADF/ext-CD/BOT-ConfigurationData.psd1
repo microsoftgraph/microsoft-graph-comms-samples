@@ -29,7 +29,7 @@
             )
             
             DirectoryPresent            = @(
-                'F:\Source\InstallLogs', 'F:\API\AVB', 'F:\Build\AVB'
+                'F:\Source\InstallLogs', 'F:\API\avb', 'F:\Build\avb'
             )
             
             # Port Mappings from NAT Pools on Azure Load Balancer
@@ -137,7 +137,7 @@
                     SourcePathBlobURI = 'https://{0}.blob.core.windows.net/builds/'
                     DestinationPath   = 'F:\API\'
                     ValidateFileName  = 'CurrentBuild.txt'
-                    BuildFileName     = 'F:\Build\AVB\componentBuild.json'
+                    BuildFileName     = 'F:\Build\avb\componentBuild.json'
                     SleepTime         = '10'
                 }
             )
@@ -145,7 +145,7 @@
             NewServicePresent           = @(
                 @{
                     Name        = 'AVBService'
-                    Path        = 'F:\API\AVB\AudioVideoPlaybackBot.WindowsService.exe'
+                    Path        = 'F:\API\avb\AVPWindowsService.exe'
                     State       = 'Running'
                     StartupType = 'Automatic'
                     Description = 'AudioVideoPlayback Bot Service'
