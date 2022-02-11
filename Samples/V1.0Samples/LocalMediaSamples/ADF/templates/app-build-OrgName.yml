@@ -58,13 +58,13 @@ jobs:
     
     - name: Build Solution
       run: |
-        msbuild.exe Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln /nologo /p:Configuration=Release /p:platform="Any CPU" /p:OutDir=../../../${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
+        msbuild.exe Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln /nologo /p:Configuration=Release /p:platform="Any CPU" /p:OutDir=${{ github.workspace }}/${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
         
     - name: Run pwsh
       shell: pwsh
       run: | 
-        dir ${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
-    
+        Get-ChildItem -Path ${{ github.workspace }}\${{ env.Base }}\${{ env.Component }}\${{ env.BuildName }}\
+        echo ${{ github.workspace }}
     - name: Login via Az module
       uses: azure/login@v1
       with:
@@ -75,13 +75,13 @@ jobs:
       uses: Azure/powershell@v1
       with:
         inlineScript: |
-          Get-ChildItem -Path $env:GITHUB_WORKSPACE # -Recurse
+          Get-ChildItem -Path  ./${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/ # -Recurse
 
           $Params = @{
-            App           = 'avb'
+            App           = 'AVB'
             BuildName     = $env:BuildName
             ComponentName = $env:Component
-            BasePath      = "$env:GITHUB_WORKSPACE/$env:Base"
+            BasePath      = $env:Base
             OrgName       = $env:OrgName
             Location      = $env:location
           }
@@ -96,10 +96,10 @@ jobs:
           ls $home
 
           $Params = @{
-            App           = 'avb'
+            App           = 'AVB'
             BuildName     = $env:BuildName
             ComponentName = $env:Component
-            BasePath      = "$env:GITHUB_WORKSPACE/$env:Base"
+            BasePath      = $env:Base
             OrgName       = $env:OrgName
             Location      = $env:location
             Environment   = $env:Environment
