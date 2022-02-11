@@ -56,7 +56,7 @@ jobs:
             ./Samples/V1.0Samples/LocalMediaSamples/ADF/main.ps1 @Params
             if ($e){throw $e}
         env:
-          VMSS_CREDENTIALS: ${{ secrets.VMSS_CREDENTIALS_avb08_BOT }} 
+          VMSS_CREDENTIALS: ${{ secrets.VMSS_CREDENTIALS_avb08_BOT }}
 
 
 
