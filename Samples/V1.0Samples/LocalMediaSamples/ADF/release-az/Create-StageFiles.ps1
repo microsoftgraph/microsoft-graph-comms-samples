@@ -4,7 +4,7 @@ param (
     [Parameter(Mandatory)]
     [String]$SAName,
     [String]$Location,
-    [String]$ComponentName = 'avb',
+    [String]$ComponentName = 'AVB',
     [String]$MetaDataFileName = 'componentBuild.json'
 )
 
