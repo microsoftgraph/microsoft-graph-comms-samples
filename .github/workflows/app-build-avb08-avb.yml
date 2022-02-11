@@ -17,7 +17,7 @@ on:
 env:
   # /home/runner/work/publish
   Base:        publish
-  Component:   avb
+  Component:   AVB
   BuildName:   0.1.${{ github.run_number }}
   Environment: D1
   OrgName:     avb08
@@ -74,7 +74,7 @@ jobs:
           Get-ChildItem -Path  ./${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/ # -Recurse
 
           $Params = @{
-            App           = 'avb'
+            App           = 'AVB'
             BuildName     = $env:BuildName
             ComponentName = $env:Component
             BasePath      = $env:Base
@@ -92,7 +92,7 @@ jobs:
           ls $home
 
           $Params = @{
-            App           = 'avb'
+            App           = 'AVB'
             BuildName     = $env:BuildName
             ComponentName = $env:Component
             BasePath      = $env:Base

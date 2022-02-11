@@ -22,7 +22,7 @@
 
 Param (
     [String]$BuildName = '4.2',
-    [String]$ComponentName = 'avb',
+    [String]$ComponentName = 'AVB',
     [String]$BasePath = 'D:\Builds',
     [String]$Environment = 'D1',
     [String]$MetaDataFileName = 'componentBuild.json',
