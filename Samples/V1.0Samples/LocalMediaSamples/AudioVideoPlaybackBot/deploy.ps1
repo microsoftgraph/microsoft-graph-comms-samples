@@ -41,7 +41,7 @@ if ($RunSetup -OR ! (Test-Path -Path $base\ADF\azuredeploy${OrgName}.parameters.
     & $base\..\ADF\release-az\Create-GHServicePrincipal.ps1 -SAName $SAName1 -OrgName $OrgName -Location $Location -AddStorageAccess -CurrentUserStorageAccess
 
     # create Parameter File and Global File for the deployment
-    & $base\..\ADF\release-az\Create-StageFiles.ps1 -OrgName $OrgName -SAName $SAName1 -Location $Location -ComponentName $ComponentName
+    & $base\..\ADF\release-az\Create-StageFiles.ps1 -OrgName $OrgName -SAName $SAName1 -Location $Location -ComponentName $ComponentName -App $App
 
     # upload certificate
     & $base\..\ADF\release-az\Import-UploadWebCert.ps1 -OrgName $OrgName -KVName $KVName -Location $Location

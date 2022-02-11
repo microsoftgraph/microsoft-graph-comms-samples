@@ -4,6 +4,7 @@ param (
     [Parameter(Mandatory)]
     [String]$SAName,
     [String]$Location,
+    [String]$App = 'avb',
     [String]$ComponentName = 'AVB',
     [String]$MetaDataFileName = 'componentBuild.json'
 )
@@ -17,13 +18,13 @@ Write-Output $MyInvocation.MyCommand.Source
 $filestocopy = @(
     @{
         SourcePath      = "$PSScriptRoot\..\templates\azuredeploy.parameters.json"
-        DestinationPath = "$PSScriptRoot\..\azuredeploy${OrgName}-${ComponentName}.parameters.json"
+        DestinationPath = "$PSScriptRoot\..\azuredeploy${OrgName}-${App}.parameters.json"
         TokenstoReplace = $null
     }
 
     @{
         SourcePath      = "$PSScriptRoot\..\templates\app-build-OrgName.yml"
-        DestinationPath = "$PSScriptRoot\..\..\..\..\..\.github\workflows\app-build-${OrgName}-${ComponentName}.yml"
+        DestinationPath = "$PSScriptRoot\..\..\..\..\..\.github\workflows\app-build-${OrgName}-${App}.yml"
         TokenstoReplace = @(
             @{ Name = '{OrgName}'; Value = $OrgName },
             @{ Name = '{Location}'; Value = $Location }
@@ -32,7 +33,7 @@ $filestocopy = @(
 
     @{
         SourcePath      = "$PSScriptRoot\..\templates\app-infra-release-OrgName.yml"
-        DestinationPath = "$PSScriptRoot\..\..\..\..\..\.github\workflows\app-infra-release-${OrgName}-${ComponentName}.yml"
+        DestinationPath = "$PSScriptRoot\..\..\..\..\..\.github\workflows\app-infra-release-${OrgName}-${App}.yml"
         TokenstoReplace = @(
             @{ Name = '{OrgName}'; Value = $OrgName },
             @{ Name = '{Location}'; Value = $Location }
