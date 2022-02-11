@@ -48,6 +48,9 @@
               },
               {
                 "Name": "Storage Blob Data Contributor"
+              },
+              {
+                "Name": "Storage Blob Data Owner"
               }
             ]
           },
