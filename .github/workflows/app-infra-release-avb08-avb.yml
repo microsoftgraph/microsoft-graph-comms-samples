@@ -28,6 +28,8 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      - name: Support Git Longpaths
+        run: git config --system core.longpaths true
       - name: Checkout
         uses: actions/checkout@v2
 
