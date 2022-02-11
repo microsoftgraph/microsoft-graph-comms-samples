@@ -29,7 +29,10 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Support Git Longpaths
+      run: git config --system core.longpaths true
+    - name: Checkout
+      uses: actions/checkout@v2
 
     # Add wait on concurrent workflows executing via https://github.com/marketplace/actions/action-turnstyle
     - name: Turnstyle
