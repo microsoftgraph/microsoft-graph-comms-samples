@@ -8,10 +8,10 @@ Param (
     $Location,
     [String]$Environment = 'D1',
     [String]$App = 'avb',
-    [String]$ComponentName = 'AVB',
     [switch]$RunDeployment,
     [switch]$PackageDSC,
-    [switch]$RunSetup
+    [switch]$RunSetup,
+    [String]$ComponentName = 'AVB'
 )
 
 # disable powershell warnings for session
