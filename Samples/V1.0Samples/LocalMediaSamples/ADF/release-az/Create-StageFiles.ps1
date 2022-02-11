@@ -5,7 +5,6 @@ param (
     [String]$SAName,
     [String]$Location,
     [String]$App = 'avb',
-    [String]$ComponentName = 'AVB',
     [String]$MetaDataFileName = 'componentBuild.json'
 )
 
@@ -81,13 +80,13 @@ if (! (Get-AzStorageContainer @StorageContainerParams -EA 0))
     }
 }
 
-if (! (Get-AzStorageBlob @StorageContainerParams -Blob $ComponentName/$MetaDataFileName -EA 0))
+if (! (Get-AzStorageBlob @StorageContainerParams -Blob $App/$MetaDataFileName -EA 0))
 {
     try
     {
         # Copy up the metadata file
         $Item = Get-Item -Path $PSScriptRoot\..\templates\$MetaDataFileName
-        Set-AzStorageBlobContent @StorageContainerParams -File $item.FullName -Blob $ComponentName/$MetaDataFileName -Verbose -Force
+        Set-AzStorageBlobContent @StorageContainerParams -File $item.FullName -Blob $App/$MetaDataFileName -Verbose -Force
     }
     catch
     {
