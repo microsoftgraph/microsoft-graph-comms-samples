@@ -1,4 +1,4 @@
-name: .NET BOT D1 BUILD avb11
+name: .NET BOT D1 BUILD avb12
 
 on:
   workflow_dispatch:
@@ -20,7 +20,7 @@ env:
   Component:   avb
   BuildName:   0.1.${{ github.run_number }}
   Environment: D1
-  OrgName:     avb11
+  OrgName:     avb12
   Location:    centralus
 
 jobs:
@@ -68,7 +68,7 @@ jobs:
     - name: Login via Az module
       uses: azure/login@v1
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS_avb11_BOT }}
+        creds: ${{ secrets.AZURE_CREDENTIALS_avb12_BOT }}
         enable-AzPSSession: true
 
     - name: G1_RG_UploadArtifacts_to_Blob
