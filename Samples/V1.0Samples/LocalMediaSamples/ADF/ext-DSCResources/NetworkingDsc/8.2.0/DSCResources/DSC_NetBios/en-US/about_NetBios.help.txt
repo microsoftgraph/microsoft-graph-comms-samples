@@ -1,0 +1,52 @@
+.NAME
+    NetBios
+
+.DESCRIPTION
+    This resource is used to enable or disable the NetBios on a network interface.
+
+.PARAMETER InterfaceAlias
+    Key - String
+    Specifies the alias of a network interface. Supports the use of '*' and '%'
+
+.PARAMETER Setting
+    Required - String
+    Allowed values: Default, Enable, Disable
+    Specifies if NetBIOS should be enabled or disabled or obtained from the DHCP server (Default). If static IP, Enable NetBIOS.
+
+.EXAMPLE 1
+
+Disable NetBios on Adapter.
+
+Configuration NetBios_DisableNetBios_Config
+{
+    Import-DscResource -ModuleName NetworkingDsc
+
+    Node localhost
+    {
+        NetBios DisableNetBios
+        {
+            InterfaceAlias = 'Ethernet'
+            Setting        = 'Disable'
+        }
+    }
+}
+
+.EXAMPLE 2
+
+Disable NetBios on all adapters.
+
+Configuration NetBios_DisableNetBios_Config_Wildcard
+{
+    Import-DscResource -ModuleName NetworkingDsc
+
+    Node localhost
+    {
+        NetBios DisableNetBios
+        {
+            InterfaceAlias = '*'
+            Setting        = 'Disable'
+        }
+    }
+}
+
+

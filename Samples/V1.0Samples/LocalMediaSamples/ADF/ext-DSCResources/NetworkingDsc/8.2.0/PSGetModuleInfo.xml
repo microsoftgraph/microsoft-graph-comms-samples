@@ -1,0 +1,152 @@
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+  <Obj RefId="0">
+    <TN RefId="0">
+      <T>Microsoft.PowerShell.Commands.PSRepositoryItemInfo</T>
+      <T>System.Management.Automation.PSCustomObject</T>
+      <T>System.Object</T>
+    </TN>
+    <MS>
+      <S N="Name">NetworkingDsc</S>
+      <S N="Version">8.2.0</S>
+      <S N="Type">Module</S>
+      <S N="Description">DSC resources for configuring settings related to networking.</S>
+      <S N="Author">DSC Community</S>
+      <Obj N="CompanyName" RefId="1">
+        <TN RefId="1">
+          <T>System.Object[]</T>
+          <T>System.Array</T>
+          <T>System.Object</T>
+        </TN>
+        <LST>
+          <S>PowerShellTeam</S>
+          <S>gaelcolas</S>
+          <S>dsccommunity</S>
+        </LST>
+      </Obj>
+      <S N="Copyright">Copyright the DSC Community contributors. All rights reserved.</S>
+      <DT N="PublishedDate">2020-10-16T06:23:47-07:00</DT>
+      <Nil N="InstalledDate" />
+      <Nil N="UpdatedDate" />
+      <URI N="LicenseUri">https://github.com/dsccommunity/NetworkingDsc/blob/master/LICENSE</URI>
+      <URI N="ProjectUri">https://github.com/dsccommunity/NetworkingDsc</URI>
+      <URI N="IconUri">https://dsccommunity.org/images/DSC_Logo_300p.png</URI>
+      <Obj N="Tags" RefId="2">
+        <TNRef RefId="1" />
+        <LST>
+          <S>DesiredStateConfiguration</S>
+          <S>DSC</S>
+          <S>DSCResourceKit</S>
+          <S>DSCResource</S>
+          <S>PSModule</S>
+        </LST>
+      </Obj>
+      <Obj N="Includes" RefId="3">
+        <TN RefId="2">
+          <T>System.Collections.Hashtable</T>
+          <T>System.Object</T>
+        </TN>
+        <DCT>
+          <En>
+            <S N="Key">Command</S>
+            <Obj N="Value" RefId="4">
+              <TNRef RefId="1" />
+              <LST />
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Cmdlet</S>
+            <Ref N="Value" RefId="4" />
+          </En>
+          <En>
+            <S N="Key">DscResource</S>
+            <Obj N="Value" RefId="5">
+              <TNRef RefId="1" />
+              <LST>
+                <S>DefaultGatewayAddress</S>
+                <S>DnsClientGlobalSetting</S>
+                <S>DnsConnectionSuffix</S>
+                <S>DNSServerAddress</S>
+                <S>Firewall</S>
+                <S>FirewallProfile</S>
+                <S>HostsFile</S>
+                <S>IPAddress</S>
+                <S>IPAddressOption</S>
+                <S>NetAdapterAdvancedProperty</S>
+                <S>NetAdapterBinding</S>
+                <S>NetAdapterLso</S>
+                <S>NetAdapterName</S>
+                <S>NetAdapterRDMA</S>
+                <S>NetAdapterRsc</S>
+                <S>NetAdapterRss</S>
+                <S>NetAdapterState</S>
+                <S>NetBIOS</S>
+                <S>NetConnectionProfile</S>
+                <S>NetIPInterface</S>
+                <S>NetworkTeam</S>
+                <S>NetworkTeamInterface</S>
+                <S>ProxySettings</S>
+                <S>Route</S>
+                <S>WINSSetting</S>
+              </LST>
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Function</S>
+            <Ref N="Value" RefId="4" />
+          </En>
+          <En>
+            <S N="Key">RoleCapability</S>
+            <Ref N="Value" RefId="4" />
+          </En>
+          <En>
+            <S N="Key">Workflow</S>
+            <Ref N="Value" RefId="4" />
+          </En>
+        </DCT>
+      </Obj>
+      <Nil N="PowerShellGetFormatVersion" />
+      <S N="ReleaseNotes">## [8.2.0] - 2020-10-16_x000A__x000D__x000A_### Changed_x000D__x000A__x000D__x000A_- IPAddress_x000D__x000A_  - Improved integration test structure._x000D__x000A__x000D__x000A_### Added_x000D__x000A__x000D__x000A_- NetIPInterface_x000D__x000A_  - Added `InterfaceMetric` parameter- fixes [Issue #473](https://github.com/PowerShell/xNetworking/issues/473)._x000D__x000A__x000D__x000A_### Fixed_x000D__x000A__x000D__x000A_- NetIPInterface_x000D__x000A_  - Fix 'type mismatch for property' issue when setting 'AdvertiseDefaultRoute',_x000D__x000A_    'Advertising', 'AutomaticMetric', 'Dhcp', 'DirectedMacWolPattern', 'EcnMarking',_x000D__x000A_    'ForceArpNdWolPattern', 'Forwarding', 'IgnoreDefaultRoutes', 'ManagedAddressConfiguration',_x000D__x000A_    'NeighborUnreachabilityDetection', 'OtherStatefulConfiguration', 'RouterDiscovery',_x000D__x000A_    'WeakHostReceive' or 'WeakHostSend' - Fixes [Issue #470](https://github.com/dsccommunity/NetworkingDsc/issues/470).</S>
+      <Obj N="Dependencies" RefId="6">
+        <TNRef RefId="1" />
+        <LST />
+      </Obj>
+      <S N="RepositorySourceLocation">https://www.powershellgallery.com/api/v2</S>
+      <S N="Repository">PSGallery</S>
+      <S N="PackageManagementProvider">NuGet</S>
+      <Obj N="AdditionalMetadata" RefId="7">
+        <TN RefId="3">
+          <T>System.Management.Automation.PSCustomObject</T>
+          <T>System.Object</T>
+        </TN>
+        <MS>
+          <S N="copyright">Copyright the DSC Community contributors. All rights reserved.</S>
+          <S N="description">DSC resources for configuring settings related to networking.</S>
+          <S N="requireLicenseAcceptance">False</S>
+          <S N="releaseNotes">## [8.2.0] - 2020-10-16_x000A__x000D__x000A_### Changed_x000D__x000A__x000D__x000A_- IPAddress_x000D__x000A_  - Improved integration test structure._x000D__x000A__x000D__x000A_### Added_x000D__x000A__x000D__x000A_- NetIPInterface_x000D__x000A_  - Added `InterfaceMetric` parameter- fixes [Issue #473](https://github.com/PowerShell/xNetworking/issues/473)._x000D__x000A__x000D__x000A_### Fixed_x000D__x000A__x000D__x000A_- NetIPInterface_x000D__x000A_  - Fix 'type mismatch for property' issue when setting 'AdvertiseDefaultRoute',_x000D__x000A_    'Advertising', 'AutomaticMetric', 'Dhcp', 'DirectedMacWolPattern', 'EcnMarking',_x000D__x000A_    'ForceArpNdWolPattern', 'Forwarding', 'IgnoreDefaultRoutes', 'ManagedAddressConfiguration',_x000D__x000A_    'NeighborUnreachabilityDetection', 'OtherStatefulConfiguration', 'RouterDiscovery',_x000D__x000A_    'WeakHostReceive' or 'WeakHostSend' - Fixes [Issue #470](https://github.com/dsccommunity/NetworkingDsc/issues/470).</S>
+          <S N="isLatestVersion">True</S>
+          <S N="isAbsoluteLatestVersion">False</S>
+          <S N="versionDownloadCount">2620228</S>
+          <S N="downloadCount">78400343</S>
+          <S N="packageSize">142679</S>
+          <S N="published">10/16/2020 6:23:47 AM -07:00</S>
+          <S N="created">10/16/2020 6:23:47 AM -07:00</S>
+          <S N="lastUpdated">11/15/2021 3:56:54 AM -08:00</S>
+          <S N="tags">DesiredStateConfiguration DSC DSCResourceKit DSCResource PSModule</S>
+          <S N="developmentDependency">False</S>
+          <S N="updated">2021-11-15T03:56:54Z</S>
+          <S N="NormalizedVersion">8.2.0</S>
+          <S N="Authors">DSC Community</S>
+          <S N="IsPrerelease">false</S>
+          <S N="ItemType">Module</S>
+          <S N="FileList">NetworkingDsc.nuspec|NetworkingDsc.psd1|en-US\about_NetworkingDsc.help.txt|Modules\NetworkingDsc.Common\NetworkingDsc.Common.psm1|DSCResources\DSC_DnsServerAddress\DSC_DnsServerAddress.psm1|DSCResources\DSC_DnsServerAddress\README.MD|DSCResources\DSC_DnsServerAddress\DSC_DnsServerAddress.schema.mof|DSCResources\DSC_FirewallProfile\DSC_FirewallProfile.data.psd1|DSCResources\DSC_FirewallProfile\README.MD|DSCResources\DSC_FirewallProfile\DSC_FirewallProfile.psm1|DSCResources\DSC_FirewallProfile\DSC_FirewallProfile.schema.mof|DSCResources\DSC_NetConnectionProfile\README.MD|DSCResources\DSC_NetConnectionProfile\DSC_NetConnectionProfile.psm1|DSCResources\DSC_NetConnectionProfile\DSC_NetConnectionProfile.schema.mof|DSCResources\DSC_NetAdapterState\DSC_NetAdapterState.psm1|DSCResources\DSC_NetAdapterState\README.MD|DSCResources\DSC_NetAdapterState\DSC_NetAdapterState.schema.mof|DSCResources\DSC_WaitForNetworkTeam\README.md|DSCResources\DSC_WaitForNetworkTeam\DSC_WaitForNetworkTeam.schema.mof|DSCResources\DSC_WaitForNetworkTeam\DSC_WaitForNetworkTeam.psm1|DSCResources\DSC_NetAdapterRsc\DSC_NetAdapterRsc.psm1|DSCResources\DSC_NetAdapterRsc\README.MD|DSCResources\DSC_NetAdapterRsc\DSC_NetAdapterRSC.schema.mof|DSCResources\DSC_NetAdapterAdvancedProperty\DSC_NetAdapterAdvancedProperty.psm1|DSCResources\DSC_NetAdapterAdvancedProperty\README.MD|DSCResources\DSC_NetAdapterAdvancedProperty\DSC_NetAdapterAdvancedProperty.schema.mof|DSCResources\DSC_WinsServerAddress\README.MD|DSCResources\DSC_WinsServerAddress\DSC_WinsServerAddress.psm1|DSCResources\DSC_WinsServerAddress\DSC_WinsServerAddress.schema.mof|DSCResources\DSC_ProxySettings\DSC_ProxySettings.psm1|DSCResources\DSC_ProxySettings\README.md|DSCResources\DSC_ProxySettings\DSC_ProxySettings.schema.mof|DSCResources\DSC_IPAddressOption\README.MD|DSCResources\DSC_IPAddressOption\DSC_IPAddressOption.psm1|DSCResources\DSC_IPAddressOption\DSC_IPAddressOption.schema.mof|DSCResources\DSC_NetAdapterRdma\README.MD|DSCResources\DSC_NetAdapterRdma\DSC_NetAdapterRdma.psm1|DSCResources\DSC_NetAdapterRdma\DSC_NetAdapterRdma.schema.mof|DSCResources\DSC_Route\DSC_Route.schema.mof|DSCResources\DSC_Route\README.MD|DSCResources\DSC_Route\DSC_Route.psm1|DSCResources\DSC_DnsClientGlobalSetting\DSC_DnsClientGlobalSetting.data.psd1|DSCResources\DSC_DnsClientGlobalSetting\README.MD|DSCResources\DSC_DnsClientGlobalSetting\DSC_DnsClientGlobalSetting.psm1|DSCResources\DSC_DnsClientGlobalSetting\DSC_DnsClientGlobalSetting.schema.mof|DSCResources\DSC_NetAdapterRss\DSC_NetAdapterRss.schema.mof|DSCResources\DSC_NetAdapterRss\README.MD|DSCResources\DSC_NetAdapterRss\DSC_NetAdapterRss.psm1|DSCResources\DSC_IPAddress\DSC_IPAddress.psm1|DSCResources\DSC_IPAddress\README.MD|DSCResources\DSC_IPAddress\DSC_IPAddress.schema.mof|DSCResources\DSC_WinsSetting\DSC_WinsSetting.schema.mof|DSCResources\DSC_WinsSetting\README.MD|DSCResources\DSC_WinsSetting\DSC_WinsSetting.psm1|DSCResources\DSC_Firewall\README.MD|DSCResources\DSC_Firewall\DSC_Firewall.schema.mof|DSCResources\DSC_Firewall\DSC_Firewall.data.psd1|DSCResources\DSC_Firewall\DSC_Firewall.psm1|DSCResources\DSC_HostsFile\DSC_HostsFile.schema.mof|DSCResources\DSC_HostsFile\README.MD|DSCResources\DSC_HostsFile\DSC_HostsFile.psm1|DSCResources\DSC_NetAdapterLso\DSC_NetAdapterLso.schema.mof|DSCResources\DSC_NetAdapterLso\DSC_NetAdapterLso.psm1|DSCResources\DSC_NetAdapterLso\README.MD|DSCResources\DSC_NetAdapterBinding\DSC_NetAdapterBinding.schema.mof|DSCResources\DSC_NetAdapterBinding\README.MD|DSCResources\DSC_NetAdapterBinding\DSC_NetAdapterBinding.psm1|DSCResources\DSC_NetAdapterName\README.MD|DSCResources\DSC_NetAdapterName\DSC_NetAdapterName.schema.mof|DSCResources\DSC_NetAdapterName\DSC_NetAdapterName.psm1|DSCResources\DSC_DefaultGatewayAddress\DSC_DefaultGatewayAddress.psm1|DSCResources\DSC_DefaultGatewayAddress\README.md|DSCResources\DSC_DefaultGatewayAddress\DSC_DefaultGatewayAddress.schema.mof|DSCResources\DSC_NetIPInterface\DSC_NetIPInterface.schema.mof|DSCResources\DSC_NetIPInterface\DSC_NetIPInterface.psm1|DSCResources\DSC_NetIPInterface\README.MD|DSCResources\DSC_NetIPInterface\DSC_NetIPInterface.data.psd1|DSCResources\DSC_NetworkTeamInterface\DSC_NetworkTeamInterface.schema.mof|DSCResources\DSC_NetworkTeamInterface\DSC_NetworkTeamInterface.psm1|DSCResources\DSC_NetworkTeamInterface\README.MD|DSCResources\DSC_NetworkTeam\DSC_NetworkTeam.psm1|DSCResources\DSC_NetworkTeam\DSC_NetworkTeam.schema.mof|DSCResources\DSC_NetworkTeam\README.MD|DSCResources\DSC_NetBios\DSC_NetBios.psm1|DSCResources\DSC_NetBios\README.MD|DSCResources\DSC_NetBios\DSC_NetBios.schema.mof|DSCResources\DSC_DnsConnectionSuffix\README.MD|DSCResources\DSC_DnsConnectionSuffix\DSC_DnsConnectionSuffix.psm1|DSCResources\DSC_DnsConnectionSuffix\DSC_DnsConnectionSuffix.schema.mof|Modules\NetworkingDsc.Common\en-US\NetworkingDsc.Common.strings.psd1|Modules\DscResource.Common\0.9.3\DscResource.Common.psd1|Modules\DscResource.Common\0.9.3\DscResource.Common.psm1|DSCResources\DSC_DnsServerAddress\en-US\about_DnsServerAddress.help.txt|DSCResources\DSC_DnsServerAddress\en-US\DSC_DnsServerAddress.strings.psd1|DSCResources\DSC_FirewallProfile\en-US\DSC_FirewallProfile.strings.psd1|DSCResources\DSC_FirewallProfile\en-US\about_FirewallProfile.help.txt|DSCResources\DSC_NetConnectionProfile\en-US\DSC_NetConnectionProfile.strings.psd1|DSCResources\DSC_NetConnectionProfile\en-US\about_NetConnectionProfile.help.txt|DSCResources\DSC_NetAdapterState\en-US\DSC_NetAdapterState.strings.psd1|DSCResources\DSC_NetAdapterState\en-US\about_NetAdapterState.help.txt|DSCResources\DSC_WaitForNetworkTeam\en-US\about_WaitForNetworkTeam.help.txt|DSCResources\DSC_WaitForNetworkTeam\en-US\DSC_WaitForNetworkTeam.strings.psd1|DSCResources\DSC_NetAdapterRsc\en-US\DSC_NetAdapterRsc.strings.psd1|DSCResources\DSC_NetAdapterRsc\en-US\about_NetAdapterRsc.help.txt|DSCResources\DSC_NetAdapterAdvancedProperty\en-US\about_NetAdapterAdvancedProperty.help.txt|DSCResources\DSC_NetAdapterAdvancedProperty\en-US\DSC_NetAdapterAdvancedProperty.strings.psd1|DSCResources\DSC_WinsServerAddress\en-US\DSC_WinsServerAddress.strings.psd1|DSCResources\DSC_WinsServerAddress\en-US\about_WinsServerAddress.help.txt|DSCResources\DSC_ProxySettings\en-US\about_ProxySettings.help.txt|DSCResources\DSC_ProxySettings\en-US\DSC_ProxySettings.strings.psd1|DSCResources\DSC_IPAddressOption\en-US\DSC_IPAddressOption.strings.psd1|DSCResources\DSC_IPAddressOption\en-US\about_IPAddressOption.help.txt|DSCResources\DSC_NetAdapterRdma\en-US\about_NetAdapterRdma.help.txt|DSCResources\DSC_NetAdapterRdma\en-US\DSC_NetAdapterRdma.strings.psd1|DSCResources\DSC_Route\en-US\DSC_Route.strings.psd1|DSCResources\DSC_Route\en-US\about_Route.help.txt|DSCResources\DSC_DnsClientGlobalSetting\en-US\about_DnsClientGlobalSetting.help.txt|DSCResources\DSC_DnsClientGlobalSetting\en-US\DSC_DnsClientGlobalSetting.strings.psd1|DSCResources\DSC_NetAdapterRss\en-US\about_NetAdapterRss.help.txt|DSCResources\DSC_NetAdapterRss\en-US\DSC_NetAdapterRss.strings.psd1|DSCResources\DSC_IPAddress\en-US\about_IPAddress.help.txt|DSCResources\DSC_IPAddress\en-US\DSC_IPAddress.strings.psd1|DSCResources\DSC_WinsSetting\en-US\about_WinsSetting.help.txt|DSCResources\DSC_WinsSetting\en-US\DSC_WinsSetting.strings.psd1|DSCResources\DSC_Firewall\en-US\DSC_Firewall.strings.psd1|DSCResources\DSC_Firewall\en-US\about_Firewall.help.txt|DSCResources\DSC_HostsFile\en-US\DSC_HostsFile.strings.psd1|DSCResources\DSC_HostsFile\en-US\about_HostsFile.help.txt|DSCResources\DSC_NetAdapterLso\en-US\DSC_NetAdapterLso.strings.psd1|DSCResources\DSC_NetAdapterLso\en-US\about_NetAdapterLso.help.txt|DSCResources\DSC_NetAdapterBinding\en-US\DSC_NetAdapterBinding.strings.psd1|DSCResources\DSC_NetAdapterBinding\en-US\about_NetAdapterBinding.help.txt|DSCResources\DSC_NetAdapterName\en-US\about_NetAdapterName.help.txt|DSCResources\DSC_NetAdapterName\en-US\DSC_NetAdapterName.strings.psd1|DSCResources\DSC_DefaultGatewayAddress\en-US\DSC_DefaultGatewayAddress.strings.psd1|DSCResources\DSC_DefaultGatewayAddress\en-US\about_DefaultGatewayAddress.help.txt|DSCResources\DSC_NetIPInterface\en-US\DSC_NetIPInterface.strings.psd1|DSCResources\DSC_NetIPInterface\en-US\about_NetIPInterface.help.txt|DSCResources\DSC_NetworkTeamInterface\en-US\about_NetworkTeamInterface.help.txt|DSCResources\DSC_NetworkTeamInterface\en-US\DSC_NetworkTeamInterface.strings.psd1|DSCResources\DSC_NetworkTeam\en-US\DSC_NetworkTeam.strings.psd1|DSCResources\DSC_NetworkTeam\en-US\about_NetworkTeam.help.txt|DSCResources\DSC_NetBios\en-US\about_NetBios.help.txt|DSCResources\DSC_NetBios\en-US\DSC_NetBios.strings.psd1|DSCResources\DSC_DnsConnectionSuffix\en-US\DSC_DnsConnectionSuffix.strings.psd1|DSCResources\DSC_DnsConnectionSuffix\en-US\about_DnsConnectionSuffix.help.txt|Modules\DscResource.Common\0.9.3\en-US\about_DscResource.Common.help.txt|Modules\DscResource.Common\0.9.3\en-US\DscResource.Common.strings.psd1</S>
+          <S N="DscResources">DefaultGatewayAddress DnsClientGlobalSetting DnsConnectionSuffix DNSServerAddress Firewall FirewallProfile HostsFile IPAddress IPAddressOption NetAdapterAdvancedProperty NetAdapterBinding NetAdapterLso NetAdapterName NetAdapterRDMA NetAdapterRsc NetAdapterRss NetAdapterState NetBIOS NetConnectionProfile NetIPInterface NetworkTeam NetworkTeamInterface ProxySettings Route WINSSetting</S>
+          <S N="GUID">e6647cc3-ce9c-4c86-9eb8-2ee8919bf358</S>
+          <S N="PowerShellVersion">4.0</S>
+          <S N="CLRVersion">4.0</S>
+          <S N="CompanyName">DSC Community</S>
+        </MS>
+      </Obj>
+      <S N="InstalledLocation">D:\Repos\TeamsVoiceEchoBot\ADF\1-PrereqsToDeploy\DSCResources\NetworkingDsc\8.2.0</S>
+    </MS>
+  </Obj>
+</Objs>

@@ -1,0 +1,8 @@
+[ClassVersion("1.0.0.0"), FriendlyName("NetAdapterAdvancedProperty")]
+class DSC_NetAdapterAdvancedProperty : OMI_BaseResource
+{
+    [Key, Description("Specifies the name of the network adapter to set the advanced property for.")] String NetworkAdapterName;
+    [Key, Description("Specifies the registry keyword that should be in desired state.")] String RegistryKeyword;
+    [Required, Description("Specifies the value of the registry keyword.")] String RegistryValue;
+    [Read, Description("Output Display value of selected RegistryKeyword.")] String DisplayValue;
+};

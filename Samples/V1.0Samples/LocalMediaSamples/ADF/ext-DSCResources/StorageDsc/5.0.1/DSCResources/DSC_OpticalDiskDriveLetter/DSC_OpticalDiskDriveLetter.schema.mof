@@ -1,0 +1,8 @@
+
+[ClassVersion("1.0.0.0"), FriendlyName("OpticalDiskDriveLetter")]
+class DSC_OpticalDiskDriveLetter : OMI_BaseResource
+{
+    [Key, Description("Specifies the optical disk number for the disk to assign the drive letter to.")] String DiskId;
+    [Required, Description("Specifies the drive letter to assign to the optical disk. Can be a single letter, optionally followed by a colon. This value is ignored if Ensure is set to Absent.")] String DriveLetter;
+    [Write, Description("Determines whether a drive letter should be assigned to the optical disk. Defaults to 'Present'."), ValueMap{"Present","Absent"}, Values{"Present","Absent"}] String Ensure;
+};

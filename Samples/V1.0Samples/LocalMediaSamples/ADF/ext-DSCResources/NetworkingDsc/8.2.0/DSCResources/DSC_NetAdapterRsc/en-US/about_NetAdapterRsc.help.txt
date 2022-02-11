@@ -1,0 +1,85 @@
+.NAME
+    NetAdapterRsc
+
+.DESCRIPTION
+    This resource is used to enable or disable RSC (Recv Segment Coalescing) for specific protocols on a network adapter.
+
+.PARAMETER Name
+    Key - String
+    Specifies the Name of network adapter.
+
+.PARAMETER Protocol
+    Required - String
+    Allowed values: IPv4, IPv6, All
+    Specifies which protocol to make changes to.
+
+.PARAMETER State
+    Required - Boolean
+    Specifies whether RSC should be enabled or disabled.
+
+.PARAMETER StateIPv4
+    Read - String
+    Returns the current state of RSC for IPv4
+
+.PARAMETER StateIPv6
+    Read - String
+    Returns the current state of RSC for IPv6
+
+.EXAMPLE 1
+
+This configuration disables RSC for IPv6 on the network adapter.
+
+Configuration NetAdapterRsc_DisableRscIPv6_Config
+{
+    Import-DSCResource -ModuleName NetworkingDsc
+
+    Node localhost
+    {
+        NetAdapterRsc DisableRscIPv6
+        {
+            Name = 'Ethernet'
+            Protocol = 'IPv6'
+            State = $false
+        }
+    }
+}
+
+.EXAMPLE 2
+
+This configuration disables RSC for IPv4 on the network adapter.
+
+Configuration NetAdapterRsc_DisableRscIPv4_Config
+{
+    Import-DSCResource -ModuleName NetworkingDsc
+
+    Node localhost
+    {
+        NetAdapterRsc DisableRscIPv4
+        {
+            Name = 'Ethernet'
+            Protocol = 'IPv4'
+            State = $false
+        }
+    }
+}
+
+.EXAMPLE 3
+
+This configuration disables RSC on the network adapter.
+
+Configuration NetAdapterRsc_DisableRscAll_Config
+{
+    Import-DSCResource -ModuleName NetworkingDsc
+
+    Node localhost
+    {
+        NetAdapterRsc DisableRscAll
+        {
+            Name = 'Ethernet'
+            Protocol = 'All'
+            State = $false
+        }
+    }
+}
+
+

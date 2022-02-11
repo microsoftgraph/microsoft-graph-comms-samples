@@ -1,0 +1,7 @@
+[ClassVersion("1.0.0.0"), FriendlyName("WinsSetting")]
+class DSC_WinsSetting : OMI_BaseResource
+{
+    [Key, Description("Specifies the resource is a single instance, the value must be 'Yes'."), ValueMap{"Yes"}, Values{"Yes"}] String IsSingleInstance;
+    [Write, Description("Specifies if LMHOSTS lookup should be enabled for all network adapters with TCP/IP enabled.")] Boolean EnableLmHosts;
+    [Write, Description("Specifies if DNS is enabled for name resolution over WINS for all network adapters with TCP/IP enabled.")] Boolean EnableDns;
+};

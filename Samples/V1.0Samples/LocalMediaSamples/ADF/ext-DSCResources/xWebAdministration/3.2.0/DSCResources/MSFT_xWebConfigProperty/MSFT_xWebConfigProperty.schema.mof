@@ -1,0 +1,9 @@
+[ClassVersion("1.0.0.0"), FriendlyName("xWebConfigProperty")]
+class MSFT_xWebConfigProperty : OMI_BaseResource
+{
+    [Key, Description("Path to website location (IIS or WebAdministration format).")] String WebsitePath;
+    [Key, Description("Filter used to locate property to update.")] String Filter;
+    [Key, Description("Name of the property to update.")] String PropertyName;
+    [Write, Description("Indicates if the property and value should be present or absent. Defaults to Present."), ValueMap{"Present","Absent"}, Values{"Present","Absent"}] String Ensure;
+    [Write, Description("Value of the property to update.")] String Value;
+};

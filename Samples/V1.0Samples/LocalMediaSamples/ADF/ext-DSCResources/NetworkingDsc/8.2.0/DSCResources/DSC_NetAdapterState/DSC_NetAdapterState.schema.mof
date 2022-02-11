@@ -1,0 +1,6 @@
+[ClassVersion("1.0.0.0"), FriendlyName("NetAdapterState")]
+class DSC_NetAdapterState : OMI_BaseResource
+{
+    [Key, Description("Specifies the name of network adapter.")] String Name;
+    [Required, Description("Specifies the desired state of the network adapter"), ValueMap{"Enabled","Disabled"}, Values{"Enabled","Disabled"}] String State;
+};

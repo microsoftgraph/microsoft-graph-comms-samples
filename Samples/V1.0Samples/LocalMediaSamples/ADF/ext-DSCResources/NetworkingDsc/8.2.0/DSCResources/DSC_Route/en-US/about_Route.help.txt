@@ -1,0 +1,64 @@
+.NAME
+    Route
+
+.DESCRIPTION
+    This resource is used to control static routes on an interface for a node.
+
+.PARAMETER InterfaceAlias
+    Key - String
+    Specifies the alias of a network interface.
+
+.PARAMETER AddressFamily
+    Key - String
+    Allowed values: IPv4, IPv6
+    Specifies the IP address family.
+
+.PARAMETER DestinationPrefix
+    Key - String
+    Specifies a destination prefix of an IP route. A destination prefix consists of an IP address prefix and a prefix length, separated by a slash (/).
+
+.PARAMETER NextHop
+    Key - String
+    Specifies the next hop for the IP route.
+
+.PARAMETER Ensure
+    Write - String
+    Allowed values: Present, Absent
+    Specifies whether the route should exist. Defaults to 'Present'.
+
+.PARAMETER RouteMetric
+    Write - UInt16
+    Specifies an integer route metric for an IP route. Defaults to 256.
+
+.PARAMETER Publish
+    Write - String
+    Allowed values: No, Yes, Age
+    Specifies the publish setting of an IP route. Defaults to 'No'.
+
+.PARAMETER PreferredLifetime
+    Write - Real64
+    Specifies a preferred lifetime in seconds of an IP route.
+
+.EXAMPLE 1
+
+Add a net route to the Ethernet interface.
+
+Configuration Route_AddRoute_Config
+{
+    Import-DSCResource -ModuleName NetworkingDsc
+
+    Node localhost
+    {
+        Route NetRoute1
+        {
+            Ensure = 'Present'
+            InterfaceAlias = 'Ethernet'
+            AddressFamily = 'IPv4'
+            DestinationPrefix = '192.168.0.0/16'
+            NextHop = '192.168.120.0'
+            RouteMetric = 200
+        }
+    }
+}
+
+

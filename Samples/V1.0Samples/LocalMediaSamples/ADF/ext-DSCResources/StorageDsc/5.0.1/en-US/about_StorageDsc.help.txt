@@ -1,0 +1,25 @@
+TOPIC
+    about_StorageDsc
+
+SHORT DESCRIPTION
+    DSC resources for managing storage on Windows Servers.
+
+LONG DESCRIPTION
+    This module contains DSC resources for managing storage on Windows Servers.
+
+EXAMPLES
+    PS C:\> Get-DscResource -Module StorageDsc
+
+NOTE:
+    Thank you to the DSC Community contributors who contributed to this module by
+    writing code, sharing opinions, and provided feedback.
+
+TROUBLESHOOTING NOTE:
+    Go to the Github repository for read about issues, submit a new issue, and read
+    about new releases. https://github.com/dsccommunity/StorageDsc
+
+SEE ALSO
+  - https://github.com/dsccommunity/StorageDsc
+
+KEYWORDS
+      DSC, DscResource, Storage, Disk, Partition, Volume

@@ -1,0 +1,119 @@
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+  <Obj RefId="0">
+    <TN RefId="0">
+      <T>Microsoft.PowerShell.Commands.PSRepositoryItemInfo</T>
+      <T>System.Management.Automation.PSCustomObject</T>
+      <T>System.Object</T>
+    </TN>
+    <MS>
+      <S N="Name">xDSCFirewall</S>
+      <S N="Version">1.6.21</S>
+      <S N="Type">Module</S>
+      <S N="Description">Enables or disables the domain, public or private firewall zones</S>
+      <S N="Author">Anthony Waye</S>
+      <S N="CompanyName">Theonlywaye</S>
+      <S N="Copyright">(c) 2016 ajwaye. All rights reserved.</S>
+      <DT N="PublishedDate">2017-01-03T05:25:58-08:00</DT>
+      <Nil N="InstalledDate" />
+      <Nil N="UpdatedDate" />
+      <Nil N="LicenseUri" />
+      <URI N="ProjectUri">https://github.com/theonlyway/xDSCFirewall</URI>
+      <Nil N="IconUri" />
+      <Obj N="Tags" RefId="1">
+        <TN RefId="1">
+          <T>System.Object[]</T>
+          <T>System.Array</T>
+          <T>System.Object</T>
+        </TN>
+        <LST>
+          <S>PSModule</S>
+          <S>DSC</S>
+          <S>Firewall</S>
+          <S>Zone</S>
+          <S>DesiredStateConfiguration</S>
+        </LST>
+      </Obj>
+      <Obj N="Includes" RefId="2">
+        <TN RefId="2">
+          <T>System.Collections.Hashtable</T>
+          <T>System.Object</T>
+        </TN>
+        <DCT>
+          <En>
+            <S N="Key">Command</S>
+            <Obj N="Value" RefId="3">
+              <TNRef RefId="1" />
+              <LST />
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Cmdlet</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
+            <S N="Key">DscResource</S>
+            <Obj N="Value" RefId="4">
+              <TNRef RefId="1" />
+              <LST>
+                <S>xDSCFirewall</S>
+              </LST>
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Function</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
+            <S N="Key">RoleCapability</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
+            <S N="Key">Workflow</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+        </DCT>
+      </Obj>
+      <Nil N="PowerShellGetFormatVersion" />
+      <S N="ReleaseNotes">Changed the event log entry to add a distinction when enabling and disabling the firewall zone</S>
+      <Obj N="Dependencies" RefId="5">
+        <TNRef RefId="1" />
+        <LST />
+      </Obj>
+      <S N="RepositorySourceLocation">https://www.powershellgallery.com/api/v2</S>
+      <S N="Repository">PSGallery</S>
+      <S N="PackageManagementProvider">NuGet</S>
+      <Obj N="AdditionalMetadata" RefId="6">
+        <TN RefId="3">
+          <T>System.Management.Automation.PSCustomObject</T>
+          <T>System.Object</T>
+        </TN>
+        <MS>
+          <S N="copyright">(c) 2016 ajwaye. All rights reserved.</S>
+          <S N="description">Enables or disables the domain, public or private firewall zones</S>
+          <S N="requireLicenseAcceptance">False</S>
+          <S N="releaseNotes">Changed the event log entry to add a distinction when enabling and disabling the firewall zone</S>
+          <S N="isLatestVersion">True</S>
+          <S N="isAbsoluteLatestVersion">True</S>
+          <S N="versionDownloadCount">4850</S>
+          <S N="downloadCount">5548</S>
+          <S N="packageSize">11301</S>
+          <S N="published">1/3/2017 5:25:58 AM -08:00</S>
+          <S N="created">1/3/2017 5:25:58 AM -08:00</S>
+          <S N="lastEdited">1/5/2017 11:18:30 PM -08:00</S>
+          <S N="lastUpdated">11/15/2021 3:56:54 AM -08:00</S>
+          <S N="tags">PSModule DSC Firewall Zone DesiredStateConfiguration PSDscResource_x005F_xDSCFirewall PSIncludes_DscResource</S>
+          <S N="developmentDependency">False</S>
+          <S N="updated">2021-11-15T03:56:54Z</S>
+          <S N="NormalizedVersion">1.6.21</S>
+          <S N="Authors">Anthony Waye</S>
+          <S N="IsPrerelease">false</S>
+          <S N="ItemType">Module</S>
+          <S N="FileList">xdscfirewall.nuspec|appveyor.yml|license|README.md|TestsResults.xml|xDSCFirewall.psd1|DSCResources\xDSCFirewall\xDSCFirewall.psm1|DSCResources\xDSCFirewall\xDSCFirewall.schema.mof|Tests\xDSCFirewall.Tests.ps1</S>
+          <S N="GUID">a587be4e-ea0e-4f01-8677-309ddda8a42d</S>
+          <S N="CompanyName">Unknown</S>
+        </MS>
+      </Obj>
+      <S N="InstalledLocation">D:\Repos\TeamsVoiceEchoBot\ADF\1-PrereqsToDeploy\DSCResources\xDSCFirewall\1.6.21</S>
+    </MS>
+  </Obj>
+</Objs>

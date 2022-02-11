@@ -1,0 +1,7 @@
+
+[ClassVersion("1.0.0.0"), FriendlyName("NetBios")]
+class DSC_NetBios : OMI_BaseResource
+{
+    [Key, Description("Specifies the alias of a network interface. Supports the use of '*' and '%'")] String InterfaceAlias;
+    [Required, Description("Specifies if NetBIOS should be enabled or disabled or obtained from the DHCP server (Default). If static IP, Enable NetBIOS."), ValueMap{"Default","Enable","Disable"}, Values{"Default","Enable","Disable"}] String Setting;
+};

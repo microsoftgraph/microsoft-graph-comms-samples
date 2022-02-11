@@ -1,0 +1,141 @@
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+  <Obj RefId="0">
+    <TN RefId="0">
+      <T>Microsoft.PowerShell.Commands.PSRepositoryItemInfo</T>
+      <T>System.Management.Automation.PSCustomObject</T>
+      <T>System.Object</T>
+    </TN>
+    <MS>
+      <S N="Name">ComputerManagementDsc</S>
+      <S N="Version">8.5.0</S>
+      <S N="Type">Module</S>
+      <S N="Description">DSC resources for configuration of a Windows computer. These DSC resources allow you to perform computer management tasks, such as renaming the computer, joining a domain and scheduling tasks as well as configuring items such as virtual memory, event logs, time zones and power settings.</S>
+      <S N="Author">DSC Community</S>
+      <Obj N="CompanyName" RefId="1">
+        <TN RefId="1">
+          <T>System.Object[]</T>
+          <T>System.Array</T>
+          <T>System.Object</T>
+        </TN>
+        <LST>
+          <S>PowerShellTeam</S>
+          <S>gaelcolas</S>
+          <S>dsccommunity</S>
+        </LST>
+      </Obj>
+      <S N="Copyright">Copyright the DSC Community contributors. All rights reserved.</S>
+      <DT N="PublishedDate">2021-09-13T08:50:56-07:00</DT>
+      <Nil N="InstalledDate" />
+      <Nil N="UpdatedDate" />
+      <URI N="LicenseUri">https://github.com/dsccommunity/ComputerManagementDsc/blob/main/LICENSE</URI>
+      <URI N="ProjectUri">https://github.com/dsccommunity/ComputerManagementDsc</URI>
+      <URI N="IconUri">https://dsccommunity.org/images/DSC_Logo_300p.png</URI>
+      <Obj N="Tags" RefId="2">
+        <TNRef RefId="1" />
+        <LST>
+          <S>DesiredStateConfiguration</S>
+          <S>DSC</S>
+          <S>DSCResource</S>
+          <S>PSModule</S>
+        </LST>
+      </Obj>
+      <Obj N="Includes" RefId="3">
+        <TN RefId="2">
+          <T>System.Collections.Hashtable</T>
+          <T>System.Object</T>
+        </TN>
+        <DCT>
+          <En>
+            <S N="Key">Command</S>
+            <Obj N="Value" RefId="4">
+              <TNRef RefId="1" />
+              <LST />
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Cmdlet</S>
+            <Ref N="Value" RefId="4" />
+          </En>
+          <En>
+            <S N="Key">DscResource</S>
+            <Obj N="Value" RefId="5">
+              <TNRef RefId="1" />
+              <LST>
+                <S>Computer</S>
+                <S>OfflineDomainJoin</S>
+                <S>PendingReboot</S>
+                <S>PowerPlan</S>
+                <S>PowerShellExecutionPolicy</S>
+                <S>RemoteDesktopAdmin</S>
+                <S>ScheduledTask</S>
+                <S>SmbServerConfiguration</S>
+                <S>SmbShare</S>
+                <S>SystemLocale</S>
+                <S>TimeZone</S>
+                <S>VirtualMemory</S>
+                <S>WindowsEventLog</S>
+                <S>WindowsCapability</S>
+                <S>IEEnhancedSecurityConfiguration</S>
+                <S>UserAccountControl</S>
+              </LST>
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Function</S>
+            <Ref N="Value" RefId="4" />
+          </En>
+          <En>
+            <S N="Key">RoleCapability</S>
+            <Ref N="Value" RefId="4" />
+          </En>
+          <En>
+            <S N="Key">Workflow</S>
+            <Ref N="Value" RefId="4" />
+          </En>
+        </DCT>
+      </Obj>
+      <Nil N="PowerShellGetFormatVersion" />
+      <S N="ReleaseNotes">## [8.5.0] - 2021-09-13_x000A__x000D__x000A_### Added_x000D__x000A__x000D__x000A_- WindowsEventLog_x000D__x000A_  - Added support to restrict guest access - Fixes [Issue #338](https://github.com/dsccommunity/ComputerManagementDsc/issues/338)._x000D__x000A_  - Added support to create custom event sources and optionally register_x000D__x000A_    resource files - Fixes [Issue #355](https://github.com/dsccommunity/ComputerManagementDsc/issues/355)._x000D__x000A_- WindowsCapability_x000D__x000A_  - Added the 'Source' parameter for Add-WindowsCapability as an_x000D__x000A_    optional parameter - Fixes [Issue #361](https://github.com/dsccommunity/ComputerManagementDsc/issues/361)_x000D__x000A__x000D__x000A_### Changed_x000D__x000A__x000D__x000A_- WindowsEventLog_x000D__x000A_  - Reformatted code to better align with current DSCResources coding standards._x000D__x000A_- Renamed `master` branch to `main` - Fixes [Issue #348](https://github.com/dsccommunity/ComputerManagementDsc/issues/348)._x000D__x000A_- Added support for publishing code coverage to `CodeCov.io` and_x000D__x000A_  Azure Pipelines - Fixes [Issue #367](https://github.com/dsccommunity/ComputerManagementDsc/issues/367)._x000D__x000A_- Updated build to use `Sampler.GitHubTasks` - Fixes [Issue #365](https://github.com/dsccommunity/ComputerManagementDsc/issues/365)._x000D__x000A_- Corrected case of module publish tasks - Fixes [Issue #368](https://github.com/dsccommunity/ComputerManagementDsc/issues/368)._x000D__x000A_- Corrected code coverage badge in `README.md`._x000D__x000A_- Updated build pipeline tasks and remove unused environment variables._x000D__x000A_- Removed duplicate code coverage badge._x000D__x000A__x000D__x000A_### Fixed_x000D__x000A__x000D__x000A_- WindowsEventLog_x000D__x000A_  - Fixed issue requiring IsEnabled to be declared and set to $true in order_x000D__x000A_    to set the MaximumSizeInBytes property - Fixes [Issue #349](https://github.com/dsccommunity/ComputerManagementDsc/issues/349)._x000D__x000A_  - Fixed issue where configuring log retention on a non-classic event log will_x000D__x000A_    throw._x000D__x000A_- ScheduledTask_x000D__x000A_  - Fixed issue with disabling scheduled tasks that have "Run whether user is_x000D__x000A_    logged on or not" configured - Fixes [Issue #306](https://github.com/dsccommunity/ComputerManagementDsc/issues/306)._x000D__x000A_  - Fixed issue with `ExecuteAsCredential` not returning fully qualified username_x000D__x000A_    on newer versions of Windows 10 and Windows Server 2019 for both local_x000D__x000A_    accounts and domain accounts - Fixes [Issue #352](https://github.com/dsccommunity/ComputerManagementDsc/issues/352)._x000D__x000A_  - Fixed issue with `StartTime` failing Test-Resource if not specified in the_x000D__x000A_    resource - Fixes [Issue #148](https://github.com/dsccommunity/ComputerManagementDsc/issues/148)._x000D__x000A_- PendingReboot_x000D__x000A_  - Fixed issue with loading localized data on non en-US operating systems -_x000D__x000A_    Fixes [Issue #350](https://github.com/dsccommunity/ComputerManagementDsc/issues/350).</S>
+      <Obj N="Dependencies" RefId="6">
+        <TNRef RefId="1" />
+        <LST />
+      </Obj>
+      <S N="RepositorySourceLocation">https://www.powershellgallery.com/api/v2</S>
+      <S N="Repository">PSGallery</S>
+      <S N="PackageManagementProvider">NuGet</S>
+      <Obj N="AdditionalMetadata" RefId="7">
+        <TN RefId="3">
+          <T>System.Management.Automation.PSCustomObject</T>
+          <T>System.Object</T>
+        </TN>
+        <MS>
+          <S N="copyright">Copyright the DSC Community contributors. All rights reserved.</S>
+          <S N="description">DSC resources for configuration of a Windows computer. These DSC resources allow you to perform computer management tasks, such as renaming the computer, joining a domain and scheduling tasks as well as configuring items such as virtual memory, event logs, time zones and power settings.</S>
+          <S N="requireLicenseAcceptance">False</S>
+          <S N="releaseNotes">## [8.5.0] - 2021-09-13_x000A__x000D__x000A_### Added_x000D__x000A__x000D__x000A_- WindowsEventLog_x000D__x000A_  - Added support to restrict guest access - Fixes [Issue #338](https://github.com/dsccommunity/ComputerManagementDsc/issues/338)._x000D__x000A_  - Added support to create custom event sources and optionally register_x000D__x000A_    resource files - Fixes [Issue #355](https://github.com/dsccommunity/ComputerManagementDsc/issues/355)._x000D__x000A_- WindowsCapability_x000D__x000A_  - Added the 'Source' parameter for Add-WindowsCapability as an_x000D__x000A_    optional parameter - Fixes [Issue #361](https://github.com/dsccommunity/ComputerManagementDsc/issues/361)_x000D__x000A__x000D__x000A_### Changed_x000D__x000A__x000D__x000A_- WindowsEventLog_x000D__x000A_  - Reformatted code to better align with current DSCResources coding standards._x000D__x000A_- Renamed `master` branch to `main` - Fixes [Issue #348](https://github.com/dsccommunity/ComputerManagementDsc/issues/348)._x000D__x000A_- Added support for publishing code coverage to `CodeCov.io` and_x000D__x000A_  Azure Pipelines - Fixes [Issue #367](https://github.com/dsccommunity/ComputerManagementDsc/issues/367)._x000D__x000A_- Updated build to use `Sampler.GitHubTasks` - Fixes [Issue #365](https://github.com/dsccommunity/ComputerManagementDsc/issues/365)._x000D__x000A_- Corrected case of module publish tasks - Fixes [Issue #368](https://github.com/dsccommunity/ComputerManagementDsc/issues/368)._x000D__x000A_- Corrected code coverage badge in `README.md`._x000D__x000A_- Updated build pipeline tasks and remove unused environment variables._x000D__x000A_- Removed duplicate code coverage badge._x000D__x000A__x000D__x000A_### Fixed_x000D__x000A__x000D__x000A_- WindowsEventLog_x000D__x000A_  - Fixed issue requiring IsEnabled to be declared and set to $true in order_x000D__x000A_    to set the MaximumSizeInBytes property - Fixes [Issue #349](https://github.com/dsccommunity/ComputerManagementDsc/issues/349)._x000D__x000A_  - Fixed issue where configuring log retention on a non-classic event log will_x000D__x000A_    throw._x000D__x000A_- ScheduledTask_x000D__x000A_  - Fixed issue with disabling scheduled tasks that have "Run whether user is_x000D__x000A_    logged on or not" configured - Fixes [Issue #306](https://github.com/dsccommunity/ComputerManagementDsc/issues/306)._x000D__x000A_  - Fixed issue with `ExecuteAsCredential` not returning fully qualified username_x000D__x000A_    on newer versions of Windows 10 and Windows Server 2019 for both local_x000D__x000A_    accounts and domain accounts - Fixes [Issue #352](https://github.com/dsccommunity/ComputerManagementDsc/issues/352)._x000D__x000A_  - Fixed issue with `StartTime` failing Test-Resource if not specified in the_x000D__x000A_    resource - Fixes [Issue #148](https://github.com/dsccommunity/ComputerManagementDsc/issues/148)._x000D__x000A_- PendingReboot_x000D__x000A_  - Fixed issue with loading localized data on non en-US operating systems -_x000D__x000A_    Fixes [Issue #350](https://github.com/dsccommunity/ComputerManagementDsc/issues/350).</S>
+          <S N="isLatestVersion">True</S>
+          <S N="isAbsoluteLatestVersion">True</S>
+          <S N="versionDownloadCount">54726</S>
+          <S N="downloadCount">35623936</S>
+          <S N="packageSize">137385</S>
+          <S N="published">9/13/2021 8:50:56 AM -07:00</S>
+          <S N="created">9/13/2021 8:50:56 AM -07:00</S>
+          <S N="lastUpdated">11/15/2021 3:56:54 AM -08:00</S>
+          <S N="tags">DesiredStateConfiguration DSC DSCResource PSModule PSDscResource_Computer PSDscResource_OfflineDomainJoin PSDscResource_PendingReboot PSDscResource_PowerPlan PSDscResource_PowerShellExecutionPolicy PSDscResource_RemoteDesktopAdmin PSDscResource_ScheduledTask PSDscResource_SmbServerConfiguration PSDscResource_SmbShare PSDscResource_SystemLocale PSDscResource_TimeZone PSDscResource_VirtualMemory PSDscResource_WindowsEventLog PSDscResource_WindowsCapability PSDscResource_IEEnhancedSecurityConfiguration PSDscResource_UserAccountControl PSIncludes_DscResource</S>
+          <S N="developmentDependency">False</S>
+          <S N="updated">2021-11-15T03:56:54Z</S>
+          <S N="NormalizedVersion">8.5.0</S>
+          <S N="Authors">DSC Community</S>
+          <S N="IsPrerelease">false</S>
+          <S N="ItemType">Module</S>
+          <S N="FileList">ComputerManagementDsc.nuspec|ComputerManagementDsc.psd1|en-US\about_ComputerManagementDsc.help.txt|DSCResources\DSC_Computer\DSC_Computer.psm1|DSCResources\DSC_Computer\DSC_Computer.schema.mof|DSCResources\DSC_Computer\README.md|DSCResources\DSC_RemoteDesktopAdmin\DSC_RemoteDesktopAdmin.schema.mof|DSCResources\DSC_RemoteDesktopAdmin\DSC_RemoteDesktopAdmin.psm1|DSCResources\DSC_RemoteDesktopAdmin\README.md|DSCResources\DSC_PowerShellExecutionPolicy\DSC_PowerShellExecutionPolicy.schema.mof|DSCResources\DSC_PowerShellExecutionPolicy\DSC_PowerShellExecutionPolicy.psm1|DSCResources\DSC_PowerShellExecutionPolicy\README.md|DSCResources\DSC_UserAccountControl\DSC_UserAccountControl.schema.mof|DSCResources\DSC_UserAccountControl\DSC_UserAccountControl.psm1|DSCResources\DSC_UserAccountControl\README.md|DSCResources\DSC_ScheduledTask\DSC_ScheduledTask.schema.mof|DSCResources\DSC_ScheduledTask\DSC_ScheduledTask.psm1|DSCResources\DSC_ScheduledTask\README.md|DSCResources\DSC_SmbShare\DSC_SmbShare.psm1|DSCResources\DSC_SmbShare\README.md|DSCResources\DSC_SmbShare\DSC_SmbShare.schema.mof|DSCResources\DSC_SmbServerConfiguration\DSC_SmbServerConfiguration.psm1|DSCResources\DSC_SmbServerConfiguration\DSC_SmbServerConfiguration.data.psd1|DSCResources\DSC_SmbServerConfiguration\DSC_SmbServerConfiguration.schema.mof|DSCResources\DSC_SmbServerConfiguration\README.md|DSCResources\DSC_VirtualMemory\DSC_VirtualMemory.psm1|DSCResources\DSC_VirtualMemory\DSC_VirtualMemory.schema.mof|DSCResources\DSC_VirtualMemory\README.md|DSCResources\DSC_SystemLocale\DSC_SystemLocale.schema.mof|DSCResources\DSC_SystemLocale\DSC_SystemLocale.psm1|DSCResources\DSC_SystemLocale\README.md|DSCResources\DSC_OfflineDomainJoin\DSC_OfflineDomainJoin.psm1|DSCResources\DSC_OfflineDomainJoin\README.md|DSCResources\DSC_OfflineDomainJoin\DSC_OfflineDomainJoin.schema.mof|DSCResources\DSC_TimeZone\DSC_TimeZone.psm1|DSCResources\DSC_TimeZone\DSC_TimeZone.schema.mof|DSCResources\DSC_TimeZone\README.md|DSCResources\DSC_WindowsCapability\DSC_WindowsCapability.schema.mof|DSCResources\DSC_WindowsCapability\DSC_WindowsCapability.psm1|DSCResources\DSC_WindowsCapability\README.md|DSCResources\DSC_PendingReboot\DSC_PendingReboot.psm1|DSCResources\DSC_PendingReboot\DSC_PendingReboot.schema.mof|DSCResources\DSC_PendingReboot\README.md|DSCResources\DSC_IEEnhancedSecurityConfiguration\DSC_IEEnhancedSecurityConfiguration.psm1|DSCResources\DSC_IEEnhancedSecurityConfiguration\README.md|DSCResources\DSC_IEEnhancedSecurityConfiguration\DSC_IEEnhancedSecurityConfiguration.schema.mof|DSCResources\DSC_PowerPlan\DSC_PowerPlan.schema.mof|DSCResources\DSC_PowerPlan\README.md|DSCResources\DSC_PowerPlan\DSC_PowerPlan.psm1|DSCResources\DSC_WindowsEventLog\DSC_WindowsEventLog.psm1|DSCResources\DSC_WindowsEventLog\DSC_WindowsEventLog.schema.mof|DSCResources\DSC_WindowsEventLog\README.md|Modules\ComputerManagementDsc.Common\ComputerManagementDsc.Common.psm1|Modules\ComputerManagementDsc.Common\SetTimeZone.cs|DSCResources\DSC_Computer\en-US\DSC_Computer.strings.psd1|DSCResources\DSC_Computer\en-US\about_Computer.help.txt|DSCResources\DSC_RemoteDesktopAdmin\en-US\about_RemoteDesktopAdmin.help.txt|DSCResources\DSC_RemoteDesktopAdmin\en-US\DSC_RemoteDesktopAdmin.strings.psd1|DSCResources\DSC_PowerShellExecutionPolicy\en-US\DSC_PowerShellExecutionPolicy.strings.psd1|DSCResources\DSC_PowerShellExecutionPolicy\en-US\about_PowerShellExecutionPolicy.help.txt|DSCResources\DSC_UserAccountControl\en-US\about_UserAccountControl.help.txt|DSCResources\DSC_UserAccountControl\en-US\DSC_UserAccountControl.strings.psd1|DSCResources\DSC_ScheduledTask\en-US\about_ScheduledTask.help.txt|DSCResources\DSC_ScheduledTask\en-US\DSC_ScheduledTask.strings.psd1|DSCResources\DSC_SmbShare\en-US\DSC_SmbShare.strings.psd1|DSCResources\DSC_SmbShare\en-US\DSC_SmbShare.schema.mfl|DSCResources\DSC_SmbShare\en-US\about_SmbShare.help.txt|DSCResources\DSC_SmbServerConfiguration\en-US\DSC_SmbServerConfiguration.strings.psd1|DSCResources\DSC_SmbServerConfiguration\en-US\about_SmbServerConfiguration.help.txt|DSCResources\DSC_SmbServerConfiguration\en-US\DSC_SmbServerConfiguration.schema.mfl|DSCResources\DSC_VirtualMemory\en-US\about_VirtualMemory.help.txt|DSCResources\DSC_VirtualMemory\en-US\DSC_VirtualMemory.strings.psd1|DSCResources\DSC_SystemLocale\en-US\DSC_SystemLocale.strings.psd1|DSCResources\DSC_SystemLocale\en-US\about_SystemLocale.help.txt|DSCResources\DSC_OfflineDomainJoin\en-US\DSC_OfflineDomainJoin.strings.psd1|DSCResources\DSC_OfflineDomainJoin\en-US\about_OfflineDomainJoin.help.txt|DSCResources\DSC_TimeZone\en-US\DSC_TimeZone.strings.psd1|DSCResources\DSC_TimeZone\en-US\about_TimeZone.help.txt|DSCResources\DSC_WindowsCapability\en-US\about_WindowsCapability.help.txt|DSCResources\DSC_WindowsCapability\en-US\DSC_WindowsCapability.strings.psd1|DSCResources\DSC_PendingReboot\en-US\about_PendingReboot.help.txt|DSCResources\DSC_PendingReboot\en-US\DSC_PendingReboot.strings.psd1|DSCResources\DSC_PendingReboot\en-US\DSC_PendingReboot.data.psd1|DSCResources\DSC_IEEnhancedSecurityConfiguration\en-US\about_IEEnhancedSecurityConfiguration.help.txt|DSCResources\DSC_IEEnhancedSecurityConfiguration\en-US\DSC_IEEnhancedSecurityConfiguration.strings.psd1|DSCResources\DSC_PowerPlan\en-US\DSC_PowerPlan.schema.mfl|DSCResources\DSC_PowerPlan\en-US\about_PowerPlan.help.txt|DSCResources\DSC_PowerPlan\en-US\DSC_PowerPlan.strings.psd1|DSCResources\DSC_WindowsEventLog\en-US\DSC_WindowsEventLog.strings.psd1|DSCResources\DSC_WindowsEventLog\en-US\about_WindowsEventLog.help.txt|Modules\ComputerManagementDsc.Common\en-US\ComputerManagementDsc.Common.strings.psd1|Modules\DscResource.Common\0.10.3\DscResource.Common.psd1|Modules\DscResource.Common\0.10.3\DscResource.Common.psm1|Modules\DscResource.Common\0.10.3\en-US\DscResource.Common.strings.psd1|Modules\DscResource.Common\0.10.3\en-US\about_DscResource.Common.help.txt</S>
+          <S N="GUID">B5004952-489E-43EA-999C-F16A25355B89</S>
+          <S N="PowerShellVersion">4.0</S>
+          <S N="CLRVersion">4.0</S>
+          <S N="CompanyName">DSC Community</S>
+        </MS>
+      </Obj>
+      <S N="InstalledLocation">D:\Repos\TeamsVoiceEchoBot\ADF\1-PrereqsToDeploy\DSCResources\ComputerManagementDsc\8.5.0</S>
+    </MS>
+  </Obj>
+</Objs>

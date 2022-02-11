@@ -1,0 +1,78 @@
+.NAME
+    NetworkTeam
+
+.DESCRIPTION
+    This resource is used to setup network teams on a node.
+
+.PARAMETER Name
+    Key - String
+    Specifies the name of the network team to create.
+
+.PARAMETER TeamMembers
+    Required - StringArray
+    Specifies the network interfaces that should be a part of the network team. This is a comma-separated list.
+
+.PARAMETER TeamingMode
+    Write - String
+    Allowed values: SwitchIndependent, LACP, Static
+    Specifies the teaming mode configuration.
+
+.PARAMETER LoadBalancingAlgorithm
+    Write - String
+    Allowed values: Dynamic, HyperVPort, IPAddresses, MacAddresses, TransportPorts
+    Specifies the load balancing algorithm for the network team.
+
+.PARAMETER Ensure
+    Write - String
+    Allowed values: Present, Absent
+    Specifies if the network team should be created or deleted. Defaults to 'Present'.
+
+.EXAMPLE 1
+
+Creates the switch independent Network Team 'HostTeam' using the NIC1
+and NIC2 interfaces. It sets the load balacing algorithm to 'HyperVPort'.
+The config will then wait for the 'HostTeam' to achieve the 'Up' status.
+
+Configuration NetworkTeam_AddNetworkTeam_Config
+{
+    Import-DSCResource -ModuleName NetworkingDsc
+
+    Node localhost
+    {
+        NetworkTeam AddNetworkTeam
+        {
+            Name                   = 'HostTeam'
+            TeamingMode            = 'SwitchIndependent'
+            LoadBalancingAlgorithm = 'HyperVPort'
+            TeamMembers            = 'NIC1', 'NIC2'
+            Ensure                 = 'Present'
+        }
+
+        WaitForNetworkTeam WaitForHostTeam
+        {
+            Name      = 'HostTeam'
+            DependsOn = '[NetworkTeam]AddNetworkTeam'
+        }
+    }
+}
+
+.EXAMPLE 2
+
+Removes the NIC Team 'HostTeam' from the interfaces NIC1, NIC2 and NIC3.
+
+Configuration NetworkTeam_RemoveNetworkTeam_Config
+{
+    Import-DSCResource -ModuleName NetworkingDsc
+
+    Node localhost
+    {
+        NetworkTeam RemoveNetworkTeam
+        {
+            Name        = 'HostTeam'
+            Ensure      = 'Absent'
+            TeamMembers = 'NIC1', 'NIC2', 'NIC3'
+        }
+    }
+}
+
+

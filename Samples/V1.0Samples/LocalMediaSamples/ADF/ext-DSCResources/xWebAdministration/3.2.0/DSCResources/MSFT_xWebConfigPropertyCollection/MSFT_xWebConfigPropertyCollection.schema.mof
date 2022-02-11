@@ -1,0 +1,13 @@
+[ClassVersion("1.0.0.0"), FriendlyName("xWebConfigPropertyCollection")]
+class MSFT_xWebConfigPropertyCollection : OMI_BaseResource
+{
+    [Key, Description("Path to website location (IIS or WebAdministration format).")] String WebsitePath;
+    [Key, Description("Filter used to locate property collection to update.")] String Filter;
+    [Key, Description("Name of the property collection to update.")] String CollectionName;    
+    [Key, Description("Name of the property collection item to update.")] String ItemName;
+    [Key, Description("Name of the key of the property collection item to update.")] String ItemKeyName;
+    [Key, Description("Value of the key of the property collection item to update.")] String ItemKeyValue;
+    [Key, Description("Name of the property of the property collection item to update.")] String ItemPropertyName;
+    [Write, Description("Value of the property of the property collection item to update.")] String ItemPropertyValue;
+    [Write, Description("Indicates if the property and value of the property collection item should be present or absent. Defaults to Present."), ValueMap{"Present","Absent"}, Values{"Present","Absent"}] String Ensure;
+};

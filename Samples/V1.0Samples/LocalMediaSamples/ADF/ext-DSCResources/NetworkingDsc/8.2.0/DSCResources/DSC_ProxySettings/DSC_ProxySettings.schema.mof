@@ -1,0 +1,14 @@
+[ClassVersion("1.0.0"), FriendlyName("ProxySettings")]
+class DSC_ProxySettings : OMI_BaseResource
+{
+    [Key, Description("Specifies the resource is a single instance, the value must be 'Yes'."), ValueMap{"Yes"}, Values{"Yes"}] String IsSingleInstance;
+    [Write, Description("Specifies if computer proxy settings should be set. Defaults to 'Present'."), ValueMap{"Present","Absent"}, Values{"Present","Absent"}] String Ensure;
+    [Write, Description("Defines if the proxy settings should be configured for default connections, legacy connections or all connections. Defaults to 'All'."), ValueMap{"All","Default","Legacy"}, Values{"All","Default","Legacy"}] String ConnectionType;
+    [Write, Description("Enable automatic detection of the proxy settings. Defaults to 'False'.")] Boolean EnableAutoDetection;
+    [Write, Description("Use automatic configuration script for specifying proxy settings. Defaults to 'False'.")] Boolean EnableAutoConfiguration;
+    [Write, Description("Use manual proxy server settings. Defaults to 'False'.")] Boolean EnableManualProxy;
+    [Write, Description("The URL of the automatic configuration script to specify the proxy settings. Should be specified if 'EnableAutoConfiguration' is 'True'.")] String AutoConfigURL;
+    [Write, Description("The address and port of the manual proxy server to use. Should be specified if 'EnableManualProxy' is 'True'.")] String ProxyServer;
+    [Write, Description("Bypass proxy server for addresses starting with addresses in this list.")] String ProxyServerExceptions[];
+    [Write, Description("Bypass proxy server for local addresses. Defaults to 'False'.")] Boolean ProxyServerBypassLocal;
+};

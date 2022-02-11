@@ -1,0 +1,8 @@
+[ClassVersion("1.0.0.0"), FriendlyName("IPAddress")]
+class DSC_IPAddress : OMI_BaseResource
+{
+    [Write, Description("The desired IP address, optionally including prefix length using CIDR notation.")] string IPAddress[];
+    [Key, Description("Alias of the network interface for which the IP address should be set.")] string InterfaceAlias;
+    [Key, Description("IP address family.") ,ValueMap{"IPv4", "IPv6"},Values{"IPv4", "IPv6"}] string AddressFamily;
+    [Write, Description("Indicates whether or not existing IP addresses on an interface will be retained.")] boolean KeepExistingAddress;
+};

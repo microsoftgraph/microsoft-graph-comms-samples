@@ -1,0 +1,23 @@
+[ClassVersion("1.0.0"), FriendlyName("NetIPInterface")]
+class DSC_NetIPInterface : OMI_BaseResource
+{
+    [Key, Description("Alias of the network interface to configure.")] String InterfaceAlias;
+    [Key, Description("IP address family on the interface to configure."), ValueMap{"IPv4", "IPv6"}, Values{"IPv4", "IPv6"}] String AddressFamily;
+    [Write, Description("Specifies the default router advertisement for an interface."), ValueMap{"Enabled", "Disabled"},Values{"Enabled", "Disabled"}] String AdvertiseDefaultRoute;
+    [Write, Description("Specifies the router advertisement value for the IP interface."), ValueMap{"Enabled", "Disabled"},Values{"Enabled", "Disabled"}] String Advertising;
+    [Write, Description("Specifies the value for automatic metric calculation."), ValueMap{"Enabled", "Disabled"},Values{"Enabled", "Disabled"}] String AutomaticMetric;
+    [Write, Description("Specifies the Dynamic Host Configuration Protocol (DHCP) value for an IP interface."), ValueMap{"Enabled", "Disabled"},Values{"Enabled", "Disabled"}] String Dhcp;
+    [Write, Description("Specifies the wake-up packet value for an IP interface."), ValueMap{"Enabled", "Disabled"},Values{"Enabled", "Disabled"}] String DirectedMacWolPattern;
+    [Write, Description("Specifies the value for Explicit Congestion Notification (ECN) marking."), ValueMap{"Disabled", "UseEct1", "UseEct0", "AppDecide"},Values{"Disabled", "UseEct1", "UseEct0", "AppDecide"}] String EcnMarking;
+    [Write, Description("Specifies the Wake On LAN (WOL) value for the IP interface."), ValueMap{"Enabled", "Disabled"},Values{"Enabled", "Disabled"}] String ForceArpNdWolPattern;
+    [Write, Description("Specifies the packet forwarding value for the IP interface."), ValueMap{"Enabled", "Disabled"},Values{"Enabled", "Disabled"}] String Forwarding;
+    [Write, Description("Specifies a value for Default Route advertisements."), ValueMap{"Enabled", "Disabled"},Values{"Enabled", "Disabled"}] String IgnoreDefaultRoutes;
+    [Write, Description("Specifies the value for managed address configuration."), ValueMap{"Enabled", "Disabled"},Values{"Enabled", "Disabled"}] String ManagedAddressConfiguration;
+    [Write, Description("Specifies the value for Neighbor Unreachability Detection (NUD)."), ValueMap{"Enabled", "Disabled"},Values{"Enabled", "Disabled"}] String NeighborUnreachabilityDetection;
+    [Write, Description("Specifies the value for configuration other than addresses."), ValueMap{"Enabled", "Disabled"},Values{"Enabled", "Disabled"}] String OtherStatefulConfiguration;
+    [Write, Description("Specifies the value for router discovery for an IP interface."), ValueMap{"Enabled", "Disabled", "ControlledByDHCP"},Values{"Enabled", "Disabled", "ControlledByDHCP"}] String RouterDiscovery;
+    [Write, Description("Specifies the receive value for a weak host model."), ValueMap{"Enabled", "Disabled"},Values{"Enabled", "Disabled"}] String WeakHostReceive;
+    [Write, Description("Specifies the send value for a weak host model."), ValueMap{"Enabled", "Disabled"},Values{"Enabled", "Disabled"}] String WeakHostSend;
+    [Write, Description("Specifies the network layer Maximum Transmission Unit (MTU) value, in bytes, for an IP interface.")] UInt32 NlMtu;
+    [Write, Description("Specifies the metric for an IP interface.")] UInt32 InterfaceMetric;
+};
