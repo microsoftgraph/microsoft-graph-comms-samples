@@ -133,11 +133,11 @@
             # Blob copy with Managed Identity - Oauth2
             AppReleaseDSCAppPresent     = @(
                 @{
-                    ComponentName     = 'AVB'
+                    ComponentName     = 'avb'
                     SourcePathBlobURI = 'https://{0}.blob.core.windows.net/builds/'
                     DestinationPath   = 'F:\API\'
                     ValidateFileName  = 'CurrentBuild.txt'
-                    BuildFileName     = 'F:\Build\avb\componentBuild.json'
+                    BuildFileName     = 'F:\Build\AVB\componentBuild.json'
                     SleepTime         = '10'
                 }
             )
