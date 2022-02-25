@@ -2,6 +2,7 @@
 using Sample.AudioVideoPlaybackBot.FrontEnd;
 using Sample.AudioVideoPlaybackBot.WorkerRole;
 using System;
+using System.Diagnostics;
 using System.Net;
 using System.ServiceProcess;
 using System.Threading;
@@ -35,6 +36,11 @@ namespace AVPWindowsService
         {
             try
             {
+#if DEBUG
+                base.RequestAdditionalTime(600000);
+                Debugger.Launch();
+#endif
+
                 // Set the maximum number of concurrent connections
                 ServicePointManager.DefaultConnectionLimit = 12;
 
@@ -42,7 +48,7 @@ namespace AVPWindowsService
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
                 // Create and start the environment-independent service.
-                Service.Instance.Initialize(new AzureConfiguration(this.logger), this.logger);
+                Service.Instance.Initialize(new AzureConfiguration(this.logger, true), this.logger);
                 Service.Instance.Start();
 
                 base.OnStart(args);
