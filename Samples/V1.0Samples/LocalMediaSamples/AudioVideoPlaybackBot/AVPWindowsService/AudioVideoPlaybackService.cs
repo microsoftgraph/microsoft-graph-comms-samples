@@ -1,4 +1,5 @@
-﻿using Microsoft.Graph.Communications.Common.Telemetry;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Graph.Communications.Common.Telemetry;
 using Sample.AudioVideoPlaybackBot.FrontEnd;
 using Sample.AudioVideoPlaybackBot.WorkerRole;
 using System;
@@ -43,6 +44,13 @@ namespace AVPWindowsService
 
                 // Set the maximum number of concurrent connections
                 ServicePointManager.DefaultConnectionLimit = 12;
+                IConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
+                configurationBuilder.AddEnvironmentVariables();
+
+                var configRoot = configurationBuilder.Build();
+
+                var azConfigs = new AzureSettings();
+                configRoot.Bind("AzureSettings", azConfigs);
 
                 // ECS backend service enforced TLS 1.2 access.
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;

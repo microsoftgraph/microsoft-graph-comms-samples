@@ -26,6 +26,11 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
         public const string OnIncomingRequestRoute = "";
 
         /// <summary>
+        /// Route for incoming notification requests.
+        /// </summary>
+        public const string OnNotificationRequestRoute = "notification";
+
+        /// <summary>
         /// The logs route for GET.
         /// </summary>
         public const string Logs = "logs";
