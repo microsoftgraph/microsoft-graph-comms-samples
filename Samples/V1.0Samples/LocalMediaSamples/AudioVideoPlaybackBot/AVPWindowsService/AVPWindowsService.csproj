@@ -168,7 +168,8 @@
     <Compile Include="AudioVideoPlaybackService.Designer.cs">
       <DependentUpon>AudioVideoPlaybackService.cs</DependentUpon>
     </Compile>
-    <Compile Include="AzureSettings.cs" />
+    <Compile Include="EnvironmentVarConfigs.cs" />
+    <Compile Include="WindowsServiceConfiguration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>

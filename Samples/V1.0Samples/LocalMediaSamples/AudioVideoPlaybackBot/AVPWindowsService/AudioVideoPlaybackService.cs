@@ -49,14 +49,14 @@ namespace AVPWindowsService
 
                 var configRoot = configurationBuilder.Build();
 
-                var azConfigs = new AzureSettings();
-                configRoot.Bind("AzureSettings", azConfigs);
+                var configs = new EnvironmentVarConfigs();
+                configRoot.Bind("AzureSettings", configs);
 
                 // ECS backend service enforced TLS 1.2 access.
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
                 // Create and start the environment-independent service.
-                Service.Instance.Initialize(new AzureConfiguration(this.logger, true), this.logger);
+                Service.Instance.Initialize(new WindowsServiceConfiguration(this.logger, configs), this.logger);
                 Service.Instance.Start();
 
                 base.OnStart(args);
