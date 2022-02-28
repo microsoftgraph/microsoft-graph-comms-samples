@@ -4,7 +4,7 @@
     <TargetFrameworks>netstandard2.0;net472</TargetFrameworks>
     <RootNamespace>Sample.Common</RootNamespace>
     <AssemblyName>Sample.Common</AssemblyName>
-    <Platforms>AnyCPU</Platforms>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <Import Project="$(MSBuildThisFileDirectory)..\..\Graph.props" />
