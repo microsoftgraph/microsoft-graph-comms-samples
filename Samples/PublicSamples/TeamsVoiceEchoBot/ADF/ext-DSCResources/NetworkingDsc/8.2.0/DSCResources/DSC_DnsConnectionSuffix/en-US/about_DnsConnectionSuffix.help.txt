@@ -1,0 +1,47 @@
+.NAME
+    DnsConnectionSuffix
+
+.DESCRIPTION
+    This resource is used to control interface-specific DNS client configurations on a node.
+
+.PARAMETER InterfaceAlias
+    Key - String
+    Alias of the network interface for which the DNS server address is set.
+
+.PARAMETER ConnectionSpecificSuffix
+    Required - String
+    DNS connection-specific suffix to assign to the network interface.
+
+.PARAMETER RegisterThisConnectionsAddress
+    Write - Boolean
+    Specifies that the IP address for this connection is to be registered.
+
+.PARAMETER UseSuffixWhenRegistering
+    Write - Boolean
+    Specifies that this host name and the connection specific suffix for this connection are to be registered.
+
+.PARAMETER Ensure
+    Write - String
+    Allowed values: Present, Absent
+    Ensure that the network interface connection-specific suffix is present or not.
+
+.EXAMPLE 1
+
+This configuration will set a DNS connection-specific suffix on a network interface that
+is identified by its alias.
+
+Configuration DnsConnectionSuffix_AddSpecificSuffix_Config
+{
+    Import-DscResource -Module NetworkingDsc
+
+    Node localhost
+    {
+        DnsConnectionSuffix AddSpecificSuffix
+        {
+            InterfaceAlias           = 'Ethernet'
+            ConnectionSpecificSuffix = 'contoso.com'
+        }
+    }
+}
+
+

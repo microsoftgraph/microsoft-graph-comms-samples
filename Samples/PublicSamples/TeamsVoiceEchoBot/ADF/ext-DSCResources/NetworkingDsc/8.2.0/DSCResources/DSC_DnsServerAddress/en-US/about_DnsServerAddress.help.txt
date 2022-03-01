@@ -1,0 +1,89 @@
+.NAME
+    DnsServerAddress
+
+.DESCRIPTION
+    This resource is used to control a node's DNS Server address(s).
+
+.PARAMETER InterfaceAlias
+    Key - String
+    Alias of the network interface for which the DNS server address is set.
+
+.PARAMETER AddressFamily
+    Key - String
+    Allowed values: IPv4, IPv6
+    IP address family.
+
+.PARAMETER Address
+    Write - StringArray
+    The desired DNS Server address(es). Exclude to enable DHCP.
+
+.PARAMETER Validate
+    Write - Boolean
+    Requires that the DNS Server addresses be validated if they are updated. It will cause the resource to throw a 'A general error occurred that is not covered by a more specific error code.' error if set to True and specified DNS Servers are not accessible.
+
+.EXAMPLE 1
+
+Configure DNS Server for the Ethernet adapter.
+
+Configuration DnsServerAddress_Config
+{
+    Import-DscResource -Module NetworkingDsc
+
+    Node localhost
+    {
+        DnsServerAddress DnsServerAddress
+        {
+            Address        = '127.0.0.1'
+            InterfaceAlias = 'Ethernet'
+            AddressFamily  = 'IPv4'
+            Validate       = $true
+        }
+    }
+}
+
+.EXAMPLE 2
+
+Configure primary and secondary DNS Server addresses on the Ethernet adapter.
+
+Configuration DnsServerAddress_PrimaryAndSecondary_Config
+{
+    Import-DscResource -Module NetworkingDsc
+
+    Node localhost
+    {
+        DnsServerAddress PrimaryAndSecondary
+        {
+            Address        = '10.0.0.2','10.0.0.40'
+            InterfaceAlias = 'Ethernet'
+            AddressFamily  = 'IPv4'
+            Validate       = $true
+        }
+    }
+}
+
+.EXAMPLE 3
+
+Enabling DHCP for the IPv4 Address and DNS on the adapter with alias 'Ethernet'.
+
+Configuration DnsServerAddress_EnableDHCP_Config
+{
+    Import-DscResource -Module NetworkingDsc
+
+    Node localhost
+    {
+        NetIPInterface EnableDhcp
+        {
+            InterfaceAlias = 'Ethernet'
+            AddressFamily  = 'IPv4'
+            Dhcp           = 'Enabled'
+        }
+
+        DnsServerAddress EnableDhcpDNS
+        {
+            InterfaceAlias = 'Ethernet'
+            AddressFamily  = 'IPv4'
+        }
+    }
+}
+
+

@@ -1,0 +1,40 @@
+.NAME
+    WinsSetting
+
+.DESCRIPTION
+    This resource is used to configure the WINS settings that enable or disable
+    LMHOSTS lookups and enable or disable DNS for name resolution over WINS.
+
+.PARAMETER IsSingleInstance
+    Key - String
+    Allowed values: Yes
+    Specifies the resource is a single instance, the value must be 'Yes'.
+
+.PARAMETER EnableLmHosts
+    Write - Boolean
+    Specifies if LMHOSTS lookup should be enabled for all network adapters with TCP/IP enabled.
+
+.PARAMETER EnableDns
+    Write - Boolean
+    Specifies if DNS is enabled for name resolution over WINS for all network adapters with TCP/IP enabled.
+
+.EXAMPLE 1
+
+Disable LMHOSTS lookup and disable using DNS for WINS name resolution.
+
+Configuration WinSetting_ConfigureWinsSetting_Config
+{
+    Import-DscResource -Module NetworkingDsc
+
+    Node localhost
+    {
+        WinsSetting ConfigureWinsSettings
+        {
+            IsSingleInstance = 'Yes'
+            EnableLMHOSTS    = $false
+            EnableDNS        = $false
+        }
+    }
+}
+
+

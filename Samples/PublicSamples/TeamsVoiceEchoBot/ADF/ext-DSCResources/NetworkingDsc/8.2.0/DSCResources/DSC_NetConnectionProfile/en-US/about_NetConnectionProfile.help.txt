@@ -1,0 +1,65 @@
+.NAME
+    NetConnectionProfile
+
+.DESCRIPTION
+    This resource is used to set a node's connection profile.
+
+.PARAMETER InterfaceAlias
+    Key - String
+    Specifies the alias for the Interface that is being changed.
+
+.PARAMETER IPv4Connectivity
+    Write - String
+    Allowed values: Disconnected, NoTraffic, Subnet, LocalNetwork, Internet
+    Sets the Network Category for the interface.
+
+.PARAMETER IPv6Connectivity
+    Write - String
+    Allowed values: Disconnected, NoTraffic, Subnet, LocalNetwork, Internet
+    Specifies the IPv4 Connection Value.
+
+.PARAMETER NetworkCategory
+    Write - String
+    Allowed values: Public, Private
+    Specifies the IPv6 Connection Value.
+
+.EXAMPLE 1
+
+Sets the Ethernet adapter to Public and IPv4/6 to Internet Connectivity.
+
+Configuration NetConnectionProfile_SetPublicEnableInternet_Config
+{
+    Import-DscResource -Module NetworkingDsc
+
+    Node localhost
+    {
+        NetConnectionProfile SetPublicEnableInternet
+        {
+            InterfaceAlias   = 'Ethernet'
+            NetworkCategory  = 'Public'
+            IPv4Connectivity = 'Internet'
+            IPv6Connectivity = 'Internet'
+        }
+    }
+}
+
+.EXAMPLE 2
+
+Sets the Ethernet adapter to Private but does not change
+IPv4 or IPv6 connectivity.
+
+Configuration NetConnectionProfile_SetPrivate_Config
+{
+    Import-DscResource -Module NetworkingDsc
+
+    Node localhost
+    {
+        NetConnectionProfile SetPrivate
+        {
+            InterfaceAlias   = 'Ethernet'
+            NetworkCategory  = 'Private'
+        }
+    }
+}
+
+

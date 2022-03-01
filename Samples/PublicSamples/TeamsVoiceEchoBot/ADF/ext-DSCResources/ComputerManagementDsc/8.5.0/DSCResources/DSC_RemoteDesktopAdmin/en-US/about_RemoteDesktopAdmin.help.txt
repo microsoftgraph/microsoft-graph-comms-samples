@@ -1,0 +1,43 @@
+.NAME
+    RemoteDesktopAdmin
+
+.DESCRIPTION
+    This resource will manage the remote desktop administration settings on a computer.
+    This includes whether remote desktop connections are allowed or denied and whether
+    network level authentication is required.
+
+.PARAMETER IsSingleInstance
+    Key - String
+    Allowed values: Yes
+    Specifies the resource is a single instance, the value must be 'Yes'
+
+.PARAMETER Ensure
+    Write - String
+    Allowed values: Present, Absent
+    Determines whether or not the computer should accept remote desktop connections.  Present sets the value to Enabled and Absent sets the value to Disabled.
+
+.PARAMETER UserAuthentication
+    Write - String
+    Allowed values: Secure, NonSecure
+    Setting this value to Secure configures the machine to require Network Level Authentication (NLA) for remote desktop connections.
+
+.EXAMPLE 1
+
+This configuration will enable Remote Desktop for Administration and set
+the User Authentication to secure, i.e. to require Network Level Authentication
+
+Configuration RemoteDesktopAdmin_SetSecureRemoteDesktopAdmin_Config
+{
+    Import-DscResource -Module ComputerManagementDsc
+
+    Node ('localhost')
+    {
+        RemoteDesktopAdmin RemoteDesktopSettings
+        {
+            IsSingleInstance   = 'yes'
+            Ensure             = 'Present'
+            UserAuthentication = 'Secure'
+        }
+    }
+}
+

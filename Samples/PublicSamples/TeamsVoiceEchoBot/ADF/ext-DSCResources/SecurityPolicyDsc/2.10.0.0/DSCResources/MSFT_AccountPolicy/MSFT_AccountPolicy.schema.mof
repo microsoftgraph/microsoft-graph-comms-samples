@@ -1,0 +1,21 @@
+
+[ClassVersion("1.0.0.0"), FriendlyName("AccountPolicy")]
+class MSFT_AccountPolicy : OMI_BaseResource
+{
+    [Key, Description("A unique name of the AccountPolicy resource instance. This is not used during configuration.")] String Name;
+    [Write] Uint32 Enforce_password_history;
+    [Write] Uint32 Maximum_Password_Age;
+    [Write] Uint32 Minimum_Password_Age;
+    [Write] Uint32 Minimum_Password_Length;
+    [Write, ValueMap{"Enabled","Disabled"}, Values{"Enabled","Disabled"}] String Password_must_meet_complexity_requirements;
+    [Write, ValueMap{"Enabled","Disabled"}, Values{"Enabled","Disabled"}] String Store_passwords_using_reversible_encryption;
+    [Write] Uint32 Account_lockout_duration;
+    [Write] Uint32 Account_lockout_threshold;
+    [Write] Uint32 Reset_account_lockout_counter_after;
+    [Write, ValueMap{"Enabled","Disabled"}, Values{"Enabled","Disabled"}] String Enforce_user_logon_restrictions;
+    [Write] Uint32 Maximum_lifetime_for_service_ticket;
+    [Write] Uint32 Maximum_lifetime_for_user_ticket;
+    [Write] Uint32 Maximum_lifetime_for_user_ticket_renewal;
+    [Write] Uint32 Maximum_tolerance_for_computer_clock_synchronization;
+};
+

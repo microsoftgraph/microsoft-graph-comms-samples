@@ -1,0 +1,8 @@
+
+[ClassVersion("1.0.0.0"), FriendlyName("WaitForNetworkTeam")]
+class DSC_WaitForNetworkTeam : OMI_BaseResource
+{
+    [Key, Description("Specifies the name of the network team to wait for.")] String Name;
+    [Write, Description("Specifies the number of seconds to wait for the network team to become available.")] Uint32 RetryIntervalSec;
+    [Write, Description("The number of times to loop the retry interval while waiting for the network team.")] Uint32 RetryCount;
+};

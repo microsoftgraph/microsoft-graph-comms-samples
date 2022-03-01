@@ -1,0 +1,6 @@
+[ClassVersion("1.0.0"), FriendlyName("WinsServerAddress")]
+class DSC_WinsServerAddress : OMI_BaseResource
+{
+    [Key, Description("Alias of the network interface for which the WINS server address is set.")] string InterfaceAlias;
+    [Write, Description("The desired WINS Server address(es). Exclude to remove all WINS servers.")] string Address[];
+};

@@ -1,0 +1,8 @@
+[ClassVersion("1.0.0"), FriendlyName("xIisMimeTypeMapping")]
+class MSFT_xIisMimeTypeMapping : OMI_BaseResource
+{
+    [Key, Description("This can be either an IIS configuration path in the format computername/webroot/apphost, or the IIS module path in this format IIS:\\sites\\Default Web Site.")] String ConfigurationPath;
+    [Key, Description("The file extension to map such as .html or .xml.")] string Extension;
+    [Key, Description("The MIME type to map that extension to such as text/html.")] string MimeType;
+    [Required, Description("Ensures that the MIME type mapping is Present or Absent."),ValueMap{"Present", "Absent"},Values{"Present", "Absent"}] string Ensure;
+};

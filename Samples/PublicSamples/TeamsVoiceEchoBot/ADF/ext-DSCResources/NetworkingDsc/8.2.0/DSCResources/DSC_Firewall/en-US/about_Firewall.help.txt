@@ -1,0 +1,275 @@
+.NAME
+    Firewall
+
+.DESCRIPTION
+    This resource is used to control firewall rules for a node.
+
+.PARAMETER Name
+    Key - String
+    Name of the Firewall Rule.
+
+.PARAMETER DisplayName
+    Write - String
+    Localized, user-facing name of the Firewall Rule being created.
+
+.PARAMETER Group
+    Write - String
+    Name of the Firewall Group where we want to put the Firewall Rule.
+
+.PARAMETER Ensure
+    Write - String
+    Allowed values: Present, Absent
+    Ensure the presence/absence of the resource.
+
+.PARAMETER Enabled
+    Write - String
+    Allowed values: True, False
+    Enable or disable the supplied configuration.
+
+.PARAMETER Action
+    Write - String
+    Allowed values: NotConfigured, Allow, Block
+    Allow or Block the supplied configuration.
+
+.PARAMETER Profile
+    Write - StringArray
+    Specifies one or more profiles to which the rule is assigned.
+
+.PARAMETER Direction
+    Write - String
+    Allowed values: Inbound, Outbound
+    Direction of the connection.
+
+.PARAMETER RemotePort
+    Write - StringArray
+    Specific Port used for filter. Specified by port number, range, or keyword
+
+.PARAMETER LocalPort
+    Write - StringArray
+    Local Port used for the filter.
+
+.PARAMETER Protocol
+    Write - String
+    Specific Protocol for filter. Specified by name, number, or range.
+
+.PARAMETER Description
+    Write - String
+    Documentation for the Rule.
+
+.PARAMETER Program
+    Write - String
+    Path and file name of the program for which the rule is applied.
+
+.PARAMETER Service
+    Write - String
+    Specifies the short name of a Windows service to which the firewall rule applies.
+
+.PARAMETER Authentication
+    Write - String
+    Allowed values: NotRequired, Required, NoEncap
+    Specifies that authentication is required on firewall rules.
+
+.PARAMETER Encryption
+    Write - String
+    Allowed values: NotRequired, Required, Dynamic
+    Specifies that encryption in authentication is required on firewall rules.
+
+.PARAMETER InterfaceAlias
+    Write - StringArray
+    Specifies the alias of the interface that applies to the traffic.
+
+.PARAMETER InterfaceType
+    Write - String
+    Allowed values: Any, Wired, Wireless, RemoteAccess
+    Specifies that only network connections made through the indicated interface types are subject to the requirements of this rule.
+
+.PARAMETER LocalAddress
+    Write - StringArray
+    Specifies that network packets with matching IP addresses match this rule.
+
+.PARAMETER LocalUser
+    Write - String
+    Specifies the principals to which network traffic this firewall rule applies.
+
+.PARAMETER Package
+    Write - String
+    Specifies the Windows Store application to which the firewall rule applies.
+
+.PARAMETER Platform
+    Write - StringArray
+    Specifies which version of Windows the associated rule applies.
+
+.PARAMETER RemoteAddress
+    Write - StringArray
+    Specifies that network packets with matching IP addresses match this rule.
+
+.PARAMETER RemoteMachine
+    Write - String
+    Specifies that matching IPsec rules of the indicated computer accounts are created.
+
+.PARAMETER RemoteUser
+    Write - String
+    Specifies that matching IPsec rules of the indicated user accounts are created.
+
+.PARAMETER DynamicTransport
+    Write - String
+    Allowed values: Any, ProximityApps, ProximitySharing, WifiDirectPrinting, WifiDirectDisplay, WifiDirectDevices
+    Specifies a dynamic transport.
+
+.PARAMETER EdgeTraversalPolicy
+    Write - String
+    Allowed values: Block, Allow, DeferToUser, DeferToApp
+    Specifies that matching firewall rules of the indicated edge traversal policy are created.
+
+.PARAMETER IcmpType
+    Write - StringArray
+    Specifies the ICMP type codes.
+
+.PARAMETER LocalOnlyMapping
+    Write - Boolean
+    Indicates that matching firewall rules of the indicated value are created.
+
+.PARAMETER LooseSourceMapping
+    Write - Boolean
+    Indicates that matching firewall rules of the indicated value are created.
+
+.PARAMETER OverrideBlockRules
+    Write - Boolean
+    Indicates that matching network traffic that would otherwise be blocked are allowed.
+
+.PARAMETER Owner
+    Write - String
+    Specifies that matching firewall rules of the indicated owner are created.
+
+.PARAMETER DisplayGroup
+    Read - String
+    The current value of the Display Group of the Firewall Rule.
+
+.EXAMPLE 1
+
+Allow notepad to access ports on the Domain and Private Profiles.
+
+Configuration Firewall_AddFirewallRule_Config
+{
+    Import-DSCResource -ModuleName NetworkingDsc
+
+    Node localhost
+    {
+        Firewall AddFirewallRule
+        {
+            Name                  = 'NotePadFirewallRule'
+            DisplayName           = 'Firewall Rule for Notepad.exe'
+            Group                 = 'NotePad Firewall Rule Group'
+            Ensure                = 'Present'
+            Enabled               = 'True'
+            Profile               = ('Domain', 'Private')
+            Direction             = 'OutBound'
+            RemotePort            = ('8080', '8081')
+            LocalPort             = ('9080', '9081')
+            Protocol              = 'TCP'
+            Description           = 'Firewall Rule for Notepad.exe'
+            Program               = 'c:\windows\system32\notepad.exe'
+            Service               = 'WinRM'
+        }
+    }
+ }
+
+.EXAMPLE 2
+
+Configure a network firewall rule using all parameters.
+Note: This configuration sample uses all Firewall rule parameters.
+It is only used to show example usage and should not be created.
+
+Configuration Firewall_AddFirewallRule_AllParameters_Config
+{
+    Import-DSCResource -ModuleName NetworkingDsc
+
+    Node localhost
+    {
+        Firewall AddFirewallRuleAllParameters
+        {
+            Name                  = 'NotePadFirewallRule'
+            DisplayName           = 'Firewall Rule for Notepad.exe'
+            Group                 = 'NotePad Firewall Rule Group'
+            Ensure                = 'Present'
+            Enabled               = 'True'
+            Profile               = ('Domain', 'Private')
+            Direction             = 'OutBound'
+            RemotePort            = ('8080', '8081')
+            LocalPort             = ('9080', '9081')
+            Protocol              = 'TCP'
+            Description           = 'Firewall Rule for Notepad.exe'
+            Program               = 'c:\windows\system32\notepad.exe'
+            Service               = 'WinRM'
+            Authentication        = 'Required'
+            Encryption            = 'Required'
+            InterfaceAlias        = 'Ethernet'
+            InterfaceType         = 'Wired'
+            LocalAddress          = ('192.168.2.0-192.168.2.128','192.168.1.0/255.255.255.0','10.0.0.0/8')
+            LocalUser             = 'O:LSD:(D;;CC;;;S-1-15-3-4)(A;;CC;;;S-1-5-21-3337988176-3917481366-464002247-1001)'
+            Package               = 'S-1-15-2-3676279713-3632409675-756843784-3388909659-2454753834-4233625902-1413163418'
+            Platform              = '6.1'
+            RemoteAddress         = ('192.168.2.0-192.168.2.128','192.168.1.0/255.255.255.0','10.0.0.0/8')
+            RemoteMachine         = 'O:LSD:(D;;CC;;;S-1-5-21-1915925333-479612515-2636650677-1621)(A;;CC;;;S-1-5-21-1915925333-479612515-2636650677-1620)'
+            RemoteUser            = 'O:LSD:(D;;CC;;;S-1-15-3-4)(A;;CC;;;S-1-5-21-3337988176-3917481366-464002247-1001)'
+            DynamicTransport      = 'ProximitySharing'
+            EdgeTraversalPolicy   = 'Block'
+            IcmpType              = ('51','52')
+            LocalOnlyMapping      = $true
+            LooseSourceMapping    = $true
+            OverrideBlockRules    = $true
+            Owner                 = 'S-1-5-21-3337988176-3917481366-464002247-500'
+        }
+    }
+}
+
+.EXAMPLE 3
+
+Adding a firewall to an existing Firewall group 'My Firewall Rule'.
+
+Configuration Firewall_AddFirewallRuleToExistingGroup_Config
+{
+    Import-DSCResource -ModuleName NetworkingDsc
+
+    Node localhost
+    {
+        Firewall AddFirewallRuleToExistingGroup
+        {
+            Name                  = 'MyFirewallRule'
+            DisplayName           = 'My Firewall Rule'
+            Group                 = 'My Firewall Rule Group'
+        }
+
+        Firewall Firewall1
+        {
+            Name                  = 'MyFirewallRule1'
+            DisplayName           = 'My Firewall Rule'
+            Group                 = 'My Firewall Rule Group'
+            Ensure                = 'Present'
+            Enabled               = 'True'
+            Profile               = ('Domain', 'Private')
+        }
+    }
+}
+
+.EXAMPLE 4
+
+DSC configuration that enables the built-in Firewall Rule
+'World Wide Web Services (HTTP Traffic-In)'.
+
+Configuration Firewall_EnableBuiltInFirewallRule_Config
+{
+    Import-DSCResource -ModuleName NetworkingDsc
+
+    Node localhost
+    {
+        Firewall EnableBuiltInFirewallRule
+        {
+            Name                  = 'IIS-WebServerRole-HTTP-In-TCP'
+            Ensure                = 'Present'
+            Enabled               = 'True'
+        }
+    }
+}
+
+

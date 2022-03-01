@@ -1,0 +1,6 @@
+[ClassVersion("1.0.0.0"), FriendlyName("NetAdapterRss")]
+class DSC_NetAdapterRss : OMI_BaseResource
+{
+    [Key, Description("Specifies the Name of network adapter.")] String Name;
+    [Required, Description("Specifies whether RSS should be enabled or disabled.")] Boolean Enabled;
+};

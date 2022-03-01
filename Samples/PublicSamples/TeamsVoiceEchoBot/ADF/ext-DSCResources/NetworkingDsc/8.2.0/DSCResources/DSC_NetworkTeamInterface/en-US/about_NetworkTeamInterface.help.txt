@@ -1,0 +1,83 @@
+.NAME
+    NetworkTeamInterface
+
+.DESCRIPTION
+    This resource is used to add network interfaces to a network team.
+
+.PARAMETER Name
+    Key - String
+    Specifies the name of the network team interface to create.
+
+.PARAMETER TeamName
+    Required - String
+    Specifies the name of the network team on which this particular interface should exist.
+
+.PARAMETER VlanId
+    Write - UInt32
+    Specifies VLAN ID to be set on network team interface.
+
+.PARAMETER Ensure
+    Write - String
+    Allowed values: Present, Absent
+    Specifies if the network team interface should be created or deleted. Defaults to 'Present'.
+
+.EXAMPLE 1
+
+Add New Network Team Interface.
+
+Configuration NetworkTeamInterface_AddInterface_Config
+{
+    Import-DSCResource -ModuleName NetworkingDsc
+
+    Node localhost
+    {
+        NetworkTeam HostTeam
+        {
+            Name = 'HostTeam'
+            TeamingMode = 'SwitchIndependent'
+            LoadBalancingAlgorithm = 'HyperVPort'
+            TeamMembers = 'NIC1','NIC2'
+            Ensure = 'Present'
+        }
+
+        NetworkTeamInterface NewInterface
+        {
+            Name = 'NewInterface'
+            TeamName = 'HostTeam'
+            VlanID = 100
+            Ensure = 'Present'
+            DependsOn = '[NetworkTeam]HostTeam'
+        }
+    }
+}
+
+.EXAMPLE 2
+
+Remove a Network Team Interface.
+
+Configuration NetworkTeamInterface_RemoveInterface_Config
+{
+    Import-DSCResource -ModuleName NetworkingDsc
+
+    Node localhost
+    {
+        NetworkTeam HostTeam
+        {
+          Name = 'HostTeam'
+          TeamingMode = 'SwitchIndependent'
+          LoadBalancingAlgorithm = 'HyperVPort'
+          TeamMembers = 'NIC1','NIC2'
+          Ensure = 'Present'
+        }
+
+        NetworkTeamInterface NewInterface
+        {
+            Name = 'NewInterface'
+            TeamName = 'HostTeam'
+            Ensure = 'Absent'
+            DependsOn = '[NetworkTeam]HostTeam'
+        }
+    }
+}
+
+

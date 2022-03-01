@@ -1,0 +1,215 @@
+.NAME
+    Computer
+
+.DESCRIPTION
+    The resource allows you to configure a computer by changing its name and
+    description and modifying its Active Directory domain or workgroup membership.
+
+.PARAMETER Name
+    Key - String
+    The desired computer name.
+
+.PARAMETER DomainName
+    Write - String
+    The name of the domain to join.
+
+.PARAMETER JoinOU
+    Write - String
+    The distinguished name of the organizational unit that the computer account will be created in.
+
+.PARAMETER Credential
+    Write - Instance
+    Credential to be used to join a domain.
+
+.PARAMETER UnjoinCredential
+    Write - Instance
+    Credential to be used to leave a domain.
+
+.PARAMETER WorkGroupName
+    Write - String
+    The name of the workgroup.
+
+.PARAMETER Description
+    Write - String
+    The value assigned here will be set as the local computer description.
+
+.PARAMETER Server
+    Write - String
+    The Active Directory Domain Controller to use to join the domain
+
+.PARAMETER CurrentOU
+    Read - String
+    A read-only property that specifies the organizational unit that the computer account is currently in.
+
+.EXAMPLE 1
+
+This configuration will set the computer name to 'Server01'
+and make it part of 'ContosoWorkgroup' Workgroup.
+
+Configuration Computer_RenameComputerAndSetWorkgroup_Config
+{
+    Import-DscResource -Module ComputerManagementDsc
+
+    Node localhost
+    {
+        Computer NewNameAndWorkgroup
+        {
+            Name          = 'Server01'
+            WorkGroupName = 'ContosoWorkgroup'
+        }
+    }
+}
+
+.EXAMPLE 2
+
+This configuration sets the machine name to 'Server01' and
+joins the 'Contoso' domain.
+Note: this requires an AD credential to join the domain.
+
+Configuration Computer_JoinDomain_Config
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullorEmpty()]
+        [System.Management.Automation.PSCredential]
+        $Credential
+    )
+
+    Import-DscResource -Module ComputerManagementDsc
+
+    Node localhost
+    {
+        Computer JoinDomain
+        {
+            Name       = 'Server01'
+            DomainName = 'Contoso'
+            Credential = $Credential # Credential to join to domain
+        }
+    }
+}
+
+.EXAMPLE 3
+
+This example will change the machines name 'Server01' while remaining
+joined to the current domain.
+Note: this requires a credential for renaming the machine on the
+domain.
+
+Configuration Computer_RenameComputerInDomain_Config
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullorEmpty()]
+        [System.Management.Automation.PSCredential]
+        $Credential
+    )
+
+    Import-DscResource -Module ComputerManagementDsc
+
+    Node localhost
+    {
+        Computer NewName
+        {
+            Name       = 'Server01'
+            Credential = $Credential # Domain credential
+        }
+    }
+}
+
+.EXAMPLE 4
+
+This example will set the machine name to 'Server01' while remaining
+in the workgroup.
+
+Configuration Computer_RenameComputerInWorkgroup_Config
+{
+    Import-DscResource -Module ComputerManagementDsc
+
+    Node localhost
+    {
+        Computer NewName
+        {
+            Name = 'Server01'
+        }
+    }
+}
+
+.EXAMPLE 5
+
+This example switches the computer 'Server01' from a domain and joins it
+to the 'ContosoWorkgroup' Workgroup.
+Note: this requires a credential.
+
+Configuration Computer_UnjoinDomainAndJoinWorkgroup_Config
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullorEmpty()]
+        [System.Management.Automation.PSCredential]
+        $Credential
+    )
+
+    Import-DscResource -Module ComputerManagementDsc
+
+    Node localhost
+    {
+        Computer JoinWorkgroup
+        {
+            Name          = 'Server01'
+            WorkGroupName = 'ContosoWorkgroup'
+            Credential    = $Credential # Credential to unjoin from domain
+        }
+    }
+}
+
+.EXAMPLE 6
+
+This example will set the computer description.
+
+Configuration Computer_SetComputerDescriptionInWorkgroup_Config
+{
+    Import-DscResource -Module ComputerManagementDsc
+
+    Node localhost
+    {
+        Computer NewDescription
+        {
+            Name        = 'localhost'
+            Description = 'This is my computer.'
+        }
+    }
+}
+
+.EXAMPLE 7
+
+This configuration sets the machine name to 'Server01' and
+joins the 'Contoso' domain using the domain controller 'dc1.contoso.com'.
+Note: this requires an AD credential to join the domain.
+
+Configuration Computer_JoinDomainSpecifyingDC_Config
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullorEmpty()]
+        [System.Management.Automation.PSCredential]
+        $Credential
+    )
+
+    Import-DscResource -Module ComputerManagementDsc
+
+    Node localhost
+    {
+        Computer JoinDomain
+        {
+            Name       = 'Server01'
+            DomainName = 'Contoso'
+            Credential = $Credential # Credential to join to domain
+            Server     = 'dc1.contoso.com'
+        }
+    }
+}
+

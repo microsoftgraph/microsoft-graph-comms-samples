@@ -1,0 +1,7 @@
+[ClassVersion("1.0.0"), FriendlyName("xIisFeatureDelegation")]
+class MSFT_xIisFeatureDelegation : OMI_BaseResource
+{
+  [Key, Description("Specifies the configuration path. This can be either an IIS configuration path in the format computer machine/webroot/apphost, or the IIS module path in this format IIS:\\sites\\Default Web Site.")] String Path;
+  [Key, Description("Specifies the IIS configuration section to lock or unlock.")] String Filter;
+  [Required, Description("Determines whether to lock or unlock the specified section."), ValueMap{"Allow", "Deny"}, Values{"Allow", "Deny"}] string OverrideMode;
+};

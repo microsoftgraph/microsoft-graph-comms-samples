@@ -1,0 +1,52 @@
+.NAME
+    NetAdapterState
+
+.DESCRIPTION
+    This resource is used to enable or disable a network adapter.
+
+.PARAMETER Name
+    Key - String
+    Specifies the name of network adapter.
+
+.PARAMETER State
+    Required - String
+    Allowed values: Enabled, Disabled
+    Specifies the desired state of the network adapter
+
+.EXAMPLE 1
+
+This configuration enables the network adapter named Ethernet.
+
+Configuration NetAdapterState_Enable_Config
+{
+    Import-DSCResource -ModuleName NetworkingDsc
+
+    Node localhost
+    {
+        NetAdapterState EnableEthernet
+        {
+            Name     = 'Ethernet'
+            State    = 'Enabled'
+        }
+    }
+}
+
+.EXAMPLE 2
+
+This configuration disables the network adapter named Ethernet.
+
+Configuration NetAdapterState_Disable_Config
+{
+    Import-DSCResource -ModuleName NetworkingDsc
+
+    Node localhost
+    {
+        NetAdapterState EnableEthernet
+        {
+            Name     = 'Ethernet'
+            State    = 'Disabled'
+        }
+    }
+}
+
+

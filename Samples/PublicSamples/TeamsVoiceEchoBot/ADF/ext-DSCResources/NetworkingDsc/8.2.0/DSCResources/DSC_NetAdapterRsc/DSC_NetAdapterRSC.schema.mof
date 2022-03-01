@@ -1,0 +1,9 @@
+[ClassVersion("1.0.0.0"), FriendlyName("NetAdapterRsc")]
+class DSC_NetAdapterRsc : OMI_BaseResource
+{
+    [Key, Description("Specifies the Name of network adapter.")] String Name;
+    [Required, Description("Specifies which protocol to make changes to."), ValueMap{"IPv4","IPv6","All"}, Values{"IPv4","IPv6","All"}] String Protocol;
+    [Required, Description("Specifies whether RSC should be enabled or disabled.")] Boolean State;
+    [Read, Description("Returns the current state of RSC for IPv4")] String StateIPv4;
+    [Read, Description("Returns the current state of RSC for IPv6")] String StateIPv6;
+};

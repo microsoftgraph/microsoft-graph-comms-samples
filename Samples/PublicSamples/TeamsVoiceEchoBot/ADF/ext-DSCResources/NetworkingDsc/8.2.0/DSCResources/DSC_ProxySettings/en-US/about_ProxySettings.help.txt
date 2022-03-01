@@ -1,0 +1,121 @@
+.NAME
+    ProxySettings
+
+.DESCRIPTION
+    The resource is used to configure internet proxy settings for a computer.
+
+.PARAMETER IsSingleInstance
+    Key - String
+    Allowed values: Yes
+    Specifies the resource is a single instance, the value must be 'Yes'.
+
+.PARAMETER Ensure
+    Write - String
+    Allowed values: Present, Absent
+    Specifies if computer proxy settings should be set. Defaults to 'Present'.
+
+.PARAMETER ConnectionType
+    Write - String
+    Allowed values: All, Default, Legacy
+    Defines if the proxy settings should be configured for default connections, legacy connections or all connections. Defaults to 'All'.
+
+.PARAMETER EnableAutoDetection
+    Write - Boolean
+    Enable automatic detection of the proxy settings. Defaults to 'False'.
+
+.PARAMETER EnableAutoConfiguration
+    Write - Boolean
+    Use automatic configuration script for specifying proxy settings. Defaults to 'False'.
+
+.PARAMETER EnableManualProxy
+    Write - Boolean
+    Use manual proxy server settings. Defaults to 'False'.
+
+.PARAMETER AutoConfigURL
+    Write - String
+    The URL of the automatic configuration script to specify the proxy settings. Should be specified if 'EnableAutoConfiguration' is 'True'.
+
+.PARAMETER ProxyServer
+    Write - String
+    The address and port of the manual proxy server to use. Should be specified if 'EnableManualProxy' is 'True'.
+
+.PARAMETER ProxyServerExceptions
+    Write - StringArray
+    Bypass proxy server for addresses starting with addresses in this list.
+
+.PARAMETER ProxyServerBypassLocal
+    Write - Boolean
+    Bypass proxy server for local addresses. Defaults to 'False'.
+
+.EXAMPLE 1
+
+Sets the computer to automatically detect the proxy settings.
+
+Configuration ProxySettings_AutoDetectProxy_Config
+{
+    Import-DSCResource -ModuleName NetworkingDsc
+
+    Node localhost
+    {
+        ProxySettings AutoDetectProxy
+        {
+            IsSingleInstance        = 'Yes'
+            Ensure                  = 'Present'
+            EnableAutoDetection     = $true
+            EnableAutoConfiguration = $false
+            EnableManualProxy       = $false
+        }
+    }
+}
+
+.EXAMPLE 2
+
+Sets the computer to use an automatic WPAD configuration script that will
+be downloaded from the URL 'http://wpad.contoso.com/wpad.dat'.
+
+Configuration ProxySettings_AutoConfigurationProxy_Config
+{
+    Import-DSCResource -ModuleName NetworkingDsc
+
+    Node localhost
+    {
+        ProxySettings AutoConfigurationProxy
+        {
+            IsSingleInstance        = 'Yes'
+            Ensure                  = 'Present'
+            EnableAutoDetection     = $false
+            EnableAutoConfiguration = $true
+            EnableManualProxy       = $false
+            AutoConfigURL           = 'http://wpad.contoso.com/wpad.dat'
+        }
+    }
+}
+
+.EXAMPLE 3
+
+Sets the computer to use a manually configured proxy server
+with the address 'proxy.contoso.com' on port 8888. Traffic to addresses
+starting with 'web1' or 'web2' or any local addresses will not be sent
+to the proxy.
+
+Configuration ProxySettings_ManualProxy_Config
+{
+    Import-DSCResource -ModuleName NetworkingDsc
+
+    Node localhost
+    {
+        ProxySettings ManualProxy
+        {
+            IsSingleInstance        = 'Yes'
+            Ensure                  = 'Present'
+            EnableAutoDetection     = $false
+            EnableAutoConfiguration = $false
+            EnableManualProxy       = $true
+            ProxyServer             = 'proxy.contoso.com:8888'
+            ProxyServerExceptions   = 'web1', 'web2'
+            ProxyServerBypassLocal  = $true
+        }
+    }
+}
+
+

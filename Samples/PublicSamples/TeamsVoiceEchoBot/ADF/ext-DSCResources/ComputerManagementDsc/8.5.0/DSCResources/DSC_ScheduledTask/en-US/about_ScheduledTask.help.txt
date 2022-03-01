@@ -1,0 +1,678 @@
+.NAME
+    ScheduledTask
+
+.DESCRIPTION
+    The resource is used to define basic run once or recurring scheduled tasks
+    on the local computer. It can also be used to delete or disable built-in
+    scheduled tasks.
+
+    ## Known Issues
+
+    One of the values needed for the `MultipleInstances` parameter is missing from the
+    `Microsoft.PowerShell.Cmdletization.GeneratedTypes.ScheduledTask.MultipleInstancesEnum`
+    enumerator. There are four valid values defined for the `MultipleInstances` property of the
+    Task Settings ([TaskSettings.MultipleInstances Property](https://docs.microsoft.com/en-us/windows/win32/taskschd/tasksettings-multipleinstances "TaskSettings.MultipleInstances Property")).
+    The `MultipleInstancesEnum` enumerator has three values, which can be mapped to three
+    of the four valid values, but there is no value corresponding to `TASK_INSTANCES_STOP_EXISTING`.
+    The result of this omission is that a workaround is required to
+    accommodate the `StopExisting` value for the `MultipleInstances` parameter,
+    which would not be necessary if the enumerator had all four valid values.
+
+    ### ExecuteAsCredential
+
+    #### When Using a BUILTIN Group
+
+    When creating a scheduled task that uses an `ExecuteAsCredential` that
+    is one of the 'BUILTIN' groups (e.g. 'BUILTIN\Users'), specifying the
+    username to include the 'BUILTIN' domain name will result in the resource
+    never going into state. The same behavior will also occur if setting a
+    'BUILTIN' group in the UI.
+
+    To prevent this issue, set the username in the `ExecuteAsCredential` to the
+    name of the group only (e.g. 'Users').
+
+    #### When Using a Domain User/Group
+
+    When creating a scheduled task that uses an `ExecuteAsCredential` that
+    is a domain user or group, (e.g. 'CONTOSO\ServiceUser'), the domain
+    name must be included, otherwise the resource will not go into state.
+
+    To prevent this issue, set the username in the `ExecuteAsCredential` to the
+    name of the group only (e.g. 'CONTOSO\ServiceUser').
+
+.PARAMETER TaskName
+    Key - String
+    The name of the task.
+
+.PARAMETER TaskPath
+    Write - String
+    The path to the task - defaults to the root directory.
+
+.PARAMETER Description
+    Write - String
+    The task description.
+
+.PARAMETER ActionExecutable
+    Write - String
+    The path to the .exe for this task.
+
+.PARAMETER ActionArguments
+    Write - String
+    The arguments to pass the executable.
+
+.PARAMETER ActionWorkingPath
+    Write - String
+    The working path to specify for the executable.
+
+.PARAMETER ScheduleType
+    Write - String
+    Allowed values: Once, Daily, Weekly, AtStartup, AtLogOn, OnEvent
+    When should the task be executed.
+
+.PARAMETER RepeatInterval
+    Write - String
+    How many units (minutes, hours, days) between each run of this task?
+
+.PARAMETER StartTime
+    Write - DateTime
+    The time of day this task should start at - defaults to 12:00 AM. Not valid for AtLogon and AtStartup tasks.
+
+.PARAMETER SynchronizeAcrossTimeZone
+    Write - Boolean
+    Enable the scheduled task option to synchronize across time zones. This is enabled by including the timezone offset in the scheduled task trigger. Defaults to false which does not include the timezone offset.
+
+.PARAMETER Ensure
+    Write - String
+    Allowed values: Present, Absent
+    Present if the task should exist, Absent if it should be removed.
+
+.PARAMETER Enable
+    Write - Boolean
+    True if the task should be enabled, false if it should be disabled.
+
+.PARAMETER BuiltInAccount
+    Write - String
+    Allowed values: SYSTEM, LOCAL SERVICE, NETWORK SERVICE
+    Run the task as one of the built in service accounts. When set ExecuteAsCredential will be ignored and LogonType will be set to 'ServiceAccount'.
+
+.PARAMETER ExecuteAsCredential
+    Write - Instance
+    The credential this task should execute as. If not specified defaults to running as the local system account.
+
+.PARAMETER ExecuteAsGMSA
+    Write - String
+    The gMSA (Group Managed Service Account) this task should execute as. Cannot be used in combination with ExecuteAsCredential or BuiltInAccount.
+
+.PARAMETER DaysInterval
+    Write - UInt32
+    Specifies the interval between the days in the schedule. An interval of 1 produces a daily schedule. An interval of 2 produces an every-other day schedule.
+
+.PARAMETER RandomDelay
+    Write - String
+    Specifies a random amount of time to delay the start time of the trigger. The delay time is a random time between the time the task triggers and the time that you specify in this setting.
+
+.PARAMETER RepetitionDuration
+    Write - String
+    Specifies how long the repetition pattern repeats after the task starts. May be set to `Indefinitely` to specify an indefinite duration.
+
+.PARAMETER DaysOfWeek
+    Write - StringArray
+    Specifies an array of the days of the week on which Task Scheduler runs the task.
+
+.PARAMETER WeeksInterval
+    Write - UInt32
+    Specifies the interval between the weeks in the schedule. An interval of 1 produces a weekly schedule. An interval of 2 produces an every-other week schedule.
+
+.PARAMETER User
+    Write - String
+    Specifies the identifier of the user for a trigger that starts a task when a user logs on.
+
+.PARAMETER DisallowDemandStart
+    Write - Boolean
+    Indicates whether the task is prohibited to run on demand or not. Defaults to $false.
+
+.PARAMETER DisallowHardTerminate
+    Write - Boolean
+    Indicates whether the task is prohibited to be terminated or not. Defaults to $false.
+
+.PARAMETER Compatibility
+    Write - String
+    Allowed values: AT, V1, Vista, Win7, Win8
+    The task compatibility level. Defaults to Vista.
+
+.PARAMETER AllowStartIfOnBatteries
+    Write - Boolean
+    Indicates whether the task should start if the machine is on batteries or not. Defaults to $false.
+
+.PARAMETER Hidden
+    Write - Boolean
+    Indicates that the task is hidden in the Task Scheduler UI.
+
+.PARAMETER RunOnlyIfIdle
+    Write - Boolean
+    Indicates that Task Scheduler runs the task only when the computer is idle.
+
+.PARAMETER IdleWaitTimeout
+    Write - String
+    Specifies the amount of time that Task Scheduler waits for an idle condition to occur.
+
+.PARAMETER NetworkName
+    Write - String
+    Specifies the name of a network profile that Task Scheduler uses to determine if the task can run. The Task Scheduler UI uses this setting for display purposes. Specify a network name if you specify the RunOnlyIfNetworkAvailable parameter.
+
+.PARAMETER DisallowStartOnRemoteAppSession
+    Write - Boolean
+    Indicates that the task does not start if the task is triggered to run in a Remote Applications Integrated Locally (RAIL) session.
+
+.PARAMETER StartWhenAvailable
+    Write - Boolean
+    Indicates that Task Scheduler can start the task at any time after its scheduled time has passed.
+
+.PARAMETER DontStopIfGoingOnBatteries
+    Write - Boolean
+    Indicates that the task does not stop if the computer switches to battery power.
+
+.PARAMETER WakeToRun
+    Write - Boolean
+    Indicates that Task Scheduler wakes the computer before it runs the task.
+
+.PARAMETER IdleDuration
+    Write - String
+    Specifies the amount of time that the computer must be in an idle state before Task Scheduler runs the task.
+
+.PARAMETER RestartOnIdle
+    Write - Boolean
+    Indicates that Task Scheduler restarts the task when the computer cycles into an idle condition more than once.
+
+.PARAMETER DontStopOnIdleEnd
+    Write - Boolean
+    Indicates that Task Scheduler does not terminate the task if the idle condition ends before the task is completed.
+
+.PARAMETER ExecutionTimeLimit
+    Write - String
+    Specifies the amount of time that Task Scheduler is allowed to complete the task.
+
+.PARAMETER MultipleInstances
+    Write - String
+    Allowed values: IgnoreNew, Parallel, Queue, StopExisting
+    Specifies the policy that defines how Task Scheduler handles multiple instances of the task.
+
+.PARAMETER Priority
+    Write - UInt32
+    Specifies the priority level of the task. Priority must be an integer from 0 (highest priority) to 10 (lowest priority). The default value is 7. Priority levels 7 and 8 are used for background tasks. Priority levels 4, 5, and 6 are used for interactive tasks.
+
+.PARAMETER RestartCount
+    Write - UInt32
+    Specifies the number of times that Task Scheduler attempts to restart the task.
+
+.PARAMETER RestartInterval
+    Write - String
+    Specifies the amount of time that Task Scheduler attempts to restart the task.
+
+.PARAMETER RunOnlyIfNetworkAvailable
+    Write - Boolean
+    Indicates that Task Scheduler runs the task only when a network is available. Task Scheduler uses the NetworkID parameter and NetworkName parameter that you specify in this cmdlet to determine if the network is available.
+
+.PARAMETER RunLevel
+    Write - String
+    Allowed values: Limited, Highest
+    Specifies the level of user rights that Task Scheduler uses to run the tasks that are associated with the principal. Defaults to 'Limited'.
+
+.PARAMETER LogonType
+    Write - String
+    Allowed values: Group, Interactive, InteractiveOrPassword, None, Password, S4U, ServiceAccount
+    Specifies the security logon method that Task Scheduler uses to run the tasks that are associated with the principal.
+
+.PARAMETER EventSubscription
+    Write - String
+    Specifies the EventSubscription in XML. This can be easily generated using the Windows Eventlog Viewer. For the query schema please check: https://docs.microsoft.com/en-us/windows/desktop/WES/queryschema-schema. Can only be used in combination with ScheduleType OnEvent.
+
+.PARAMETER Delay
+    Write - String
+    Specifies a delay to the start of the trigger. The delay is a static delay before the task is executed. Can only be used in combination with ScheduleType OnEvent.
+
+.EXAMPLE 1
+
+This example creates a scheduled task called 'Test task Once' in the folder
+task folder 'MyTasks' that starts a new powershell process once at 00:00 repeating
+every 15 minutes for 8 hours. The task is delayed by a random amount up to 1 hour
+each time. The task will run even if the previous task is still running and it
+will prevent hard termintaing of the previously running task instance. The task
+execution will have no time limit.
+
+Configuration ScheduledTask_CreateScheduledTaskOnce_Config
+{
+    Import-DscResource -ModuleName ComputerManagementDsc
+
+    Node localhost
+    {
+        ScheduledTask ScheduledTaskOnceAdd
+        {
+            TaskName              = 'Test task Once'
+            TaskPath              = '\MyTasks'
+            ActionExecutable      = 'C:\windows\system32\WindowsPowerShell\v1.0\powershell.exe'
+            ScheduleType          = 'Once'
+            RepeatInterval        = '00:15:00'
+            RepetitionDuration    = '08:00:00'
+            ExecutionTimeLimit    = '00:00:00'
+            ActionWorkingPath     = (Get-Location).Path
+            Enable                = $true
+            RandomDelay           = '01:00:00'
+            DisallowHardTerminate = $true
+            RunOnlyIfIdle         = $false
+            Priority              = 9
+        }
+    }
+}
+
+.EXAMPLE 2
+
+This example creates a scheduled task called 'Test task interactive' in the folder
+task folder 'MyTasks' that starts a new powershell process once. The task will
+execute using the credential passed into the $Credential parameter, but only when
+the user contained in the $Credential is logged on.
+
+Configuration ScheduledTask_RunPowerShellTaskOnceAsUserInteractiveOnly_Config
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullorEmpty()]
+        [System.Management.Automation.PSCredential]
+        $Credential
+    )
+
+    Import-DscResource -ModuleName ComputerManagementDsc
+
+    Node localhost
+    {
+        ScheduledTask MaintenanceScriptExample
+        {
+            TaskName            = 'Test task Interactive'
+            TaskPath            = '\MyTasks'
+            ActionExecutable    = 'C:\windows\system32\WindowsPowerShell\v1.0\powershell.exe'
+            ScheduleType        = 'Once'
+            ActionWorkingPath   = (Get-Location).Path
+            Enable              = $true
+            ExecuteAsCredential = $Credential
+            LogonType           = 'Interactive'
+        }
+    }
+}
+
+.EXAMPLE 3
+
+This example disables the built-in scheduled task called
+'CreateExplorerShellUnelevatedTask'.
+
+Configuration ScheduledTask_DisableABuiltInTask_Config
+{
+    Import-DscResource -ModuleName ComputerManagementDsc
+
+    Node localhost
+    {
+        ScheduledTask DisableCreateExplorerShellUnelevatedTask
+        {
+            TaskName            = 'CreateExplorerShellUnelevatedTask'
+            TaskPath            = '\'
+            Enable              = $false
+        }
+    }
+}
+
+.EXAMPLE 4
+
+This example deletes the built-in scheduled task called
+'CreateExplorerShellUnelevatedTask'.
+
+Configuration ScheduledTask_DeleteABuiltInTask_Config
+{
+    Import-DscResource -ModuleName ComputerManagementDsc
+
+    Node localhost
+    {
+        ScheduledTask DeleteCreateExplorerShellUnelevatedTask
+        {
+            TaskName            = 'CreateExplorerShellUnelevatedTask'
+            TaskPath            = '\'
+            Ensure              = 'Absent'
+        }
+    }
+}
+
+.EXAMPLE 5
+
+This example creates a scheduled task called 'TriggerOnServiceFailures' in the folder
+root folder. The task is delayed by exactly 30 seconds each time. The task will run when
+an error event 7001 of source Service Control Manager is generated in the system log.
+When a service crashes, it waits for 30 seconds and then starts a new PowerShell instance,
+in which the file c:\temp\seeme.txt get's created with the value 'Worked!'
+
+Configuration ScheduledTask_CreateScheduledTasksOnEvent_Config
+{
+    Import-DscResource -ModuleName ComputerManagementDsc
+
+    Node localhost
+    {
+        ScheduledTask ServiceEventManager
+        {
+            TaskName = 'TriggerOnServiceFailures'
+            Ensure = 'Present'
+            ScheduleType = 'OnEvent'
+            ActionExecutable = 'C:\windows\system32\WindowsPowerShell\v1.0\powershell.exe'
+            ActionArguments = '-Command Set-Content -Path c:\temp\seeme.txt -Value ''Worked!'''
+            EventSubscription = '<QueryList><Query Id="0" Path="System"><Select Path="System">*[System[Provider[@Name=''Service Control Manager''] and (Level=2) and (EventID=7001)]]</Select></Query></QueryList>'
+            Delay = '00:00:30'
+        }
+    }
+}
+
+.EXAMPLE 6
+
+This example creates a scheduled task called 'Test task Run As gMSA'
+in the folder task folder 'MyTasks' that starts a new powershell process once.
+The task will run as the user passed into the ExecuteAsGMSA parameter.
+
+Configuration ScheduledTask_RunPowerShellTaskOnceAsGroupManagedServiceAccount_Config
+{
+    param
+    (
+        # Group Managed Service Account must be in the form of DOMAIN\gMSA$ or user@domain.fqdn (UPN)
+        [Parameter()]
+        [ValidatePattern('^\w+\\\w+\$$|\w+@\w+\.\w+')]
+        [System.String]
+        $GroupManagedServiceAccount = 'DOMAIN\gMSA$'
+    )
+
+    Import-DscResource -ModuleName ComputerManagementDsc
+
+    Node localhost
+    {
+        ScheduledTask MaintenanceScriptExample
+        {
+            TaskName            = 'Test task Run As gMSA'
+            TaskPath            = '\MyTasks'
+            ActionExecutable    = 'C:\windows\system32\WindowsPowerShell\v1.0\powershell.exe'
+            ScheduleType        = 'Once'
+            ActionWorkingPath   = (Get-Location).Path
+            Enable              = $true
+            ExecuteAsGMSA       = $GroupManagedServiceAccount
+        }
+    }
+}
+
+.EXAMPLE 7
+
+This example creates a scheduled task called 'Test task sync across time zone enabled'
+in the folder 'MyTasks' that starts a new powershell process once 2018-10-01 01:00
+The task will have the option Synchronize across time zone enabled.
+
+Configuration ScheduledTask_CreateScheduledTaskOnceSynchronizeAcrossTimeZoneEnabled_Config
+{
+    Import-DscResource -ModuleName ComputerManagementDsc
+
+    Node localhost
+    {
+        ScheduledTask ScheduledTaskOnceSynchronizeAcrossTimeZoneEnabled
+        {
+            TaskName                  = 'Test task sync across time zone enabled'
+            TaskPath                  = '\MyTasks\'
+            ActionExecutable          = 'C:\windows\system32\WindowsPowerShell\v1.0\powershell.exe'
+            ScheduleType              = 'Once'
+            StartTime                 = '2018-10-01T01:00:00'
+            SynchronizeAcrossTimeZone = $true
+            ActionWorkingPath         = (Get-Location).Path
+            Enable                    = $true
+        }
+    }
+}
+
+.EXAMPLE 8
+
+This example creates a scheduled task called 'Test As NetworkService' in
+the folder root folder. The task is set to run every 15 minutes.
+When run the task will start a new PowerShell instance running as the
+builtin user NETWORK SERVICE.
+The PowerShell instance will write the value of $env:USERNAME to the
+file c:\temp\seeme.txt.
+The contents of c:\temp\seeme.txt should be "NETWORK SERVICE".
+
+Configuration ScheduledTask_CreateScheduledTasksAsBuiltInServiceAccount_Config
+{
+    Import-DscResource -ModuleName ComputerManagementDsc
+
+    Node localhost
+    {
+        ScheduledTask ScheduledTaskAsNetworkService
+        {
+            TaskName           = 'Test As NetworkService'
+            Ensure             = 'Present'
+            ActionExecutable   = 'C:\windows\system32\WindowsPowerShell\v1.0\powershell.exe'
+            ActionArguments    = '-Command Set-Content -Path c:\temp\seeme.txt -Value $env:USERNAME -Force'
+            ScheduleType       = 'Once'
+            RepeatInterval     = '00:15:00'
+            RepetitionDuration = '4.00:00:00'
+            BuiltInAccount     = 'NETWORK SERVICE'
+        }
+    }
+}
+
+
+.EXAMPLE 9
+
+This example creates a scheduled task called 'Test task Daily' in the folder
+task folder 'MyTasks' that starts a new powershell process every day at 00:00 repeating
+every 15 minutes for 8 hours. If the task fails it will be restarted after 5 minutes
+and it will be restarted a maximum of two times. It will only run if the network
+is connected and will wake the machine up to execute the task.
+
+Configuration ScheduledTask_CreateScheduledTaskDaily_Config
+{
+    Import-DscResource -ModuleName ComputerManagementDsc
+
+    Node localhost
+    {
+        ScheduledTask ScheduledTaskDailyAdd
+        {
+            TaskName                  = 'Test task Daily'
+            TaskPath                  = '\MyTasks'
+            ActionExecutable          = 'C:\windows\system32\WindowsPowerShell\v1.0\powershell.exe'
+            ScheduleType              = 'Daily'
+            DaysInterval              = 1
+            RepeatInterval            = '00:15:00'
+            RepetitionDuration        = '08:00:00'
+            RestartCount              = 2
+            RestartInterval           = '00:05:00'
+            RunOnlyIfNetworkAvailable = $true
+            WakeToRun                 = $true
+        }
+    }
+}
+
+.EXAMPLE 10
+
+This example creates a scheduled task called 'Test task Daily Indefinitely' in the folder
+task folder 'MyTasks' that starts a new powershell process every day at 00:00 repeating
+every 15 minutes indefinitely.
+
+Configuration ScheduledTask_CreateScheduledTasksDailyIndefinitely_Config
+{
+    Import-DscResource -ModuleName ComputerManagementDsc
+
+    Node localhost
+    {
+        ScheduledTask ScheduledTaskDailyIndefinitelyAdd
+        {
+            TaskName           = 'Test task Daily Indefinitely'
+            TaskPath           = '\MyTasks'
+            ActionExecutable   = 'C:\windows\system32\WindowsPowerShell\v1.0\powershell.exe'
+            ScheduleType       = 'Daily'
+            DaysInterval       = 1
+            RepeatInterval     = '00:15:00'
+            RepetitionDuration = 'Indefinitely'
+        }
+    }
+}
+
+.EXAMPLE 11
+
+This example creates a scheduled task called 'Test task Weekly' in the folder
+task folder 'MyTasks' that starts a new powershell process every week on
+Monday, Wednesday and Saturday at 00:00 repeating every 15 minutes for 8 hours.
+The task will be hidden and will be allowed to start if the machine is running
+on batteries. The task will be compatible with Windows 8.
+
+Configuration ScheduledTask_CreateScheduledTasksWeekly_Config
+{
+    Import-DscResource -ModuleName ComputerManagementDsc
+
+    Node localhost
+    {
+        ScheduledTask ScheduledTaskWeeklyAdd
+        {
+            TaskName                = 'Test task Weekly'
+            TaskPath                = '\MyTasks'
+            ActionExecutable        = 'C:\windows\system32\WindowsPowerShell\v1.0\powershell.exe'
+            ScheduleType            = 'Weekly'
+            WeeksInterval           = 1
+            DaysOfWeek              = 'Monday', 'Wednesday', 'Saturday'
+            RepeatInterval          = '00:15:00'
+            RepetitionDuration      = '08:00:00'
+            AllowStartIfOnBatteries = $true
+            Compatibility           = 'Win8'
+            Hidden                  = $true
+        }
+    }
+}
+
+.EXAMPLE 12
+
+This example creates a scheduled task called 'Test task Logon' in the folder
+task folder 'MyTasks' that starts a new powershell process when the machine
+is logged on repeating every 15 minutes for 8 hours.
+
+Configuration ScheduledTask_CreateScheduledTasksAtLogon_Config
+{
+    Import-DscResource -ModuleName ComputerManagementDsc
+
+    Node localhost
+    {
+        ScheduledTask ScheduledTaskLogonAdd
+        {
+            TaskName           = 'Test task Logon'
+            TaskPath           = '\MyTasks'
+            ActionExecutable   = 'C:\windows\system32\WindowsPowerShell\v1.0\powershell.exe'
+            ScheduleType       = 'AtLogOn'
+            RepeatInterval     = '00:15:00'
+            RepetitionDuration = '08:00:00'
+        }
+    }
+}
+
+.EXAMPLE 13
+
+This example creates a scheduled task called 'Test task Startup' in the folder
+task folder 'MyTasks' that starts a new powershell process when the machine
+is started up repeating every 15 minutes for 8 hours.
+
+Configuration ScheduledTask_CreateScheduledTasksAtStartup_Config
+{
+    Import-DscResource -ModuleName ComputerManagementDsc
+
+    Node localhost
+    {
+        ScheduledTask ScheduledTaskStartupAdd
+        {
+            TaskName           = 'Test task Startup'
+            TaskPath           = '\MyTasks'
+            ActionExecutable   = 'C:\windows\system32\WindowsPowerShell\v1.0\powershell.exe'
+            ScheduleType       = 'AtStartup'
+            RepeatInterval     = '00:15:00'
+            RepetitionDuration = '08:00:00'
+        }
+    }
+}
+
+.EXAMPLE 14
+
+This example will create a scheduled task that will call PowerShell.exe every 15
+minutes for 4 days to run a script saved locally. The task will start immediately.
+The script will be called as the local system account.
+
+Configuration ScheduledTask_RunPowerShellTaskEvery15Minutes_Config
+{
+    Import-DscResource -ModuleName ComputerManagementDsc
+
+    Node localhost
+    {
+        ScheduledTask MaintenanceScriptExample
+        {
+          TaskName           = "Custom maintenance tasks"
+          ActionExecutable   = "C:\windows\system32\WindowsPowerShell\v1.0\powershell.exe"
+          ActionArguments    = "-File `"C:\scripts\my custom script.ps1`""
+          ScheduleType       = 'Once'
+          RepeatInterval     = '00:15:00'
+          RepetitionDuration = '4.00:00:00'
+        }
+    }
+}
+
+.EXAMPLE 15
+
+This example will create a scheduled task that will call PowerShell.exe every 15
+minutes indefinitely to run a script saved locally. The task will start immediately.
+The script will be called as the local system account.
+
+Configuration ScheduledTask_RunPowerShellTaskEvery15MinutesIndefinitely_Config
+{
+    Import-DscResource -ModuleName ComputerManagementDsc
+
+    Node localhost
+    {
+        ScheduledTask MaintenanceScriptExample
+        {
+          TaskName           = "Custom maintenance tasks"
+          ActionExecutable   = "C:\windows\system32\WindowsPowerShell\v1.0\powershell.exe"
+          ActionArguments    = "-File `"C:\scripts\my custom script.ps1`""
+          ScheduleType       = 'Once'
+          RepeatInterval     = '00:15:00'
+          RepetitionDuration = 'Indefinitely'
+        }
+    }
+}
+
+.EXAMPLE 16
+
+This example creates a scheduled task called 'Test task Run As Highest Privilege'
+in the folder task folder 'MyTasks' that starts a new powershell process once.
+The task will run as the credential passed into the $Credential parameter, running
+with the highest privileges.
+
+Configuration ScheduledTask_RunPowerShellTaskOnceAsUserWithHighestPriveleges_Config
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullorEmpty()]
+        [System.Management.Automation.PSCredential]
+        $Credential
+    )
+
+    Import-DscResource -ModuleName ComputerManagementDsc
+
+    Node localhost
+    {
+        ScheduledTask MaintenanceScriptExample
+        {
+            TaskName            = 'Test task Run As Highest Privilege'
+            TaskPath            = '\MyTasks'
+            ActionExecutable    = 'C:\windows\system32\WindowsPowerShell\v1.0\powershell.exe'
+            ScheduleType        = 'Once'
+            ActionWorkingPath   = (Get-Location).Path
+            Enable              = $true
+            ExecuteAsCredential = $Credential
+            RunLevel            = 'Highest'
+        }
+    }
+}
+
