@@ -1,14 +1,10 @@
-﻿using Microsoft.Graph.Communications.Common.Telemetry;
-using Microsoft.Skype.Bots.Media;
+﻿using Microsoft.Skype.Bots.Media;
 using Sample.AudioVideoPlaybackBot.FrontEnd;
 using Sample.AudioVideoPlaybackBot.FrontEnd.Http;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AVPWindowsService
 {
@@ -19,10 +15,6 @@ namespace AVPWindowsService
     /// <seealso cref="EchoBot.Services.Contract.IAzureSettings" />
     public class WindowsServiceConfiguration : IConfiguration
     {
-        /// <summary>
-        /// Graph logger.
-        /// </summary>
-        private IGraphLogger Logger;
 
         /// <summary>
         /// Gets or sets the name of the bot.
@@ -162,9 +154,8 @@ namespace AVPWindowsService
         /// Initializes a new instance of the <see cref="AzureConfiguration"/> class.
         /// </summary>
         /// <param name="logger">Logger instance.</param>
-        public WindowsServiceConfiguration(IGraphLogger logger, EnvironmentVarConfigs envConfigs)
+        public WindowsServiceConfiguration(EnvironmentVarConfigs envConfigs)
         {
-            this.Logger = logger;
             this.MapEnvironmentVars(envConfigs);
             this.Initialize();
         }
@@ -203,7 +194,6 @@ namespace AVPWindowsService
             if (MediaInternalPort == 0) throw new ArgumentOutOfRangeException(nameof(MediaInternalPort));
 
             ServiceCname = ServiceDnsName;
-            this.Logger.Log(System.Diagnostics.TraceLevel.Info, "Fetching Certificate");
             X509Certificate2 defaultCertificate = this.GetCertificateFromStore();
 
             // localhost
@@ -219,7 +209,6 @@ namespace AVPWindowsService
 
             // Create structured config objects for service.
             this.CallControlBaseUrl = new Uri($"https://{this.ServiceCname}:{BotInstanceExternalPort}/{HttpRouteConstants.CallSignalingRoutePrefix}/{HttpRouteConstants.OnNotificationRequestRoute}");
-            this.TraceConfigValue("CallControlCallbackUri", this.CallControlBaseUrl);
 
             // http for local development or where certificate is not installed
             // https for running on VM
@@ -228,12 +217,6 @@ namespace AVPWindowsService
             controlListenUris.Add(new Uri($"{BotInternalHostingProtocol}://{baseDomain}:{BotInternalPort}/"));
             this.CallControlListeningUrls = controlListenUris;
 
-            foreach (Uri uri in this.CallControlListeningUrls)
-            {
-                this.TraceConfigValue("Call control listening Uri", uri);
-            }
-
-            this.Logger.Log(System.Diagnostics.TraceLevel.Info, "Initializing Media");
             this.MediaPlatformSettings = new MediaPlatformSettings()
             {
                 MediaPlatformInstanceSettings = new MediaPlatformInstanceSettings()
@@ -281,15 +264,6 @@ namespace AVPWindowsService
             }
             this.PlaceCallEndpointUrl = new Uri("https://graph.microsoft.com/v1.0");
 
-            this.Logger.Log(System.Diagnostics.TraceLevel.Info, $"Listening on: {botCallingExternalUrl} (New Incoming calls)");
-            this.Logger.Log(System.Diagnostics.TraceLevel.Info, $"Listening on: {botInstanceExternalUrl} (Existing calls notifications/updates)");
-            this.Logger.Log(System.Diagnostics.TraceLevel.Info, $"Listening on: net.tcp//{MediaDnsName}:{MediaInstanceExternalPort} (Media connection)");
-            this.Logger.Log(System.Diagnostics.TraceLevel.Info, $"-----INTERNAL-----");
-            this.Logger.Log(System.Diagnostics.TraceLevel.Info, $"Listening on: {botCallingInternalUrl} (New Incoming calls)");
-            this.Logger.Log(System.Diagnostics.TraceLevel.Info, $"Listening on: {botInstanceInternalUrl} (Existing calls notifications/updates)");
-            this.Logger.Log(System.Diagnostics.TraceLevel.Info, $"Listening on: net.tcp//localhost:{MediaInternalPort} (Media connection)");
-
-
             Console.WriteLine("\n");
             Console.WriteLine($"-----EXTERNAL-----");
             Console.WriteLine($"Listening on: {botCallingExternalUrl} (New Incoming calls)");
@@ -335,16 +309,6 @@ namespace AVPWindowsService
         public void Dispose()
         {
             throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Write debug entries for the configuration.
-        /// </summary>
-        /// <param name="key">Configuration key.</param>
-        /// <param name="value">Configuration value.</param>
-        private void TraceConfigValue(string key, object value)
-        {
-            this.Logger.Info($"{key} ->{value}");
         }
 
         private void MapEnvironmentVars(EnvironmentVarConfigs envs)

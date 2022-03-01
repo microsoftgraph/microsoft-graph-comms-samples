@@ -66,9 +66,6 @@
     <PackageReference Include="Microsoft.Graph.Communications.Calls.Media" Version="1.2.0.3742" />
     <PackageReference Include="Microsoft.Owin.Hosting" Version="4.2.0" />
     <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.20.0.348-alpha" />
-    <PackageReference Include="NLog">
-      <Version>4.7.14</Version>
-    </PackageReference>
     <Reference Include="System.Data.Entity" />
   </ItemGroup>
   <ItemGroup>

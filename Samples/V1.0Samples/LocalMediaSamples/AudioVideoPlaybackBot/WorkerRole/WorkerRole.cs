@@ -80,7 +80,7 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
                 // Create and start the environment-independent service.
-                Service.Instance.Initialize(new AzureConfiguration(this.logger), this.logger);
+                Service.Instance.Initialize(new AzureConfiguration(this.logger));
                 Service.Instance.Start();
 
                 var result = base.OnStart();

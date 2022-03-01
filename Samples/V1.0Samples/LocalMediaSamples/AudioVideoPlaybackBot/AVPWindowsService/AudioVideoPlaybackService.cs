@@ -1,9 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Graph.Communications.Common.Telemetry;
-using Microsoft.Skype.Internal.Bots.Media;
-using NLog;
 using Sample.AudioVideoPlaybackBot.FrontEnd;
-using Sample.AudioVideoPlaybackBot.WorkerRole;
 using System;
 using System.Diagnostics;
 using System.Net;
@@ -25,18 +21,13 @@ namespace AVPWindowsService
         private readonly ManualResetEvent runCompleteEvent = new ManualResetEvent(false);
 
         /// <summary>
-        /// The graph logger.
-        /// </summary>
-        private readonly IGraphLogger logger;
-
-        /// <summary>
         /// The nlog logger.
         /// </summary>
         //private static NLog.Logger nlogger = LogManager.LoadConfiguration("nlog.config").GetCurrentClassLogger();
 
         public AudioVideoPlaybackService()
         {
-            this.logger = new GraphLogger(typeof(AudioVideoPlaybackService).Assembly.GetName().Name, redirectToTrace: true);
+            //this.logger = new GraphLogger(typeof(AudioVideoPlaybackService).Assembly.GetName().Name, redirectToTrace: true);
             //nlogger.Info("Nlogger initialized");
             InitializeComponent();
         }
@@ -62,31 +53,25 @@ namespace AVPWindowsService
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
                 // Create and start the environment-independent service.
-                Service.Instance.Initialize(new WindowsServiceConfiguration(this.logger, configs), this.logger);
+                Service.Instance.Initialize(new WindowsServiceConfiguration(configs));
                 Service.Instance.Start();
 
                 base.OnStart(args);
 
-                this.logger.Info("AudioVideoPlaybackService has been started");
             }
             catch (Exception e)
             {
-                this.logger.Error(e, "Exception on AudioVideoPlaybackService startup");
                 throw;
             }           
         }
 
         protected override void OnStop()
         {
-            this.logger.Info("AudioVideoPlaybackService is stopping");
-
             Service.Instance.Stop();
             this.cancellationTokenSource.Cancel();
             this.runCompleteEvent.WaitOne();
 
             base.OnStop();
-
-            this.logger.Info("AudioVideoPlaybackService has stopped");
         }
     }
 }

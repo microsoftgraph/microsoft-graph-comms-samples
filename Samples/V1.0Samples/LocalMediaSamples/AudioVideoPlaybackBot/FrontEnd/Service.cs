@@ -58,11 +58,10 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
         /// Instantiate a custom server (e.g. for testing).
         /// </summary>
         /// <param name="config">The configuration to initialize.</param>
-        /// <param name="logger">Logger instance.</param>
-        public void Initialize(IConfiguration config, IGraphLogger logger)
+        public void Initialize(IConfiguration config)
         {
             this.Configuration = config;
-            this.logger = logger;
+            this.logger = new GraphLogger();
         }
 
         /// <summary>
