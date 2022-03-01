@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Graph.Communications.Common.Telemetry;
+using Microsoft.Skype.Internal.Bots.Media;
+using NLog;
 using Sample.AudioVideoPlaybackBot.FrontEnd;
 using Sample.AudioVideoPlaybackBot.WorkerRole;
 using System;
@@ -27,9 +29,15 @@ namespace AVPWindowsService
         /// </summary>
         private readonly IGraphLogger logger;
 
+        /// <summary>
+        /// The graph logger.
+        /// </summary>
+        private static NLog.Logger nlogger = LogManager.GetCurrentClassLogger();
+
         public AudioVideoPlaybackService()
         {
             this.logger = new GraphLogger(typeof(AudioVideoPlaybackService).Assembly.GetName().Name, redirectToTrace: true);
+            nlogger.Info("Nlogger initialized");
             InitializeComponent();
         }
 
@@ -41,7 +49,7 @@ namespace AVPWindowsService
                 base.RequestAdditionalTime(600000);
                 Debugger.Launch();
 #endif
-
+                nlogger.Warn("Nlogger inside OnStart");
                 // Set the maximum number of concurrent connections
                 ServicePointManager.DefaultConnectionLimit = 12;
                 IConfigurationBuilder configurationBuilder = new ConfigurationBuilder();

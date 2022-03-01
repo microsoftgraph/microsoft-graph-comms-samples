@@ -17,6 +17,7 @@
     <PackageReference Include="Microsoft.Graph.Communications.Core" Version="1.2.0.3742" />
     <PackageReference Include="Microsoft.IdentityModel.Clients.ActiveDirectory" Version="5.2.3" />
     <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="6.12.2" />
+    <PackageReference Include="NLog" Version="4.7.14" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net472' ">

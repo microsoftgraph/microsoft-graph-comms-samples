@@ -279,7 +279,7 @@ namespace AVPWindowsService
             {
                 throw new ArgumentNullException("AudioVideoFileLengthInSec", "Update app.config in WorkerRole with the audio len in secs");
             }
-
+            this.PlaceCallEndpointUrl = new Uri("https://graph.microsoft.com/v1.0");
 
             this.Logger.Log(System.Diagnostics.TraceLevel.Info, $"Listening on: {botCallingExternalUrl} (New Incoming calls)");
             this.Logger.Log(System.Diagnostics.TraceLevel.Info, $"Listening on: {botInstanceExternalUrl} (Existing calls notifications/updates)");
