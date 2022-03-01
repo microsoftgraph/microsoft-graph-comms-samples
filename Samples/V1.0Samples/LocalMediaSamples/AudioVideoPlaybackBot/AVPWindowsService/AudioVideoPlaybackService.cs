@@ -30,14 +30,14 @@ namespace AVPWindowsService
         private readonly IGraphLogger logger;
 
         /// <summary>
-        /// The graph logger.
+        /// The nlog logger.
         /// </summary>
-        private static NLog.Logger nlogger = LogManager.GetCurrentClassLogger();
+        //private static NLog.Logger nlogger = LogManager.LoadConfiguration("nlog.config").GetCurrentClassLogger();
 
         public AudioVideoPlaybackService()
         {
             this.logger = new GraphLogger(typeof(AudioVideoPlaybackService).Assembly.GetName().Name, redirectToTrace: true);
-            nlogger.Info("Nlogger initialized");
+            //nlogger.Info("Nlogger initialized");
             InitializeComponent();
         }
 
@@ -45,11 +45,9 @@ namespace AVPWindowsService
         {
             try
             {
-#if DEBUG
                 base.RequestAdditionalTime(600000);
                 Debugger.Launch();
-#endif
-                nlogger.Warn("Nlogger inside OnStart");
+                //nlogger.Warn("Nlogger inside OnStart");
                 // Set the maximum number of concurrent connections
                 ServicePointManager.DefaultConnectionLimit = 12;
                 IConfigurationBuilder configurationBuilder = new ConfigurationBuilder();

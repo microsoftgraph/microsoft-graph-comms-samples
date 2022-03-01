@@ -259,6 +259,7 @@
     </None>
     <None Include=".env-template" />
     <None Include="App.config" />
+    <None Include="nlog.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

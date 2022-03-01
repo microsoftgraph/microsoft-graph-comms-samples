@@ -8,9 +8,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\..\configure_cloud.ps1 = ..\..\configure_cloud.ps1
 		E-SDK Samples.postman_collection.json = E-SDK Samples.postman_collection.json
 		..\..\Graph.props = ..\..\Graph.props
-		NLog.config = NLog.config
 		..\..\nuget.config = ..\..\nuget.config
 		README.md = README.md
+		nlog.config = nlog.config
 	EndProjectSection
 EndProject
 Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "AudioVideoPlaybackBot", "AudioVideoPlaybackBot\AudioVideoPlaybackBot.ccproj", "{386504C0-3BC0-41DB-8096-7110A5F1D434}"
