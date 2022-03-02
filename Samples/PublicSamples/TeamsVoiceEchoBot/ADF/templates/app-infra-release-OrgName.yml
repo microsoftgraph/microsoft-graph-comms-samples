@@ -8,12 +8,12 @@ on:
     branches: [ main ]
     paths:
       - ADF/**
-      - .github/workflows/app-infra-release-{OrgName}.yml
+      - .github/workflows/TeamsVoiceEchoBot/app-infra-release-{OrgName}.yml
   pull_request:
     branches: [ main ]
     paths:
       - ADF/**
-      - .github/workflows/app-infra-release-{OrgName}.yml
+      - .github/workflows/TeamsVoiceEchoBot/app-infra-release-{OrgName}.yml
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -53,7 +53,7 @@ jobs:
               Location        = $env:location
               FullUpload      = $true
             }
-            ./ADF/main.ps1 @Params
+            ./Samples/PublicSamples/TeamsVoiceEchoBot/ADF/main.ps1 @Params
             if ($e){throw $e}
         env:
           VMSS_CREDENTIALS: ${{ secrets.VMSS_CREDENTIALS_{OrgName}_BOT }}

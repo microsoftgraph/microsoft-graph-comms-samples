@@ -23,7 +23,7 @@ $filestocopy = @(
 
     @{
         SourcePath      = "$PSScriptRoot\..\templates\app-build-OrgName.yml"
-        DestinationPath = "$PSScriptRoot\..\..\.github\workflows\app-build-${OrgName}.yml"
+        DestinationPath = "$PSScriptRoot\..\..\..\..\..\.github\workflows\TeamsVoiceEchoBot\app-build-${OrgName}.yml"
         TokenstoReplace = @(
             @{ Name = '{OrgName}'; Value = $OrgName },
             @{ Name = '{Location}'; Value = $Location }
@@ -32,7 +32,7 @@ $filestocopy = @(
 
     @{
         SourcePath      = "$PSScriptRoot\..\templates\app-infra-release-OrgName.yml"
-        DestinationPath = "$PSScriptRoot\..\..\.github\workflows\app-infra-release-${OrgName}.yml"
+        DestinationPath = "$PSScriptRoot\..\..\..\..\..\.github\workflows\TeamsVoiceEchoBot\app-infra-release-${OrgName}.yml"
         TokenstoReplace = @(
             @{ Name = '{OrgName}'; Value = $OrgName },
             @{ Name = '{Location}'; Value = $Location }

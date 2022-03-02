@@ -7,12 +7,12 @@ on:
     branches: [ main ]
     paths:
       - EchoBot/**
-      - .github/workflows/app-build-{OrgName}.yml
+      - .github/workflows/TeamsVoiceEchoBot/app-build-{OrgName}.yml
   pull_request:
     branches: [ main ]
     paths:
       - EchoBot/**
-      - .github/workflows/app-build-{OrgName}.yml
+      - .github/workflows/TeamsVoiceEchoBot/app-build-{OrgName}.yml
 
 env:
   # /home/runner/work/publish
@@ -41,7 +41,7 @@ jobs:
       uses: microsoft/setup-msbuild@v1
     
     - name: Navigate to Workspace
-      run: cd $GITHUB_WORKSPACE
+      run: cd $GITHUB_WORKSPACE/Samples/PublicSamples/TeamsVoiceEchoBot
 
     - name: Run pwsh
       shell: pwsh
