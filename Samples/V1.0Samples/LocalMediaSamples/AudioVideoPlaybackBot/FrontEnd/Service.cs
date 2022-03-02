@@ -13,6 +13,7 @@
 namespace Sample.AudioVideoPlaybackBot.FrontEnd
 {
     using System;
+    using System.Diagnostics;
     using Microsoft.Graph.Communications.Common.Telemetry;
     using Microsoft.Owin.Hosting;
     using Sample.AudioVideoPlaybackBot.FrontEnd.Http;
@@ -62,6 +63,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
         {
             this.Configuration = config;
             this.logger = new GraphLogger();
+            EventLog.WriteEntry("AudioVideoPlaybackService", "Initialize Service", EventLogEntryType.Warning);
         }
 
         /// <summary>
@@ -73,6 +75,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
             {
                 if (this.started)
                 {
+                    EventLog.WriteEntry("AudioVideoPlaybackService", "The service is already started", EventLogEntryType.Error);
                     throw new InvalidOperationException("The service is already started.");
                 }
 
@@ -80,6 +83,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
 
                 // Start HTTP server for calls
                 var callStartOptions = new StartOptions();
+                EventLog.WriteEntry("AudioVideoPlaybackService", $"Service.cs {this.Configuration.CallControlListeningUrls?.ToString()}", EventLogEntryType.Warning);
                 foreach (var url in this.Configuration.CallControlListeningUrls)
                 {
                     callStartOptions.Urls.Add(url.ToString());
@@ -92,7 +96,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
                         var startup = new HttpConfigurationInitializer();
                         startup.ConfigureSettings(appBuilder, this.logger);
                     });
-
+                EventLog.WriteEntry("AudioVideoPlaybackService", $"Service.cs service started", EventLogEntryType.Warning);
                 this.started = true;
             }
         }

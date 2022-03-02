@@ -9,6 +9,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
     using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Data;
+    using System.Diagnostics;
     using System.Threading.Tasks;
     using Microsoft.Graph;
     using Microsoft.Graph.Communications.Calls;
@@ -71,6 +72,8 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         /// <returns>The <see cref="ICall"/> that was requested to join.</returns>
         public async Task<ICall> JoinCallAsync(JoinCallController.JoinCallBody joinCallBody)
         {
+            EventLog.WriteEntry("AudioVideoPlaybackService", "Bot.cs JoinCallAsync called", EventLogEntryType.Warning);
+
             // A tracking id for logging purposes.  Helps identify this call in logs.
             var scenarioId = Guid.NewGuid();
 
@@ -159,6 +162,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
 
             this.Logger = logger;
             this.Observer = new SampleObserver(logger);
+            EventLog.WriteEntry("AudioVideoPlaybackService", "Initialize Bot.cs", EventLogEntryType.Warning);
 
             var name = this.GetType().Assembly.GetName().Name;
             var builder = new CommunicationsClientBuilder(
@@ -182,6 +186,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             this.Client.Calls().OnUpdated += this.CallsOnUpdated;
 
             this.OnlineMeetings = new OnlineMeetingHelper(authProvider, service.Configuration.PlaceCallEndpointUrl);
+            EventLog.WriteEntry("AudioVideoPlaybackService", "Initialize complete Bot.cs", EventLogEntryType.Warning);
         }
 
         /// <summary>
