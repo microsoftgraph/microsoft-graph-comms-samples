@@ -5,12 +5,14 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   # https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows
   push:
-    branches: [ 'bcage29/TeamsVoiceEchoBot' ]
+    branches: 
+      - 'bcage29/TeamsVoiceEchoBot'
     paths:
       - ADF/**
       - .github/workflows/app-infra-release-MSGWW.yml
   pull_request:
-    branches: [ 'bcage29/TeamsVoiceEchoBot' ]
+    branches: 
+      - 'bcage29/TeamsVoiceEchoBot'
     paths:
       - ADF/**
       - .github/workflows/app-infra-release-MSGWW.yml
