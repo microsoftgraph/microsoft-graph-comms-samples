@@ -21,23 +21,23 @@ if ($RunSetup -OR ! (Test-Path -Path $base\ADF\azuredeploy${OrgName}.parameters.
 
     Write-Warning -Message "Running Prerequiste Bot Setup"
 
-    # # create storage account for release
-    # & $base\ADF\release-az\Create-StorageAccount.ps1 -OrgName $orgName -Location $Location
+    # create storage account for release
+    & $base\ADF\release-az\Create-StorageAccount.ps1 -OrgName $orgName -Location $Location
 
-    # # create keyvault for release + Admin Cred
-    # & $base\ADF\release-az\Create-KeyVault.ps1 -OrgName $orgName -Location $Location
+    # create keyvault for release + Admin Cred
+    & $base\ADF\release-az\Create-KeyVault.ps1 -OrgName $orgName -Location $Location
 
-    # # create GitHub secret + Service Principal + give current user access to the above storage account
-    # & $base\ADF\release-az\Create-GHServicePrincipal.ps1 -OrgName $orgName -Location $Location -AddStorageAccess -CurrentUserStorageAccess
+    # create GitHub secret + Service Principal + give current user access to the above storage account
+    & $base\ADF\release-az\Create-GHServicePrincipal.ps1 -OrgName $orgName -Location $Location -AddStorageAccess -CurrentUserStorageAccess
 
     # create Parameter File and Global File for the deployment
     & $base\ADF\release-az\Create-StageFiles.ps1 -OrgName $orgName -Location $Location
 
-    # # upload certificate
-    # & $base\ADF\release-az\Import-UploadWebCert.ps1 -OrgName $orgName -Location $Location
+    # upload certificate
+    & $base\ADF\release-az\Import-UploadWebCert.ps1 -OrgName $orgName -Location $Location
 
-    # # create App Environment Secrets
-    # & $base\ADF\release-az\Create-AppSecrets.ps1 -OrgName $orgName -Location $Location
+    # create App Environment Secrets
+    & $base\ADF\release-az\Create-AppSecrets.ps1 -OrgName $orgName -Location $Location
 }
 else
 {
