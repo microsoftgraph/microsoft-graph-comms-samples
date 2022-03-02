@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
     
   push:
-    branches: [ bcage29/TeamsVoiceEchoBot ]
+    branches: [ 'bcage29/TeamsVoiceEchoBot' ]
     paths:
       - EchoBot/**
       - .github/workflows/app-build-MSGWW.yml
   pull_request:
-    branches: [ bcage29/TeamsVoiceEchoBot ]
+    branches: [ 'bcage29/TeamsVoiceEchoBot' ]
     paths:
       - EchoBot/**
       - .github/workflows/app-build-MSGWW.yml
