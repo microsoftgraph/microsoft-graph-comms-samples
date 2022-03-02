@@ -40,6 +40,7 @@
     <Compile Include="Bot\BotMediaStream.cs" />
     <Compile Include="Bot\CallHandler.cs" />
     <Compile Include="Bot\ExceptionExtensions.cs" />
+    <Compile Include="Http\Controllers\HealthController.cs" />
     <Compile Include="Http\ExceptionLogger.cs" />
     <Compile Include="SampleConstants.cs" />
     <Compile Include="Http\Controllers\ChangeScreenSharingRoleController.cs" />

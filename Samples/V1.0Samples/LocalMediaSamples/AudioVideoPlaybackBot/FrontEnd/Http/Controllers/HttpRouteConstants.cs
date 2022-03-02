@@ -54,5 +54,10 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
         /// Route for changing screen sharing role request.
         /// </summary>
         public const string OnChangeRoleRoute = "changeRole";
+
+        /// <summary>
+        /// Route for health check request.
+        /// </summary>
+        public const string HealthRoute = "health";
     }
 }

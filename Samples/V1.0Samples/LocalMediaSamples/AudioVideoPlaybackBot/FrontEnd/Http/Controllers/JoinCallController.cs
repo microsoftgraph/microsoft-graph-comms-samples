@@ -12,6 +12,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Net;
     using System.Net.Http;
     using System.Text;
@@ -41,6 +42,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
         [Route(HttpRouteConstants.JoinCall)]
         public async Task<HttpResponseMessage> JoinCallAsync([FromBody] JoinCallBody joinCallBody)
         {
+            EventLog.WriteEntry(SampleConstants.EventLogSource, $"Serving {HttpRouteConstants.JoinCall}", EventLogEntryType.Information);
             try
             {
                 var call = await Bot.Instance.JoinCallAsync(joinCallBody).ConfigureAwait(false);

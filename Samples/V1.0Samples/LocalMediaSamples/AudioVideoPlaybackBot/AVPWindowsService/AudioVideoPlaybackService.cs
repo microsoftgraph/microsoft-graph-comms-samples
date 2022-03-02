@@ -20,22 +20,20 @@ namespace AVPWindowsService
         /// </summary>
         private readonly ManualResetEvent runCompleteEvent = new ManualResetEvent(false);
 
-        private readonly string EventLogSource = "AudioVideoPlaybackService";
-
         public AudioVideoPlaybackService()
         {
 
             InitializeComponent();
-            if (!System.Diagnostics.EventLog.SourceExists(EventLogSource))
+            if (!System.Diagnostics.EventLog.SourceExists(SampleConstants.EventLogSource))
             {
-                EventLog.CreateEventSource(EventLogSource, "Application");
+                EventLog.CreateEventSource(SampleConstants.EventLogSource, SampleConstants.EventLogType);
             }
-            EventLog.WriteEntry(EventLogSource, "Initializing AudioVideoPlaybackService", EventLogEntryType.Warning);
+            EventLog.WriteEntry(SampleConstants.EventLogSource, "Initializing AudioVideoPlaybackService", EventLogEntryType.Warning);
         }
 
         protected override void OnStart(string[] args)
         {
-            EventLog.WriteEntry(EventLogSource, "Starting AudioVideoPlaybackService", EventLogEntryType.Warning);
+            EventLog.WriteEntry(SampleConstants.EventLogSource, "Starting AudioVideoPlaybackService", EventLogEntryType.Warning);
             try
             {
                 ServicePointManager.DefaultConnectionLimit = 12;
@@ -53,7 +51,7 @@ namespace AVPWindowsService
                 // Create and start the environment-independent service.
                 Service.Instance.Initialize(new WindowsServiceConfiguration(configs));
                 Service.Instance.Start();
-                EventLog.WriteEntry(EventLogSource, "AudioVideoPlaybackService Service STarted", EventLogEntryType.Warning);
+                EventLog.WriteEntry(SampleConstants.EventLogSource, "AudioVideoPlaybackService Service STarted", EventLogEntryType.Warning);
                 base.OnStart(args);
 
             }

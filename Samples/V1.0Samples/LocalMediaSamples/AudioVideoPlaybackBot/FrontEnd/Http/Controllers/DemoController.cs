@@ -12,6 +12,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Net;
     using System.Net.Http;
     using System.Text;
@@ -52,6 +53,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
             int skip = 0,
             int take = 1000)
         {
+            EventLog.WriteEntry(SampleConstants.EventLogSource, $"Serving {HttpRouteConstants.Logs}/", EventLogEntryType.Information);
             var logs = this.Observer.GetLogs(skip, take);
 
             var response = this.Request.CreateResponse(HttpStatusCode.OK);
@@ -75,6 +77,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
             int skip = 0,
             int take = 1000)
         {
+            EventLog.WriteEntry(SampleConstants.EventLogSource, $"Serving {HttpRouteConstants.Logs}/{filter}", EventLogEntryType.Information);
             var logs = this.Observer.GetLogs(filter, skip, take);
 
             var response = this.Request.CreateResponse(HttpStatusCode.OK);
@@ -92,6 +95,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
         [Route(HttpRouteConstants.Calls + "/")]
         public HttpResponseMessage OnGetCalls()
         {
+            EventLog.WriteEntry(SampleConstants.EventLogSource, $"Serving {HttpRouteConstants.Calls}/", EventLogEntryType.Information);
             this.Logger.Info("Getting calls");
 
             if (Bot.Instance.CallHandlers.IsEmpty)
@@ -136,6 +140,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
         [Route(HttpRouteConstants.CallRoute)]
         public async Task<HttpResponseMessage> OnEndCallAsync(string callLegId)
         {
+            EventLog.WriteEntry(SampleConstants.EventLogSource, $"Serving {HttpRouteConstants.CallRoute}", EventLogEntryType.Information);
             this.Logger.Info($"Ending call {callLegId}");
 
             try
