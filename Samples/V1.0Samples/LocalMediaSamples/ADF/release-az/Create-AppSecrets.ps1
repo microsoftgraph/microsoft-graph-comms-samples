@@ -17,8 +17,7 @@ $BaseSecrets = @(
     @{ Name = 'Prefix'; Value = $Prefix },
     @{ Name = 'OrgName'; Value = $OrgName },
     @{ Name = 'App'; Value = $App },
-    @{ Name = 'Environment'; Value = $Environment },
-    @{ Name = 'BotName'; Value = $BotName }
+    @{ Name = 'Environment'; Value = $Environment }
 )
 
 $BaseSecrets | ForEach-Object {

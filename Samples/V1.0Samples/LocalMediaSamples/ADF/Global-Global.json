@@ -7,8 +7,7 @@
       144
     ],
     "PublicIPAddressforRemoteAccess": [
-      "73.157.100.227/32",
-      "157.100.170.101/32"
+      "127.0.0.1"
     ],
     "RolesLookup": {},
     "RolesGroupsLookup": {

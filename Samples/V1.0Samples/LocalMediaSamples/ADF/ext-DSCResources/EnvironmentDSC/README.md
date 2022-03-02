@@ -15,7 +15,6 @@ IN the DSC Module, then you don't need to specify them for each component
 
             # KV Secrests Get with Managed Identity - Oauth2
             EnvironmentVarSet           = @(
-                @{ Name = 'BotName'; KVName = 'kvglobal'},
                 @{ Name = 'AadAppId'; KVName = 'kvglobal'},
                 @{ Name = 'AadAppSecret'; KVName = 'kvglobal'},
                 @{ Name = 'ServiceDnsName'; KVName = 'kvglobal'}

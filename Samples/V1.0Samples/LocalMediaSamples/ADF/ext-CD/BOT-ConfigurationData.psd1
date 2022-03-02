@@ -64,7 +64,6 @@
             )
             
             EnvironmentVarSet           = @(
-                @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'BotName' },
                 @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'AadAppId' },
                 @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'AadAppSecret' },
                 @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'ServiceDnsName' },
