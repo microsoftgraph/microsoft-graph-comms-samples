@@ -7,12 +7,12 @@ on:
   push:
     branches: [ bcage29/TeamsVoiceEchoBot ]
     paths:
-      - ./Samples/PublicSamples/TeamsVoiceEchoBot/ADF/**
+      - ./Samples/PublicSamples/EchoBot/ADF/**
       - .github/workflows/app-infra-release-MSGWW.yml
   pull_request:
     branches: [ bcage29/TeamsVoiceEchoBot ]
     paths:
-      - ./Samples/PublicSamples/TeamsVoiceEchoBot/ADF/**
+      - ./Samples/PublicSamples/EchoBot/ADF/**
       - .github/workflows/app-infra-release-MSGWW.yml
 
   # Allows you to run this workflow manually from the Actions tab
@@ -56,7 +56,7 @@ jobs:
               Location        = $env:location
               FullUpload      = $true
             }
-            ./Samples/PublicSamples/TeamsVoiceEchoBot/ADF/main.ps1 @Params
+            ./Samples/PublicSamples/EchoBot/ADF/main.ps1 @Params
             if ($e){throw $e}
         env:
           VMSS_CREDENTIALS: ${{ secrets.VMSS_CREDENTIALS_MSGWW_BOT }}

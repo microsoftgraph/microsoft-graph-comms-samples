@@ -6,12 +6,12 @@ on:
   push:
     branches: [ bcage29/TeamsVoiceEchoBot ]
     paths:
-      - ./Samples/PublicSamples/TeamsVoiceEchoBot/EchoBot/**
+      - ./Samples/PublicSamples/EchoBot/EchoBot/**
       - .github/workflows/app-build-MSGWW.yml
   pull_request:
     branches: [ bcage29/TeamsVoiceEchoBot ]
     paths:
-      - ./Samples/PublicSamples/TeamsVoiceEchoBot/EchoBot/**
+      - ./Samples/PublicSamples/EchoBot/EchoBot/**
       - .github/workflows/app-build-MSGWW.yml
 
 env:
@@ -48,14 +48,14 @@ jobs:
       run: | 
         echo "${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/"
     - uses: nuget/setup-nuget@v1
-    - run: nuget restore Samples\PublicSamples\TeamsVoiceEchoBot\EchoBot\EchoBot.sln
+    - run: nuget restore Samples\PublicSamples\EchoBot\EchoBot\EchoBot.sln
     
     - name: Create Build Directory
       run: mkdir ${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
     
     - name: Build Solution
       run: |
-        msbuild.exe Samples\PublicSamples\TeamsVoiceEchoBot\EchoBot\EchoBot.sln /nologo /p:platform="x64" /p:OutDir=${{ github.workspace }}/${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
+        msbuild.exe Samples\PublicSamples\EchoBot\EchoBot\EchoBot.sln /nologo /p:platform="x64" /p:OutDir=${{ github.workspace }}/${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
         
     - name: Run pwsh
       shell: pwsh
@@ -82,7 +82,7 @@ jobs:
             OrgName       = $env:OrgName
             Location      = $env:location
           }
-          & ./Samples/PublicSamples/TeamsVoiceEchoBot/ADF/release-az/Sync-AzBuildComponent.ps1 @Params
+          & ./Samples/PublicSamples/EchoBot/ADF/release-az/Sync-AzBuildComponent.ps1 @Params
         azPSVersion: latest
 
     - name: G1_RG_UpdateBuildMeta_to_Blob
@@ -101,5 +101,5 @@ jobs:
             Location      = $env:location
             Environment   = $env:Environment
           }
-          & ./Samples/PublicSamples/TeamsVoiceEchoBot/ADF/release-az/Update-AzBuildMetaData.ps1 @Params
+          & ./Samples/PublicSamples/EchoBot/ADF/release-az/Update-AzBuildMetaData.ps1 @Params
         azPSVersion: latest
