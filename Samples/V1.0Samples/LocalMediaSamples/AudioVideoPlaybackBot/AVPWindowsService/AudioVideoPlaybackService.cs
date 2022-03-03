@@ -51,22 +51,24 @@ namespace AVPWindowsService
                 // Create and start the environment-independent service.
                 Service.Instance.Initialize(new WindowsServiceConfiguration(configs));
                 Service.Instance.Start();
-                EventLog.WriteEntry(SampleConstants.EventLogSource, "AudioVideoPlaybackService Service STarted", EventLogEntryType.Warning);
+                EventLog.WriteEntry(SampleConstants.EventLogSource, "AudioVideoPlaybackService Service Started", EventLogEntryType.Warning);
                 base.OnStart(args);
 
             }
             catch (Exception e)
             {
+                EventLog.WriteEntry(SampleConstants.EventLogSource, $"AudioVideoPlaybackService Exception caught {e.Message}", EventLogEntryType.Error);
                 throw;
             }           
         }
 
         protected override void OnStop()
         {
+            EventLog.WriteEntry(SampleConstants.EventLogSource, "AudioVideoPlaybackService Service Stopping", EventLogEntryType.Warning);
             Service.Instance.Stop();
             this.cancellationTokenSource.Cancel();
             this.runCompleteEvent.WaitOne();
-
+            EventLog.WriteEntry(SampleConstants.EventLogSource, "AudioVideoPlaybackService Service Stopped", EventLogEntryType.Warning);
             base.OnStop();
         }
     }
