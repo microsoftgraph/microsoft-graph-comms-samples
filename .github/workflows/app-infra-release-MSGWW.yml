@@ -5,16 +5,14 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   # https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows
   push:
-    branches: 
-      - 'bcage29/TeamsVoiceEchoBot'
+    branches: [ bcage29/TeamsVoiceEchoBot ]
     paths:
-      - ADF/**
+      - ./Samples/PublicSamples/TeamsVoiceEchoBot/ADF/**
       - .github/workflows/app-infra-release-MSGWW.yml
   pull_request:
-    branches: 
-      - 'bcage29/TeamsVoiceEchoBot'
+    branches: [ bcage29/TeamsVoiceEchoBot ]
     paths:
-      - ADF/**
+      - ./Samples/PublicSamples/TeamsVoiceEchoBot/ADF/**
       - .github/workflows/app-infra-release-MSGWW.yml
 
   # Allows you to run this workflow manually from the Actions tab
@@ -30,6 +28,9 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      - name: Support Git Longpaths
+        run: git config --system core.longpaths true
+
       - name: Checkout
         uses: actions/checkout@v2
 

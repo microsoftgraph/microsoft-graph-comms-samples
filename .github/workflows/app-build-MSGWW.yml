@@ -4,16 +4,14 @@ on:
   workflow_dispatch:
     
   push:
-    branches: 
-      - 'bcage29/TeamsVoiceEchoBot'
+    branches: [ bcage29/TeamsVoiceEchoBot ]
     paths:
-      - EchoBot/**
+      - ./Samples/PublicSamples/TeamsVoiceEchoBot/EchoBot/**
       - .github/workflows/app-build-MSGWW.yml
   pull_request:
-    branches: 
-      - 'bcage29/TeamsVoiceEchoBot'
+    branches: [ bcage29/TeamsVoiceEchoBot ]
     paths:
-      - EchoBot/**
+      - ./Samples/PublicSamples/TeamsVoiceEchoBot/EchoBot/**
       - .github/workflows/app-build-MSGWW.yml
 
 env:
@@ -43,21 +41,21 @@ jobs:
       uses: microsoft/setup-msbuild@v1
     
     - name: Navigate to Workspace
-      run: cd $GITHUB_WORKSPACE/Samples/PublicSamples/TeamsVoiceEchoBot
+      run: cd $GITHUB_WORKSPACE
 
     - name: Run pwsh
       shell: pwsh
       run: | 
         echo "${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/"
     - uses: nuget/setup-nuget@v1
-    - run: nuget restore EchoBot\EchoBot.sln
+    - run: nuget restore Samples\PublicSamples\TeamsVoiceEchoBot\EchoBot\EchoBot.sln
     
     - name: Create Build Directory
       run: mkdir ${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
     
     - name: Build Solution
       run: |
-        msbuild.exe EchoBot\EchoBot.sln /nologo /p:platform="x64" /p:OutDir=../${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
+        msbuild.exe Samples\PublicSamples\TeamsVoiceEchoBot\EchoBot\EchoBot.sln /nologo /p:platform="x64" /p:OutDir=${{ github.workspace }}/${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
         
     - name: Run pwsh
       shell: pwsh
@@ -84,7 +82,7 @@ jobs:
             OrgName       = $env:OrgName
             Location      = $env:location
           }
-          & ./ADF/release-az/Sync-AzBuildComponent.ps1 @Params
+          & ./Samples/PublicSamples/TeamsVoiceEchoBot/ADF/release-az/Sync-AzBuildComponent.ps1 @Params
         azPSVersion: latest
 
     - name: G1_RG_UpdateBuildMeta_to_Blob
@@ -103,6 +101,5 @@ jobs:
             Location      = $env:location
             Environment   = $env:Environment
           }
-          & ./ADF/release-az/Update-AzBuildMetaData.ps1 @Params
+          & ./Samples/PublicSamples/TeamsVoiceEchoBot/ADF/release-az/Update-AzBuildMetaData.ps1 @Params
         azPSVersion: latest
-
