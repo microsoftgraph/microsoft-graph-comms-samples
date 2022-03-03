@@ -60,7 +60,3 @@ jobs:
             if ($e){throw $e}
         env:
           VMSS_CREDENTIALS: ${{ secrets.VMSS_CREDENTIALS_MSGWW_BOT }}
-
-
-
-
