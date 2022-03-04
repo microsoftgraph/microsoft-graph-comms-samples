@@ -42,7 +42,7 @@ Function global:AzDeploy
         [string] $TemplateFile = 'main.bicep',
 
         [alias('TP')]
-        [string] $TemplateParameterFile = "azuredeploy${OrgName}.parameters.json",
+        [string] $TemplateParameterFile = "azuredeploy-${OrgName}.parameters.json",
 
         [alias('ComputerName')]
         [string] $CN = '.',
@@ -50,7 +50,7 @@ Function global:AzDeploy
         [string] $StorageAccountName,
 
         # Optional, you can use keyvault, update reference in
-        # ADF\azuredeploy.parameters.json for the 'vmAdminPassword' parameter
+        # ADF\azuredeploy-OrgName.parameters.json for the 'vmAdminPassword' parameter
         [securestring] $vmAdminPassword,
 
         # When deploying VM's, this is a subset of AppServers e.g. AppServers, SQLServers, ADPrimary

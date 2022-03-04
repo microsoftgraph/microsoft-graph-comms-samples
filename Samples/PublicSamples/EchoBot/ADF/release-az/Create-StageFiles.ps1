@@ -13,29 +13,32 @@ Write-Output $MyInvocation.MyCommand.Source
 
 $LocationLookup = Get-Content -Path $PSScriptRoot\..\bicep\global\region.json | ConvertFrom-Json
 $Prefix = $LocationLookup.$Location.Prefix
+$BranchName = git branch --show-current ? git branch --show-current : "main"
 
 $filestocopy = @(
     @{
-        SourcePath      = "$PSScriptRoot\..\templates\azuredeploy.parameters.json"
-        DestinationPath = "$PSScriptRoot\..\azuredeploy${OrgName}.parameters.json"
+        SourcePath      = "$PSScriptRoot\..\templates\azuredeploy-OrgName.parameters.json"
+        DestinationPath = "$PSScriptRoot\..\azuredeploy-${OrgName}.parameters.json"
         TokenstoReplace = $null
     }
 
     @{
-        SourcePath      = "$PSScriptRoot\..\templates\app-build-OrgName.yml"
-        DestinationPath = "$PSScriptRoot\..\..\..\..\..\.github\workflows\TeamsVoiceEchoBot\app-build-${OrgName}.yml"
+        SourcePath      = "$PSScriptRoot\..\templates\echobot-build-OrgName.yml"
+        DestinationPath = "$PSScriptRoot\..\..\..\..\..\.github\workflows\echobot-build-${OrgName}.yml"
         TokenstoReplace = @(
             @{ Name = '{OrgName}'; Value = $OrgName },
-            @{ Name = '{Location}'; Value = $Location }
+            @{ Name = '{Location}'; Value = $Location },
+            @{ Name = '{BranchName}'; Value = $BranchName }
         )
     }
 
     @{
-        SourcePath      = "$PSScriptRoot\..\templates\app-infra-release-OrgName.yml"
-        DestinationPath = "$PSScriptRoot\..\..\..\..\..\.github\workflows\TeamsVoiceEchoBot\app-infra-release-${OrgName}.yml"
+        SourcePath      = "$PSScriptRoot\..\templates\echobot-infra-OrgName.yml"
+        DestinationPath = "$PSScriptRoot\..\..\..\..\..\.github\workflows\echobot-infra-${OrgName}.yml"
         TokenstoReplace = @(
             @{ Name = '{OrgName}'; Value = $OrgName },
-            @{ Name = '{Location}'; Value = $Location }
+            @{ Name = '{Location}'; Value = $Location },
+            @{ Name = '{BranchName}'; Value = $BranchName }
         )
     }
 )

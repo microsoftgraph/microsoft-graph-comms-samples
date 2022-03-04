@@ -1,18 +1,18 @@
-name: .NET BOT D1 BUILD MSGWW
+name: .NET BOT D1 BUILD {OrgName}
 
 on:
   workflow_dispatch:
     
   push:
-    branches: [ bcage29/TeamsVoiceEchoBot ]
+    branches: [ {BranchName} ]
     paths:
       - ./Samples/PublicSamples/EchoBot/src/**
-      - .github/workflows/app-build-MSGWW.yml
+      - .github/workflows/app-build-{OrgName}.yml
   pull_request:
-    branches: [ bcage29/TeamsVoiceEchoBot ]
+    branches: [ {BranchName} ]
     paths:
       - ./Samples/PublicSamples/EchoBot/src/**
-      - .github/workflows/app-build-MSGWW.yml
+      - .github/workflows/app-build-{OrgName}.yml
 
 env:
   # /home/runner/work/publish
@@ -20,8 +20,8 @@ env:
   Component:   EchoBot
   BuildName:   0.1.${{ github.run_number }}
   Environment: D1
-  OrgName:     MSGWW
-  Location:    eastus2
+  OrgName:     {OrgName}
+  Location:    {Location}
 
 jobs:
   build:
@@ -66,7 +66,7 @@ jobs:
     - name: Login via Az module
       uses: azure/login@v1
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS_MSGWW_BOT }}
+        creds: ${{ secrets.AZURE_CREDENTIALS_{OrgName}_BOT }}
         enable-AzPSSession: true
 
     - name: G1_RG_UploadArtifacts_to_Blob
@@ -104,4 +104,3 @@ jobs:
           }
           & ./Samples/PublicSamples/EchoBot/ADF/release-az/Update-AzBuildMetaData.ps1 @Params
         azPSVersion: latest
-
