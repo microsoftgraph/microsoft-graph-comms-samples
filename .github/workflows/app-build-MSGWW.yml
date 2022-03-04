@@ -55,7 +55,7 @@ jobs:
     
     - name: Build Solution
       run: |
-        msbuild.exe Samples\PublicSamples\EchoBot\src\EchoBot.sln /nologo /p:platform="x64" /p:OutDir=${{ github.workspace }}/${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
+        msbuild.exe Samples\PublicSamples\EchoBot\src\EchoBot.sln /nologo /p:platform="x64" /p:OutDir=../${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
         
     - name: Run pwsh
       shell: pwsh
@@ -72,13 +72,13 @@ jobs:
       uses: Azure/powershell@v1
       with:
         inlineScript: |
-          Get-ChildItem -Path  ./${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/ # -Recurse
+          Get-ChildItem -Path $env:GITHUB_WORKSPACE # -Recurse
 
           $Params = @{
             App           = 'BOT'
             BuildName     = $env:BuildName
             ComponentName = $env:Component
-            BasePath      = $env:Base
+            BasePath      = "$env:GITHUB_WORKSPACE/$env:Component/$env:Base"
             OrgName       = $env:OrgName
             Location      = $env:location
           }
@@ -96,7 +96,7 @@ jobs:
             App           = 'BOT'
             BuildName     = $env:BuildName
             ComponentName = $env:Component
-            BasePath      = $env:Base
+            BasePath      = "$env:GITHUB_WORKSPACE/$env:Component/$env:Base"
             OrgName       = $env:OrgName
             Location      = $env:location
             Environment   = $env:Environment
