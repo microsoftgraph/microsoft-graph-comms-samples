@@ -140,14 +140,14 @@
                 }
               }
             ]
-          },
-          {
-            "name": "AzureBastionSubnet",
-            "prefix": "96/27",
-            "NSG": 1,
-            "FlowLogEnabled": true,
-            "FlowAnalyticsEnabled": true
           }
+          // {
+          //   "name": "AzureBastionSubnet",
+          //   "prefix": "96/27",
+          //   "NSG": 1,
+          //   "FlowLogEnabled": true,
+          //   "FlowAnalyticsEnabled": true
+          // }
         ],
         "BastionInfo": {
           "name": "HST01",
