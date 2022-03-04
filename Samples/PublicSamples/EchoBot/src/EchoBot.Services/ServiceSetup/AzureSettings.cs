@@ -119,7 +119,7 @@ namespace EchoBot.Services.ServiceSetup
             controlListenUris.Add($"{_settings.BotInternalHostingProtocol}://{baseDomain}:{_settings.BotInternalPort}/");
 
             this.CallControlListeningUrls = controlListenUris;
-            _logger.LogInformation("Initializing Media2");
+            _logger.LogInformation("Initializing Media");
             this.MediaPlatformSettings = new MediaPlatformSettings()
             {
                 MediaPlatformInstanceSettings = new MediaPlatformInstanceSettings()
