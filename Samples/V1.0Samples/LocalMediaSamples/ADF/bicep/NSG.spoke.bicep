@@ -171,38 +171,38 @@ var NSGDefault = {
     }
   ]
   SNFE01: [
-    {
-      name: 'ALL_Bastion_IN_Allow_RDP_SSH'
-      properties: {
-        protocol: '*'
-        sourcePortRange: '*'
-        destinationPortRanges: [
-          '3389'
-          '22'
-        ]
-        sourceAddressPrefix: 'VirtualNetwork'
-        destinationAddressPrefix: '*'
-        access: 'Allow'
-        priority: 1120
-        direction: 'Inbound'
-      }
-    }
-    {
-      name: 'ALL_JMP_IN_Allow_RDP_SSH'
-      properties: {
-        protocol: '*'
-        sourcePortRange: '*'
-        destinationPortRanges: [
-          '3389'
-          '22'
-        ]
-        sourceAddressPrefixes: contains(Global, 'PublicIPAddressforRemoteAccess') ? Global.PublicIPAddressforRemoteAccess : []
-        destinationAddressPrefix: '*'
-        access: 'Allow'
-        priority: 1130
-        direction: 'Inbound'
-      }
-    }
+    // {
+    //   name: 'ALL_Bastion_IN_Allow_RDP_SSH'
+    //   properties: {
+    //     protocol: '*'
+    //     sourcePortRange: '*'
+    //     destinationPortRanges: [
+    //       '3389'
+    //       '22'
+    //     ]
+    //     sourceAddressPrefix: 'VirtualNetwork'
+    //     destinationAddressPrefix: '*'
+    //     access: 'Allow'
+    //     priority: 1120
+    //     direction: 'Inbound'
+    //   }
+    // }
+    // {
+    //   name: 'ALL_JMP_IN_Allow_RDP_SSH'
+    //   properties: {
+    //     protocol: '*'
+    //     sourcePortRange: '*'
+    //     destinationPortRanges: [
+    //       '3389'
+    //       '22'
+    //     ]
+    //     sourceAddressPrefixes: contains(Global, 'PublicIPAddressforRemoteAccess') ? Global.PublicIPAddressforRemoteAccess : []
+    //     destinationAddressPrefix: '*'
+    //     access: 'Allow'
+    //     priority: 1130
+    //     direction: 'Inbound'
+    //   }
+    // }
   ]
 }
 

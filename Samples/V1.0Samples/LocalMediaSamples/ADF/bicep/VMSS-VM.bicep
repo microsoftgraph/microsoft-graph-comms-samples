@@ -43,9 +43,12 @@ var networkId = '${Global.networkid[0]}${string((Global.networkid[1] - (2 * int(
 // var networkIdUpper = '${Global.networkid[0]}${string((1 + (Global.networkid[1] - (2 * int(DeploymentID)))))}'
 var VNetID = resourceId('Microsoft.Network/VirtualNetworks', '${Deployment}-vn')
 
-
 var SADiagName = '${DeploymentURI}sadiag'
 var saaccountiddiag = resourceId('Microsoft.Storage/storageAccounts', SADiagName)
+
+resource ai 'Microsoft.Insights/components@2020-02-02' existing = {
+  name: '${DeploymentURI}AppInsights'
+}
 
 resource saaccountidglobalsource 'Microsoft.Storage/storageAccounts@2021-04-01' existing = {
   name: Global.SAName
@@ -127,7 +130,7 @@ var loadBalancerInboundNatPools = [for (nat,index) in NATPools : {
   id: resourceId('Microsoft.Network/loadBalancers/inboundNatPools', '${Deployment}-lb${LB}', nat)
 }]
 
-resource VMSS 'Microsoft.Compute/virtualMachineScaleSets@2021-04-01' = {
+resource VMSS 'Microsoft.Compute/virtualMachineScaleSets@2021-07-01' = {
   name: '${Deployment}-vmss${AppServer.Name}'
   location: resourceGroup().location
   identity: {
@@ -155,6 +158,8 @@ resource VMSS 'Microsoft.Compute/virtualMachineScaleSets@2021-04-01' = {
       }
     }
     virtualMachineProfile: {
+      priority: 'Spot'
+      evictionPolicy: 'Deallocate'
       licenseType: contains(OSType[AppServer.OSType], 'licenseType') ? OSType[AppServer.OSType].licenseType : null
       osProfile: {
         computerNamePrefix: VM.vmHostName
@@ -365,6 +370,7 @@ resource VMSS 'Microsoft.Compute/virtualMachineScaleSets@2021-04-01' = {
                 configurationArguments: {
                   DomainName: contains(Global,'ADDomainName') ? Global.ADDomainName : '${resourceGroup().location}.cloudapp.azure.com'
                   storageAccountId: saaccountidglobalsource.id
+                  appInsightsInstrumentationKey: ai.properties.InstrumentationKey
                   deployment: Deployment
                   networkid: '${networkId}.'
                   appInfo: contains(AppServer, 'AppInfo') ? string(AppServer.AppInfo) : ''

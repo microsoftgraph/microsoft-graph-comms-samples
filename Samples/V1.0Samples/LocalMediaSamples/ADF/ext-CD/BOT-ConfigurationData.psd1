@@ -160,12 +160,12 @@
                 @{
                     Name  = 'BotCalling'
                     Port  = '9442'
-                    AppId = '{7c64d8a0-4cbb-42b6-85a8-de0e00f6a9c7}'
+                    AppId = '{7c64d8a0-4cbb-42b6-85a8-de0e00f6a9c6}'
                 },
                 @{
                     Name  = 'BotNotification'
                     Port  = '9441'
-                    AppId = '{7c64d8a0-4cbb-42b6-85a8-de0e00f6a9c8}'
+                    AppId = '{7c64d8a0-4cbb-42b6-85a8-de0e00f6a9c6}'
                 }
             )
         }
