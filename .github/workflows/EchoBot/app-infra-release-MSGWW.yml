@@ -9,6 +9,7 @@ on:
     paths:
       - ./Samples/PublicSamples/EchoBot/ADF/**
       - .github/workflows/app-infra-release-MSGWW.yml
+      - .github/workflows/EchoBot/app-infra-release-MSGWW.yml
   pull_request:
     branches: [ bcage29/TeamsVoiceEchoBot ]
     paths:
