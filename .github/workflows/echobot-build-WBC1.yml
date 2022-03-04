@@ -7,12 +7,12 @@ on:
     branches: [ bcage29/TeamsVoiceEchoBot ]
     paths:
       - ./Samples/PublicSamples/EchoBot/src/**
-      - .github/workflows/app-build-WBC1.yml
+      - .github/workflows/echobot-build-WBC1.yml
   pull_request:
     branches: [ bcage29/TeamsVoiceEchoBot ]
     paths:
       - ./Samples/PublicSamples/EchoBot/src/**
-      - .github/workflows/app-build-WBC1.yml
+      - .github/workflows/echobot-build-WBC1.yml
 
 env:
   # /home/runner/work/publish

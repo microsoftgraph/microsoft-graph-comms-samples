@@ -8,12 +8,12 @@ on:
     branches: [ bcage29/TeamsVoiceEchoBot ]
     paths:
       - ./Samples/PublicSamples/EchoBot/ADF/**
-      - .github/workflows/app-infra-release-WBC1.yml
+      - .github/workflows/echobot-infra-WBC1.yml
   pull_request:
     branches: [ bcage29/TeamsVoiceEchoBot ]
     paths:
       - ./Samples/PublicSamples/EchoBot/ADF/**
-      - .github/workflows/app-infra-release-WBC1.yml
+      - .github/workflows/echobot-infra-WBC1.yml
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:

@@ -8,12 +8,12 @@ on:
     branches: [ {BranchName} ]
     paths:
       - ./Samples/PublicSamples/EchoBot/ADF/**
-      - .github/workflows/app-infra-release-{OrgName}.yml
+      - .github/workflows/echobot-infra-{OrgName}.yml
   pull_request:
     branches: [ {BranchName} ]
     paths:
       - ./Samples/PublicSamples/EchoBot/ADF/**
-      - .github/workflows/app-infra-release-{OrgName}.yml
+      - .github/workflows/echobot-infra-{OrgName}.yml
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
