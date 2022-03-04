@@ -6,13 +6,13 @@ on:
   push:
     branches: [ main ]
     paths:
-      - EchoBot/**
-      - .github/workflows/TeamsVoiceEchoBot/app-build-{OrgName}.yml
+      - ./Samples/PublicSamples/EchoBot/src/**
+      - .github/workflows/app-build-{OrgName}.yml
   pull_request:
     branches: [ main ]
     paths:
-      - EchoBot/**
-      - .github/workflows/TeamsVoiceEchoBot/app-build-{OrgName}.yml
+      - ./Samples/PublicSamples/EchoBot/src/**
+      - .github/workflows/app-build-{OrgName}.yml
 
 env:
   # /home/runner/work/publish
@@ -41,26 +41,27 @@ jobs:
       uses: microsoft/setup-msbuild@v1
     
     - name: Navigate to Workspace
-      run: cd $GITHUB_WORKSPACE/Samples/PublicSamples/TeamsVoiceEchoBot
+      run: cd $GITHUB_WORKSPACE
 
     - name: Run pwsh
       shell: pwsh
       run: | 
         echo "${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/"
     - uses: nuget/setup-nuget@v1
-    - run: nuget restore EchoBot\EchoBot.sln
+    - run: nuget restore Samples\PublicSamples\EchoBot\src\EchoBot.sln
     
     - name: Create Build Directory
       run: mkdir ${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
     
     - name: Build Solution
       run: |
-        msbuild.exe EchoBot\EchoBot.sln /nologo /p:platform="x64" /p:OutDir=../${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
+        msbuild.exe Samples\PublicSamples\EchoBot\src\EchoBot.sln /nologo /p:platform="x64" /p:OutDir=${{ github.workspace }}/${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
         
     - name: Run pwsh
       shell: pwsh
       run: | 
-        dir ${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
+        Get-ChildItem -Path ${{ github.workspace }}\${{ env.Base }}\${{ env.Component }}\${{ env.BuildName }}\
+        echo ${{ github.workspace }}
     
     - name: Login via Az module
       uses: azure/login@v1
@@ -72,17 +73,17 @@ jobs:
       uses: Azure/powershell@v1
       with:
         inlineScript: |
-          Get-ChildItem -Path $env:GITHUB_WORKSPACE # -Recurse
+          Get-ChildItem -Path  ./${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/ # -Recurse
 
           $Params = @{
             App           = 'BOT'
             BuildName     = $env:BuildName
             ComponentName = $env:Component
-            BasePath      = "$env:GITHUB_WORKSPACE/$env:Component/$env:Base"
+            BasePath      = $env:Base
             OrgName       = $env:OrgName
             Location      = $env:location
           }
-          & ./ADF/release-az/Sync-AzBuildComponent.ps1 @Params
+          & ./Samples/PublicSamples/EchoBot/ADF/release-az/Sync-AzBuildComponent.ps1 @Params
         azPSVersion: latest
 
     - name: G1_RG_UpdateBuildMeta_to_Blob
@@ -96,10 +97,10 @@ jobs:
             App           = 'BOT'
             BuildName     = $env:BuildName
             ComponentName = $env:Component
-            BasePath      = "$env:GITHUB_WORKSPACE/$env:Component/$env:Base"
+            BasePath      = $env:Base
             OrgName       = $env:OrgName
             Location      = $env:location
             Environment   = $env:Environment
           }
-          & ./ADF/release-az/Update-AzBuildMetaData.ps1 @Params
+          & ./Samples/PublicSamples/EchoBot/ADF/release-az/Update-AzBuildMetaData.ps1 @Params
         azPSVersion: latest
