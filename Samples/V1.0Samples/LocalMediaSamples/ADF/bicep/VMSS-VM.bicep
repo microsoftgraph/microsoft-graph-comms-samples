@@ -46,9 +46,9 @@ var VNetID = resourceId('Microsoft.Network/VirtualNetworks', '${Deployment}-vn')
 var SADiagName = '${DeploymentURI}sadiag'
 var saaccountiddiag = resourceId('Microsoft.Storage/storageAccounts', SADiagName)
 
-resource ai 'Microsoft.Insights/components@2020-02-02' existing = {
-  name: '${DeploymentURI}AppInsights'
-}
+// resource ai 'Microsoft.Insights/components@2020-02-02' existing = {
+//   name: '${DeploymentURI}AppInsights'
+// }
 
 resource saaccountidglobalsource 'Microsoft.Storage/storageAccounts@2021-04-01' existing = {
   name: Global.SAName
