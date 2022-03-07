@@ -143,13 +143,6 @@
                 }
               }
             ]
-          },
-          {
-            "name": "AzureBastionSubnet",
-            "prefix": "96/27",
-            "NSG": 1,
-            "FlowLogEnabled": true,
-            "FlowAnalyticsEnabled": true
           }
         ],
         "BastionInfo": {
