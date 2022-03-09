@@ -56,7 +56,7 @@ $StorageContainerParams = @{
     Container = $ContainerName
     Context   = $Context
 }
-Write-Verbose "StorageContainerParams ${StorageContainerParams.Container} and ${StorageContainerParams.Context}" -Verbose
+Write-Output -InputObject "$StorageContainerParams"
 # *Builds/<ComponentName>/<BuildName>
 # need to pass this in
 $CurrentFolder = (Get-Item -Path $BasePath\$ComponentName\$BuildName ).FullName
