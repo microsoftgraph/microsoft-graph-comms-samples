@@ -56,19 +56,15 @@ $StorageContainerParams = @{
     Container = $ContainerName
     Context   = $Context
 }
-Write-Output -InputObject "$ContainerName"
-Write-Output -InputObject "$Context"
 
 # *Builds/<ComponentName>/<BuildName>
 # need to pass this in
 $CurrentFolder = (Get-Item -Path $BasePath\$ComponentName\$BuildName ).FullName
-Write-Verbose "CurrentFolder ${CurrentFolder}" -Verbose
 
 # Copy up the files and capture a list of the files URI's
 $SourceFiles = Get-ChildItem -Path $BasePath\$ComponentName\$BuildName -File -Recurse | ForEach-Object {
     $path = $_.FullName.Substring($Currentfolder.Length + 1).Replace('\', '/')
     Write-Output -InputObject "$ComponentName/$BuildName/$path"
-    Write-Verbose "Blob Path ${ComponentName}\${BuildName}\${Path}" -Verbose
     $b = Set-AzStorageBlobContent @StorageContainerParams -File $_.FullName -Blob $ComponentName\$BuildName\$Path -Verbose -Force
 }
 
