@@ -71,10 +71,6 @@ This section walks you through the process of deploying and testing the sample b
 | AadAppId             | This is the Azure AD Application Client Id that was created when creating an Azure Bot. Refer to the [registration instructions](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/register-calling-bot.html) |
 | AadAppSecret         | Client Secret created for the Azure AD Application during the Azure Bot registration. |
 | ServiceDNSName       | Your public domain that will be used to join the bot to a call (ie bot.example.com) |
-| UseCognitiveServices | True or False setting to set the bot in Echo mode or Cognitive Services mode. If 'true', the following secrets need to be set. |
-| SpeechConfigKey      | The Cognitive Services service Key |
-| SpeechConfigRegion   | The region where the Cognitive Service is deployed |
-| BotLanguage          | The language that you want your bot to understand (ie, en-US, es-MX, fr-FR) |
 <br/>
 
 ###### Installation

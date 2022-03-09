@@ -6,12 +6,9 @@ Param (
     $OrgName,
     [parameter(mandatory)]
     $Location,
-    [String]$Environment = 'D1',
-    [String]$App = 'avb',
     [switch]$RunDeployment,
     [switch]$PackageDSC,
-    [switch]$RunSetup,
-    [String]$ComponentName = 'AVB'
+    [switch]$RunSetup
 )
 
 # disable powershell warnings for session
@@ -23,31 +20,24 @@ if ($RunSetup -OR ! (Test-Path -Path $base\ADF\azuredeploy${OrgName}.parameters.
 {
 
     Write-Warning -Message "Running Prerequiste Bot Setup"
-    
-    $LocationLookup = Get-Content -Path $PSScriptRoot\..\ADF\bicep\global\region.json | ConvertFrom-Json
-    $Prefix = $LocationLookup.$Location.Prefix
-
-    $SAName1 = "${Prefix}${OrgName}${App}${Environment}saglobal".tolower()
-    $RGName1 = "${Prefix}-${OrgName}-${App}-RG-${Environment}"
-    $KVName = "${Prefix}-${OrgName}-${App}-${Environment}-kv".tolower()
 
     # create storage account for release
-    & $base\..\ADF\release-az\Create-StorageAccount.ps1 -Location $Location -SAName $SAName1 -RGName $RGName1
-    
+    & $base\ADF\release-az\Create-StorageAccount.ps1 -OrgName $orgName -Location $Location
+
     # create keyvault for release + Admin Cred
-    & $base\..\ADF\release-az\Create-KeyVault.ps1 -Location $Location -KVName $KVName -RGName $RGName1
+    & $base\ADF\release-az\Create-KeyVault.ps1 -OrgName $orgName -Location $Location
 
     # create GitHub secret + Service Principal + give current user access to the above storage account
-    & $base\..\ADF\release-az\Create-GHServicePrincipal.ps1 -SAName $SAName1 -OrgName $OrgName -Location $Location -AddStorageAccess -CurrentUserStorageAccess
+    & $base\ADF\release-az\Create-GHServicePrincipal.ps1 -OrgName $orgName -Location $Location -AddStorageAccess -CurrentUserStorageAccess
 
     # create Parameter File and Global File for the deployment
-    & $base\..\ADF\release-az\Create-StageFiles.ps1 -OrgName $OrgName -SAName $SAName1 -Location $Location -App $App
+    & $base\ADF\release-az\Create-StageFiles.ps1 -OrgName $orgName -Location $Location
 
     # upload certificate
-    & $base\..\ADF\release-az\Import-UploadWebCert.ps1 -OrgName $OrgName -KVName $KVName -Location $Location
+    & $base\ADF\release-az\Import-UploadWebCert.ps1 -OrgName $orgName -Location $Location
 
     # create App Environment Secrets
-    & $base\..\ADF\release-az\Create-AppSecrets.ps1 -OrgName $OrgName -Prefix $Prefix -KVName $KVName -Environment $Environment -App $App -BotName "Teams AudioVideoPlayback Bot"
+    & $base\ADF\release-az\Create-AppSecrets.ps1 -OrgName $orgName -Location $Location
 }
 else
 {
@@ -61,6 +51,8 @@ else
 if ($PackageDSC)
 {
     # create zip packages if dsc configuration is updated
+    # if DSC-BotServers.ps1 is changed, this needs to be run
+    # to repackage the zip file and be uploaded
     & $base\ADF\release-az\Package-DSCConfiguration.ps1
 }
 

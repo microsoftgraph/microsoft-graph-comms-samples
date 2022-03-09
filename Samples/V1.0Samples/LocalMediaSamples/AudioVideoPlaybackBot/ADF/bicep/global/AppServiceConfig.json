@@ -1,0 +1,466 @@
+{
+    "value": [
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "F1",
+                "tier": "Free"
+            },
+            "capacity": {
+                "minimum": 0,
+                "maximum": 0,
+                "default": 0,
+                "scaleType": "none",
+                "elasticMaximum": null
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "D1",
+                "tier": "Shared"
+            },
+            "capacity": {
+                "minimum": 0,
+                "maximum": 0,
+                "default": 0,
+                "scaleType": "none",
+                "elasticMaximum": null
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "B1",
+                "tier": "Basic"
+            },
+            "capacity": {
+                "minimum": 1,
+                "maximum": 3,
+                "default": 1,
+                "scaleType": "manual",
+                "elasticMaximum": 100
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "B2",
+                "tier": "Basic"
+            },
+            "capacity": {
+                "minimum": 1,
+                "maximum": 3,
+                "default": 1,
+                "scaleType": "manual",
+                "elasticMaximum": 100
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "B3",
+                "tier": "Basic"
+            },
+            "capacity": {
+                "minimum": 1,
+                "maximum": 3,
+                "default": 1,
+                "scaleType": "manual",
+                "elasticMaximum": 100
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "S1",
+                "tier": "Standard"
+            },
+            "capacity": {
+                "minimum": 1,
+                "maximum": 10,
+                "default": 1,
+                "scaleType": "automatic",
+                "elasticMaximum": 100
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "S2",
+                "tier": "Standard"
+            },
+            "capacity": {
+                "minimum": 1,
+                "maximum": 10,
+                "default": 1,
+                "scaleType": "automatic",
+                "elasticMaximum": 100
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "S3",
+                "tier": "Standard"
+            },
+            "capacity": {
+                "minimum": 1,
+                "maximum": 10,
+                "default": 1,
+                "scaleType": "automatic",
+                "elasticMaximum": 100
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "P1",
+                "tier": "Premium"
+            },
+            "capacity": {
+                "minimum": 1,
+                "maximum": 20,
+                "default": 1,
+                "scaleType": "automatic",
+                "elasticMaximum": 100
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "P2",
+                "tier": "Premium"
+            },
+            "capacity": {
+                "minimum": 1,
+                "maximum": 20,
+                "default": 1,
+                "scaleType": "automatic",
+                "elasticMaximum": 100
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "P3",
+                "tier": "Premium"
+            },
+            "capacity": {
+                "minimum": 1,
+                "maximum": 20,
+                "default": 1,
+                "scaleType": "automatic",
+                "elasticMaximum": 100
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "P1v2",
+                "tier": "PremiumV2"
+            },
+            "capacity": {
+                "minimum": 1,
+                "maximum": 30,
+                "default": 1,
+                "scaleType": "automatic",
+                "elasticMaximum": 100
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "P2v2",
+                "tier": "PremiumV2"
+            },
+            "capacity": {
+                "minimum": 1,
+                "maximum": 30,
+                "default": 1,
+                "scaleType": "automatic",
+                "elasticMaximum": 100
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "P3v2",
+                "tier": "PremiumV2"
+            },
+            "capacity": {
+                "minimum": 1,
+                "maximum": 30,
+                "default": 1,
+                "scaleType": "automatic",
+                "elasticMaximum": 100
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "P1v3",
+                "tier": "PremiumV3"
+            },
+            "capacity": {
+                "minimum": 1,
+                "maximum": 30,
+                "default": 1,
+                "scaleType": "automatic",
+                "elasticMaximum": 100
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "P2v3",
+                "tier": "PremiumV3"
+            },
+            "capacity": {
+                "minimum": 1,
+                "maximum": 30,
+                "default": 1,
+                "scaleType": "automatic",
+                "elasticMaximum": 100
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "P3v3",
+                "tier": "PremiumV3"
+            },
+            "capacity": {
+                "minimum": 1,
+                "maximum": 30,
+                "default": 1,
+                "scaleType": "automatic",
+                "elasticMaximum": 100
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "EP1",
+                "tier": "ElasticPremium"
+            },
+            "capacity": {
+                "minimum": 1,
+                "maximum": 20,
+                "default": 1,
+                "scaleType": "manual",
+                "elasticMaximum": 100
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "EP2",
+                "tier": "ElasticPremium"
+            },
+            "capacity": {
+                "minimum": 1,
+                "maximum": 20,
+                "default": 1,
+                "scaleType": "manual",
+                "elasticMaximum": 100
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "EP3",
+                "tier": "ElasticPremium"
+            },
+            "capacity": {
+                "minimum": 1,
+                "maximum": 20,
+                "default": 1,
+                "scaleType": "manual",
+                "elasticMaximum": 100
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "WS1",
+                "tier": "WorkflowStandard"
+            },
+            "capacity": {
+                "minimum": 1,
+                "maximum": 20,
+                "default": 1,
+                "scaleType": "automatic",
+                "elasticMaximum": 100
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "WS2",
+                "tier": "WorkflowStandard"
+            },
+            "capacity": {
+                "minimum": 1,
+                "maximum": 20,
+                "default": 1,
+                "scaleType": "automatic",
+                "elasticMaximum": 100
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "WS3",
+                "tier": "WorkflowStandard"
+            },
+            "capacity": {
+                "minimum": 1,
+                "maximum": 20,
+                "default": 1,
+                "scaleType": "automatic",
+                "elasticMaximum": 100
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "EI1",
+                "tier": "ElasticIsolated"
+            },
+            "capacity": {
+                "minimum": 1,
+                "maximum": 20,
+                "default": 1,
+                "scaleType": "automatic",
+                "elasticMaximum": 100
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "EI2",
+                "tier": "ElasticIsolated"
+            },
+            "capacity": {
+                "minimum": 1,
+                "maximum": 20,
+                "default": 1,
+                "scaleType": "automatic",
+                "elasticMaximum": 100
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "EI3",
+                "tier": "ElasticIsolated"
+            },
+            "capacity": {
+                "minimum": 1,
+                "maximum": 20,
+                "default": 1,
+                "scaleType": "automatic",
+                "elasticMaximum": 100
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "U1",
+                "tier": "HyperV_P1v2"
+            },
+            "capacity": {
+                "minimum": 0,
+                "maximum": 0,
+                "default": 0,
+                "scaleType": "none",
+                "elasticMaximum": null
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "U1",
+                "tier": "HyperV_P2v2"
+            },
+            "capacity": {
+                "minimum": 0,
+                "maximum": 0,
+                "default": 0,
+                "scaleType": "none",
+                "elasticMaximum": null
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "U1",
+                "tier": "HyperV_P3v2"
+            },
+            "capacity": {
+                "minimum": 0,
+                "maximum": 0,
+                "default": 0,
+                "scaleType": "none",
+                "elasticMaximum": null
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "U1",
+                "tier": "HyperV_S1"
+            },
+            "capacity": {
+                "minimum": 0,
+                "maximum": 0,
+                "default": 0,
+                "scaleType": "none",
+                "elasticMaximum": null
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "U1",
+                "tier": "LinuxFree"
+            },
+            "capacity": {
+                "minimum": 1,
+                "maximum": 1,
+                "default": 1,
+                "scaleType": "automatic",
+                "elasticMaximum": 100
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "U2",
+                "tier": "LinuxFree"
+            },
+            "capacity": {
+                "minimum": 1,
+                "maximum": 1,
+                "default": 1,
+                "scaleType": "automatic",
+                "elasticMaximum": 100
+            }
+        },
+        {
+            "resourceType": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "U3",
+                "tier": "LinuxFree"
+            },
+            "capacity": {
+                "minimum": 1,
+                "maximum": 1,
+                "default": 1,
+                "scaleType": "automatic",
+                "elasticMaximum": 100
+            }
+        }
+    ]
+}

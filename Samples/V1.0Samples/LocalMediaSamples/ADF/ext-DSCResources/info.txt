@@ -1,5 +1,0 @@
-You can stage all of the required DSC resources by executing
-
-ADF\1-PrereqsToDeploy\5.0-UpdateDSCModulesMain.ps1
-
-More info in that file on the process.
