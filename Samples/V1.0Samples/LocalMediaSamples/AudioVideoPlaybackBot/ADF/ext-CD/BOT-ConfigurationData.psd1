@@ -144,7 +144,7 @@
             NewServicePresent           = @(
                 @{
                     Name        = 'AVB'
-                    Path        = 'F:\API\AVB\AVBotWindowsService.exe'
+                    Path        = 'F:\API\AVB\AVPWindowsService.exe'
                     State       = 'Running'
                     StartupType = 'Automatic'
                     Description = 'Audio Video Playback Bot Service'
