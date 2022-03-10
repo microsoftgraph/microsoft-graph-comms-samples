@@ -65,6 +65,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.WebApi.Owin" Version="5.2.7" />
     <PackageReference Include="Microsoft.Graph.Communications.Calls.Media" Version="1.2.0.3742" />
+    <PackageReference Include="Microsoft.Owin.Host.HttpListener">
+      <Version>4.0.1</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.Owin.Hosting" Version="4.2.0" />
     <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.20.0.348-alpha" />
     <Reference Include="System.Data.Entity" />
