@@ -3,6 +3,7 @@ using Sample.AudioVideoPlaybackBot.FrontEnd;
 using Sample.AudioVideoPlaybackBot.FrontEnd.Http;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
 
@@ -156,6 +157,12 @@ namespace AVPWindowsService
         /// <param name="logger">Logger instance.</param>
         public WindowsServiceConfiguration(EnvironmentVarConfigs envConfigs)
         {
+            if (!System.Diagnostics.EventLog.SourceExists(SampleConstants.EventLogSource))
+            {
+                EventLog.CreateEventSource(SampleConstants.EventLogSource, SampleConstants.EventLogType);
+            }
+            EventLog.WriteEntry(SampleConstants.EventLogSource, $"Initializing {nameof(WindowsServiceConfiguration)}", EventLogEntryType.Warning);
+
             this.MapEnvironmentVars(envConfigs);
             this.Initialize();
         }
@@ -263,6 +270,16 @@ namespace AVPWindowsService
                 throw new ArgumentNullException("AudioVideoFileLengthInSec", "Update app.config in WorkerRole with the audio len in secs");
             }
             this.PlaceCallEndpointUrl = new Uri("https://graph.microsoft.com/v1.0");
+
+            EventLog.WriteEntry(SampleConstants.EventLogSource, $"-----EXTERNAL-----", EventLogEntryType.Information);
+            EventLog.WriteEntry(SampleConstants.EventLogSource, $"Listening on: {botCallingExternalUrl} (New Incoming calls)", EventLogEntryType.Information);
+            EventLog.WriteEntry(SampleConstants.EventLogSource, $"Listening on: {botInstanceExternalUrl} (Existing calls notifications/updates)", EventLogEntryType.Information);
+
+            EventLog.WriteEntry(SampleConstants.EventLogSource, $"Listening on: net.tcp//{MediaDnsName}:{MediaInstanceExternalPort} (Media connection)", EventLogEntryType.Information);
+            EventLog.WriteEntry(SampleConstants.EventLogSource, $"-----INTERNAL-----", EventLogEntryType.Information);
+            EventLog.WriteEntry(SampleConstants.EventLogSource, $"Listening on: {botCallingInternalUrl} (Existing calls notifications/updates)", EventLogEntryType.Information);
+            EventLog.WriteEntry(SampleConstants.EventLogSource, $"Listening on: {botInstanceInternalUrl} (Existing calls notifications/updates)", EventLogEntryType.Information);
+            EventLog.WriteEntry(SampleConstants.EventLogSource, $"Listening on: net.tcp//localhost:{MediaInternalPort} (Media connection)", EventLogEntryType.Information);
 
             Console.WriteLine("\n");
             Console.WriteLine($"-----EXTERNAL-----");
