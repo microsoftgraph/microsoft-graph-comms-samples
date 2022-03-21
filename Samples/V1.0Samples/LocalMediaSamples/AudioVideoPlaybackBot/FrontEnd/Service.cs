@@ -83,9 +83,9 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
 
                 // Start HTTP server for calls
                 var callStartOptions = new StartOptions();
-                EventLog.WriteEntry("AudioVideoPlaybackService", $"Service.cs {this.Configuration.CallControlListeningUrls?.ToString()}", EventLogEntryType.Warning);
                 foreach (var url in this.Configuration.CallControlListeningUrls)
                 {
+                    EventLog.WriteEntry("AudioVideoPlaybackService", $"Adding the url at {url.ToString()}", EventLogEntryType.Warning);
                     callStartOptions.Urls.Add(url.ToString());
                 }
 
