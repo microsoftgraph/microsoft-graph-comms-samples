@@ -20,7 +20,7 @@ on:
 
 env:
   OrgName: avbot3
-  Location: westus
+  Location: centralus
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:

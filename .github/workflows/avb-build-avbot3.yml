@@ -21,7 +21,7 @@ env:
   BuildName:   0.1.${{ github.run_number }}
   Environment: D1
   OrgName:     avbot3
-  Location:    westus
+  Location:    centralus
 
 jobs:
   build:
