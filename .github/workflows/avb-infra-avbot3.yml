@@ -1,4 +1,4 @@
-name: .NET BOT D1 INFRA avbot2
+name: .NET BOT D1 INFRA avbot3
 
 # Controls when the action will run.
 on:
@@ -8,19 +8,19 @@ on:
     branches: [ sasthana/dsc-changes ]
     paths:
       - ./Samples/V1.0Samples/LocalMediaSamples/AudioVideoPlaybackBot/ADF/**
-      - .github/workflows/avb-infra-avbot2.yml
+      - .github/workflows/avb-infra-avbot3.yml
   pull_request:
     branches: [ sasthana/dsc-changes ]
     paths:
       - ./Samples/V1.0Samples/LocalMediaSamples/AudioVideoPlaybackBot/ADF/**
-      - .github/workflows/avb-infra-avbot2.yml
+      - .github/workflows/avb-infra-avbot3.yml
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 env:
-  OrgName: avbot2
-  Location: eastus
+  OrgName: avbot3
+  Location: westus
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -42,7 +42,7 @@ jobs:
       - name: Login via Az module
         uses: azure/login@v1
         with:
-          creds: ${{secrets.AZURE_CREDENTIALS_avbot2_BOT}}
+          creds: ${{secrets.AZURE_CREDENTIALS_avbot3_BOT}}
           enable-AzPSSession: true
 
       - name: Deploy_All_Subscription
@@ -58,7 +58,7 @@ jobs:
             ./Samples/V1.0Samples/LocalMediaSamples/AudioVideoPlaybackBot/ADF/main.ps1 @Params
             if ($e){throw $e}
         env:
-          VMSS_CREDENTIALS: ${{ secrets.VMSS_CREDENTIALS_avbot2_BOT }}
+          VMSS_CREDENTIALS: ${{ secrets.VMSS_CREDENTIALS_avbot3_BOT }}
 
 
 
