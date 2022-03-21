@@ -186,6 +186,7 @@ namespace AVPWindowsService
             }
             else
             {
+                BotInternalHostingProtocol = "https";
                 MediaDnsName = ServiceDnsName;
             }
 
@@ -200,7 +201,14 @@ namespace AVPWindowsService
             if (MediaInstanceExternalPort == 0) throw new ArgumentOutOfRangeException(nameof(MediaInstanceExternalPort));
             if (MediaInternalPort == 0) throw new ArgumentOutOfRangeException(nameof(MediaInternalPort));
 
-            ServiceCname = ServiceDnsName;
+            EventLog.WriteEntry(SampleConstants.EventLogSource, $"WindowsServiceConfiguration Cname {this.ServiceCname} DNS {this.ServiceDnsName}", EventLogEntryType.Warning);
+            if (string.IsNullOrEmpty(this.ServiceCname))
+            {
+                this.ServiceCname = this.ServiceDnsName;
+            }
+
+            this.PlaceCallEndpointUrl = new Uri("https://graph.microsoft.com/v1.0");
+
             X509Certificate2 defaultCertificate = this.GetCertificateFromStore();
 
             // localhost
@@ -215,13 +223,16 @@ namespace AVPWindowsService
 
 
             // Create structured config objects for service.
-            this.CallControlBaseUrl = new Uri($"https://{this.ServiceCname}:{BotInstanceExternalPort}/{HttpRouteConstants.CallSignalingRoutePrefix}/{HttpRouteConstants.OnNotificationRequestRoute}");
+            this.CallControlBaseUrl = new Uri($"https://{this.ServiceCname}:{BotInstanceExternalPort}/{HttpRouteConstants.CallSignalingRoutePrefix}");
+            EventLog.WriteEntry(SampleConstants.EventLogSource, $"WindowsServiceConfiguration CallControlBaseUrl {this.CallControlBaseUrl}", EventLogEntryType.Warning);
 
             // http for local development or where certificate is not installed
             // https for running on VM
             var controlListenUris = new HashSet<Uri>();
             controlListenUris.Add(new Uri($"{BotInternalHostingProtocol}://{baseDomain}:{BotCallingInternalPort}/"));
+            EventLog.WriteEntry(SampleConstants.EventLogSource, $"WindowsServiceConfiguration controlListenUrl 1 {$"{BotInternalHostingProtocol}://{baseDomain}:{BotCallingInternalPort}/"}", EventLogEntryType.Warning);
             controlListenUris.Add(new Uri($"{BotInternalHostingProtocol}://{baseDomain}:{BotInternalPort}/"));
+            EventLog.WriteEntry(SampleConstants.EventLogSource, $"WindowsServiceConfiguration controlListenUrl 2 {$"{BotInternalHostingProtocol}://{baseDomain}:{BotInternalPort}/"}", EventLogEntryType.Warning);
             this.CallControlListeningUrls = controlListenUris;
 
             this.MediaPlatformSettings = new MediaPlatformSettings()
@@ -269,7 +280,7 @@ namespace AVPWindowsService
             {
                 throw new ArgumentNullException("AudioVideoFileLengthInSec", "Update app.config in WorkerRole with the audio len in secs");
             }
-            this.PlaceCallEndpointUrl = new Uri("https://graph.microsoft.com/v1.0");
+            
 
             EventLog.WriteEntry(SampleConstants.EventLogSource, $"-----EXTERNAL-----", EventLogEntryType.Information);
             EventLog.WriteEntry(SampleConstants.EventLogSource, $"Listening on: {botCallingExternalUrl} (New Incoming calls)", EventLogEntryType.Information);
