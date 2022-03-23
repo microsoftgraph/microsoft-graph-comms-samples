@@ -23,6 +23,6 @@ namespace Sample.PolicyRecordingBot.FrontEnd
         /// <summary>
         /// Size of Recording group.
         /// </summary>
-        public const uint GroupSize = 3;
+        public const uint GroupSize = 0;
     }
 }
