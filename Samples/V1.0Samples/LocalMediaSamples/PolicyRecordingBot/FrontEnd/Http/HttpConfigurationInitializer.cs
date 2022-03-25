@@ -14,6 +14,7 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
     using System.Web.Http.ExceptionHandling;
     using Microsoft.Graph.Communications.Common.Telemetry;
     using Owin;
+    using Sample.PolicyRecordingBot.FrontEnd.Middleware;
 
     /// <summary>
     /// Initialize the HttpConfiguration for OWIN.
@@ -36,6 +37,9 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
             // TODO: Provide serializer settings hooks
             // httpConfig.Formatters.JsonFormatter.SerializerSettings = RealTimeMediaSerializer.GetSerializerSettings();
             httpConfig.EnsureInitialized();
+
+            // Add the middleware to log service start/stop and response time to logs 
+            app.Use(typeof(ResponseTimeMiddleware));
 
             // Use the HTTP configuration initialized above
             app.UseWebApi(httpConfig);
