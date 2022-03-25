@@ -96,25 +96,6 @@ Function global:AzDeploy
             $GlobalGlobal.$Object = $String
         }
     }
-
-    # $Regional = Get-Content -Path $Artifacts\tenants\$App\Global-$Prefix.json | ConvertFrom-Json -Depth 10 | ForEach-Object Global
-    # Convert any objects back to string so they are not deserialized
-    # $Regional | Get-Member -MemberType NoteProperty | ForEach-Object {
-
-    #     if ($_.Definition -match 'PSCustomObject')
-    #     {
-    #         $Object = $_.Name
-    #         $String = $Regional.$Object | ConvertTo-Json -Compress -Depth 10
-    #         $Regional.$Object = $String
-    #     }
-    # }
-
-    # Merge regional with Global
-    # $Regional | Get-Member -MemberType NoteProperty | ForEach-Object {
-    #     $Property = $_.Name
-    #     $Value = $Regional.$Property
-    #     $GlobalGlobal | Add-Member NoteProperty -Name $Property -Value $Value
-    # }
     
     $Global = @{}
     $GlobalGlobal | Get-Member -MemberType NoteProperty | ForEach-Object {
