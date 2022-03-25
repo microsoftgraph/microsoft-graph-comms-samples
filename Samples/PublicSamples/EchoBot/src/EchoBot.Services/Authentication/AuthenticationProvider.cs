@@ -31,6 +31,7 @@ using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace EchoBot.Services.Authentication
 {
@@ -71,18 +72,24 @@ namespace EchoBot.Services.Authentication
         private OpenIdConnectConfiguration openIdConfiguration;
 
         /// <summary>
+        /// The logger
+        /// </summary>
+        private readonly ILogger logger;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="AuthenticationProvider" /> class.
         /// </summary>
         /// <param name="appName">The application name.</param>
         /// <param name="appId">The application identifier.</param>
         /// <param name="appSecret">The application secret.</param>
         /// <param name="logger">The logger.</param>
-        public AuthenticationProvider(string appName, string appId, string appSecret, IGraphLogger logger)
-            : base(logger.NotNull(nameof(logger)).CreateShim(nameof(AuthenticationProvider)))
+        public AuthenticationProvider(string appName, string appId, string appSecret, IGraphLogger graphLogger, ILogger logger)
+            : base(graphLogger.NotNull(nameof(graphLogger)).CreateShim(nameof(AuthenticationProvider)))
         {
             this.appName = appName.NotNullOrWhitespace(nameof(appName));
             this.appId = appId.NotNullOrWhitespace(nameof(appId));
             this.appSecret = appSecret.NotNullOrWhitespace(nameof(appSecret));
+            this.logger = logger;
         }
 
         /// <summary>
@@ -107,7 +114,7 @@ namespace EchoBot.Services.Authentication
             tenant = string.IsNullOrWhiteSpace(tenant) ? "common" : tenant;
             var tokenLink = oauthV2TokenLink.Replace(replaceString, tenant);
 
-            this.GraphLogger.Info("AuthenticationProvider: Generating OAuth token.");
+            this.logger.LogInformation("AuthenticationProvider: Generating OAuth token.");
             var context = new AuthenticationContext(tokenLink);
             var creds = new ClientCredential(this.appId, this.appSecret);
 
@@ -122,7 +129,7 @@ namespace EchoBot.Services.Authentication
                 throw;
             }
 
-            this.GraphLogger.Info($"AuthenticationProvider: Generated OAuth token. Expires in {result.ExpiresOn.Subtract(DateTimeOffset.UtcNow).TotalMinutes} minutes.");
+            this.logger.LogInformation($"AuthenticationProvider: Generated OAuth token. Expires in {result.ExpiresOn.Subtract(DateTimeOffset.UtcNow).TotalMinutes} minutes.");
 
             request.Headers.Authorization = new AuthenticationHeaderValue(schema, result.AccessToken);
         }
@@ -148,7 +155,7 @@ namespace EchoBot.Services.Authentication
             const string authDomain = AppConstants.AuthDomain;
             if (this.openIdConfiguration == null || DateTime.Now > this.prevOpenIdConfigUpdateTimestamp.Add(this.openIdConfigRefreshInterval))
             {
-                this.GraphLogger.Info("Updating OpenID configuration");
+                this.logger.LogInformation("Updating OpenID configuration");
 
                 // Download the OIDC configuration which contains the JWKS
                 IConfigurationManager<OpenIdConnectConfiguration> configurationManager =
@@ -194,7 +201,7 @@ namespace EchoBot.Services.Authentication
             catch (Exception ex)
             {
                 // Some other error
-                this.GraphLogger.Error(ex, $"Failed to validate token for client: {this.appId}.");
+                this.logger.LogError(ex, $"Failed to validate token for client: {this.appId}.");
                 return new RequestValidationResult() { IsValid = false };
             }
 

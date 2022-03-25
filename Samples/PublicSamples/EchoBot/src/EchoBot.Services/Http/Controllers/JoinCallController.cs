@@ -13,7 +13,6 @@
 // ***********************************************************************
 using Microsoft.Extensions.Options;
 using Microsoft.Graph;
-using Microsoft.Graph.Communications.Common.Telemetry;
 using Microsoft.Graph.Communications.Core.Serialization;
 using EchoBot.Model.Constants;
 using EchoBot.Model.Models;
@@ -35,10 +34,6 @@ namespace EchoBot.Services.Http.Controllers
     public class JoinCallController : ApiController
     {
         /// <summary>
-        /// The logger
-        /// </summary>
-        private readonly IGraphLogger _graphLogger;
-        /// <summary>
         /// The bot service
         /// </summary>
         private readonly IBotService _botService;
@@ -46,6 +41,9 @@ namespace EchoBot.Services.Http.Controllers
         /// The settings
         /// </summary>
         private readonly AppSettings _settings;
+        /// <summary>
+        /// the logger
+        /// </summary>
         public ILogger _logger { get; set; }
 
 
@@ -55,7 +53,6 @@ namespace EchoBot.Services.Http.Controllers
         /// </summary>
         public JoinCallController()
         {
-            _graphLogger = AppHost.AppHostInstance.Resolve<IGraphLogger>();
             _botService = AppHost.AppHostInstance.Resolve<IBotService>();
             _settings = AppHost.AppHostInstance.Resolve<IOptions<AppSettings>>().Value;
             _logger = AppHost.AppHostInstance.Resolve<ILogger<JoinCallController>>();
@@ -65,13 +62,12 @@ namespace EchoBot.Services.Http.Controllers
         /// Initializes a new instance of the <see cref="JoinCallController" /> class.
 
         /// </summary>
-        /// <param name="graphLogger">The logger.</param>
         /// <param name="botService">The bot service.</param>
         /// <param name="settings">The settings.</param>
-        public JoinCallController(IGraphLogger graphLogger, IBotService botService, AppSettings settings, ILogger<JoinCallController> logger)
+        /// <param name="logger">The logger.</param>
+        public JoinCallController(IBotService botService, AppSettings settings, ILogger<JoinCallController> logger)
         {
             _logger = logger;
-            _graphLogger = graphLogger;
             _botService = botService;
             _settings = settings;
         }
@@ -123,7 +119,7 @@ namespace EchoBot.Services.Http.Controllers
             }
             catch (Exception e)
             {
-                _graphLogger.Error(e, $"Received HTTP {this.Request.Method}, {this.Request.RequestUri}");
+                _logger.LogError(e, $"Received HTTP {this.Request.Method}, {this.Request.RequestUri}");
                 HttpResponseMessage response = this.Request.CreateResponse(HttpStatusCode.InternalServerError);
                 response.Content = new StringContent(e.Message);
                 return response;

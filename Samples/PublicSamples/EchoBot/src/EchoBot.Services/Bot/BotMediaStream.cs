@@ -49,7 +49,6 @@ namespace EchoBot.Services.Bot
         /// <summary>
         /// The media stream
         /// </summary>
-        private readonly IGraphLogger graphLogger;
         private readonly ILogger _logger;
         private AudioVideoFramePlayer audioVideoFramePlayer;
         private readonly TaskCompletionSource<bool> audioSendStatusActive;
@@ -58,17 +57,11 @@ namespace EchoBot.Services.Bot
         private List<AudioMediaBuffer> audioMediaBuffers = new List<AudioMediaBuffer>();
         private int shutdown;
         private readonly CognitiveServicesService _languageService;
-        private readonly object mLock = new object();
-
-        /// <summary>
-        /// The call identifier
-        /// </summary>
-        private readonly string _callId;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BotMediaStream" /> class.
         /// </summary>
-        /// <param name="mediaSession">he media session.</param>
+        /// <param name="mediaSession">The media session.</param>
         /// <param name="callId">The call identity</param>
         /// <param name="graphLogger">The Graph logger.</param>
         /// <param name="logger">The logger.</param>
@@ -103,14 +96,11 @@ namespace EchoBot.Services.Bot
 
             this._audioSocket.AudioSendStatusChanged += OnAudioSendStatusChanged;
 
-            _callId = callId;
-
-            this.graphLogger = graphLogger;
             _logger = logger;
 
             this._audioSocket.AudioMediaReceived += this.OnAudioMediaReceived;
 
-            var ignoreTask = this.StartAudioVideoFramePlayerAsync().ForgetAndLogExceptionAsync(this.graphLogger, "Failed to start the player");
+            var ignoreTask = this.StartAudioVideoFramePlayerAsync().ForgetAndLogExceptionAsync(this.GraphLogger, "Failed to start the player");
 
             if (_settings.UseCognitiveServices)
             {

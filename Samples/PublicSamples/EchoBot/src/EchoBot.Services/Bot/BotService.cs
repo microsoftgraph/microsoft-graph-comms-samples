@@ -114,7 +114,8 @@ namespace EchoBot.Services.Bot
                 name,
                 _settings.AadAppId,
                 _settings.AadAppSecret,
-                _graphLogger);
+                _graphLogger,
+                _logger);
 
             builder.SetAuthenticationProvider(authProvider);
             builder.SetNotificationUrl(_azureSettings.CallControlBaseUrl);
@@ -180,6 +181,7 @@ namespace EchoBot.Services.Bot
 
             var statefulCall = await this.Client.Calls().AddAsync(joinParams, scenarioId).ConfigureAwait(false);
             statefulCall.GraphLogger.Info($"Call creation complete: {statefulCall.Id}");
+            _logger.LogInformation($"Call creation complete: {statefulCall.Id}");
             return statefulCall;
         }
 
