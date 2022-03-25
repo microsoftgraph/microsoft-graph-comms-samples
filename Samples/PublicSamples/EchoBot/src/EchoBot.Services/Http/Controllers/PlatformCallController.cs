@@ -60,15 +60,7 @@ namespace EchoBot.Services.Http.Controllers
             var log = $"Received HTTP {this.Request.Method}, {this.Request.RequestUri}";
             _logger.Info(log);
 
-            // Instead of passing incoming notification to SDK, let's process it ourselves
-            // so we can handle any policy evaluations.
-            //var response = await ProcessNotificationAsync(_botService.Client, this.Request).ConfigureAwait(false);
             var response = await _botService.Client.ProcessNotificationAsync(this.Request).ConfigureAwait(false);
-
-            // Enforce the connection close to ensure that requests are evenly load balanced so
-            // calls do no stick to one instance of the worker role.
-            //response.Headers.ConnectionClose = true;
-            //return response;
 
             return await ControllerExtensions.GetActionResultAsync(this.Request, response).ConfigureAwait(false);
         }

@@ -34,14 +34,6 @@ targetScope = 'subscription'
 
 var Deployment = '${Prefix}-${Global.OrgName}-${Global.Appname}-${Environment}${DeploymentID}'
 
-// var Locationlookup = {
-//   AZE2: 'eastus2'
-//   AZC1: 'centralus'
-//   AEU2: 'eastus2'
-//   ACU1: 'centralus'
-// }
-// var location = Locationlookup[Prefix]
-
 module dp_Deployment_RG 'sub-RG.bicep' = if (bool(Stage.RG) && (!('${DeploymentID}${Environment}' == 'G0'))) {
   name: 'dp${Deployment}-RG'
   params: {

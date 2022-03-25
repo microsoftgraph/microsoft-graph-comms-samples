@@ -75,12 +75,6 @@ var accessPolicies = [for i in range(0, ((!contains(KVInfo, 'accessPolicies')) ?
   permissions: keyVaultPermissions[KVInfo.accessPolicies[i].Permissions]
 }]
 
-// var ipRules = [for i in range(0, length(Global.PublicIPAddressforRemoteAccess)): {
-//   value: Global.PublicIPAddressforRemoteAccess[i]
-// }]
-
-var rolesInfo = contains(KVInfo, 'rolesInfo') ? KVInfo.rolesInfo : []
-
 resource KV 'Microsoft.KeyVault/vaults@2019-09-01' = {
   name: '${Deployment}-kv${KVInfo.Name}'
   location: resourceGroup().location
@@ -128,21 +122,3 @@ resource KVDiagnostics 'microsoft.insights/diagnosticSettings@2017-05-01-preview
     ]
   }
 }
-
-// module KVRBAC 'x.RBAC-ALL.bicep' = [for (role, index) in rolesInfo : {
-//   name: 'dp${Deployment}-KV-${KVInfo.Name}-RBAC-${role.name}'
-//   params: {
-//       Deployment: Deployment
-//       Prefix: Prefix
-//       rgName: resourceGroup().name
-//       Enviro: '${Environment}${DeploymentID}'
-//       Global: Global
-//       rolesGroupsLookup: json(Global.RolesGroupsLookup)
-//       rolesLookup: json(Global.RolesLookup)
-//       roleInfo: role
-//       providerPath: ''
-//       namePrefix: ''
-//       providerAPI: ''
-//       principalType: ''
-//   }
-// }]
