@@ -12,8 +12,10 @@ param (
 $base = $PSScriptRoot
 $LocationLookup = Get-Content -Path $base/bicep/global/region.json | ConvertFrom-Json
 $Prefix = $LocationLookup.$Location.Prefix
-Write-Warning -Message "Prefix [$Prefix] Org [$OrgName] App [BOT] Environment [D1]"
-[String]$SAName = "${Prefix}${OrgName}botd1saglobal".tolower()
+$App = 'BOT'
+$Environment = 'D1'
+Write-Warning -Message "Prefix [$Prefix] Org [$OrgName] App [$App] Environment [$Environment]"
+[String]$SAName = "${Prefix}${OrgName}${App}${Environment}saglobal".tolower()
 
 $Context = Get-AzContext | Select-Object Name, Account, Environment, Subscription, Tenant
 if ($Context)
