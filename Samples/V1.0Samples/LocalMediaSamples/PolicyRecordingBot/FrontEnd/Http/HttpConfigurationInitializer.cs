@@ -38,8 +38,8 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
             // httpConfig.Formatters.JsonFormatter.SerializerSettings = RealTimeMediaSerializer.GetSerializerSettings();
             httpConfig.EnsureInitialized();
 
-            // Add the middleware to log service start/stop and response time to logs 
-            app.Use(typeof(ResponseTimeMiddleware));
+            // Add the middleware to log service start/stop and response time to logs.
+            app.Use<ResponseTimeMiddleware>(logger);
 
             // Use the HTTP configuration initialized above
             app.UseWebApi(httpConfig);
