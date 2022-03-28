@@ -1,18 +1,26 @@
-# Getting Started with the Teams Voice Echo Bot Sample
+> **Note:**  
+> Public Samples are provided by developers from the Microsoft Graph community.  
+> Public Samples are not official Microsoft Communication samples, and not supported by the Microsoft Communication engineering team. It is recommended that you contact the sample owner before using code from Public Samples in production systems.
 
-This topic will provide information on running the Teams Voice Echo Bot Sample. This Bot demonstrates how to use the Audio Socket in a Teams meeting.
+---
+# Teams Voice Echo Bot
+
+**Description:** This sample application shows how to work with the stream of data from the audio socket in a Teams meeting. When the Bot is added to a meeting it will echo everything that is said (in the speaker's voice). If you decide to use the Cognitive Services mode, then the bot will use Cognitive services to convert the Speech-To-Text and then convert the Text-To-Speech and you will hear the echo in a Bot's voice. This sample comes with automated pipelines that can deploy and configure the bot on the virtual machines with Virtual Machine Scale Sets (VMSS).
+**Authors:** [@bcage29](https://github.com/bcage29) and [@brwilkinson](https://github.com/brwilkinson)
+
+---
 
 ### Table of Contents
 - **[Introduction](#introduction)**<br>
     - **[Echo Mode](#echo-mode)**<br>
     - **[Cognitive Services Mode](#cognitive-services-mode)**<br>
+- **[Getting Started](#getting-started)**<br>
+    - **[Create a PFX Certificate](#create-a-pfx-certificate)**<br>
+- **[Bot Registration](#bot-registration)**<br>
 - **[Prerequisites](#prerequisites)**<br>
     - **[General](#general)**<br>
     - **[Setup Script](#setup-script)**<br>
-- **[Getting Started](#getting-started)**<br>
-    - **[Bot Registration](#bot-registration)**<br>
-    - **[Create a PFX Certificate](#create-a-pfx-certificate)**<br>
-- **[Installation](#installation)**<br>
+- **[Deploy](#deploy)**<br>
     - **[Deploy the Prerequistes](#deploy-the-prerequistes)**<br>
     - **[Deploy the Infrastructure](#deploy-the-infrastructure)**<br>
         - **[Update DNS](#update-dns)**<br>
@@ -20,17 +28,17 @@ This topic will provide information on running the Teams Voice Echo Bot Sample. 
 - **[Running the Sample](#running-the-sample)**<br>
 <br/>
 
-## Introduction
+# Introduction
 
 The Teams Voice Echo Bot is a sample demonstrating how to use the audio stream from a Teams call or Meeting. The sample also includes scripts and pipelines to deploy the infrastructure and code to run the Bot in Azure on VMSS.
 
 Once you joined a meeting, you can request that your bot joins the meeting (through a custom Web API call to the bot or some other trigger). Depending on the mode set during deployment, the bot will either echo every sound or it will use Cognitive Services to convert the speech to text and then convert the text back to speech in the voice of the bot. Refer to the supported languages on the [Cognitive Services Documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/overview)
 
-### Echo Mode
+## Echo Mode
 
 This is the default mode when deployed (UseCognitiveServices == false). In this mode, the bot will listen to the inbound audio stream and will send the same stream of data back on the Audio Socket. This will create an echo and you will hear yourself repeated.
 
-### Cognitive Services Mode
+## Cognitive Services Mode
 
 This is the secondary mode to demonstrate how to use the audio stream from a meeting and process the data. This sample takes the audio stream, uses Cognitive Services to do Speech to Text and then Text to Speech, the response is a stream that is sent back on the audio socket. In this mode, the bot does not constantly echo, but it listens for a simple keyword. Once it hears the keyword, it will start listening to what you want to echo. Depending on the language you set in the settings, it will listen and talk in that language.
 
@@ -41,6 +49,49 @@ To use Cognitive Services mode, set the following environment variables:
 "SpeechConfigRegion": "eastus2", // region where your cognitive services service is deployed
 "BotLanguage": "en-US", // es-MX, fr-FR
 ```
+
+## Getting Started
+
+* Clone the Git repo for the Microsoft Graph Calling API Samples. Please see the instructions [here](https://docs.microsoft.com/en-us/vsts/git/tutorial/clone?view=vsts&tabs=visual-studio) to get started with VSTS Git. 
+* Log in to your Azure subscription to host web sites and bot services. 
+* Launch Visual Studio Code or open a terminal to the root folder of the sample.
+* Fork the repo or clone it and then push it to your own repo in GitHub.
+
+### Create a PFX Certificate
+
+The Bot requires an SSL certificate signed by a Certificate Authority. If you don't have a certificate for your domain, you can create a free SSL certificate.
+
+1. Verify you have access to make DNS changes to your domain or buy a new domain.
+2. Install [certbot](https://certbot.eff.org/instructions?ws=other&os=windows)
+    - a. Follow the installation instructions
+    - b. If 'certbot' command is not recognized in the terminal, add the path to the certbot.exe to the environment variables path ($env:Path)
+3. Open a terminal as an Adminstrator where certbot is loaded
+4. Execute
+```
+certbot certonly --manual --preferred-challenges=dns -d *.example.com
+```
+5. This will create a wildcard certificate for example.com.
+6. Follow the instructions and add the TXT record to your domain
+7. This will create PEM certificates and the default location is 'C:\Certbot\live\example.com'
+8. Install [OpenSSL](https://slproweb.com/products/Win32OpenSSL.html) to convert the certifcate from PEM to PFX
+9. Execute
+```
+openssl pkcs12 -export -out C:\Certbot\live\example.com\star_example_com.pfx -inkey C:\Certbot\live\example.com\privkey.pem -in C:\Certbot\live\example.com\cert.pem
+```
+10. Copy the path to the PFX certificate "C:\Certbot\live\example.com\star_example_com.pfx
+
+## Bot Registration
+
+1. Follow the instructions [Register a Calling Bot](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/register-calling-bot.html). Take a note of the registered config values (Bot Id, MicrosoftAppId and MicrosoftAppPassword). You will need these values in the code sample config.
+
+1. Add the following Application Permissions to the bot:
+
+    * Calls.AccessMedia.All
+    * Calls.Initiate.All
+    * Calls.JoinGroupCall.All
+    * Calls.JoinGroupCallAsGuest.All
+
+1. The permissions need to be consented by tenant admin. Go to "https://login.microsoftonline.com/common/adminconsent?client_id=<app_id>&state=<any_number>&redirect_uri=<any_callback_url>" using tenant admin to sign-in, then consent for the whole tenant.
 
 ## Prerequisites
 
@@ -78,50 +129,7 @@ To use Cognitive Services mode, set the following environment variables:
 | BotLanguage          | The language that you want your bot to understand (ie, en-US, es-MX, fr-FR) |
 <br/>
 
-## Getting Started
-
-* Clone the Git repo for the Microsoft Graph Calling API Samples. Please see the instructions [here](https://docs.microsoft.com/en-us/vsts/git/tutorial/clone?view=vsts&tabs=visual-studio) to get started with VSTS Git. 
-* Log in to your Azure subscription to host web sites and bot services. 
-* Launch Visual Studio Code or open a terminal to the root folder of the sample.
-* Fork the repo or clone it and then push it to your own repo in GitHub.
-
-### Bot Registration
-
-1. Follow the instructions [Register a Calling Bot](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/register-calling-bot.html). Take a note of the registered config values (Bot Id, MicrosoftAppId and MicrosoftAppPassword). You will need these values in the code sample config.
-
-1. Add the following Application Permissions to the bot:
-
-    * Calls.AccessMedia.All
-    * Calls.Initiate.All
-    * Calls.JoinGroupCall.All
-    * Calls.JoinGroupCallAsGuest.All
-
-1. The permissions need to be consented by tenant admin. Go to "https://login.microsoftonline.com/common/adminconsent?client_id=<app_id>&state=<any_number>&redirect_uri=<any_callback_url>" using tenant admin to sign-in, then consent for the whole tenant.
-
-### Create a PFX Certificate
-
-The Bot requires an SSL certificate signed by a Certificate Authority. If you don't have a certificate for your domain, you can create a free SSL certificate.
-
-1. Verify you have access to make DNS changes to your domain or buy a new domain.
-2. Install [certbot](https://certbot.eff.org/instructions?ws=other&os=windows)
-    - a. Follow the installation instructions
-    - b. If 'certbot' command is not recognized in the terminal, add the path to the certbot.exe to the environment variables path ($env:Path)
-3. Open a terminal as an Adminstrator where certbot is loaded
-4. Execute
-```
-certbot certonly --manual --preferred-challenges=dns -d *.example.com
-```
-5. This will create a wildcard certificate for example.com.
-6. Follow the instructions and add the TXT record to your domain
-7. This will create PEM certificates and the default location is 'C:\Certbot\live\example.com'
-8. Install [OpenSSL](https://slproweb.com/products/Win32OpenSSL.html) to convert the certifcate from PEM to PFX
-9. Execute
-```
-openssl pkcs12 -export -out C:\Certbot\live\example.com\star_example_com.pfx -inkey C:\Certbot\live\example.com\privkey.pem -in C:\Certbot\live\example.com\cert.pem
-```
-10. Copy the path to the PFX certificate "C:\Certbot\live\example.com\star_example_com.pfx
-
-## Installation
+## Deploy
 
 ### Deploy the Prerequistes
 
