@@ -21,7 +21,7 @@
     - **[General](#general)**<br>
     - **[Setup Script](#setup-script)**<br>
 - **[Deploy](#deploy)**<br>
-    - **[PowerShell DSC](#)
+    - **[PowerShell DSC](#powershell-dsc)**<br>
     - **[Deploy the Prerequistes](#deploy-the-prerequistes)**<br>
     - **[Deploy the Infrastructure](#deploy-the-infrastructure)**<br>
         - **[Update DNS](#update-dns)**<br>
