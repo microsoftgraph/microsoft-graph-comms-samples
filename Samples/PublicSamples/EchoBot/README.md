@@ -21,6 +21,7 @@
     - **[General](#general)**<br>
     - **[Setup Script](#setup-script)**<br>
 - **[Deploy](#deploy)**<br>
+    - **[PowerShell DSC](#)
     - **[Deploy the Prerequistes](#deploy-the-prerequistes)**<br>
     - **[Deploy the Infrastructure](#deploy-the-infrastructure)**<br>
         - **[Update DNS](#update-dns)**<br>
@@ -130,6 +131,18 @@ openssl pkcs12 -export -out C:\Certbot\live\example.com\star_example_com.pfx -in
 <br/>
 
 ## Deploy
+
+### PowerShell DSC
+
+PowerShell Desired State Configuration (DSC) enables you to manage your IT development infrastructure with configuration as code. This sample uses DSC to configure the VMs to run the Teams Voice Echo Bot. Here are a few examples of where we are using DSC:
+    - Set environment variables on the VM
+    - Install software
+    - Install the windows service
+
+DSC Resources
+- https://docs.microsoft.com/en-us/powershell/scripting/dsc/overview?view=powershell-5.1
+- https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/dsc-overview
+- https://github.com/dsccommunity
 
 ### Deploy the Prerequistes
 
