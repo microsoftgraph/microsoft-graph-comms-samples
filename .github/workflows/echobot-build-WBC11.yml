@@ -1,4 +1,4 @@
-name: .NET BOT D1 BUILD WBC50
+name: .NET BOT D1 BUILD WBC11
 
 on:
   workflow_dispatch:
@@ -7,12 +7,12 @@ on:
     branches: [ bcage29/TeamsVoiceEchoBot ]
     paths:
       - ./Samples/PublicSamples/EchoBot/src/**
-      - .github/workflows/echobot-build-WBC50.yml
+      - .github/workflows/echobot-build-WBC11.yml
   pull_request:
     branches: [ bcage29/TeamsVoiceEchoBot ]
     paths:
       - ./Samples/PublicSamples/EchoBot/src/**
-      - .github/workflows/echobot-build-WBC50.yml
+      - .github/workflows/echobot-build-WBC11.yml
 
 env:
   # /home/runner/work/publish
@@ -20,7 +20,7 @@ env:
   Component:   EchoBot
   BuildName:   0.1.${{ github.run_number }}
   Environment: D1
-  OrgName:     WBC50
+  OrgName:     WBC11
   Location:    eastus2
 
 jobs:
@@ -66,7 +66,7 @@ jobs:
     - name: Login via Az module
       uses: azure/login@v1
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS_WBC50_BOT }}
+        creds: ${{ secrets.AZURE_CREDENTIALS_WBC11_BOT }}
         enable-AzPSSession: true
 
     - name: G1_RG_UploadArtifacts_to_Blob
