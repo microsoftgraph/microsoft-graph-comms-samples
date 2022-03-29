@@ -7,12 +7,14 @@ on:
     paths:
       - './Samples/PublicSamples/EchoBot/src/**'
       - .github/workflows/echobot-build-{OrgName}.yml
+
   pull_request:
     branches:
       - '{BranchName}'
     paths:
       - './Samples/PublicSamples/EchoBot/src/**'
       - .github/workflows/echobot-build-{OrgName}.yml
+
   workflow_dispatch:
 
 env:

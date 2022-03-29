@@ -7,12 +7,14 @@ on:
     paths:
       - './Samples/PublicSamples/EchoBot/src/**'
       - .github/workflows/echobot-build-CSEFE.yml
+
   pull_request:
     branches:
       - 'bcage29/TeamsVoiceEchoBot'
     paths:
       - './Samples/PublicSamples/EchoBot/src/**'
       - .github/workflows/echobot-build-CSEFE.yml
+
   workflow_dispatch:
 
 env:
