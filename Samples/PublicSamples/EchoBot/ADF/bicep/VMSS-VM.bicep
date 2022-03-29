@@ -411,9 +411,9 @@ resource VMSS 'Microsoft.Compute/virtualMachineScaleSets@2021-07-01' = {
   }
 }
 
-resource VMSSAutoscale 'Microsoft.Insights/autoscalesettings@2015-04-01' = {
+resource VMSSAutoscale 'Microsoft.Insights/autoscalesettings@2021-05-01-preview' = {
   name: '${Deployment}-ss${AppServer.Name}-Autoscale'
-  location: 'centralus'
+  location: resourceGroup().location
   properties: {
     name: '${Deployment}-ss${AppServer.Name}-Autoscale'
     enabled: AppServer.AutoScale
@@ -421,7 +421,7 @@ resource VMSSAutoscale 'Microsoft.Insights/autoscalesettings@2015-04-01' = {
       scaleMode: AppServer.PredictiveScale
     }
     notifications: []
-    targetResourceLocation: 'centralus'
+    targetResourceLocation: VMSS.location
     targetResourceUri: VMSS.id
     profiles: [
       {

@@ -5,14 +5,16 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   # https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows
   push:
-    branches: [ {BranchName} ]
+    branches:
+      - '{BranchName}'
     paths:
-      - ./Samples/PublicSamples/EchoBot/ADF/**
+      - './Samples/PublicSamples/EchoBot/ADF/**'
       - .github/workflows/echobot-infra-{OrgName}.yml
   pull_request:
-    branches: [ {BranchName} ]
+    branches:
+      - '{BranchName}'
     paths:
-      - ./Samples/PublicSamples/EchoBot/ADF/**
+      - './Samples/PublicSamples/EchoBot/ADF/**'
       - .github/workflows/echobot-infra-{OrgName}.yml
 
   # Allows you to run this workflow manually from the Actions tab

@@ -2,16 +2,17 @@ name: .NET BOT D1 BUILD {OrgName}
 
 on:
   workflow_dispatch:
-    
   push:
-    branches: [ {BranchName} ]
+    branches:
+      - '{BranchName}'
     paths:
-      - ./Samples/PublicSamples/EchoBot/src/**
+      - './Samples/PublicSamples/EchoBot/src/**'
       - .github/workflows/echobot-build-{OrgName}.yml
   pull_request:
-    branches: [ {BranchName} ]
+    branches:
+      - '{BranchName}'
     paths:
-      - ./Samples/PublicSamples/EchoBot/src/**
+      - './Samples/PublicSamples/EchoBot/src/**'
       - .github/workflows/echobot-build-{OrgName}.yml
 
 env:
