@@ -83,7 +83,7 @@ namespace EchoBot.Services.Http.Controllers
         {
             try
             {
-                _logger.LogError("JOIN CALL");
+                _logger.LogInformation("JOIN CALL");
                 var body = await this.Request.Content.ReadAsStringAsync();
                 var call = await _botService.JoinCallAsync(joinCallBody).ConfigureAwait(false);
 
