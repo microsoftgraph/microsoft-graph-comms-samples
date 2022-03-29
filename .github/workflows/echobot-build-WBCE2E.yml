@@ -55,7 +55,7 @@ jobs:
     
     - name: Build Solution
       run: |
-        msbuild.exe Samples\PublicSamples\EchoBot\src\EchoBot.sln /nologo /p:platform="x64" /p:OutDir=${{ github.workspace }}/${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
+        msbuild.exe Samples\PublicSamples\EchoBot\src\EchoBot.sln /nologo /p:platform="x64" /p:Configuration=Release /p:OutDir=${{ github.workspace }}/${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
         
     - name: Run pwsh
       shell: pwsh
