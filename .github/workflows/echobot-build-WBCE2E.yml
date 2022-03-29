@@ -1,13 +1,15 @@
 name: .NET BOT D1 BUILD WBCE2E
 
 on:
+
   workflow_dispatch:
-    
+
   push:
     branches: [ bcage29/TeamsVoiceEchoBot ]
     paths:
       - ./Samples/PublicSamples/EchoBot/src/**
       - .github/workflows/echobot-build-WBCE2E.yml
+
   pull_request:
     branches: [ bcage29/TeamsVoiceEchoBot ]
     paths:
