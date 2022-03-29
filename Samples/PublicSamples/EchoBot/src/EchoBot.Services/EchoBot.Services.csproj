@@ -579,6 +579,8 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\build\Microsoft.Skype.Bots.Media.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\build\Microsoft.Skype.Bots.Media.targets'))" />
     <Error Condition="!Exists('..\..\..\..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.1\build\Microsoft.Extensions.Logging.Abstractions.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.1\build\Microsoft.Extensions.Logging.Abstractions.targets'))" />
+    <Error Condition="!Exists('..\..\..\..\packages\Microsoft.CognitiveServices.Speech.1.20.0\build\net461\Microsoft.CognitiveServices.Speech.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\packages\Microsoft.CognitiveServices.Speech.1.20.0\build\net461\Microsoft.CognitiveServices.Speech.targets'))" />
   </Target>
   <Import Project="..\..\..\..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.1\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\..\..\..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.1\build\Microsoft.Extensions.Logging.Abstractions.targets')" />
+  <Import Project="..\..\..\..\packages\Microsoft.CognitiveServices.Speech.1.20.0\build\net461\Microsoft.CognitiveServices.Speech.targets" Condition="Exists('..\..\..\..\packages\Microsoft.CognitiveServices.Speech.1.20.0\build\net461\Microsoft.CognitiveServices.Speech.targets')" />
 </Project>
