@@ -15,6 +15,7 @@ namespace Sample.IncidentBot
     using Microsoft.Graph.Communications.Common.Telemetry;
     using Sample.Common.Logging;
     using Sample.IncidentBot.Bot;
+    using Sample.IncidentBot.Extensions;
 
     /// <summary>
     /// Startup class.
@@ -56,7 +57,7 @@ namespace Sample.IncidentBot
                 .AddAzureAdBearer(options => this.Configuration.Bind("AzureAd", options));
 
             services
-                .AddBot(options => this.Configuration.Bind("Bot", options))
+                .AddBot(options => this.ResolveBotOptions(options))
                 .AddMvc();
         }
 
@@ -85,6 +86,21 @@ namespace Sample.IncidentBot
                 appBuilder => appBuilder.UseAuthentication());
 
             app.UseMvc();
+        }
+
+        /// <summary>
+        /// ResolveBotOptions.
+        /// </summary>
+        /// <param name="options">Options.</param>
+        private void ResolveBotOptions(BotOptions options)
+        {
+            IConfiguration config = new ConfigurationBuilder()
+               .AddEnvironmentVariables().Build();
+            EnvironmentSettings envs = new EnvironmentSettings();
+            config.Bind("AzureSettings", envs);
+            options.AppSecret = envs?.AadAppSecret ?? options.AppSecret;
+            options.AppId = envs?.AadAppId ?? options.AppId;
+            options.BotBaseUrl = new System.Uri(envs?.ServiceDnsName) ?? options.BotBaseUrl;
         }
     }
 }

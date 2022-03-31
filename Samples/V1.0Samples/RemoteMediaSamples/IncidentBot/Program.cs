@@ -23,7 +23,6 @@ namespace Sample.IncidentBot
         /// <param name="args">The arguments.</param>
         public static void Main(string[] args)
         {
-            Debugger.Launch();
             try
             {
                 var rc = HostFactory.Run(x =>
@@ -36,9 +35,9 @@ namespace Sample.IncidentBot
                     });
                     x.RunAsLocalSystem();
 
-                    x.SetDescription("Incident Bot Service");
-                    x.SetDisplayName("Incident Bot");
-                    x.SetServiceName("IncidentBot");
+                    x.SetDescription("IncidentBotService");
+                    x.SetDisplayName("IncidentBotService");
+                    x.SetServiceName("IncidentBotService");
                     x.StartAutomatically();
                 });
             }

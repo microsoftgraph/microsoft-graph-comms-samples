@@ -7,6 +7,7 @@ namespace Sample.IncidentBot
 {
     using Microsoft.AspNetCore;
     using Microsoft.AspNetCore.Hosting;
+    using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Logging;
 
     /// <summary>
@@ -14,13 +15,21 @@ namespace Sample.IncidentBot
     /// </summary>
     public class IncidentWindowsService
     {
+        private static string baseUrl = string.Empty;
         private IWebHost webHost;
+        private IConfigurationRoot configuration;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IncidentWindowsService"/> class.
         /// </summary>
         public IncidentWindowsService()
         {
+            IConfigurationBuilder builder = new ConfigurationBuilder()
+                .AddEnvironmentVariables()
+                .AddJsonFile("appsettings.json");
+
+            this.configuration = builder.Build();
+            baseUrl = this.configuration["baseUrl"] != null ? this.configuration["baseUrl"] : "http://localhost:9442";
         }
 
         /// <summary>
@@ -38,7 +47,7 @@ namespace Sample.IncidentBot
                     logging.AddAzureWebAppDiagnostics();
                 })
                 .UseStartup<Startup>()
-                .UseUrls("http://localhost:9442")
+                .UseUrls(baseUrl)
                 .Build();
 
         /// <summary>
