@@ -129,45 +129,4 @@ if ($options[$chosen].Label -eq '&Yes') {
     $options = [System.Management.Automation.Host.ChoiceDescription[]]($choices | ForEach-Object {
         New-Object System.Management.Automation.Host.ChoiceDescription $_.Choice, $_.Help
     })
-    $chosen = $host.ui.PromptForChoice("Use Cognitive Services mode?", "Do you want to enter the Cognitive Services configuration settings and enable Cognitive Services mode?", $options, 0)
-    if ($options[$chosen].Label -eq '&Yes') {
-        $setCognitiveServicesSettings = $true
-    }
-
-    # do another loop for the cognitive services settings
-    # set default values to false
-    $CognitiveServicesSecrets | ForEach-Object {
-        $secretName = $_.Name
-        $secretMessage = $_.Message
-        if (! (Get-AzKeyVaultSecret -VaultName $KVName -Name $secretName -EA SilentlyContinue))
-        {
-            try
-            {
-                if ($setCognitiveServicesSettings) {
-                    if ($secretName -eq 'UseCognitiveServices') {
-                        $settingValue = 'true'
-                    }
-                    else {
-                        $settingValue = Read-Host -Prompt $secretMessage
-                    }
-                }
-                else {
-                    $settingValue = 'false'
-                }
-
-                $secretValue = ConvertTo-SecureString -String $settingValue -AsPlainText -Force
-            
-                Set-AzKeyVaultSecret -VaultName $KVName -Name $secretName -SecretValue $secretValue
-            }
-            catch
-            {
-                Write-Warning $_
-                break
-            }
-        }
-        else 
-        {
-            Write-Output "`t Primary KV Name: $KVName Secret for [$secretName] Exists!!!`n`n" -Verbose
-        }
-    }
 }
