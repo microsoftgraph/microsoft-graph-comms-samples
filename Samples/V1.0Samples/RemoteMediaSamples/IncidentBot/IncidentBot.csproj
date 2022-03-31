@@ -4,7 +4,7 @@
     <TargetFramework>net472</TargetFramework>
     <UserSecretsId>aspnet-IcMBot-039CF427-A350-4C31-97B4-EA5D5F12960C</UserSecretsId>
     <WebProject_DirectoryAccessLevelKey>0</WebProject_DirectoryAccessLevelKey>
-    <Platforms>AnyCPU</Platforms>
+    <Platforms>AnyCPU;x64</Platforms>
     <RootNamespace>Sample.IncidentBot</RootNamespace>
     <AssemblyName>Sample.IncidentBot</AssemblyName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
