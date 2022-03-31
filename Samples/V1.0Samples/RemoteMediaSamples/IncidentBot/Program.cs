@@ -5,9 +5,12 @@
 
 namespace Sample.IncidentBot
 {
+    using System;
+    using System.Diagnostics;
     using Microsoft.AspNetCore;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Logging;
+    using Topshelf;
 
     /// <summary>
     /// The program class.
@@ -20,24 +23,30 @@ namespace Sample.IncidentBot
         /// <param name="args">The arguments.</param>
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
-        }
-
-        /// <summary>
-        /// Build the web host.
-        /// </summary>
-        /// <param name="args">The arguments.</param>
-        /// <returns>The web host.</returns>
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .ConfigureLogging((hostingContext, logging) =>
+            Debugger.Launch();
+            try
+            {
+                var rc = HostFactory.Run(x =>
                 {
-                    logging.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
-                    logging.AddDebug();
-                    logging.AddConsole();
-                    logging.AddAzureWebAppDiagnostics();
-                })
-                .UseStartup<Startup>()
-                .Build();
+                    x.Service<IncidentWindowsService>(s =>
+                    {
+                        s.ConstructUsing(service => new IncidentWindowsService());
+                        s.WhenStarted(service => service.Start(args));
+                        s.WhenStopped(service => service.Stop());
+                    });
+                    x.RunAsLocalSystem();
+
+                    x.SetDescription("Incident Bot Service");
+                    x.SetDisplayName("Incident Bot");
+                    x.SetServiceName("IncidentBot");
+                    x.StartAutomatically();
+                });
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
     }
 }

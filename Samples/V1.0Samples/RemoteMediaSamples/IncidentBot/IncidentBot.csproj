@@ -26,6 +26,7 @@
     <PackageReference Include="Microsoft.Extensions.Logging.AzureAppServices" Version="2.1.1" />
     <PackageReference Include="Microsoft.Graph.Communications.Calls" Version="1.2.0.3742" />
     <PackageReference Include="System.Threading.Tasks.Dataflow" Version="5.0.0" />
+    <PackageReference Include="Topshelf" Version="4.3.0" />
     <ProjectReference Include="..\..\..\Common\Sample.Common\Sample.Common.csproj" />
     <Reference Include="System.Net.Http" />
   </ItemGroup>
