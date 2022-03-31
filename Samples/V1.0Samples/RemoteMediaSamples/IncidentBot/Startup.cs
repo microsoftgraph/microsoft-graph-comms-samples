@@ -16,6 +16,7 @@ namespace Sample.IncidentBot
     using Sample.Common.Logging;
     using Sample.IncidentBot.Bot;
     using Sample.IncidentBot.Extensions;
+    using System;
 
     /// <summary>
     /// Startup class.
@@ -95,12 +96,16 @@ namespace Sample.IncidentBot
         private void ResolveBotOptions(BotOptions options)
         {
             IConfiguration config = new ConfigurationBuilder()
-               .AddEnvironmentVariables().Build();
+               .AddEnvironmentVariables()
+               .AddJsonFile("appsettings.json")
+               .Build();
             EnvironmentSettings envs = new EnvironmentSettings();
             config.Bind("AzureSettings", envs);
+            var placeCallUrl = config.GetSection("Bot").GetValue<string>("PlaceCallEndpointUrl");
             options.AppSecret = envs?.AadAppSecret ?? options.AppSecret;
             options.AppId = envs?.AadAppId ?? options.AppId;
-            options.BotBaseUrl = new System.Uri(envs?.ServiceDnsName) ?? options.BotBaseUrl;
+            options.BotBaseUrl = envs?.ServiceDnsName != null ? new System.Uri(envs?.ServiceDnsName) : options.BotBaseUrl;
+            options.PlaceCallEndpointUrl = placeCallUrl != null ? new Uri(placeCallUrl) : new Uri("https://graph.microsoft.com/v1.0");
         }
     }
 }
