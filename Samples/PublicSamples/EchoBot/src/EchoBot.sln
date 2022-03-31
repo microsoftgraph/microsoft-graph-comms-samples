@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoBot", "EchoBot\EchoBot.csproj", "{4D9043AF-8D66-490A-A83B-F8B220C0EA38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoBot.Services", "EchoBot.Services\EchoBot.Services.csproj", "{A75A5B7D-556A-4411-BDDC-D064266D9082}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoBot.Model", "EchoBot.Model\EchoBot.Model.csproj", "{3AFB4A84-D386-4C84-B11E-7083D08B3F9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoBot.WindowsService", "EchoBot.WindowsService\EchoBot.WindowsService.csproj", "{1740D43B-226C-47E1-A425-4F50CD5F5E28}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D9043AF-8D66-490A-A83B-F8B220C0EA38}.Debug|x64.ActiveCfg = Debug|x64
+		{4D9043AF-8D66-490A-A83B-F8B220C0EA38}.Debug|x64.Build.0 = Debug|x64
+		{4D9043AF-8D66-490A-A83B-F8B220C0EA38}.Release|x64.ActiveCfg = Release|x64
+		{4D9043AF-8D66-490A-A83B-F8B220C0EA38}.Release|x64.Build.0 = Release|x64
+		{A75A5B7D-556A-4411-BDDC-D064266D9082}.Debug|x64.ActiveCfg = Debug|x64
+		{A75A5B7D-556A-4411-BDDC-D064266D9082}.Debug|x64.Build.0 = Debug|x64
+		{A75A5B7D-556A-4411-BDDC-D064266D9082}.Release|x64.ActiveCfg = Release|x64
+		{A75A5B7D-556A-4411-BDDC-D064266D9082}.Release|x64.Build.0 = Release|x64
+		{3AFB4A84-D386-4C84-B11E-7083D08B3F9D}.Debug|x64.ActiveCfg = Debug|x64
+		{3AFB4A84-D386-4C84-B11E-7083D08B3F9D}.Debug|x64.Build.0 = Debug|x64
+		{3AFB4A84-D386-4C84-B11E-7083D08B3F9D}.Release|x64.ActiveCfg = Release|x64
+		{3AFB4A84-D386-4C84-B11E-7083D08B3F9D}.Release|x64.Build.0 = Release|x64
+		{1740D43B-226C-47E1-A425-4F50CD5F5E28}.Debug|x64.ActiveCfg = Debug|x64
+		{1740D43B-226C-47E1-A425-4F50CD5F5E28}.Debug|x64.Build.0 = Debug|x64
+		{1740D43B-226C-47E1-A425-4F50CD5F5E28}.Release|x64.ActiveCfg = Release|x64
+		{1740D43B-226C-47E1-A425-4F50CD5F5E28}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4A9B9612-A410-4D52-A1B2-A3A2D200BAB2}
+	EndGlobalSection
+EndGlobal
