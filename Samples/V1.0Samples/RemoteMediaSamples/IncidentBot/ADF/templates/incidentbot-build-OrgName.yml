@@ -6,14 +6,14 @@ on:
       - '{BranchName}'
     paths:
       - './Samples/V1.0Samples/RemoteMediaSamples/IncidentBot/**'
-      - .github/workflows/echobot-build-{OrgName}.yml
+      - .github/workflows/incidentbot-build-{OrgName}.yml
 
   pull_request:
     branches:
       - '{BranchName}'
     paths:
       - './Samples/V1.0Samples/RemoteMediaSamples/IncidentBot/**'
-      - .github/workflows/echobot-build-{OrgName}.yml
+      - .github/workflows/incidentbot-build-{OrgName}.yml
 
   workflow_dispatch:
 
