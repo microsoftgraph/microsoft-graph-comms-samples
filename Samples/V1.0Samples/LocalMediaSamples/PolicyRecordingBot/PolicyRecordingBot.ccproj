@@ -50,7 +50,6 @@
   </ItemGroup>
   <ItemGroup>
     <PublishProfile Include="Profiles\SampleGraphBotProduction1.azurePubxml" />
-    <PublishProfile Include="Profiles\sasthana-cr-botProduction1.azurePubxml" />
   </ItemGroup>
   <!-- Import the target files for this project template -->
   <PropertyGroup>
