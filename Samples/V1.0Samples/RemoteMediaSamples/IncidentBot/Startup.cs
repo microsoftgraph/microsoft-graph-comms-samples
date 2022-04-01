@@ -5,6 +5,7 @@
 
 namespace Sample.IncidentBot
 {
+    using System;
     using Microsoft.AspNetCore.Authentication;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Builder;
@@ -16,7 +17,6 @@ namespace Sample.IncidentBot
     using Sample.Common.Logging;
     using Sample.IncidentBot.Bot;
     using Sample.IncidentBot.Extensions;
-    using System;
 
     /// <summary>
     /// Startup class.
