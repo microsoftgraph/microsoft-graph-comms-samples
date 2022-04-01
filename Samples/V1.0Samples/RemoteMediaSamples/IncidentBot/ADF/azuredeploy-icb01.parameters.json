@@ -252,7 +252,7 @@
           {
             "Name": "BOT01",
             "AutoScale": true,
-            "PredictiveScale": "Enabled",
+            "PredictiveScale": "Disabled",
             "saname": "data",
             "Role": "BOT",
             "DSConfig": "BotServers",
