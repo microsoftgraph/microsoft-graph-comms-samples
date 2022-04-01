@@ -25,6 +25,7 @@ namespace Sample.IncidentBot
         {
             try
             {
+                Debugger.Launch();
                 var rc = HostFactory.Run(x =>
                 {
                     x.Service<IncidentWindowsService>(s =>

@@ -1,4 +1,4 @@
-name: .NET BOT D1 BUILD icb01
+name: .NET BOT D1 BUILD icb02
 
 on:
   push:
@@ -6,14 +6,14 @@ on:
       - 'sasthana/incidentbot-deploy'
     paths:
       - './Samples/V1.0Samples/RemoteMediaSamples/IncidentBot/**'
-      - .github/workflows/incidentbot-build-icb01.yml
+      - .github/workflows/incidentbot-build-icb02.yml
 
   pull_request:
     branches:
       - 'sasthana/incidentbot-deploy'
     paths:
       - './Samples/V1.0Samples/RemoteMediaSamples/IncidentBot/**'
-      - .github/workflows/incidentbot-build-icb01.yml
+      - .github/workflows/incidentbot-build-icb02.yml
 
   workflow_dispatch:
 
@@ -23,7 +23,7 @@ env:
   Component:   ICB
   BuildName:   0.1.${{ github.run_number }}
   Environment: D1
-  OrgName:     icb01
+  OrgName:     icb02
   Location:    centralus
 
 jobs:
@@ -68,7 +68,7 @@ jobs:
     - name: Login via Az module
       uses: azure/login@v1
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS_icb01_BOT }}
+        creds: ${{ secrets.AZURE_CREDENTIALS_icb02_BOT }}
         enable-AzPSSession: true
 
     - name: G1_RG_UploadArtifacts_to_Blob
@@ -105,7 +105,7 @@ jobs:
             Environment   = $env:Environment
           }
           & ./Samples/V1.0Samples/RemoteMediaSamples/IncidentBot/ADF/release-az/Update-AzBuildMetaData.ps1 @Params
-        azPSVersion: latest 
+        azPSVersion: latest
 
 
 
