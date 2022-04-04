@@ -105,7 +105,7 @@ jobs:
             Environment   = $env:Environment
           }
           & ./Samples/V1.0Samples/RemoteMediaSamples/IncidentBot/ADF/release-az/Update-AzBuildMetaData.ps1 @Params
-        azPSVersion: latest
+        azPSVersion: latest 
 
 
 
