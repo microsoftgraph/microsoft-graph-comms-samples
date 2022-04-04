@@ -67,15 +67,11 @@
                 @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'AadAppId' },
                 @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'AadAppSecret' },
                 @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'ServiceDnsName' },
-                @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'SpeechConfigKey' },
                 @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'CertificateThumbprint' },
                 @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'Prefix' },
                 @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'OrgName' },
                 @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'App' },
-                @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'Environment' },
-                @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'UseCognitiveServices' },
-                @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'SpeechConfigRegion' },
-                @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'BotLanguage' }
+                @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'Environment' }
             )
 
             # Blob copy with Managed Identity - Oauth2

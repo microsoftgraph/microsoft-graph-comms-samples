@@ -56,13 +56,6 @@ $RequiredSecrets = @(
     @{ Name = 'ServiceDNSName'; Message = 'Enter the DNS value that will point to the load balancer (ie bot.example.com)'; }
 )
 
-$CognitiveServicesSecrets = @(
-    @{ Name = 'UseCognitiveServices'; Message = 'Enter all the secrets and settings for Cognitive Services mode'; },
-    @{ Name = 'SpeechConfigKey'; Message = 'Enter the Cognitive Services Key'; },
-    @{ Name = 'SpeechConfigRegion'; Message = 'Enter the Azure Region for your Cognitive Services (ie centralus, eastus2)'; },
-    @{ Name = 'BotLanguage'; Message = 'Enter the language code you want your bot to understand and speak (ie en-US, es-MX, fr-FR)'; }
-)
-
 Write-Warning -Message "There are [$($RequiredSecrets.count)] Secrets required, you can enter them now or cancel."
 Write-Warning -Message "The secrets used by the BOT App are: [$($RequiredSecrets.Name)]`n`n"
 
