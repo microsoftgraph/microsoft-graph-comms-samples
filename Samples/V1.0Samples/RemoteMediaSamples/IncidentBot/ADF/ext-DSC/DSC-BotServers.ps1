@@ -109,45 +109,45 @@ Configuration $Configuration
             UseSuffixWhenRegistering       = $true
         }
 
-        foreach ($certBinding in $Node.CertificatePortBinding)
-        {
-            script ('SetSSLCert_' + $certBinding.Name)
-            {
-                GetScript  = {
-                    $certBinding = $using:certBinding
-                    $result = netsh http show sslcert ipport=0.0.0.0:$($certBinding.Port)
-                    @{
-                        name  = $certBinding.Name
-                        value = $result
-                    }
-                }#Get
-                SetScript  = {
-                    $certBinding = $using:certBinding
-                    netsh http add sslcert ipport=0.0.0.0:$($certBinding.Port) certhash=$($env:AzureSettings:CertificateThumbprint) appid=$($certBinding.AppId)
-                }#Set 
-                TestScript = {
-                    $certBinding = $using:certBinding
-                    $cert = netsh http show sslcert ipport=0.0.0.0:$($certBinding.Port)
-                    $result = $cert | Where-Object { $_ -match '(Application ID.+: )(?<AppId>{.+})' }
-                    try
-                    {
-                        if ($Matches.AppId -eq $certBinding.AppId)
-                        {
-                            $true
-                        }
-                        else
-                        {
-                            $false
-                        }
-                    }
-                    catch
-                    {
-                        Write-Warning "Cert binding for app does not exist [$($certBinding.Name)]"
-                        $false
-                    }
-                }#Test
-            }
-        }
+        # foreach ($certBinding in $Node.CertificatePortBinding)
+        # {
+        #     script ('SetSSLCert_' + $certBinding.Name)
+        #     {
+        #         GetScript  = {
+        #             $certBinding = $using:certBinding
+        #             $result = netsh http show sslcert ipport=0.0.0.0:$($certBinding.Port)
+        #             @{
+        #                 name  = $certBinding.Name
+        #                 value = $result
+        #             }
+        #         }#Get
+        #         SetScript  = {
+        #             $certBinding = $using:certBinding
+        #             netsh http add sslcert ipport=0.0.0.0:$($certBinding.Port) certhash=$($env:AzureSettings:CertificateThumbprint) appid=$($certBinding.AppId)
+        #         }#Set 
+        #         TestScript = {
+        #             $certBinding = $using:certBinding
+        #             $cert = netsh http show sslcert ipport=0.0.0.0:$($certBinding.Port)
+        #             $result = $cert | Where-Object { $_ -match '(Application ID.+: )(?<AppId>{.+})' }
+        #             try
+        #             {
+        #                 if ($Matches.AppId -eq $certBinding.AppId)
+        #                 {
+        #                     $true
+        #                 }
+        #                 else
+        #                 {
+        #                     $false
+        #                 }
+        #             }
+        #             catch
+        #             {
+        #                 Write-Warning "Cert binding for app does not exist [$($certBinding.Name)]"
+        #                 $false
+        #             }
+        #         }#Test
+        #     }
+        # }
 
         #-------------------------------------------------------------------
         TimeZone timezone
