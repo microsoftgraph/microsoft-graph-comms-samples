@@ -1,4 +1,4 @@
-name: .NET BOT D1 INFRA icb03
+name: .NET BOT D1 INFRA icb04
 
 # Controls when the action will run.
 on:
@@ -9,20 +9,20 @@ on:
       - 'sasthana/incidentbot-deploy'
     paths: 
       - './Samples/V1.0Samples/RemoteMediaSamples/IncidentBot/ADF/**'
-      - .github/workflows/incidentbot-infra-icb03.yml
+      - .github/workflows/incidentbot-infra-icb04.yml
 
   pull_request:
     branches:
       - 'sasthana/incidentbot-deploy'
     paths:
       - './Samples/V1.0Samples/RemoteMediaSamples/IncidentBot/ADF/**'
-      - .github/workflows/incidentbot-infra-icb03.yml
+      - .github/workflows/incidentbot-infra-icb04.yml
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 env:
-  OrgName: icb03
+  OrgName: icb04
   Location: centralus
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -43,7 +43,7 @@ jobs:
       - name: Login via Az module
         uses: azure/login@v1
         with:
-          creds: ${{secrets.AZURE_CREDENTIALS_icb03_BOT}}
+          creds: ${{secrets.AZURE_CREDENTIALS_icb04_BOT}}
           enable-AzPSSession: true
 
       - name: Deploy_All_Subscription
@@ -59,7 +59,7 @@ jobs:
             ./Samples/V1.0Samples/RemoteMediaSamples/IncidentBot/ADF/main.ps1 @Params
             if ($e){throw $e}
         env:
-          VMSS_CREDENTIALS: ${{ secrets.VMSS_CREDENTIALS_icb03_BOT }}
+          VMSS_CREDENTIALS: ${{ secrets.VMSS_CREDENTIALS_icb04_BOT }}
 
 
 
