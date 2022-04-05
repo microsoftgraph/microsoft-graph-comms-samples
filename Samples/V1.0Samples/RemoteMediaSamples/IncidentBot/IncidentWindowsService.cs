@@ -15,7 +15,7 @@ namespace Sample.IncidentBot
     /// </summary>
     public class IncidentWindowsService
     {
-        private static string baseUrl = string.Empty;
+        private static string baseUrl = "http://*:9442";
         private IWebHost webHost;
         private IConfigurationRoot configuration;
 
@@ -29,7 +29,7 @@ namespace Sample.IncidentBot
                 .AddJsonFile("appsettings.json");
 
             this.configuration = builder.Build();
-            baseUrl = this.configuration["baseUrl"] != null ? this.configuration["baseUrl"] : "http://localhost:9442";
+            baseUrl = this.configuration["baseUrl"] != null ? this.configuration["baseUrl"] : baseUrl;
         }
 
         /// <summary>
@@ -72,7 +72,10 @@ namespace Sample.IncidentBot
         /// </summary>
         public void Stop()
         {
-            this.webHost.Dispose();
+            if (this.webHost != null)
+            {
+                this.webHost.Dispose();
+            }
         }
     }
 }
