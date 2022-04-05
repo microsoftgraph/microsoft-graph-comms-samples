@@ -67,6 +67,7 @@
                 @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'AadAppId' },
                 @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'AadAppSecret' },
                 @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'ServiceDnsName' },
+                @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'CertificateThumbprint' },
                 @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'Prefix' },
                 @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'OrgName' },
                 @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'App' },
@@ -150,23 +151,23 @@
                 }
             )
 
-            # CertificatePortBinding      = @(
-            #     @{
-            #         Name  = 'MediaControlPlane'
-            #         Port  = '8445'
-            #         AppId = '{7c64d8a0-4cbb-42b6-85a8-de0e00f6a9c6}'
-            #     },
-            #     @{
-            #         Name  = 'BotCalling'
-            #         Port  = '9442'
-            #         AppId = '{7c64d8a0-4cbb-42b6-85a8-de0e00f6a9c6}'
-            #     },
-            #     @{
-            #         Name  = 'BotNotification'
-            #         Port  = '9441'
-            #         AppId = '{7c64d8a0-4cbb-42b6-85a8-de0e00f6a9c6}'
-            #     }
-            # )
+            CertificatePortBinding      = @(
+                @{
+                    Name  = 'MediaControlPlane'
+                    Port  = '8445'
+                    AppId = '{7c64d8a0-4cbb-42b6-85a8-de0e00f6a9c6}'
+                },
+                @{
+                    Name  = 'BotCalling'
+                    Port  = '9442'
+                    AppId = '{7c64d8a0-4cbb-42b6-85a8-de0e00f6a9c6}'
+                },
+                @{
+                    Name  = 'BotNotification'
+                    Port  = '9441'
+                    AppId = '{7c64d8a0-4cbb-42b6-85a8-de0e00f6a9c6}'
+                }
+            )
         }
     )
 }
