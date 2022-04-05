@@ -240,7 +240,7 @@
                 "LBFEName": "BotVmss01",
                 "LBBEName": "BotVmss01",
                 "RuleName": "API-CallSignaling",
-                "LBFEPort": 443,
+                "LBFEPort": 80,
                 "LBBEPort": 9442,
                 "ProbeName": "CallSignaling",
                 "DirectReturn": false
@@ -285,7 +285,7 @@
               "default": "3"
             },
             "Health": {
-              "protocol": "https",
+              "protocol": "http",
               "port": "9442",
               "requestPath": "/health"
             }
