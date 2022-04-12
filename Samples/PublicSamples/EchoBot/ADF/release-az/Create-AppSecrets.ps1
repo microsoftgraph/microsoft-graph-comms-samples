@@ -56,6 +56,13 @@ $RequiredSecrets = @(
     @{ Name = 'ServiceDNSName'; Message = 'Enter the DNS value that will point to the load balancer (ie bot.example.com)'; }
 )
 
+$CognitiveServicesSecrets = @(
+    @{ Name = 'UseCognitiveServices'; Message = 'Enter all the secrets and settings for Cognitive Services mode'; },
+    @{ Name = 'SpeechConfigKey'; Message = 'Enter the Cognitive Services Key'; },
+    @{ Name = 'SpeechConfigRegion'; Message = 'Enter the Azure Region for your Cognitive Services (ie centralus, eastus2)'; },
+    @{ Name = 'BotLanguage'; Message = 'Enter the language code you want your bot to understand and speak (ie en-US, es-MX, fr-FR)'; }
+)
+
 Write-Warning -Message "There are [$($RequiredSecrets.count)] Secrets required, you can enter them now or cancel."
 Write-Warning -Message "The secrets used by the BOT App are: [$($RequiredSecrets.Name)]`n`n"
 
@@ -125,5 +132,42 @@ if ($options[$chosen].Label -eq '&Yes') {
     $chosen = $host.ui.PromptForChoice("Use Cognitive Services mode?", "Do you want to enter the Cognitive Services configuration settings and enable Cognitive Services mode?", $options, 0)
     if ($options[$chosen].Label -eq '&Yes') {
         $setCognitiveServicesSettings = $true
+    }
+
+    # do another loop for the cognitive services settings
+    # set default values to false
+    $CognitiveServicesSecrets | ForEach-Object {
+        $secretName = $_.Name
+        $secretMessage = $_.Message
+        if (! (Get-AzKeyVaultSecret -VaultName $KVName -Name $secretName -EA SilentlyContinue))
+        {
+            try
+            {
+                if ($setCognitiveServicesSettings) {
+                    if ($secretName -eq 'UseCognitiveServices') {
+                        $settingValue = 'true'
+                    }
+                    else {
+                        $settingValue = Read-Host -Prompt $secretMessage
+                    }
+                }
+                else {
+                    $settingValue = 'false'
+                }
+
+                $secretValue = ConvertTo-SecureString -String $settingValue -AsPlainText -Force
+            
+                Set-AzKeyVaultSecret -VaultName $KVName -Name $secretName -SecretValue $secretValue
+            }
+            catch
+            {
+                Write-Warning $_
+                break
+            }
+        }
+        else 
+        {
+            Write-Output "`t Primary KV Name: $KVName Secret for [$secretName] Exists!!!`n`n" -Verbose
+        }
     }
 }
