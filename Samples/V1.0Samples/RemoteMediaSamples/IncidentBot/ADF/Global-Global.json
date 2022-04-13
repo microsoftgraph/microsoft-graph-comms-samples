@@ -218,6 +218,18 @@
         "Id": "db58b8e5-c6ad-4a2a-8342-4190687cbf4a",
         "Description": "Allows for generation of a user delegation key which can be used to sign SAS tokens"
       },
+      "Storage File Data SMB Share Contributor": {
+        "Id": "0c867c2a-1d8c-454a-a3db-ab2ea1bdc8bb",
+        "Description": "Allows for read, write, and delete access in Azure Storage file shares over SMB"
+      },
+      "Storage File Data SMB Share Elevated Contributor": {
+        "Id": "a7264617-510b-434b-a828-9731dc254ea7",
+        "Description": "Allows for read, write, delete and modify NTFS permission access in Azure Storage file shares over SMB"
+      },
+      "Storage File Data SMB Share Reader": {
+        "Id": "aba4ae5f-2193-4029-9191-0cb91df5e314",
+        "Description": "Allows for read access to Azure File Share over SMB"
+      },
       "User Access Administrator": {
         "Id": "18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
         "Description": "Lets you manage user access to Azure resources."
