@@ -36,6 +36,11 @@ namespace Sample.IncidentBot
         public const string CallsPrefix = "/calls";
 
         /// <summary>
+        /// The logs suffix.
+        /// </summary>
+        public const string HealthRoute = "/health";
+
+        /// <summary>
         /// Route for getting Image for a call.
         /// </summary>
         public const string CallRoutePrefix = CallsPrefix + "/{callLegId}";
