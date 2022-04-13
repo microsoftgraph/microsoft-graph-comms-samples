@@ -110,6 +110,9 @@ The sample demostrate an incident process workflow. When a incident raised (thro
     - You can also manually run the 'INFRA' workflow after the previous workflow to deploy the infrastructure
 ```
 ## Script Internals:
+The deployment script uses ADF (Azure Deployment Framework) under the path RemoteMediaSamples\IncidentBot\ADF. This folder has template and boilerplate code files 
+that are used to define the github workflow actions and define the infrastructure resources required to deploy the bot and install it using DSC extensions. 
+
 1. Create a resource group with the naming convention ACU1-TEB-BOT-RG-D1 (Region Abbreviation - Your Org Name - BOT - Resource Group - Environment)
 2. Create a storage account
     - Grant current user the 'Storage Blob Data Contributor' role

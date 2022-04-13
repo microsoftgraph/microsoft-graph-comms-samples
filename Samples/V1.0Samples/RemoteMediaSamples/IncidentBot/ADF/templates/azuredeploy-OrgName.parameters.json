@@ -240,7 +240,7 @@
                 "LBFEName": "BotVmss01",
                 "LBBEName": "BotVmss01",
                 "RuleName": "API-CallSignaling",
-                "LBFEPort": 80,
+                "LBFEPort": 443,
                 "LBBEPort": 9442,
                 "ProbeName": "CallSignaling",
                 "DirectReturn": false
