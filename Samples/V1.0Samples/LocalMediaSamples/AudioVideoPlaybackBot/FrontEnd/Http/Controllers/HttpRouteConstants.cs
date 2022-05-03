@@ -26,6 +26,11 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
         public const string OnIncomingRequestRoute = "";
 
         /// <summary>
+        /// Route for incoming notification requests.
+        /// </summary>
+        public const string OnNotificationRequestRoute = "notification";
+
+        /// <summary>
         /// The logs route for GET.
         /// </summary>
         public const string Logs = "logs";
@@ -49,5 +54,10 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
         /// Route for changing screen sharing role request.
         /// </summary>
         public const string OnChangeRoleRoute = "changeRole";
+
+        /// <summary>
+        /// Route for health check request.
+        /// </summary>
+        public const string HealthRoute = "health";
     }
 }

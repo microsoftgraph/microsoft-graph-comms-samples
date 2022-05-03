@@ -25,6 +25,16 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
         public const uint NumberOfMultiviewSockets = 3;
 
         /// <summary>
+        /// EventLog Source for the sample project.
+        /// </summary>
+        public const string EventLogSource = "AudioVideoPlaybackService";
+
+        /// <summary>
+        /// EventLog Source for the sample project.
+        /// </summary>
+        public const string EventLogType = "Application";
+
+        /// <summary>
         /// Stores a list of supported video formats.
         /// </summary>
         public static readonly List<VideoFormat> SupportedSendVideoFormats = new List<VideoFormat>

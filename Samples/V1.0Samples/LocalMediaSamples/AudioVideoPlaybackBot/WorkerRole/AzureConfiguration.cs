@@ -27,7 +27,7 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
     /// <summary>
     /// Reads the Configuration from service Configuration.
     /// </summary>
-    internal class AzureConfiguration : IConfiguration
+    public class AzureConfiguration : IConfiguration
     {
         /// <summary>
         /// DomainNameLabel in NetworkConfiguration in .cscfg  <PublicIP name="instancePublicIP" domainNameLabel="pip"/>
@@ -142,6 +142,24 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
             this.Initialize();
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AzureConfiguration"/> class.
+        /// </summary>
+        /// <param name="logger">Logger instance.</param>
+        /// <param name="isWindowsService">If true init config for windows service version.</param>
+        public AzureConfiguration(IGraphLogger logger, bool isWindowsService = false)
+        {
+            this.graphLogger = logger;
+            if (!isWindowsService)
+            {
+                this.Initialize();
+            }
+            else
+            {
+                this.InitializeWSConfig();
+            }
+        }
+
         /// <inheritdoc/>
         public string ServiceDnsName { get; private set; }
 
@@ -196,6 +214,89 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
 
         /// <inheritdoc/>
         public int AudioVideoFileLengthInSec { get; private set; }
+
+        /// <summary>
+        /// Initialize from serviceConfig.
+        /// </summary>
+        public void InitializeWSConfig()
+        {
+            X509Certificate2 defaultCertificate = this.GetCertificateFromStore(DefaultCertificateKey);
+
+            RoleInstanceEndpoint defaultEndpoint = null;
+
+            int instanceCallControlInternalPort = DefaultPort;
+            string instanceCallControlInternalIpAddress = IPAddress.Loopback.ToString();
+
+            int instanceCallControlPublicPort = DefaultPort;
+            int mediaInstanceInternalPort = 8445;
+            int mediaInstancePublicPort = 13016;
+
+            string instanceCallControlIpEndpoint = string.Format("{0}:{1}", instanceCallControlInternalIpAddress, instanceCallControlInternalPort);
+
+            this.ServiceDnsName = this.GetString(ServiceDnsNameKey);
+            this.ServiceCname = this.GetString(ServiceCNameKey, true);
+            if (string.IsNullOrEmpty(this.ServiceCname))
+            {
+                this.ServiceCname = this.ServiceDnsName;
+            }
+
+            this.H2641280X72030FpsFile = ConfigurationManager.AppSettings[H2641280X72030FpsKey];
+            this.H264320X18015FpsFile = ConfigurationManager.AppSettings[H264320X18015FpsKey];
+            this.H264640X36030FpsFile = ConfigurationManager.AppSettings[H264640X36030FpsKey];
+            this.H2641920X108015VBSSFpsFile = ConfigurationManager.AppSettings[H2641920X1080VBSS15FpsKey];
+            if (string.IsNullOrEmpty(this.H2641280X72030FpsFile) ||
+                string.IsNullOrEmpty(this.H264320X18015FpsFile) ||
+                string.IsNullOrEmpty(this.H264640X36030FpsFile) ||
+                string.IsNullOrEmpty(this.H2641920X108015VBSSFpsFile))
+            {
+                throw new ConfigurationException("H264Files", "Update app.config in WorkerRole with all the h264 files with the specified resolutions");
+            }
+
+            this.H264FileLocations = new Dictionary<string, VideoFormat>();
+            this.H264FileLocations.Add(this.H2641280X72030FpsFile, VideoFormat.H264_1280x720_30Fps);
+            this.H264FileLocations.Add(this.H264320X18015FpsFile, VideoFormat.H264_320x180_15Fps);
+            this.H264FileLocations.Add(this.H264640X36030FpsFile, VideoFormat.H264_640x360_30Fps);
+            this.H264FileLocations.Add(this.H2641920X108015VBSSFpsFile, VideoFormat.H264_1920x1080_15Fps);
+
+            this.AudioFileLocation = ConfigurationManager.AppSettings[AudioFileLocationKey];
+            if (string.IsNullOrEmpty(this.AudioFileLocation))
+            {
+                throw new ConfigurationException("AudioFileLocation", "Update app.config in WorkerRole with the audio file location");
+            }
+
+            if (!int.TryParse(ConfigurationManager.AppSettings[AudioVideoFileLengthInSecKey], out int avFileLengthInSec))
+            {
+                throw new ConfigurationException("AudioFileLocation", "Update app.config in WorkerRole with the audio file location");
+            }
+
+            this.AudioVideoFileLengthInSec = avFileLengthInSec;
+
+            // Create structured config objects for service.
+            this.CallControlBaseUrl = new Uri(string.Format(
+                "https://{0}:{1}/{2}",
+                this.ServiceCname,
+                instanceCallControlPublicPort,
+                HttpRouteConstants.CallSignalingRoutePrefix));
+            List<Uri> controlListenUris = new List<Uri>();
+            controlListenUris.Add(new Uri("https://" + instanceCallControlIpEndpoint + "/"));
+            controlListenUris.Add(new Uri("https://" + defaultEndpoint.IPEndpoint + "/"));
+            IPAddress publicInstanceIpAddress = IPAddress.Any;
+            string serviceFqdn = this.ServiceCname;
+
+            this.MediaPlatformSettings = new MediaPlatformSettings()
+            {
+                MediaPlatformInstanceSettings = new MediaPlatformInstanceSettings()
+                {
+                    CertificateThumbprint = defaultCertificate.Thumbprint,
+                    InstanceInternalPort = mediaInstanceInternalPort,
+                    InstancePublicIPAddress = publicInstanceIpAddress,
+                    InstancePublicPort = mediaInstancePublicPort,
+                    ServiceFqdn = serviceFqdn,
+                },
+
+                ApplicationId = this.AadAppId,
+            };
+        }
 
         /// <summary>
         /// Initialize from serviceConfig.
