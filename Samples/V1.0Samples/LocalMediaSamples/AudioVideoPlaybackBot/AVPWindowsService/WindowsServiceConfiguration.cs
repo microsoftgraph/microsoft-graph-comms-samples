@@ -109,24 +109,26 @@ namespace AVPWindowsService
         /// <summary>
         /// videoFile location for the specified resolution.
         /// </summary>
-        private const string H2641280X72030FpsKey = "output720p.264";
+
+        private const string H2641280X72030FpsKey = "F:\\API\\AVB\\output720p.264";
 
         /// <summary>
         /// videoFile location for the specified resolution.
         /// </summary>
-        private const string H264640X36030FpsKey = "output360p.264";
+        private const string H264640X36030FpsKey = "F:\\API\\AVB\\output360p.264";
 
         /// <summary>
         /// videoFile location for the specified resolution.
         /// </summary>
-        private const string H264320X18015FpsKey = "output180p.264";
+        private const string H264320X18015FpsKey = "F:\\API\\AVB\\output180p.264";
 
         /// <summary>
         /// videoFile location for the specified resolution.
         /// </summary>
-        private const string H2641920X1080VBSS15FpsKey = "mle1080p15vbss_2500Kbps.264";
+        private const string H2641920X1080VBSS15FpsKey = "F:\\API\\AVB\\mle1080p15vbss_2500Kbps.264";
 
-        private const string AudioFileLocationKey = "downsampled.wav";
+        private const string AudioFileLocationKey = "F:\\API\\AVB\\downsampled.wav";
+
 
         private const string AudioVideoFileLengthInSecKey = "70";
 
