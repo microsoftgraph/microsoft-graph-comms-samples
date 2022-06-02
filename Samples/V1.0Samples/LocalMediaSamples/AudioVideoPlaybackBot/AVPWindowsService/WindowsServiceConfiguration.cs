@@ -229,17 +229,22 @@ namespace AVPWindowsService
             // http for local development or where certificate is not installed
             // https for running on VM
             var controlListenUris = new HashSet<Uri>();
-            //Add DSN CName for external listening
-            controlListenUris.Add(new Uri($"{BotInternalHostingProtocol}://{ServiceCname}:{BotCallingInternalPort}/"));
-            EventLog.WriteEntry(SampleConstants.EventLogSource, $"WindowsServiceConfiguration controlListenUrl 1 {$"{BotInternalHostingProtocol}://{baseDomain}:{BotCallingInternalPort}/"}", EventLogEntryType.Warning);
-            controlListenUris.Add(new Uri($"{BotInternalHostingProtocol}://{ServiceCname}:{BotInternalPort}/"));
-            EventLog.WriteEntry(SampleConstants.EventLogSource, $"WindowsServiceConfiguration controlListenUrl 2 {$"{BotInternalHostingProtocol}://{baseDomain}:{BotInternalPort}/"}", EventLogEntryType.Warning);
-            //Force internal to http
-            controlListenUris.Add(new Uri($"http://{baseDomain}:{BotCallingInternalPort}/"));
-            EventLog.WriteEntry(SampleConstants.EventLogSource, $"WindowsServiceConfiguration controlListenUrl 1 {$"http://{baseDomain}:{BotCallingInternalPort}/"}", EventLogEntryType.Warning);
-            controlListenUris.Add(new Uri($"http://{baseDomain}:{BotInternalPort}/"));
-            EventLog.WriteEntry(SampleConstants.EventLogSource, $"WindowsServiceConfiguration controlListenUrl 2 {$"http://{baseDomain}:{BotInternalPort}/"}", EventLogEntryType.Warning);
-            
+            if (UseLocalDevSettings)
+            {
+                //Force internal to http
+                controlListenUris.Add(new Uri($"http://{baseDomain}:{BotCallingInternalPort}/"));
+                EventLog.WriteEntry(SampleConstants.EventLogSource, $"WindowsServiceConfiguration controlListenUrl 1 {$"http://{baseDomain}:{BotCallingInternalPort}/"}", EventLogEntryType.Warning);
+                controlListenUris.Add(new Uri($"http://{baseDomain}:{BotInternalPort}/"));
+                EventLog.WriteEntry(SampleConstants.EventLogSource, $"WindowsServiceConfiguration controlListenUrl 2 {$"http://{baseDomain}:{BotInternalPort}/"}", EventLogEntryType.Warning);
+            }
+            else
+            {
+                 //Add DSN CName for external listening
+                controlListenUris.Add(new Uri($"{BotInternalHostingProtocol}://{this.ServiceCname}:{BotCallingInternalPort}/"));
+                EventLog.WriteEntry(SampleConstants.EventLogSource, $"WindowsServiceConfiguration controlListenUrl 1 {$"{BotInternalHostingProtocol}://{this.ServiceCname}:{BotCallingInternalPort}/"}", EventLogEntryType.Warning);
+                controlListenUris.Add(new Uri($"{BotInternalHostingProtocol}://{this.ServiceCname}:{BotInternalPort}/"));
+                EventLog.WriteEntry(SampleConstants.EventLogSource, $"WindowsServiceConfiguration controlListenUrl 2 {$"{BotInternalHostingProtocol}://{this.ServiceCname}:{BotInternalPort}/"}", EventLogEntryType.Warning);
+            }
             this.CallControlListeningUrls = controlListenUris;
 
             this.MediaPlatformSettings = new MediaPlatformSettings()
