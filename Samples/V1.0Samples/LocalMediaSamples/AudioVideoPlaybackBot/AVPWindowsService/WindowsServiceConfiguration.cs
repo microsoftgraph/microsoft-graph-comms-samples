@@ -109,24 +109,26 @@ namespace AVPWindowsService
         /// <summary>
         /// videoFile location for the specified resolution.
         /// </summary>
-        private const string H2641280X72030FpsKey = "output720p.264";
+
+        private const string H2641280X72030FpsKey = "F:\\API\\AVB\\output720p.264";
 
         /// <summary>
         /// videoFile location for the specified resolution.
         /// </summary>
-        private const string H264640X36030FpsKey = "output360p.264";
+        private const string H264640X36030FpsKey = "F:\\API\\AVB\\output360p.264";
 
         /// <summary>
         /// videoFile location for the specified resolution.
         /// </summary>
-        private const string H264320X18015FpsKey = "output180p.264";
+        private const string H264320X18015FpsKey = "F:\\API\\AVB\\output180p.264";
 
         /// <summary>
         /// videoFile location for the specified resolution.
         /// </summary>
-        private const string H2641920X1080VBSS15FpsKey = "mle1080p15vbss_2500Kbps.264";
+        private const string H2641920X1080VBSS15FpsKey = "F:\\API\\AVB\\mle1080p15vbss_2500Kbps.264";
 
-        private const string AudioFileLocationKey = "downsampled.wav";
+        private const string AudioFileLocationKey = "F:\\API\\AVB\\downsampled.wav";
+
 
         private const string AudioVideoFileLengthInSecKey = "70";
 
@@ -229,10 +231,22 @@ namespace AVPWindowsService
             // http for local development or where certificate is not installed
             // https for running on VM
             var controlListenUris = new HashSet<Uri>();
-            controlListenUris.Add(new Uri($"{BotInternalHostingProtocol}://{baseDomain}:{BotCallingInternalPort}/"));
-            EventLog.WriteEntry(SampleConstants.EventLogSource, $"WindowsServiceConfiguration controlListenUrl 1 {$"{BotInternalHostingProtocol}://{baseDomain}:{BotCallingInternalPort}/"}", EventLogEntryType.Warning);
-            controlListenUris.Add(new Uri($"{BotInternalHostingProtocol}://{baseDomain}:{BotInternalPort}/"));
-            EventLog.WriteEntry(SampleConstants.EventLogSource, $"WindowsServiceConfiguration controlListenUrl 2 {$"{BotInternalHostingProtocol}://{baseDomain}:{BotInternalPort}/"}", EventLogEntryType.Warning);
+            if (UseLocalDevSettings)
+            {
+                //Force internal to http
+                controlListenUris.Add(new Uri($"http://{baseDomain}:{BotCallingInternalPort}/"));
+                EventLog.WriteEntry(SampleConstants.EventLogSource, $"WindowsServiceConfiguration controlListenUrl 1 {$"http://{baseDomain}:{BotCallingInternalPort}/"}", EventLogEntryType.Warning);
+                controlListenUris.Add(new Uri($"http://{baseDomain}:{BotInternalPort}/"));
+                EventLog.WriteEntry(SampleConstants.EventLogSource, $"WindowsServiceConfiguration controlListenUrl 2 {$"http://{baseDomain}:{BotInternalPort}/"}", EventLogEntryType.Warning);
+            }
+            else
+            {
+                 //Add DSN CName for external listening
+                controlListenUris.Add(new Uri($"{BotInternalHostingProtocol}://{this.ServiceCname}:{BotCallingInternalPort}/"));
+                EventLog.WriteEntry(SampleConstants.EventLogSource, $"WindowsServiceConfiguration controlListenUrl 1 {$"{BotInternalHostingProtocol}://{this.ServiceCname}:{BotCallingInternalPort}/"}", EventLogEntryType.Warning);
+                controlListenUris.Add(new Uri($"{BotInternalHostingProtocol}://{this.ServiceCname}:{BotInternalPort}/"));
+                EventLog.WriteEntry(SampleConstants.EventLogSource, $"WindowsServiceConfiguration controlListenUrl 2 {$"{BotInternalHostingProtocol}://{this.ServiceCname}:{BotInternalPort}/"}", EventLogEntryType.Warning);
+            }
             this.CallControlListeningUrls = controlListenUris;
 
             this.MediaPlatformSettings = new MediaPlatformSettings()

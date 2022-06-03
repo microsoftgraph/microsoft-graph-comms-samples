@@ -288,9 +288,8 @@
               "default": "3"
             },
             "Health": {
-              "protocol": "https",
-              "port": "9442",
-              "requestPath": "/health"
+              "protocol": "tcp",
+              "port": "9442"
             }
           }
         ]
