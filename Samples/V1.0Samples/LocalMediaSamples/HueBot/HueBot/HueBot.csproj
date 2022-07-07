@@ -15,7 +15,7 @@
     <PackageReference Include="Microsoft.AspNetCore" Version="2.1.3" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="2.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Server.HttpSys" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.HttpSys" Version="2.1.12" />
     <PackageReference Include="Microsoft.ServiceFabric.AspNetCore.HttpSys" Version="3.2.176" />
     <!-- Although Bots.Media is implicitly imported by Calls.Media, this library requires an explicit reference for
     some scripts included within the nuget package. -->
