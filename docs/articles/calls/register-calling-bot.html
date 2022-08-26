@@ -83,7 +83,7 @@
 <h2 id="register-your-bot-in-the-azure-bot-service">Register your bot in the Azure Bot Service</h2>
 <p>Complete the following steps:</p>
 <ol>
-<li>Register a bot by creating a <strong>Bot Channels Registration</strong> through <a href="https://docs.microsoft.com/en-us/azure/bot-service/bot-service-quickstart-registration">Azure Bot Channel Registration</a>.</li>
+<li>Register a bot by creating a <strong>Azure Bot</strong> through <a href="https://docs.microsoft.com/en-us/azure/bot-service/bot-service-quickstart-registration">Azure Bot Channel Registration</a>.</li>
 <li>Once you complete the registration, take a note of the registered config values (Bot Name, Application Id, and Application Secret).  You will need these values later in the code samples.</li>
 <li>In the resource blade, click <strong>Channels</strong>.</li>
 <li>Enable the Microsoft Teams channel and enable calling on the Calling tab.  Fill in the Webhook (for calling) where you will receive incoming notifications. E.g. <code>https://{your domain}/api/calls</code>. Refer to <a href="https://docs.microsoft.com/en-us/azure/bot-service/bot-service-manage-channels">Connect a bot to channels</a> for more information on how to configure channels.</li>
@@ -153,37 +153,6 @@
 <blockquote><p><strong>Note</strong>: Constructing the Tenant Admin Consent URL requires a configured Redirect URI/Reply URL in the <a href="https://apps.dev.microsoft.com/">App Registration Portal</a>. To add reply URLs for your bot, access your bot registration, choose Advanced Options &gt; Edit Application Manifest.  Add your Redirect URI to the field replyURLs.</p>
 <p><strong>Important</strong>: Any time you make a change to the configured permissions, you must also repeat the Admin Consent process. Changes made in the app registration portal will not be reflected until consent has been reapplied by the tenant&#39;s administrator.</p>
 </blockquote>
-<h2 id="register-bot-in-microsoft-teams">Register bot in Microsoft Teams</h2>
-<p>The code samples can be used in combination with a Microsoft Teams App Manifest settings to add the Calling and Video buttons for a 1:1 bot interaction.  To develop calling bot, add &#39;supportsCalling&#39; and &#39;supportsVideo&#39; boolean properties to the bots section in the app manifest and the bot is all set to receive calls once installed (either to a personal context or a team).  App Manifests can be uploaded through the <a href="https://docs.microsoft.com/en-us/microsoftteams/platform/get-started/get-started-app-studio">App Studio</a> in the Microsoft Teams client.</p>
-<ul>
-<li>In the Teams client, select <strong>Apps</strong> from the left pane and then select <strong>App Studio</strong>.</li>
-</ul>
-<p><img src="../../resources/teams-client-app-studio.png" alt="Select App Studio"></p>
-<ul>
-<li>From the top pane, click <strong>Manifest editor</strong> and then <strong>Create a new app</strong> from the left pane.</li>
-</ul>
-<p><img src="../../resources/app-studio-create-new.png" alt="Create a new app"></p>
-<ul>
-<li>In the <strong>App details</strong> tab, provide the basic information. And make sure to update App Id correctly.</li>
-</ul>
-<p><img src="../../resources/app-studio-app-details-app-id.png" alt="App Id"></p>
-<ul>
-<li>Navigate to the <strong>Capabilities</strong> section, and select the <strong>Bots</strong> tab. Then select <strong>Set Up</strong> in the right pane.</li>
-</ul>
-<p><img src="../../resources/app-studio-set-up-bots.png" alt="Set up bots"></p>
-<ul>
-<li>Fill in the desired bot name</li>
-<li>Select the <strong>Select from one of my existing bots</strong> option, and find your bot from above in the dropdown. </li>
-</ul>
-<p><img src="../../resources/app-studio-set-up-a-bot.png" alt="Set up a bot"></p>
-<ul>
-<li>If the drop down does not contains the App Id of the Bot (to be installed), Or if the <strong>Select from one of my existing bots</strong> option is disabled, select the <strong>Connect to a different bot id</strong> and paste same App id, provided in <em>App details</em> tab earlier</li>
-</ul>
-<p><img src="../../resources/app-studio-connect-to-a-bot-id.png" alt="Connect to a bot id"></p>
-<ul>
-<li>Check all options under <strong>Calling Bot</strong> and <strong>Scope</strong></li>
-<li>Press <strong>Save</strong></li>
-</ul>
 </article>
           </div>
           
