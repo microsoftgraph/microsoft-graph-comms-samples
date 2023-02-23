@@ -22,6 +22,8 @@ The [HueBot](HueBot/README.md) demonstrates local media scenarios.
 1. Please read the [Concepts](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/calls-and-meetings/real-time-media-concepts) articles for more in depth knowledge on local media bots.
 1. Follow instructions in the sample to publish your bot to the web.
 1. Please read the [API Reference](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/) for specific API information.
+1. The samples use Communications client to communicate with Microsoft Graph which when building out a request would add a `User-Agent` header. This header is automatically built when initializing the client object and communicates the Graph Calling SDK version being used by the sample. 
+    - The general format of `User-Agent` header is as follows ```{GraphCommunicationsClient}-{AppName}/{GraphCallingSDKVersion}```. Example header: User-Agent: GraphCommunicationsClient-Sample.AudioVideoPlaybackBot.FrontEnd/1.2.0.5304.</sup>
 
 # Build and Test
 
