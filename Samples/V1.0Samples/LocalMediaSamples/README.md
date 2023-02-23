@@ -16,7 +16,7 @@ The [HueBot](HueBot/README.md) demonstrates local media scenarios.
 
 ## PolicyRecordingBot
 The [PolicyRecordingBot](PolicyRecordingBot/README.md) demostrates compliance recording policy based scenarios:
-- Based on organizational compliance recording policy specified, this bot is pulled into a call when a user with compliance recording policy joins the call, thereby recording the meeting.
+- Based on organizational compliance recording policy specified, this bot is pulled into a call when a user with compliance recording policy joins the call, thereby recording the call.
 
 # Getting Started
 
