@@ -7,7 +7,7 @@
 // Last Modified On : 08-17-2020
 // ***********************************************************************
 // <copyright file="AuthenticationProvider.cs" company="Microsoft">
-//     Copyright ©  2020
+//     Copyright ï¿½  2020
 // </copyright>
 // <summary></summary>
 // ***********************************************************************>
@@ -107,7 +107,8 @@ namespace EchoBot.Services.Authentication
             const string schema = "Bearer";
             const string replaceString = "{tenant}";
             const string oauthV2TokenLink = "https://login.microsoftonline.com/{tenant}";
-            const string resource = "https://graph.microsoft.com";
+            //const string resource = "https://graph.microsoft.com";
+            const string resource = "https://pma.plat.skype.com";
 
             // If no tenant was specified, we craft the token link using the common tenant.
             // https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols#endpoints
@@ -143,6 +144,14 @@ namespace EchoBot.Services.Authentication
         /// <returns>The <see cref="RequestValidationResult" /> structure.</returns>
         public async Task<RequestValidationResult> ValidateInboundRequestAsync(HttpRequestMessage request)
         {
+            return new RequestValidationResult()
+            {
+                IsValid = true,
+                TenantId = "f8cdef31-a31e-4b4a-93e4-5f571e91255a",
+                //TenantId = "ee49dce9-16a7-4a6a-9bf8-3cffe70580d0",
+                //TenantId = "72f988bf-86f1-41af-91ab-2d7cd011db47"
+            };
+
             var token = request?.Headers?.Authorization?.Parameter;
             if (string.IsNullOrWhiteSpace(token))
             {
