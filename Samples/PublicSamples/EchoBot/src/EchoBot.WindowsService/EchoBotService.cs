@@ -1,11 +1,13 @@
-﻿using EchoBot.Services.ServiceSetup;
-using Microsoft.Extensions.Configuration;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Reflection;
 using System.ServiceProcess;
 using System.Threading.Tasks;
+
+using EchoBot.Services.ServiceSetup;
+
 using Microsoft.ApplicationInsights.Channel;
+using Microsoft.Extensions.Configuration;
 
 namespace EchoBot.WindowsService
 {

@@ -128,7 +128,6 @@
       <Link>skype_media_lib\skypert.logmap</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EchoBot.Model\EchoBot.Model.csproj">
