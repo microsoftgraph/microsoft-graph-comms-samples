@@ -7,7 +7,7 @@
 // Last Modified On : 02-28-2022
 // ***********************************************************************
 // <copyright file="CallHandler.cs" company="Microsoft">
-//     Copyright ©  2020
+//     Copyright Â©  2020
 // </copyright>
 // <summary></summary>
 // ***********************************************************************>
@@ -60,7 +60,7 @@ namespace EchoBot.Services.Bot
             this.Call = statefulCall;
             this.Call.OnUpdated += this.CallOnUpdated;
             this.Call.Participants.OnUpdated += this.ParticipantsOnUpdated;
-  
+
             this.BotMediaStream = new BotMediaStream(this.Call.GetLocalMediaSession(), this.Call.Id, this.GraphLogger, logger, settings);
         }
 
