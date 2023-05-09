@@ -88,43 +88,43 @@
     <Compile Include="Util\Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\InstallMPServiceImpCounters.ps1">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\InstallMPServiceImpCounters.ps1">
       <Link>skype_media_lib\InstallMPServiceImpCounters.ps1</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\MediaPerf.ini">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\MediaPerf.ini">
       <Link>skype_media_lib\MediaPerf.ini</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\MediaPerf.pdb.logmap">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\MediaPerf.pdb.logmap">
       <Link>skype_media_lib\MediaPerf.pdb.logmap</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\MediaPlatformStartupScript.bat">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\MediaPlatformStartupScript.bat">
       <Link>skype_media_lib\MediaPlatformStartupScript.bat</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\Microsoft.Rtc.Internal.Media.MediaApi.pdb.logmap">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\Microsoft.Rtc.Internal.Media.MediaApi.pdb.logmap">
       <Link>skype_media_lib\Microsoft.Rtc.Internal.Media.MediaApi.pdb.logmap</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\Microsoft.Rtc.Internal.Media.pdb.logmap">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\Microsoft.Rtc.Internal.Media.pdb.logmap">
       <Link>skype_media_lib\Microsoft.Rtc.Internal.Media.pdb.logmap</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\RtmCodecs.pdb.logmap">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\RtmCodecs.pdb.logmap">
       <Link>skype_media_lib\RtmCodecs.pdb.logmap</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\RtmMvrCs.pdb.logmap">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\RtmMvrCs.pdb.logmap">
       <Link>skype_media_lib\RtmMvrCs.pdb.logmap</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\RtmPal.pdb.logmap">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\RtmPal.pdb.logmap">
       <Link>skype_media_lib\RtmPal.pdb.logmap</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\skypert.logmap">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\skypert.logmap">
       <Link>skype_media_lib\skypert.logmap</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -137,107 +137,107 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\AppDomainResolver.dll">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\AppDomainResolver.dll">
       <Link>skype_media_lib\AppDomainResolver.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\MediaPerf.dll">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\MediaPerf.dll">
       <Link>skype_media_lib\MediaPerf.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\MediaPerf.h">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\MediaPerf.h">
       <Link>skype_media_lib\MediaPerf.h</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\Microsoft.Applications.Telemetry.dll">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\Microsoft.Applications.Telemetry.dll">
       <Link>skype_media_lib\Microsoft.Applications.Telemetry.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\Microsoft.Applications.Telemetry.Server.dll">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\Microsoft.Applications.Telemetry.Server.dll">
       <Link>skype_media_lib\Microsoft.Applications.Telemetry.Server.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\Microsoft.Bond.dll">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\Microsoft.Bond.dll">
       <Link>skype_media_lib\Microsoft.Bond.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\Microsoft.Bond.Interfaces.dll">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\Microsoft.Bond.Interfaces.dll">
       <Link>skype_media_lib\Microsoft.Bond.Interfaces.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\Microsoft.IC3.ServiceShared.Caching.dll">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\Microsoft.IC3.ServiceShared.Caching.dll">
       <Link>skype_media_lib\Microsoft.IC3.ServiceShared.Caching.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\Microsoft.Rtc.Internal.Media.dll">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\Microsoft.Rtc.Internal.Media.dll">
       <Link>skype_media_lib\Microsoft.Rtc.Internal.Media.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\Microsoft.Rtc.Internal.Media.MediaApi.dll">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\Microsoft.Rtc.Internal.Media.MediaApi.dll">
       <Link>skype_media_lib\Microsoft.Rtc.Internal.Media.MediaApi.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\Microsoft.Skype.ECS.Client.dll">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\Microsoft.Skype.ECS.Client.dll">
       <Link>skype_media_lib\Microsoft.Skype.ECS.Client.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\Microsoft.Skype.ECS.Core.dll">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\Microsoft.Skype.ECS.Core.dll">
       <Link>skype_media_lib\Microsoft.Skype.ECS.Core.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\Microsoft.Skype.Identity.CertificateValidation.dll">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\Microsoft.Skype.Identity.CertificateValidation.dll">
       <Link>skype_media_lib\Microsoft.Skype.Identity.CertificateValidation.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\Microsoft.Skype.Internal.Media.AudioLib.dll">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\Microsoft.Skype.Internal.Media.AudioLib.dll">
       <Link>skype_media_lib\Microsoft.Skype.Internal.Media.AudioLib.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\Microsoft.Skype.Internal.Media.H264.dll">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\Microsoft.Skype.Internal.Media.H264.dll">
       <Link>skype_media_lib\Microsoft.Skype.Internal.Media.H264.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\Microsoft.Skype.Seatbelt.Core.ClientHelpers.dll">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\Microsoft.Skype.Seatbelt.Core.ClientHelpers.dll">
       <Link>skype_media_lib\Microsoft.Skype.Seatbelt.Core.ClientHelpers.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\Microsoft.Skype.Seatbelt.Core.dll">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\Microsoft.Skype.Seatbelt.Core.dll">
       <Link>skype_media_lib\Microsoft.Skype.Seatbelt.Core.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\MP.Contracts.dll">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\MP.Contracts.dll">
       <Link>skype_media_lib\MP.Contracts.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\MP.WebAPI.dll">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\MP.WebAPI.dll">
       <Link>skype_media_lib\MP.WebAPI.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\MPAzAppHost.dll">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\MPAzAppHost.dll">
       <Link>skype_media_lib\MPAzAppHost.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\MPServiceHostLib.dll">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\MPServiceHostLib.dll">
       <Link>skype_media_lib\MPServiceHostLib.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\MPServiceImp.dll">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\MPServiceImp.dll">
       <Link>skype_media_lib\MPServiceImp.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\rtmcodecs.dll">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\rtmcodecs.dll">
       <Link>skype_media_lib\rtmcodecs.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\RtmMvrCs.dll">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\RtmMvrCs.dll">
       <Link>skype_media_lib\RtmMvrCs.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\rtmpal.dll">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\rtmpal.dll">
       <Link>skype_media_lib\rtmpal.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media.1.23.0.49-alpha\src\skype_media_lib\skypert.dll">
+    <None Include="..\..\..\..\packages\Microsoft.Skype.Bots.Media\1.23.0.49-alpha\src\skype_media_lib\skypert.dll">
       <Link>skype_media_lib\skypert.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
