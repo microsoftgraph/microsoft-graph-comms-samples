@@ -117,8 +117,26 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                 };
             }
 
-            var statefulCall = await this.Client.Calls().AddAsync(joinParams, scenarioId).ConfigureAwait(false);
-            statefulCall.GraphLogger.Info($"Call creation complete: {statefulCall.Id}");
+            ICall statefulCall = null;
+            CallHandler callHandler = null;
+            try
+            {
+                // Create the BotMediaStream before the call is added to make sure that all media events are subscribed to.
+                // Before adding a new call, which is equivalent to negotiating it. We need to make sure that all media events are subscribed to.
+                // It is possible that media will start to flow, while the call is being processed.
+                var botMediaStream = new BotMediaStream(mediaSession, this.Logger.CreateShim("BotMediaStream", scenarioId));
+                statefulCall = await this.Client.Calls().AddAsync(joinParams, scenarioId).ConfigureAwait(false);
+                callHandler = new CallHandler(statefulCall, botMediaStream);
+                this.CallHandlers.TryAdd(statefulCall.Id, callHandler);
+                statefulCall.GraphLogger.Info($"Call creation complete: {statefulCall.Id}");
+            }
+            catch (Exception)
+            {
+                // clean up
+                callHandler?.Dispose();
+                throw;
+            }
+
             return statefulCall;
         }
 
@@ -306,8 +324,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         {
             foreach (var call in args.AddedResources)
             {
-                var callHandler = new CallHandler(call);
-                this.CallHandlers[call.Id] = callHandler;
+                call.GraphLogger.Info($"Call with id: {call.Id} and {call.ScenarioId} was added");
             }
 
             foreach (var call in args.RemovedResources)
