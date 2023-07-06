@@ -15,7 +15,6 @@
     <PackageReference Include="Microsoft.Graph.Communications.Client" Version="1.2.0-beta.6916" />
     <PackageReference Include="Microsoft.Graph.Communications.Core" Version="1.2.0-beta.6916" />
     <PackageReference Include="Microsoft.Graph.Communications.Common" Version="1.2.0-beta.6916" />
-    <PackageReference Include="Microsoft.Identity.Client" Version="4.54.1" />
     <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="6.26.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1.0" />
   </ItemGroup>
