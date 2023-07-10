@@ -33,17 +33,17 @@ namespace Sample.SimpleIvrBot.Bot
         public Uri PlaceCallEndpointUrl { get; set; }
 
         /// <summary>
-        /// Gets or sets cosmosDB Configuraiton account uri.
+        /// Gets or sets cosmosDB Configuration account uri.
         /// </summary>
         public string CosmosDBAccountUri { get; set; }
 
         /// <summary>
-        /// Gets or sets cosmosDB Configuraiton account key.
+        /// Gets or sets cosmosDB Configuration account key.
         /// </summary>
         public string CosmosDBAccountKey { get; set; }
 
         /// <summary>
-        /// Gets or sets cosmosDB Configuraiton database name.
+        /// Gets or sets cosmosDB Configuration database name.
         /// </summary>
         public string CosmosDBDatabaseName { get; set; }
     }
