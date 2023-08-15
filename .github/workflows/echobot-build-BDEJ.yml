@@ -1,4 +1,4 @@
-name: .NET BOT D1 BUILD BCC
+name: .NET BOT D1 BUILD BDEJ
 
 on:
   push:
@@ -6,14 +6,14 @@ on:
       - 'master'
     paths:
       - './Samples/PublicSamples/EchoBot/src/**'
-      - .github/workflows/echobot-build-BCC.yml
+      - .github/workflows/echobot-build-BDEJ.yml
 
   pull_request:
     branches:
       - 'master'
     paths:
       - './Samples/PublicSamples/EchoBot/src/**'
-      - .github/workflows/echobot-build-BCC.yml
+      - .github/workflows/echobot-build-BDEJ.yml
 
   workflow_dispatch:
 
@@ -23,8 +23,8 @@ env:
   Component:   EchoBot
   BuildName:   0.1.${{ github.run_number }}
   Environment: D1
-  OrgName:     BCC
-  Location:    eastus
+  OrgName:     BDEJ
+  Location:    eastus2
 
 jobs:
   build:
@@ -69,7 +69,7 @@ jobs:
     - name: Login via Az module
       uses: azure/login@v1
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS_BCC_BOT }}
+        creds: ${{ secrets.AZURE_CREDENTIALS_BDEJ_BOT }}
         enable-AzPSSession: true
 
     - name: G1_RG_UploadArtifacts_to_Blob

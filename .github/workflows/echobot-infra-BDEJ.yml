@@ -1,4 +1,4 @@
-name: .NET BOT D1 INFRA BCC
+name: .NET BOT D1 INFRA BDEJ
 
 # Controls when the action will run.
 on:
@@ -9,21 +9,21 @@ on:
       - 'master'
     paths:
       - './Samples/PublicSamples/EchoBot/ADF/**'
-      - .github/workflows/echobot-infra-BCC.yml
+      - .github/workflows/echobot-infra-BDEJ.yml
 
   pull_request:
     branches:
       - 'master'
     paths:
       - './Samples/PublicSamples/EchoBot/ADF/**'
-      - .github/workflows/echobot-infra-BCC.yml
+      - .github/workflows/echobot-infra-BDEJ.yml
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 env:
-  OrgName: BCC
-  Location: eastus
+  OrgName: BDEJ
+  Location: eastus2
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -43,7 +43,7 @@ jobs:
       - name: Login via Az module
         uses: azure/login@v1
         with:
-          creds: ${{secrets.AZURE_CREDENTIALS_BCC_BOT}}
+          creds: ${{secrets.AZURE_CREDENTIALS_BDEJ_BOT}}
           enable-AzPSSession: true
 
       - name: Deploy_All_Subscription
@@ -59,7 +59,7 @@ jobs:
             ./Samples/PublicSamples/EchoBot/ADF/main.ps1 @Params
             if ($e){throw $e}
         env:
-          VMSS_CREDENTIALS: ${{ secrets.VMSS_CREDENTIALS_BCC_BOT }}
+          VMSS_CREDENTIALS: ${{ secrets.VMSS_CREDENTIALS_BDEJ_BOT }}
 
 
 
