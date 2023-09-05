@@ -827,7 +827,7 @@ resource updateConfigWindows 'Microsoft.Automation/automationAccounts/softwareUp
     }
 }]
 
-resource VMInsights 'Microsoft.Insights/dataCollectionRules@2021-04-01' = if (bool(Extensions.VMInsights)) {
+resource VMInsights 'Microsoft.Insights/dataCollectionRules@2022-06-01' = if (bool(Extensions.VMInsights)) {
     name: '${DeploymentURI}VMInsights'
     location: resourceGroup().location
     properties: {
@@ -839,7 +839,6 @@ resource VMInsights 'Microsoft.Insights/dataCollectionRules@2021-04-01' = if (bo
                     streams: [
                         'Microsoft-WindowsEvent'
                     ]
-                    scheduledTransferPeriod: 'PT1M'
                     xPathQueries: [
                         'Security!'
                     ]
@@ -849,7 +848,6 @@ resource VMInsights 'Microsoft.Insights/dataCollectionRules@2021-04-01' = if (bo
                     streams: [
                         'Microsoft-WindowsEvent'
                     ]
-                    scheduledTransferPeriod: 'PT5M'
                     xPathQueries: [
                         'System![System[(Level = 1 or Level = 2 or Level = 3)]]'
                         'Application!*[System[(Level = 1 or Level = 2 or Level = 3)]]'
@@ -889,7 +887,6 @@ resource VMInsights 'Microsoft.Insights/dataCollectionRules@2021-04-01' = if (bo
             performanceCounters: [
                 {
                     name: 'VMHealthPerfCounters'
-                    scheduledTransferPeriod: 'PT1M'
                     samplingFrequencyInSeconds: 30
                     counterSpecifiers: [
                         '\\Memory\\Available Bytes'
@@ -908,7 +905,6 @@ resource VMInsights 'Microsoft.Insights/dataCollectionRules@2021-04-01' = if (bo
                     streams: [
                         'Microsoft-Perf'
                     ]
-                    scheduledTransferPeriod: 'PT5M'
                     samplingFrequencyInSeconds: 30
                     counterSpecifiers: [
                         '\\Process(_Total)\\Thread Count'
