@@ -36,12 +36,12 @@
             # Dynamically set from Azure Metadata Service
             EnvironmentVarPresentVMSS   = @(
                 @{
-                    Name             = 'AzureSettings:MediaInstanceExternalPort'
+                    Name             = 'AppSettings:MediaInstanceExternalPort'
                     BackendPortMatch = '8445'
                     Value            = '{0}'
                 },
                 @{
-                    Name             = 'AzureSettings:BotInstanceExternalPort'
+                    Name             = 'AppSettings:BotInstanceExternalPort'
                     BackendPortMatch = '9441'
                     Value            = '{0}'
                 }
@@ -50,32 +50,32 @@
             # default environment variables
             EnvironmentVarPresent       = @(
                 @{
-                    Name  = 'AzureSettings:BotCallingInternalPort'
+                    Name  = 'AppSettings:BotCallingInternalPort'
                     Value = '9442'
                 },
                 @{
-                    Name  = 'AzureSettings:BotInternalPort'
+                    Name  = 'AppSettings:BotInternalPort'
                     Value = '9441'
                 },
                 @{
-                    Name  = 'AzureSettings:MediaInternalPort'
+                    Name  = 'AppSettings:MediaInternalPort'
                     Value = '8445'
                 }
             )
             
             EnvironmentVarSet           = @(
-                @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'AadAppId' },
-                @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'AadAppSecret' },
-                @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'ServiceDnsName' },
-                @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'SpeechConfigKey' },
-                @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'CertificateThumbprint' },
-                @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'Prefix' },
-                @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'OrgName' },
-                @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'App' },
-                @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'Environment' },
-                @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'UseCognitiveServices' },
-                @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'SpeechConfigRegion' },
-                @{Prefix = 'AzureSettings:'; KVName = '{0}-kv'; Name = 'BotLanguage' }
+                @{Prefix = 'AppSettings:'; KVName = '{0}-kv'; Name = 'AadAppId' },
+                @{Prefix = 'AppSettings:'; KVName = '{0}-kv'; Name = 'AadAppSecret' },
+                @{Prefix = 'AppSettings:'; KVName = '{0}-kv'; Name = 'ServiceDnsName' },
+                @{Prefix = 'AppSettings:'; KVName = '{0}-kv'; Name = 'SpeechConfigKey' },
+                @{Prefix = 'AppSettings:'; KVName = '{0}-kv'; Name = 'CertificateThumbprint' },
+                @{Prefix = 'AppSettings:'; KVName = '{0}-kv'; Name = 'Prefix' },
+                @{Prefix = 'AppSettings:'; KVName = '{0}-kv'; Name = 'OrgName' },
+                @{Prefix = 'AppSettings:'; KVName = '{0}-kv'; Name = 'App' },
+                @{Prefix = 'AppSettings:'; KVName = '{0}-kv'; Name = 'Environment' },
+                @{Prefix = 'AppSettings:'; KVName = '{0}-kv'; Name = 'UseCognitiveServices' },
+                @{Prefix = 'AppSettings:'; KVName = '{0}-kv'; Name = 'SpeechConfigRegion' },
+                @{Prefix = 'AppSettings:'; KVName = '{0}-kv'; Name = 'BotLanguage' }
             )
 
             # Blob copy with Managed Identity - Oauth2

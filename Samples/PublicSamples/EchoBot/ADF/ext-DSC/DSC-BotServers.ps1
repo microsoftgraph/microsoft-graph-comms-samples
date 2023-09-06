@@ -7,7 +7,7 @@ Configuration $Configuration
         [Int]$RetryCount = 30,
         [Int]$RetryIntervalSec = 120,
         [String]$StorageAccountId,
-        [String]$AppInsightsInstrumentationKey,
+        [String]$AppInsightsConnectionString,
         [String]$Deployment,
         [String]$NetworkID,
         [String]$AppInfo,
@@ -437,12 +437,12 @@ Configuration $Configuration
 
         #-----------------------------------------
         # Add Application Insights Key to Environment Variables
-        if ($AppInsightsInstrumentationKey)
+        if ($AppInsightsConnectionString)
         {
-            Environment 'AppInsightsInstrumentationKey'
+            Environment 'AppInsightsConnectionString'
             {
-                Name  = 'AzureSettings:AppInsightsInstrumentationKey'
-                Value = $AppInsightsInstrumentationKey
+                Name  = 'APPLICATIONINSIGHTS_CONNECTION_STRING'
+                Value = $AppInsightsConnectionString
             }
         }
 

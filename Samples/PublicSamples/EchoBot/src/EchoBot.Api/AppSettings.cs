@@ -90,12 +90,6 @@ namespace EchoBot.Api
         /// </summary>
         public int MediaInstanceExternalPort { get; set; }
 
-        ///// <summary>
-        ///// Gets or sets the Application Insights Instrumentation key
-        ///// used for logging to app insights
-        ///// </summary>
-        //public string AppInsightsInstrumentationKey { get; set; }
-
         /// <summary>
         /// Used for local development to set the ports to be used
         /// with ngrok
