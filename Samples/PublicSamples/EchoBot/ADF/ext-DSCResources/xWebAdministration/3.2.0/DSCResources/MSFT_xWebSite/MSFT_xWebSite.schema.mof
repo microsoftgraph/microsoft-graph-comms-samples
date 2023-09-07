@@ -1,0 +1,58 @@
+[ClassVersion("2.0.0"), FriendlyName("xWebSite")]
+class MSFT_xWebSite : OMI_BaseResource
+{
+    [Write, Description("Ensures that the website is Present or Absent. Defaults to Present."), ValueMap{"Present", "Absent"},Values{"Present", "Absent"}] String Ensure;
+    [Key, Description("The desired name of the website.")] String Name;
+    [Write, Description("Optional. The desired IIS site Id for the website.")] UInt32 SiteId;
+    [Write, Description("The path to the files that compose the website.")] String PhysicalPath;
+    [Write, Description("The state of the website."),ValueMap{"Started","Stopped"},Values{"Started", "Stopped"}] String State;
+    [Write, Description("The name of the website’s application pool.")] String ApplicationPool;
+    [Write, EmbeddedInstance("MSFT_xWebBindingInformation"), Description("Website's binding information in the form of an array of embedded instances of the MSFT_xWebBindingInformation CIM class.")] String BindingInfo[];
+    [Write, Description("One or more names of files that will be set as Default Documents for this website.")] String DefaultPage[];
+    [Write, Description("The protocols that are enabled for the website.")] String EnabledProtocols;
+    [Write, Description ("When set to $true this will enable Autostart on a Website")] Boolean ServerAutoStart;
+    [write, EmbeddedInstance("MSFT_xWebAuthenticationInformation"), Description("Hashtable containing authentication information (Anonymous, Basic, Digest, Windows)")] String AuthenticationInfo;
+    [Write, Description ("When set to $true this will allow WebSite to automatically start without a request")] Boolean PreloadEnabled;
+    [Write, Description ("When set to `$true` this will enable application Autostart (application initalization without an initial request) on a Website")] Boolean ServiceAutoStartEnabled;
+    [Write, Description ("Adds a AutostartProvider")] String ServiceAutoStartProvider;
+    [Write, Description ("Adds a AutostartProvider ApplicationType")] String ApplicationType;
+    [Write, Description ("The directory to be used for logfiles")] String LogPath;
+    [Write, Description ("The W3C logging fields"), ValueMap{"Date","Time","ClientIP","UserName","SiteName","ComputerName","ServerIP","Method","UriStem","UriQuery","HttpStatus","Win32Status","BytesSent","BytesRecv","TimeTaken","ServerPort","UserAgent","Cookie","Referer","ProtocolVersion","Host","HttpSubStatus"},Values{"Date","Time","ClientIP","UserName","SiteName","ComputerName","ServerIP","Method","UriStem","UriQuery","HttpStatus","Win32Status","BytesSent","BytesRecv","TimeTaken","ServerPort","UserAgent","Cookie","Referer","ProtocolVersion","Host","HttpSubStatus"}] String LogFlags[];
+    [Write, Description ("How often the log file should rollover"), ValueMap{"Hourly","Daily","Weekly","Monthly","MaxSize"},Values{"Hourly","Daily","Weekly","Monthly","MaxSize"}] String LogPeriod;
+    [Write, Description ("How large the file should be before it is truncated")] String LogTruncateSize;
+    [Write, Description ("Use the localtime for file naming and rollover")] Boolean LoglocalTimeRollover;
+    [Write, Description ("Format of the Logfiles. Only W3C supports LogFlags"), ValueMap{"IIS","W3C","NCSA"}, Values{"IIS","W3C","NCSA"}] String LogFormat;
+    [Write, Description ("Specifies whether IIS will use Event Tracing or file logging"), ValueMap{"File","ETW","File,ETW"}, Values{"File","ETW","File,ETW"}] String LogTargetW3C;
+    [Write, EmbeddedInstance("MSFT_xLogCustomFieldInformation"), Description("Custom logging field information in the form of an array of embedded instances of MSFT_xLogCustomFieldInformation CIM class")] String LogCustomFields[];
+};
+
+[ClassVersion("1.0.0")]
+class MSFT_xWebBindingInformation
+{
+    [Required,Description("The protocol of the binding. This property is required. The acceptable values for this property are: http, https, msmq.formatname, net.msmq, net.pipe, net.tcp."),ValueMap{"http","https","msmq.formatname","net.msmq","net.pipe","net.tcp"},Values{"http","https","msmq.formatname","net.msmq","net.pipe","net.tcp"}] String Protocol;
+    [Write, Description("The binding information in the form a colon-delimited string that includes the IP address, port, and host name of the binding. This property is ignored for http and https bindings if at least one of the following properties is specified: IPAddress, Port, HostName.")] String BindingInformation;
+    [Write, Description("The IP address of the binding. This property is only applicable for http and https bindings. The default value is *.")] String IPAddress;
+    [Write, Description("The port of the binding. The value must be a positive integer between 1 and 65535. This property is only applicable for http (the default value is 80) and https (the default value is 443) bindings.")] UInt16 Port;
+    [Write, Description("The host name of the binding. This property is only applicable for http and https bindings.")] String HostName;
+    [Write, Description("The thumbprint of the certificate. This property is only applicable for https bindings.")] String CertificateThumbprint;
+    [Write, Description("The subject of the certificate if the thumbprint isn't known. This property is only applicable for https bindings.")] String CertificateSubject;
+    [Write,Description("The name of the certificate store where the certificate is located. This property is only applicable for https bindings. The acceptable values for this property are: My, WebHosting. The default value is My."),ValueMap{"My", "WebHosting"},Values{"My", "WebHosting"}] String CertificateStoreName;
+    [Write,Description("The type of binding used for Secure Sockets Layer (SSL) certificates. This property is supported in IIS 8.0 or later, and is only applicable for https bindings."),ValueMap{"0","1","2","3"},Values{"0","1","2","3"}] String SslFlags;
+};
+
+[ClassVersion("1.0.0")]
+class MSFT_xWebAuthenticationInformation
+{
+    [Write, Description("The acceptable values for this property are: $true, $false")] Boolean Anonymous;
+    [Write, Description("The acceptable values for this property are: $true, $false")] Boolean Basic;
+    [Write, Description("The acceptable values for this property are: $true, $false")] Boolean Digest;
+    [Write, Description("The acceptable values for this property are: $true, $false")] Boolean Windows;
+};
+
+[ClassVersion("1.0.0")]
+class MSFT_xLogCustomFieldInformation
+{
+    [Write, Description("Field name to identify the custom field within the log file. Please note that the field name cannot contain spaces.")] String LogFieldName;
+    [Write, Description("The acceptable values for this property are: RequestHeader, ResponseHeader or ServerVariable (note that enhanced logging cannot log a server variable with a name that contains lower-case characters - to include a server variable in the event log just make sure that its name consists of all upper-case characters)."),ValueMap{"RequestHeader","ResponseHeader","ServerVariable"},Values{"RequestHeader","ResponseHeader","ServerVariable"}] String SourceType;
+    [Write, Description("Name of the HTTP header or server variable (depending on the Source Type you selected) that contains a value that you want to log.")] String SourceName;
+};

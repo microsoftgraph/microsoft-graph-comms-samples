@@ -1,0 +1,44 @@
+.NAME
+    NetAdapterBinding
+
+.DESCRIPTION
+    This resource is used to bind or unbind transport or filters to a network interface.
+
+.PARAMETER InterfaceAlias
+    Key - String
+    Specifies the alias of a network interface. Supports the use of '*'.
+
+.PARAMETER ComponentId
+    Key - String
+    Specifies the underlying name of the transport or filter in the following form - ms_xxxx, such as ms_tcpip.
+
+.PARAMETER State
+    Write - String
+    Allowed values: Enabled, Disabled
+    Specifies if the component ID for the Interface should be Enabled or Disabled.
+
+.PARAMETER CurrentState
+    Read - String
+    Allowed values: Enabled, Disabled, Mixed
+    Returns the current state of the component ID for the Interfaces.
+
+.EXAMPLE 1
+
+Disabling IPv6 for the Ethernet adapter.
+
+Configuration NetAdapterBinding_DisableIPv6_Config
+{
+    Import-DSCResource -ModuleName NetworkingDsc
+
+    Node localhost
+    {
+        NetAdapterBinding DisableIPv6
+        {
+            InterfaceAlias = 'Ethernet'
+            ComponentId    = 'ms_tcpip6'
+            State          = 'Disabled'
+        }
+    }
+}
+
+

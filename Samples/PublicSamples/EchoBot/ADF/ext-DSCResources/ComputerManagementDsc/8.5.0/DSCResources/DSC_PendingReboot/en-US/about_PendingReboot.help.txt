@@ -1,0 +1,132 @@
+.NAME
+    PendingReboot
+
+.DESCRIPTION
+    PendingReboot examines three specific registry locations where a Windows Server
+    might indicate that a reboot is pending and allows DSC to predictably handle
+    the condition.
+
+    DSC determines how to handle pending reboot conditions using the Local Configuration
+    Manager (LCM) setting `RebootNodeIfNeeded`. When DSC resources require reboot, within
+    a Set statement in a DSC Resource the global variable `DSCMachineStatus` is set to
+    value '1'. When this condition occurs and RebootNodeIfNeeded is set to 'True',
+    DSC reboots the machine after a successful Set. Otherwise, the reboot is postponed.
+
+    Note: The expectation is that this resource will be used in conjunction with
+    knowledge of DSC Local Configuration Manager, which has the ability to manage
+    whether reboots happen automatically using the RebootIfNeeded parameter. For
+    more information on configuring the LCM, please reference [this TechNet article](https://technet.microsoft.com/en-us/library/dn249922.aspx).
+
+.PARAMETER Name
+    Key - String
+    Specifies the name of this pending reboot check.
+
+.PARAMETER SkipComponentBasedServicing
+    Write - Boolean
+    Specifies whether to skip reboots triggered by the Component-Based Servicing component.
+
+.PARAMETER ComponentBasedServicing
+    Read - Boolean
+    A value indicating whether the Component-Based Servicing component requested a reboot.
+
+.PARAMETER SkipWindowsUpdate
+    Write - Boolean
+    Specifies whether to skip reboots triggered by Windows Update.
+
+.PARAMETER WindowsUpdate
+    Read - Boolean
+    A value indicating whether Windows Update requested a reboot.
+
+.PARAMETER SkipPendingFileRename
+    Write - Boolean
+    Specifies whether to skip pending file rename reboots.
+
+.PARAMETER PendingFileRename
+    Read - Boolean
+    A value indicating whether a pending file rename triggered a reboot.
+
+.PARAMETER SkipPendingComputerRename
+    Write - Boolean
+    Specifies whether to skip reboots triggered by a pending computer rename.
+
+.PARAMETER PendingComputerRename
+    Read - Boolean
+    A value indicating whether a pending computer rename triggered a reboot.
+
+.PARAMETER SkipCcmClientSDK
+    Write - Boolean
+    Specifies whether to skip reboots triggered by the ConfigMgr client. Defaults to True.
+
+.PARAMETER CcmClientSDK
+    Read - Boolean
+    A value indicating whether the ConfigMgr client triggered a reboot.
+
+.PARAMETER RebootRequired
+    Read - Boolean
+    A value indicating whether the node requires a reboot.
+
+.EXAMPLE 1
+
+This example joins a computer to a domain and allows the LCM
+node to reboot after the join. The LCM must have been configured
+with the RebootNodeIfNeeded property set to $true.
+
+Configuration PendingReboot_RebootAfterDomainJoin_Config
+{
+    param
+    (
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullorEmpty()]
+        [System.Management.Automation.PSCredential]
+        $Credential
+    )
+
+    Import-DscResource -ModuleName ComputerManagementDsc
+
+    Node localhost
+    {
+        Computer JoinDomain
+        {
+            Name       = 'Server01'
+            DomainName = 'Contoso'
+            Credential = $Credential # Credential to join to domain
+        }
+
+        PendingReboot RebootAfterDomainJoin
+        {
+            Name = 'DomainJoin'
+        }
+    }
+}
+
+.EXAMPLE 2
+
+This example sets the timezone of the node to Tonga Standard Time
+and then allows the LCM node to reboot the node only if System
+Center Configuration Manager requires a reboot. No other reboot
+trigger will cause the LCM to reboot the node.
+
+Configuration PendingReboot_ConfigMgrReboot_Config
+{
+    Import-DscResource -ModuleName ComputerManagementDsc
+
+    Node localhost
+    {
+        TimeZone TimeZoneExample
+        {
+            IsSingleInstance = 'Yes'
+            TimeZone         = 'Tonga Standard Time'
+        }
+
+        PendingReboot ConfigMgrReboot
+        {
+            Name                        = 'ConfigMgr'
+            SkipComponentBasedServicing = $true
+            SkipWindowsUpdate           = $true
+            SkipPendingFileRename       = $true
+            SkipPendingComputerRename   = $true
+            SkipCcmClientSDK            = $false
+        }
+    }
+}
+

@@ -1,0 +1,78 @@
+.NAME
+    WindowsEventLog
+
+.DESCRIPTION
+    This resource is used to configure the settings of an event log.
+
+    ## RestrictGuestAccess and Event Log DACLs
+
+    If you choose to restrict guest access to an event log, the
+    RestrictGuestAccess registry key will be configured and the event
+    log's DACL will be checked and updated to ensure the built-in
+    Guests group has been removed. Conversely, if you choose to
+    allow guest access, the registry key will be configured and the
+    DACL will be checked and updated to ensure the built-in Guests
+    group has been added.
+
+    This DACL behavior also applies if you configure your own custom
+    DACL via the SecurityDescriptor property and a warning will be
+    displayed to notify you of the change.
+
+    ## RegisteredSource and Resource Files
+
+    The PowerShell cmdlets that define event log sources do not check
+    for the presence of the resource file on the computer and this
+    resource follows the same paradigm. If you choose to create your
+    own resource files and want to register them with the event source,
+    you must ensure the files have been copied to the computer via a
+    DSC File resource definition or equivalent.
+
+.PARAMETER LogName
+    Key - String
+    Specifies the name of a valid event log
+
+.PARAMETER IsEnabled
+    Write - Boolean
+    Specifies whether the specified event log should be enabled or disabled
+
+.PARAMETER MaximumSizeInBytes
+    Write - SInt64
+    Specifies the maximum size in bytes for the specified event log
+
+.PARAMETER LogMode
+    Write - String
+    Allowed values: AutoBackup, Circular, Retain
+    Specifies the log mode for the specified event log
+
+.PARAMETER SecurityDescriptor
+    Write - String
+    Specifies the SDDL for the specified event log
+
+.PARAMETER LogFilePath
+    Write - String
+    Specifies the file name and path for the specified event log
+
+.PARAMETER LogRetentionDays
+    Write - SInt32
+    Specifies the number of days to retain events when the log mode is AutoBackup
+
+.PARAMETER RegisteredSource
+    Write - String
+    Specifies the name of an event source to register for the specified event log
+
+.PARAMETER CategoryResourceFile
+    Write - String
+    Specifies the category resource file for the event source
+
+.PARAMETER MessageResourceFile
+    Write - String
+    Specifies the message resource file for the event source
+
+.PARAMETER ParameterResourceFile
+    Write - String
+    Specifies the parameter resource file for the event source
+
+.PARAMETER RestrictGuestAccess
+    Write - Boolean
+    Specifies whether to allow guests to have access to the specified event log
+

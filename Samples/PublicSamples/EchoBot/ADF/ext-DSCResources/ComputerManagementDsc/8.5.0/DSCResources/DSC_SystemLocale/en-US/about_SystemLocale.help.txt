@@ -1,0 +1,48 @@
+.NAME
+    SystemLocale
+
+.DESCRIPTION
+    Ths resource is used set the system locale on a Windows machine.
+
+    To get a list of valid Windows System Locales use the command:
+    `[System.Globalization.CultureInfo]::GetCultures([System.Globalization.CultureTypes]::AllCultures).name`
+
+    If the System Locale is changed by this resource, it will require the node
+    to reboot. If the LCM is not configured to allow restarting, the configuration
+    will not be able to be applied until a manual restart occurs.
+
+.PARAMETER IsSingleInstance
+    Key - String
+    Allowed values: Yes
+    Specifies the resource is a single instance, the value must be 'Yes'
+
+.PARAMETER SystemLocale
+    Required - String
+    Specifies the System Locale.
+
+.EXAMPLE 1
+
+This example will set the System Locale of LocalHost to 'ja-JP'.
+To use this example, run it using PowerShell.
+
+Configuration SystemLocale_SetSystemLocale_Config
+{
+    param
+    (
+        [Parameter()]
+        [System.String[]]
+        $NodeName = 'localhost'
+    )
+
+    Import-DSCResource -ModuleName ComputerManagementDsc
+
+    Node $NodeName
+    {
+        SystemLocale SystemLocaleExample
+        {
+            IsSingleInstance = 'Yes'
+            SystemLocale     = 'ja-JP'
+        }
+    }
+}
+

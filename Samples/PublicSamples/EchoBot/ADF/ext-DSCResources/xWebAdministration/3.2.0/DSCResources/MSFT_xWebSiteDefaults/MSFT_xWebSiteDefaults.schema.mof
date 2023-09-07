@@ -1,0 +1,10 @@
+[ClassVersion("1.0.0"), FriendlyName("xWebSiteDefaults")] 
+class MSFT_xWebSiteDefaults : OMI_BaseResource
+{
+  [Key, Description("Specifies the resource is a single instance, the value must be 'Yes'"), ValueMap{"Yes"}, Values{"Yes"}] String IsSingleInstance;
+  [write, Description("sites/siteDefaults/logFile/logFormat"), ValueMap{"W3C","IIS","NCSA","Custom"}, Values{"W3C","IIS","NCSA","Custom"}] string LogFormat;
+  [write, Description("sites/siteDefaults/logFile/directory")] string LogDirectory;
+  [write, Description("sites/siteDefaults/traceFailedRequestsLogging/directory")] string TraceLogDirectory;
+  [write, Description("sites/applicationDefaults/applicationPool")] string DefaultApplicationPool;
+  [write, Description("sites/virtualDirectoryDefaults/allowSubDirConfig"), ValueMap{"true","false"}, Values{"true","false"}] string AllowSubDirConfig;
+};

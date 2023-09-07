@@ -1,0 +1,30 @@
+[ClassVersion("1.0.0"),FriendlyName("xPackage")]
+class DSC_xPackageResource : OMI_BaseResource
+{
+  [Write,ValueMap{"Present", "Absent"},Values{"Present", "Absent"}] string Ensure;
+  [Key] string Name;
+  [Required] string Path;
+  [Key] string ProductId;
+  [Write] string Arguments;
+  [Write,EmbeddedInstance("MSFT_Credential")] string Credential;
+  [Write] uint32 ReturnCode[];
+  [Write] string LogPath;
+  [Read] string PackageDescription;
+  [Read] string Publisher;
+  [Read] string InstalledOn;
+  [Read] uint32 Size;
+  [Read] string Version;
+  [Read] boolean Installed;
+  [Write] string FileHash;
+  [Write,ValueMap{"SHA1","SHA256","SHA384","SHA512","MD5","RIPEMD160"},Values{"SHA1","SHA256","SHA384","SHA512","MD5","RIPEMD160"}] string HashAlgorithm;
+  [Write] string SignerSubject;
+  [Write] string SignerThumbprint;
+  [Write] string ServerCertificateValidationCallback;
+  [Write,ValueMap{"LocalMachine","CurrentUser"},Values{"LocalMachine","CurrentUser"}] string InstalledCheckRegHive;
+  [Write] string InstalledCheckRegKey;
+  [Write] string InstalledCheckRegValueName;
+  [Write] string InstalledCheckRegValueData;
+  [Write] boolean CreateCheckRegValue;
+  [Write, Description("Ignore a pending reboot if requested by package installation.")] Boolean IgnoreReboot;
+  [Write,EmbeddedInstance("MSFT_Credential")] string RunAsCredential;
+};

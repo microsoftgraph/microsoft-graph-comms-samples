@@ -1,0 +1,58 @@
+.NAME
+    IEEnhancedSecurityConfiguration
+
+.DESCRIPTION
+    This resource allows you to configure the IE Enhanced Security Configuration
+    for administrator or user roles.
+
+.PARAMETER Role
+    Key - String
+    Allowed values: Administrators, Users
+    Specifies the role for which the IE Enhanced Security Configuration should be changed.
+
+.PARAMETER Enabled
+    Required - Boolean
+    Specifies if IE Enhanced Security Configuration should be enabled or disabled.
+
+.PARAMETER SuppressRestart
+    Write - Boolean
+    Specifies if a restart of the node should be suppressed. By default the node will be restarted if the value is changed.
+
+.EXAMPLE 1
+
+This configuration will disable the IE Enhanced Security Configuration for
+administrators.
+
+Configuration IEEnhancedSecurityConfiguration_DisableForAdministrators_Config
+{
+    Import-DscResource -Module ComputerManagementDsc
+
+    Node localhost
+    {
+        IEEnhancedSecurityConfiguration 'DisableForAdministrators'
+        {
+            Role    = 'Administrators'
+            Enabled = $false
+        }
+    }
+}
+
+.EXAMPLE 2
+
+This configuration will disable the IE Enhanced Security Configuration for
+users.
+
+Configuration IEEnhancedSecurityConfiguration_DisableForUsers_Config
+{
+    Import-DscResource -Module ComputerManagementDsc
+
+    Node localhost
+    {
+        IEEnhancedSecurityConfiguration 'DisableForUsers'
+        {
+            Role    = 'Users'
+            Enabled = $false
+        }
+    }
+}
+

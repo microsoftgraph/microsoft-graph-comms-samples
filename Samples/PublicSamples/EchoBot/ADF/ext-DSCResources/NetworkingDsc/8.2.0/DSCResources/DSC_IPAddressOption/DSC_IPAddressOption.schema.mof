@@ -1,0 +1,6 @@
+[ClassVersion("1.0.0.0"), FriendlyName("IPAddressOption")]
+class DSC_IPAddressOption : OMI_BaseResource
+{
+    [Key, Description("The target IP address, must already be configured on the system.")] string IPAddress;
+    [Write, Description("Skip as source option of the ip address.")] boolean SkipAsSource;
+};

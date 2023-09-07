@@ -1,0 +1,241 @@
+.NAME
+    NetIPInterface
+
+.DESCRIPTION
+    This resource is used to configure the IP interface settings for a network interface.
+
+    ## Known Issues
+
+    - If you define a value for `InterfaceMetric`, the `AutomaticMetric`
+    setting is ignored. PowerShell ignores `AutomaticMetric` when you
+    use both arguments with the `Set-NetIPInterface` cmdlet.
+
+.PARAMETER InterfaceAlias
+    Key - String
+    Alias of the network interface to configure.
+
+.PARAMETER AddressFamily
+    Key - String
+    Allowed values: IPv4, IPv6
+    IP address family on the interface to configure.
+
+.PARAMETER AdvertiseDefaultRoute
+    Write - String
+    Allowed values: Enabled, Disabled
+    Specifies the default router advertisement for an interface.
+
+.PARAMETER Advertising
+    Write - String
+    Allowed values: Enabled, Disabled
+    Specifies the router advertisement value for the IP interface.
+
+.PARAMETER AutomaticMetric
+    Write - String
+    Allowed values: Enabled, Disabled
+    Specifies the value for automatic metric calculation.
+
+.PARAMETER Dhcp
+    Write - String
+    Allowed values: Enabled, Disabled
+    Specifies the Dynamic Host Configuration Protocol (DHCP) value for an IP interface.
+
+.PARAMETER DirectedMacWolPattern
+    Write - String
+    Allowed values: Enabled, Disabled
+    Specifies the wake-up packet value for an IP interface.
+
+.PARAMETER EcnMarking
+    Write - String
+    Allowed values: Disabled, UseEct1, UseEct0, AppDecide
+    Specifies the value for Explicit Congestion Notification (ECN) marking.
+
+.PARAMETER ForceArpNdWolPattern
+    Write - String
+    Allowed values: Enabled, Disabled
+    Specifies the Wake On LAN (WOL) value for the IP interface.
+
+.PARAMETER Forwarding
+    Write - String
+    Allowed values: Enabled, Disabled
+    Specifies the packet forwarding value for the IP interface.
+
+.PARAMETER IgnoreDefaultRoutes
+    Write - String
+    Allowed values: Enabled, Disabled
+    Specifies a value for Default Route advertisements.
+
+.PARAMETER ManagedAddressConfiguration
+    Write - String
+    Allowed values: Enabled, Disabled
+    Specifies the value for managed address configuration.
+
+.PARAMETER NeighborUnreachabilityDetection
+    Write - String
+    Allowed values: Enabled, Disabled
+    Specifies the value for Neighbor Unreachability Detection (NUD).
+
+.PARAMETER OtherStatefulConfiguration
+    Write - String
+    Allowed values: Enabled, Disabled
+    Specifies the value for configuration other than addresses.
+
+.PARAMETER RouterDiscovery
+    Write - String
+    Allowed values: Enabled, Disabled, ControlledByDHCP
+    Specifies the value for router discovery for an IP interface.
+
+.PARAMETER WeakHostReceive
+    Write - String
+    Allowed values: Enabled, Disabled
+    Specifies the receive value for a weak host model.
+
+.PARAMETER WeakHostSend
+    Write - String
+    Allowed values: Enabled, Disabled
+    Specifies the send value for a weak host model.
+
+.PARAMETER NlMtu
+    Write - UInt32
+    Specifies the network layer Maximum Transmission Unit (MTU) value, in bytes, for an IP interface.
+
+.PARAMETER InterfaceMetric
+    Write - UInt32
+    Specifies the metric for an IP interface.
+
+.EXAMPLE 1
+
+This example enables the following settings on the IPv4 network interface with alias
+'Ethernet':
+- AdvertiseDefaultRoute
+- Avertising
+- AutomaticMetric
+- DirectedMacWolPattern
+- ForceArpNdWolPattern
+- Forwarding
+- IgnoreDefaultRoute
+- ManagedAddressConfiguration
+- NeighborUnreachabilityDetection
+- OtherStatefulConfiguration
+- RouterDiscovery
+- NlMtu
+The EcnMarking parameter will be set to AppDecide.
+
+Configuration NetIPInterface_MultipleSettings_Config
+{
+    Import-DscResource -Module NetworkingDsc
+
+    Node localhost
+    {
+        NetIPInterface MultipleSettings
+        {
+            InterfaceAlias                  = 'Ethernet'
+            AddressFamily                   = 'IPv4'
+            AdvertiseDefaultRoute           = 'Enabled'
+            Advertising                     = 'Enabled'
+            AutomaticMetric                 = 'Enabled'
+            DirectedMacWolPattern           = 'Enabled'
+            EcnMarking                      = 'AppDecide'
+            ForceArpNdWolPattern            = 'Enabled'
+            Forwarding                      = 'Enabled'
+            IgnoreDefaultRoutes             = 'Enabled'
+            ManagedAddressConfiguration     = 'Enabled'
+            NeighborUnreachabilityDetection = 'Enabled'
+            OtherStatefulConfiguration      = 'Enabled'
+            RouterDiscovery                 = 'Enabled'
+            NlMtu                           = 1576
+        }
+    }
+}
+
+.EXAMPLE 2
+
+Enabling DHCP for the IPv4 Address and DNS on the adapter with alias 'Ethernet'.
+
+Configuration NetIPInterface_EnableDHCP_Config
+{
+    Import-DscResource -Module NetworkingDsc
+
+    Node localhost
+    {
+        NetIPInterface EnableDhcp
+        {
+            InterfaceAlias = 'Ethernet'
+            AddressFamily  = 'IPv4'
+            Dhcp           = 'Enabled'
+        }
+
+        DnsServerAddress EnableDhcpDNS
+        {
+            InterfaceAlias = 'Ethernet'
+            AddressFamily  = 'IPv4'
+        }
+    }
+}
+
+.EXAMPLE 3
+
+Disable the weak host receive IPv4 setting for the network adapter with alias 'Ethernet'.
+
+Configuration NetIPInterface_DisableWeakHostReceive_Config
+{
+    Import-DscResource -Module NetworkingDsc
+
+    Node localhost
+    {
+        NetIPInterface DisableWeakHostReceiving
+        {
+            InterfaceAlias  = 'Ethernet'
+            AddressFamily   = 'IPv4'
+            WeakHostReceive = 'Disabled'
+        }
+    }
+}
+
+.EXAMPLE 4
+
+Disable the weak host send IPv4 setting for the network adapter with alias 'Ethernet'.
+
+Configuration NetIPInterface_DisableWeakHostSend_Config
+{
+    Import-DscResource -Module NetworkingDsc
+
+    Node localhost
+    {
+        NetIPInterface DisableWeakHostSend
+        {
+            InterfaceAlias = 'Ethernet'
+            AddressFamily  = 'IPv4'
+            WeakHostSend   = 'Disabled'
+        }
+    }
+}
+
+.EXAMPLE 5
+
+Set a specified interface metrics for the network adapters with alias 'Ethernet' and 'Ethernet 2'.
+
+Configuration NetIPInterface_SetInterfaceMetric
+{
+    Import-DscResource -Module NetworkingDsc
+
+    Node localhost
+    {
+        NetIPInterface EthernetMetric
+        {
+            InterfaceAlias  = 'Ethernet'
+            AddressFamily   = 'IPv4'
+            AutomaticMetric = 'Disabled'
+            InterfaceMetric = 10
+        }
+
+        NetIPInterface Ethernet2Metric
+        {
+            InterfaceAlias  = 'Ethernet 2'
+            AddressFamily   = 'IPv4'
+            AutomaticMetric = 'Disabled'
+            InterfaceMetric = 20
+        }
+    }
+}
+
+

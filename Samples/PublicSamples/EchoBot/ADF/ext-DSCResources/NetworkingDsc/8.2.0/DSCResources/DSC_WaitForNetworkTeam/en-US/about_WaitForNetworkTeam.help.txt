@@ -1,0 +1,48 @@
+.NAME
+    WaitForNetworkTeam
+
+.DESCRIPTION
+    The resource is used to wait for a network team to achieve the 'Up' status.
+
+.PARAMETER Name
+    Key - String
+    Specifies the name of the network team to wait for.
+
+.PARAMETER RetryIntervalSec
+    Write - UInt32
+    Specifies the number of seconds to wait for the network team to become available.
+
+.PARAMETER RetryCount
+    Write - UInt32
+    The number of times to loop the retry interval while waiting for the network team.
+
+.EXAMPLE 1
+
+Creates the switch independent Network Team 'HostTeam' using the NIC1
+and NIC2 interfaces. It sets the load balacing algorithm to 'HyperVPort'.
+The config will then wait for the 'HostTeam' to achieve the 'Up' status.
+
+Configuration WaitForNetworkTeam_AddNetworkTeam_Config
+{
+    Import-DSCResource -ModuleName NetworkingDsc
+
+    Node localhost
+    {
+        NetworkTeam AddNetworkTeam
+        {
+            Name                   = 'HostTeam'
+            TeamingMode            = 'SwitchIndependent'
+            LoadBalancingAlgorithm = 'HyperVPort'
+            TeamMembers            = 'NIC1', 'NIC2'
+            Ensure                 = 'Present'
+        }
+
+        WaitForNetworkTeam WaitForHostTeam
+        {
+            Name      = 'HostTeam'
+            DependsOn = '[NetworkTeam]AddNetworkTeam'
+        }
+    }
+}
+
+

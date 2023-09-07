@@ -1,0 +1,10 @@
+[ClassVersion("1.0.0.0"), FriendlyName("xFileSystemAccessRule")]
+class MSFT_xFileSystemAccessRule : OMI_BaseResource
+{
+    [Key, Description("The path to the item that should have permissions set")] string Path;
+    [Key, Description("The identity to set permissions for")] string Identity;
+    [Write, Description("The permissions to include in this rule. Optional if Ensure is set to value 'Absent'."), ValueMap{"ListDirectory","ReadData","WriteData","CreateFiles","CreateDirectories","AppendData","ReadExtendedAttributes","WriteExtendedAttributes","Traverse","ExecuteFile","DeleteSubdirectoriesAndFiles","ReadAttributes","WriteAttributes","Write","Delete","ReadPermissions","Read","ReadAndExecute","Modify","ChangePermissions","TakeOwnership","Synchronize","FullControl"}, Values{"ListDirectory","ReadData","WriteData","CreateFiles","CreateDirectories","AppendData","ReadExtendedAttributes","WriteExtendedAttributes","Traverse","ExecuteFile","DeleteSubdirectoriesAndFiles","ReadAttributes","WriteAttributes","Write","Delete","ReadPermissions","Read","ReadAndExecute","Modify","ChangePermissions","TakeOwnership","Synchronize","FullControl"}] string Rights[];
+    [Write, Description("Present to create the rule, Absent to remove an existing rule. Default value is 'Present'."), ValueMap{"Present","Absent"}, Values{"Present","Absent"}] string Ensure;
+    [Write, Description("Specifies that the resource will only determine if a change is needed if the target node is the active host of the filesystem object. The user the configuration is run as must have permission to the Windows Server Failover Cluster.")] Boolean ProcessOnlyOnActiveNode;
+    [Read, Description("Determines if the current node is actively hosting the filesystem object.")] Boolean IsActiveNode;
+};

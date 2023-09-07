@@ -1,0 +1,51 @@
+.NAME
+    WinsServerAddress
+
+.DESCRIPTION
+    This resource is used to control a node's WINS Server address(s) for the given network interface.
+
+.PARAMETER InterfaceAlias
+    Key - String
+    Alias of the network interface for which the WINS server address is set.
+
+.PARAMETER Address
+    Write - StringArray
+    The desired WINS Server address(es). Exclude to remove all WINS servers.
+
+.EXAMPLE 1
+
+Configure WINS Server for the Ethernet adapter.
+
+Configuration WinsServerAddress_Config
+{
+    Import-DscResource -Module NetworkingDsc
+
+    Node localhost
+    {
+        WinsServerAddress WinsServerAddress
+        {
+            Address        = '192.168.0.1'
+            InterfaceAlias = 'Ethernet'
+        }
+    }
+}
+
+.EXAMPLE 2
+
+Configure primary and secondary WINS Server addresses on the Ethernet adapter.
+
+Configuration WinsServerAddress_PrimaryAndSecondary_Config
+{
+    Import-DscResource -Module NetworkingDsc
+
+    Node localhost
+    {
+        WinsServerAddress PrimaryAndSecondary
+        {
+            Address        = '192.168.0.1', '192.168.0.2'
+            InterfaceAlias = 'Ethernet'
+        }
+    }
+}
+
+

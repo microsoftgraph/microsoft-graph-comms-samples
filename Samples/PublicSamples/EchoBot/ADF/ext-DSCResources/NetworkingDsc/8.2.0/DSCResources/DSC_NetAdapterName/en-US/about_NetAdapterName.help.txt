@@ -1,0 +1,160 @@
+.NAME
+    NetAdapterName
+
+.DESCRIPTION
+    This resource is used to rename a network interface that matches the search parameters passed in.
+
+.PARAMETER NewName
+    Key - String
+    Specifies the new name of the network adapter.
+
+.PARAMETER Name
+    Write - String
+    This is the name of the network adapter to find.
+
+.PARAMETER PhysicalMediaType
+    Write - String
+    This is the media type of the network adapter to find.
+
+.PARAMETER Status
+    Write - String
+    Allowed values: Up, Disconnected, Disabled
+    This is the status of the network adapter to find.
+
+.PARAMETER MacAddress
+    Write - String
+    This is the MAC address of the network adapter to find.
+
+.PARAMETER InterfaceDescription
+    Write - String
+    This is the interface description of the network adapter to find.
+
+.PARAMETER InterfaceIndex
+    Write - UInt32
+    This is the interface index of the network adapter to find.
+
+.PARAMETER InterfaceGuid
+    Write - String
+    This is the interface GUID of the network adapter to find.
+
+.PARAMETER DriverDescription
+    Write - String
+    This is the driver description of the network adapter.
+
+.PARAMETER InterfaceNumber
+    Write - UInt32
+    This is the interface number of the network adapter if more than one are returned by the parameters.
+
+.PARAMETER IgnoreMultipleMatchingAdapters
+    Write - Boolean
+    This switch will suppress an error occurring if more than one matching adapter matches the parameters passed.
+
+.EXAMPLE 1
+
+Rename three network adapters identified by MAC addresses to
+Cluster, Management and SMB and then enable DHCP on them.
+
+Configuration NetAdapterName_RenameNetAdapterMacAddress_Config
+{
+    Import-DSCResource -ModuleName NetworkingDsc
+
+    Node localhost
+    {
+        NetAdapterName RenameNetAdapterCluster
+        {
+            NewName    = 'Cluster'
+            MacAddress = '9C-D2-1E-61-B5-DA'
+        }
+
+        NetIPInterface EnableDhcpClientCluster
+        {
+            InterfaceAlias = 'Cluster'
+            AddressFamily  = 'IPv4'
+            Dhcp           = 'Enabled'
+        }
+
+        NetAdapterName RenameNetAdapterManagement
+        {
+            NewName    = 'Management'
+            MacAddress = '9C-D2-1E-61-B5-DB'
+        }
+
+        NetIPInterface EnableDhcpClientManagement
+        {
+            InterfaceAlias = 'Management'
+            AddressFamily  = 'IPv4'
+            Dhcp           = 'Enabled'
+        }
+
+        NetAdapterName RenameNetAdapterSMB
+        {
+            NewName    = 'SMB'
+            MacAddress = '9C-D2-1E-61-B5-DC'
+        }
+
+        NetIPInterface EnableDhcpClientSMB
+        {
+            InterfaceAlias = 'SMB'
+            AddressFamily  = 'IPv4'
+            Dhcp           = 'Enabled'
+        }
+    }
+}
+
+.EXAMPLE 2
+
+Rename the first three network adapters with Driver Description matching
+'Hyper-V Virtual Ethernet Adapter' in consequtive order to Cluster, Management
+and SMB and then enable DHCP on them.
+
+Configuration NetAdapterName_RenameNetAdapterDriver_Config
+{
+    Import-DSCResource -ModuleName NetworkingDsc
+
+    Node localhost
+    {
+        NetAdapterName RenameNetAdapterCluster
+        {
+            NewName           = 'Cluster'
+            DriverDescription = 'Hyper-V Virtual Ethernet Adapter'
+            InterfaceNumber   = 1
+        }
+
+        NetIPInterface EnableDhcpClientCluster
+        {
+            InterfaceAlias = 'Cluster'
+            AddressFamily  = 'IPv4'
+            Dhcp           = 'Enabled'
+        }
+
+        NetAdapterName RenameNetAdapterManagement
+        {
+            NewName           = 'Management'
+            DriverDescription = 'Hyper-V Virtual Ethernet Adapter'
+            InterfaceNumber   = 2
+        }
+
+        NetIPInterface EnableDhcpClientManagement
+        {
+            InterfaceAlias = 'Management'
+            AddressFamily  = 'IPv4'
+            Dhcp           = 'Enabled'
+        }
+
+        NetAdapterName RenameNetAdapterSMB
+        {
+            NewName           = 'SMB'
+            DriverDescription = 'Hyper-V Virtual Ethernet Adapter'
+            InterfaceNumber   = 3
+        }
+
+        NetIPInterface EnableDhcpClientSMB
+        {
+            InterfaceAlias = 'SMB'
+            AddressFamily  = 'IPv4'
+            Dhcp           = 'Enabled'
+        }
+    }
+}
+
+

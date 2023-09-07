@@ -1,0 +1,20 @@
+# culture="en-US"
+ConvertFrom-StringData @'
+    RetrievingOU               = Retrieving OU '{0}' from path '{1}'. (ADOU0001)
+    UpdatingOU                 = Updating OU '{0}'. (ADOU0002)
+    DeletingOU                 = Deleting OU '{0}'. (ADOU0003)
+    CreatingOU                 = Creating OU '{0}'. (ADOU0004)
+    RestoringOU                = Attempting to restore the organizational unit object' {0}' from the recycle bin. (ADOU0005)
+    OUInDesiredState           = OU '{0}' exists and is in the desired state. (ADOU0006)
+    OUExistsButShouldNot       = OU '{0}' exists when it should not exist. (ADOU0007)
+    OUDoesNotExistButShould    = OU '{0}' does not exist when it should exist. (ADOU0008)
+    OUDoesNotExistAndShouldNot = OU '{0}' does not exist and is in the desired state. (ADOU00090)
+    PathNotFoundError          = The Path '{0}' was not found. (ADOU0010)
+    OUIsPresent                = The OU '{0}' is present. (ADOU0011)
+    OUIsAbsent                 = The OU '{0}' is absent. (ADOU0012)
+    OUPathIsAbsent             = The OU Parent Path '{0}' is absent. (ADOU0013)
+    GetResourceError           = Error getting OU '{0}'. (ADOU0014)
+    NewResourceError           = Error adding OU '{0}'. (ADOU0015)
+    SetResourceError           = Error updating OU '{0}'. (ADOU0016)
+    RemoveResourceError        = Error removing OU '{0}'. (ADOU0017)
+'@

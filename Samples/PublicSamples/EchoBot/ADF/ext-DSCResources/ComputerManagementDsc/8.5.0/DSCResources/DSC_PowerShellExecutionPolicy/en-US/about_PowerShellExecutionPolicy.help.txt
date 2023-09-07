@@ -1,0 +1,59 @@
+.NAME
+    PowerShellExecutionPolicy
+
+.DESCRIPTION
+    This resource allows configuration of the PowerShell execution
+    policy for different execution scopes.
+
+.PARAMETER ExecutionPolicyScope
+    Key - String
+    Allowed values: CurrentUser, LocalMachine, MachinePolicy, Process, UserPolicy
+    Defines the scope for the preference of the Windows PowerShell execution policy.
+
+.PARAMETER ExecutionPolicy
+    Required - String
+    Allowed values: Bypass, Restricted, AllSigned, RemoteSigned, Unrestricted
+    Changes the preference for the Windows PowerShell execution policy.
+
+.EXAMPLE 1
+
+This example shows how to configure powershell's execution policy for the specified execution policy scope.
+
+Configuration PowerShellExecutionPolicy_SetPolicy_Config
+{
+    Import-DscResource -ModuleName ComputerManagementDsc
+
+    Node localhost
+    {
+        PowerShellExecutionPolicy ExecutionPolicy
+        {
+            ExecutionPolicyScope = 'CurrentUser'
+            ExecutionPolicy      = 'RemoteSigned'
+        } # End of PowershellExecutionPolicy Resource
+    } # End of Node
+} # End of Configuration
+
+.EXAMPLE 2
+
+This example shows how to configure multiple powershell's execution policy for a specified execution policy scope.
+
+Configuration PowerShellExecutionPolicy_SetPolicyForMultipleScopes_Config
+{
+    Import-DscResource -ModuleName ComputerManagementDsc
+
+    Node localhost
+    {
+        PowerShellExecutionPolicy ExecutionPolicyCurrentUser
+        {
+            ExecutionPolicyScope = 'CurrentUser'
+            ExecutionPolicy      = 'RemoteSigned'
+        } # End of ExecutionPolicyCurrentUser Resource
+
+        PowerShellExecutionPolicy ExecutionPolicyLocalMachine
+        {
+            ExecutionPolicyScope = 'LocalMachine'
+            ExecutionPolicy      = 'RemoteSigned'
+        } # End of ExecutionPolicyLocalMachine Resource
+    } # End of Node
+} # End of Configuration
+

@@ -1,0 +1,124 @@
+.NAME
+    FirewallProfile
+
+.DESCRIPTION
+    This resource is used to enable or disable and configure Windows Firewall with
+    Advanced Security profiles.
+
+.PARAMETER Name
+    Key - String
+    Allowed values: Domain, Public, Private
+    The name of the firewall profile to configure.
+
+.PARAMETER AllowInboundRules
+    Write - String
+    Allowed values: True, False, NotConfigured
+    Specifies that the firewall blocks inbound traffic.
+
+.PARAMETER AllowLocalFirewallRules
+    Write - String
+    Allowed values: True, False, NotConfigured
+    Specifies that the local firewall rules should be merged into the effective policy along with Group Policy settings.
+
+.PARAMETER AllowLocalIPsecRules
+    Write - String
+    Allowed values: True, False, NotConfigured
+    Specifies that the local IPsec rules should be merged into the effective policy along with Group Policy settings.
+
+.PARAMETER AllowUnicastResponseToMulticast
+    Write - String
+    Allowed values: True, False, NotConfigured
+    Allows unicast responses to multi-cast traffic.
+
+.PARAMETER AllowUserApps
+    Write - String
+    Allowed values: True, False, NotConfigured
+    Specifies that traffic from local user applications is allowed through the firewall.
+
+.PARAMETER AllowUserPorts
+    Write - String
+    Allowed values: True, False, NotConfigured
+    Specifies that traffic is allowed through local user ports.
+
+.PARAMETER DefaultInboundAction
+    Write - String
+    Allowed values: Block, Allow, NotConfigured
+    Specifies how to filter inbound traffic.
+
+.PARAMETER DefaultOutboundAction
+    Write - String
+    Allowed values: Block, Allow, NotConfigured
+    Specifies how to filter outbound traffic.
+
+.PARAMETER DisabledInterfaceAliases
+    Write - StringArray
+    Specifies a list of interfaces on which firewall settings are excluded.
+
+.PARAMETER Enabled
+    Write - String
+    Allowed values: True, False, NotConfigured
+    Specifies that devolution is activated.
+
+.PARAMETER EnableStealthModeForIPsec
+    Write - String
+    Allowed values: True, False, NotConfigured
+    Enables stealth mode for IPsec traffic.
+
+.PARAMETER LogAllowed
+    Write - String
+    Allowed values: True, False, NotConfigured
+    Specifies how to log the allowed packets in the location specified by the LogFileName parameter.
+
+.PARAMETER LogBlocked
+    Write - String
+    Allowed values: True, False, NotConfigured
+    Specifies how to log the dropped packets in the location specified by the LogFileName parameter.
+
+.PARAMETER LogFileName
+    Write - String
+    Specifies the path and filename of the file to which Windows Server writes log entries.
+
+.PARAMETER LogIgnored
+    Write - String
+    Allowed values: True, False, NotConfigured
+    Specifies how to log the ignored packets in the location specified by the LogFileName parameter.
+
+.PARAMETER LogMaxSizeKilobytes
+    Write - UInt64
+    Specifies the maximum file size of the log, in kilobytes. The acceptable values for this parameter are: 1 through 32767.
+
+.PARAMETER NotifyOnListen
+    Write - String
+    Allowed values: True, False, NotConfigured
+    Allows the notification of listening for inbound connections by a service.
+
+.EXAMPLE 1
+
+Configure the Private Firewall Profile.
+
+Configuration FirewallProfile_ConfigurePrivateFirewallProfile_Config
+{
+    Import-DscResource -Module NetworkingDsc
+
+    Node localhost
+    {
+        FirewallProfile ConfigurePrivateFirewallProfile
+        {
+            Name = 'Private'
+            Enabled = 'True'
+            DefaultInboundAction = 'Block'
+            DefaultOutboundAction = 'Allow'
+            AllowInboundRules = 'True'
+            AllowLocalFirewallRules = 'False'
+            AllowLocalIPsecRules = 'False'
+            NotifyOnListen = 'True'
+            LogFileName = '%systemroot%\system32\LogFiles\Firewall\pfirewall.log'
+            LogMaxSizeKilobytes = 16384
+            LogAllowed = 'False'
+            LogBlocked = 'True'
+            LogIgnored = 'NotConfigured'
+        }
+    }
+}
+
+

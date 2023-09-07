@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-results xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nunit_schema_2.5.xsd" name="Pester" total="31" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2017-01-03" time="05:25:44">
+  <environment user="appveyor" machine-name="APPVEYOR-VM" cwd="C:\projects\xdscfirewall" user-domain="APPVEYOR-VM" platform="Microsoft Windows Server 2012 R2 Datacenter|C:\windows|\Device\Harddisk0\Partition1" nunit-version="2.5.8.0" os-version="6.3.9600" clr-version="4.0.30319.42000" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Powershell" name="Pester" executed="True" result="Success" success="True" time="4.206" asserts="0">
+    <results>
+      <test-suite type="TestFixture" name="Testing if functions return correct objects" executed="True" result="Success" success="True" time="2.0325" asserts="0" description="Testing if functions return correct objects">
+        <results>
+          <test-case description="Get-TargetResource returns a hashtable" name="Testing if functions return correct objects.Get-TargetResource returns a hashtable" time="1.9149" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="Test-TargetResource returns true or false" name="Testing if functions return correct objects.Test-TargetResource returns true or false" time="0.1176" asserts="0" success="True" result="Success" executed="True" />
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="xDSCFirewall\Get-TargetResource" executed="True" result="Success" success="True" time="0.5251" asserts="0" description="xDSCFirewall\Get-TargetResource">
+        <results>
+          <test-case description="Firewall disabled Get-TargetResource should return absent in hash table" name="xDSCFirewall\Get-TargetResource.Firewall disabled Get-TargetResource should return absent in hash table" time="0.4878" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="Firewall enabled Get-TargetResource should return present in hash table" name="xDSCFirewall\Get-TargetResource.Firewall enabled Get-TargetResource should return present in hash table" time="0.0373" asserts="0" success="True" result="Success" executed="True" />
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="Disabling Firewall with xDSCFirewall\Set-TargetResource" executed="True" result="Success" success="True" time="0.8915" asserts="0" description="Disabling Firewall with xDSCFirewall\Set-TargetResource">
+        <results>
+          <test-case description="Disabling firewall and configuring with values" name="Disabling Firewall with xDSCFirewall\Set-TargetResource.Disabling firewall and configuring with values" time="0.5738" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="Testing Test-TargetResource present logic should return false" name="Disabling Firewall with xDSCFirewall\Set-TargetResource.Testing Test-TargetResource present logic should return false" time="0.0885" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="Testing Test-TargetResource absent logic should return true" name="Disabling Firewall with xDSCFirewall\Set-TargetResource.Testing Test-TargetResource absent logic should return true" time="0.0234" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="LogBlocked shouldn't match so should return false" name="Disabling Firewall with xDSCFirewall\Set-TargetResource.LogBlocked shouldn't match so should return false" time="0.0504" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="LogAllowed shouldn't match so should return false" name="Disabling Firewall with xDSCFirewall\Set-TargetResource.LogAllowed shouldn't match so should return false" time="0.0367" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="LogIgnored shouldn't match so should return false" name="Disabling Firewall with xDSCFirewall\Set-TargetResource.LogIgnored shouldn't match so should return false" time="0.0218" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="LogMaxSizeKilobytes shouldn't match so should return false" name="Disabling Firewall with xDSCFirewall\Set-TargetResource.LogMaxSizeKilobytes shouldn't match so should return false" time="0.0197" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="DefaultInboundAction shouldn't match so should return false" name="Disabling Firewall with xDSCFirewall\Set-TargetResource.DefaultInboundAction shouldn't match so should return false" time="0.0282" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="DefaultInboundAction shouldn't match so should return false" name="Disabling Firewall with xDSCFirewall\Set-TargetResource.DefaultInboundAction shouldn't match so should return false" time="0.049" asserts="0" success="True" result="Success" executed="True" />
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="Enabling Firewall with xDSCFirewall\Set-TargetResource" executed="True" result="Success" success="True" time="0.4021" asserts="0" description="Enabling Firewall with xDSCFirewall\Set-TargetResource">
+        <results>
+          <test-case description="Enabling firewall and configuring with values" name="Enabling Firewall with xDSCFirewall\Set-TargetResource.Enabling firewall and configuring with values" time="0.0955" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="Testing Test-TargetResource present logic should return true" name="Enabling Firewall with xDSCFirewall\Set-TargetResource.Testing Test-TargetResource present logic should return true" time="0.0269" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="Testing Test-TargetResource absent logic should return false" name="Enabling Firewall with xDSCFirewall\Set-TargetResource.Testing Test-TargetResource absent logic should return false" time="0.0263" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="LogBlocked shouldn't match so should return false" name="Enabling Firewall with xDSCFirewall\Set-TargetResource.LogBlocked shouldn't match so should return false" time="0.0315" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="LogAllowed shouldn't match so should return false" name="Enabling Firewall with xDSCFirewall\Set-TargetResource.LogAllowed shouldn't match so should return false" time="0.0731" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="LogIgnored shouldn't match so should return false" name="Enabling Firewall with xDSCFirewall\Set-TargetResource.LogIgnored shouldn't match so should return false" time="0.0289" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="LogMaxSizeKilobytes shouldn't match so should return false" name="Enabling Firewall with xDSCFirewall\Set-TargetResource.LogMaxSizeKilobytes shouldn't match so should return false" time="0.0788" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="DefaultInboundAction shouldn't match so should return false" name="Enabling Firewall with xDSCFirewall\Set-TargetResource.DefaultInboundAction shouldn't match so should return false" time="0.0194" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="DefaultInboundAction shouldn't match so should return false" name="Enabling Firewall with xDSCFirewall\Set-TargetResource.DefaultInboundAction shouldn't match so should return false" time="0.0216" asserts="0" success="True" result="Success" executed="True" />
+        </results>
+      </test-suite>
+      <test-suite type="TestFixture" name="Setting firewall back to defaults with xDSCFirewall\Set-TargetResource" executed="True" result="Success" success="True" time="0.3548" asserts="0" description="Setting firewall back to defaults with xDSCFirewall\Set-TargetResource">
+        <results>
+          <test-case description="Enabling firewall with default values" name="Setting firewall back to defaults with xDSCFirewall\Set-TargetResource.Enabling firewall with default values" time="0.0723" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="Testing Test-TargetResource present logic should return true" name="Setting firewall back to defaults with xDSCFirewall\Set-TargetResource.Testing Test-TargetResource present logic should return true" time="0.0873" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="Testing Test-TargetResource absent logic should return false" name="Setting firewall back to defaults with xDSCFirewall\Set-TargetResource.Testing Test-TargetResource absent logic should return false" time="0.0286" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="LogBlocked shouldn't match so should return false" name="Setting firewall back to defaults with xDSCFirewall\Set-TargetResource.LogBlocked shouldn't match so should return false" time="0.0773" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="LogAllowed shouldn't match so should return false" name="Setting firewall back to defaults with xDSCFirewall\Set-TargetResource.LogAllowed shouldn't match so should return false" time="0.0215" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="LogIgnored shouldn't match so should return false" name="Setting firewall back to defaults with xDSCFirewall\Set-TargetResource.LogIgnored shouldn't match so should return false" time="0.0166" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="LogMaxSizeKilobytes shouldn't match so should return false" name="Setting firewall back to defaults with xDSCFirewall\Set-TargetResource.LogMaxSizeKilobytes shouldn't match so should return false" time="0.0181" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="DefaultInboundAction shouldn't match so should return false" name="Setting firewall back to defaults with xDSCFirewall\Set-TargetResource.DefaultInboundAction shouldn't match so should return false" time="0.0167" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="DefaultInboundAction shouldn't match so should return false" name="Setting firewall back to defaults with xDSCFirewall\Set-TargetResource.DefaultInboundAction shouldn't match so should return false" time="0.0165" asserts="0" success="True" result="Success" executed="True" />
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

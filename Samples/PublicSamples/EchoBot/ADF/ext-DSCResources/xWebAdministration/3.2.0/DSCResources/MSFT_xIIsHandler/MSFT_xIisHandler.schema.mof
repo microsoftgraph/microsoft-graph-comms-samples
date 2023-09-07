@@ -1,0 +1,6 @@
+[ClassVersion("1.0.0"), FriendlyName("xIisHandler")]
+class MSFT_xIisHandler : OMI_BaseResource
+{
+  [Key, Description("The name of the handler, for example 'PageHandlerFactory-Integrated-4.0'")] string Name;
+  [Required, Description("Ensures that the handler is Present or Absent. Defaults to Present."), ValueMap{"Present", "Absent"}, Values{"Present", "Absent"}] string Ensure;
+};

@@ -1,0 +1,22 @@
+[ClassVersion("1.0.0.0"), FriendlyName("FirewallProfile")]
+class DSC_FirewallProfile : OMI_BaseResource
+{
+    [Key, Description("The name of the firewall profile to configure."), ValueMap{"Domain", "Public", "Private"}, Values{"Domain", "Public", "Private"}] String Name;
+    [Write, Description("Specifies that the firewall blocks inbound traffic."), ValueMap{"True", "False", "NotConfigured"}, Values{"True", "False", "NotConfigured"}] String AllowInboundRules;
+    [Write, Description("Specifies that the local firewall rules should be merged into the effective policy along with Group Policy settings."), ValueMap{"True", "False", "NotConfigured"}, Values{"True", "False", "NotConfigured"}] String AllowLocalFirewallRules;
+    [Write, Description("Specifies that the local IPsec rules should be merged into the effective policy along with Group Policy settings."), ValueMap{"True", "False", "NotConfigured"}, Values{"True", "False", "NotConfigured"}] String AllowLocalIPsecRules;
+    [Write, Description("Allows unicast responses to multi-cast traffic."), ValueMap{"True", "False", "NotConfigured"}, Values{"True", "False", "NotConfigured"}] String AllowUnicastResponseToMulticast;
+    [Write, Description("Specifies that traffic from local user applications is allowed through the firewall."), ValueMap{"True", "False", "NotConfigured"}, Values{"True", "False", "NotConfigured"}] String AllowUserApps;
+    [Write, Description("Specifies that traffic is allowed through local user ports."), ValueMap{"True", "False", "NotConfigured"}, Values{"True", "False", "NotConfigured"}] String AllowUserPorts;
+    [Write, Description("Specifies how to filter inbound traffic."), ValueMap{"Block", "Allow", "NotConfigured"}, Values{"Block", "Allow", "NotConfigured"}] String DefaultInboundAction;
+    [Write, Description("Specifies how to filter outbound traffic."), ValueMap{"Block", "Allow", "NotConfigured"}, Values{"Block", "Allow", "NotConfigured"}] String DefaultOutboundAction;
+    [Write, Description("Specifies a list of interfaces on which firewall settings are excluded.")] String DisabledInterfaceAliases[];
+    [Write, Description("Specifies that devolution is activated."), ValueMap{"True", "False", "NotConfigured"}, Values{"True", "False", "NotConfigured"}] String Enabled;
+    [Write, Description("Enables stealth mode for IPsec traffic."), ValueMap{"True", "False", "NotConfigured"}, Values{"True", "False", "NotConfigured"}] String EnableStealthModeForIPsec;
+    [Write, Description("Specifies how to log the allowed packets in the location specified by the LogFileName parameter."), ValueMap{"True", "False", "NotConfigured"}, Values{"True", "False", "NotConfigured"}] String LogAllowed;
+    [Write, Description("Specifies how to log the dropped packets in the location specified by the LogFileName parameter."), ValueMap{"True", "False", "NotConfigured"}, Values{"True", "False", "NotConfigured"}] String LogBlocked;
+    [Write, Description("Specifies the path and filename of the file to which Windows Server writes log entries.")] String LogFileName;
+    [Write, Description("Specifies how to log the ignored packets in the location specified by the LogFileName parameter."), ValueMap{"True", "False", "NotConfigured"}, Values{"True", "False", "NotConfigured"}] String LogIgnored;
+    [Write, Description("Specifies the maximum file size of the log, in kilobytes. The acceptable values for this parameter are: 1 through 32767.")] UInt64 LogMaxSizeKilobytes;
+    [Write, Description("Allows the notification of listening for inbound connections by a service."), ValueMap{"True", "False", "NotConfigured"}, Values{"True", "False", "NotConfigured"}] String NotifyOnListen;
+};

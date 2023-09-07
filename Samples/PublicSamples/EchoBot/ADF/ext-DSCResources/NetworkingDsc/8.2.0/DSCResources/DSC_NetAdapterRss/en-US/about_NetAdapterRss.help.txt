@@ -1,0 +1,35 @@
+.NAME
+    NetAdapterRss
+
+.DESCRIPTION
+    This resource is used to enable or disable RSS (Receive Side Scaling) on a network adapter.
+    Not all adapters support RSS so there may be no option for this and it will throw an exception that the network adapter is not found.
+
+
+.PARAMETER Name
+    Key - String
+    Specifies the Name of network adapter.
+
+.PARAMETER Enabled
+    Required - Boolean
+    Specifies whether RSS should be enabled or disabled.
+
+.EXAMPLE 1
+
+This configuration disables RSS on the network adapter.
+
+Configuration NetAdapterRss_EnableRss_Config
+{
+    Import-DSCResource -ModuleName NetworkingDsc
+
+    Node localhost
+    {
+        NetAdapterRss EnableRss
+        {
+            Name = 'Ethernet'
+            Enabled = $True
+        }
+    }
+}
+
+

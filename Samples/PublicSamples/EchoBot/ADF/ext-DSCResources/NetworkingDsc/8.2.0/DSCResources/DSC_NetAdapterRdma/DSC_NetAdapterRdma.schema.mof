@@ -1,0 +1,6 @@
+[ClassVersion("1.0.0.0"), FriendlyName("NetAdapterRdma")]
+class DSC_NetAdapterRdma : OMI_BaseResource
+{
+    [Key, Description("Specifies the name of network adapter for which RDMA needs to be configured.")] String Name;
+    [Write, Description("Specifies if the RDMA configuration should be enabled or disabled. Defaults to $true.")] Boolean Enabled;
+};
