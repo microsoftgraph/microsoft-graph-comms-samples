@@ -1,21 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Runtime;
-using System.Text;
-using System.Threading.Tasks;
-using EchoBot.Api;
+﻿using EchoBot.Api;
 using EchoBot.Api.Bot;
-using EchoBot.Api.Constants;
 using EchoBot.Api.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Microsoft.Graph;
-using Microsoft.Graph.Communications.Core.Serialization;
-using Microsoft.Skype.Internal.Bots.Media;
+using System.Net;
 
 namespace EchoBot.Controllers
 {
@@ -28,7 +17,7 @@ namespace EchoBot.Controllers
         private readonly IBotService _botService;
 
         public JoinCallController(ILogger<JoinCallController> logger,
-            IOptions<AppSettings> settings, 
+            IOptions<AppSettings> settings,
             IBotService botService)
         {
             _logger = logger;

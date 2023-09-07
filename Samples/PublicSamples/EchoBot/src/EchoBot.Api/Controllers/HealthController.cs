@@ -2,10 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace EchoBot.Controllers
+namespace EchoBot.Api.Controllers
 {
-    [ApiController]
+
     [Route("[controller]")]
+    [ApiController]
     public class HealthController : ControllerBase
     {
         private readonly ILogger<HealthController> _logger;
@@ -20,7 +21,7 @@ namespace EchoBot.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IActionResult Health()
+        public IActionResult Get()
         {
             try
             {

@@ -1,17 +1,17 @@
 ﻿using EchoBot.Api.Bot;
 using EchoBot.Api.ServiceSetup;
+using EchoBot.Controllers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Graph.Communications.Common.Telemetry;
 
 namespace EchoBot.Api;
 public class BotHost
 {
-    private WebApplication? _app;
+    //private WebApplication? _app;
 
     public BotHost()
     {
@@ -48,7 +48,8 @@ public class BotHost
         builder.Configuration.AddEnvironmentVariables(prefix: "AppSettings__");//prefix: "CustomPrefix_"
 
         // Add services to the container.
-        builder.Services.AddControllers();
+        builder.Services.AddControllers()
+            .AddApplicationPart(typeof(JoinCallController).Assembly);
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
@@ -85,7 +86,7 @@ public class BotHost
         
         builder.WebHost.UseUrls(botSettings.CallControlListeningUrls);
 
-        _app = builder.Build();
+        var _app = builder.Build();
 
         // initialize the bot
         //var mediaLogger = _app.Services.GetRequiredService<IBotMediaLogger>();
@@ -95,15 +96,17 @@ public class BotHost
         //_app.Services.GetRequiredService<I>; ;
 
         // Configure the HTTP request pipeline.
-        if (_app.Environment.IsDevelopment())
-        {
+        //if (_app.Environment.IsDevelopment())
+        //{
             _app.UseSwagger();
             _app.UseSwaggerUI();
-        }
+        //}
 
         
 
-        //_app.UseHttpsRedirection();
+        _app.UseHttpsRedirection();
+
+        //_app.UseRouting();
 
         _app.UseAuthorization();
 
@@ -112,8 +115,8 @@ public class BotHost
         _app.Run();
     }
 
-    public void Stop()
-    {
-        _app?.StopAsync();
-    }
+    //public void Stop()
+    //{
+    //    _app?.StopAsync();
+    //}
 }
