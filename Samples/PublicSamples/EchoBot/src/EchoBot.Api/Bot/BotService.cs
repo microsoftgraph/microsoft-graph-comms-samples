@@ -106,6 +106,25 @@ namespace EchoBot.Api.Bot
                 _graphLogger);
             //_logger);
 
+            var botInternalHostingProtocol = "https";
+            if (_settings.UseLocalDevSettings)
+            {
+                // if running locally with ngrok
+                // the call signalling and notification will use the same internal and external ports
+                // because you cannot receive requests on the same tunnel with different ports
+
+                // calls come in over 443 (external) and route to the internally hosted port: BotCallingInternalPort
+                _settings.BotInstanceExternalPort = 443;
+                _settings.BotInternalPort = _settings.BotCallingInternalPort;
+                botInternalHostingProtocol = "http";
+
+                if (string.IsNullOrEmpty(_settings.MediaDnsName)) throw new ArgumentNullException(nameof(_settings.MediaDnsName));
+            }
+            else
+            {
+                _settings.MediaDnsName = _settings.ServiceDnsName;
+            }
+
             var mediaPlatformSettings = new MediaPlatformSettings()
             {
                 MediaPlatformInstanceSettings = new MediaPlatformInstanceSettings()
