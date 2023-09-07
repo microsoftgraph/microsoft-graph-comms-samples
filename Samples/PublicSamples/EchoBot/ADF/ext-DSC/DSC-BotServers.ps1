@@ -500,7 +500,7 @@ Configuration $Configuration
                         Port                  = $binding.Port
                         IPAddress             = $binding.IpAddress
                         HostName              = ($binding.HostHeader -f $prefix, $orgname, $app, $environment)
-                        CertificateThumbprint = $env:AppSettings:ThumbPrint
+                        CertificateThumbprint = $env:AppSettings:CertificateThumbprint
                         CertificateStoreName  = 'MY'
                     }
                 }
