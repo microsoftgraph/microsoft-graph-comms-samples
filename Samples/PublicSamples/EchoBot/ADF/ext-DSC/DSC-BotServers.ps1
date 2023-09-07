@@ -123,7 +123,7 @@ Configuration $Configuration
                 }#Get
                 SetScript  = {
                     $certBinding = $using:certBinding
-                    netsh http add sslcert ipport=0.0.0.0:$($certBinding.Port) certhash=$($env:AzureSettings:CertificateThumbprint) appid=$($certBinding.AppId)
+                    netsh http add sslcert ipport=0.0.0.0:$($certBinding.Port) certhash=$($env:AppSettings:CertificateThumbprint) appid=$($certBinding.AppId)
                 }#Set 
                 TestScript = {
                     $certBinding = $using:certBinding
@@ -500,7 +500,7 @@ Configuration $Configuration
                         Port                  = $binding.Port
                         IPAddress             = $binding.IpAddress
                         HostName              = ($binding.HostHeader -f $prefix, $orgname, $app, $environment)
-                        CertificateThumbprint = $env:AzureSettings:ThumbPrint
+                        CertificateThumbprint = $env:AppSettings:ThumbPrint
                         CertificateStoreName  = 'MY'
                     }
                 }
