@@ -6,6 +6,8 @@ namespace EchoBot.WorkerService
     {
         private readonly ILogger<EchoBotWorker> _logger;
 
+        private BotHost? _bot = null;
+
         public EchoBotWorker(ILogger<EchoBotWorker> logger)
         {
             _logger = logger;
@@ -42,8 +44,8 @@ namespace EchoBot.WorkerService
         {
             // DO YOUR STUFF HERE
 
-            var bot = new BotHost();
-            bot.Start();
+            _bot = new BotHost();
+            _bot.Start();
 
             await base.StartAsync(cancellationToken);
         }
@@ -51,6 +53,12 @@ namespace EchoBot.WorkerService
         public override async Task StopAsync(CancellationToken cancellationToken)
         {
             // DO YOUR STUFF HERE
+
+            if (_bot != null)
+            {
+                await _bot.StopAsync();
+            }
+
             await base.StopAsync(cancellationToken);
         }
 
@@ -66,6 +74,7 @@ namespace EchoBot.WorkerService
         public override void Dispose()
         {
             // DO YOUR STUFF HERE
+            _bot = null;
         }
     }
 }

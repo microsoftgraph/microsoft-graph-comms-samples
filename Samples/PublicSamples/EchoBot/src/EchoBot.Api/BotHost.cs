@@ -11,7 +11,7 @@ using Microsoft.Graph.Communications.Common.Telemetry;
 namespace EchoBot.Api;
 public class BotHost
 {
-    //private WebApplication? _app;
+    private WebApplication? _app;
 
     public BotHost()
     {
@@ -86,7 +86,7 @@ public class BotHost
         
         builder.WebHost.UseUrls(botSettings.CallControlListeningUrls);
 
-        var _app = builder.Build();
+        _app = builder.Build();
 
         // initialize the bot
         //var mediaLogger = _app.Services.GetRequiredService<IBotMediaLogger>();
@@ -115,8 +115,11 @@ public class BotHost
         _app.Run();
     }
 
-    //public void Stop()
-    //{
-    //    _app?.StopAsync();
-    //}
+    public async Task StopAsync()
+    {
+        if (_app != null)
+        {
+            await _app.StopAsync();
+        }
+    }
 }
