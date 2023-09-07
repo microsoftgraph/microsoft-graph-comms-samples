@@ -1,15 +1,18 @@
 using EchoBot.Api;
+using System.Diagnostics;
 
 namespace EchoBot.WorkerService
 {
     public class EchoBotWorker : BackgroundService
     {
+        private readonly IHostApplicationLifetime _hostApplicationLifetime;
         private readonly ILogger<EchoBotWorker> _logger;
 
         private BotHost? _bot = null;
 
-        public EchoBotWorker(ILogger<EchoBotWorker> logger)
+        public EchoBotWorker(IHostApplicationLifetime hostApplicationLifetime, ILogger<EchoBotWorker> logger)
         {
+            _hostApplicationLifetime = hostApplicationLifetime;
             _logger = logger;
         }
 
@@ -43,9 +46,17 @@ namespace EchoBot.WorkerService
         public override async Task StartAsync(CancellationToken cancellationToken)
         {
             // DO YOUR STUFF HERE
-
-            _bot = new BotHost();
-            _bot.Start();
+            try
+            {
+                _bot = new BotHost();
+                _bot.Start();
+            }
+            catch (Exception e)
+            {
+                var a = e;
+                throw;
+            }
+            
 
             await base.StartAsync(cancellationToken);
         }
@@ -68,6 +79,8 @@ namespace EchoBot.WorkerService
             {
                 _logger.LogInformation("EchoBot Worker running at: {time}", DateTimeOffset.Now);
                 await Task.Delay(1000, stoppingToken);
+
+                _hostApplicationLifetime.StopApplication();
             }
         }
 
@@ -75,6 +88,7 @@ namespace EchoBot.WorkerService
         {
             // DO YOUR STUFF HERE
             _bot = null;
+            this.Dispose();
         }
     }
 }

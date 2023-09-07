@@ -7,6 +7,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Graph.Communications.Common.Telemetry;
+using System.Diagnostics;
+using System.Runtime;
+using System.Security.Cryptography.X509Certificates;
 
 namespace EchoBot.Api;
 public class BotHost
@@ -43,7 +46,7 @@ public class BotHost
         //    ContentRootPath = basee
         //};
 
-
+        
         var builder = WebApplication.CreateBuilder();
         builder.Configuration.AddEnvironmentVariables(prefix: "AppSettings__");//prefix: "CustomPrefix_"
 
@@ -86,8 +89,19 @@ public class BotHost
         
         builder.WebHost.UseUrls(botSettings.CallControlListeningUrls);
 
+        var cert = GetCertificateFromStore(appSettings.CertificateThumbprint);
+        builder.WebHost.ConfigureKestrel(serverOptions =>
+        {
+            serverOptions.ConfigureHttpsDefaults(listenOptions =>
+            {
+                listenOptions.ServerCertificate = cert;
+            });
+        });
+
+
         _app = builder.Build();
 
+       
         // initialize the bot
         //var mediaLogger = _app.Services.GetRequiredService<IBotMediaLogger>();
         var bot = _app.Services.GetRequiredService<IBotService>();
@@ -104,7 +118,7 @@ public class BotHost
 
         
 
-        _app.UseHttpsRedirection();
+        //_app.UseHttpsRedirection();
 
         //_app.UseRouting();
 
@@ -120,6 +134,33 @@ public class BotHost
         if (_app != null)
         {
             await _app.StopAsync();
+        }
+    }
+
+    /// <summary>
+    /// Helper to search the certificate store by its thumbprint.
+    /// </summary>
+    /// <returns>Certificate if found.</returns>
+    /// <exception cref="Exception">No certificate with thumbprint {CertificateThumbprint} was found in the machine store.</exception>
+    private X509Certificate2 GetCertificateFromStore(string certificateThumbprint)
+    {
+
+        X509Store store = new X509Store(StoreName.My, StoreLocation.LocalMachine);
+        store.Open(OpenFlags.ReadOnly);
+        try
+        {
+            X509Certificate2Collection certs = store.Certificates.Find(X509FindType.FindByThumbprint, certificateThumbprint, validOnly: false);
+
+            if (certs.Count != 1)
+            {
+                throw new Exception($"No certificate with thumbprint {certificateThumbprint} was found in the machine store.");
+            }
+
+            return certs[0];
+        }
+        finally
+        {
+            store.Close();
         }
     }
 }
