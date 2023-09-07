@@ -11,29 +11,61 @@ namespace EchoBot.WorkerService
             _logger = logger;
         }
 
+        //public override 
+
+        //protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+        //{
+        //    try
+        //    {
+        //        while (!stoppingToken.IsCancellationRequested)
+        //        {
+        //            _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+
+        //            var bot = new BotHost();
+        //            bot.Start();
+
+        //            await Task.Delay(1000, stoppingToken);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine(ex.Message);
+        //        throw;
+        //    }
+        //    finally
+        //    {
+        //        await Task.Delay(TimeSpan.FromSeconds(1000));
+        //    }
+        //}
+
+        public override async Task StartAsync(CancellationToken cancellationToken)
+        {
+            // DO YOUR STUFF HERE
+
+            var bot = new BotHost();
+            bot.Start();
+
+            await base.StartAsync(cancellationToken);
+        }
+
+        public override async Task StopAsync(CancellationToken cancellationToken)
+        {
+            // DO YOUR STUFF HERE
+            await base.StopAsync(cancellationToken);
+        }
+
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            try
+            while (!stoppingToken.IsCancellationRequested)
             {
-                while (!stoppingToken.IsCancellationRequested)
-                {
-                    _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-                
-                    var bot = new BotHost();
-                    bot.Start();
+                _logger.LogInformation("EchoBot Worker running at: {time}", DateTimeOffset.Now);
+                await Task.Delay(1000, stoppingToken);
+            }
+        }
 
-                    await Task.Delay(1000, stoppingToken);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                throw;
-            }
-            finally
-            {
-                await Task.Delay(TimeSpan.FromSeconds(1000));
-            }
+        public override void Dispose()
+        {
+            // DO YOUR STUFF HERE
         }
     }
 }
