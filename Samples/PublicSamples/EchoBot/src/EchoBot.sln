@@ -1,13 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.7.34018.315
+VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EchoBot.Api", "EchoBot.Api\EchoBot.Api.csproj", "{678CC238-FF11-4716-9FCA-7A43478E050E}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EchoBot", "EchoBot\EchoBot.csproj", "{07BFA00E-AF09-464A-BDAD-E5ED74781445}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EchoBot.WorkerService", "EchoBot.WorkerService\EchoBot.WorkerService.csproj", "{091A87B6-56CA-412D-A6FE-1DAFE3DBA2F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EchoBot", "EchoBot\EchoBot.csproj", "{A643B87F-4D7A-4A27-8FEB-51ADA5D331CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,21 +11,15 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{678CC238-FF11-4716-9FCA-7A43478E050E}.Debug|x64.ActiveCfg = Debug|x64
-		{678CC238-FF11-4716-9FCA-7A43478E050E}.Debug|x64.Build.0 = Debug|x64
-		{678CC238-FF11-4716-9FCA-7A43478E050E}.Release|x64.ActiveCfg = Release|x64
-		{678CC238-FF11-4716-9FCA-7A43478E050E}.Release|x64.Build.0 = Release|x64
-		{07BFA00E-AF09-464A-BDAD-E5ED74781445}.Debug|x64.ActiveCfg = Debug|x64
-		{07BFA00E-AF09-464A-BDAD-E5ED74781445}.Release|x64.ActiveCfg = Release|x64
-		{07BFA00E-AF09-464A-BDAD-E5ED74781445}.Release|x64.Build.0 = Release|x64
-		{091A87B6-56CA-412D-A6FE-1DAFE3DBA2F1}.Debug|x64.ActiveCfg = Debug|x64
-		{091A87B6-56CA-412D-A6FE-1DAFE3DBA2F1}.Debug|x64.Build.0 = Debug|x64
-		{091A87B6-56CA-412D-A6FE-1DAFE3DBA2F1}.Release|x64.ActiveCfg = Release|x64
+		{A643B87F-4D7A-4A27-8FEB-51ADA5D331CD}.Debug|x64.ActiveCfg = Debug|x64
+		{A643B87F-4D7A-4A27-8FEB-51ADA5D331CD}.Debug|x64.Build.0 = Debug|x64
+		{A643B87F-4D7A-4A27-8FEB-51ADA5D331CD}.Release|x64.ActiveCfg = Release|x64
+		{A643B87F-4D7A-4A27-8FEB-51ADA5D331CD}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {A981724B-023D-4C74-9F81-5A7E84430C61}
+		SolutionGuid = {0B7A3029-DF69-4628-B17D-376CECB13CCE}
 	EndGlobalSection
 EndGlobal

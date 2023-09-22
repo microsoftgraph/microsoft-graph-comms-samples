@@ -1,33 +1,25 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Worker">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-EchoBot-f687889e-f03d-4251-b290-790a7b2b58c9</UserSecretsId>
     <Platforms>x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
-    <PackageReference Include="DotNetEnv" Version="2.5.0" />
+    <None Remove=".env" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EchoBot.Api\EchoBot.Api.csproj">
-      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include=".env">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Update="Properties\launchSettings.json">
-      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove=".env" />
+    <PackageReference Include="DotNetEnv" Version="2.5.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.21.0" />
+    <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.32.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="6.0.2" />
+    <PackageReference Include="Microsoft.Graph.Communications.Calls.Media" Version="1.2.0.7270" />
+    <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.27.0.2-alpha" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 </Project>

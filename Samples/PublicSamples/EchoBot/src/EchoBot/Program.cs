@@ -1,32 +1,21 @@
-﻿// See https://aka.ms/new-console-template for more information
-using EchoBot.Api;
+using EchoBot;
+using Microsoft.Extensions.Logging.Configuration;
+using Microsoft.Extensions.Logging.EventLog;
 
-Console.WriteLine("Hello, World!");
+IHost host = Host.CreateDefaultBuilder(args)
+    .UseWindowsService(options =>
+    {
+        options.ServiceName = "Echo Bot Service";
+    })
+    .ConfigureServices(services =>
+    {
+        LoggerProviderOptions.RegisterProviderOptions<
+            EventLogSettings, EventLogLoggerProvider>(services);
 
-try
-{
-    
-    //var builder = new ConfigurationBuilder();
+        services.AddSingleton<IBotHost, BotHost>();
 
-    //builder
-    //    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-    //    .AddEnvironmentVariables();
+        services.AddHostedService<EchoBotWorker>();
+    })
+    .Build();
 
-    //var app = builder.Build();
-    //var asdf = app.GetSection("AppSettings");
-
-    DotNetEnv.Env.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, ".env"));
-    var brennen = DotNetEnv.Env.GetString("AppSettings__ServiceDnsName", "Variable not found");
-    Console.WriteLine(brennen);
-    var bot = new BotHost();
-    bot.Start();
-}
-catch (Exception ex)
-{
-    Console.WriteLine(ex.Message);
-    Console.WriteLine("press any key to exit...");
-}
-finally
-{
-    await Task.Delay(TimeSpan.FromMilliseconds(1000));
-}
+await host.RunAsync();

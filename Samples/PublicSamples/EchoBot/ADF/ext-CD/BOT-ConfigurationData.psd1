@@ -99,23 +99,23 @@
             # As an alternative if you stage the files
             RemoteFilePresent           = @(
                 @{
-                    Uri             = 'https://github.com/git-for-windows/git/releases/download/v2.33.1.windows.1/Git-2.33.1-64-bit.exe'
-                    DestinationPath = 'F:\Source\GIT\Git-2.33.1-64-bit.exe'
+                    Uri             = 'https://github.com/git-for-windows/git/releases/download/v2.42.0.windows.2/Git-2.42.0.2-32-bit.exe'
+                    DestinationPath = 'F:\Source\GIT\Git-2.42.0.2-32-bit.exe'
                 },
                 @{
                     Uri             = 'https://download.visualstudio.microsoft.com/download/pr/571ad766-28d1-4028-9063-0fa32401e78f/5D3D8C6779750F92F3726C70E92F0F8BF92D3AE2ABD43BA28C6306466DE8A144/VC_redist.x64.exe'
                     DestinationPath = 'F:\Source\dotnet\vc_redist.x64.exe'
                 },
                 @{
-                    Uri             = 'https://download.visualstudio.microsoft.com/download/pr/5a50b8ac-2c22-47f1-ba60-70d4257a78fa/d662d2f23b4b523f30e24cbd7e5e651c7c6a712f21f48e032f942dc678f08beb/vs_Community.exe'
-                    DestinationPath = 'F:\Source\VisualStudio\vs_community.exe'
+                    Uri             = 'https://aka.ms/vs/17/release/vs_enterprise.exe'
+                    DestinationPath = 'F:\Source\VisualStudio\vs_enterprise.exe'
                 }
             )
 
             SoftwarePackagePresent      = @(
                 @{
                     Name      = 'Git'
-                    Path      = 'F:\Source\GIT\Git-2.33.1-64-bit.exe'
+                    Path      = 'F:\Source\GIT\Git-2.42.0.2-32-bit.exe'
                     ProductId = ''
                     Arguments = '/VERYSILENT'
                 },
@@ -126,10 +126,10 @@
                     Arguments = '/install /q /norestart'
                 }
                 @{  
-                    Name      = 'Visual Studio Community 2019'
-                    Path      = 'F:\Source\VisualStudio\vs_community.exe'
+                    Name      = 'Visual Studio Enterprise 2022'
+                    Path      = 'F:\Source\VisualStudio\vs_enterprise.exe'
                     ProductId = ''
-                    Arguments = '--installPath F:\VisualStudio\2019\Community --addProductLang en-US  --includeRecommended --quiet --wait --norestart' #--config "F:\Source\VisualStudio\.vsconfig"
+                    Arguments = '--installPath F:\VisualStudio\2022\Enterprise --addProductLang en-US  --includeRecommended --quiet --wait --norestart' #--config "F:\Source\VisualStudio\.vsconfig"
                 }
             )
 
@@ -147,8 +147,8 @@
 
             NewServicePresent           = @(
                 @{
-                    Name        = 'EchoBotService'
-                    Path        = 'F:\API\EchoBot\EchoBot.WorkerService.exe'
+                    Name        = 'Echo Bot Service'
+                    Path        = 'F:\API\EchoBot\EchoBot.exe'
                     State       = 'Running'
                     StartupType = 'Automatic'
                     Description = 'Echo Bot Service'
