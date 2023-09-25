@@ -130,6 +130,7 @@ namespace EchoBot.Bot
 
         public async Task Shutdown()
         {
+            _logger.LogWarning("Terminating all calls during shutdown event");
             await this.Client.TerminateAsync();
             this.Dispose();
         }
@@ -139,17 +140,23 @@ namespace EchoBot.Bot
         /// </summary>
         /// <param name="callLegId">The call leg id.</param>
         /// <returns>The <see cref="Task" />.</returns>
-        public async Task EndCallByCallLegIdAsync(string callLegId)
+        public async Task EndCallByCallLegIdAsync(string meetingId)
         {
+            string callId = string.Empty;
             try
             {
-                await this.GetHandlerOrThrow(callLegId).Call.DeleteAsync().ConfigureAwait(false);
+                var callHandler = this.GetHandlerOrThrow(meetingId);
+                callId = callHandler.Call.Id;
+                await callHandler.Call.DeleteAsync().ConfigureAwait(false);
             }
             catch (Exception)
             {
                 // Manually remove the call from SDK state.
                 // This will trigger the ICallCollection.OnUpdated event with the removed resource.
-                this.Client.Calls().TryForceRemove(callLegId, out ICall _);
+                if (!string.IsNullOrEmpty(callId))
+                {
+                    this.Client.Calls().TryForceRemove(callId, out ICall _);
+                }
             }
         }
 
@@ -173,10 +180,15 @@ namespace EchoBot.Bot
                 TenantId = tenantId,
             };
 
-            var statefulCall = await this.Client.Calls().AddAsync(joinParams, scenarioId).ConfigureAwait(false);
-            statefulCall.GraphLogger.Info($"Call creation complete: {statefulCall.Id}");
-            _logger.LogInformation($"Call creation complete: {statefulCall.Id}");
-            return statefulCall;
+            if (!this.CallHandlers.TryGetValue(joinParams.ChatInfo.ThreadId, out CallHandler? call))
+            {
+                var statefulCall = await this.Client.Calls().AddAsync(joinParams, scenarioId).ConfigureAwait(false);
+                statefulCall.GraphLogger.Info($"Call creation complete: {statefulCall.Id}");
+                _logger.LogInformation($"Call creation complete: {statefulCall.Id}");
+                return statefulCall;
+            }
+
+            throw new Exception("Call has already been added");
         }
 
         /// <summary>
@@ -272,14 +284,19 @@ namespace EchoBot.Bot
             foreach (var call in args.AddedResources)
             {
                 var callHandler = new CallHandler(call, _settings, _logger);
-                this.CallHandlers[call.Id] = callHandler;
+                var meetingId = call.Resource.ChatInfo.ThreadId;
+                this.CallHandlers[meetingId] = callHandler;
             }
 
             foreach (var call in args.RemovedResources)
             {
-                if (this.CallHandlers.TryRemove(call.Id, out CallHandler handler))
+                var meetingId = call.Resource.ChatInfo.ThreadId;
+                if (this.CallHandlers.TryRemove(meetingId, out CallHandler? handler))
                 {
-                    handler.Dispose();
+                    Task.Run(async () => {
+                        await handler.BotMediaStream.ShutdownAsync();
+                        handler.Dispose();
+                    });
                 }
             }
         }
@@ -290,11 +307,11 @@ namespace EchoBot.Bot
         /// <param name="callLegId">The call leg id.</param>
         /// <returns>The <see cref="CallHandler" />.</returns>
         /// <exception cref="ArgumentException">call ({callLegId}) not found</exception>
-        private CallHandler GetHandlerOrThrow(string callLegId)
+        private CallHandler GetHandlerOrThrow(string meetingId)
         {
-            if (!this.CallHandlers.TryGetValue(callLegId, out CallHandler handler))
+            if (!this.CallHandlers.TryGetValue(meetingId, out CallHandler? handler))
             {
-                throw new ArgumentException($"call ({callLegId}) not found");
+                throw new ArgumentException($"call ({meetingId}) not found");
             }
 
             return handler;

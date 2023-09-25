@@ -99,6 +99,8 @@ namespace EchoBot.Media
             {
                 await _recognizer.StopContinuousRecognitionAsync();
                 _recognizer.Dispose();
+                _audioInputStream.Close();
+
                 _audioInputStream.Dispose();
                 _audioOutputStream.Dispose();
                 _synthesizer.Dispose();

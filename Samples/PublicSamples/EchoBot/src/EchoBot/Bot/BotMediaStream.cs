@@ -61,6 +61,7 @@ namespace EchoBot.Bot
             ArgumentVerifier.ThrowOnNullArgument(settings, nameof(settings));
 
             _settings = settings;
+            _logger = logger;
 
             this.participants = new List<IParticipant>();
 
@@ -74,13 +75,11 @@ namespace EchoBot.Bot
                 throw new InvalidOperationException("A mediaSession needs to have at least an audioSocket");
             }
 
-            this._audioSocket.AudioSendStatusChanged += OnAudioSendStatusChanged;
+            var ignoreTask = this.StartAudioVideoFramePlayerAsync().ForgetAndLogExceptionAsync(this.GraphLogger, "Failed to start the player");
 
-            _logger = logger;
+            this._audioSocket.AudioSendStatusChanged += OnAudioSendStatusChanged;            
 
             this._audioSocket.AudioMediaReceived += this.OnAudioMediaReceived;
-
-            var ignoreTask = this.StartAudioVideoFramePlayerAsync().ForgetAndLogExceptionAsync(this.GraphLogger, "Failed to start the player");
 
             if (_settings.UseCognitiveServices)
             {
@@ -143,8 +142,6 @@ namespace EchoBot.Bot
         {
             try
             {
-                await Task.WhenAll(this.audioSendStatusActive.Task).ConfigureAwait(false);
-
                 _logger.LogInformation("Send status active for audio and video Creating the audio video player");
                 this.audioVideoFramePlayerSettings =
                     new AudioVideoFramePlayerSettings(new AudioSettings(20), new VideoSettings(), 1000);
@@ -192,6 +189,8 @@ namespace EchoBot.Bot
 
             try
             {
+                if (!startVideoPlayerCompleted.Task.IsCompleted) { return; }
+
                 if (_languageService != null)
                 {
                     // send audio buffer to language service for processing
@@ -231,12 +230,6 @@ namespace EchoBot.Bot
             this.audioMediaBuffers = e.AudioMediaBuffers;
             var result = Task.Run(async () => await this.audioVideoFramePlayer.EnqueueBuffersAsync(this.audioMediaBuffers, new List<VideoMediaBuffer>())).GetAwaiter();
         }
-
-        //private async void OnSendMediaBuffer(object sender, MediaStreamEventArgs e)
-        //{
-        //    this.audioMediaBuffers = e.AudioMediaBuffers;
-        //    var result = Task.Run(async () => await this.audioVideoFramePlayer.EnqueueBuffersAsync(this.audioMediaBuffers, new List<VideoMediaBuffer>())).GetAwaiter();
-        //}
     }
 }
 

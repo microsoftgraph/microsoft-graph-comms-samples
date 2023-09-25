@@ -1,4 +1,5 @@
-﻿using Microsoft.Graph;
+﻿using EchoBot.Util;
+using Microsoft.Graph;
 using Microsoft.Graph.Communications.Calls;
 using Microsoft.Graph.Communications.Calls.Media;
 using Microsoft.Graph.Communications.Common.Telemetry;
@@ -57,7 +58,7 @@ namespace EchoBot.Bot
             this.Call.OnUpdated -= this.CallOnUpdated;
             this.Call.Participants.OnUpdated -= this.ParticipantsOnUpdated;
 
-            //this.BotMediaStream?.ShutdownAsync().ForgetAndLogExceptionAsync(this.GraphLogger);
+            this.BotMediaStream?.ShutdownAsync().ForgetAndLogExceptionAsync(this.GraphLogger);
         }
 
         /// <summary>
@@ -78,8 +79,7 @@ namespace EchoBot.Bot
             {
                 if (BotMediaStream != null)
                 {
-                    //await BotMediaStream.StopMedia();
-                    //await this.BotMediaStream?.ShutdownAsync().ForgetAndLogExceptionAsync(this.GraphLogger);
+                    await BotMediaStream.ShutdownAsync().ForgetAndLogExceptionAsync(GraphLogger);
                 }
             }
         }
