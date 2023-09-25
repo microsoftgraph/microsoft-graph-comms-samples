@@ -1,4 +1,4 @@
-name: .NET BOT D1 BUILD BHACK
+name: .NET BOT D1 BUILD HHACK
 
 on:
   push:
@@ -6,14 +6,14 @@ on:
       - 'v2'
     paths:
       - './Samples/PublicSamples/EchoBot/src/**'
-      - .github/workflows/echobot-build-BHACK.yml
+      - .github/workflows/echobot-build-HHACK.yml
 
   pull_request:
     branches:
       - 'v2'
     paths:
       - './Samples/PublicSamples/EchoBot/src/**'
-      - .github/workflows/echobot-build-BHACK.yml
+      - .github/workflows/echobot-build-HHACK.yml
 
   workflow_dispatch:
 
@@ -23,7 +23,7 @@ env:
   Component:   EchoBot
   BuildName:   0.1.${{ github.run_number }}
   Environment: D1
-  OrgName:     BHACK
+  OrgName:     HHACK
   Location:    eastus2
 
 jobs:
@@ -69,7 +69,7 @@ jobs:
     - name: Login via Az module
       uses: azure/login@v1
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS_BHACK_BOT }}
+        creds: ${{ secrets.AZURE_CREDENTIALS_HHACK_BOT }}
         enable-AzPSSession: true
 
     - name: G1_RG_UploadArtifacts_to_Blob
