@@ -129,7 +129,7 @@
                     Name      = 'Visual Studio Enterprise 2022'
                     Path      = 'F:\Source\VisualStudio\vs_enterprise.exe'
                     ProductId = ''
-                    Arguments = '--installPath F:\VisualStudio\2022\Enterprise --addProductLang en-US  --includeRecommended --quiet --wait --norestart' #--config "F:\Source\VisualStudio\.vsconfig"
+                    Arguments = '--installPath F:\VisualStudio\2022\Enterprise --addProductLang en-US --add Microsoft.VisualStudio.Workload.ManagedDesktop --includeRecommended --quiet --wait --norestart' #--config "F:\Source\VisualStudio\.vsconfig"
                 }
             )
 
