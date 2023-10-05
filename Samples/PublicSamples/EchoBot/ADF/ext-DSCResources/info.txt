@@ -1,2 +1,0 @@
-You can extract the contents in the DSCResources.zip file if
-you need to repackage the DSC-BotServers.ps1 script.
