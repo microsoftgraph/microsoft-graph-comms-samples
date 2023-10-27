@@ -1,4 +1,17 @@
-﻿using EchoBot.Bot;
+﻿// ***********************************************************************
+// Assembly         : EchoBot.Controllers
+// Author           : JasonTheDeveloper
+// Created          : 09-07-2020
+//
+// Last Modified By : bcage29
+// Last Modified On : 02-28-2022
+// ***********************************************************************
+// <copyright file="PlatformCallController.cs" company="Microsoft">
+//     Copyright ©  2023
+// </copyright>
+// <summary></summary>
+// ***********************************************************************>
+using EchoBot.Bot;
 using EchoBot.Constants;
 using EchoBot.Util;
 using Microsoft.AspNetCore.Mvc;

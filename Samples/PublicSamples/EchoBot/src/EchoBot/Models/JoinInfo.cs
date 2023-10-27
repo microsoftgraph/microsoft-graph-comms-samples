@@ -1,4 +1,17 @@
-﻿using Microsoft.Graph;
+﻿// ***********************************************************************
+// Assembly         : EchoBot.Models
+// Author           : JasonTheDeveloper
+// Created          : 09-07-2020
+//
+// Last Modified By : bcage29
+// Last Modified On : 10-27-2023
+// ***********************************************************************
+// <copyright file="JoinInfo.cs" company="Microsoft">
+//     Copyright ©  2023
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using Microsoft.Graph;
 using System.Net;
 using System.Runtime.Serialization.Json;
 using System.Text;

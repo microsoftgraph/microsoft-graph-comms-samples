@@ -1,5 +1,5 @@
 ﻿// ***********************************************************************
-// Assembly         : EchoBot.Services
+// Assembly         : EchoBot.Bot
 // Author           : JasonTheDeveloper
 // Created          : 09-07-2020
 //
@@ -71,7 +71,9 @@ namespace EchoBot.Bot
         public ICommunicationsClient Client { get; private set; }
 
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Dispose of the call client
+        /// </summary>
         public void Dispose()
         {
             this.Client?.Dispose();
@@ -142,6 +144,10 @@ namespace EchoBot.Bot
             this.Client.Calls().OnUpdated += this.CallsOnUpdated;
         }
 
+        /// <summary>
+        /// Terminate all calls before and dispose of client
+        /// </summary>
+        /// <returns></returns>
         public async Task Shutdown()
         {
             _logger.LogWarning("Terminating all calls during shutdown event");
@@ -193,6 +199,19 @@ namespace EchoBot.Bot
             {
                 TenantId = tenantId,
             };
+
+            if (!string.IsNullOrWhiteSpace(joinCallBody.DisplayName))
+            {
+                // Teams client does not allow changing of ones own display name.
+                // If display name is specified, we join as anonymous (guest) user
+                // with the specified display name.  This will put bot into lobby
+                // unless lobby bypass is disabled.
+                joinParams.GuestIdentity = new Identity
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    DisplayName = joinCallBody.DisplayName,
+                };
+            }
 
             if (!this.CallHandlers.TryGetValue(joinParams.ChatInfo.ThreadId, out CallHandler? call))
             {

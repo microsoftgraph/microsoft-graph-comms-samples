@@ -1,4 +1,17 @@
-﻿namespace EchoBot.Models
+﻿// ***********************************************************************
+// Assembly         : EchoBot.Models
+// Author           : JasonTheDeveloper
+// Created          : 09-07-2020
+//
+// Last Modified By : bcage29
+// Last Modified On : 10-27-2023
+// ***********************************************************************
+// <copyright file="JoinCallBody.cs" company="Microsoft">
+//     Copyright ©  2023
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+namespace EchoBot.Models
 {
     /// <summary>
     /// The join call body.
@@ -21,7 +34,7 @@
         /// access to UnmixedAudioBuffer in the Skype Media libraries.
         /// </summary>
         /// <value>The display name.</value>
-        //public string DisplayName { get; set; }
+        public string DisplayName { get; set; }
     }
 }
 

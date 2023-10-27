@@ -1,4 +1,17 @@
-﻿using EchoBot.Models;
+﻿// ***********************************************************************
+// Assembly         : EchoBot.Bot
+// Author           : JasonTheDeveloper
+// Created          : 09-07-2020
+//
+// Last Modified By : bcage29
+// Last Modified On : 10-17-2023
+// ***********************************************************************
+// <copyright file="IBotService.cs" company="Microsoft">
+//     Copyright ©  2023
+// </copyrigh>t
+// <summary></summary>
+// ***********************************************************************
+using EchoBot.Models;
 using Microsoft.Graph.Communications.Calls;
 using Microsoft.Graph.Communications.Client;
 using System.Collections.Concurrent;

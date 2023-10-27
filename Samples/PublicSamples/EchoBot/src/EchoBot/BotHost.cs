@@ -1,4 +1,17 @@
-﻿using DotNetEnv.Configuration;
+﻿// ***********************************************************************
+// Assembly         : EchoBot
+// Author           : bcage29
+// Created          : 10-27-2023
+//
+// Last Modified By : bcage29
+// Last Modified On : 10-27-2023
+// ***********************************************************************
+// <copyright file="BotHost.cs" company="Microsoft">
+//     Copyright ©  2023
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using DotNetEnv.Configuration;
 using EchoBot.Bot;
 using EchoBot.Util;
 using Microsoft.AspNetCore.Builder;
@@ -7,16 +20,27 @@ using Microsoft.Graph.Communications.Common.Telemetry;
 
 namespace EchoBot
 {
+    /// <summary>
+    /// Bot Web Application
+    /// </summary>
     public class BotHost : IBotHost
     {
         private readonly ILogger<BotHost> _logger;
         private WebApplication? _app;
 
+        /// <summary>
+        /// Bot Host constructor
+        /// </summary>
+        /// <param name="logger"></param>
         public BotHost(ILogger<BotHost> logger)
         {
             _logger = logger;
         }
 
+        /// <summary>
+        /// Starting the Bot and Web App
+        /// </summary>
+        /// <returns></returns>
         public async Task StartAsync()
         {
             _logger.LogInformation("Starting the Echo Bot");
@@ -127,6 +151,10 @@ namespace EchoBot
             await _app.RunAsync();
         }
 
+        /// <summary>
+        /// Stop the bot web application
+        /// </summary>
+        /// <returns></returns>
         public async Task StopAsync()
         {
             if (_app != null) 

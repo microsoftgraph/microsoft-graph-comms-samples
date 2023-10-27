@@ -3,8 +3,8 @@
 // Author           : JasonTheDeveloper
 // Created          : 09-07-2020
 //
-// Last Modified By : dannygar
-// Last Modified On : 08-17-2020
+// Last Modified By : bcage29
+// Last Modified On : 10-27-2023
 // ***********************************************************************
 // <copyright file="HeartbeatHandler.cs" company="Microsoft">
 //     Copyright ©  2020
@@ -15,6 +15,7 @@ using EchoBot.Util;
 using Microsoft.Graph.Communications.Common;
 using Microsoft.Graph.Communications.Common.Telemetry;
 using System.Timers;
+using Timer = System.Timers.Timer;
 
 namespace EchoBot.Bot
 {
@@ -26,7 +27,7 @@ namespace EchoBot.Bot
         /// <summary>
         /// The heartbeat timer
         /// </summary>
-        private System.Timers.Timer heartbeatTimer;
+        private Timer heartbeatTimer;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HeartbeatHandler" /> class.
@@ -37,7 +38,7 @@ namespace EchoBot.Bot
             : base(logger)
         {
             // initialize the timer
-            var timer = new System.Timers.Timer(frequency.TotalMilliseconds);
+            var timer = new Timer(frequency.TotalMilliseconds);
             timer.Enabled = true;
             timer.AutoReset = true;
             timer.Elapsed += this.HeartbeatDetected;
