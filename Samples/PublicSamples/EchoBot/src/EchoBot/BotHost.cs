@@ -120,10 +120,6 @@ namespace EchoBot
                 _app.UseSwaggerUI();
             }
 
-            //_app.UseHttpsRedirection();
-
-            //_app.UseRouting();
-
             _app.UseAuthorization();
 
             _app.MapControllers();

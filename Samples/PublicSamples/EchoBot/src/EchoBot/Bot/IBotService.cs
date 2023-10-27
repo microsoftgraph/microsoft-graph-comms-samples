@@ -7,9 +7,7 @@ namespace EchoBot.Bot
 {
     /// <summary>
     /// Interface IBotService
-    /// Implements the <see cref="RecordingBot.Model.Contracts.IInitializable" />
     /// </summary>
-    /// <seealso cref="RecordingBot.Model.Contracts.IInitializable" />
     public interface IBotService
     {
         /// <summary>
@@ -38,8 +36,15 @@ namespace EchoBot.Bot
         /// <returns>The <see cref="ICall" /> that was requested to join.</returns>
         Task<ICall> JoinCallAsync(JoinCallBody joinCallBody);
 
+        /// <summary>
+        /// Initialize the bot instance
+        /// </summary>
         void Initialize();
 
+        /// <summary>
+        /// Shutdown the bot instance
+        /// </summary>
+        /// <returns></returns>
         Task Shutdown();
     }
 }

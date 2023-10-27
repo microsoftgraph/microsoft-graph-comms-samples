@@ -1,4 +1,18 @@
-﻿using EchoBot.Media;
+﻿// ***********************************************************************
+// Assembly         : EchoBot.Services
+// Author           : JasonTheDeveloper
+// Created          : 09-07-2020
+//
+// Last Modified By : bcage29
+// Last Modified On : 10-17-2023
+// ***********************************************************************
+// <copyright file="BotMediaStream.cs" company="Microsoft Corporation">
+//     Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT license.
+// </copyright>
+// <summary>The bot media stream.</summary>
+// ***********************************************************************-
+using EchoBot.Media;
 using EchoBot.Util;
 using Microsoft.Graph.Communications.Calls;
 using Microsoft.Graph.Communications.Calls.Media;

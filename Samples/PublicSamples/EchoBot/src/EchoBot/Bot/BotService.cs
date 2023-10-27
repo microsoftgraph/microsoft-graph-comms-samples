@@ -1,4 +1,17 @@
-﻿using EchoBot.Authentication;
+﻿// ***********************************************************************
+// Assembly         : EchoBot.Services
+// Author           : JasonTheDeveloper
+// Created          : 09-07-2020
+//
+// Last Modified By : bcage29
+// Last Modified On : 10-17-2023
+// ***********************************************************************
+// <copyright file="BotService.cs" company="Microsoft">
+//     Copyright ©  2023
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using EchoBot.Authentication;
 using EchoBot.Constants;
 using EchoBot.Models;
 using Microsoft.Extensions.Options;
@@ -19,11 +32,11 @@ namespace EchoBot.Bot
     /// <summary>
     /// Class BotService.
     /// Implements the <see cref="System.IDisposable" />
-    /// Implements the <see cref="EchoBot.Services.Contract.IBotService" />
+    /// Implements the <see cref="EchoBot.Bot.IBotService" />
     /// </summary>
     /// <seealso cref="System.IDisposable" />
-    /// <seealso cref="EchoBot.Services.Contract.IBotService" />
-    public class BotService : IBotService
+    /// <seealso cref="EchoBot.Bot.IBotService" />
+    public class BotService : IDisposable, IBotService
     {
         /// <summary>
         /// The Graph logger
@@ -39,9 +52,11 @@ namespace EchoBot.Bot
         /// The settings
         /// </summary>
         private readonly AppSettings _settings;
-        private readonly IBotMediaLogger _mediaPlatformLogger;
 
-        //private readonly AzureSettings _azureSettings;
+        /// <summary>
+        /// Logger for logging media platform information
+        /// </summary>
+        private readonly IBotMediaLogger _mediaPlatformLogger;
 
         /// <summary>
         /// Gets the collection of call handlers.
@@ -57,7 +72,7 @@ namespace EchoBot.Bot
 
 
         /// <inheritdoc />
-        private void Dispose()
+        public void Dispose()
         {
             this.Client?.Dispose();
             this.Client = null;
@@ -65,11 +80,11 @@ namespace EchoBot.Bot
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BotService" /> class.
-
         /// </summary>
-        /// <param name="logger">The logger.</param>
-        /// <param name="eventPublisher">The event publisher.</param>
-        /// <param name="settings">The settings.</param>
+        /// <param name="graphLogger"></param>
+        /// <param name="logger"></param>
+        /// <param name="settings"></param>
+        /// <param name="mediaLogger"></param>
         public BotService(
             IGraphLogger graphLogger,
             ILogger<BotService> logger,
@@ -79,7 +94,6 @@ namespace EchoBot.Bot
             _graphLogger = graphLogger;
             _logger = logger;
             _settings = settings.Value;
-            //_azureSettings = (AzureSettings)azureSettings;
             _mediaPlatformLogger = mediaLogger;
         }
 
@@ -100,7 +114,6 @@ namespace EchoBot.Bot
                 _settings.AadAppId,
                 _settings.AadAppSecret,
                 _graphLogger);
-            //_logger);
 
             var mediaPlatformSettings = new MediaPlatformSettings()
             {
@@ -117,6 +130,7 @@ namespace EchoBot.Bot
             };
 
             var notificationUrl = new Uri($"https://{_settings.ServiceDnsName}:{_settings.BotInstanceExternalPort}/{HttpRouteConstants.CallSignalingRoutePrefix}/{HttpRouteConstants.OnNotificationRequestRoute}");
+            _logger.LogInformation($"NotificationUrl: ${notificationUrl}");
 
             builder.SetAuthenticationProvider(authProvider);
             builder.SetNotificationUrl(notificationUrl);

@@ -1,4 +1,17 @@
-﻿using EchoBot.Util;
+﻿// ***********************************************************************
+// Assembly         : EchoBot.Services
+// Author           : JasonTheDeveloper
+// Created          : 09-07-2020
+//
+// Last Modified By : dannygar
+// Last Modified On : 08-17-2020
+// ***********************************************************************
+// <copyright file="HeartbeatHandler.cs" company="Microsoft">
+//     Copyright ©  2020
+// </copyright>
+// <summary></summary>
+// ***********************************************************************>
+using EchoBot.Util;
 using Microsoft.Graph.Communications.Common;
 using Microsoft.Graph.Communications.Common.Telemetry;
 using System.Timers;

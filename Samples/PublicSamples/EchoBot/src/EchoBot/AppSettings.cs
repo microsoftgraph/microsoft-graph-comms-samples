@@ -31,12 +31,6 @@ namespace EchoBot
         [Required]
         public string AadAppSecret { get; set; }
 
-        ///// <summary>
-        ///// Internal hosting protocol for the bot
-        ///// With 'UseLocalDevSettings' this will be http
-        ///// </summary>
-        //public string BotInternalHostingProtocol = "http";
-
         /// <summary>
         /// Gets or sets the instance media internal port.
         /// </summary>

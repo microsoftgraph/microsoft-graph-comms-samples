@@ -15,6 +15,7 @@ namespace EchoBot.Authentication
     using System.Security.Claims;
     using System.Threading;
     using System.Threading.Tasks;
+    using EchoBot.Constants;
     using Microsoft.Graph.Communications.Client.Authentication;
     using Microsoft.Graph.Communications.Common;
     using Microsoft.Graph.Communications.Common.Telemetry;
@@ -143,7 +144,7 @@ namespace EchoBot.Authentication
             // Currently the service does not sign outbound request using AAD, instead it is signed
             // with a private certificate.  In order for us to be able to ensure the certificate is
             // valid we need to download the corresponding public keys from a trusted source.
-            const string authDomain = "https://api.aps.skype.com/v1/.well-known/OpenIdConfiguration";
+            const string authDomain = AppConstants.AuthDomain;
             if (this.openIdConfiguration == null || DateTime.Now > this.prevOpenIdConfigUpdateTimestamp.Add(this.openIdConfigRefreshInterval))
             {
                 this.GraphLogger.Info("Updating OpenID configuration");
