@@ -93,7 +93,7 @@ namespace Sample.Common.Authentication
             const string schema = "Bearer";
             const string replaceString = "{tenant}";
             const string oauthV2TokenLink = "https://login.microsoftonline.com/{tenant}";
-            const string resource = "https://graph.microsoft.com";
+            const string resource = "https://graph.microsoft.com/beta";
 
             // If no tenant was specified, we craft the token link using the common tenant.
             // https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols#endpoints
