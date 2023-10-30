@@ -14,6 +14,7 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Bot
     using System.Net;
     using System.Net.Http;
     using Microsoft.Graph;
+    using ServiceException = Microsoft.Graph.Communications.Core.Exceptions.ServiceException;
 
     /// <summary>
     /// Extension methods for Exception.
