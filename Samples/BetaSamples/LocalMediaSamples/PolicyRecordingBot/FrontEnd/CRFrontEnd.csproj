@@ -62,6 +62,7 @@
     <PackageReference Include="Microsoft.Owin.Hosting" Version="4.2.2" />
     <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.26.0.94-alpha" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2.0" />
+    <PackageReference Include="System.Text.Json" Version="7.0.1" />
     <Reference Include="System.Data.Entity" />
   </ItemGroup>
   <ItemGroup>
