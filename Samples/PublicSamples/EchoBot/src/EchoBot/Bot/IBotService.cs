@@ -38,9 +38,9 @@ namespace EchoBot.Bot
         /// <summary>
         /// End a particular call.
         /// </summary>
-        /// <param name="callLegId">The call leg id.</param>
+        /// <param name="threadId">The thread id.</param>
         /// <returns>The <see cref="Task" />.</returns>
-        Task EndCallByCallLegIdAsync(string callLegId);
+        Task EndCallByThreadIdAsync(string threadId);
 
         /// <summary>
         /// Joins the call asynchronously.

@@ -12,6 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 using EchoBot.Bot;
+using EchoBot.Constants;
 using EchoBot.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -21,13 +22,13 @@ namespace EchoBot.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class JoinCallController : ControllerBase
+    public class CallsController : ControllerBase
     {
-        private readonly ILogger<JoinCallController> _logger;
+        private readonly ILogger<CallsController> _logger;
         private readonly AppSettings _settings;
         private readonly IBotService _botService;
 
-        public JoinCallController(ILogger<JoinCallController> logger,
+        public CallsController(ILogger<CallsController> logger,
             IOptions<AppSettings> settings,
             IBotService botService)
         {
@@ -53,6 +54,7 @@ namespace EchoBot.Controllers
                 {
                     CallId = call.Id,
                     ScenarioId = call.ScenarioId,
+                    ThreadId = call.Resource.ChatInfo.ThreadId,
                     Port = _settings.BotInstanceExternalPort.ToString()
                 };
 
@@ -61,7 +63,28 @@ namespace EchoBot.Controllers
             catch (Exception e)
             {
                 _logger.LogError(e, $"Received HTTP {this.Request.Method}, {this.Request.Path}");
+                return Problem(detail: e.StackTrace, statusCode: (int)HttpStatusCode.InternalServerError, title: e.Message);
+            }
+        }
 
+        /// <summary>
+        /// End the call.
+        /// </summary>
+        /// <param name="threadId">Thread Id of the call to end.</param>
+        /// <returns>The <see cref="HttpResponseMessage" />.</returns>
+        [HttpDelete]
+        public async Task<IActionResult> OnEndCallAsync(string threadId)
+        {
+            _logger.LogInformation($"Ending call {threadId}");
+
+            try
+            {
+                await _botService.EndCallByThreadIdAsync(threadId).ConfigureAwait(false);
+                return NoContent();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, $"Received HTTP {this.Request.Method}, {this.Request.Path}");
                 return Problem(detail: e.StackTrace, statusCode: (int)HttpStatusCode.InternalServerError, title: e.Message);
             }
         }

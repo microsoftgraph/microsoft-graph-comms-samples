@@ -34,7 +34,7 @@ namespace EchoBot.Models
         /// access to UnmixedAudioBuffer in the Skype Media libraries.
         /// </summary>
         /// <value>The display name.</value>
-        public string DisplayName { get; set; }
+        public string? DisplayName { get; set; }
     }
 }
 

@@ -46,11 +46,6 @@ namespace EchoBot.Constants
         public const string JoinCall = "joinCall";
 
         /// <summary>
-        /// The route for getting the call.
-        /// </summary>
-        public const string CallRoute = Calls + "/{callLegId}";
-
-        /// <summary>
         /// Route for incoming call requests.
         /// </summary>
         public const string HealthRoute = "health";

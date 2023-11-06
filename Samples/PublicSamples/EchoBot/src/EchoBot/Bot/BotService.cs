@@ -158,14 +158,14 @@ namespace EchoBot.Bot
         /// <summary>
         /// End a particular call.
         /// </summary>
-        /// <param name="callLegId">The call leg id.</param>
+        /// <param name="threadId">The call thread id.</param>
         /// <returns>The <see cref="Task" />.</returns>
-        public async Task EndCallByCallLegIdAsync(string meetingId)
+        public async Task EndCallByThreadIdAsync(string threadId)
         {
             string callId = string.Empty;
             try
             {
-                var callHandler = this.GetHandlerOrThrow(meetingId);
+                var callHandler = this.GetHandlerOrThrow(threadId);
                 callId = callHandler.Call.Id;
                 await callHandler.Call.DeleteAsync().ConfigureAwait(false);
             }
@@ -317,14 +317,14 @@ namespace EchoBot.Bot
             foreach (var call in args.AddedResources)
             {
                 var callHandler = new CallHandler(call, _settings, _logger);
-                var meetingId = call.Resource.ChatInfo.ThreadId;
-                this.CallHandlers[meetingId] = callHandler;
+                var threadId = call.Resource.ChatInfo.ThreadId;
+                this.CallHandlers[threadId] = callHandler;
             }
 
             foreach (var call in args.RemovedResources)
             {
-                var meetingId = call.Resource.ChatInfo.ThreadId;
-                if (this.CallHandlers.TryRemove(meetingId, out CallHandler? handler))
+                var threadId = call.Resource.ChatInfo.ThreadId;
+                if (this.CallHandlers.TryRemove(threadId, out CallHandler? handler))
                 {
                     Task.Run(async () => {
                         await handler.BotMediaStream.ShutdownAsync();
@@ -337,14 +337,14 @@ namespace EchoBot.Bot
         /// <summary>
         /// The get handler or throw.
         /// </summary>
-        /// <param name="callLegId">The call leg id.</param>
+        /// <param name="threadId">The call thread id.</param>
         /// <returns>The <see cref="CallHandler" />.</returns>
         /// <exception cref="ArgumentException">call ({callLegId}) not found</exception>
-        private CallHandler GetHandlerOrThrow(string meetingId)
+        private CallHandler GetHandlerOrThrow(string threadId)
         {
-            if (!this.CallHandlers.TryGetValue(meetingId, out CallHandler? handler))
+            if (!this.CallHandlers.TryGetValue(threadId, out CallHandler? handler))
             {
-                throw new ArgumentException($"call ({meetingId}) not found");
+                throw new ArgumentException($"call ({threadId}) not found");
             }
 
             return handler;

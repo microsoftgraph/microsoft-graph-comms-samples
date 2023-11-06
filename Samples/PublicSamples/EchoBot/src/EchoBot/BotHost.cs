@@ -140,6 +140,7 @@ namespace EchoBot
             // Configure the HTTP request pipeline.
             if (_app.Environment.IsDevelopment())
             {
+                // https://localhost:<port>/swagger
                 _app.UseSwagger();
                 _app.UseSwaggerUI();
             }
