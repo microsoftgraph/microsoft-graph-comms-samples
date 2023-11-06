@@ -15,6 +15,7 @@ namespace EchoBot
         /// Gets or sets the certificate thumbprint.
         /// </summary>
         /// <value>The certificate thumbprint.</value>
+        [Required]
         public string CertificateThumbprint { get; set; }
 
         /// <summary>
