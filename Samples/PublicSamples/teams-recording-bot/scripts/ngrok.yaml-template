@@ -1,0 +1,11 @@
+authtoken: AUTH_TOKEN
+tunnels:
+  signaling:
+    addr: "https://localhost:<CALL_SIGNALING_PORT>"
+    proto: http
+    subdomain: YOUR_SUBDOMAIN
+    host_header: "localhost:<CALL_SIGNALING_PORT>"
+  media: 
+    addr: <INSTANT_INTERNAL_PORT>
+    proto: tcp
+    remote_addr: YOUR_FULL_RESERVED_TCP_PORT
