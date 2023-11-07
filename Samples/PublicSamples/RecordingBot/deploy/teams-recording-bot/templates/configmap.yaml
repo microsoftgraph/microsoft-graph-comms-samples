@@ -1,0 +1,16 @@
+{{- $fullName := include "fullName" . -}}
+{{- $namespace := include "namespace" . -}}
+{{- $maxCount := include "maxCount" . -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $fullName }}-tcp-services
+  namespace: ingress-nginx
+  labels:
+    helmVersion: {{ .Chart.Version }}
+    helmAppVersion: {{ .Chart.AppVersion }}
+    helmName: {{ .Chart.Name }}
+data:
+{{- range $i, $e := until (int $maxCount) }}
+  {{ (int $.Values.public.media) | add $i | quote | nindent 2 }}: {{ $namespace }}/{{ $fullName }}-{{ $i }}:{{ $.Values.internal.media }}
+{{- end }}

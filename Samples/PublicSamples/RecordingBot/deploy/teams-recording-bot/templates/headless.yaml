@@ -1,0 +1,20 @@
+{{- $fullName := include "fullName" . -}}
+{{- $namespace := include "namespace" . -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $fullName }}
+  namespace: {{ $namespace }}
+  labels:
+    helmVersion: {{ $.Chart.Version }}
+    helmAppVersion: {{ $.Chart.AppVersion }}
+    helmName: {{ $.Chart.Name }}
+spec:
+  clusterIP: None
+  publishNotReadyAddresses: true
+  ports:
+  - name: public
+    port: 443
+    targetPort: {{ $.Values.internal.port }}
+  selector:
+    app: {{ $fullName }}
