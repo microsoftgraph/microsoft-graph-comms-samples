@@ -25,6 +25,7 @@ jobs:
         run: |
           # Diff latest commit with latest main commit for Recording Bot
           $diff = git diff --name-only $GITHUB_BASE_REF $GITHUB_REF  -- Samples/PublicSamples/RecordingBot
+          echo $diff
           
           # Check if a file has changed (added, modified, deleted)
           $BuildDiff = $diff | Where-Object { $_ -match '^Samples/PublicSamples/RecordingBot/build/' }
@@ -40,11 +41,11 @@ jobs:
           $HasSrcDiff = $SrcDiff.Length -gt 0
           
           # Set the outputs
-          Write-Host "::set-output name=build::$HasBuildDiff"
-          Write-Host "::set-output name=deploy::$HasDeployDiff"
-          Write-Host "::set-output name=deploy::$HasDocsDiff"
-          Write-Host "::set-output name=scripts::$HasScriptsDiff"
-          Write-Host "::set-output name=src::$HasSrcDiff"
+          echo "build=$HasBuildDiff" >> $env:GITHUB_OUTPUT
+          echo "deploy=$HasDeployDiff" >> $env:GITHUB_OUTPUT
+          echo "docs=$HasDocsDiff" >> $env:GITHUB_OUTPUT
+          echo "scripts=$HasScriptsDiff" >> $env:GITHUB_OUTPUT
+          echo "src=$HasSrcDiff" >> $env:GITHUB_OUTPUT
 
   dotnet-build-and-test:
     runs-on: windows-2022
