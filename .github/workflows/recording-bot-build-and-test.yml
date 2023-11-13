@@ -24,6 +24,7 @@ jobs:
         id: changes
         run: |
           # Diff latest commit with latest main commit for Recording Bot
+          git fetch
           $diff = git diff --name-only $GITHUB_BASE_REF $GITHUB_REF  -- Samples/PublicSamples/RecordingBot
           echo $diff
           
