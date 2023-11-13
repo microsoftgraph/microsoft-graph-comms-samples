@@ -13,11 +13,11 @@ jobs:
   check-recording-bot-changes:
     runs-on: ubuntu-latest
     outputs: 
-      build: ${{ steps.changes.outputs.build }} == 'True'
-      deploy: ${{ steps.changes.outputs.deploy }} == 'True'
-      docs: ${{ steps.changes.outputs.docs }} == 'True'
-      scripts: ${{ steps.changes.outputs.scripts }} == 'True'
-      src: ${{ steps.changes.outputs.src }} == 'True'
+      build: ${{ steps.changes.outputs.build }}
+      deploy: ${{ steps.changes.outputs.deploy }}
+      docs: ${{ steps.changes.outputs.docs }}
+      scripts: ${{ steps.changes.outputs.scripts }}
+      src: ${{ steps.changes.outputs.src }}
     steps:
       - uses: actions/checkout@v4
       - shell: pwsh
@@ -70,11 +70,11 @@ jobs:
           Rename-Item "RecordingBot.Console\.env-template" -NewName ".env"
       
       - name: Build project
-        if: needs.check-recording-bot-changes.outputs.src
+        if: needs.check-recording-bot-changes.outputs.src == 'True'
         run: dotnet build
 
       - name: Test project
-        if: needs.check-recording-bot-changes.outputs.src
+        if: needs.check-recording-bot-changes.outputs.src == 'True'
         run: dotnet test
 
   docker-build:
@@ -89,7 +89,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build Docker Image
-        if: needs.check-recording-bot-changes.outputs.build
+        if: needs.check-recording-bot-changes.outputs.build == 'True'
         shell: bash
         run: docker build -f ./build/Dockerfile . -t "teams-recording-bot:${GITHUB_SHA}"
   
@@ -109,11 +109,11 @@ jobs:
 
       - name: Lint Helm Chart
         working-directory: Samples/PublicSamples/RecordingBot/deploy/teams-recording-bot
-        if: needs.check-recording-bot-changes.outputs.deploy
+        if: needs.check-recording-bot-changes.outputs.deploy == 'True'
         run: helm lint
 
       - name: Check App Version Change
-        if: needs.check-recording-bot-changes.outputs.build || needs.check-recording-bot-changes.outputs.scripts || needs.check-recording-bot-changes.outputs.src
+        if: needs.check-recording-bot-changes.outputs.build == 'True' || needs.check-recording-bot-changes.outputs.scripts == 'True' || needs.check-recording-bot-changes.outputs.src == 'True'
         shell: bash
         run: |
             oldVersion=$(MSYS_NO_PATHCONV=1 git show remotes/origin/$GITHUB_BASE_REF:Samples/PublicSamples/RecordingBot/deploy/teams-recording-bot/Chart.yaml | sed -n "s/^appVersion: \([0-9\.]*\)$/\1/p")
@@ -131,7 +131,7 @@ jobs:
             echo "Success app Version was updated!"
 
       - name: Check Version Change
-        if: needs.check-recording-bot-changes.outputs.build || needs.check-recording-bot-changes.outputs.deploy || needs.check-recording-bot-changes.outputs.scripts || needs.check-recording-bot-changes.outputs.src
+        if: needs.check-recording-bot-changes.outputs.build == 'True' || needs.check-recording-bot-changes.outputs.deploy == 'True' || needs.check-recording-bot-changes.outputs.scripts == 'True' || needs.check-recording-bot-changes.outputs.src == 'True'
         shell: bash
         run: |
             oldVersion=$(MSYS_NO_PATHCONV=1 git show remotes/origin/$GITHUB_BASE_REF:Samples/PublicSamples/RecordingBot/deploy/teams-recording-bot/Chart.yaml | sed -n "s/^version: \([0-9\.]*\)$/\1/p")
