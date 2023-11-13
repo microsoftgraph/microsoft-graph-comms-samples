@@ -1,0 +1,146 @@
+name: Recording Bot Build And Test
+
+on: 
+  pull_request:
+    branches:
+      - main
+    paths:
+      - Samples/PublicSamples/RecordingBot
+
+jobs:
+
+  check-recording-bot-changes:
+    runs-on: ubuntu-latest
+    outputs: 
+      build: ${{ steps.changes.outputs.build }} == 'True'
+      deploy: ${{ steps.changes.outputs.deploy }} == 'True'
+      docs: ${{ steps.changes.outputs.docs }} == 'True'
+      scripts: ${{ steps.changes.outputs.scripts }} == 'True'
+      src: ${{ steps.changes.outputs.src }} == 'True'
+    steps:
+      - uses: actions/checkout@v4
+      - shell: pwsh
+        id: changes
+        run: |
+          # Diff latest commit with latest main commit for Recording Bot
+          $diff = git diff --name-only $GITHUB_BASE_REF $GITHUB_REF  -- Samples/PublicSamples/RecordingBot
+          
+          # Check if a file has changed (added, modified, deleted)
+          $BuildDiff = $diff | Where-Object { $_ -match '^Samples/PublicSamples/RecordingBot/build/' }
+          $DeployDiff = $diff | Where-Object { $_ -match '^Samples/PublicSamples/RecordingBot/deploy/' }
+          $DocsDiff = $diff | Where-Object { $_ -match '^Samples/PublicSamples/RecordingBot/docs/' -or $_ -match '.md$' }
+          $ScriptsDiff = $diff | Where-Object { $_ -match '^Samples/PublicSamples/RecordingBot/scripts/' }
+          $SrcDiff = $diff | Where-Object { $_ -match '^Samples/PublicSamples/RecordingBot/src/' }
+
+          $HasBuildDiff = $BuildDiff.Length -gt 0
+          $HasDeployDiff = $DeployDiff.Length -gt 0
+          $HasDocsDiff = $DocsDiff.Length -gt 0
+          $HasScriptsDiff = $ScriptsDiff.Length -gt 0
+          $HasSrcDiff = $SrcDiff.Length -gt 0
+          
+          # Set the outputs
+          Write-Host "::set-output name=build::$HasBuildDiff"
+          Write-Host "::set-output name=deploy::$HasDeployDiff"
+          Write-Host "::set-output name=deploy::$HasDocsDiff"
+          Write-Host "::set-output name=scripts::$HasScriptsDiff"
+          Write-Host "::set-output name=src::$HasSrcDiff"
+
+  dotnet-build-and-test:
+    runs-on: windows-2022
+    needs: check-recording-bot-changes
+
+    defaults:
+      run:
+        working-directory: Samples/PublicSamples/RecordingBot/src
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: "6.0.x"
+
+      - name: Rename .env-template
+        run: |
+          Rename-Item "RecordingBot.Tests\.env-template" -NewName ".env"
+          Rename-Item "RecordingBot.Host\.env-template" -NewName ".env"
+      
+      - name: Build project
+        if: needs.check-recording-bot-changes.outputs.src
+        run: dotnet build
+
+      - name: Test project
+        if: needs.check-recording-bot-changes.outputs.src
+        run: dotnet test
+
+  docker-build:
+    runs-on: windows-2022
+    needs: check-recording-bot-changes
+    
+    defaults:
+      run:
+        working-directory: Samples/PublicSamples/RecordingBot/
+    
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker Image
+        if: needs.check-recording-bot-changes.outputs.build
+        shell: bash
+        run: docker build -f ./build/Dockerfile . -t "teams-recording-bot:${GITHUB_SHA}"
+  
+  chart-build-and-test:
+    runs-on: ubuntu-latest
+    needs: check-recording-bot-changes
+
+    defaults:
+      run:
+        working-directory: Samples/PublicSamples/RecordingBot/deploy
+    
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+           git fetch 
+           git branch -a
+
+      - name: Lint Helm Chart
+        working-directory: Samples/PublicSamples/RecordingBot/deploy/teams-recording-bot
+        if: needs.check-recording-bot-changes.outputs.deploy
+        run: helm lint
+
+      - name: Check App Version Change
+        if: needs.check-recording-bot-changes.outputs.build || needs.check-recording-bot-changes.outputs.scripts || needs.check-recording-bot-changes.outputs.src
+        shell: bash
+        run: |
+            oldVersion=$(MSYS_NO_PATHCONV=1 git show remotes/origin/$GITHUB_BASE_REF:Samples/PublicSamples/RecordingBot/deploy/teams-recording-bot/Chart.yaml | sed -n "s/^appVersion: \([0-9\.]*\)$/\1/p")
+            echo "Previous app Version: $oldVersion"
+            [ -z "$oldVersion" ] && exit 1
+
+            newVersion=$(cat teams-recording-bot/Chart.yaml | sed -n "s/^appVersion: \([0-9\.]*\)$/\1/p")
+            echo "New app Version: $newVersion"
+            [ -z "$newVersion" ] && exit 1
+
+            echo "Check if app Version was updated"
+            [ "$newVersion" = "$oldVersion" ] && exit 1
+            newerVersion=$(echo -e "$oldVersion\n$newVersion" | sort -V | tail -1)
+            [ "$newerVersion" = "$newVersion" ] || exit 1
+            echo "Success app Version was updated!"
+
+      - name: Check Version Change
+        if: needs.check-recording-bot-changes.outputs.build || needs.check-recording-bot-changes.outputs.deploy || needs.check-recording-bot-changes.outputs.scripts || needs.check-recording-bot-changes.outputs.src
+        shell: bash
+        run: |
+            oldVersion=$(MSYS_NO_PATHCONV=1 git show remotes/origin/$GITHUB_BASE_REF:Samples/PublicSamples/RecordingBot/deploy/teams-recording-bot/Chart.yaml | sed -n "s/^version: \([0-9\.]*\)$/\1/p")
+            echo "Previous Version: $oldVersion"
+            [ -z "$oldVersion" ] && exit 1
+    
+            newVersion=$(cat teams-recording-bot/Chart.yaml | sed -n "s/^version: \([0-9\.]*\)$/\1/p")
+            echo "New Version: $newVersion"
+            [ -z "$newVersion" ] && exit 1
+    
+            echo "Check if Version was updated"
+            [ "$newVersion" = "$oldVersion" ] && exit 1
+            newerVersion=$(echo -e "$oldVersion\n$newVersion" | sort -V | tail -1)
+            [ "$newerVersion" = "$newVersion" ] || exit 1
+            echo "Success Version was updated!"
