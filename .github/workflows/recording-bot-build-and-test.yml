@@ -1,4 +1,5 @@
 name: Recording Bot Build And Test
+run-name: Pull Request "${{github.event.pull_request.title}}" build and test
 
 on: 
   pull_request:
@@ -64,7 +65,7 @@ jobs:
       - name: Rename .env-template
         run: |
           Rename-Item "RecordingBot.Tests\.env-template" -NewName ".env"
-          Rename-Item "RecordingBot.Host\.env-template" -NewName ".env"
+          Rename-Item "RecordingBot.Console\.env-template" -NewName ".env"
       
       - name: Build project
         if: needs.check-recording-bot-changes.outputs.src
