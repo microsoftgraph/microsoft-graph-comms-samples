@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - Samples/PublicSamples/RecordingBot
+      - Samples/PublicSamples/RecordingBot/**
 
 jobs:
 
