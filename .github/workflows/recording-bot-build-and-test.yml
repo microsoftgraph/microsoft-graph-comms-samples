@@ -25,6 +25,7 @@ jobs:
         run: |
           # Diff latest commit with latest main commit for Recording Bot
           $diff = git diff --name-only $GITHUB_BASE_REF $GITHUB_REF  -- Samples/PublicSamples/RecordingBot
+          echo $diff
           
           # Check if a file has changed (added, modified, deleted)
           $BuildDiff = $diff | Where-Object { $_ -match '^Samples/PublicSamples/RecordingBot/build/' }
