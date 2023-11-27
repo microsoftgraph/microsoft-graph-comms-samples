@@ -71,3 +71,18 @@ cert-manager:
   caininjector:
     nodeSelector:
       "kubernetes.io/os": linux
+
+ingress-nginx:
+  namespaceOverride: ingress-nginx
+  controller:
+    replicaCount: 1
+    nodeSelector:
+      "kubernetes.io/os": linux
+    service:
+      enabled: false
+    admissionWebhooks:
+      enabled: false
+    config:
+      log-format-stream: ""
+    extraArgs:
+      tcp-services-configmap: ingress-nginx/teams-recording-bot-tcp-services
