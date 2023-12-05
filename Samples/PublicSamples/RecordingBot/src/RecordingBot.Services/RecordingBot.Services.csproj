@@ -7,6 +7,7 @@
 		<Platforms>x64</Platforms>
 		<LangVersion>latest</LangVersion>
 	</PropertyGroup>
+	
 	<PropertyGroup>
 		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
 		<GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
@@ -32,11 +33,7 @@
 			<Version>1.2.0.7270</Version>
 		</PackageReference>
 	</ItemGroup>
-	<ItemGroup>
-		<Content Include="..\packages\microsoft.skype.bots.media\1.19.0.25-alpha\src\skype_media_lib\*">
-			<Visible>false</Visible>
-		</Content>
-	</ItemGroup>
+
 	<ItemGroup>
 		<ProjectReference Include="..\RecordingBot.Model\RecordingBot.Model.csproj" />
 	</ItemGroup>
