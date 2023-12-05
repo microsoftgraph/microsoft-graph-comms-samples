@@ -7,6 +7,7 @@
 		<Platforms>x64</Platforms>
 		<LangVersion>latest</LangVersion>
 	</PropertyGroup>
+	
 	<ItemGroup>
 		<PackageReference Include="Moq">
 			<Version>4.20.70</Version>
@@ -20,16 +21,13 @@
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
 	</ItemGroup>
-	<ItemGroup>
-		<Content Include="..\packages\microsoft.skype.bots.media\1.19.0.25-alpha\src\skype_media_lib\*">
-			<Visible>false</Visible>
-		</Content>
-	</ItemGroup>
+
 	<ItemGroup>
 		<ProjectReference Include="..\RecordingBot.Console\RecordingBot.Console.csproj" />
 		<ProjectReference Include="..\RecordingBot.Model\RecordingBot.Model.csproj" />
 		<ProjectReference Include="..\RecordingBot.Services\RecordingBot.Services.csproj" />
 	</ItemGroup>
+	
 	<ItemGroup>
 		<None Update="TestData\participants.zip">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
