@@ -13,19 +13,14 @@
 // <summary>ScreenshotsController retrieves the screenshots stored by the bot</summary>
 // ***********************************************************************-
 
-using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Graph.Communications.Common.Telemetry;
-using Microsoft.Graph.Communications.Core.Serialization;
 using RecordingBot.Model.Constants;
 using RecordingBot.Services.Contract;
 using RecordingBot.Services.ServiceSetup;
 using System;
 using System.Collections.Generic;
-using System.Net;
-using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
-using System.Web.Http;
 
 namespace RecordingBot.Services.Http.Controllers
 {
@@ -33,7 +28,8 @@ namespace RecordingBot.Services.Http.Controllers
     /// DemoController serves as the gateway to explore the bot.
     /// From here you can get a list of calls, and functions for each call.
     /// </summary>
-    public class DemoController : ApiController
+    [ApiController]
+    public class DemoController : ControllerBase
     {
         /// <summary>
         /// The logger
@@ -52,17 +48,15 @@ namespace RecordingBot.Services.Http.Controllers
         /// </summary>
         private readonly IEventPublisher _eventPublisher;
 
-
         /// <summary>
         /// Initializes a new instance of the <see cref="DemoController" /> class.
-
         /// </summary>
-        public DemoController()
+        public DemoController(IGraphLogger logger, IEventPublisher eventPublisher, IBotService botService, AzureSettings azureSettings)
         {
-            _logger = AppHost.AppHostInstance.Resolve<IGraphLogger>();
-            _eventPublisher = AppHost.AppHostInstance.Resolve<IEventPublisher>();
-            _botService = AppHost.AppHostInstance.Resolve<IBotService>();
-            _settings = AppHost.AppHostInstance.Resolve<IOptions<AzureSettings>>().Value;
+            _logger = logger;
+            _eventPublisher = eventPublisher;
+            _botService = botService;
+            _settings = azureSettings;
         }
 
         /// <summary>
@@ -71,15 +65,10 @@ namespace RecordingBot.Services.Http.Controllers
         /// <returns>The <see cref="Task" />.</returns>
         [HttpGet]
         [Route(HttpRouteConstants.Calls + "/")]
-        public HttpResponseMessage OnGetCalls()
+        public IActionResult OnGetCalls()
         {
             _logger.Info("Getting calls");
             _eventPublisher.Publish("GetCalls", "Getting calls");
-
-            if (_botService.CallHandlers.IsEmpty)
-            {
-                return this.Request.CreateResponse(HttpStatusCode.NoContent);
-            }
 
             var calls = new List<Dictionary<string, string>>();
             foreach (var callHandler in _botService.CallHandlers.Values)
@@ -97,21 +86,17 @@ namespace RecordingBot.Services.Http.Controllers
                 calls.Add(values);
             }
 
-            var serializer = new CommsSerializer(pretty: true);
-            var json = serializer.SerializeObject(calls);
-            var response = this.Request.CreateResponse(HttpStatusCode.OK);
-            response.Content = new StringContent(json, Encoding.UTF8, "application/json");
-            return response;
+            return Ok(calls);
         }
 
         /// <summary>
         /// End the call.
         /// </summary>
         /// <param name="callLegId">Id of the call to end.</param>
-        /// <returns>The <see cref="HttpResponseMessage" />.</returns>
+        /// <returns>The <see cref="IActionResult" />.</returns>
         [HttpDelete]
         [Route(HttpRouteConstants.CallRoute)]
-        public async Task<HttpResponseMessage> OnEndCallAsync(string callLegId)
+        public async Task<IActionResult> OnEndCallAsync(string callLegId)
         {
             var message = $"Ending call {callLegId}";
             _logger.Info(message);
@@ -120,13 +105,11 @@ namespace RecordingBot.Services.Http.Controllers
             try
             {
                 await _botService.EndCallByCallLegIdAsync(callLegId).ConfigureAwait(false);
-                return this.Request.CreateResponse(HttpStatusCode.OK);
+                return Ok();
             }
             catch (Exception e)
             {
-                var response = this.Request.CreateResponse(HttpStatusCode.InternalServerError);
-                response.Content = new StringContent(e.ToString());
-                return response;
+                return StatusCode(500, e.ToString());
             }
         }
     }
