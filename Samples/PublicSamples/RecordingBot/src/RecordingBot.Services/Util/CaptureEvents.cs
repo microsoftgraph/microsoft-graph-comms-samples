@@ -14,7 +14,6 @@
 using Microsoft.Graph.Communications.Calls;
 using Microsoft.Graph.Communications.Common;
 using Microsoft.Graph.Communications.Resources;
-using Microsoft.Skype.Bots.Media;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Bson;
 using RecordingBot.Model.Extension;
@@ -67,18 +66,12 @@ namespace RecordingBot.Services.Util
             var name = fileName;
             var fullName = Path.Combine(_path, name);
 
-            using (var stream = File.Open(fullName, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None))
-            {
-                using (var sw = new StreamWriter(stream))
-                {
-                    using (var jw = new JsonTextWriter(sw))
-                    {
-                        jw.Formatting = Formatting.Indented;
-                        _serializer.Serialize(jw, data);
-                        await jw.FlushAsync();
-                    }
-                }
-            }
+            using var stream = File.Open(fullName, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None);
+            using var sw = new StreamWriter(stream);
+            using var jw = new JsonTextWriter(sw);
+            jw.Formatting = Formatting.Indented;
+            _serializer.Serialize(jw, data);
+            await jw.FlushAsync();
         }
 
         /// <summary>
@@ -95,11 +88,9 @@ namespace RecordingBot.Services.Util
 
             var file = new FileStream(fullName, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None);
 
-            using (var bson = new BsonDataWriter(file))
-            {
-                _serializer.Serialize(bson, data);
-                await bson.FlushAsync();
-            }
+            using var bson = new BsonDataWriter(file);
+            _serializer.Serialize(bson, data);
+            await bson.FlushAsync();
         }
 
         /// <summary>
@@ -134,7 +125,7 @@ namespace RecordingBot.Services.Util
 
             var participant = new ParticipantData { AddedResources = added, RemovedResources = removed };
 
-            await saveJsonFile(participant, $"{DateTime.UtcNow.Ticks.ToString()}-participant.json");
+            await saveJsonFile(participant, $"{DateTime.UtcNow.Ticks}-participant.json");
         }
 
         /// <summary>
@@ -150,7 +141,7 @@ namespace RecordingBot.Services.Util
 
             byte[] encodedText = Encoding.Unicode.GetBytes(data);
 
-            using (FileStream sourceStream = new FileStream($"{fullName}.json", FileMode.Append, FileAccess.Write, FileShare.None, bufferSize: 4096, useAsync: true))
+            using (FileStream sourceStream = new($"{fullName}.json", FileMode.Append, FileAccess.Write, FileShare.None, bufferSize: 4096, useAsync: true))
             {
                 await sourceStream.WriteAsync(encodedText, 0, encodedText.Length);
             };

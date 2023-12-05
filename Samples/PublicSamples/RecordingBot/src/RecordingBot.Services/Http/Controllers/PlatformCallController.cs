@@ -22,7 +22,6 @@ using Microsoft.Graph.Communications.Core.Notifications;
 using RecordingBot.Model.Constants;
 using RecordingBot.Services.Contract;
 using RecordingBot.Services.ServiceSetup;
-using RecordingBot.Services.Util;
 using System;
 using System.Diagnostics;
 using System.Linq;
@@ -34,7 +33,6 @@ using System.Web.Http;
 namespace RecordingBot.Services.Http.Controllers
 {
     using ErrorConstants = Microsoft.Graph.Communications.Core.Exceptions.ErrorConstants;
-
 
     /// <summary>
     /// Entry point for handling call-related web hook requests from Skype Platform.

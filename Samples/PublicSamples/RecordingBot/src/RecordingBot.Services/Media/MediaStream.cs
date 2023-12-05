@@ -55,7 +55,7 @@ namespace RecordingBot.Services.Media
         /// <summary>
         /// The synchronize lock
         /// </summary>
-        private readonly SemaphoreSlim _syncLock = new SemaphoreSlim(1);
+        private readonly SemaphoreSlim _syncLock = new(1);
         /// <summary>
         /// The media identifier
         /// </summary>
@@ -155,15 +155,15 @@ namespace RecordingBot.Services.Media
         /// </summary>
         private async Task _start()
         {
-            await this._syncLock.WaitAsync().ConfigureAwait(false);
+            await _syncLock.WaitAsync().ConfigureAwait(false);
             if (!_isRunning)
             {
                 _tokenSource = new CancellationTokenSource();
-                _buffer = new BufferBlock<SerializableAudioMediaBuffer>(new DataflowBlockOptions { CancellationToken = this._tokenSource.Token });
-                await Task.Factory.StartNew(this._process).ConfigureAwait(false);
+                _buffer = new BufferBlock<SerializableAudioMediaBuffer>(new DataflowBlockOptions { CancellationToken = _tokenSource.Token });
+                await Task.Factory.StartNew(_process).ConfigureAwait(false);
                 _isRunning = true;
             }
-            this._syncLock.Release();
+            _syncLock.Release();
         }
 
         /// <summary>

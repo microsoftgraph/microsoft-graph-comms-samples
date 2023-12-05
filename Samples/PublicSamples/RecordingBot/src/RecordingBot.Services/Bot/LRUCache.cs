@@ -45,7 +45,7 @@ namespace RecordingBot.Services.Bot
                 throw new ArgumentException($"size value too large; max value is {Max}");
             }
 
-            this.set = new uint[size];
+            set = new uint[size];
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace RecordingBot.Services.Bot
         /// <inheritdoc/>
         public override string ToString()
         {
-            return "{" + string.Join(", ", this.set) + "}";
+            return "{" + string.Join(", ", set) + "}";
         }
 
         /// <summary>
@@ -71,23 +71,23 @@ namespace RecordingBot.Services.Bot
         {
             e = null;
 
-            lock (this.set)
+            lock (set)
             {
                 // empty set, first item goes at front
-                if (this.Count == 0)
+                if (Count == 0)
                 {
-                    this.Count = 1;
-                    this.set[0] = k;
+                    Count = 1;
+                    set[0] = k;
                 }
 
                 // no change if k is at front of set
-                else if (this.set[0] != k)
+                else if (set[0] != k)
                 {
                     // look for k in the set
                     uint ik = 0;  // index of k in set; 0 if k not found
-                    for (uint i = 1; i < this.Count; i++)
+                    for (uint i = 1; i < Count; i++)
                     {
-                        if (this.set[i] == k)
+                        if (set[i] == k)
                         {
                             ik = i;
                             break;
@@ -97,21 +97,21 @@ namespace RecordingBot.Services.Bot
                     // if k not found, make room for it
                     if (ik == 0)
                     {
-                        if (this.Count == this.set.Length)
+                        if (Count == set.Length)
                         {
                             // if set is full, record the item being evicted (and no change in # of items)
-                            e = this.set[this.Count - 1];
-                            ik = this.Count - 1;
+                            e = set[Count - 1];
+                            ik = Count - 1;
                         }
                         else
                         {
                             // room to add new item: shift the entire set right and increment # of items
-                            ik = this.Count++;
+                            ik = Count++;
                         }
                     }
 
-                    this.ShiftRight(ik);
-                    this.set[0] = k;
+                    ShiftRight(ik);
+                    set[0] = k;
                 }
             }
         }
@@ -124,16 +124,16 @@ namespace RecordingBot.Services.Bot
         /// <returns>True if item was removed.</returns>
         public bool TryRemove(uint k)
         {
-            lock (this.set)
+            lock (set)
             {
-                for (uint i = 0; i < this.Count; i++)
+                for (uint i = 0; i < Count; i++)
                 {
                     // if found item k, remove it from the set
-                    if (this.set[i] == k)
+                    if (set[i] == k)
                     {
-                        this.ShiftLeft(i);
-                        this.Count--;
-                        this.set[this.Count] = 0;
+                        ShiftLeft(i);
+                        Count--;
+                        set[Count] = 0;
                         return true;
                     }
                 }
@@ -153,7 +153,7 @@ namespace RecordingBot.Services.Bot
         {
             while (x > 0)
             {
-                this.set[x] = this.set[x - 1];
+                set[x] = set[x - 1];
                 x--;
             }
         }
@@ -167,9 +167,9 @@ namespace RecordingBot.Services.Bot
         /// <param name="x">Index of items to shift left after this.</param>
         private void ShiftLeft(uint x)
         {
-            while (x < this.set.Length - 1)
+            while (x < set.Length - 1)
             {
-                this.set[x] = this.set[x + 1];
+                set[x] = set[x + 1];
                 x++;
             }
         }

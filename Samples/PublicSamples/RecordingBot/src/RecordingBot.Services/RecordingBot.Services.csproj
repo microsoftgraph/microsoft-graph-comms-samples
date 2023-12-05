@@ -12,19 +12,7 @@
 		<GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
 	</PropertyGroup>
 	<ItemGroup>
-		<Reference Include="Microsoft.Skype.Internal.Media.H264">
-			<HintPath>..\packages\microsoft.skype.bots.media\1.19.0.25-alpha\src\skype_media_lib\Microsoft.Skype.Internal.Media.H264.dll</HintPath>
-		</Reference>
-		<Reference Include="System.Data.Entity" />
-		<Reference Include="System.Runtime.Serialization" />
-	</ItemGroup>
-	<ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
-		<Reference Include="System" />
-		<Reference Include="System.Data" />
-	</ItemGroup>
-	<ItemGroup>
 		<PackageReference Include="Azure.Messaging.EventGrid" Version="4.21.0" />
-		<PackageReference Include="Microsoft.Identity.Client" Version="4.58.0" />
 		<PackageReference Include="Microsoft.IdentityModel.Clients.ActiveDirectory" Version="5.3.0" />
 		<PackageReference Include="NAudio" Version="2.2.1" />
 		<PackageReference Include="Newtonsoft.Json.Bson">
@@ -36,7 +24,6 @@
 		<PackageReference Include="SharpZipLib">
 			<Version>1.4.2</Version>
 		</PackageReference>
-		<Reference Include="System.Data.Entity" />
 		<PackageReference Include="DotNetEnv">
 			<Version>2.5.0</Version>
 		</PackageReference>

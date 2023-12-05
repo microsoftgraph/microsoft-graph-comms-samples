@@ -66,6 +66,7 @@ namespace RecordingBot.Services.Bot
                     lineNumber: lineNumber);
             }
         }
+
         /// <summary>
         /// Inspect the exception type/error and return the correct response.
         /// </summary>

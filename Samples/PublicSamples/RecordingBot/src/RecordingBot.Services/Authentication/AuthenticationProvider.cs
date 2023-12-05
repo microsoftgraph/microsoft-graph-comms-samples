@@ -25,6 +25,7 @@ using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
 using RecordingBot.Model.Constants;
 using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -107,22 +108,22 @@ namespace RecordingBot.Services.Authentication
             tenant = string.IsNullOrWhiteSpace(tenant) ? "common" : tenant;
             var tokenLink = oauthV2TokenLink.Replace(replaceString, tenant);
 
-            this.GraphLogger.Info("AuthenticationProvider: Generating OAuth token.");
+            GraphLogger.Info("AuthenticationProvider: Generating OAuth token.");
             var context = new AuthenticationContext(tokenLink);
-            var creds = new ClientCredential(this.appId, this.appSecret);
+            var creds = new ClientCredential(appId, appSecret);
 
             AuthenticationResult result;
             try
             {
-                result = await this.AcquireTokenWithRetryAsync(context, resource, creds, attempts: 3).ConfigureAwait(false);
+                result = await AcquireTokenWithRetryAsync(context, resource, creds, attempts: 3).ConfigureAwait(false);
             }
             catch (Exception ex)
             {
-                this.GraphLogger.Error(ex, $"Failed to generate token for client: {this.appId}");
+                GraphLogger.Error(ex, $"Failed to generate token for client: {appId}");
                 throw;
             }
 
-            this.GraphLogger.Info($"AuthenticationProvider: Generated OAuth token. Expires in {result.ExpiresOn.Subtract(DateTimeOffset.UtcNow).TotalMinutes} minutes.");
+            GraphLogger.Info($"AuthenticationProvider: Generated OAuth token. Expires in {result.ExpiresOn.Subtract(DateTimeOffset.UtcNow).TotalMinutes} minutes.");
 
             request.Headers.Authorization = new AuthenticationHeaderValue(schema, result.AccessToken);
         }
@@ -146,18 +147,18 @@ namespace RecordingBot.Services.Authentication
             // with a private certificate.  In order for us to be able to ensure the certificate is
             // valid we need to download the corresponding public keys from a trusted source.
             const string authDomain = AzureConstants.AuthDomain;
-            if (this.openIdConfiguration == null || DateTime.Now > this.prevOpenIdConfigUpdateTimestamp.Add(this.openIdConfigRefreshInterval))
+            if (openIdConfiguration == null || DateTime.Now > prevOpenIdConfigUpdateTimestamp.Add(openIdConfigRefreshInterval))
             {
-                this.GraphLogger.Info("Updating OpenID configuration");
+                GraphLogger.Info("Updating OpenID configuration");
 
                 // Download the OIDC configuration which contains the JWKS
                 IConfigurationManager<OpenIdConnectConfiguration> configurationManager =
                     new ConfigurationManager<OpenIdConnectConfiguration>(
                         authDomain,
                         new OpenIdConnectConfigurationRetriever());
-                this.openIdConfiguration = await configurationManager.GetConfigurationAsync(CancellationToken.None).ConfigureAwait(false);
+                openIdConfiguration = await configurationManager.GetConfigurationAsync(CancellationToken.None).ConfigureAwait(false);
 
-                this.prevOpenIdConfigUpdateTimestamp = DateTime.Now;
+                prevOpenIdConfigUpdateTimestamp = DateTime.Now;
             }
 
             // The incoming token should be issued by graph.
@@ -170,18 +171,18 @@ namespace RecordingBot.Services.Authentication
             // Configure the TokenValidationParameters.
             // Aet the Issuer(s) and Audience(s) to validate and
             // assign the SigningKeys which were downloaded from AuthDomain.
-            TokenValidationParameters validationParameters = new TokenValidationParameters
+            TokenValidationParameters validationParameters = new()
             {
                 ValidIssuers = authIssuers,
-                ValidAudience = this.appId,
-                IssuerSigningKeys = this.openIdConfiguration.SigningKeys,
+                ValidAudience = appId,
+                IssuerSigningKeys = openIdConfiguration.SigningKeys,
             };
 
             ClaimsPrincipal claimsPrincipal;
             try
             {
                 // Now validate the token. If the token is not valid for any reason, an exception will be thrown by the method
-                JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
+                JwtSecurityTokenHandler handler = new();
                 claimsPrincipal = handler.ValidateToken(token, validationParameters, out _);
             }
 
@@ -194,7 +195,7 @@ namespace RecordingBot.Services.Authentication
             catch (Exception ex)
             {
                 // Some other error
-                this.GraphLogger.Error(ex, $"Failed to validate token for client: {this.appId}.");
+                GraphLogger.Error(ex, $"Failed to validate token for client: {appId}.");
                 return new RequestValidationResult() { IsValid = false };
             }
 
@@ -207,7 +208,7 @@ namespace RecordingBot.Services.Authentication
                 return new RequestValidationResult { IsValid = false };
             }
 
-            request.Properties.Add(HttpConstants.HeaderNames.Tenant, tenantClaim.Value);
+            request.Options.AddRange(new List<KeyValuePair<string, object>> { new(HttpConstants.HeaderNames.Tenant, tenantClaim.Value) });
             return new RequestValidationResult { IsValid = true, TenantId = tenantClaim.Value };
         }
 

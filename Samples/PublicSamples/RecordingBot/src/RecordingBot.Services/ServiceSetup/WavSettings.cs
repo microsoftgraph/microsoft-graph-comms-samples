@@ -28,6 +28,7 @@ namespace RecordingBot.Services.ServiceSetup
             SampleRate = sampleRate;
             Quality = quality;
         }
+
         /// <summary>
         /// Gets or sets the sample rate.
         /// </summary>

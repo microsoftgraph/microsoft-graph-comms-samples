@@ -54,33 +54,31 @@ namespace RecordingBot.Services.Util
                 throw new ArgumentException($"Join URL cannot be parsed: {joinURL}", nameof(joinURL));
             }
 
-            using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(match.Groups["context"].Value)))
+            using var stream = new MemoryStream(Encoding.UTF8.GetBytes(match.Groups["context"].Value));
+            var ctxt = (Meeting)new DataContractJsonSerializer(typeof(Meeting)).ReadObject(stream);
+
+            if (string.IsNullOrEmpty(ctxt.Tid))
             {
-                var ctxt = (Meeting)new DataContractJsonSerializer(typeof(Meeting)).ReadObject(stream);
-
-                if (string.IsNullOrEmpty(ctxt.Tid))
-                {
-                    throw new ArgumentException("Join URL is invalid: missing Tid", nameof(joinURL));
-                }
-
-                var chatInfo = new ChatInfo
-                {
-                    ThreadId = match.Groups["thread"].Value,
-                    MessageId = match.Groups["message"].Value,
-                    ReplyChainMessageId = ctxt.MessageId,
-                };
-
-                var meetingInfo = new OrganizerMeetingInfo
-                {
-                    Organizer = new IdentitySet
-                    {
-                        User = new Identity { Id = ctxt.Oid },
-                    },
-                };
-                meetingInfo.Organizer.User.SetTenantId(ctxt.Tid);
-
-                return (chatInfo, meetingInfo);
+                throw new ArgumentException("Join URL is invalid: missing Tid", nameof(joinURL));
             }
+
+            var chatInfo = new ChatInfo
+            {
+                ThreadId = match.Groups["thread"].Value,
+                MessageId = match.Groups["message"].Value,
+                ReplyChainMessageId = ctxt.MessageId,
+            };
+
+            var meetingInfo = new OrganizerMeetingInfo
+            {
+                Organizer = new IdentitySet
+                {
+                    User = new Identity { Id = ctxt.Oid },
+                },
+            };
+            meetingInfo.Organizer.User.SetTenantId(ctxt.Tid);
+
+            return (chatInfo, meetingInfo);
         }
     }
 }

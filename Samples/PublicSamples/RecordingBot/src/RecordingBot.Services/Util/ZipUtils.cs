@@ -29,15 +29,11 @@ namespace RecordingBot.Services.Util
         /// <returns>IEnumerable&lt;System.ValueTuple&lt;ZipEntry, ZipInputStream&gt;&gt;.</returns>
         public static IEnumerable<(ZipEntry, ZipInputStream)> GetEntries(string zipFile)
         {
-            using (var fs = File.OpenRead(zipFile))
+            using var fs = File.OpenRead(zipFile);
+            using var zipInputStream = new ZipInputStream(fs);
+            while (zipInputStream.GetNextEntry() is ZipEntry zipEntry)
             {
-                using (var zipInputStream = new ZipInputStream(fs))
-                {
-                    while (zipInputStream.GetNextEntry() is ZipEntry zipEntry)
-                    {
-                        yield return (zipEntry, zipInputStream);
-                    }
-                }
+                yield return (zipEntry, zipInputStream);
             }
         }
     }

@@ -40,7 +40,7 @@ namespace RecordingBot.Services.Util
         /// <summary>
         /// The synchronize lock
         /// </summary>
-        private readonly SemaphoreSlim _syncLock = new SemaphoreSlim(1);
+        private readonly SemaphoreSlim _syncLock = new(1);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BufferBase{T}" /> class.
@@ -53,7 +53,6 @@ namespace RecordingBot.Services.Util
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BufferBase{T}" /> class.
-
         /// </summary>
         /// <param name="token">The token.</param>
         protected BufferBase(CancellationTokenSource token)
@@ -89,16 +88,16 @@ namespace RecordingBot.Services.Util
         /// </summary>
         private async Task _start()
         {
-            await this._syncLock.WaitAsync().ConfigureAwait(false);
+            await _syncLock.WaitAsync().ConfigureAwait(false);
             if (!IsRunning)
             {
-                if (TokenSource == null) { TokenSource = new CancellationTokenSource(); }
+                TokenSource ??= new CancellationTokenSource();
 
-                Buffer = new BufferBlock<T>(new DataflowBlockOptions { CancellationToken = this.TokenSource.Token });
-                await Task.Factory.StartNew(this._process).ConfigureAwait(false);
+                Buffer = new BufferBlock<T>(new DataflowBlockOptions { CancellationToken = TokenSource.Token });
+                await Task.Factory.StartNew(_process).ConfigureAwait(false);
                 IsRunning = true;
             }
-            this._syncLock.Release();
+            _syncLock.Release();
         }
 
         /// <summary>
@@ -159,6 +158,5 @@ namespace RecordingBot.Services.Util
         /// <param name="data">The data.</param>
         /// <returns>Task.</returns>
         protected abstract Task Process(T data);
-
     }
 }

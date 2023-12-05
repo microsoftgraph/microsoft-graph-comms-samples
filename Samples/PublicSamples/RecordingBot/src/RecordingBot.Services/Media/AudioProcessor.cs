@@ -34,7 +34,7 @@ namespace RecordingBot.Services.Media
         /// <summary>
         /// The writers
         /// </summary>
-        readonly Dictionary<string, WaveFileWriter> _writers = new Dictionary<string, WaveFileWriter>();
+        readonly Dictionary<string, WaveFileWriter> _writers = [];
 
         /// <summary>
         /// The processor identifier
@@ -77,7 +77,7 @@ namespace RecordingBot.Services.Media
             {
                 // Buffers are saved to disk even when there is silence.
                 // If you do not want this to happen, check if data.IsSilence == true.
-                await all_writer.WriteAsync(data.Buffer, 0, data.Buffer.Length).ConfigureAwait(false);
+                await all_writer.WriteAsync(data.Buffer.AsMemory(0, data.Buffer.Length)).ConfigureAwait(false);
             }
 
             if (data.SerializableUnmixedAudioBuffers != null)
@@ -94,11 +94,10 @@ namespace RecordingBot.Services.Media
                     var writer = _writers.ContainsKey(id) ? _writers[id] : InitialiseWavFileWriter(path, id);
 
                     // Write audio buffer into the WAV file for individual speaker
-                    await writer.WriteAsync(s.Buffer, 0, s.Buffer.Length).ConfigureAwait(false);
+                    await writer.WriteAsync(s.Buffer.AsMemory(0, s.Buffer.Length)).ConfigureAwait(false);
 
                     // Write audio buffer into the WAV file for all speakers
-                    await all_writer.WriteAsync(s.Buffer, 0, s.Buffer.Length).ConfigureAwait(false);
-
+                    await all_writer.WriteAsync(s.Buffer.AsMemory(0, s.Buffer.Length)).ConfigureAwait(false);
                 }
             }
         }
@@ -140,43 +139,39 @@ namespace RecordingBot.Services.Media
 
             try
             {
-                using (var stream = File.OpenWrite(archiveFile))
+                using var stream = File.OpenWrite(archiveFile);
+                using ZipArchive archive = new(stream, ZipArchiveMode.Create);
+                // drain all the writers
+                foreach (var writer in _writers.Values)
                 {
-                    using (ZipArchive archive = new ZipArchive(stream, ZipArchiveMode.Create))
+                    var localFiles = new List<string>();
+                    var localArchive = archive; //protect the closure below
+                    var localFileName = writer.Filename;
+                    localFiles.Add(writer.Filename);
+                    await writer.FlushAsync();
+                    writer.Dispose();
+
+                    // Is Resampling and/or mono to stereo conversion required?
+                    if (_settings.AudioSettings.WavSettings != null)
                     {
-                        // drain all the writers
-                        foreach (var writer in _writers.Values)
+                        // The resampling is required
+                        localFiles.Add(AudioFileUtils.ResampleAudio(localFileName, _settings.AudioSettings.WavSettings, _settings.IsStereo));
+                    }
+                    else if (_settings.IsStereo) // Is Stereo audio required?
+                    {
+                        // Convert mono WAV to stereo
+                        localFiles.Add(AudioFileUtils.ConvertToStereo(localFileName));
+                    }
+
+                    // Remove temporary saved local WAV file from the disk
+                    foreach (var localFile in localFiles)
+                    {
+                        await Task.Run(() =>
                         {
-                            var localFiles = new List<string>();
-                            var localArchive = archive; //protect the closure below
-                            var localFileName = writer.Filename;
-                            localFiles.Add(writer.Filename);
-                            await writer.FlushAsync();
-                            writer.Dispose();
-
-                            // Is Resampling and/or mono to stereo conversion required?
-                            if (_settings.AudioSettings.WavSettings != null)
-                            {
-                                // The resampling is required
-                                localFiles.Add(AudioFileUtils.ResampleAudio(localFileName, _settings.AudioSettings.WavSettings, _settings.IsStereo));
-                            }
-                            else if (_settings.IsStereo) // Is Stereo audio required?
-                            {
-                                // Convert mono WAV to stereo
-                                localFiles.Add(AudioFileUtils.ConvertToStereo(localFileName));
-                            }
-
-                            // Remove temporary saved local WAV file from the disk
-                            foreach (var localFile in localFiles)
-                            {
-                                await Task.Run(() =>
-                                {
-                                    var fInfo = new FileInfo(localFile);
-                                    localArchive.CreateEntryFromFile(localFile, fInfo.Name, CompressionLevel.Optimal);
-                                    File.Delete(localFile);
-                                }).ConfigureAwait(false);
-                            }
-                        }
+                            var fInfo = new FileInfo(localFile);
+                            localArchive.CreateEntryFromFile(localFile, fInfo.Name, CompressionLevel.Optimal);
+                            File.Delete(localFile);
+                        }).ConfigureAwait(false);
                     }
                 }
             }

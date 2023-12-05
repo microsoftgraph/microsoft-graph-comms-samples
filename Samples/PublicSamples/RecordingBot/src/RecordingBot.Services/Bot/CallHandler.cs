@@ -27,7 +27,6 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Timers;
 
-
 namespace RecordingBot.Services.Bot
 {
     /// <summary>
@@ -77,21 +76,16 @@ namespace RecordingBot.Services.Bot
         /// <param name="statefulCall">The stateful call.</param>
         /// <param name="settings">The settings.</param>
         /// <param name="eventPublisher">The event publisher.</param>
-        public CallHandler(
-            ICall statefulCall,
-            IAzureSettings settings,
-            IEventPublisher eventPublisher
-        )
-            : base(TimeSpan.FromMinutes(10), statefulCall?.GraphLogger)
+        public CallHandler(ICall statefulCall, IAzureSettings settings, IEventPublisher eventPublisher) : base(TimeSpan.FromMinutes(10), statefulCall?.GraphLogger)
         {
             _settings = (AzureSettings)settings;
             _eventPublisher = eventPublisher;
 
-            this.Call = statefulCall;
-            this.Call.OnUpdated += this.CallOnUpdated;
-            this.Call.Participants.OnUpdated += this.ParticipantsOnUpdated;
-  
-            this.BotMediaStream = new BotMediaStream(this.Call.GetLocalMediaSession(), this.Call.Id, this.GraphLogger, eventPublisher,  _settings);
+            Call = statefulCall;
+            Call.OnUpdated += CallOnUpdated;
+            Call.Participants.OnUpdated += ParticipantsOnUpdated;
+
+            BotMediaStream = new BotMediaStream(Call.GetLocalMediaSession(), Call.Id, GraphLogger, eventPublisher, _settings);
 
             if (_settings.CaptureEvents)
             {
@@ -103,22 +97,21 @@ namespace RecordingBot.Services.Bot
         /// <inheritdoc/>
         protected override Task HeartbeatAsync(ElapsedEventArgs args)
         {
-            return this.Call.KeepAliveAsync();
+            return Call.KeepAliveAsync();
         }
 
         /// <inheritdoc />
         protected override void Dispose(bool disposing)
         {
-
             base.Dispose(disposing);
             _isDisposed = true;
-            this.Call.OnUpdated -= this.CallOnUpdated;
-            this.Call.Participants.OnUpdated -= this.ParticipantsOnUpdated;
+            Call.OnUpdated -= CallOnUpdated;
+            Call.Participants.OnUpdated -= ParticipantsOnUpdated;
 
-            this.BotMediaStream?.Dispose();
+            BotMediaStream?.Dispose();
 
             // Event - Dispose of the call completed ok
-            _eventPublisher.Publish("CallDisposedOK", $"Call.Id: {this.Call.Id}");
+            _eventPublisher.Publish("CallDisposedOK", $"Call.Id: {Call.Id}");
         }
 
         /// <summary>
@@ -126,22 +119,22 @@ namespace RecordingBot.Services.Bot
         /// </summary>
         /// <param name="source">The <see cref="ICall" /> source.</param>
         /// <param name="e">The <see cref="ElapsedEventArgs" /> instance containing the event data.</param>
-        private void OnRecordingStatusFlip(ICall source, ElapsedEventArgs e)
+        private void OnRecordingStatusFlip(ICall source)
         {
             _ = Task.Run(async () =>
             {
                 // TODO: consider rewriting the recording status checking
                 var recordingStatus = new[] { RecordingStatus.Recording, RecordingStatus.NotRecording, RecordingStatus.Failed };
 
-                var recordingIndex = this.recordingStatusIndex + 1;
+                var recordingIndex = recordingStatusIndex + 1;
                 if (recordingIndex >= recordingStatus.Length)
                 {
-                    var recordedParticipantId = this.Call.Resource.IncomingContext.ObservedParticipantId;
+                    var recordedParticipantId = Call.Resource.IncomingContext.ObservedParticipantId;
 
-                    var recordedParticipant = this.Call.Participants[recordedParticipantId];
+                    var recordedParticipant = Call.Participants[recordedParticipantId];
                     await recordedParticipant.DeleteAsync().ConfigureAwait(false);
                     // Event - Recording has ended
-                     _eventPublisher.Publish("CallRecordingFlip", $"Call.Id: {Call.Id} ended");
+                    _eventPublisher.Publish("CallRecordingFlip", $"Call.Id: {Call.Id} ended");
                     return;
                 }
 
@@ -157,7 +150,7 @@ namespace RecordingBot.Services.Bot
                         .UpdateRecordingStatusAsync(newStatus)
                         .ConfigureAwait(false);
 
-                    this.recordingStatusIndex = recordingIndex;
+                    recordingStatusIndex = recordingIndex;
                 }
                 catch (Exception exc)
                 {
@@ -166,7 +159,7 @@ namespace RecordingBot.Services.Bot
                     // Event - Recording status exception - failed to update 
                     _eventPublisher.Publish("CallRecordingFlip", $"Failed to flip the recording status to {newStatus}");
                 }
-            }).ForgetAndLogExceptionAsync(this.GraphLogger);
+            }).ForgetAndLogExceptionAsync(GraphLogger);
         }
 
         /// <summary>
@@ -185,7 +178,7 @@ namespace RecordingBot.Services.Bot
                 if (!_isDisposed)
                 {
                     // Call is established. We should start receiving Audio, we can inform clients that we have started recording.
-                    OnRecordingStatusFlip(sender, null);
+                    OnRecordingStatusFlip(sender);
                 }
             }
 
@@ -193,12 +186,11 @@ namespace RecordingBot.Services.Bot
             {
                 if (BotMediaStream != null)
                 {
-                   var aQoE = BotMediaStream.GetAudioQualityOfExperienceData();
+                    var aQoE = BotMediaStream.GetAudioQualityOfExperienceData();
 
-                    if (aQoE != null)
+                    if (aQoE != null && _settings.CaptureEvents)
                     {
-                        if (_settings.CaptureEvents)
-                            await _capture?.Append(aQoE);
+                        await _capture?.Append(aQoE);
                     }
                     await BotMediaStream.StopMedia();
                 }
@@ -216,10 +208,10 @@ namespace RecordingBot.Services.Bot
         /// <returns>System.String.</returns>
         private string createParticipantUpdateJson(string participantId, string participantDisplayName = "")
         {
-            if (participantDisplayName.Length==0)
-                return "{" + String.Format($"\"Id\": \"{participantId}\"") + "}";
+            if (participantDisplayName.Length == 0)
+                return "{" + string.Format($"\"Id\": \"{participantId}\"") + "}";
             else
-                return "{" + String.Format($"\"Id\": \"{participantId}\", \"DisplayName\": \"{participantDisplayName}\"") + "}";
+                return "{" + string.Format($"\"Id\": \"{participantId}\", \"DisplayName\": \"{participantDisplayName}\"") + "}";
         }
 
         /// <summary>
@@ -266,7 +258,7 @@ namespace RecordingBot.Services.Bot
                     }
                 }
 
-               if (json.Length > 0)
+                if (json.Length > 0)
                     if (added)
                         _eventPublisher.Publish("CallParticipantAdded", json);
                     else

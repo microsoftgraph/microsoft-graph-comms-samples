@@ -59,7 +59,6 @@ namespace RecordingBot.Services.ServiceSetup
             return config;
         }
 
-
         /// <summary>
         /// Configures the configuration object.
         /// </summary>
@@ -69,7 +68,6 @@ namespace RecordingBot.Services.ServiceSetup
         /// <exception cref="ArgumentNullException">services</exception>
         public static TConfig ConfigureConfigObject<TConfig>(this IServiceCollection services) where TConfig : class, new()
         {
-
             if (services == null) throw new ArgumentNullException(nameof(services));
 
             var config = new TConfig();
@@ -82,6 +80,5 @@ namespace RecordingBot.Services.ServiceSetup
             services.AddSingleton(config);
             return config;
         }
-
     }
 }

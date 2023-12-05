@@ -50,9 +50,9 @@ namespace RecordingBot.Services.Util
         /// <param name="settings">The settings.</param>
         public EventGridPublisher(AzureSettings settings)
         {
-            this.topicName = settings.TopicName;
-            this.topicKey = settings.TopicKey;
-            this.regionName = settings.RegionName;
+            topicName = settings.TopicName;
+            topicKey = settings.TopicKey;
+            regionName = settings.RegionName;
         }
 
         /// <summary>
@@ -64,10 +64,9 @@ namespace RecordingBot.Services.Util
         public void Publish(string Subject, string Message, string TopicName)
         {
             if (TopicName.Length == 0)
-                TopicName = this.topicName;
+                TopicName = topicName;
 
-            var topicEndpoint = String.Format(BotConstants.topicEndpoint, TopicName, this.regionName); 
-            var topicKey = this.topicKey;
+            var topicEndpoint = String.Format(BotConstants.topicEndpoint, TopicName, regionName); 
 
             if (topicKey?.Length > 0)
             { 

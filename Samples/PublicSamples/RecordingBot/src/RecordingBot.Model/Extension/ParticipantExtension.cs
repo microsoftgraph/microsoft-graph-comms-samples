@@ -22,7 +22,6 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-
 namespace RecordingBot.Model.Extension
 {
     /// <summary>
@@ -45,14 +44,14 @@ namespace RecordingBot.Model.Extension
         [JsonConstructor]
         public ParticipantExtension(IParticipant participant)
         {
-            this.Resource = participant?.Resource;
-            this.Id = participant?.Id;
-            this.ResourcePath = participant?.ResourcePath;
+            Resource = participant?.Resource;
+            Id = participant?.Id;
+            ResourcePath = participant?.ResourcePath;
 
             if (participant != null)
             {
-                this.ModifiedDateTime = participant.ModifiedDateTime;
-                participant.OnUpdated += this.OnUpdated;
+                ModifiedDateTime = participant.ModifiedDateTime;
+                participant.OnUpdated += OnUpdated;
             }
         }
 
@@ -62,7 +61,7 @@ namespace RecordingBot.Model.Extension
         /// <param name="participant">The participant.</param>
         public ParticipantExtension(Participant participant)
         {
-            this.Resource = participant;
+            Resource = participant;
         }
 
         /// <summary>
