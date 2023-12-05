@@ -95,11 +95,10 @@ namespace RecordingBot.Services.ServiceSetup
                 options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
                 options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
                 options.JsonSerializerOptions.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
-
                 options.JsonSerializerOptions.Converters.Add(new ODataJsonConverterFactory(null, null, SerializerAssemblies.Assemblies));
             });
 
-            var configuration = builder.Build();
+            var app = builder.Build();
 
             var host = new ServiceCollection().AddCoreServices(builder.Configuration);
 
@@ -116,6 +115,14 @@ namespace RecordingBot.Services.ServiceSetup
             {
                 _logger.Error(e, "Unhandled exception in Boot()");
             }
+
+            app.UseHttpsRedirection();
+
+            app.UseAuthorization();
+
+            app.MapControllers();
+
+            app.Run();
         }
 
         /// <summary>
