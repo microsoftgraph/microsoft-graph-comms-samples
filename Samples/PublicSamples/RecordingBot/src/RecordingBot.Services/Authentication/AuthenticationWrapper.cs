@@ -51,19 +51,19 @@ namespace RecordingBot.Services.Authentication
         /// <inheritdoc />
         public Task AuthenticateOutboundRequestAsync(HttpRequestMessage request, string tenant)
         {
-            return this.authenticationProvider.AuthenticateOutboundRequestAsync(request, tenant);
+            return authenticationProvider.AuthenticateOutboundRequestAsync(request, tenant);
         }
 
         /// <inheritdoc />
         public Task<RequestValidationResult> ValidateInboundRequestAsync(HttpRequestMessage request)
         {
-            return this.authenticationProvider.ValidateInboundRequestAsync(request);
+            return authenticationProvider.ValidateInboundRequestAsync(request);
         }
 
         /// <inheritdoc />
         public Task AuthenticateRequestAsync(HttpRequestMessage request)
         {
-            return this.AuthenticateOutboundRequestAsync(request, this.tenant);
+            return AuthenticateOutboundRequestAsync(request, tenant);
         }
     }
 }

@@ -23,9 +23,7 @@ using RecordingBot.Services.Contract;
 using RecordingBot.Services.Media;
 using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using System.Threading.Tasks;
-
 
 namespace RecordingBot.Services.Bot
 {
@@ -77,32 +75,26 @@ namespace RecordingBot.Services.Bot
             string callId,
             IGraphLogger logger,
             IEventPublisher eventPublisher,
-            IAzureSettings settings
-        )
-            : base(logger)
+            IAzureSettings settings) : base(logger)
         {
             ArgumentVerifier.ThrowOnNullArgument(mediaSession, nameof(mediaSession));
             ArgumentVerifier.ThrowOnNullArgument(logger, nameof(logger));
             ArgumentVerifier.ThrowOnNullArgument(settings, nameof(settings));
 
-            this.participants = new List<IParticipant>();
+            participants = [];
 
             _eventPublisher = eventPublisher;
             _callId = callId;
-            _mediaStream = new MediaStream(
-                settings,
-                logger,
-                mediaSession.MediaSessionId.ToString()
-            );
+            _mediaStream = new MediaStream(settings, logger, mediaSession.MediaSessionId.ToString());
 
             // Subscribe to the audio media.
-            this._audioSocket = mediaSession.AudioSocket;
-            if (this._audioSocket == null)
+            _audioSocket = mediaSession.AudioSocket;
+            if (_audioSocket == null)
             {
                 throw new InvalidOperationException("A mediaSession needs to have at least an audioSocket");
             }
 
-            this._audioSocket.AudioMediaReceived += this.OnAudioMediaReceived;
+            _audioSocket.AudioMediaReceived += OnAudioMediaReceived;
         }
 
         /// <summary>
@@ -120,7 +112,7 @@ namespace RecordingBot.Services.Bot
         /// <returns>SerializableAudioQualityOfExperienceData.</returns>
         public SerializableAudioQualityOfExperienceData GetAudioQualityOfExperienceData()
         {
-            AudioQualityOfExperienceData = new SerializableAudioQualityOfExperienceData(this._callId, this._audioSocket.GetQualityOfExperienceData());
+            AudioQualityOfExperienceData = new SerializableAudioQualityOfExperienceData(_callId, _audioSocket.GetQualityOfExperienceData());
             return AudioQualityOfExperienceData;
         }
 
@@ -142,7 +134,7 @@ namespace RecordingBot.Services.Bot
 
             base.Dispose(disposing);
 
-            this._audioSocket.AudioMediaReceived -= this.OnAudioMediaReceived;
+            _audioSocket.AudioMediaReceived -= OnAudioMediaReceived;
         }
 
         /// <summary>
@@ -152,22 +144,21 @@ namespace RecordingBot.Services.Bot
         /// <param name="e">The audio media received arguments.</param>
         private async void OnAudioMediaReceived(object sender, AudioMediaReceivedEventArgs e)
         {
-            this.GraphLogger.Info($"Received Audio: [AudioMediaReceivedEventArgs(Data=<{e.Buffer.Data.ToString()}>, Length={e.Buffer.Length}, Timestamp={e.Buffer.Timestamp})]");
+            GraphLogger.Info($"Received Audio: [AudioMediaReceivedEventArgs(Data=<{e.Buffer.Data}>, Length={e.Buffer.Length}, Timestamp={e.Buffer.Timestamp})]");
 
             try
             {
-                await _mediaStream.AppendAudioBuffer(e.Buffer, this.participants);
+                await _mediaStream.AppendAudioBuffer(e.Buffer, participants);
                 e.Buffer.Dispose();
             }
             catch (Exception ex)
             {
-                this.GraphLogger.Error(ex);
+                GraphLogger.Error(ex);
             }
             finally
             {
                 e.Buffer.Dispose();
             }
-
         }
     }
 }

@@ -16,7 +16,6 @@ using Microsoft.Graph.Communications.Calls;
 using Microsoft.Skype.Bots.Media;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 
@@ -118,7 +117,7 @@ namespace RecordingBot.Services.Media
         /// <returns>IParticipant.</returns>
         private IParticipant _getParticipantFromMSI(uint msi)
         {
-            return this.participants.SingleOrDefault(x => x.Resource.IsInLobby == false && x.Resource.MediaStreams.Any(y => y.SourceId == msi.ToString()));
+            return participants.SingleOrDefault(x => x.Resource.IsInLobby == false && x.Resource.MediaStreams.Any(y => y.SourceId == msi.ToString()));
         }
 
         /// <summary>

@@ -101,36 +101,34 @@ namespace RecordingBot.Services.Authentication
 
             try
             {
-                using (var httpClient = new HttpClient())
+                using var httpClient = new HttpClient();
+                var result = await httpClient.PostAsync(tokenLink, new FormUrlEncodedContent(new[]
                 {
-                    var result = await httpClient.PostAsync(tokenLink, new FormUrlEncodedContent(new[]
-                    {
-                        new KeyValuePair<string, string>("grant_type", "password"),
-                        new KeyValuePair<string, string>("username", this.userName),
-                        new KeyValuePair<string, string>("password", this.password),
-                        new KeyValuePair<string, string>("scope", Resource),
-                        new KeyValuePair<string, string>("client_id", this.appId),
-                        new KeyValuePair<string, string>("client_secret", this.appSecret),
-                    })).ConfigureAwait(false);
+                    new KeyValuePair<string, string>("grant_type", "password"),
+                    new KeyValuePair<string, string>("username", userName),
+                    new KeyValuePair<string, string>("password", password),
+                    new KeyValuePair<string, string>("scope", Resource),
+                    new KeyValuePair<string, string>("client_id", appId),
+                    new KeyValuePair<string, string>("client_secret", appSecret),
+                })).ConfigureAwait(false);
 
-                    if (!result.IsSuccessStatusCode)
-                    {
-                        throw new Exception("Failed to generate user token.");
-                    }
-
-                    var content = await result.Content.ReadAsStringAsync().ConfigureAwait(false);
-                    authResult = JsonConvert.DeserializeObject<OAuthResponse>(content);
-
-                    request.Headers.Authorization = new AuthenticationHeaderValue(BearerPrefix, authResult.Access_Token);
+                if (!result.IsSuccessStatusCode)
+                {
+                    throw new Exception("Failed to generate user token.");
                 }
+
+                var content = await result.Content.ReadAsStringAsync().ConfigureAwait(false);
+                authResult = JsonConvert.DeserializeObject<OAuthResponse>(content);
+
+                request.Headers.Authorization = new AuthenticationHeaderValue(BearerPrefix, authResult.Access_Token);
             }
             catch (Exception ex)
             {
-                this.GraphLogger.Error(ex, $"Failed to generate user token for user: {this.userName}");
+                GraphLogger.Error(ex, $"Failed to generate user token for user: {userName}");
                 throw;
             }
 
-            this.GraphLogger.Info($"Generated OAuth token. Expires in {authResult.Expires_In / 60}  minutes.");
+            GraphLogger.Info($"Generated OAuth token. Expires in {authResult.Expires_In / 60}  minutes.");
         }
 
         /// <inheritdoc />

@@ -32,9 +32,9 @@ namespace RecordingBot.Services.Http
         /// <param name="logger">Graph logger.</param>
         public void ConfigureSettings(IAppBuilder app, IGraphLogger logger)
         {
-            HttpConfiguration httpConfig = new HttpConfiguration();
+            HttpConfiguration httpConfig = new();
             httpConfig.MapHttpAttributeRoutes();
-            httpConfig.MessageHandlers.Add(new LoggingMessageHandler(isIncomingMessageHandler: true, logger: logger, urlIgnorers: new[] { "/logs" }));
+            httpConfig.MessageHandlers.Add(new LoggingMessageHandler(isIncomingMessageHandler: true, logger: logger, urlIgnorers: ["/logs"]));
 
             httpConfig.Services.Add(typeof(IExceptionLogger), new ExceptionLogger(logger));
 

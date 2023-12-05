@@ -26,10 +26,10 @@ namespace RecordingBot.Model.Settings
         /// </summary>
         public WavFileSettings()
         {
-            this.CompressionCode = 1;            // PCM
-            this.NumberOfChannels = 1;           // No Stereo
-            this.SampleRate = 16000;             // 16khz only
-            this.AvgBytesPerSecond = 32000;
+            CompressionCode = 1;            // PCM
+            NumberOfChannels = 1;           // No Stereo
+            SampleRate = 16000;             // 16khz only
+            AvgBytesPerSecond = 32000;
         }
 
         /// <summary>

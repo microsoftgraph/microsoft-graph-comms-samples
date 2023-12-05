@@ -173,7 +173,6 @@ namespace RecordingBot.Services.ServiceSetup
         /// <value>The wav quality.</value>
         public int WAVQuality { get; set; }
 
-
         /// <summary>
         /// Initializes this instance.
         /// </summary>
@@ -184,29 +183,27 @@ namespace RecordingBot.Services.ServiceSetup
                 ServiceCname = ServiceDnsName;
             }
 
-            X509Certificate2 defaultCertificate = this.GetCertificateFromStore();
-
-            List<string> controlListenUris = new List<string>();
+            X509Certificate2 defaultCertificate = GetCertificateFromStore();
 
             var baseDomain = "+";
-
             int podNumber = 0;
 
-            if (!string.IsNullOrEmpty(this.PodName))
+            if (!string.IsNullOrEmpty(PodName))
             {
-                int.TryParse(Regex.Match(this.PodName, @"\d+$").Value, out podNumber);
+                _ = int.TryParse(Regex.Match(PodName, @"\d+$").Value, out podNumber);
             }
 
             // Create structured config objects for service.
-            this.CallControlBaseUrl = new Uri($"https://{this.ServiceCname}/{podNumber}/{HttpRouteConstants.CallSignalingRoutePrefix}/{HttpRouteConstants.OnNotificationRequestRoute}");
+            CallControlBaseUrl = new Uri($"https://{ServiceCname}/{podNumber}/{HttpRouteConstants.CallSignalingRoutePrefix}/{HttpRouteConstants.OnNotificationRequestRoute}");
 
+            List<string> controlListenUris = [];
             controlListenUris.Add($"https://{baseDomain}:{CallSignalingPort}/");
             controlListenUris.Add($"https://{baseDomain}:{CallSignalingPort}/{podNumber}/");
             controlListenUris.Add($"http://{baseDomain}:{CallSignalingPort + 1}/"); // required for AKS pod graceful termination
 
-            this.CallControlListeningUrls = controlListenUris;
+            CallControlListeningUrls = controlListenUris;
 
-            this.MediaPlatformSettings = new MediaPlatformSettings()
+            MediaPlatformSettings = new MediaPlatformSettings()
             {
                 MediaPlatformInstanceSettings = new MediaPlatformInstanceSettings()
                 {
@@ -214,14 +211,13 @@ namespace RecordingBot.Services.ServiceSetup
                     InstanceInternalPort = InstanceInternalPort,
                     InstancePublicIPAddress = IPAddress.Any,
                     InstancePublicPort = InstancePublicPort + podNumber,
-                    ServiceFqdn = this.ServiceCname
+                    ServiceFqdn = ServiceCname
                 },
-                ApplicationId = this.AadAppId,
+                ApplicationId = AadAppId,
             };
 
-
             // Initialize Audio Settings
-            this.AudioSettings = new AudioSettings
+            AudioSettings = new AudioSettings
             {
                 WavSettings = (WAVSampleRate > 0) ? new WAVSettings(WAVSampleRate, WAVQuality): null
             };
@@ -234,8 +230,7 @@ namespace RecordingBot.Services.ServiceSetup
         /// <exception cref="Exception">No certificate with thumbprint {CertificateThumbprint} was found in the machine store.</exception>
         private X509Certificate2 GetCertificateFromStore()
         {
-
-            X509Store store = new X509Store(StoreName.My, StoreLocation.LocalMachine);
+            X509Store store = new(StoreName.My, StoreLocation.LocalMachine);
             store.Open(OpenFlags.ReadOnly);
             try
             {

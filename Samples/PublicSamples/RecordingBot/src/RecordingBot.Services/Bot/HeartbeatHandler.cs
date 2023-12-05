@@ -39,11 +39,13 @@ namespace RecordingBot.Services.Bot
             : base(logger)
         {
             // initialize the timer
-            var timer = new Timer(frequency.TotalMilliseconds);
-            timer.Enabled = true;
-            timer.AutoReset = true;
-            timer.Elapsed += this.HeartbeatDetected;
-            this.heartbeatTimer = timer;
+            var timer = new Timer(frequency.TotalMilliseconds)
+            {
+                Enabled = true,
+                AutoReset = true
+            };
+            timer.Elapsed += HeartbeatDetected;
+            heartbeatTimer = timer;
         }
 
         /// <summary>
@@ -57,9 +59,9 @@ namespace RecordingBot.Services.Bot
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);
-            this.heartbeatTimer.Elapsed -= this.HeartbeatDetected;
-            this.heartbeatTimer.Stop();
-            this.heartbeatTimer.Dispose();
+            heartbeatTimer.Elapsed -= HeartbeatDetected;
+            heartbeatTimer.Stop();
+            heartbeatTimer.Dispose();
         }
 
         /// <summary>
@@ -69,9 +71,9 @@ namespace RecordingBot.Services.Bot
         /// <param name="args">The elapsed event args.</param>
         private void HeartbeatDetected(object sender, ElapsedEventArgs args)
         {
-            var task = $"{this.GetType().FullName}.{nameof(this.HeartbeatAsync)}(args)";
-            this.GraphLogger.Verbose($"Starting running task: " + task);
-            _ = Task.Run(() => this.HeartbeatAsync(args)).ForgetAndLogExceptionAsync(this.GraphLogger, task);
+            var task = $"{GetType().FullName}.{nameof(HeartbeatAsync)}(args)";
+            GraphLogger.Verbose($"Starting running task: " + task);
+            _ = Task.Run(() => HeartbeatAsync(args)).ForgetAndLogExceptionAsync(GraphLogger, task);
         }
     }
 }

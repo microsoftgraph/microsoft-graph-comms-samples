@@ -74,14 +74,7 @@ namespace RecordingBot.Services.Http
                 return string.Empty;
             }
 
-            List<string> headerTexts = new List<string>();
-
-            foreach (KeyValuePair<string, IEnumerable<string>> h in headers)
-            {
-                headerTexts.Add(GetHeaderText(h));
-            }
-
-            return string.Join(Environment.NewLine, headerTexts);
+            return string.Join(Environment.NewLine, headers.Select(s => GetHeaderText(s)));
         }
 
         /// <summary>
@@ -90,31 +83,23 @@ namespace RecordingBot.Services.Http
         /// <param name="request">The request.</param>
         /// <param name="cancellationToken">The cancellation Token.</param>
         /// <returns>The <see cref="Task" />.</returns>
-        protected override async Task<HttpResponseMessage> SendAsync(
-            HttpRequestMessage request,
-            CancellationToken cancellationToken)
+        protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             string requestCid;
             string responseCid;
 
-            if (this.isIncomingMessageHandler)
-            {
-                requestCid = this.AdoptScenarioId(request.Headers);
-            }
-            else
-            {
-                requestCid = this.SetScenarioId(request.Headers);
-            }
+            requestCid = isIncomingMessageHandler
+                ? AdoptScenarioId(request.Headers)
+                : SetScenarioId(request.Headers);
 
-            bool ignore = this.urlIgnorers != null && this.urlIgnorers
-                .Any(ignorer => request.RequestUri.ToString().IndexOf(ignorer, StringComparison.OrdinalIgnoreCase) >= 0);
+            bool ignore = urlIgnorers != null && urlIgnorers.Any(ignorer => request.RequestUri.ToString().Contains(ignorer, StringComparison.OrdinalIgnoreCase));
 
             if (ignore)
             {
-                return await this.SendAndLogAsync(request, cancellationToken).ConfigureAwait(false);
+                return await SendAndLogAsync(request, cancellationToken).ConfigureAwait(false);
             }
 
-            var direction = this.isIncomingMessageHandler
+            var direction = isIncomingMessageHandler
                 ? TransactionDirection.Incoming
                 : TransactionDirection.Outgoing;
 
@@ -124,7 +109,7 @@ namespace RecordingBot.Services.Http
                 requestHeaders.AddRange(request.Content.Headers);
             }
 
-            this.logger.LogHttpMessage(
+            logger.LogHttpMessage(
                 TraceLevel.Verbose,
                 direction,
                 HttpTraceType.HttpRequest,
@@ -134,18 +119,13 @@ namespace RecordingBot.Services.Http
                 headers: requestHeaders);
 
             Stopwatch stopwatch = Stopwatch.StartNew();
-            HttpResponseMessage response = await this.SendAndLogAsync(request, cancellationToken).ConfigureAwait(false);
+            HttpResponseMessage response = await SendAndLogAsync(request, cancellationToken).ConfigureAwait(false);
 
-            if (this.isIncomingMessageHandler)
-            {
-                responseCid = this.SetScenarioId(response.Headers);
-            }
-            else
-            {
-                responseCid = this.AdoptScenarioId(response.Headers);
-            }
+            responseCid = isIncomingMessageHandler
+                ? SetScenarioId(response.Headers)
+                : AdoptScenarioId(response.Headers);
 
-            this.WarnIfDifferent(requestCid, responseCid);
+            WarnIfDifferent(requestCid, responseCid);
 
             var responseHeaders = new List<KeyValuePair<string, IEnumerable<string>>>(response.Headers);
             if (response.Content?.Headers?.Any() == true)
@@ -153,7 +133,7 @@ namespace RecordingBot.Services.Http
                 responseHeaders.AddRange(response.Content.Headers);
             }
 
-            this.logger.LogHttpMessage(
+            logger.LogHttpMessage(
                 TraceLevel.Verbose,
                 direction,
                 HttpTraceType.HttpResponse,
@@ -184,18 +164,16 @@ namespace RecordingBot.Services.Http
         /// <returns>The <see cref="string" />.</returns>
         private string AdoptScenarioId(HttpHeaders headers)
         {
-            IEnumerable<string> values;
-            Guid scenarioGuid;
             string scenarioId = null;
-            if (headers.TryGetValues(HttpConstants.HeaderNames.ScenarioId, out values) && Guid.TryParse(values.FirstOrDefault(), out scenarioGuid))
+            if (headers.TryGetValues(HttpConstants.HeaderNames.ScenarioId, out IEnumerable<string> values) && Guid.TryParse(values.FirstOrDefault(), out Guid scenarioGuid))
             {
                 scenarioId = scenarioGuid.ToString();
-                this.logger.CorrelationId = scenarioGuid;
+                logger.CorrelationId = scenarioGuid;
             }
             else if (headers.TryGetValues(HttpConstants.HeaderNames.ChainId, out values) && Guid.TryParse(values.FirstOrDefault(), out scenarioGuid))
             {
                 scenarioId = scenarioGuid.ToString();
-                this.logger.CorrelationId = scenarioGuid;
+                logger.CorrelationId = scenarioGuid;
             }
 
             return scenarioId;
@@ -208,7 +186,7 @@ namespace RecordingBot.Services.Http
         /// <returns>The <see cref="string" />.</returns>
         private string SetScenarioId(HttpHeaders headers)
         {
-            Guid scenarioId = this.logger.CorrelationId;
+            Guid scenarioId = logger.CorrelationId;
             if (scenarioId != Guid.Empty)
             {
                 headers.Add(HttpConstants.HeaderNames.ScenarioId, scenarioId.ToString());
@@ -233,7 +211,7 @@ namespace RecordingBot.Services.Http
             }
             catch (Exception e)
             {
-                this.logger.Error(e, "Exception occurred when calling SendAsync");
+                logger.Error(e, "Exception occurred when calling SendAsync");
                 throw;
             }
         }
@@ -252,7 +230,7 @@ namespace RecordingBot.Services.Http
 
             if (!string.Equals(requestCid, responseCid))
             {
-                this.logger.Warn($"The scenarioId of the {(this.isIncomingMessageHandler ? "incoming" : "outgoing")} request, {requestCid}, is different from the outgoing response, {responseCid}.");
+                logger.Warn($"The scenarioId of the {(isIncomingMessageHandler ? "incoming" : "outgoing")} request, {requestCid}, is different from the outgoing response, {responseCid}.");
             }
         }
     }
