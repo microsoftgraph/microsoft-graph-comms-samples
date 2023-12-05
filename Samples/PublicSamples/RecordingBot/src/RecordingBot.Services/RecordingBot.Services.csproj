@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<OutputType>Library</OutputType>
 		<TargetFramework>net6.0</TargetFramework>
@@ -14,12 +13,7 @@
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Azure.Messaging.EventGrid" Version="4.21.0" />
-		<PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.3.0" />
-		<PackageReference Include="Microsoft.IdentityModel.Clients.ActiveDirectory" Version="5.3.0" />
 		<PackageReference Include="NAudio" Version="2.2.1" />
-		<PackageReference Include="Newtonsoft.Json.Bson">
-			<Version>1.0.2</Version>
-		</PackageReference>
 		<PackageReference Include="OpenTelemetry.Exporter.Console">
 			<Version>1.6.0</Version>
 		</PackageReference>
