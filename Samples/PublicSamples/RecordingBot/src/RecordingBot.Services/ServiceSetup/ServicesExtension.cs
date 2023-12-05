@@ -28,9 +28,9 @@ namespace RecordingBot.Services.ServiceSetup
         /// </summary>
         /// <param name="services">The services.</param>
         /// <param name="configuration">The configuration.</param>
-        public static void AddCoreServices(this IServiceCollection services, IConfiguration configuration)
+        public static ServiceHost AddCoreServices(this IServiceCollection services, IConfiguration configuration)
         {
-            new ServiceHost().Configure(services, configuration);
+            return new ServiceHost().Configure(services, configuration);
         }
 
         /// <summary>

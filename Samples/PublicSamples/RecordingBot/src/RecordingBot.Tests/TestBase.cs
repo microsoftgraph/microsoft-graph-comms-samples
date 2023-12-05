@@ -28,7 +28,7 @@ namespace RecordingBot.Tests
         /// </summary>
         public TestBase()
         {
-            Boot();
+            Boot(null);
         }
     }
 }

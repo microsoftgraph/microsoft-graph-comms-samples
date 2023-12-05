@@ -12,6 +12,5 @@
 		<PackageReference Include="Microsoft.Graph.Communications.Calls">
 			<Version>1.2.0.7270</Version>
 		</PackageReference>
-		<PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
 	</ItemGroup>
 </Project>

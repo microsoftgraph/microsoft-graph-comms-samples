@@ -11,14 +11,19 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
+using Microsoft.Graph.Communications.Common.OData;
 using Microsoft.Graph.Communications.Common.Telemetry;
-using Microsoft.Owin.Hosting;
+using RecordingBot.Model.Constants;
 using RecordingBot.Services.Contract;
-using RecordingBot.Services.Http;
 using System;
+using System.Net;
+using System.Text.Encodings.Web;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace RecordingBot.Services.ServiceSetup
 {
@@ -32,26 +37,13 @@ namespace RecordingBot.Services.ServiceSetup
         /// </summary>
         /// <value>The service provider.</value>
         private IServiceProvider ServiceProvider { get; set; }
-        /// <summary>
-        /// Gets or sets the service collection.
-        /// </summary>
-        /// <value>The service collection.</value>
-        private IServiceCollection ServiceCollection { get; set; }
+
         /// <summary>
         /// Gets the application host instance.
         /// </summary>
         /// <value>The application host instance.</value>
         public static AppHost AppHostInstance { get; private set; }
 
-        /// <summary>
-        /// The call HTTP server
-        /// </summary>
-        private IDisposable _callHttpServer;
-
-        /// <summary>
-        /// The settings
-        /// </summary>
-        private IAzureSettings _settings;
         /// <summary>
         /// The bot service
         /// </summary>
@@ -63,7 +55,6 @@ namespace RecordingBot.Services.ServiceSetup
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AppHost" /> class.
-
         /// </summary>
         public AppHost()
         {
@@ -73,30 +64,51 @@ namespace RecordingBot.Services.ServiceSetup
         /// <summary>
         /// Boots this instance.
         /// </summary>
-        public void Boot()
+        public void Boot(string[] args)
         {
+            var builder = WebApplication.CreateBuilder(args);
+
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
             DotNetEnv.Env.Load(path: null, options: new DotNetEnv.LoadOptions());
+            builder.Configuration.AddEnvironmentVariables();
 
-            var builder = new ConfigurationBuilder();
+            // Load Azure Settings
+            var azureSettings = new AzureSettings();
+            builder.Configuration.GetSection(nameof(AzureSettings)).Bind(azureSettings);
+            azureSettings.Initialize();
+            builder.Services.AddSingleton(azureSettings);
 
-            // tell the builder to look for the appsettings.json file
-            builder
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .AddEnvironmentVariables();
+            // Setup Listening Urls
+            builder.WebHost.UseKestrel(serverOptions =>
+            {
+                serverOptions.ListenAnyIP(azureSettings.CallSignalingPort);
+                // for local or debug operation we need an https port
+                serverOptions.ListenAnyIP(azureSettings.CallSignalingPort - 1, config => config.UseHttps(azureSettings.Certificate));
+            });
+
+            // Add services to the container.
+            builder.Services.AddControllers().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.WriteIndented = true; //pretty
+                options.JsonSerializerOptions.AllowTrailingCommas = true;
+                options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+                options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+                options.JsonSerializerOptions.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+
+                options.JsonSerializerOptions.Converters.Add(new ODataJsonConverterFactory(null, null, SerializerAssemblies.Assemblies));
+            });
 
             var configuration = builder.Build();
 
-            ServiceCollection = new ServiceCollection();
-            ServiceCollection.AddCoreServices(configuration);
+            var host = new ServiceCollection().AddCoreServices(builder.Configuration);
 
-            ServiceProvider = ServiceCollection.BuildServiceProvider();
+            ServiceProvider = host.Build();
 
             _logger = Resolve<IGraphLogger>();
 
             try
             {
-                _settings = Resolve<IOptions<AzureSettings>>().Value;
-                _settings.Initialize();
                 Resolve<IEventPublisher>();
                 _botService = Resolve<IBotService>();
             }
@@ -104,7 +116,6 @@ namespace RecordingBot.Services.ServiceSetup
             {
                 _logger.Error(e, "Unhandled exception in Boot()");
             }
-
         }
 
         /// <summary>
@@ -115,22 +126,6 @@ namespace RecordingBot.Services.ServiceSetup
             try
             {
                 _botService.Initialize();
-
-                var callStartOptions = new StartOptions();
-
-                foreach (var url in ((AzureSettings)_settings).CallControlListeningUrls)
-                {
-                    callStartOptions.Urls.Add(url);
-                    _logger.Info("Listening on: {url}", url);
-                }
-
-                _callHttpServer = WebApp.Start(
-                    callStartOptions,
-                    (appBuilder) =>
-                    {
-                        var startup = new HttpConfigurationInitializer();
-                        startup.ConfigureSettings(appBuilder, _logger);
-                    });
             }
             catch (Exception e)
             {
