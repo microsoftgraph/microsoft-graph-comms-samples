@@ -5,7 +5,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ $fullName }}-tcp-services
-  namespace: ingress-nginx
+  namespace: {{ index .Values "ingress-nginx" "namespaceOverride"}}
   labels:
     helmVersion: {{ .Chart.Version }}
     helmAppVersion: {{ .Chart.AppVersion }}
