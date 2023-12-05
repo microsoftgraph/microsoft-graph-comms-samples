@@ -11,8 +11,8 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using Microsoft.Azure.EventGrid;
-using Microsoft.Azure.EventGrid.Models;
+using Azure;
+using Azure.Messaging.EventGrid;
 using RecordingBot.Model.Constants;
 using RecordingBot.Model.Models;
 using RecordingBot.Services.Contract;
@@ -71,16 +71,14 @@ namespace RecordingBot.Services.Util
 
             if (topicKey?.Length > 0)
             { 
-                var topicHostname = new Uri(topicEndpoint).Host;
-                var topicCredentials = new TopicCredentials(topicKey);
-                var client = new EventGridClient(topicCredentials);
+                var client = new EventGridPublisherClient(new Uri(topicEndpoint), new AzureKeyCredential(topicKey));
 
                 // Add event to list
                 var eventsList = new List<EventGridEvent>();
                 ListAddEvent(eventsList, Subject, Message);
 
                 // Publish
-                client.PublishEventsAsync(topicHostname, eventsList).GetAwaiter().GetResult();
+                client.SendEventsAsync(eventsList).GetAwaiter().GetResult();
                 if (Subject.StartsWith("CallTerminated"))
                     Console.WriteLine($"Publish to {TopicName} subject {Subject} message {Message}");
                 else
@@ -99,18 +97,12 @@ namespace RecordingBot.Services.Util
         /// <param name="DataVersion">The data version.</param>
         static void ListAddEvent(List<EventGridEvent> eventsList, string Subject, string Message, string DataVersion = "2.0")
         {
-            eventsList.Add(new EventGridEvent()
+            var eventGrid = new EventGridEvent(Subject, "RecordingBot.BotEventData", DataVersion, new BotEventData() { Message = Message })
             {
-                Id = Guid.NewGuid().ToString(),
-                EventType = "RecordingBot.BotEventData",
-                Data = new BotEventData()
-                {
-                    Message = Message
-                },
-                EventTime = DateTime.Now,
-                Subject = Subject,
-                DataVersion = DataVersion
-            });
+                EventTime = DateTime.Now
+            };
+
+            eventsList.Add(eventGrid);
         }
     }
 }

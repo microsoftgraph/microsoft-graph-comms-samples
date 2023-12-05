@@ -75,7 +75,7 @@ namespace RecordingBot.Services.ServiceSetup
         /// </summary>
         public void Boot()
         {
-            DotNetEnv.Env.Load(new DotNetEnv.Env.LoadOptions(parseVariables: false));
+            DotNetEnv.Env.Load(path: null, options: new DotNetEnv.LoadOptions());
 
             var builder = new ConfigurationBuilder();
 
