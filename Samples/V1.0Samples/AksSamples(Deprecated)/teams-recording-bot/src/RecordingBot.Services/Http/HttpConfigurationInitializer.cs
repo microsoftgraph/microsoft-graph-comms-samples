@@ -34,7 +34,7 @@ namespace RecordingBot.Services.Http
         {
             HttpConfiguration httpConfig = new HttpConfiguration();
             httpConfig.MapHttpAttributeRoutes();
-            httpConfig.MessageHandlers.Add(new LoggingMessageHandler(isIncomingMessageHandler: true, logger: logger, urlIgnorers: new[] { "/logs" }));
+            httpConfig.MessageHandlers.Add(new LoggingMessageHandler(isIncomingMessageHandler: true, logger: logger, urlIgnorers: new string[] { "/logs" }));
 
             httpConfig.Services.Add(typeof(IExceptionLogger), new ExceptionLogger(logger));
 
