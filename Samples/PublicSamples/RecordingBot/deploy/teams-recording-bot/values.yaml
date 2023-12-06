@@ -29,7 +29,10 @@ public:
   ip: null
 
 node:
-  target: scale
+  targetNodePool: scale
+  targetOS: windows
+  targetArch: amd64
+  targetSku: Windows2022
 
 terminationGracePeriod: 54000
 
@@ -45,7 +48,6 @@ container:
       isStereo: false
       wavSampleRate: 0 # when it is 0, the default sample rate will be set per the stereo flag setting above
       wavQuality: 100
-  port: 9441
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
