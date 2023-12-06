@@ -6,11 +6,8 @@ ARG InstanceInternalPort=8445
 
 COPY /src /src
 
-WORKDIR /src
-RUN nuget restore
-
 WORKDIR /src/RecordingBot.Console
-RUN msbuild /p:Configuration=Release /p:OutputPath=C:\app /p:Platform=x64
+RUN dotnet build RecordingBot.Console.csproj --arch x64 --self-contained --configuration Release --output C:\app 
 
 
 FROM mcr.microsoft.com/windows/server:ltsc2022
