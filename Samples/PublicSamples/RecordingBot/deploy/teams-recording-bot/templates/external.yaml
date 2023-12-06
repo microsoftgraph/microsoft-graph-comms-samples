@@ -2,8 +2,8 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-ingress-ingress-nginx-controller
-  namespace: ingress-nginx
+  name: {{ $.Chart.Name }}-ingress-nginx-controller
+  namespace: {{  index .Values "ingress-nginx" "namespaceOverride"  }}}
   labels:
     helmVersion: {{ $.Chart.Version }}
     helmAppVersion: {{ $.Chart.AppVersion }}
@@ -29,5 +29,9 @@ spec:
 {{- end }}
   selector:
     app.kubernetes.io/component: controller
+<<<<<<< HEAD
     app.kubernetes.io/instance: {{ .Release.Name }}
+=======
+    app.kubernetes.io/instance: {{ $.Chart.Name }}
+>>>>>>> 099f728 (Adjust helm chart to new kubernetes version)
     app.kubernetes.io/name: ingress-nginx 

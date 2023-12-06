@@ -21,17 +21,23 @@ spec:
       labels:
         app: {{ $fullName }}
     spec:
-      nodeSelector:
-        "beta.kubernetes.io/os": windows
       affinity:
         nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
+           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: agentpool
+              - key: kubernetes.io/os
                 operator: In
                 values:
-                - {{ .Values.node.target }}
+                - {{ .Values.node.targetOS }}
+              - key: kubernetes.io/arch
+                operator: In
+                values:
+                - {{ .Values.node.targetArch }}
+              - key: kubernetes.azure.com/os-sku
+                operator: In
+                values:
+                - {{ .Values.node.targetSku }}
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
           - weight: 1
@@ -56,7 +62,7 @@ spec:
               - Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine;
               - .\halt_termination.ps1
         ports:
-        - containerPort: {{ .Values.container.port }}
+        - containerPort: {{ .Values.internal.port }}
         - containerPort: {{ .Values.internal.media }}
         volumeMounts:
         - mountPath: "C:/certs/"
@@ -113,7 +119,7 @@ spec:
         resources:
           {{- toYaml .Values.resources | nindent 12 }}
       nodeSelector:
-        agentpool: {{ .Values.node.target }}
+        agentpool: {{ .Values.node.targetNodePool }}
       volumes:
       - name: certificate
         secret:
