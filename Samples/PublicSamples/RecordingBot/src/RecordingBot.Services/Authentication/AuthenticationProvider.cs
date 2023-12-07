@@ -194,7 +194,6 @@ namespace RecordingBot.Services.Authentication
                 return new RequestValidationResult { IsValid = false };
             }
 
-            request.Options.AddRange(new List<KeyValuePair<string, object>> { new(HttpConstants.HeaderNames.Tenant, tenantClaim.Value) });
             return new RequestValidationResult { IsValid = true, TenantId = tenantClaim.Value };
         }
 

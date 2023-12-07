@@ -15,10 +15,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Graph;
 using Microsoft.Graph.Communications.Client;
+using Microsoft.Graph.Communications.Client.Authentication;
 using Microsoft.Graph.Communications.Common.Telemetry;
 using RecordingBot.Model.Constants;
 using RecordingBot.Model.Extension;
 using System;
+using System.Threading.Tasks;
 
 namespace RecordingBot.Services.Http.Controllers
 {
@@ -48,7 +50,7 @@ namespace RecordingBot.Services.Http.Controllers
         [HttpPost]
         [Route(HttpRouteConstants.OnNotificationRequestRoute)]
         [Route(HttpRouteConstants.OnIncomingRequestRoute)]
-        public IActionResult OnNotificationRequestAsync(
+        public async Task<IActionResult> OnNotificationRequestAsync(
            [FromHeader(Name = "Client-Request-Id")] Guid? clientRequestId,
            [FromHeader(Name = "X-Microsoft-Skype-Message-ID")] Guid? skypeRequestId,
            [FromHeader(Name = "Scenario-Id")] Guid? clientScenarioId,
@@ -60,8 +62,22 @@ namespace RecordingBot.Services.Http.Controllers
             Guid requestId = clientRequestId ?? skypeRequestId ?? default;
             Guid scenarioId = clientScenarioId ?? skypeScenarioId ?? default;
 
-            // Pass the incoming notification to the sdk. The sdk takes care of what to do with it.
-            return Accepted(_commsClient.ProcessNotifications(Request.GetUri(), notifications, User.Identity!.Name!, requestId, scenarioId));
+            RequestValidationResult result;
+
+                var httpRequestMessage = new System.Net.Http.HttpRequestMessage();
+                httpRequestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", Request.Headers.Authorization);
+                // Autenticate the incoming request.
+                result = await _commsClient.AuthenticationProvider
+                    .ValidateInboundRequestAsync(httpRequestMessage)
+                    .ConfigureAwait(false);
+
+            if (result.IsValid)
+            {
+                // Pass the incoming notification to the sdk. The sdk takes care of what to do with it.
+                return Accepted(_commsClient.ProcessNotifications(Request.GetUri(), notifications, result.TenantId, requestId, scenarioId));
+            }
+
+            return Unauthorized();
         }
     }
 }
