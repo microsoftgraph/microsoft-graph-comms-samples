@@ -11,6 +11,7 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+using Microsoft.AspNetCore.Http;
 using Microsoft.Skype.Bots.Media;
 using RecordingBot.Model.Constants;
 using RecordingBot.Services.Contract;
@@ -30,12 +31,6 @@ namespace RecordingBot.Services.ServiceSetup
     public class AzureSettings : IAzureSettings
     {
         /// <summary>
-        /// Gets or sets the name of the bot.
-        /// </summary>
-        /// <value>The name of the bot.</value>
-        public string BotName { get; set; }
-
-        /// <summary>
         /// Gets or sets the name of the service DNS.
         /// </summary>
         /// <value>The name of the service DNS.</value>
@@ -52,12 +47,6 @@ namespace RecordingBot.Services.ServiceSetup
         /// </summary>
         /// <value>The certificate thumbprint.</value>
         public string CertificateThumbprint { get; set; }
-
-        /// <summary>
-        /// Gets or sets the call control listening urls.
-        /// </summary>
-        /// <value>The call control listening urls.</value>
-        public IEnumerable<string> CallControlListeningUrls { get; set; }
 
         /// <summary>
         /// Gets or sets the call control base URL.
@@ -173,6 +162,7 @@ namespace RecordingBot.Services.ServiceSetup
         /// <value>The wav quality.</value>
         public int WAVQuality { get; set; }
 
+        public PathString PodPathBase { get; private set; }
         public X509Certificate2 Certificate { get; private set; }
 
         /// <summary>
@@ -185,9 +175,8 @@ namespace RecordingBot.Services.ServiceSetup
                 ServiceCname = ServiceDnsName;
             }
 
-            X509Certificate2 defaultCertificate = GetCertificateFromStore();
+            Certificate = GetCertificateFromStore();
 
-            var baseDomain = "+";
             int podNumber = 0;
 
             if (!string.IsNullOrEmpty(PodName))
@@ -197,19 +186,13 @@ namespace RecordingBot.Services.ServiceSetup
 
             // Create structured config objects for service.
             CallControlBaseUrl = new Uri($"https://{ServiceCname}/{podNumber}/{HttpRouteConstants.CallSignalingRoutePrefix}/{HttpRouteConstants.OnNotificationRequestRoute}");
+            PodPathBase = $"/{podNumber}";
 
-            List<string> controlListenUris = new List<string>();
-            controlListenUris.Add($"https://{baseDomain}:{CallSignalingPort}/");
-            controlListenUris.Add($"https://{baseDomain}:{CallSignalingPort}/{podNumber}/");
-            controlListenUris.Add($"http://{baseDomain}:{CallSignalingPort + 1}/"); // required for AKS pod graceful termination
-
-            CallControlListeningUrls = controlListenUris;
-
-            this.MediaPlatformSettings = new MediaPlatformSettings()
+            MediaPlatformSettings = new MediaPlatformSettings()
             {
                 MediaPlatformInstanceSettings = new MediaPlatformInstanceSettings()
                 {
-                    CertificateThumbprint = defaultCertificate.Thumbprint,
+                    CertificateThumbprint = Certificate.Thumbprint,
                     InstanceInternalPort = InstanceInternalPort,
                     InstancePublicIPAddress = IPAddress.Any,
                     InstancePublicPort = InstancePublicPort + podNumber,

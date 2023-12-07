@@ -82,9 +82,8 @@ namespace RecordingBot.Services.ServiceSetup
             // Setup Listening Urls
             builder.WebHost.UseKestrel(serverOptions =>
             {
-                serverOptions.ListenAnyIP(azureSettings.CallSignalingPort);
-                // for local or debug operation we need an https port
-                serverOptions.ListenAnyIP(azureSettings.CallSignalingPort - 1, config => config.UseHttps(azureSettings.Certificate));
+                serverOptions.ListenAnyIP(azureSettings.CallSignalingPort + 1);
+                serverOptions.ListenAnyIP(azureSettings.CallSignalingPort, config => config.UseHttps(azureSettings.Certificate));
             });
 
             // Add services to the container.
@@ -116,6 +115,8 @@ namespace RecordingBot.Services.ServiceSetup
                 _logger.Error(e, "Unhandled exception in Boot()");
             }
 
+            // Configure the HTTP request pipeline.
+            app.UsePathBase(azureSettings.PodPathBase); 
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
