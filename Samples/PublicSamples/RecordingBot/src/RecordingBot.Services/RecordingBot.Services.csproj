@@ -14,18 +14,10 @@
 	<ItemGroup>
 		<PackageReference Include="Azure.Messaging.EventGrid" Version="4.21.0" />
 		<PackageReference Include="NAudio" Version="2.2.1" />
-		<PackageReference Include="OpenTelemetry.Exporter.Console">
-			<Version>1.6.0</Version>
-		</PackageReference>
-		<PackageReference Include="SharpZipLib">
-			<Version>1.4.2</Version>
-		</PackageReference>
-		<PackageReference Include="DotNetEnv">
-			<Version>2.5.0</Version>
-		</PackageReference>
-		<PackageReference Include="Microsoft.Graph.Communications.Calls.Media">
-			<Version>1.2.0.7270</Version>
-		</PackageReference>
+		<PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.6.0" />
+		<PackageReference Include="SharpZipLib" Version="1.4.2" />
+		<PackageReference Include="DotNetEnv" Version="2.5.0" />
+		<PackageReference Include="Microsoft.Graph.Communications.Calls.Media" Version="1.2.0.7270" />
 	</ItemGroup>
 
 	<ItemGroup>

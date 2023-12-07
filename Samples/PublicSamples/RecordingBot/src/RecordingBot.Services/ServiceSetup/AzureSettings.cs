@@ -16,7 +16,6 @@ using Microsoft.Skype.Bots.Media;
 using RecordingBot.Model.Constants;
 using RecordingBot.Services.Contract;
 using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
@@ -188,9 +187,9 @@ namespace RecordingBot.Services.ServiceSetup
             CallControlBaseUrl = new Uri($"https://{ServiceCname}/{podNumber}/{HttpRouteConstants.CallSignalingRoutePrefix}/{HttpRouteConstants.OnNotificationRequestRoute}");
             PodPathBase = $"/{podNumber}";
 
-            MediaPlatformSettings = new MediaPlatformSettings()
+            MediaPlatformSettings = new MediaPlatformSettings
             {
-                MediaPlatformInstanceSettings = new MediaPlatformInstanceSettings()
+                MediaPlatformInstanceSettings = new MediaPlatformInstanceSettings
                 {
                     CertificateThumbprint = Certificate.Thumbprint,
                     InstanceInternalPort = InstanceInternalPort,
@@ -204,7 +203,7 @@ namespace RecordingBot.Services.ServiceSetup
             // Initialize Audio Settings
             AudioSettings = new AudioSettings
             {
-                WavSettings = (WAVSampleRate > 0) ? new WAVSettings(WAVSampleRate, WAVQuality): null
+                WavSettings = (WAVSampleRate > 0) ? new WAVSettings(WAVSampleRate, WAVQuality) : null
             };
         }
 
@@ -219,7 +218,7 @@ namespace RecordingBot.Services.ServiceSetup
             store.Open(OpenFlags.ReadOnly);
             try
             {
-                X509Certificate2Collection certs = store.Certificates.Find(X509FindType.FindByThumbprint, CertificateThumbprint, validOnly: false);
+                var certs = store.Certificates.Find(X509FindType.FindByThumbprint, CertificateThumbprint, validOnly: false);
 
                 if (certs.Count != 1)
                 {
