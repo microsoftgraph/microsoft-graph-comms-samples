@@ -34,7 +34,7 @@ namespace RecordingBot.Services.Media
         /// <summary>
         /// The writers
         /// </summary>
-        readonly Dictionary<string, WaveFileWriter> _writers = [];
+        readonly Dictionary<string, WaveFileWriter> _writers = new Dictionary<string, WaveFileWriter>();
 
         /// <summary>
         /// The processor identifier
