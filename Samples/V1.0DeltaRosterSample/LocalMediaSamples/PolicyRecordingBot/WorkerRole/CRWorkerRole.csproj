@@ -64,7 +64,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Common\Sample.Common.Beta\Sample.Common.Beta.csproj">
+    <ProjectReference Include="..\..\..\..\Common\Sample.Common.V1\Sample.Common.V1.csproj">
       <Project>{88b67fbe-6de8-4dc3-83cf-9f6b4ea10138}</Project>
       <Name>Sample.Common</Name>
     </ProjectReference>

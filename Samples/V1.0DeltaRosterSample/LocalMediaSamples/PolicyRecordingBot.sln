@@ -16,7 +16,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRWorkerRole", "PolicyRecor
 EndProject
 Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "PolicyRecordingBot", "PolicyRecordingBot\PolicyRecordingBot.ccproj", "{69051056-B313-432E-8CE3-D7164CD82DC9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Common.Beta", "..\..\Common\Sample.Common.Beta\Sample.Common.Beta.csproj", "{EC1C215C-65CA-4211-BF16-8A248A45D371}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.Common.V1", "..\..\Common\Sample.Common.V1\Sample.Common.V1.csproj", "{EC1C215C-65CA-4211-BF16-8A248A45D371}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

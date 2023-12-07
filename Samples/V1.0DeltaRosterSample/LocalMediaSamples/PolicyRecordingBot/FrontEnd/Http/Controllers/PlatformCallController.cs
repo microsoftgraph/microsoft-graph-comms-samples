@@ -13,7 +13,6 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
     using System.Threading.Tasks;
     using System.Web.Http;
     using Microsoft.Graph;
-    using Microsoft.Graph.Beta.Models;
     using Microsoft.Graph.Communications.Client;
     using Microsoft.Graph.Communications.Client.Authentication;
     using Microsoft.Graph.Communications.Common;
@@ -21,6 +20,7 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
     using Microsoft.Graph.Communications.Common.Transport;
     using Microsoft.Graph.Communications.Core.Exceptions;
     using Microsoft.Graph.Communications.Core.Notifications;
+    using Microsoft.Graph.Models;
     using Sample.PolicyRecordingBot.FrontEnd.Bot;
     using ClientException = Microsoft.Graph.Communications.Core.Exceptions.ClientException;
     using ErrorConstants = Microsoft.Graph.Communications.Core.Exceptions.ErrorConstants;
