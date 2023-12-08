@@ -196,7 +196,7 @@ namespace RecordingBot.Services.ServiceSetup
             // Create structured config objects for service.
             CallControlBaseUrl = new Uri($"https://{ServiceCname}/{podNumber}/{HttpRouteConstants.CallSignalingRoutePrefix}/{HttpRouteConstants.OnNotificationRequestRoute}");
 
-            List<string> controlListenUris = [];
+            List<string> controlListenUris = new List<string>();
             controlListenUris.Add($"https://{baseDomain}:{CallSignalingPort}/");
             controlListenUris.Add($"https://{baseDomain}:{CallSignalingPort}/{podNumber}/");
             controlListenUris.Add($"http://{baseDomain}:{CallSignalingPort + 1}/"); // required for AKS pod graceful termination
