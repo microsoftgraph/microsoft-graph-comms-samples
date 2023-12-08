@@ -1,4 +1,17 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿// ***********************************************************************
+// Assembly         : EchoBot.Util
+// Author           : bcage29
+// Created          : 09-07-2020
+//
+// Last Modified By : bcage29
+// Last Modified On : 02-28-2022
+// ***********************************************************************
+// <copyright file="HttpHelpers.cs" company="Microsoft">
+//     Copyright ©  2023
+// </copyright>
+// <summary></summary>
+// ***********************************************************************>
+using Microsoft.AspNetCore.Http;
 
 namespace EchoBot.Util
 {
