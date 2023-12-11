@@ -12,7 +12,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: .
+        working-directory: Samples/PublicSamples/RecordingBot
 
     steps:
       - name: Checkout
