@@ -1,0 +1,36 @@
+name: main
+
+on:
+  push:
+    branches:
+      - main
+      - testrelease
+
+jobs:
+  build-push-cr:
+    runs-on: windows-2022
+
+    defaults:
+      run:
+        working-directory: .
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.CR_PAT }}
+
+      - name: Build and Tag docker image
+        shell: bash
+        run: |
+          docker build -f ./build/Dockerfile . -t ${{ vars.CR_NAMESPACE_REPOSITORY }}:latest
+
+      - name: Push docker image to CR
+        shell: bash
+        run: |
+          docker push ${{ vars.CR_NAMESPACE_REPOSITORY }}:latest
