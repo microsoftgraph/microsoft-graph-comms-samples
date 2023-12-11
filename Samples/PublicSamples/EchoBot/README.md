@@ -69,7 +69,7 @@ The Bot requires an SSL certificate signed by a Certificate Authority. If you do
 3. Open a terminal as an Adminstrator where certbot is loaded
 4. Execute
 ```
-certbot certonly --manual --preferred-challenges=dns -d *.example.com --key-type rsa
+certbot certonly --manual --preferred-challenges=dns -d '*.example.com' --key-type rsa
 ```
 5. This will create a wildcard certificate for example.com.
 6. Follow the instructions and add the TXT record to your domain
