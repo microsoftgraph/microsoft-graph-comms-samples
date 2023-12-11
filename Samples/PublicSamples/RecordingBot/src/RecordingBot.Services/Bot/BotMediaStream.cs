@@ -81,7 +81,7 @@ namespace RecordingBot.Services.Bot
             ArgumentVerifier.ThrowOnNullArgument(logger, nameof(logger));
             ArgumentVerifier.ThrowOnNullArgument(settings, nameof(settings));
 
-            participants = [];
+            participants = new List<IParticipant>();
 
             _eventPublisher = eventPublisher;
             _callId = callId;
