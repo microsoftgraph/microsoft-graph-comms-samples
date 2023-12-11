@@ -29,7 +29,6 @@ public:
   ip: null
 
 node:
-  targetNodePool: scale
   targetOS: windows
   targetArch: amd64
   targetSku: Windows2022

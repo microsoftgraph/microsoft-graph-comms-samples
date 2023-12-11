@@ -118,8 +118,6 @@ spec:
               fieldPath: metadata.name
         resources:
           {{- toYaml .Values.resources | nindent 12 }}
-      nodeSelector:
-        agentpool: {{ .Values.node.targetNodePool }}
       volumes:
       - name: certificate
         secret:
