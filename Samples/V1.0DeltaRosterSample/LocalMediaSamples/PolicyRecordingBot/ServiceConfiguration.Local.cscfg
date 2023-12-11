@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="PolicyRecordingBot" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="6" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="CRWorkerRole">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=$storage$;AccountKey=$storageKey$" />
+      <Setting name="ServiceDnsName" value="%ServiceDns%" />
+      <!-- xyz.cloudapp.net-->
+      <Setting name="ServiceCNAME" value="%CName%" />
+      <!-- CNAME pointing to the .cloudapp.net if available.-->
+      <Setting name="DefaultCertificate" value="ABC0000000000000000000000000000000000CBA" />
+      <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" value="" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Default" thumbprint="ABC0000000000000000000000000000000000CBA" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+  <NetworkConfiguration>
+    <AddressAssignments>
+      <InstanceAddress roleName="CRWorkerRole">
+        <PublicIPs>
+          <PublicIP name="instancePublicIP" domainNameLabel="pip" />
+        </PublicIPs>
+      </InstanceAddress>
+    </AddressAssignments>
+  </NetworkConfiguration>
+</ServiceConfiguration>
