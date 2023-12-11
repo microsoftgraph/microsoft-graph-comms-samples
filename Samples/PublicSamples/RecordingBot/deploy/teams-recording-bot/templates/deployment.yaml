@@ -23,7 +23,7 @@ spec:
     spec:
       affinity:
         nodeAffinity:
-           requiredDuringSchedulingIgnoredDuringExecution:
+          requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
               - key: kubernetes.io/os
