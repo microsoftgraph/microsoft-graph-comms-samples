@@ -45,10 +45,6 @@ namespace RecordingBot.Services.ServiceSetup
         public static AppHost AppHostInstance { get; private set; }
 
         /// <summary>
-        /// The bot service
-        /// </summary>
-        private IBotService _botService;
-        /// <summary>
         /// The logger
         /// </summary>
         private IGraphLogger _logger;
@@ -99,16 +95,14 @@ namespace RecordingBot.Services.ServiceSetup
 
             var app = builder.Build();
 
-            var host = new ServiceCollection().AddCoreServices(builder.Configuration);
-
-            ServiceProvider = host.Build();
+            ServiceProvider = new ServiceCollection().AddCoreServices(builder.Configuration).Build();
 
             _logger = Resolve<IGraphLogger>();
 
             try
             {
                 Resolve<IEventPublisher>();
-                _botService = Resolve<IBotService>();
+                Resolve<IBotService>().Initialize();
             }
             catch (Exception e)
             {
@@ -124,22 +118,6 @@ namespace RecordingBot.Services.ServiceSetup
             app.MapControllers();
 
             app.Run();
-        }
-
-        /// <summary>
-        /// Starts the server.
-        /// </summary>
-        public void StartServer()
-        {
-            try
-            {
-                _botService.Initialize();
-            }
-            catch (Exception e)
-            {
-                _logger.Error(e, "Unhandled exception in StartServer()");
-                throw;
-            }
         }
 
         /// <summary>
