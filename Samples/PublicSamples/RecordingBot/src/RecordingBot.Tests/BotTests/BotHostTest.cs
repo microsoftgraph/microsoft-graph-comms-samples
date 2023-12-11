@@ -30,7 +30,6 @@ namespace RecordingBot.Tests.BotTests
         [Test]
         public void FirstUpBot()
         {
-            StartServer();
             System.Threading.Thread.Sleep(-1);
         }
     }
