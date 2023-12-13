@@ -13,6 +13,7 @@
 // ***********************************************************************
 using Microsoft.Graph;
 using Microsoft.Graph.Communications.Calls;
+using Microsoft.Graph.Models;
 using Microsoft.Skype.Bots.Media;
 using System;
 using System.Collections.Generic;

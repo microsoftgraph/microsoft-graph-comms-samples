@@ -13,8 +13,8 @@
 // <summary>Helper class to handle exceptions</summary>
 // ***********************************************************************-
 
-using Microsoft.Graph;
 using Microsoft.Graph.Communications.Common.Telemetry;
+using Microsoft.Graph.Communications.Core.Exceptions;
 using System;
 using System.Net;
 using System.Net.Http;

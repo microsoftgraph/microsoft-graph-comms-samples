@@ -13,7 +13,6 @@
 // ***********************************************************************
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
-using Microsoft.Graph;
 using Microsoft.Graph.Communications.Common.Telemetry;
 using RecordingBot.Model.Extension;
 using RecordingBot.Model.Constants;
@@ -24,6 +23,7 @@ using System;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.Graph.Communications.Core.Exceptions;
 
 namespace RecordingBot.Services.Http.Controllers
 {

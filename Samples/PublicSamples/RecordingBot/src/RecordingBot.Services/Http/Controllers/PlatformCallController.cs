@@ -13,12 +13,13 @@
 // ***********************************************************************>
 
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Graph;
 using Microsoft.Graph.Communications.Client;
 using Microsoft.Graph.Communications.Client.Authentication;
+using Microsoft.Graph.Communications.Common;
 using Microsoft.Graph.Communications.Common.Telemetry;
 using RecordingBot.Model.Constants;
 using RecordingBot.Model.Extension;
+using RecordingBot.Services.Contract;
 using System;
 using System.Threading.Tasks;
 
@@ -41,10 +42,10 @@ namespace RecordingBot.Services.Http.Controllers
         /// <summary>
         /// Initializes a new instance of the <see cref="PlatformCallController" /> class.
         /// </summary>
-        public PlatformCallController(IGraphLogger logger, ICommunicationsClient commsClient)
+        public PlatformCallController(IGraphLogger logger, IBotService botService)
         {
             _logger = logger;
-            _commsClient = commsClient;
+            _commsClient = botService.Client;
         }
 
         [HttpPost]

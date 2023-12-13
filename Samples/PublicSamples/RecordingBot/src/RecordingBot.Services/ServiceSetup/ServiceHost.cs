@@ -50,10 +50,8 @@ namespace RecordingBot.Services.ServiceSetup
         public ServiceHost Configure(IServiceCollection services, IConfiguration configuration)
         {
             Services = services;
-
             Services.AddSingleton<IGraphLogger, GraphLogger>(_ => new GraphLogger("RecordingBot", redirectToTrace: true));
-            Services.Configure<AzureSettings>(configuration.GetSection(nameof(AzureSettings)));
-            Services.AddSingleton<IAzureSettings>(_ => _.GetRequiredService<IOptions<AzureSettings>>().Value);
+            Services.AddSingleton<IAzureSettings>(_ => _.GetRequiredService<AzureSettings>());
             Services.AddSingleton<IEventPublisher, EventGridPublisher>(_ => new EventGridPublisher(_.GetRequiredService<IOptions<AzureSettings>>().Value));
             Services.AddSingleton<IBotService, BotService>();
 
