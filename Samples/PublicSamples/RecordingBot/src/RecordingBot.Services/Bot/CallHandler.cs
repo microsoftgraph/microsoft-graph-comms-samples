@@ -17,6 +17,7 @@ using Microsoft.Graph.Communications.Calls;
 using Microsoft.Graph.Communications.Calls.Media;
 using Microsoft.Graph.Communications.Common.Telemetry;
 using Microsoft.Graph.Communications.Resources;
+using Microsoft.Graph.Models;
 using RecordingBot.Model.Constants;
 using RecordingBot.Services.Contract;
 using RecordingBot.Services.ServiceSetup;

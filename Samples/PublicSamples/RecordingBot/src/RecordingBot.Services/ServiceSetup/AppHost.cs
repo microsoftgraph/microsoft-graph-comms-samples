@@ -13,13 +13,17 @@
 // ***********************************************************************
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Microsoft.Graph.Communications.Common.OData;
 using Microsoft.Graph.Communications.Common.Telemetry;
 using RecordingBot.Model.Constants;
 using RecordingBot.Services.Contract;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Net;
 using System.Text.Encodings.Web;
 using System.Text.Json;
@@ -90,12 +94,14 @@ namespace RecordingBot.Services.ServiceSetup
                 options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
                 options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
                 options.JsonSerializerOptions.Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
-                options.JsonSerializerOptions.Converters.Add(new ODataJsonConverterFactory(null, null, SerializerAssemblies.Assemblies));
+                options.JsonSerializerOptions.Converters.Add(new ODataJsonConverterFactory(null, null, typeAssemblies: SerializerAssemblies.Assemblies));
             });
+
+            builder.Services.AddCoreServices(builder.Configuration);
 
             var app = builder.Build();
 
-            ServiceProvider = new ServiceCollection().AddCoreServices(builder.Configuration).Build();
+            ServiceProvider = app.Services;
 
             _logger = Resolve<IGraphLogger>();
 
@@ -106,7 +112,8 @@ namespace RecordingBot.Services.ServiceSetup
             }
             catch (Exception e)
             {
-                _logger.Error(e, "Unhandled exception in Boot()");
+                app.Logger.LogError(e, "Unhandled exception in Boot()");
+                return;
             }
 
             // Configure the HTTP request pipeline.

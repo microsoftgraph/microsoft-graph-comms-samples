@@ -17,6 +17,7 @@ using Microsoft.Graph.Communications.Client;
 using Microsoft.Graph.Communications.Common.Telemetry;
 using Microsoft.Graph.Communications.Common.Transport;
 using Microsoft.Graph.Communications.Resources;
+using Microsoft.Graph.Models;
 using Newtonsoft.Json;
 using System;
 using System.Threading;

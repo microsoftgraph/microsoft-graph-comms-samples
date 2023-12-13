@@ -29,7 +29,7 @@ namespace RecordingBot.Services.Http.Controllers
     /// From here you can get a list of calls, and functions for each call.
     /// </summary>
     [ApiController]
-    public class DemoController : ControllerBase
+    public class DemoController : Controller
     {
         /// <summary>
         /// The logger

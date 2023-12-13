@@ -18,6 +18,8 @@ using Microsoft.Graph.Communications.Client;
 using Microsoft.Graph.Communications.Common;
 using Microsoft.Graph.Communications.Common.Telemetry;
 using Microsoft.Graph.Communications.Resources;
+using Microsoft.Graph.Contracts;
+using Microsoft.Graph.Models;
 using Microsoft.Skype.Bots.Media;
 using RecordingBot.Model.Models;
 using RecordingBot.Services.Authentication;
@@ -155,7 +157,6 @@ namespace RecordingBot.Services.Bot
                     DisplayName = joinCallBody.DisplayName,
                 };
             }
-
             var statefulCall = await Client.Calls().AddAsync(joinParams, scenarioId).ConfigureAwait(false);
             statefulCall.GraphLogger.Info($"Call creation complete: {statefulCall.Id}");
             return statefulCall;

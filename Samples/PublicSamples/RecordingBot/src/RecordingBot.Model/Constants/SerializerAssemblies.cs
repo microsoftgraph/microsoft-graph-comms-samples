@@ -1,5 +1,6 @@
-﻿using Microsoft.Graph;
-using Microsoft.Graph.Communications.Client;
+﻿using Microsoft.Graph.Communications.Client;
+using Microsoft.Graph.Communications.Common;
+using Microsoft.Graph.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
