@@ -103,7 +103,7 @@
                     DestinationPath = 'F:\Source\GIT\Git-2.42.0.2-64-bit.exe'
                 },
                 @{
-                    Uri             = 'https://download.visualstudio.microsoft.com/download/pr/571ad766-28d1-4028-9063-0fa32401e78f/5D3D8C6779750F92F3726C70E92F0F8BF92D3AE2ABD43BA28C6306466DE8A144/vc_redist.x64.exe'
+                    Uri             = 'https://aka.ms/vs/17/release/vc_redist.x64.exe'
                     DestinationPath = 'F:\Source\dotnet\vc_redist.x64.exe'
                 },
                 @{
@@ -120,10 +120,10 @@
                     Arguments = '/VERYSILENT'
                 },
                 @{
-                    Name      = 'Microsoft Visual C++ 2015-2022 Redistributable (x64) - 14.30.30708'
+                    Name      = 'Microsoft Visual C++ 2015-2022 Redistributable (x64) - 14.38.33130'
                     Path      = 'F:\Source\dotnet\vc_redist.x64.exe'
                     ProductId = ''
-                    Arguments = '/install /passive /norestart'
+                    Arguments = '/install /q /norestart'
                 },
                 @{  
                     Name      = 'Visual Studio Enterprise 2022'
