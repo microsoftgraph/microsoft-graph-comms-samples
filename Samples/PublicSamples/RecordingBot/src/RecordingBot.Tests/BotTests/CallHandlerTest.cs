@@ -13,12 +13,12 @@
 // ***********************************************************************
 using ICSharpCode.SharpZipLib.Core;
 using ICSharpCode.SharpZipLib.Zip;
-using Microsoft.Graph;
 using Microsoft.Graph.Communications.Calls;
 using Microsoft.Graph.Communications.Calls.Media;
 using Microsoft.Graph.Communications.Common;
 using Microsoft.Graph.Communications.Common.Telemetry;
 using Microsoft.Graph.Communications.Resources;
+using Microsoft.Graph.Models;
 using Microsoft.Skype.Bots.Media;
 using Moq;
 using Newtonsoft.Json;
