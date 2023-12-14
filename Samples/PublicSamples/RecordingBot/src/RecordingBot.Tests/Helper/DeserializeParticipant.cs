@@ -11,8 +11,8 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
-using Microsoft.Graph;
 using Microsoft.Graph.Communications.Calls;
+using Microsoft.Graph.Models;
 using RecordingBot.Model.Extension;
 using RecordingBot.Services.Media;
 using System.Collections.Generic;
@@ -40,18 +40,19 @@ namespace RecordingBot.Tests.Helper
                     var participant = new Participant();
                     var info = new ParticipantInfo();
                     var identity = new IdentitySet();
-                    var user = new Identity();
-
-                    user.DisplayName = i.DisplayName;
-                    user.AdditionalData = i.AdditionalData;
-                    user.Id = i.AdId;
+                    var user = new Identity
+                    {
+                        DisplayName = i.DisplayName,
+                        AdditionalData = i.AdditionalData,
+                        Id = i.AdId
+                    };
 
                     identity.User = user;
                     info.Identity = identity;
                     participant.Info = info;
 
-                    var media = new Microsoft.Graph.MediaStream() { SourceId = i.ActiveSpeakerId.ToString() };
-                    participant.MediaStreams = new List<Microsoft.Graph.MediaStream>() { media };
+                    var media = new Microsoft.Graph.Models.MediaStream() { SourceId = i.ActiveSpeakerId.ToString() };
+                    participant.MediaStreams = [media];
 
                     participant.IsInLobby = false;
 
