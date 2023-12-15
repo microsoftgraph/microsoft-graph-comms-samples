@@ -61,5 +61,5 @@ jobs:
         env:
           VMSS_CREDENTIALS: ${{ secrets.VMSS_CREDENTIALS_BCMSFT_BOT }}
 
-
+ 
 
