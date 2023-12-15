@@ -112,6 +112,14 @@
                 }
             )
 
+            # The bot needs Microsoft Visual C++ 2015-2022 Redistributable (x64) to be installed on the VM.
+            # Visual Studio 2022 installs this software as part of the installation.
+            # If you are doing a production deployment, comment out the Visual Studio Installation
+            # and uncomment the Microsoft Visual C++ 2015-2022 Redistributable (x64) installation.
+            # NOTE: If you are installing the C++ redistruable separately, you can see that the version number
+            # is part of the name. When this package is updated periodically and gets a new version number
+            # the install could cause a failure in the DSC configuration. If this happens, we wil need to update
+            # the version number in the name of the package.
             SoftwarePackagePresent      = @(
                 @{
                     Name      = 'Git'
@@ -119,12 +127,12 @@
                     ProductId = ''
                     Arguments = '/VERYSILENT'
                 },
-                @{
-                    Name      = 'Microsoft Visual C++ 2015-2022 Redistributable (x64) - 14.38.33130'
-                    Path      = 'F:\Source\dotnet\vc_redist.x64.exe'
-                    ProductId = ''
-                    Arguments = '/install /q /norestart'
-                },
+                # @{
+                #     Name      = 'Microsoft Visual C++ 2015-2022 Redistributable (x64) - 14.38.33130'
+                #     Path      = 'F:\Source\dotnet\vc_redist.x64.exe'
+                #     ProductId = ''
+                #     Arguments = '/install /q /norestart'
+                # },
                 @{  
                     Name      = 'Visual Studio Enterprise 2022'
                     Path      = 'F:\Source\VisualStudio\vs_enterprise.exe'
