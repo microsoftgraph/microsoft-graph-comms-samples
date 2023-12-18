@@ -61,7 +61,6 @@ resources: {}
   #   memory: 128Mi
 
 ingress-nginx:
-  namespaceOverride: ingress-nginx
   controller:
     replicaCount: 1
     nodeSelector:

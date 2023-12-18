@@ -5,7 +5,12 @@
 
 {{/* Default namespace */}}
 {{- define "namespace" -}}
-  {{- default (include "fullName" .) .Values.override.namespace -}}
+  {{- default .Release.namespace .Values.override.namespace -}}
+{{- end -}}
+
+{{/* Nginx namespace */}}
+{{- define "override.ingress-nginx.namespace" -}}
+  {{- default .Release.namespace (index .Values "ingress-nginx" "namespaceOverride" ) -}}
 {{- end -}}
 
 {{/* Check replicaCount is less than maxReplicaCount */}}
@@ -45,4 +50,13 @@
   {{- else -}}
     {{- fail "You need to specify public.ip" -}}
   {{- end -}}
+{{- end -}}
+
+{{/*Update nginx params with generated tcp-config-map*/}}
+{{- define "override.ingress-nginx.params" -}}
+  {{ include "ingress-nginx.params" }}
+{{- end -}}
+{{- define "ingress-nginx.params" -}}
+  - {{ include "override.ingress-nginx.params" }}
+  - --tcp-service-configmap={{include "override.ingress-nginx.namespace"}}/{{ include "fullName" }}-tcp-services
 {{- end -}}
