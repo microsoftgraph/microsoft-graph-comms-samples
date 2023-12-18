@@ -1,11 +1,11 @@
 {{- $fullName := include "fullName" . -}}
-{{- $namespace := include "namespace" . -}}
+{{- $namespace := include "override.ingress-nginx.namespace" . -}}
 {{- $maxCount := include "maxCount" . -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ $fullName }}-tcp-services
-  namespace: {{ index .Values "ingress-nginx" "namespaceOverride"}}
+  namespace: {{ namespace }}
   labels:
     helmVersion: {{ .Chart.Version }}
     helmAppVersion: {{ .Chart.AppVersion }}

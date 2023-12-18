@@ -75,7 +75,6 @@ cert-manager:
       "kubernetes.io/os": linux
 
 ingress-nginx:
-  namespaceOverride: ingress-nginx
   controller:
     replicaCount: 1
     nodeSelector:
