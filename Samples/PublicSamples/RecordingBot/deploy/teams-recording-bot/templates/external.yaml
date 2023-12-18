@@ -1,13 +1,15 @@
 {{- $maxCount := include "maxCount" . -}}
+{{- $namespace := include "ingress-nginx.namespace" . -}}
+{{- $fullName := include "fullName" . -}}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ $.Chart.Name }}-ingress-nginx-controller
-  namespace: {{  index .Values "ingress-nginx" "namespaceOverride"  }}}
+  name: {{ $fullName }}-ingress-nginx-controller
+  namespace: {{ $namespace }}
   labels:
-    helmVersion: {{ $.Chart.Version }}
-    helmAppVersion: {{ $.Chart.AppVersion }}
-    helmName: {{ $.Chart.Name }}
+    helmVersion: {{ .Chart.Version }}
+    helmAppVersion: {{ .Chart.AppVersion }}
+    helmName: {{ .Chart.Name }}
 spec:
   type: LoadBalancer
   externalTrafficPolicy: Cluster
@@ -29,5 +31,5 @@ spec:
 {{- end }}
   selector:
     app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: {{ $.Chart.Name }}
+    app.kubernetes.io/instance: {{ .Chart.Name }}
     app.kubernetes.io/name: ingress-nginx 

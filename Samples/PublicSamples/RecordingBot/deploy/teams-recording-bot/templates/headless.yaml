@@ -6,15 +6,15 @@ metadata:
   name: {{ $fullName }}
   namespace: {{ $namespace }}
   labels:
-    helmVersion: {{ $.Chart.Version }}
-    helmAppVersion: {{ $.Chart.AppVersion }}
-    helmName: {{ $.Chart.Name }}
+    helmVersion: {{ .Chart.Version }}
+    helmAppVersion: {{ .Chart.AppVersion }}
+    helmName: {{ .Chart.Name }}
 spec:
   clusterIP: None
   publishNotReadyAddresses: true
   ports:
   - name: public
     port: 443
-    targetPort: {{ $.Values.internal.port }}
+    targetPort: {{ .Values.internal.port }}
   selector:
     app: {{ $fullName }}

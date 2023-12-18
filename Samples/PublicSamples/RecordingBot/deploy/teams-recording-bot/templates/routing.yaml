@@ -6,9 +6,9 @@ metadata:
   name: {{ $fullName }}-routing
   namespace: {{ $namespace }}
   labels:
-    helmVersion: {{ $.Chart.Version }}
-    helmAppVersion: {{ $.Chart.AppVersion }}
-    helmName: {{ $.Chart.Name }}
+    helmVersion: {{ .Chart.Version }}
+    helmAppVersion: {{ .Chart.AppVersion }}
+    helmName: {{ .Chart.Name }}
 spec:
   clusterIP: None
   ports:

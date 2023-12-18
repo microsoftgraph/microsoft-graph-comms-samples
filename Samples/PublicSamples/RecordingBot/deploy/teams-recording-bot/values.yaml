@@ -1,6 +1,7 @@
-override:
-  name: ""
-  namespace: ""
+global:
+  override:
+    name: "" 
+    namespace: ""
 
 scale:
   maxReplicaCount: 3
@@ -11,6 +12,7 @@ host: null
 image:
   domain: null
   pullPolicy: IfNotPresent
+  name: ""
   tag: ""
 
 ingress:
@@ -61,6 +63,7 @@ resources: {}
   #   memory: 128Mi
 
 ingress-nginx:
+  namespaceOverride: "ingress-nginx"
   controller:
     replicaCount: 1
     nodeSelector:
@@ -72,4 +75,4 @@ ingress-nginx:
     config:
       log-format-stream: ""
     extraArgs:
-      tcp-services-configmap: ingress-nginx/teams-recording-bot-tcp-services
+      tcp-service-configmap: ingress-nginx/teams-recording-bot-tcp-services
