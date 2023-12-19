@@ -9,9 +9,10 @@ scale:
 host: null
 
 image:
-  domain: null
+  registry: null
+  name: null
+  tag: null
   pullPolicy: IfNotPresent
-  tag: ""
 
 ingress:
   tls:

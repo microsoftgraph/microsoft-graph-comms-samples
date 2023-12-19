@@ -29,5 +29,5 @@ spec:
 {{- end }}
   selector:
     app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: nginx-ingress
+    app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/name: ingress-nginx 
