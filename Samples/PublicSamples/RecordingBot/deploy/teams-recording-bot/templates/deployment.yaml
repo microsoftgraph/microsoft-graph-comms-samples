@@ -52,7 +52,7 @@ spec:
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriod }}
       containers:
       - name: recording-bot
-        image: "{{ include "imageDomain" . }}/{{ .Values.image.name | default "teams-recording-bot" }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        image: "{{ .Values.image.registry }}/{{ .Values.image.name }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         lifecycle:
           preStop:
