@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 namespace EchoBot.Media
 {
     /// <summary>
-    /// Class CognitiveServicesService.
+    /// Class SpeechService.
     /// </summary>
-    public class CognitiveServicesService
+    public class SpeechService
     {
         /// <summary>
         /// The is the indicator if the media stream is running
@@ -30,8 +30,8 @@ namespace EchoBot.Media
         private SpeechRecognizer _recognizer;
         private readonly SpeechSynthesizer _synthesizer;
         /// <summary>
-        /// Initializes a new instance of the <see cref="CognitiveServicesService" /> class.
-        public CognitiveServicesService(AppSettings settings, ILogger logger)
+        /// Initializes a new instance of the <see cref="SpeechService" /> class.
+        public SpeechService(AppSettings settings, ILogger logger)
         {
             _logger = logger;
 

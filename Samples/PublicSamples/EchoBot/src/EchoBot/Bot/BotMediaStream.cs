@@ -50,7 +50,7 @@ namespace EchoBot.Bot
         private AudioVideoFramePlayerSettings audioVideoFramePlayerSettings;
         private List<AudioMediaBuffer> audioMediaBuffers = new List<AudioMediaBuffer>();
         private int shutdown;
-        private readonly CognitiveServicesService _languageService;
+        private readonly SpeechService _languageService;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BotMediaStream" /> class.
@@ -95,9 +95,9 @@ namespace EchoBot.Bot
 
             this._audioSocket.AudioMediaReceived += this.OnAudioMediaReceived;
 
-            if (_settings.UseCognitiveServices)
+            if (_settings.UseSpeechService)
             {
-                _languageService = new CognitiveServicesService(_settings, _logger);
+                _languageService = new SpeechService(_settings, _logger);
                 _languageService.SendMediaBuffer += this.OnSendMediaBuffer;
             }
         }

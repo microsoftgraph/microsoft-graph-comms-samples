@@ -55,23 +55,23 @@ namespace EchoBot
         public int BotCallingInternalPort { get; set; }
 
         /// <summary>
-        /// Gets or sets if the bot should use Cognitive Services
+        /// Gets or sets if the bot should use Speech Service
         /// for converting the audio to a Bot voice
         /// </summary>
-        public bool UseCognitiveServices { get; set; }
+        public bool UseSpeechService { get; set; }
 
         /// <summary>
-        /// Gets or sets the Cognitive Services Speech key
+        /// Gets or sets the Speech Service key
         /// </summary>
         public string SpeechConfigKey { get; set; }
 
         /// <summary>
-        /// Gets or sets the Cognitive Services Speech region
+        /// Gets or sets the Speech Service region
         /// </summary>
         public string SpeechConfigRegion { get; set; }
 
         /// <summary>
-        /// Gets or sets the Cognitive Services Bot language
+        /// Gets or sets the Speech Service Bot language
         /// that it will use for speech-to-text and text-to-speech
         /// </summary>
         public string BotLanguage { get; set; }
