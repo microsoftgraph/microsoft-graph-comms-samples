@@ -60,19 +60,6 @@ resources: {}
   #   cpu: 100m
   #   memory: 128Mi
 
-cert-manager:
-  namespace: cert-manager
-  installCRDs: true
-  issuerEmail: YOUR EMAIL
-  nodeSelector:
-    "kubernetes.io/os": linux
-  webhook:
-    nodeSelector:
-      "kubernetes.io/os": linux
-  caininjector:
-    nodeSelector:
-      "kubernetes.io/os": linux
-
 ingress-nginx:
   namespaceOverride: ingress-nginx
   controller:
