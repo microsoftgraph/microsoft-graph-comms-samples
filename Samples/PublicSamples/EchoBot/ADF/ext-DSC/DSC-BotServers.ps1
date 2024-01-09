@@ -372,7 +372,7 @@ Configuration $Configuration
                 DestinationPath         = $AZCOPYDSCDir.DestinationPath
                 Ensure                  = 'Present'
                 ManagedIdentityClientID = $clientIDGlobal
-                LogDir                  = 'F:\azcopy_logs'
+                LogDir                  = 'C:\azcopy_logs'
             }
             $dependsonAZCopyDSCDir += @("[AZCOPYDSCDir]$Name")
         }
@@ -403,7 +403,7 @@ Configuration $Configuration
                 EnvironmentName         = $environment
                 Ensure                  = 'Present'
                 ManagedIdentityClientID = $clientIDGlobal
-                LogDir                  = 'F:\azcopy_logs'
+                LogDir                  = 'C:\azcopy_logs'
                 DeploySleepWaitSeconds  = $AppComponent.SleepTime
             }
             $dependsonAZCopyDSCDir += @("[AppReleaseDSC]$($AppComponent.ComponentName)")

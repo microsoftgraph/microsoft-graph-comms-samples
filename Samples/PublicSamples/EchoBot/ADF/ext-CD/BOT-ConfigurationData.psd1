@@ -9,7 +9,7 @@
             PSDscAllowPlainTextPassword = $true
             PSDscAllowDomainUser        = $true
 
-            DisksPresent                = @{DriveLetter = 'F'; DiskID = '2' }
+            # DisksPresent                = @{DriveLetter = 'F'; DiskID = '2' }
 
             ServiceSetStopped           = 'ShellHWDetection'
 
@@ -29,7 +29,7 @@
             )
             
             DirectoryPresent            = @(
-                'F:\Source\InstallLogs', 'F:\API\EchoBot', 'F:\Build\EchoBot'
+                'C:\Source\InstallLogs', 'C:\API\EchoBot', 'C:\Build\EchoBot'
             )
             
             # Port Mappings from NAT Pools on Azure Load Balancer
@@ -83,15 +83,15 @@
             # AZCOPYDSCDirPresentSource  = @(
             #     @{
             #         SourcePathBlobURI = 'https://{0}.blob.core.windows.net/source/GIT/'
-            #         DestinationPath   = 'F:\Source\GIT\'
+            #         DestinationPath   = 'C:\Source\GIT\'
             #     },
             #     @{
             #         SourcePathBlobURI = 'https://{0}.blob.core.windows.net/source/dotnet/'
-            #         DestinationPath   = 'F:\Source\dotnet\'
+            #         DestinationPath   = 'C:\Source\dotnet\'
             #     },
             #     @{
             #         SourcePathBlobURI = 'https://{0}.blob.core.windows.net/source/VisualStudio/'
-            #         DestinationPath   = 'F:\Source\VisualStudio\'
+            #         DestinationPath   = 'C:\Source\VisualStudio\'
             #     }
             # )
 
@@ -100,15 +100,15 @@
             RemoteFilePresent           = @(
                 @{
                     Uri             = 'https://github.com/git-for-windows/git/releases/download/v2.42.0.windows.2/Git-2.42.0.2-64-bit.exe'
-                    DestinationPath = 'F:\Source\GIT\Git-2.42.0.2-64-bit.exe'
+                    DestinationPath = 'C:\Source\GIT\Git-2.42.0.2-64-bit.exe'
                 },
                 @{
                     Uri             = 'https://aka.ms/vs/17/release/vc_redist.x64.exe'
-                    DestinationPath = 'F:\Source\dotnet\vc_redist.x64.exe'
+                    DestinationPath = 'C:\Source\dotnet\vc_redist.x64.exe'
                 },
                 @{
                     Uri             = 'https://aka.ms/vs/17/release/vs_enterprise.exe'
-                    DestinationPath = 'F:\Source\VisualStudio\vs_enterprise.exe'
+                    DestinationPath = 'C:\Source\VisualStudio\vs_enterprise.exe'
                 }
             )
 
@@ -123,21 +123,21 @@
             SoftwarePackagePresent      = @(
                 @{
                     Name      = 'Git'
-                    Path      = 'F:\Source\GIT\Git-2.42.0.2-64-bit.exe'
+                    Path      = 'C:\Source\GIT\Git-2.42.0.2-64-bit.exe'
                     ProductId = ''
                     Arguments = '/VERYSILENT'
                 },
                 # @{
                 #     Name      = 'Microsoft Visual C++ 2015-2022 Redistributable (x64) - 14.38.33130'
-                #     Path      = 'F:\Source\dotnet\vc_redist.x64.exe'
+                #     Path      = 'C:\Source\dotnet\vc_redist.x64.exe'
                 #     ProductId = ''
                 #     Arguments = '/install /q /norestart'
                 # },
                 @{  
                     Name      = 'Visual Studio Enterprise 2022'
-                    Path      = 'F:\Source\VisualStudio\vs_enterprise.exe'
+                    Path      = 'C:\Source\VisualStudio\vs_enterprise.exe'
                     ProductId = ''
-                    Arguments = '--installPath F:\VisualStudio\2022\Enterprise --addProductLang en-US --add Microsoft.VisualStudio.Workload.ManagedDesktop --includeRecommended --quiet --wait --norestart' #--config "F:\Source\VisualStudio\.vsconfig"
+                    Arguments = '--installPath C:\VisualStudio\2022\Enterprise --addProductLang en-US --add Microsoft.VisualStudio.Workload.ManagedDesktop --includeRecommended --quiet --wait --norestart' #--config "C:\Source\VisualStudio\.vsconfig"
                 }
             )
 
@@ -146,9 +146,9 @@
                 @{
                     ComponentName     = 'EchoBot'
                     SourcePathBlobURI = 'https://{0}.blob.core.windows.net/builds/'
-                    DestinationPath   = 'F:\API\'
+                    DestinationPath   = 'C:\API\'
                     ValidateFileName  = 'CurrentBuild.txt'
-                    BuildFileName     = 'F:\Build\EchoBot\componentBuild.json'
+                    BuildFileName     = 'C:\Build\EchoBot\componentBuild.json'
                     SleepTime         = '10'
                 }
             )
@@ -156,7 +156,7 @@
             NewServicePresent           = @(
                 @{
                     Name        = 'Echo Bot Service'
-                    Path        = 'F:\API\EchoBot\EchoBot.exe'
+                    Path        = 'C:\API\EchoBot\EchoBot.exe'
                     State       = 'Running'
                     StartupType = 'Automatic'
                     Description = 'Echo Bot Service'
