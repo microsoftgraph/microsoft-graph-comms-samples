@@ -27,6 +27,7 @@
         - **[Update DNS](#update-dns)**<br>
     - **[Deploy the Solution](#deploy-the-solution)**<br>
 - **[Running the Sample](#running-the-sample)**<br>
+- **[Video Walkthrough of Deployment Process](https://aka.ms/TeamsVoiceEchoBotDemo)**<br>
 <br/>
 
 # Introduction
