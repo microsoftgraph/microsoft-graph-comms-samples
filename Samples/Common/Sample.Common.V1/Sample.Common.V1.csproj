@@ -11,10 +11,10 @@
 
   <ItemGroup>
     <PackageReference Include="MSTest.TestFramework" Version="2.2.10" />
-    <PackageReference Include="Microsoft.Graph.Communications.Calls" Version="1.2.0.9212" TargetFramework="net472"/>
-    <PackageReference Include="Microsoft.Graph.Communications.Client" Version="1.2.0.9212" TargetFramework="net472"/>
-    <PackageReference Include="Microsoft.Graph.Communications.Core" Version="1.2.0.9212" TargetFramework="net472"/>
-    <PackageReference Include="Microsoft.Graph.Communications.Common" Version="1.2.0.9212" TargetFramework="net472"/>
+    <PackageReference Include="Microsoft.Graph.Communications.Calls" Version="1.2.0.9486" TargetFramework="net472"/>
+    <PackageReference Include="Microsoft.Graph.Communications.Client" Version="1.2.0.9486" TargetFramework="net472"/>
+    <PackageReference Include="Microsoft.Graph.Communications.Core" Version="1.2.0.9486" TargetFramework="net472"/>
+    <PackageReference Include="Microsoft.Graph.Communications.Common" Version="1.2.0.9486" TargetFramework="net472"/>
     <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="7.0.3" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2.0" />
     <PackageReference Include="Microsoft.Extensions.Primitives" Version="2.2.0.0" />   
