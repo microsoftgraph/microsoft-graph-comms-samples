@@ -35,7 +35,7 @@ namespace RecordingBot.Model.Constants
                             hashSet.Add(item);
                         }
                     }
-                    _distinctAssemblies = [.. list];
+                    _distinctAssemblies = list.ToArray();
                 }
                 return _distinctAssemblies;
             }
