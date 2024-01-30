@@ -24,8 +24,8 @@ namespace RecordingBot.Model.Constants
             {
                 if (_distinctAssemblies == null)
                 {
-                    HashSet<Assembly> hashSet = [];
-                    List<Assembly> list = [];
+                    HashSet<Assembly> hashSet = new HashSet<Assembly>();
+                    List<Assembly> list = new List<Assembly>();
                     _assemblies = _assemblies.Where(assembly => assembly != null);
                     foreach (Assembly item in _assemblies)
                     {
