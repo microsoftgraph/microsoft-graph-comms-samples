@@ -270,4 +270,4 @@ appsettings.development.json
 *.development.pubxml
 *.original
 Samples/PublicSamples/RecordingBot/deploy/teams-recording-bot/charts/*
-/Samples/PublicSamples/RecordingBot/src/RecordingBot.Console/cache/l5HgCprH9vp8ZTDqVfQVMMnQA9rkfehWnJQOhdS5v4I=.dat
+/Samples/PublicSamples/RecordingBot/src/RecordingBot.Console/cache/*
