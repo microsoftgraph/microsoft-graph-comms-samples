@@ -67,5 +67,5 @@
 - --ingress-class={{ $.Values.controller.ingressClass }}
   {{- end }}
 - --configmap=$(POD_NAMESPACE)/{{ include "ingress-nginx.controller.fullname" . }}
-- --tcp-service-configmap={{ include "ingress-nginx.namespace" . }}/{{ include "fullName" . }}-tcp-services
+- --tcp-services-configmap={{ include "ingress-nginx.namespace" . }}/{{ include "fullName" . }}-tcp-services
 {{- end -}}
