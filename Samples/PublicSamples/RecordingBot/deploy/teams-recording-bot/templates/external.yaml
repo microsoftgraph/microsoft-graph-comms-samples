@@ -31,5 +31,5 @@ spec:
 {{- end }}
   selector:
     app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: {{ .Chart.Name }}
+    app.kubernetes.io/instance: {{ $fullName }}
     app.kubernetes.io/name: ingress-nginx 

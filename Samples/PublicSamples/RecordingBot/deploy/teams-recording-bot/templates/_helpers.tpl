@@ -5,7 +5,7 @@
 
 {{/* Default namespace */}}
 {{- define "namespace" -}}
-  {{- default $.Release.namespace $.Values.global.override.namespace -}}
+  {{- default $.Release.Namespace $.Values.global.override.namespace -}}
 {{- end -}}
 
 {{/* Nginx namespace */}}
