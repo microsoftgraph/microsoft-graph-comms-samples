@@ -65,6 +65,7 @@ resources: {}
 ingress-nginx:
   namespaceOverride: "ingress-nginx"
   controller:
+    allowSnippetAnnotations: true
     replicaCount: 1
     nodeSelector:
       "kubernetes.io/os": linux
