@@ -1,6 +1,6 @@
 {{- $fullName := include "fullName" . -}}
+{{- $namespace := include "namespace" . -}}
 {{- $nginxNamespace := include "ingress-nginx.namespace" . -}}
-{{- $namespace := include "namespace" -}}
 {{- $maxCount := include "maxCount" . -}}
 apiVersion: v1
 kind: ConfigMap
