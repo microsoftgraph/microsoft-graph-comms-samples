@@ -366,7 +366,7 @@
       "imageReference": {
         "publisher": "MicrosoftWindowsServer",
         "Offer": "WindowsServer",
-        "sku": "2022-Datacenter-g2",
+        "sku": "2022-Datacenter",
         "version": "latest"
       },
       "licenseType": "Windows_Server",

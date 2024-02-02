@@ -3,6 +3,7 @@
 Param (
     [parameter(mandatory)]
     [ValidateLength(2, 7)]
+    [string]
     $OrgName,
     [parameter(mandatory)]
     $Location,
