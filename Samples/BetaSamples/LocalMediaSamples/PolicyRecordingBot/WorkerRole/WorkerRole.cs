@@ -44,6 +44,7 @@ namespace Sample.PolicyRecordingBot.WorkerRole
         public WorkerRole()
         {
             this.logger = new GraphLogger(typeof(WorkerRole).Assembly.GetName().Name, redirectToTrace: true);
+                this.logger = new GraphLogger(typeof(WorkerRole).Assembly.GetName().Name, redirectToTrace: true, obfuscationConfiguration: new HashingObfuscationConfiguration());
         }
 
         /// <summary>
