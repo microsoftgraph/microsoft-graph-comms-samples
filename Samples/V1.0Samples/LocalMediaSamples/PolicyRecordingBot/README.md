@@ -4,6 +4,7 @@
 
 The system will load the bot and join it to appropriate calls and meetings in order for the bot to enforce compliance with the administrative set policy.
 This sample is only designed for compliance recording scenario. Do not use it for any other scenarios.
+This sample should be used only for Org Regulated recording instead of other recording purpose. Otherwise it might block the user calling experience. (https://learn.microsoft.com/en-us/MicrosoftTeams/teams-recording-policy)
 
 ## About
 
