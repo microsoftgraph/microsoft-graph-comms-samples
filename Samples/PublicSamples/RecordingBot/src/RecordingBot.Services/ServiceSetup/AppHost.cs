@@ -122,6 +122,8 @@ namespace RecordingBot.Services.ServiceSetup
 
             app.UseAuthorization();
 
+            app.UseRouting();
+
             app.MapControllers();
 
             app.Run();
