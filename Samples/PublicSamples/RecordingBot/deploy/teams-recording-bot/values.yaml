@@ -14,8 +14,6 @@ image:
   name: null
   tag: null
   pullPolicy: IfNotPresent
-  name: ""
-  tag: ""
 
 ingress:
   tls:
