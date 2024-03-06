@@ -13,7 +13,7 @@ spec:
     server: https://acme-v02.api.letsencrypt.org/directory
     email: {{ $email }}
     privateKeySecretRef:
-      name: {{ $fullName }}-Issuer
+      name: {{ $fullName }}-issuer
     solvers:
     - http01:
         ingress:
