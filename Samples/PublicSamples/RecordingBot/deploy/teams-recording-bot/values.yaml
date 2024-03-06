@@ -63,7 +63,6 @@ resources: {}
   #   memory: 128Mi
 
 ingress-nginx:
-  namespaceOverride: "ingress-nginx"
   controller:
     allowSnippetAnnotations: true
     replicaCount: 1
@@ -73,7 +72,3 @@ ingress-nginx:
       enabled: false
     admissionWebhooks:
       enabled: false
-    config:
-      log-format-stream: ""
-    extraArgs:
-      tcp-service-configmap: ingress-nginx/teams-recording-bot-tcp-services
