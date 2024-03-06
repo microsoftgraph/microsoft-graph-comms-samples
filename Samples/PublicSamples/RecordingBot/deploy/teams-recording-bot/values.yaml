@@ -17,7 +17,7 @@ image:
 
 ingress:
   tls:
-    secretName: ingress-tls
+    email: YOUR_EMAIL
 
 autoscaling:
   enabled: false
@@ -64,6 +64,8 @@ resources: {}
 
 ingress-nginx:
   controller:
+    ingressClassRessource:
+      enabled: false
     allowSnippetAnnotations: true
     replicaCount: 1
     nodeSelector:

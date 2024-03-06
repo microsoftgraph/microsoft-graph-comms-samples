@@ -1,0 +1,11 @@
+{{- $fullName := include "ingress-nginx.fullname" . -}}
+apiVersion: networking.k8s.io/v1
+kind: IngressClass
+metadata:
+  labels:
+    helmVersion: {{ .Chart.Version }}
+    helmAppVersion: {{ .Chart.AppVersion }}
+    helmName: {{ .Chart.Name }}
+  name: {{ $fullName }}
+spec:
+  controller: "k8s.io/{{$fullName}}"

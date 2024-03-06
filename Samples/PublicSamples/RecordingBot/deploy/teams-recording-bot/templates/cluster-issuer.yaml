@@ -1,0 +1,20 @@
+{{- $fullName := include "fullName" . -}}
+{{- $email := include "cluster-issuer.email" . -}}
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: {{ $fullName }}-issuer
+  labels:
+    helmVersion: {{ .Chart.Version }}
+    helmAppVersion: {{ .Chart.AppVersion }}
+    helmName: {{ .Chart.Name }}
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: {{ $email }}
+    privateKeySecretRef:
+      name: {{ $fullName }}-Issuer
+    solvers:
+    - http01:
+        ingress:
+          ingressClassName: {{ include "ingress-nginx.fullname" . }}

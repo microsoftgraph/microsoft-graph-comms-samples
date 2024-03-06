@@ -3,6 +3,41 @@
   {{- default $.Release.Name $.Values.global.override.name -}}
 {{- end -}}
 
+{{/* Nginx fullName */}}
+{{/*We have to differentiate the context this is called in from sub chart or from parent chart*/}}
+{{- define "ingress-nginx.fullname" -}}
+  {{- if $.Values.controller -}}
+    {{- if $.Values.fullnameOverride -}}
+      {{- $.Values.fullnameOverride  | trunc 63 | trimSuffix "-" -}}
+    {{- else -}}
+      {{- default (printf "%s-ingress-nginx" (include "fullName" .)) $.Values.nameOverride -}}
+    {{- end -}}
+  {{- else -}}
+    {{- if (index $.Values "ingress-nginx" "fullnameOverride") -}}
+      {{- (index $.Values "ingress-nginx" "fullnameOverride") -}}
+    {{- else -}}
+      {{- default (printf "%s-ingress-nginx" (include "fullName" .)) (index $.Values "ingress-nginx" "nameOverride") -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- define "ingress-nginx.name" -}}
+  {{- if $.Values.controller -}}
+    {{- default (include "ingress-nginx.fullname" .) .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
+  {{- else -}}
+    {{- default (include "ingress-nginx.fullname" .) (index $.Values "ingress-nginx" "nameOverride") | trunc 63 | trimSuffix "-" -}}
+  {{- end -}}
+{{- end -}}
+
+{{/*We have to differentiate the context this is called in from sub chart or from parent chart*/}}
+{{- define "ingress-nginx.controller.fullname" -}}
+  {{- if $.Values.controller -}}
+    {{- printf "%s-%s" (include "ingress-nginx.fullname" .) $.Values.controller.name | trunc 63 | trimSuffix "-" -}}
+  {{- else -}}
+    {{- printf "%s-%s" (include "ingress-nginx.fullname" .) (index $.Values "ingress-nginx" "controller" "name") | trunc 63 | trimSuffix "-" -}}
+  {{- end -}}
+{{- end -}}
+
 {{/* Default namespace */}}
 {{- define "namespace" -}}
   {{- default $.Release.Namespace $.Values.global.override.namespace -}}
@@ -28,6 +63,22 @@
   {{- else -}}
     {{- printf "%d" (int $.Values.scale.maxReplicaCount) -}}
   {{- end -}}
+{{- end -}}
+
+{{/* Check if issuer email is set */}}
+{{- define "cluster-issuer.email" -}}
+  {{- if eq $.Values.ingress.tls.email "YOUR_EMAIL" -}}
+    {{- fail "You need to specify a ingress tls email for lets encrypt" -}}
+  {{- else if $.Values.ingress.tls.email  -}}
+    {{- printf "%s" $.Values.ingress.tls.email -}}
+  {{- else -}}
+    {{- fail "You need to specify a ingress tls email for lets encrypt" -}}
+  {{- end -}}
+{{- end -}}
+
+{{/*Define ingress-tls secret name*/}}
+{{- define "ingress.tls.secretName" -}}
+  {{- default (printf "ingress-tls-%s" (include "fullName" .)) $.Values.ingress.tls.secretName -}}    
 {{- end -}}
 
 {{/* Check if host is set */}}
@@ -62,10 +113,8 @@
 {{- define "ingress-nginx.params" -}}
 - /nginx-ingress-controller
 - --election-id={{ include "ingress-nginx.controller.electionID" . }}
-- --controller-class={{ $.Values.controller.ingressClassResource.controllerValue }}
-  {{- if $.Values.ingressClass }}
-- --ingress-class={{ $.Values.controller.ingressClass }}
-  {{- end }}
+- --controller-class=k8s.io/{{ include "ingress-nginx.fullname" .}}
+- --ingress-class={{ include "ingress-nginx.fullname" .}}
 - --configmap=$(POD_NAMESPACE)/{{ include "ingress-nginx.controller.fullname" . }}
 - --tcp-services-configmap={{ include "ingress-nginx.namespace" . }}/{{ include "fullName" . }}-tcp-services
 {{- end -}}

@@ -121,7 +121,7 @@ spec:
       volumes:
       - name: certificate
         secret:
-          secretName: ingress-tls
+          secretName: {{ include "ingress.tls.secretName" . }}
       imagePullSecrets:
       - name: acr-secret
   selector:
