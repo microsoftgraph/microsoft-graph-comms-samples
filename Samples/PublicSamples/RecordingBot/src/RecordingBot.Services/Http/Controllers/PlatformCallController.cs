@@ -63,14 +63,26 @@ namespace RecordingBot.Services.Http.Controllers
             Guid requestId = clientRequestId ?? skypeRequestId ?? default;
             Guid scenarioId = clientScenarioId ?? skypeScenarioId ?? default;
 
+            // Convert Request Authorization Request Header
+            if(Request.Headers.Authorization.Count != 1)
+            {
+                return Unauthorized();
+            }
+            var schemeAndParameter = Request.Headers.Authorization[0].Split(" ");
+            if(schemeAndParameter.Length != 2)
+            {
+                return Unauthorized();
+            }
+
             RequestValidationResult result;
 
-                var httpRequestMessage = new System.Net.Http.HttpRequestMessage();
-                httpRequestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", Request.Headers.Authorization);
-                // Autenticate the incoming request.
-                result = await _commsClient.AuthenticationProvider
-                    .ValidateInboundRequestAsync(httpRequestMessage)
-                    .ConfigureAwait(false);
+            var httpRequestMessage = new System.Net.Http.HttpRequestMessage();
+            httpRequestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue(schemeAndParameter[0],schemeAndParameter[1]);
+
+            // Autenticate the incoming request.
+            result = await _commsClient.AuthenticationProvider
+                .ValidateInboundRequestAsync(httpRequestMessage)
+                .ConfigureAwait(false);
 
             if (result.IsValid)
             {
