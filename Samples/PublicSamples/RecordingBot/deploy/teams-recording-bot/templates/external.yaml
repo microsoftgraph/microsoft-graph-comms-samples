@@ -16,11 +16,11 @@ spec:
   loadBalancerIP: {{ include "publicIP" . }}
   ports:
   - name: http
-    port: 80
+    port: {{ $.Values.public.http }}
     targetPort: http
     protocol: TCP
   - name: https
-    port: 443
+    port: {{ $.Values.public.https }}
     targetPort: https
     protocol: TCP
 {{- range $i, $e := until (int $maxCount) }}

@@ -13,7 +13,7 @@ metadata:
     cert-manager.io/cluster-issuer: {{ $fullName }}-issuer
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     nginx.ingress.kubernetes.io/server-snippet: |
-      location ~* ^/(?<instance>[0-9]*)/api/calling/notification {
+      location ~* ^({{ include "ingress.path.withTrailingSlash" . }})(?<instance>[0-9]*)/api/calling/notification {
         proxy_pass https://{{ $fullName }}-$instance.{{ $fullName }}.{{ $namespace }}.svc.cluster.local:{{ .Values.internal.port }};
       }
 spec:
@@ -26,7 +26,7 @@ spec:
   - host: {{ include "hostName" . }}
     http:
       paths:
-      - path: /
+      - path: {{ include "ingress.path" . }}
         pathType: Prefix
         backend:
           service:

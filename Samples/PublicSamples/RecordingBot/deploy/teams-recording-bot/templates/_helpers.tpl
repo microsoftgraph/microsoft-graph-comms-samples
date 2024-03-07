@@ -81,6 +81,17 @@
   {{- default (printf "ingress-tls-%s" (include "fullName" .)) $.Values.ingress.tls.secretName -}}    
 {{- end -}}
 
+{{/*Define ingress path*/}}
+{{- define "ingress.path" -}}
+  {{- printf "/%s" (trimPrefix "/" $.Values.ingress.path) -}}    
+{{- end -}}
+
+{{/*Define ingress path*/}}
+{{- define "ingress.path.withTrailingSlash" -}}
+  {{- printf "%s/" (trimSuffix "/" (include "ingress.path" .)) -}}    
+{{- end -}}
+
+
 {{/* Check if host is set */}}
 {{- define "hostName" -}}
   {{- if .Values.host -}}

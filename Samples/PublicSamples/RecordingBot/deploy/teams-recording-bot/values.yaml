@@ -16,8 +16,12 @@ image:
   pullPolicy: IfNotPresent
 
 ingress:
+  path: /
   tls:
     email: YOUR_EMAIL
+
+secrets:
+  resourceName: bot-application-secrets
 
 autoscaling:
   enabled: false
@@ -28,6 +32,8 @@ internal:
 
 public:
   media: 28550
+  https: 443
+  http: 80
   ip: null
 
 node:
@@ -63,6 +69,7 @@ resources: {}
   #   memory: 128Mi
 
 ingress-nginx:
+  enabled: true
   controller:
     ingressClassRessource:
       enabled: false
