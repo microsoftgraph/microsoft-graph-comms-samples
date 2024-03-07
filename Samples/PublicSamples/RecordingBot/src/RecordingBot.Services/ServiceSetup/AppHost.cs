@@ -118,6 +118,8 @@ namespace RecordingBot.Services.ServiceSetup
 
             // Configure the HTTP request pipeline.
             app.UsePathBase(azureSettings.PodPathBase); 
+            app.UsePathBase(azureSettings.ServicePath);
+            
             app.UseHttpsRedirection();
 
             app.UseAuthorization();

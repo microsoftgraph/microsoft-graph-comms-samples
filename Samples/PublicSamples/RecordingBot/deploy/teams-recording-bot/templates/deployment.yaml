@@ -72,18 +72,20 @@ spec:
         - name: AzureSettings__BotName
           valueFrom:
             secretKeyRef:
-              name: bot-application-secrets
+              name: {{ .Values.secrets.resourceName }}
               key: botName
         - name: AzureSettings__AadAppId
           valueFrom:
             secretKeyRef:
-              name: bot-application-secrets
+              name: {{ .Values.secrets.resourceName }}
               key: applicationId
         - name: AzureSettings__AadAppSecret
           valueFrom:
             secretKeyRef:
-              name: bot-application-secrets
+              name: {{ .Values.secrets.resourceName }}
               key: applicationSecret
+        - name: AzureSettings__ServicePath
+          value: {{ include "ingress.path.withTrailingSlash" . }}
         - name: AzureSettings__ServiceDnsName
           value: {{ include "hostName" . }}
         - name: AzureSettings__InstancePublicPort
@@ -92,6 +94,8 @@ spec:
           value: "{{ .Values.internal.media }}"
         - name: AzureSettings__CallSignalingPort
           value: "{{ .Values.internal.port }}"
+        - name: AzureSettings__CallSignalingPublicPort
+          value: "{{ .Values.public.https }}"
         - name: AzureSettings__PlaceCallEndpointUrl
           value: https://graph.microsoft.com/v1.0
         - name: AzureSettings__CaptureEvents
@@ -121,7 +125,7 @@ spec:
       volumes:
       - name: certificate
         secret:
-          secretName: ingress-tls
+          secretName: {{ include "ingress.tls.secretName" . }}
       imagePullSecrets:
       - name: acr-secret
   selector:
