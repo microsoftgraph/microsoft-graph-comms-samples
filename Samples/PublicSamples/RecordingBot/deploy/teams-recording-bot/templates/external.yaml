@@ -15,6 +15,7 @@ spec:
   externalTrafficPolicy: Cluster
   loadBalancerIP: {{ include "publicIP" . }}
   ports:
+{{- if (index $.Values "ingress-ngnix" "enabled")-}}
   - name: http
     port: {{ $.Values.public.http }}
     targetPort: http
@@ -23,6 +24,7 @@ spec:
     port: {{ $.Values.public.https }}
     targetPort: https
     protocol: TCP
+{{- end -}}
 {{- range $i, $e := until (int $maxCount) }}
   - name: {{ $.Values.public.media | add $i }}-tcp
     port: {{ $.Values.public.media | add $i }}
@@ -31,5 +33,5 @@ spec:
 {{- end }}
   selector:
     app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: {{ $.Release.Name }}
+    app.kubernetes.io/instance: {{ include "ingress-nginx.include" . }}
     app.kubernetes.io/name: {{ include "ingress-nginx.name" .}}

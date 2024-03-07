@@ -7,6 +7,9 @@ metadata:
     helmVersion: {{ .Chart.Version }}
     helmAppVersion: {{ .Chart.AppVersion }}
     helmName: {{ .Chart.Name }}
+    app.kubernetes.io/name: {{ include "ingress-nginx.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/component: controller
   name: {{ $fullName }}
 spec:
   controller: "k8s.io/{{$fullName}}"

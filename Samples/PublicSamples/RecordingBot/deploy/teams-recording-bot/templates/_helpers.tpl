@@ -21,6 +21,10 @@
   {{- end -}}
 {{- end -}}
 
+{{- define "ingress-nginx.instance "-}}
+  {{- default $.Release.Name (index $.Values "ingress-nginx" "instance") -}}
+{{- end -}}
+
 {{- define "ingress-nginx.name" -}}
   {{- if $.Values.controller -}}
     {{- default (include "ingress-nginx.fullname" .) .Values.nameOverride | trunc 63 | trimSuffix "-" -}}
