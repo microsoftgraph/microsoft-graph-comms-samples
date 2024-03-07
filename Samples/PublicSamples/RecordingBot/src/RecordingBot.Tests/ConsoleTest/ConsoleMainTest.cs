@@ -7,7 +7,7 @@
 // Last Modified On : 08-17-2020
 // ***********************************************************************
 // <copyright file="ConsoleMainTest.cs" company="Microsoft">
-//     Copyright ©  2020
+//     Copyright Â© 2020
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -53,16 +53,15 @@ namespace RecordingBot.Tests.ConsoleTest
         [Test]
         public void TestVersion()
         {
-            using (StringWriter sw = new StringWriter())
+            using (StringWriter sw = new())
             {
                 System.Console.SetOut(sw);
 
-                Console.Program.Main(new string[] { "-v" });
+                Console.Program.Main(["-v"]);
 
-                Version version;
-                Version.TryParse(sw.ToString(), out version);
+                _ = Version.TryParse(sw.ToString(), out Version version);
 
-                Assert.IsNotNull(version);
+                Assert.That(version, Is.Not.Null);
             }
         }
     }

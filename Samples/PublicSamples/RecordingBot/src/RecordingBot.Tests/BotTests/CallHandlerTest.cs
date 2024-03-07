@@ -7,7 +7,7 @@
 // Last Modified On : 09-03-2020
 // ***********************************************************************
 // <copyright file="CallHandlerTest.cs" company="Microsoft">
-//     Copyright ©  2020
+//     Copyright © 2020
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -20,10 +20,10 @@ using Microsoft.Graph.Communications.Common.Telemetry;
 using Microsoft.Graph.Communications.Resources;
 using Microsoft.Graph.Models;
 using Microsoft.Skype.Bots.Media;
-using Moq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Bson;
 using Newtonsoft.Json.Linq;
+using NSubstitute;
 using NUnit.Framework;
 using RecordingBot.Model.Models;
 using RecordingBot.Services.Bot;
@@ -50,15 +50,15 @@ namespace RecordingBot.Tests.BotTests
         /// <summary>
         /// The call
         /// </summary>
-        private Mock<ICall> _call;
+        private ICall _call;
         /// <summary>
         /// The logger
         /// </summary>
-        private Mock<IGraphLogger> _logger;
+        private IGraphLogger _logger;
         /// <summary>
         /// The media session
         /// </summary>
-        private Mock<ILocalMediaSession> _mediaSession;
+        private ILocalMediaSession _mediaSession;
         /// <summary>
         /// The event publisher
         /// </summary>
@@ -83,19 +83,19 @@ namespace RecordingBot.Tests.BotTests
                 },
             };
 
-            _logger = new Mock<IGraphLogger>() { DefaultValue = DefaultValue.Mock };
-            _eventPublisher = new Mock<IEventPublisher>().Object;
+            _logger = Substitute.For<IGraphLogger>();
+            _eventPublisher = Substitute.For<IEventPublisher>();
 
-            _mediaSession = new Mock<ILocalMediaSession>();
-            _mediaSession.Setup(x => x.AudioSocket).Returns(new Mock<IAudioSocket>().Object);
+            _mediaSession = Substitute.For<ILocalMediaSession>();
+            _mediaSession.AudioSocket.Returns(Substitute.For<IAudioSocket>());
 
-            _call = new Mock<ICall>();
-            _call.Setup(x => x.Participants).Returns(new Mock<IParticipantCollection>().Object);
-            _call.Setup(x => x.Resource).Returns(new Mock<Call>().Object);
-            _call.Setup(x => x.GraphLogger).Returns(_logger.Object);
-            _call.Setup(x => x.MediaSession).Returns(_mediaSession.Object);
+            _call = Substitute.For<ICall>();
+            _call.Participants.Returns(Substitute.For<IParticipantCollection>());
+            _call.Resource.Returns(Substitute.For<Call>());
+            _call.GraphLogger.Returns(_logger);
+            _call.MediaSession.Returns(_mediaSession);
 
-            _call.Object.Resource.Source = new ParticipantInfo()
+            _call.Resource.Source = new ParticipantInfo()
             {
                 Identity = new IdentitySet()
                 {
@@ -114,7 +114,7 @@ namespace RecordingBot.Tests.BotTests
         public void TestOnParticipantUpdate()
         {
             var participantCount = 0;
-            var handler = new CallHandler(_call.Object, _settings, _eventPublisher);
+            var handler = new CallHandler(_call, _settings, _eventPublisher);
 
             using (var fs = System.IO.File.OpenRead(Path.Combine("TestData", "participants.zip")))
             {
@@ -133,11 +133,11 @@ namespace RecordingBot.Tests.BotTests
 
                         using (var bson = new BsonDataReader(ms))
                         {
-                            JsonSerializer serializer = new JsonSerializer();
+                            JsonSerializer serializer = new();
                             serializer.Converters.Add(new ParticipantConverter());
                             data = serializer.Deserialize<ParticipantData>(bson);
 
-                            data.AddedResources.Select(x =>
+                            _ = data.AddedResources.Select(x =>
                             {
                                 if (x.Resource.Info.Identity.AdditionalData != null)
                                 {
@@ -160,18 +160,18 @@ namespace RecordingBot.Tests.BotTests
                                 return x;
                             }).ToList();
 
-                            Assert.IsNotNull(data);
+                            Assert.That(data, Is.Not.Null);
 
                             var addKnownUser = data.AddedResources.Where(x => x.Resource.Info.Identity.User != null).ToList();
                             var addAdditionalDataUser = data.AddedResources.Where(x => x.Resource.Info.Identity.User == null && x.Resource.Info.Identity.AdditionalData != null).ToList();
                             var addGuestUser = addAdditionalDataUser.SelectMany(x => x.Resource.Info.Identity.AdditionalData).Where(x => x.Key != "applicationInstance" && x.Value is Identity).ToList();
-                            var addGuestNonUser = addAdditionalDataUser.SelectMany(x => x.Resource.Info.Identity.AdditionalData).Where(x => x.Key == "applicationInstance" || !(x.Value is Identity)).ToList();
+                            var addGuestNonUser = addAdditionalDataUser.SelectMany(x => x.Resource.Info.Identity.AdditionalData).Where(x => x.Key == "applicationInstance" || x.Value is not Identity).ToList();
                             var addUnkownUser = data.AddedResources.Where(x => x.Resource.Info.Identity.User == null && x.Resource.Info.Identity.AdditionalData == null).ToList();
 
                             var removeKnownUser = data.RemovedResources.Where(x => x.Resource.Info.Identity.User != null).ToList();
                             var removeAdditionalDataUser = data.RemovedResources.Where(x => x.Resource.Info.Identity.User == null && x.Resource.Info.Identity.AdditionalData != null).ToList();
                             var removeGuestUser = removeAdditionalDataUser.SelectMany(x => x.Resource.Info.Identity.AdditionalData).Where(x => x.Key != "applicationInstance" && x.Value is Identity).ToList();
-                            var removeGuestNonUser = removeAdditionalDataUser.SelectMany(x => x.Resource.Info.Identity.AdditionalData).Where(x => x.Key == "applicationInstance" || !(x.Value is Identity)).ToList();
+                            var removeGuestNonUser = removeAdditionalDataUser.SelectMany(x => x.Resource.Info.Identity.AdditionalData).Where(x => x.Key == "applicationInstance" || x.Value is not Identity).ToList();
                             var removeUnkownUser = data.RemovedResources.Where(x => x.Resource.Info.Identity.User == null && x.Resource.Info.Identity.AdditionalData == null).ToList();
 
                             var c = new CollectionEventArgs<IParticipant>("", addedResources: data.AddedResources, updatedResources: null, removedResources: data.RemovedResources);
@@ -182,7 +182,7 @@ namespace RecordingBot.Tests.BotTests
                             if (addKnownUser.Count != 0)
                             {
                                 var match = addKnownUser.Where(x => participants.Contains(x)).Count();
-                                Assert.AreEqual(addKnownUser.Count, match);
+                                Assert.That(match, Is.EqualTo(addKnownUser.Count));
                             }
 
                             if (addGuestUser.Count != 0)
@@ -193,16 +193,16 @@ namespace RecordingBot.Tests.BotTests
                                     .ToList()
                                     .Where(x =>
                                         addGuestUser
-                                        .Where(y => y.Value as Identity == x.Value as Identity).Count() > 0)
+                                        .Where(y => y.Value as Identity == x.Value as Identity).Any())
                                     .Count();
 
-                                Assert.AreEqual(addGuestUser.Count, match);
+                                Assert.That(match, Is.EqualTo(addGuestUser.Count));
                             }
 
                             participantCount += addKnownUser.Count + addGuestUser.Count;
                             participantCount -= removeKnownUser.Count + removeGuestUser.Count;
 
-                            Assert.AreEqual(participantCount, participants.Count);
+                            Assert.That(participants.Count, Is.EqualTo(participantCount));
                         }
                     }
                 }

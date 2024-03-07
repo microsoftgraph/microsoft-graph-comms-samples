@@ -7,7 +7,7 @@
 // Last Modified On : 08-17-2020
 // ***********************************************************************
 // <copyright file="AudioSampleData.cs" company="Microsoft">
-//     Copyright ©  2020
+//     Copyright Â© 2020
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -26,13 +26,13 @@ namespace RecordingBot.Tests.AudioTest
         /// <summary>
         /// The path
         /// </summary>
-        private static string path = Path.Combine(Path.GetTempPath(), BotConstants.DefaultOutputFolder, "test", "audio");
+        private static readonly string path = Path.Combine(Path.GetTempPath(), BotConstants.DefaultOutputFolder, "test", "audio");
 
         /// <summary>
         /// Tests the clean.
         /// </summary>
         [TearDown]
-        public void testClean()
+        public void TestClean()
         {
             Directory.Delete(path, true);
         }
@@ -41,7 +41,7 @@ namespace RecordingBot.Tests.AudioTest
         /// Tests the initialize.
         /// </summary>
         [SetUp]
-        public void testInit()
+        public void TestInit()
         {
             Directory.CreateDirectory(path);
         }

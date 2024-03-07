@@ -7,16 +7,16 @@
 // Last Modified On : 09-03-2020
 // ***********************************************************************
 // <copyright file="MediaStreamTest.cs" company="Microsoft">
-//     Copyright ©  2020
+//     Copyright © 2020
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
 using ICSharpCode.SharpZipLib.Core;
 using ICSharpCode.SharpZipLib.Zip;
 using Microsoft.Graph.Communications.Common.Telemetry;
-using Moq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Bson;
+using NSubstitute;
 using NUnit.Framework;
 using RecordingBot.Services.Media;
 using RecordingBot.Services.ServiceSetup;
@@ -65,8 +65,8 @@ namespace RecordingBot.Tests.MediaTest
                 },
             };
 
-            var logger = new Mock<IGraphLogger>();
-            _mediaStream = new MediaStream(_settings, logger.Object, Guid.NewGuid().ToString());
+            var logger = Substitute.For<IGraphLogger>();
+            _mediaStream = new MediaStream(_settings, logger, Guid.NewGuid().ToString());
         }
 
         /// <summary>
@@ -94,11 +94,11 @@ namespace RecordingBot.Tests.MediaTest
                             var d = new DeserializeAudioMediaBuffer(e);
                             var p = new DeserializeParticipant().GetParticipant(e);
 
-                            Assert.AreEqual(e.IsSilence, d.IsSilence);
-                            Assert.AreEqual(e.Length, d.Length);
-                            Assert.AreEqual(e.Timestamp, d.Timestamp);
-                            Assert.AreEqual(e.ActiveSpeakers, d.ActiveSpeakers);
-                            Assert.AreEqual(e.SerializableUnmixedAudioBuffers?.Length, d.UnmixedAudioBuffers?.Length);
+                            Assert.That(d.IsSilence, Is.EqualTo(e.IsSilence));
+                            Assert.That(d.Length, Is.EqualTo(e.Length));
+                            Assert.That(d.Timestamp, Is.EqualTo(e.Timestamp));
+                            Assert.That(d.ActiveSpeakers, Is.EqualTo(e.ActiveSpeakers));
+                            Assert.That(d.UnmixedAudioBuffers?.Length, Is.EqualTo(e.SerializableUnmixedAudioBuffers?.Length));
 
                             Assert.That((d.Data != IntPtr.Zero && e.Buffer != null) || (d.Data == IntPtr.Zero && e.Buffer == null));
 
@@ -107,32 +107,32 @@ namespace RecordingBot.Tests.MediaTest
                                 var buffer = new byte[d.Length];
                                 Marshal.Copy(d.Data, buffer, 0, (int)d.Length);
 
-                                Assert.AreEqual(e.Buffer, buffer);
+                                Assert.That(buffer, Is.EqualTo(e.Buffer));
                             }
 
                             for (int i = 0; i < e.SerializableUnmixedAudioBuffers?.Length; i++)
                             {
-                                Assert.AreEqual(e.SerializableUnmixedAudioBuffers.Length, d.UnmixedAudioBuffers.Length);
-                                Assert.AreEqual(e.SerializableUnmixedAudioBuffers.Length, p.Count);
+                                Assert.That(d.UnmixedAudioBuffers.Length, Is.EqualTo(e.SerializableUnmixedAudioBuffers.Length));
+                                Assert.That(p.Count, Is.EqualTo(e.SerializableUnmixedAudioBuffers.Length));
 
                                 var source = e.SerializableUnmixedAudioBuffers[i];
                                 var actual = d.UnmixedAudioBuffers[i];
                                 var participant = p[i].Resource.Info.Identity.User;
 
-                                Assert.AreEqual(source.ActiveSpeakerId, actual.ActiveSpeakerId);
-                                Assert.AreEqual(source.Length, actual.Length);
-                                Assert.AreEqual(source.OriginalSenderTimestamp, actual.OriginalSenderTimestamp);
+                                Assert.That(actual.ActiveSpeakerId, Is.EqualTo(source.ActiveSpeakerId));
+                                Assert.That(actual.Length, Is.EqualTo(source.Length));
+                                Assert.That(actual.OriginalSenderTimestamp, Is.EqualTo(source.OriginalSenderTimestamp));
 
                                 var buffer = new byte[actual.Length];
                                 Marshal.Copy(actual.Data, buffer, 0, (int)actual.Length);
 
-                                Assert.AreEqual(source.Buffer, buffer);
+                                Assert.That(buffer, Is.EqualTo(source.Buffer));
 
-                                Assert.AreEqual(source.DisplayName, participant.DisplayName);
-                                Assert.AreEqual(source.AdditionalData, participant.AdditionalData);
-                                Assert.AreEqual(source.AdId, participant.Id);
+                                Assert.That(participant.DisplayName, Is.EqualTo(source.DisplayName));
+                                Assert.That(participant.AdditionalData, Is.EqualTo(source.AdditionalData));
+                                Assert.That(participant.Id, Is.EqualTo(source.AdId));
                                 Assert.That(p[i].Resource.MediaStreams.Any(x => x.SourceId == source.ActiveSpeakerId.ToString()));
-                                Assert.IsFalse(p[i].Resource.IsInLobby);
+                                Assert.That(p[i].Resource.IsInLobby, Is.False);
                             }
 
                             await _mediaStream.AppendAudioBuffer(d, p);
@@ -170,43 +170,43 @@ namespace RecordingBot.Tests.MediaTest
 
                     Assert.That((d.Data != IntPtr.Zero && e.Buffer != null) || (d.Data == IntPtr.Zero && e.Buffer == null));
 
-                    Assert.AreEqual(e.IsSilence, d.IsSilence);
-                    Assert.AreEqual(e.Length, d.Length);
-                    Assert.AreEqual(e.Timestamp, d.Timestamp);
-                    Assert.AreEqual(e.ActiveSpeakers, d.ActiveSpeakers);
-                    Assert.AreEqual(e.SerializableUnmixedAudioBuffers?.Length, d.UnmixedAudioBuffers?.Length);
+                    Assert.That(d.IsSilence, Is.EqualTo(e.IsSilence));
+                    Assert.That(d.Length, Is.EqualTo(e.Length));
+                    Assert.That(d.Timestamp, Is.EqualTo(e.Timestamp));
+                    Assert.That(d.ActiveSpeakers, Is.EqualTo(e.ActiveSpeakers));
+                    Assert.That(d.UnmixedAudioBuffers?.Length, Is.EqualTo(e.SerializableUnmixedAudioBuffers?.Length));
 
                     if (d.Data != IntPtr.Zero && e.Buffer != null)
                     {
                         var buffer = new byte[d.Length];
                         Marshal.Copy(d.Data, buffer, 0, (int)d.Length);
 
-                        Assert.AreEqual(e.Buffer, buffer);
+                        Assert.That(buffer, Is.EqualTo(e.Buffer));
                     }
 
                     for (int i = 0; i < e.SerializableUnmixedAudioBuffers?.Length; i++)
                     {
-                        Assert.AreEqual(e.SerializableUnmixedAudioBuffers.Length, d.UnmixedAudioBuffers.Length);
-                        Assert.AreEqual(e.SerializableUnmixedAudioBuffers.Length, p.Count);
+                        Assert.That(d.UnmixedAudioBuffers.Length, Is.EqualTo(e.SerializableUnmixedAudioBuffers.Length));
+                        Assert.That(p.Count, Is.EqualTo(e.SerializableUnmixedAudioBuffers.Length));
 
                         var source = e.SerializableUnmixedAudioBuffers[i];
                         var actual = d.UnmixedAudioBuffers[i];
                         var participant = p[i].Resource.Info.Identity.User;
 
-                        Assert.AreEqual(source.ActiveSpeakerId, actual.ActiveSpeakerId);
-                        Assert.AreEqual(source.Length, actual.Length);
-                        Assert.AreEqual(source.OriginalSenderTimestamp, actual.OriginalSenderTimestamp);
+                        Assert.That(actual.ActiveSpeakerId, Is.EqualTo(source.ActiveSpeakerId));
+                        Assert.That(actual.Length, Is.EqualTo(source.Length));
+                        Assert.That(actual.OriginalSenderTimestamp, Is.EqualTo(source.OriginalSenderTimestamp));
 
                         var buffer = new byte[actual.Length];
                         Marshal.Copy(actual.Data, buffer, 0, (int)actual.Length);
 
-                        Assert.AreEqual(source.Buffer, buffer);
+                        Assert.That(buffer, Is.EqualTo(source.Buffer));
 
-                        Assert.AreEqual(source.DisplayName, participant.DisplayName);
-                        Assert.AreEqual(source.AdditionalData, participant.AdditionalData);
-                        Assert.AreEqual(source.AdId, participant.Id);
+                        Assert.That(participant.DisplayName, Is.EqualTo(source.DisplayName));
+                        Assert.That(participant.AdditionalData, Is.EqualTo(source.AdditionalData));
+                        Assert.That(participant.Id, Is.EqualTo(source.AdId));
                         Assert.That(p[i].Resource.MediaStreams.Any(x => x.SourceId == source.ActiveSpeakerId.ToString()));
-                        Assert.IsFalse(p[i].Resource.IsInLobby);
+                        Assert.That(p[i].Resource.IsInLobby, Is.False);
 
                         if (!userIds.Contains(source.AdId) && source.AdId != null)
                         {
@@ -221,11 +221,11 @@ namespace RecordingBot.Tests.MediaTest
             var lastZip = await currentAudioProcessor.Finalise();
             var lastFileInfo = new FileInfo(lastZip);
 
-            var fileNames = getfileNames(lastZip).ToList();
+            var fileNames = GetfileNames(lastZip).ToList();
             foreach (var userId in userIds)
             {
                 var match = fileNames.FirstOrDefault(_ => _.Contains(userId));
-                Assert.NotNull(match);
+                Assert.That(match, Is.Not.Null);
             }
 
             lastFileInfo.Directory?.Delete(true);
@@ -236,7 +236,7 @@ namespace RecordingBot.Tests.MediaTest
         /// </summary>
         /// <param name="zipFile">The zip file.</param>
         /// <returns>IEnumerable&lt;System.String&gt;.</returns>
-        IEnumerable<string> getfileNames(string zipFile)
+        static IEnumerable<string> GetfileNames(string zipFile)
         {
             foreach (var file in ZipUtils.GetEntries(zipFile))
             {
