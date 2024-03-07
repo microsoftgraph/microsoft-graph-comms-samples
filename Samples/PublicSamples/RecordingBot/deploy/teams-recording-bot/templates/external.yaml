@@ -15,7 +15,7 @@ spec:
   externalTrafficPolicy: Cluster
   loadBalancerIP: {{ include "publicIP" . }}
   ports:
-{{- if (index $.Values "ingress-ngnix" "enabled")-}}
+{{- if (index $.Values "ingress-ngnix" "enabled") -}}
   - name: http
     port: {{ $.Values.public.http }}
     targetPort: http
