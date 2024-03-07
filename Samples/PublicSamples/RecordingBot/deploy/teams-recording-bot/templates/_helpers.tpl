@@ -21,7 +21,7 @@
   {{- end -}}
 {{- end -}}
 
-{{- define "ingress-nginx.instance "-}}
+{{- define "ingress-nginx.instance" -}}
   {{- default $.Release.Name (index $.Values "ingress-nginx" "instance") -}}
 {{- end -}}
 
