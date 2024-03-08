@@ -1,17 +1,3 @@
-﻿// ***********************************************************************
-// Assembly         : RecordingBot.Console
-// Author           : JasonTheDeveloper
-// Created          : 08-28-2020
-//
-// Last Modified By : dannyg
-// Last Modified On : 08-28-2020
-// ***********************************************************************
-// <copyright file="Program.cs" company="Microsoft Corporation">
-//      Copyright ©  2020 Microsoft Corporation. All rights reserved.
-//      //    Licensed under the MIT license. under the MIT license.
-// </copyright>
-// <summary></summary>
-// ***********************************************************************
 using RecordingBot.Services.ServiceSetup;
 using System;
 using System.Diagnostics;
@@ -19,17 +5,8 @@ using System.Reflection;
 
 namespace RecordingBot.Console
 {
-    /// <summary>
-    /// Class Program.
-    /// Implements the <see cref="RecordingBot.Services.ServiceSetup.AppHost" />
-    /// </summary>
-    /// <seealso cref="RecordingBot.Services.ServiceSetup.AppHost" />
     public class Program : AppHost
     {
-        /// <summary>
-        /// Defines the entry point of the application.
-        /// </summary>
-        /// <param name="args">The arguments.</param>
         public static void Main(string[] args)
         {
             var info = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location);
@@ -47,8 +24,6 @@ namespace RecordingBot.Console
                 System.Console.WriteLine("RecordingBot: booting");
 
                 bot.Boot(args);
-
-                System.Console.WriteLine("RecordingBot: running");
             }
             catch (Exception e)
             {
@@ -56,10 +31,6 @@ namespace RecordingBot.Console
             }
         }
 
-        /// <summary>
-        /// The exception message formatter in the console window
-        /// </summary>
-        /// <param name="e">The e.</param>
         public static void ExceptionHandler(Exception e)
         {
             System.Console.BackgroundColor = ConsoleColor.Black;
@@ -74,15 +45,10 @@ namespace RecordingBot.Console
             System.Console.ReadKey();
         }
 
-        /// <summary>
-        /// Inners the exception handler.
-        /// </summary>
-        /// <param name="e">The e.</param>
         private static void InnerExceptionHandler(Exception e)
         {
-            if (e == null) return; // return to the caller method
+            if (e == null) return;
             System.Console.WriteLine(e.Message);
-            // Call recursively to output all inner exception messages
             InnerExceptionHandler(e.InnerException);
         }
     }

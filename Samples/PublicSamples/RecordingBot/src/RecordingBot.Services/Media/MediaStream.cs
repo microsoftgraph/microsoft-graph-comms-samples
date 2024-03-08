@@ -1,16 +1,3 @@
-﻿// ***********************************************************************
-// Assembly         : RecordingBot.Services
-// Author           : JasonTheDeveloper
-// Created          : 09-07-2020
-//
-// Last Modified By : dannygar
-// Last Modified On : 09-03-2020
-// ***********************************************************************
-// <copyright file="MediaStream.cs" company="Microsoft">
-//     Copyright ©  2020
-// </copyright>
-// <summary></summary>
-// ***********************************************************************
 using Microsoft.Graph.Communications.Calls;
 using Microsoft.Graph.Communications.Common;
 using Microsoft.Graph.Communications.Common.Telemetry;
@@ -28,63 +15,19 @@ using System.Threading.Tasks.Dataflow;
 
 namespace RecordingBot.Services.Media
 {
-    /// <summary>
-    /// Class MediaStream.
-    /// Implements the <see cref="RecordingBot.Services.Contract.IMediaStream" />
-    /// </summary>
-    /// <seealso cref="RecordingBot.Services.Contract.IMediaStream" />
     public class MediaStream : IMediaStream
     {
-        /// <summary>
-        /// The buffer
-        /// </summary>
         private BufferBlock<SerializableAudioMediaBuffer> _buffer;
-        /// <summary>
-        /// The token source
-        /// </summary>
         private CancellationTokenSource _tokenSource;
-        /// <summary>
-        /// The is the indicator if the media stream is running
-        /// </summary>
         private bool _isRunning = false;
-        /// <summary>
-        /// The is draining indicator
-        /// </summary>
         protected bool _isDraining;
-
-        /// <summary>
-        /// The synchronize lock
-        /// </summary>
         private readonly SemaphoreSlim _syncLock = new(1);
-        /// <summary>
-        /// The media identifier
-        /// </summary>
         private readonly string _mediaId;
-        /// <summary>
-        /// The settings
-        /// </summary>
         private readonly AzureSettings _settings;
-        /// <summary>
-        /// The logger
-        /// </summary>
         private readonly IGraphLogger _logger;
-
-        /// <summary>
-        /// The current audio processor
-        /// </summary>
         private AudioProcessor _currentAudioProcessor;
-        /// <summary>
-        /// The capture
-        /// </summary>
         private CaptureEvents _capture;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MediaStream" /> class.
-
-        /// </summary>
-        /// <param name="settings">The settings.</param>
-        /// <param name="logger">The logger.</param>
-        /// <param name="mediaId">The media identifier.</param>
         public MediaStream(IAzureSettings settings, IGraphLogger logger, string mediaId)
         {
             _settings = (AzureSettings)settings;
@@ -92,11 +35,6 @@ namespace RecordingBot.Services.Media
             _mediaId = mediaId;
         }
 
-        /// <summary>
-        /// Appends the audio buffer.
-        /// </summary>
-        /// <param name="buffer">The buffer.</param>
-        /// <param name="participants">The participants.</param>
         public async Task AppendAudioBuffer(AudioMediaBuffer buffer, List<IParticipant> participants)
         {
             if (!_isRunning)
@@ -115,11 +53,6 @@ namespace RecordingBot.Services.Media
             }
         }
 
-
-        /// <summary>
-        /// Ends this instance.
-        /// </summary>
-        /// <returns>Task.</returns>
         public async Task End()
         {
             if (!_isRunning)
@@ -150,9 +83,6 @@ namespace RecordingBot.Services.Media
             _syncLock.Release();
         }
 
-        /// <summary>
-        /// Starts this instance.
-        /// </summary>
         private async Task _start()
         {
             await _syncLock.WaitAsync().ConfigureAwait(false);
@@ -166,9 +96,6 @@ namespace RecordingBot.Services.Media
             _syncLock.Release();
         }
 
-        /// <summary>
-        /// Processes this instance.
-        /// </summary>
         private async Task _process()
         {
             _currentAudioProcessor = new AudioProcessor(_settings);
@@ -225,9 +152,6 @@ namespace RecordingBot.Services.Media
             _isDraining = false;
         }
 
-        /// <summary>
-        /// Chunks the process.
-        /// </summary>
         async Task _chunkProcess()
         {
             try
