@@ -1,8 +1,30 @@
+> **Note**  
+> Public Samples are provided by developers from the Microsoft Graph community.  
+> Public Samples are not official Microsoft Communication samples, and not supported by the Microsoft Communication engineering team. It is recommended that you contact the sample owner before using code from Public Samples in production systems.
+
+---
+
+**Title:**  
+RecordingBot
+
+**Description:**  
+A compliance recording bot sample running on AKS (Azure Kubernetes Service).
+
+**Authors:**  
+Owning organization: LM IT Services AG ([@LM-Development](https://github.com/LM-Development) on GitHub)  
+Lead maintainer: [@InDieTasten](https://github.com/InDieTasten)  
+
+**Fork for issues and contributions:**  
+[LM-Development/aks-sample](https://github.com/LM-Development/aks-sample)
+
+
 # Introduction
 
-The teams-recording-bot sample guides you through building, deploying and testing a Teams recording bot running within a container, deployed into Azure Kubernetes Services.
+This sample allows you to build, deploy and test a compliance recording bot running on Azure Kubernetes Service and is currently the only sample demonstrating a basis for zero-downtime deployments and horizontal scaling ability.
 
-## Contents
+The unique purpose of this sample is to demonstrate how to run production grade bots. The bot implementation can easily be changed to fit other use cases other than compliance recording.
+
+### Contents
 
 Outline the file contents of the repository. It helps users navigate the codebase, build configuration and any related assets.
 
@@ -14,10 +36,45 @@ Outline the file contents of the repository. It helps users navigate the codebas
 | `scripts`         | Helpful scripts for running project.       |
 | `src`             | Sample source code.                        |
 | `.gitignore`      | Define what to ignore at commit time.      |
-| `CHANGELOG.md`    | List of changes to the sample.             |
-| `CONTRIBUTING.md` | Guidelines for contributing to the sample. |
 | `README.md`       | This README file.                          |
 | `LICENSE`         | The license for the sample.                |
+
+## Getting Started
+
+The easiest way to grasp the basics surrounding compliance bots is to read up on the following documentation topics:
+> 🚩 TODO: 1. Understanding App-Hosted Media Bot Networking  
+
+> 🚩 TODO: 2. Understanding Entra and Graph Calling Permissions  
+
+> 🚩 TODO: 3. Understanding Compliance Recording Policies
+
+### Deploy
+
+> 🚩 TODO: Prerequisites
+
+> 🚩 TODO: AKS, bot registration, permissions, docker, helm, compliance policies
+
+
+### Local Run
+
+> 🚩 TODO: Prerequisites
+
+> 🚩 TODO: Ngrok, bot registration, permissions, compliance policies
+
+### Testing
+
+> 🚩 TODO: Prerequisites
+
+> 🚩 TODO: How to test
+
+## Questions and Support
+
+> For this sample related questions, please open an issue in the [issue tracker](https://github.com/LM-Development/aks-sample/issues) of the fork repository.
+
+
+---
+
+# 🚩 TODO: Transfer applicable details into above todos or other docs pages
 
 ## Prerequisites
 
