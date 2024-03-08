@@ -1,17 +1,3 @@
-// ***********************************************************************
-// Assembly         : RecordingBot.Services
-// Author           : JasonTheDeveloper
-// Created          : 09-07-2020
-//
-// Last Modified By : dannygar
-// Last Modified On : 09-07-2020
-// ***********************************************************************
-// <copyright file="PlatformCallController.cs" company="Microsoft">
-//     Copyright ©  2020
-// </copyright>
-// <summary></summary>
-// ***********************************************************************>
-
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Graph.Communications.Client;
 using Microsoft.Graph.Communications.Client.Authentication;
@@ -25,23 +11,13 @@ using System.Threading.Tasks;
 
 namespace RecordingBot.Services.Http.Controllers
 {
-    /// <summary>
-    /// Entry point for handling call-related web hook requests from Skype Platform.
-    /// </summary>
     [ApiController]
     [Route(HttpRouteConstants.CallSignalingRoutePrefix)]
     public class PlatformCallController : ControllerBase
     {
-        /// <summary>
-        /// The logger
-        /// </summary>
         private readonly IGraphLogger _logger;
-
         private readonly ICommunicationsClient _commsClient;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PlatformCallController" /> class.
-        /// </summary>
         public PlatformCallController(IGraphLogger logger, IBotService botService)
         {
             _logger = logger;

@@ -370,7 +370,7 @@ resource VMSS 'Microsoft.Compute/virtualMachineScaleSets@2021-07-01' = {
                 configurationArguments: {
                   DomainName: contains(Global,'ADDomainName') ? Global.ADDomainName : '${resourceGroup().location}.cloudapp.azure.com'
                   storageAccountId: saaccountidglobalsource.id
-                  appInsightsInstrumentationKey: ai.properties.InstrumentationKey
+                  appInsightsConnectionString: ai.properties.ConnectionString
                   deployment: Deployment
                   networkid: '${networkId}.'
                   appInfo: contains(AppServer, 'AppInfo') ? string(AppServer.AppInfo) : ''

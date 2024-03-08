@@ -348,4 +348,6 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
-EchoBot/EchoBot/.env
+.env
+
+.DS_Store
