@@ -16,8 +16,12 @@ image:
   pullPolicy: IfNotPresent
 
 ingress:
+  path: /
   tls:
-    secretName: ingress-tls
+    email: YOUR_EMAIL
+
+secrets:
+  resourceName: bot-application-secrets
 
 autoscaling:
   enabled: false
@@ -28,6 +32,8 @@ internal:
 
 public:
   media: 28550
+  https: 443
+  http: 80
   ip: null
 
 node:
@@ -63,8 +69,10 @@ resources: {}
   #   memory: 128Mi
 
 ingress-nginx:
-  namespaceOverride: "ingress-nginx"
+  enabled: true
   controller:
+    ingressClassRessource:
+      enabled: false
     allowSnippetAnnotations: true
     replicaCount: 1
     nodeSelector:
@@ -73,7 +81,3 @@ ingress-nginx:
       enabled: false
     admissionWebhooks:
       enabled: false
-    config:
-      log-format-stream: ""
-    extraArgs:
-      tcp-service-configmap: ingress-nginx/teams-recording-bot-tcp-services
