@@ -1,17 +1,4 @@
-﻿// ***********************************************************************
-// Assembly         : RecordingBot.Services
-// Author           : JasonTheDeveloper
-// Created          : 09-07-2020
-//
-// Last Modified By : dannygar
-// Last Modified On : 09-03-2020
-// ***********************************************************************
-// <copyright file="JoinCallController.cs" company="Microsoft">
-//     Copyright ©  2020
-// </copyright>
-// <summary></summary>
-// ***********************************************************************
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
 using Microsoft.Graph.Communications.Common.Telemetry;
 using RecordingBot.Model.Extension;
@@ -33,30 +20,11 @@ namespace RecordingBot.Services.Http.Controllers
     [ApiController]
     public class JoinCallController : ControllerBase
     {
-        /// <summary>
-        /// The logger
-        /// </summary>
         private readonly IGraphLogger _logger;
-        /// <summary>
-        /// The bot service
-        /// </summary>
         private readonly IBotService _botService;
-        /// <summary>
-        /// The settings
-        /// </summary>
         private readonly AzureSettings _settings;
-        /// <summary>
-        /// The event publisher
-        /// </summary>
         private readonly IEventPublisher _eventPublisher;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="JoinCallController" /> class.
-        /// </summary>
-        /// <param name="logger">The logger.</param>
-        /// <param name="eventPublisher">The event publisher.</param>
-        /// <param name="botService">The bot service.</param>
-        /// <param name="settings">The settings.</param>
         public JoinCallController(IGraphLogger logger, IEventPublisher eventPublisher, IBotService botService, AzureSettings azureSettings)
         {
             _logger = logger;
@@ -65,11 +33,6 @@ namespace RecordingBot.Services.Http.Controllers
             _eventPublisher = eventPublisher;
         }
 
-        /// <summary>
-        /// The join call async.
-        /// </summary>
-        /// <param name="joinCallBody">The join call body.</param>
-        /// <returns>The <see cref="HttpResponseMessage" />.</returns>
         [HttpPost]
         [Route(HttpRouteConstants.JoinCall)]
         public async Task<IActionResult> JoinCallAsync([FromBody] JoinCallBody joinCallBody)

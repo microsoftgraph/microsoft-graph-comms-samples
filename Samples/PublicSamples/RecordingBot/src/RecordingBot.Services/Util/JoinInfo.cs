@@ -1,17 +1,4 @@
-﻿// ***********************************************************************
-// Assembly         : RecordingBot.Services
-// Author           : JasonTheDeveloper
-// Created          : 09-07-2020
-//
-// Last Modified By : dannygar
-// Last Modified On : 08-17-2020
-// ***********************************************************************
-// <copyright file="JoinInfo.cs" company="Microsoft">
-//     Copyright ©  2020
-// </copyright>
-// <summary></summary>
-// ***********************************************************************
-using Microsoft.Graph;
+﻿using Microsoft.Graph;
 using Microsoft.Graph.Contracts;
 using Microsoft.Graph.Models;
 using RecordingBot.Model.Models;
@@ -24,19 +11,8 @@ using System.Text.RegularExpressions;
 
 namespace RecordingBot.Services.Util
 {
-    /// <summary>
-    /// Gets the join information.
-    /// </summary>
     public class JoinInfo
     {
-        /// <summary>
-        /// Parse Join URL into its components.
-        /// </summary>
-        /// <param name="joinURL">Join URL from Team's meeting body.</param>
-        /// <returns>Parsed data.</returns>
-        /// <exception cref="ArgumentException">Join URL cannot be null or empty: {joinURL} - joinURL</exception>
-        /// <exception cref="ArgumentException">Join URL cannot be parsed: {joinURL} - joinURL</exception>
-        /// <exception cref="ArgumentException">Join URL is invalid: missing Tid - joinURL</exception>
         public static (ChatInfo, MeetingInfo) ParseJoinURL(string joinURL)
         {
             if (string.IsNullOrEmpty(joinURL))

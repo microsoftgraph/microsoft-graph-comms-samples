@@ -1,19 +1,3 @@
-// ***********************************************************************
-// Assembly         : RecordingBot.Services
-// Author           : JasonTheDeveloper
-// Created          : 09-07-2020
-//
-// Last Modified By : dannygar
-// Last Modified On : 08-17-2020
-// ***********************************************************************
-// <copyright file="LoggingMessageHandler.cs" company="Microsoft Corporation">
-//     Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT license.
-// </copyright>
-// <summary>Helper class to log HTTP requests and responses and to set the scenario id based on the Scenario-ID or the X-Microsoft-Skype-Chain-ID headers
-//   value of incoming HTTP requests from Skype platform.</summary>
-// ***********************************************************************-
-
 using Microsoft.Graph.Communications.Common;
 using Microsoft.Graph.Communications.Common.Telemetry;
 using System;
@@ -33,28 +17,10 @@ namespace RecordingBot.Services.Http
     /// </summary>
     internal class LoggingMessageHandler : DelegatingHandler
     {
-        /// <summary>
-        /// Is the message handler an incoming one?.
-        /// </summary>
         private readonly bool isIncomingMessageHandler;
-
-        /// <summary>
-        /// The URL ignorers.
-        /// </summary>
         private readonly string[] urlIgnorers;
-
-        /// <summary>
-        /// Graph logger.
-        /// </summary>
         private readonly IGraphLogger logger;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LoggingMessageHandler" /> class.
-        /// Create a new LoggingMessageHandler.
-        /// </summary>
-        /// <param name="isIncomingMessageHandler">The is Incoming Message Handler.</param>
-        /// <param name="logger">Graph logger.</param>
-        /// <param name="urlIgnorers">The URL Ignorers.</param>
         public LoggingMessageHandler(bool isIncomingMessageHandler, IGraphLogger logger, string[] urlIgnorers = null)
         {
             this.isIncomingMessageHandler = isIncomingMessageHandler;
@@ -62,11 +28,6 @@ namespace RecordingBot.Services.Http
             this.urlIgnorers = urlIgnorers;
         }
 
-        /// <summary>
-        /// The get headers text.
-        /// </summary>
-        /// <param name="headers">The headers.</param>
-        /// <returns>The <see cref="string" />.</returns>
         public static string GetHeadersText(HttpHeaders headers)
         {
             if (headers == null || !headers.Any())
@@ -77,12 +38,6 @@ namespace RecordingBot.Services.Http
             return string.Join(Environment.NewLine, headers.Select(s => GetHeaderText(s)));
         }
 
-        /// <summary>
-        /// Log the request and response.
-        /// </summary>
-        /// <param name="request">The request.</param>
-        /// <param name="cancellationToken">The cancellation Token.</param>
-        /// <returns>The <see cref="Task" />.</returns>
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             string requestCid;
@@ -147,21 +102,11 @@ namespace RecordingBot.Services.Http
             return response;
         }
 
-        /// <summary>
-        /// The get header text.
-        /// </summary>
-        /// <param name="header">The header.</param>
-        /// <returns>The <see cref="string" />.</returns>
         private static string GetHeaderText(KeyValuePair<string, IEnumerable<string>> header)
         {
             return $"{header.Key}: {string.Join(",", header.Value)}";
         }
 
-        /// <summary>
-        /// adopt scenario identifier.
-        /// </summary>
-        /// <param name="headers">The headers.</param>
-        /// <returns>The <see cref="string" />.</returns>
         private string AdoptScenarioId(HttpHeaders headers)
         {
             string scenarioId = null;
@@ -179,11 +124,6 @@ namespace RecordingBot.Services.Http
             return scenarioId;
         }
 
-        /// <summary>
-        /// The set scenario identifier.
-        /// </summary>
-        /// <param name="headers">The headers.</param>
-        /// <returns>The <see cref="string" />.</returns>
         private string SetScenarioId(HttpHeaders headers)
         {
             Guid scenarioId = logger.CorrelationId;
@@ -195,12 +135,6 @@ namespace RecordingBot.Services.Http
             return scenarioId.ToString();
         }
 
-        /// <summary>
-        /// The send and log async method.
-        /// </summary>
-        /// <param name="request">The request.</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="Task" />.</returns>
         private async Task<HttpResponseMessage> SendAndLogAsync(
             HttpRequestMessage request,
             CancellationToken cancellationToken)
@@ -216,11 +150,6 @@ namespace RecordingBot.Services.Http
             }
         }
 
-        /// <summary>
-        /// The warn if request and response cid are different method.
-        /// </summary>
-        /// <param name="requestCid">The request cid.</param>
-        /// <param name="responseCid">The response cid.</param>
         private void WarnIfDifferent(string requestCid, string responseCid)
         {
             if (string.IsNullOrWhiteSpace(requestCid) || string.IsNullOrWhiteSpace(responseCid))

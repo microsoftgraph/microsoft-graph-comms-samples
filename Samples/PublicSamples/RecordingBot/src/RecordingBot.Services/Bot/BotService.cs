@@ -1,16 +1,3 @@
-// ***********************************************************************
-// Assembly         : RecordingBot.Services
-// Author           : JasonTheDeveloper
-// Created          : 09-07-2020
-//
-// Last Modified By : dannygar
-// Last Modified On : 09-03-2020
-// ***********************************************************************
-// <copyright file="BotService.cs" company="Microsoft">
-//     Copyright ©  2020
-// </copyright>
-// <summary></summary>
-// ***********************************************************************
 using Microsoft.Graph;
 using Microsoft.Graph.Communications.Calls;
 using Microsoft.Graph.Communications.Calls.Media;
@@ -32,38 +19,12 @@ using System.Threading.Tasks;
 
 namespace RecordingBot.Services.Bot
 {
-    /// <summary>
-    /// Class BotService.
-    /// Implements the <see cref="System.IDisposable" />
-    /// Implements the <see cref="RecordingBot.Services.Contract.IBotService" />
-    /// </summary>
-    /// <seealso cref="System.IDisposable" />
-    /// <seealso cref="RecordingBot.Services.Contract.IBotService" />
     public class BotService : IDisposable, IBotService
     {
-        /// <summary>
-        /// The logger
-        /// </summary>
         private readonly IGraphLogger _logger;
-        /// <summary>
-        /// The event publisher
-        /// </summary>
         private readonly IEventPublisher _eventPublisher;
-        /// <summary>
-        /// The settings
-        /// </summary>
         private readonly AzureSettings _settings;
-
-        /// <summary>
-        /// Gets the collection of call handlers.
-        /// </summary>
-        /// <value>The call handlers.</value>
         public ConcurrentDictionary<string, CallHandler> CallHandlers { get; } = new ConcurrentDictionary<string, CallHandler>();
-
-        /// <summary>
-        /// Gets the entry point for stateful bot.
-        /// </summary>
-        /// <value>The client.</value>
         public ICommunicationsClient Client { get; private set; }
 
         /// <inheritdoc />
@@ -73,12 +34,6 @@ namespace RecordingBot.Services.Bot
             Client = null;
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BotService" /> class.
-        /// </summary>
-        /// <param name="logger">The logger.</param>
-        /// <param name="eventPublisher">The event publisher.</param>
-        /// <param name="settings">The settings.</param>
         public BotService(IGraphLogger logger, IEventPublisher eventPublisher, IAzureSettings settings)
         {
             _logger = logger;
@@ -86,9 +41,6 @@ namespace RecordingBot.Services.Bot
             _settings = (AzureSettings)settings;
         }
 
-        /// <summary>
-        /// Initialize the instance.
-        /// </summary>
         public void Initialize()
         {
             var name = GetType().Assembly.GetName().Name;
@@ -106,11 +58,6 @@ namespace RecordingBot.Services.Bot
             Client.Calls().OnUpdated += CallsOnUpdated;
         }
 
-        /// <summary>
-        /// End a particular call.
-        /// </summary>
-        /// <param name="callLegId">The call leg id.</param>
-        /// <returns>The <see cref="Task" />.</returns>
         public async Task EndCallByCallLegIdAsync(string callLegId)
         {
             try
@@ -125,11 +72,6 @@ namespace RecordingBot.Services.Bot
             }
         }
 
-        /// <summary>
-        /// Joins the call asynchronously.
-        /// </summary>
-        /// <param name="joinCallBody">The join call body.</param>
-        /// <returns>The <see cref="ICall" /> that was requested to join.</returns>
         public async Task<ICall> JoinCallAsync(JoinCallBody joinCallBody)
         {
             // A tracking id for logging purposes. Helps identify this call in logs.
@@ -162,12 +104,6 @@ namespace RecordingBot.Services.Bot
             return statefulCall;
         }
 
-        /// <summary>
-        /// Creates the local media session.
-        /// </summary>
-        /// <param name="mediaSessionId">The media session identifier.
-        /// This should be a unique value for each call.</param>
-        /// <returns>The <see cref="ILocalMediaSession" />.</returns>
         private ILocalMediaSession CreateLocalMediaSession(Guid mediaSessionId = default)
         {
             try
@@ -194,11 +130,6 @@ namespace RecordingBot.Services.Bot
             }
         }
 
-        /// <summary>
-        /// Incoming call handler.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="args">The <see cref="CollectionEventArgs{TResource}" /> instance containing the event data.</param>
         private void CallsOnIncoming(ICallCollection sender, CollectionEventArgs<ICall> args)
         {
             args.AddedResources.ForEach(call =>
@@ -237,11 +168,6 @@ namespace RecordingBot.Services.Bot
             });
         }
 
-        /// <summary>
-        /// Updated call handler.
-        /// </summary>
-        /// <param name="sender">The <see cref="ICallCollection" /> sender.</param>
-        /// <param name="args">The <see cref="CollectionEventArgs{ICall}" /> instance containing the event data.</param>
         private void CallsOnUpdated(ICallCollection sender, CollectionEventArgs<ICall> args)
         {
             foreach (var call in args.AddedResources)
@@ -258,12 +184,6 @@ namespace RecordingBot.Services.Bot
             }
         }
 
-        /// <summary>
-        /// The get handler or throw.
-        /// </summary>
-        /// <param name="callLegId">The call leg id.</param>
-        /// <returns>The <see cref="CallHandler" />.</returns>
-        /// <exception cref="ArgumentException">call ({callLegId}) not found</exception>
         private CallHandler GetHandlerOrThrow(string callLegId)
         {
             if (!CallHandlers.TryGetValue(callLegId, out CallHandler handler))

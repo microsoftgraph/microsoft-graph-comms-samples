@@ -1,17 +1,4 @@
-﻿// ***********************************************************************
-// Assembly         : RecordingBot.Services
-// Author           : dannygar
-// Created          : 09-08-2020
-//
-// Last Modified By : dannygar
-// Last Modified On : 09-09-2020
-// ***********************************************************************
-// <copyright file="AudioFileUtils.cs" company="Microsoft">
-//     Copyright ©  2020
-// </copyright>
-// <summary></summary>
-// ***********************************************************************
-using NAudio.Wave;
+﻿using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
 using RecordingBot.Model.Constants;
 using RecordingBot.Services.ServiceSetup;
@@ -19,19 +6,10 @@ using System.IO;
 
 namespace RecordingBot.Services.Util
 {
-    /// <summary>
-    /// Class AudioFileUtils.
-    /// </summary>
     public static class AudioFileUtils
     {
         private const string STEREO = "stereo";
 
-        /// <summary>
-        /// Creates the file path.
-        /// </summary>
-        /// <param name="rootFolder">The root folder.</param>
-        /// <param name="fileName">Name of the file.</param>
-        /// <returns>System.String.</returns>
         public static string CreateFilePath(string rootFolder, string fileName)
         {
             var path = Path.Combine(rootFolder, fileName);
@@ -44,11 +22,6 @@ namespace RecordingBot.Services.Util
             return path;
         }
 
-        /// <summary>
-        /// Converts to stereo.
-        /// </summary>
-        /// <param name="monoFilePath">The mono file path.</param>
-        /// <returns>System.String.</returns>
         public static string ConvertToStereo(string monoFilePath)
         {
             var outputFilePath = monoFilePath[..^4] + monoFilePath[^4..].Replace(".wav", $"-{STEREO}.wav");
@@ -64,13 +37,6 @@ namespace RecordingBot.Services.Util
             return outputFilePath;
         }
 
-        /// <summary>
-        /// Resamples the audio.
-        /// </summary>
-        /// <param name="audioFilePath">The audio file path.</param>
-        /// <param name="resamplerSettings">The resampler settings.</param>
-        /// <param name="isStereo">The mono to stereo conversion indicator.</param>
-        /// <returns>System.String.</returns>
         public static string ResampleAudio(string audioFilePath, WAVSettings resamplerSettings, bool isStereo)
         {
             var stereoFlag = (isStereo)? $"-{STEREO}" : "";
