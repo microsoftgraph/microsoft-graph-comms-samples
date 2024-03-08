@@ -10,7 +10,7 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Bot
     using System.Collections.Generic;
     using System.Data;
     using System.Threading.Tasks;
-    using Microsoft.Graph;
+    using Microsoft.Graph.Beta.Models;
     using Microsoft.Graph.Communications.Calls;
     using Microsoft.Graph.Communications.Calls.Media;
     using Microsoft.Graph.Communications.Client;

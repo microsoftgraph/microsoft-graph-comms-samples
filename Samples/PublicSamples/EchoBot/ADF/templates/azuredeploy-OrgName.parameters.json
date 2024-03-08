@@ -257,7 +257,7 @@
             "Role": "BOT",
             "DSConfig": "BotServers",
             "DDRole": "64GBSS",
-            "OSType": "Server2019SS",
+            "OSType": "Server2022",
             "LB": "BotVmss01",
             "NATName": [
               "BotNotification",

@@ -19,5 +19,4 @@ helm upgrade ^
 echo Waiting for cert-manager to be ready
 kubectl wait pod -n cert-manager --for condition=ready --timeout=60s --all
 
-echo Installing cluster issuer
-kubectl apply -f cluster-issuer.yaml
+pause

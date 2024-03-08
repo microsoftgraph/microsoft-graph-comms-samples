@@ -827,148 +827,144 @@ resource updateConfigWindows 'Microsoft.Automation/automationAccounts/softwareUp
     }
 }]
 
-resource VMInsights 'Microsoft.Insights/dataCollectionRules@2021-04-01' = if (bool(Extensions.VMInsights)) {
-    name: '${DeploymentURI}VMInsights'
-    location: resourceGroup().location
-    properties: {
-        description: 'Data collection rule for VM Insights health.'
-        dataSources: {
-            windowsEventLogs: [
-                {
-                    name: 'cloudSecurityTeamEvents'
-                    streams: [
-                        'Microsoft-WindowsEvent'
-                    ]
-                    scheduledTransferPeriod: 'PT1M'
-                    xPathQueries: [
-                        'Security!'
-                    ]
-                }
-                {
-                    name: 'appTeam1AppEvents'
-                    streams: [
-                        'Microsoft-WindowsEvent'
-                    ]
-                    scheduledTransferPeriod: 'PT5M'
-                    xPathQueries: [
-                        'System![System[(Level = 1 or Level = 2 or Level = 3)]]'
-                        'Application!*[System[(Level = 1 or Level = 2 or Level = 3)]]'
-                    ]
-                }
-            ]
-            syslog: [
-                {
-                    name: 'cronSyslog'
-                    streams: [
-                        'Microsoft-Syslog'
-                    ]
-                    facilityNames: [
-                        'cron'
-                    ]
-                    logLevels: [
-                        'Debug'
-                        'Critical'
-                        'Emergency'
-                    ]
-                }
-                {
-                    name: 'syslogBase'
-                    streams: [
-                        'Microsoft-Syslog'
-                    ]
-                    facilityNames: [
-                        'syslog'
-                    ]
-                    logLevels: [
-                        'Alert'
-                        'Critical'
-                        'Emergency'
-                    ]
-                }
-            ]
-            performanceCounters: [
-                {
-                    name: 'VMHealthPerfCounters'
-                    scheduledTransferPeriod: 'PT1M'
-                    samplingFrequencyInSeconds: 30
-                    counterSpecifiers: [
-                        '\\Memory\\Available Bytes'
-                        '\\Memory\\Committed Bytes'
-                        '\\Processor(_Total)\\% Processor Time'
-                        '\\LogicalDisk(*)\\% Free Space'
-                        '\\LogicalDisk(_Total)\\Free Megabytes'
-                        '\\PhysicalDisk(_Total)\\Avg. Disk Queue Length'
-                    ]
-                    streams: [
-                        'Microsoft-Perf'
-                    ]
-                }
-                {
-                    name: 'appTeamExtraCounters'
-                    streams: [
-                        'Microsoft-Perf'
-                    ]
-                    scheduledTransferPeriod: 'PT5M'
-                    samplingFrequencyInSeconds: 30
-                    counterSpecifiers: [
-                        '\\Process(_Total)\\Thread Count'
-                    ]
-                }
-            ]
-            extensions: [
-                {
-                    name: 'Microsoft-VMInsights-Health'
-                    streams: [
-                        'Microsoft-HealthStateChange'
-                    ]
-                    extensionName: 'HealthExtension'
-                    extensionSettings: {
-                        schemaVersion: '1.0'
-                        contentVersion: ''
-                        healthRuleOverrides: [
-                            {
-                                scopes: [
-                                    '*'
-                                ]
-                                monitors: [
-                                    'root'
-                                ]
-                                monitorConfiguration: {}
-                                alertConfiguration: {
-                                    isEnabled: true
-                                }
-                            }
-                        ]
-                    }
-                    inputDataSources: [
-                        'VMHealthPerfCounters'
-                    ]
-                }
-            ]
-        }
-        destinations: {
-            logAnalytics: [
-                {
-                    workspaceResourceId: OMS.id
-                    name: 'LogAnalyticsWorkspace'
-                }
-            ]
-        }
-        dataFlows: [
-            {
-                streams: [
-                    'Microsoft-HealthStateChange'
-                    'Microsoft-Perf'
-                    'Microsoft-Syslog'
-                    'Microsoft-WindowsEvent'
-                ]
-                destinations: [
-                    'LogAnalyticsWorkspace'
-                ]
-            }
-        ]
-    }
-}
+// resource VMInsights 'Microsoft.Insights/dataCollectionRules@2022-06-01' = if (bool(Extensions.VMInsights)) {
+//     name: '${DeploymentURI}VMInsights'
+//     location: resourceGroup().location
+//     properties: {
+//         description: 'Data collection rule for VM Insights health.'
+//         dataSources: {
+//             windowsEventLogs: [
+//                 {
+//                     name: 'cloudSecurityTeamEvents'
+//                     streams: [
+//                         'Microsoft-WindowsEvent'
+//                     ]
+//                     xPathQueries: [
+//                         'Security!*[System[(Level = 1 or Level = 2 or Level = 3)]]'
+//                     ]
+//                 }
+//                 {
+//                     name: 'appTeam1AppEvents'
+//                     streams: [
+//                         'Microsoft-WindowsEvent'
+//                     ]
+//                     xPathQueries: [
+//                         'System![System[(Level = 1 or Level = 2 or Level = 3)]]'
+//                         'Application!*[System[(Level = 1 or Level = 2 or Level = 3)]]'
+//                     ]
+//                 }
+//             ]
+//             syslog: [
+//                 {
+//                     name: 'cronSyslog'
+//                     streams: [
+//                         'Microsoft-Syslog'
+//                     ]
+//                     facilityNames: [
+//                         'cron'
+//                     ]
+//                     logLevels: [
+//                         'Debug'
+//                         'Critical'
+//                         'Emergency'
+//                     ]
+//                 }
+//                 {
+//                     name: 'syslogBase'
+//                     streams: [
+//                         'Microsoft-Syslog'
+//                     ]
+//                     facilityNames: [
+//                         'syslog'
+//                     ]
+//                     logLevels: [
+//                         'Alert'
+//                         'Critical'
+//                         'Emergency'
+//                     ]
+//                 }
+//             ]
+//             performanceCounters: [
+//                 {
+//                     name: 'VMHealthPerfCounters'
+//                     samplingFrequencyInSeconds: 30
+//                     counterSpecifiers: [
+//                         '\\Memory\\Available Bytes'
+//                         '\\Memory\\Committed Bytes'
+//                         '\\Processor(_Total)\\% Processor Time'
+//                         '\\LogicalDisk(*)\\% Free Space'
+//                         '\\LogicalDisk(_Total)\\Free Megabytes'
+//                         '\\PhysicalDisk(_Total)\\Avg. Disk Queue Length'
+//                     ]
+//                     streams: [
+//                         'Microsoft-Perf'
+//                     ]
+//                 }
+//                 {
+//                     name: 'appTeamExtraCounters'
+//                     streams: [
+//                         'Microsoft-Perf'
+//                     ]
+//                     samplingFrequencyInSeconds: 30
+//                     counterSpecifiers: [
+//                         '\\Process(_Total)\\Thread Count'
+//                     ]
+//                 }
+//             ]
+//             extensions: [
+//                 {
+//                     name: 'Microsoft-VMInsights-Health'
+//                     streams: [
+//                         'Microsoft-HealthStateChange'
+//                     ]
+//                     extensionName: 'HealthExtension'
+//                     extensionSettings: {
+//                         schemaVersion: '1.0'
+//                         contentVersion: ''
+//                         healthRuleOverrides: [
+//                             {
+//                                 scopes: [
+//                                     '*'
+//                                 ]
+//                                 monitors: [
+//                                     'root'
+//                                 ]
+//                                 monitorConfiguration: {}
+//                                 alertConfiguration: {
+//                                     isEnabled: true
+//                                 }
+//                             }
+//                         ]
+//                     }
+//                     inputDataSources: [
+//                         'VMHealthPerfCounters'
+//                     ]
+//                 }
+//             ]
+//         }
+//         destinations: {
+//             logAnalytics: [
+//                 {
+//                     workspaceResourceId: OMS.id
+//                     name: 'LogAnalyticsWorkspace'
+//                 }
+//             ]
+//         }
+//         dataFlows: [
+//             {
+//                 streams: [
+//                     'Microsoft-HealthStateChange'
+//                     'Microsoft-Perf'
+//                     'Microsoft-Syslog'
+//                     'Microsoft-WindowsEvent'
+//                 ]
+//                 destinations: [
+//                     'LogAnalyticsWorkspace'
+//                 ]
+//             }
+//         ]
+//     }
+// }
 
 resource AppInsights 'Microsoft.Insights/components@2020-02-02-preview' = {
     name: appInsightsName

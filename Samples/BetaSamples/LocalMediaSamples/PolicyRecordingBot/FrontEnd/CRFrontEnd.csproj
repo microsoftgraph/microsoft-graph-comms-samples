@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{739D09C4-47E8-42B7-9B89-94DCB890AC0F}</ProjectGuid>
+    <ProjectGuid>{DD039F57-C237-4CAD-9B35-686FC5F5A026}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Sample.PolicyRecordingBot.FrontEnd</RootNamespace>
@@ -58,10 +58,11 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.WebApi.Owin" Version="5.2.7" />
-    <PackageReference Include="Microsoft.Graph.Communications.Calls.Media" Version="1.2.0-beta.6916" />
+    <PackageReference Include="Microsoft.Graph.Communications.Calls.Media" Version="1.2.0-beta.9882" TargetFramework="net472"/>
     <PackageReference Include="Microsoft.Owin.Hosting" Version="4.2.2" />
-    <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.24.0.36-alpha" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1.0" />
+    <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.26.0.94-alpha" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2.0" />
+    <PackageReference Include="System.Text.Json" Version="7.0.1" />
     <Reference Include="System.Data.Entity" />
   </ItemGroup>
   <ItemGroup>

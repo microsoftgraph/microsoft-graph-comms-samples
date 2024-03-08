@@ -35,6 +35,8 @@ namespace RecordingBot.Services.ServiceSetup
         /// <value>The name of the service DNS.</value>
         public string ServiceDnsName { get; set; }
 
+        public string ServicePath {get;set;} = "/";
+
         /// <summary>
         /// Gets or sets the service cname.
         /// </summary>
@@ -94,6 +96,8 @@ namespace RecordingBot.Services.ServiceSetup
         /// </summary>
         /// <value>The call signaling port.</value>
         public int CallSignalingPort { get; set; }
+
+        public int CallSignalingPublicPort {get;set;} = 443;
 
         /// <summary>
         /// Gets or sets a value indicating whether [capture events].
@@ -184,12 +188,8 @@ namespace RecordingBot.Services.ServiceSetup
             }
 
             // Create structured config objects for service.
-#if DEBUG
-            CallControlBaseUrl = new Uri($"https://{ServiceCname}:{CallSignalingPort}/{podNumber}/{HttpRouteConstants.CallSignalingRoutePrefix}/{HttpRouteConstants.OnNotificationRequestRoute}");
-#else
-            CallControlBaseUrl = new Uri($"https://{ServiceCname}/{podNumber}/{HttpRouteConstants.CallSignalingRoutePrefix}/{HttpRouteConstants.OnNotificationRequestRoute}");
-#endif
-            PodPathBase = $"/{podNumber}";
+            CallControlBaseUrl = new Uri($"https://{ServiceCname}{(CallSignalingPublicPort != 443 ? ":" + CallSignalingPublicPort : "")}{ServicePath}{podNumber}/{HttpRouteConstants.CallSignalingRoutePrefix}/{HttpRouteConstants.OnNotificationRequestRoute}");
+            PodPathBase = $"{ServicePath}{podNumber}";
 
             MediaPlatformSettings = new MediaPlatformSettings
             {

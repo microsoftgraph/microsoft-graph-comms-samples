@@ -11,13 +11,15 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Bot
     using System.Linq;
     using System.Threading.Tasks;
     using System.Timers;
-    using Microsoft.Graph;
+    using Microsoft.Graph.Beta.Models;
     using Microsoft.Graph.Communications.Calls;
     using Microsoft.Graph.Communications.Calls.Media;
+    using Microsoft.Graph.Communications.Common;
     using Microsoft.Graph.Communications.Common.Telemetry;
     using Microsoft.Graph.Communications.Resources;
     using Microsoft.Skype.Bots.Media;
     using Sample.Common;
+    using RejectReason = Microsoft.Graph.Communications.Common.RejectReason;
 
     /// <summary>
     /// Call Handler Logic.
