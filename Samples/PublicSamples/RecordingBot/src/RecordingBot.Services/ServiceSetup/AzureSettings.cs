@@ -62,7 +62,7 @@ namespace RecordingBot.Services.ServiceSetup
             {
                 MediaPlatformInstanceSettings = new MediaPlatformInstanceSettings
                 {
-                    CertificateThumbprint = Certificate.Thumbprint,
+                    Certificate = Certificate,
                     InstanceInternalPort = InstanceInternalPort,
                     InstancePublicIPAddress = IPAddress.Any,
                     InstancePublicPort = InstancePublicPort + podNumber,
