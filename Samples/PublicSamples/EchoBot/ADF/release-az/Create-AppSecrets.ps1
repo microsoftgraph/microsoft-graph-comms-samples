@@ -56,10 +56,10 @@ $RequiredSecrets = @(
     @{ Name = 'ServiceDNSName'; Message = 'Enter the DNS value that will point to the load balancer (ie bot.example.com)'; }
 )
 
-$CognitiveServicesSecrets = @(
-    @{ Name = 'UseCognitiveServices'; Message = 'Enter all the secrets and settings for Cognitive Services mode'; },
-    @{ Name = 'SpeechConfigKey'; Message = 'Enter the Cognitive Services Key'; },
-    @{ Name = 'SpeechConfigRegion'; Message = 'Enter the Azure Region for your Cognitive Services (ie centralus, eastus2)'; },
+$SpeechServicesSecrets = @(
+    @{ Name = 'UseSpeechService'; Message = 'Enter all the secrets and settings for Speech Service mode'; },
+    @{ Name = 'SpeechConfigKey'; Message = 'Enter the Speech Service Key'; },
+    @{ Name = 'SpeechConfigRegion'; Message = 'Enter the Azure Region for your Speech Service (ie centralus, eastus2)'; },
     @{ Name = 'BotLanguage'; Message = 'Enter the language code you want your bot to understand and speak (ie en-US, es-MX, fr-FR)'; }
 )
 
@@ -120,31 +120,31 @@ if ($options[$chosen].Label -eq '&Yes') {
         }
     }
 
-    $setCognitiveServicesSettings = $false
+    $setSpeechServiceSettings = $false
     Write-Output "$('-'*50)"
     $choices = @(
-        @{ Choice="&Yes"; Help="Enter all the secrets and setting for Cognitive Services mode" },
-        @{ Choice="&No"; Help="Skip this step if you do not plan on using Cognitive Services mode or plan to update the secrets directly in KeyVault." }
+        @{ Choice="&Yes"; Help="Enter all the secrets and setting for Speech Service mode" },
+        @{ Choice="&No"; Help="Skip this step if you do not plan on using Speech Service mode or plan to update the secrets directly in KeyVault." }
     )
     $options = [System.Management.Automation.Host.ChoiceDescription[]]($choices | ForEach-Object {
         New-Object System.Management.Automation.Host.ChoiceDescription $_.Choice, $_.Help
     })
-    $chosen = $host.ui.PromptForChoice("Use Cognitive Services mode?", "Do you want to enter the Cognitive Services configuration settings and enable Cognitive Services mode?", $options, 0)
+    $chosen = $host.ui.PromptForChoice("Use Speech Service mode?", "Do you want to enter the Speech Service configuration settings and enable Speech Service mode?", $options, 0)
     if ($options[$chosen].Label -eq '&Yes') {
-        $setCognitiveServicesSettings = $true
+        $setSpeechServiceSettings = $true
     }
 
-    # do another loop for the cognitive services settings
+    # do another loop for the speech service settings
     # set default values to false
-    $CognitiveServicesSecrets | ForEach-Object {
+    $SpeechServicesSecrets | ForEach-Object {
         $secretName = $_.Name
         $secretMessage = $_.Message
         if (! (Get-AzKeyVaultSecret -VaultName $KVName -Name $secretName -EA SilentlyContinue))
         {
             try
             {
-                if ($setCognitiveServicesSettings) {
-                    if ($secretName -eq 'UseCognitiveServices') {
+                if ($setSpeechServiceSettings) {
+                    if ($secretName -eq 'UseSpeechService') {
                         $settingValue = 'true'
                     }
                     else {

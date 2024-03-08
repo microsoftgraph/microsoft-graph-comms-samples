@@ -35,9 +35,10 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Data.Services.Client" Version="5.8.5" />
     <PackageReference Include="Microsoft.Owin.Host.HttpListener" Version="4.2.2" />
-    <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.24.0.36-alpha" />
+    <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.26.0.94-alpha" />
     <PackageReference Include="Microsoft.WindowsAzure.ConfigurationManager" Version="3.2.3" />
     <PackageReference Include="Microsoft.WindowsAzure.SDK" Version="2.9.0" />
+    <PackageReference Include="System.Text.Json" Version="7.0.1" />
     <PackageReference Include="WindowsAzure.Storage">
       <Version>8.0.1</Version>
     </PackageReference>

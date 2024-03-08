@@ -7,7 +7,7 @@ Configuration $Configuration
         [Int]$RetryCount = 30,
         [Int]$RetryIntervalSec = 120,
         [String]$StorageAccountId,
-        [String]$AppInsightsInstrumentationKey,
+        [String]$AppInsightsConnectionString,
         [String]$Deployment,
         [String]$NetworkID,
         [String]$AppInfo,
@@ -123,7 +123,7 @@ Configuration $Configuration
                 }#Get
                 SetScript  = {
                     $certBinding = $using:certBinding
-                    netsh http add sslcert ipport=0.0.0.0:$($certBinding.Port) certhash=$($env:AzureSettings:CertificateThumbprint) appid=$($certBinding.AppId)
+                    netsh http add sslcert ipport=0.0.0.0:$($certBinding.Port) certhash=$($env:AppSettings:CertificateThumbprint) appid=$($certBinding.AppId)
                 }#Set 
                 TestScript = {
                     $certBinding = $using:certBinding
@@ -372,7 +372,7 @@ Configuration $Configuration
                 DestinationPath         = $AZCOPYDSCDir.DestinationPath
                 Ensure                  = 'Present'
                 ManagedIdentityClientID = $clientIDGlobal
-                LogDir                  = 'F:\azcopy_logs'
+                LogDir                  = 'C:\azcopy_logs'
             }
             $dependsonAZCopyDSCDir += @("[AZCOPYDSCDir]$Name")
         }
@@ -403,7 +403,7 @@ Configuration $Configuration
                 EnvironmentName         = $environment
                 Ensure                  = 'Present'
                 ManagedIdentityClientID = $clientIDGlobal
-                LogDir                  = 'F:\azcopy_logs'
+                LogDir                  = 'C:\azcopy_logs'
                 DeploySleepWaitSeconds  = $AppComponent.SleepTime
             }
             $dependsonAZCopyDSCDir += @("[AppReleaseDSC]$($AppComponent.ComponentName)")
@@ -437,12 +437,12 @@ Configuration $Configuration
 
         #-----------------------------------------
         # Add Application Insights Key to Environment Variables
-        if ($AppInsightsInstrumentationKey)
+        if ($AppInsightsConnectionString)
         {
-            Environment 'AppInsightsInstrumentationKey'
+            Environment 'AppInsightsConnectionString'
             {
-                Name  = 'AzureSettings:AppInsightsInstrumentationKey'
-                Value = $AppInsightsInstrumentationKey
+                Name  = 'APPLICATIONINSIGHTS_CONNECTION_STRING'
+                Value = $AppInsightsConnectionString
             }
         }
 
@@ -500,7 +500,7 @@ Configuration $Configuration
                         Port                  = $binding.Port
                         IPAddress             = $binding.IpAddress
                         HostName              = ($binding.HostHeader -f $prefix, $orgname, $app, $environment)
-                        CertificateThumbprint = $env:AzureSettings:ThumbPrint
+                        CertificateThumbprint = $env:AppSettings:CertificateThumbprint
                         CertificateStoreName  = 'MY'
                     }
                 }
