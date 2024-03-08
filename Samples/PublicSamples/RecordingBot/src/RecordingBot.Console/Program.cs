@@ -1,4 +1,4 @@
-﻿using RecordingBot.Services.ServiceSetup;
+using RecordingBot.Services.ServiceSetup;
 using System;
 using System.Diagnostics;
 using System.Reflection;

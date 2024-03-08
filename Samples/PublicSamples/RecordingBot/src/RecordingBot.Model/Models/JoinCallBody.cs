@@ -1,4 +1,4 @@
-﻿namespace RecordingBot.Model.Models
+namespace RecordingBot.Model.Models
 {
     public class JoinCallBody
     {

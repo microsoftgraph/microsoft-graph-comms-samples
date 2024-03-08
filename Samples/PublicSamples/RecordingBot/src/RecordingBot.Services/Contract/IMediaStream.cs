@@ -1,4 +1,4 @@
-﻿using Microsoft.Graph.Communications.Calls;
+using Microsoft.Graph.Communications.Calls;
 using Microsoft.Skype.Bots.Media;
 using System.Collections.Generic;
 using System.Threading.Tasks;

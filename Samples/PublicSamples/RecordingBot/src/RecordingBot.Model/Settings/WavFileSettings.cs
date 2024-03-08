@@ -1,4 +1,4 @@
-﻿namespace RecordingBot.Model.Settings
+namespace RecordingBot.Model.Settings
 {
     /// <summary>
     /// wav file writer, this class will create a wav file

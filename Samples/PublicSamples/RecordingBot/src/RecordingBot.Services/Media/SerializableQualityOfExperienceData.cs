@@ -1,4 +1,4 @@
-﻿using Microsoft.Skype.Bots.Media;
+using Microsoft.Skype.Bots.Media;
 
 namespace RecordingBot.Services.Media
 {

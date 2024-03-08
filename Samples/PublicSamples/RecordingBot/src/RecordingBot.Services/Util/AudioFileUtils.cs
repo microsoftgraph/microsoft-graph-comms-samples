@@ -1,4 +1,4 @@
-﻿using NAudio.Wave;
+using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
 using RecordingBot.Model.Constants;
 using RecordingBot.Services.ServiceSetup;

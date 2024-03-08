@@ -1,4 +1,4 @@
-﻿namespace RecordingBot.Services.ServiceSetup
+namespace RecordingBot.Services.ServiceSetup
 {
     public class WAVSettings
     {

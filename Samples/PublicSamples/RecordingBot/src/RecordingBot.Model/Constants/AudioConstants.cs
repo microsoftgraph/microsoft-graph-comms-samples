@@ -1,4 +1,4 @@
-﻿namespace RecordingBot.Model.Constants
+namespace RecordingBot.Model.Constants
 {
     public static class AudioConstants
     {

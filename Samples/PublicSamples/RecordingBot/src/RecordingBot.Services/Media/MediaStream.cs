@@ -1,4 +1,4 @@
-﻿using Microsoft.Graph.Communications.Calls;
+using Microsoft.Graph.Communications.Calls;
 using Microsoft.Graph.Communications.Common;
 using Microsoft.Graph.Communications.Common.Telemetry;
 using Microsoft.Skype.Bots.Media;

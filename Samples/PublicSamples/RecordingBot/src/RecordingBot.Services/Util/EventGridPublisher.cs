@@ -1,4 +1,4 @@
-﻿using Azure;
+using Azure;
 using Azure.Messaging.EventGrid;
 using RecordingBot.Model.Constants;
 using RecordingBot.Model.Models;

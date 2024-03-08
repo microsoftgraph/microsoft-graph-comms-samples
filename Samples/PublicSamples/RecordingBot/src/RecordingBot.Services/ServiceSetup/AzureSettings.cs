@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Skype.Bots.Media;
 using RecordingBot.Model.Constants;
 using RecordingBot.Services.Contract;

@@ -1,4 +1,4 @@
-﻿namespace RecordingBot.Services.Contract
+namespace RecordingBot.Services.Contract
 {
     public interface IAzureSettings: Model.Contracts.IInitializable
     {
