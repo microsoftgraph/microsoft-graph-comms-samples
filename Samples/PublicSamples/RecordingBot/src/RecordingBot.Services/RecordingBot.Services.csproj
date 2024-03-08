@@ -22,7 +22,7 @@
 		<PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.7.0" />
 		<PackageReference Include="SharpZipLib" Version="1.4.2" />
 		<PackageReference Include="DotNetEnv" Version="3.0.0" />
-		<PackageReference Include="Microsoft.Graph.Communications.Calls.Media" Version="1.2.0.9486" />
+		<PackageReference Include="Microsoft.Graph.Communications.Calls.Media" Version="1.2.0.10115" />
 	</ItemGroup>
 
 	<ItemGroup>
