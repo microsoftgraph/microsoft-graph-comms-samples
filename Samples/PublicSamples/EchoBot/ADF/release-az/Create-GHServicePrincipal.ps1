@@ -15,7 +15,9 @@
 
 param (
     [int]$SecretExpiryYears = 1,
+    [Parameter(Mandatory)]
     [string]$OrgName,
+    [Parameter(Mandatory)]
     [string]$Location,
     [string]$App = 'BOT',
     [string]$Environment = 'D1',
