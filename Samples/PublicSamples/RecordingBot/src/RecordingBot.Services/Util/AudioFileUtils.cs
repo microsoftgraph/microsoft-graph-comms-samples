@@ -37,13 +37,13 @@ namespace RecordingBot.Services.Util
             return outputFilePath;
         }
 
-        public static string ResampleAudio(string audioFilePath, WAVSettings resamplerSettings, bool isStereo)
+        public static string ResampleAudio(string audioFilePath, WAVSettings resamplerSettings, bool convertToStereo)
         {
-            var stereoFlag = (isStereo)? $"-{STEREO}" : "";
+            var stereoFlag = (convertToStereo)? $"-{STEREO}" : "";
             var outFile = audioFilePath[..^4] + audioFilePath[^4..].Replace(".wav", $"-{resamplerSettings.SampleRate / 1000}kHz{stereoFlag}.wav");
             using (var reader = new WaveFileReader(audioFilePath))
             {
-                var outFormat = new WaveFormat((int)resamplerSettings.SampleRate, (isStereo)? 2 : 1);
+                var outFormat = new WaveFormat((int)resamplerSettings.SampleRate, (convertToStereo)? 2 : 1);
 
                 using var resampler = new MediaFoundationResampler(reader, outFormat);
                 resampler.ResamplerQuality = resamplerSettings.Quality * AudioConstants.HighestSamplingQualityLevel / 100
