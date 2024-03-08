@@ -15,6 +15,7 @@ namespace Sample.PolicyRecordingBot.WorkerRole
     using System.Threading;
     using System.Threading.Tasks;
     using Microsoft.Graph.Communications.Common.Telemetry;
+    using Microsoft.Graph.Communications.Common.Telemetry.Obfuscation;
     using Microsoft.WindowsAzure.ServiceRuntime;
     using Sample.PolicyRecordingBot.FrontEnd;
 
@@ -43,7 +44,7 @@ namespace Sample.PolicyRecordingBot.WorkerRole
         /// </summary>
         public WorkerRole()
         {
-            this.logger = new GraphLogger(typeof(WorkerRole).Assembly.GetName().Name, redirectToTrace: true);
+            this.logger = new GraphLogger(typeof(WorkerRole).Assembly.GetName().Name, redirectToTrace: true, obfuscationConfiguration: new HashingObfuscationConfiguration());
         }
 
         /// <summary>
