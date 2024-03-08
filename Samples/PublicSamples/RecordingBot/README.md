@@ -69,7 +69,7 @@ The easiest way to grasp the basics surrounding compliance bots is to read up on
 
 ## Questions and Support
 
-> For this sample related questions, please open an issue in the [issue tracker](https://github.com/aks-sample/issues) of the fork repository.
+> For this sample related questions, please open an issue in the [issue tracker](https://github.com/LM-Development/aks-sample/issues) of the fork repository.
 
 
 ---
