@@ -14,16 +14,6 @@ namespace RecordingBot.Model.Extension
 
         private const string Comma = ",";
 
-        //
-        // Summary:
-        //     Gets http request Uri from request object.
-        //
-        // Parameters:
-        //   request:
-        //     The Microsoft.AspNetCore.Http.HttpRequest.
-        //
-        // Returns:
-        //     A New Uri object representing request Uri.
         public static Uri GetUri(this HttpRequest request)
         {
             if (request == null)
