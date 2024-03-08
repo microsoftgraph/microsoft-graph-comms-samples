@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net472</TargetFrameworks>
-    <RootNamespace>Sample.Common</RootNamespace>
-    <AssemblyName>Sample.Common</AssemblyName>
+    <TargetFrameworks>net472</TargetFrameworks>
+    <RootNamespace>Sample.Common.Beta</RootNamespace>
+    <AssemblyName>Sample.Common.Beta</AssemblyName>
     <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
 
@@ -11,12 +11,16 @@
 
   <ItemGroup>
     <PackageReference Include="MSTest.TestFramework" Version="2.2.10" />
-    <PackageReference Include="Microsoft.Graph.Communications.Calls" Version="1.2.0-beta.6916" />
-    <PackageReference Include="Microsoft.Graph.Communications.Client" Version="1.2.0-beta.6916" />
-    <PackageReference Include="Microsoft.Graph.Communications.Core" Version="1.2.0-beta.6916" />
-    <PackageReference Include="Microsoft.Graph.Communications.Common" Version="1.2.0-beta.6916" />
-    <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="6.26.1" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1.0" />
+    <PackageReference Include="Microsoft.Graph.Communications.Calls" Version="1.2.0-beta.9882" TargetFramework="net472"/>
+    <PackageReference Include="Microsoft.Graph.Communications.Client" Version="1.2.0-beta.9882" TargetFramework="net472"/>
+    <PackageReference Include="Microsoft.Graph.Communications.Core" Version="1.2.0-beta.9882" TargetFramework="net472"/>
+    <PackageReference Include="Microsoft.Graph.Communications.Common" Version="1.2.0-beta.9882" TargetFramework="net472"/>
+    <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="7.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Primitives" Version="2.2.0.0" />   
+    <PackageReference Include="System.Text.Json" Version="7.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.2.0.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Abstractions" Version="7.0.3" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net472' ">
@@ -24,13 +28,4 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
   </ItemGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-    <PackageReference Include="System.Net.Http" Version="4.3.4" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="..\Sample.Common\**\*.cs" Exclude="..\Sample.Common\obj\**\*.cs" />
-  </ItemGroup>
-  
 </Project>
