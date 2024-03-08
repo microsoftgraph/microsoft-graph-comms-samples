@@ -1,16 +1,3 @@
-// ***********************************************************************
-// Assembly         : RecordingBot.Services
-// Author           : JasonTheDeveloper
-// Created          : 09-07-2020
-//
-// Last Modified By : dannygar
-// Last Modified On : 09-07-2020
-// ***********************************************************************
-// <copyright file="CaptureEvents.cs" company="Microsoft">
-//     Copyright ©  2020
-// </copyright>
-// <summary></summary>
-// ***********************************************************************
 using Microsoft.Graph.Communications.Calls;
 using Microsoft.Graph.Communications.Common;
 using Microsoft.Graph.Communications.Resources;
@@ -27,38 +14,17 @@ using System.Threading.Tasks;
 
 namespace RecordingBot.Services.Util
 {
-    /// <summary>
-    /// Class CaptureEvents.
-    /// Implements the <see cref="RecordingBot.Services.Util.BufferBase{System.Object}" />
-    /// </summary>
-    /// <seealso cref="RecordingBot.Services.Util.BufferBase{System.Object}" />
     public class CaptureEvents : BufferBase<object>
     {
-        /// <summary>
-        /// The path
-        /// </summary>
         private readonly string _path;
-        /// <summary>
-        /// The serializer
-        /// </summary>
         private readonly JsonSerializer _serializer;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CaptureEvents" /> class.
-
-        /// </summary>
-        /// <param name="path">The path.</param>
         public CaptureEvents(string path)
         {
             _path = path;
             _serializer = new JsonSerializer();
         }
 
-        /// <summary>
-        /// Saves the json file.
-        /// </summary>
-        /// <param name="data">The data.</param>
-        /// <param name="fileName">Name of the file.</param>
         private async Task saveJsonFile(Object data, string fileName)
         {
             Directory.CreateDirectory(_path);
@@ -74,11 +40,6 @@ namespace RecordingBot.Services.Util
             await jw.FlushAsync();
         }
 
-        /// <summary>
-        /// Saves the bson file.
-        /// </summary>
-        /// <param name="data">The data.</param>
-        /// <param name="fileName">Name of the file.</param>
         private async Task saveBsonFile(Object data, string fileName)
         {
             Directory.CreateDirectory(_path);
@@ -93,28 +54,16 @@ namespace RecordingBot.Services.Util
             await bson.FlushAsync();
         }
 
-        /// <summary>
-        /// Saves the quality of experience data.
-        /// </summary>
-        /// <param name="data">The data.</param>
         private async Task _saveQualityOfExperienceData(SerializableAudioQualityOfExperienceData data)
         {
             await saveJsonFile(data, $"{data.Id}-AudioQoE.json");
         }
 
-        /// <summary>
-        /// Saves the audio media buffer.
-        /// </summary>
-        /// <param name="data">The data.</param>
         private async Task _saveAudioMediaBuffer(SerializableAudioMediaBuffer data)
         {
             await saveBsonFile(data, data.Timestamp.ToString());
         }
 
-        /// <summary>
-        /// Saves the participant event.
-        /// </summary>
-        /// <param name="data">The data.</param>
         private async Task _saveParticipantEvent(CollectionEventArgs<IParticipant> data)
         {
             var added = new List<IParticipant>();
@@ -128,10 +77,6 @@ namespace RecordingBot.Services.Util
             await saveJsonFile(participant, $"{DateTime.UtcNow.Ticks}-participant.json");
         }
 
-        /// <summary>
-        /// Saves the requests.
-        /// </summary>
-        /// <param name="data">The data.</param>
         private async Task _saveRequests(string data)
         {
             Directory.CreateDirectory(_path);
@@ -147,11 +92,6 @@ namespace RecordingBot.Services.Util
             };
         }
 
-        /// <summary>
-        /// Processes the specified data.
-        /// </summary>
-        /// <param name="data">The data.</param>
-        /// <returns>Task.</returns>
         protected override async Task Process(object data)
         {
             switch (data)
@@ -173,9 +113,6 @@ namespace RecordingBot.Services.Util
             }
         }
 
-        /// <summary>
-        /// Finalises this instance.
-        /// </summary>
         public async Task Finalise()
         {
             // drain the un-processed buffers on this object

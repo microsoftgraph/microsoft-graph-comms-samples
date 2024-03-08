@@ -1,18 +1,3 @@
-// ***********************************************************************
-// Assembly         : RecordingBot.Services
-// Author           : JasonTheDeveloper
-// Created          : 09-07-2020
-//
-// Last Modified By : dannygar
-// Last Modified On : 09-03-2020
-// ***********************************************************************
-// <copyright file="DemoController.cs" company="Microsoft Corporation">
-//     Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT license.
-// </copyright>
-// <summary>ScreenshotsController retrieves the screenshots stored by the bot</summary>
-// ***********************************************************************-
-
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Graph.Communications.Common.Telemetry;
 using RecordingBot.Model.Constants;
@@ -31,26 +16,11 @@ namespace RecordingBot.Services.Http.Controllers
     [ApiController]
     public class DemoController : Controller
     {
-        /// <summary>
-        /// The logger
-        /// </summary>
         private readonly IGraphLogger _logger;
-        /// <summary>
-        /// The bot service
-        /// </summary>
         private readonly IBotService _botService;
-        /// <summary>
-        /// The settings
-        /// </summary>
         private readonly AzureSettings _settings;
-        /// <summary>
-        /// The event publisher
-        /// </summary>
         private readonly IEventPublisher _eventPublisher;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DemoController" /> class.
-        /// </summary>
         public DemoController(IGraphLogger logger, IEventPublisher eventPublisher, IBotService botService, AzureSettings azureSettings)
         {
             _logger = logger;
@@ -59,10 +29,6 @@ namespace RecordingBot.Services.Http.Controllers
             _settings = azureSettings;
         }
 
-        /// <summary>
-        /// The GET calls.
-        /// </summary>
-        /// <returns>The <see cref="Task" />.</returns>
         [HttpGet]
         [Route(HttpRouteConstants.Calls + "/")]
         public IActionResult OnGetCalls()
@@ -89,11 +55,6 @@ namespace RecordingBot.Services.Http.Controllers
             return Ok(calls);
         }
 
-        /// <summary>
-        /// End the call.
-        /// </summary>
-        /// <param name="callLegId">Id of the call to end.</param>
-        /// <returns>The <see cref="IActionResult" />.</returns>
         [HttpDelete]
         [Route(HttpRouteConstants.CallRoute)]
         public async Task<IActionResult> OnEndCallAsync(string callLegId)

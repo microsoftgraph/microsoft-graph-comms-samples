@@ -13,6 +13,6 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Graph.Communications.Calls" Version="1.2.0.9486" />
+		<PackageReference Include="Microsoft.Graph.Communications.Calls" Version="1.2.0.10115" />
 	</ItemGroup>
 </Project>
