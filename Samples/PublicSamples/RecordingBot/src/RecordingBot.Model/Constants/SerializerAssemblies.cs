@@ -1,4 +1,4 @@
-﻿using Microsoft.Graph.Communications.Client;
+using Microsoft.Graph.Communications.Client;
 using Microsoft.Graph.Communications.Common;
 using Microsoft.Graph.Models;
 using System.Collections.Generic;
