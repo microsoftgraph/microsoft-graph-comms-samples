@@ -1,21 +1,3 @@
-// ***********************************************************************
-// Assembly         : RecordingBot.Services
-// Author           : JasonTheDeveloper
-// Created          : 09-07-2020
-//
-// Last Modified By : dannygar
-// Last Modified On : 08-17-2020
-// ***********************************************************************
-// <copyright file="UserPasswordAuthenticationProvider.cs" company="Microsoft">
-//     Copyright ©  2020
-// </copyright>
-// <summary></summary>
-// ***********************************************************************>
-
-// THIS CODE HAS NOT BEEN TESTED RIGOROUSLY.USING THIS CODE IN PRODUCTION ENVIRONMENT IS STRICTLY NOT RECOMMENDED.
-// THIS SAMPLE IS PURELY FOR DEMONSTRATION PURPOSES ONLY.
-// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND.
-
 using Microsoft.Graph.Communications.Client.Authentication;
 using Microsoft.Graph.Communications.Common;
 using Microsoft.Graph.Communications.Common.Telemetry;
@@ -29,52 +11,14 @@ using System.Threading.Tasks;
 
 namespace RecordingBot.Services.Authentication
 {
-    /// <summary>
-    /// Authentication provider to add.
-
-    /// </summary>
     public class UserPasswordAuthenticationProvider : ObjectRoot, IRequestAuthenticationProvider
     {
-        /// <summary>
-        /// The application name.
-        /// </summary>
         private readonly string appName;
-
-        /// <summary>
-        /// Gets the application identifier.
-        /// </summary>
-        /// <value>
-        /// The application identifier.
-        /// </value>
         private readonly string appId;
-
-        /// <summary>
-        /// Gets the application secret.
-        /// </summary>
-        /// <value>
-        /// The application secret.
-        /// </value>
         private readonly string appSecret;
-
-        /// <summary>
-        /// Gets UserName to be passed to oauth service.
-        /// </summary>
         private readonly string userName;
-
-        /// <summary>
-        /// Gets password to be passed to oauth service.
-        /// </summary>
         private readonly string password;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UserPasswordAuthenticationProvider" /> class.
-        /// </summary>
-        /// <param name="appName">The application name.</param>
-        /// <param name="appId">The application identifier.</param>
-        /// <param name="appSecret">The application secret.</param>
-        /// <param name="userName">The username to be used.</param>
-        /// <param name="password">Password assoicated with the passed username.</param>
-        /// <param name="logger">The logger.</param>
         public UserPasswordAuthenticationProvider(string appName, string appId, string appSecret, string userName, string password, IGraphLogger logger)
             : base(logger.NotNull(nameof(logger)).CreateShim(nameof(UserPasswordAuthenticationProvider)))
         {
@@ -138,21 +82,9 @@ namespace RecordingBot.Services.Authentication
             throw new NotImplementedException();
         }
 
-        /// <summary>
-        /// Response received from oauth service.
-        /// </summary>
         private class OAuthResponse
         {
-            /// <summary>
-            /// Gets or Sets access token.
-            /// </summary>
-            /// <value>The access token.</value>
             public string Access_Token { get; set; }
-
-            /// <summary>
-            /// Gets or Sets expires time.
-            /// </summary>
-            /// <value>The expires in.</value>
             public int Expires_In { get; set; }
         }
     }

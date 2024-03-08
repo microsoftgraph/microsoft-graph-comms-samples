@@ -1,18 +1,3 @@
-// ***********************************************************************
-// Assembly         : RecordingBot.Services
-// Author           : JasonTheDeveloper
-// Created          : 09-07-2020
-//
-// Last Modified By : dannygar
-// Last Modified On : 08-17-2020
-// ***********************************************************************
-// <copyright file="LRUCache.cs" company="Microsoft Corporation">
-//     Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT license.
-// </copyright>
-// <summary>Initialize the HttpConfiguration for OWIN</summary>
-// ***********************************************************************-
-
 using System;
 
 namespace RecordingBot.Services.Bot
@@ -32,12 +17,6 @@ namespace RecordingBot.Services.Bot
         /// </summary>
         private uint[] set;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LRUCache" /> class.
-        /// Constructor for the LRU cache.
-        /// </summary>
-        /// <param name="size">Size ofthe cache.</param>
-        /// <exception cref="ArgumentException">size value too large; max value is {Max}</exception>
         public LRUCache(uint size)
         {
             if (size > Max)
