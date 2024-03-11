@@ -1,17 +1,4 @@
-﻿// ***********************************************************************
-// Assembly         : RecordingBot.Tests
-// Author           : JasonTheDeveloper
-// Created          : 09-07-2020
-//
-// Last Modified By : dannygar
-// Last Modified On : 09-03-2020
-// ***********************************************************************
-// <copyright file="MediaStreamTest.cs" company="Microsoft">
-//     Copyright © 2020
-// </copyright>
-// <summary></summary>
-// ***********************************************************************
-using ICSharpCode.SharpZipLib.Core;
+﻿using ICSharpCode.SharpZipLib.Core;
 using ICSharpCode.SharpZipLib.Zip;
 using Microsoft.Graph.Communications.Common.Telemetry;
 using Newtonsoft.Json;
@@ -31,26 +18,12 @@ using System.Threading.Tasks;
 
 namespace RecordingBot.Tests.MediaTest
 {
-    /// <summary>
-    /// Defines test class MediaStreamTest.
-    /// Implements the <see cref="RecordingBot.Tests.TestBase" />
-    /// </summary>
-    /// <seealso cref="RecordingBot.Tests.TestBase" />
     [TestFixture]
     public class MediaStreamTest
     {
-        /// <summary>
-        /// The media stream
-        /// </summary>
         private MediaStream _mediaStream;
-        /// <summary>
-        /// The settings
-        /// </summary>
         private AzureSettings _settings;
 
-        /// <summary>
-        /// Sets up.
-        /// </summary>
         [SetUp]
         public void SetUp()
         {
@@ -69,9 +42,6 @@ namespace RecordingBot.Tests.MediaTest
             _mediaStream = new MediaStream(_settings, logger, Guid.NewGuid().ToString());
         }
 
-        /// <summary>
-        /// Defines the test method TestReplayStreamContentMatches.
-        /// </summary>
         [Test]
         public async Task TestReplayStreamContentMatches()
         {
@@ -144,9 +114,6 @@ namespace RecordingBot.Tests.MediaTest
             await _mediaStream.End();
         }
 
-        /// <summary>
-        /// Defines the test method TestPrepareZip.
-        /// </summary>
         [Test]
         public async Task TestPrepareZip()
         {
@@ -231,11 +198,6 @@ namespace RecordingBot.Tests.MediaTest
             lastFileInfo.Directory?.Delete(true);
         }
 
-        /// <summary>
-        /// Getfiles the names.
-        /// </summary>
-        /// <param name="zipFile">The zip file.</param>
-        /// <returns>IEnumerable&lt;System.String&gt;.</returns>
         static IEnumerable<string> GetfileNames(string zipFile)
         {
             foreach (var file in ZipUtils.GetEntries(zipFile))
