@@ -1,17 +1,4 @@
-﻿// ***********************************************************************
-// Assembly         : RecordingBot.Tests
-// Author           : JasonTheDeveloper
-// Created          : 09-07-2020
-//
-// Last Modified By : dannygar
-// Last Modified On : 09-03-2020
-// ***********************************************************************
-// <copyright file="DeserializeParticipant.cs" company="Microsoft">
-//     Copyright ©  2020
-// </copyright>
-// <summary></summary>
-// ***********************************************************************
-using Microsoft.Graph.Communications.Calls;
+﻿using Microsoft.Graph.Communications.Calls;
 using Microsoft.Graph.Models;
 using RecordingBot.Model.Extension;
 using RecordingBot.Services.Media;
@@ -19,17 +6,9 @@ using System.Collections.Generic;
 
 namespace RecordingBot.Tests.Helper
 {
-    /// <summary>
-    /// Class DeserializeParticipant.
-    /// </summary>
     public class DeserializeParticipant
     {
-        /// <summary>
-        /// Gets the participant.
-        /// </summary>
-        /// <param name="serialized">The serialized.</param>
-        /// <returns>List&lt;IParticipant&gt;.</returns>
-        public List<IParticipant> GetParticipant(SerializableAudioMediaBuffer serialized)
+        public static List<IParticipant> GetParticipant(SerializableAudioMediaBuffer serialized)
         {
             var list = new List<IParticipant>();
 

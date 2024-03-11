@@ -1,16 +1,3 @@
-﻿// ***********************************************************************
-// Assembly         : RecordingBot.Tests
-// Author           : JasonTheDeveloper
-// Created          : 09-07-2020
-//
-// Last Modified By : dannygar
-// Last Modified On : 09-03-2020
-// ***********************************************************************
-// <copyright file="CallHandlerTest.cs" company="Microsoft">
-//     Copyright ©  2020
-// </copyright>
-// <summary></summary>
-// ***********************************************************************
 using ICSharpCode.SharpZipLib.Core;
 using ICSharpCode.SharpZipLib.Zip;
 using Microsoft.Graph.Communications.Calls;
@@ -20,10 +7,10 @@ using Microsoft.Graph.Communications.Common.Telemetry;
 using Microsoft.Graph.Communications.Resources;
 using Microsoft.Graph.Models;
 using Microsoft.Skype.Bots.Media;
-using Moq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Bson;
 using Newtonsoft.Json.Linq;
+using NSubstitute;
 using NUnit.Framework;
 using RecordingBot.Model.Models;
 using RecordingBot.Services.Bot;
@@ -37,40 +24,20 @@ using System.Linq;
 
 namespace RecordingBot.Tests.BotTests
 {
-    /// <summary>
-    /// Defines test class CallHandlerTest.
-    /// </summary>
     [TestFixture]
     public class CallHandlerTest
     {
-        /// <summary>
-        /// The settings
-        /// </summary>
         private AzureSettings _settings;
-        /// <summary>
-        /// The call
-        /// </summary>
-        private Mock<ICall> _call;
-        /// <summary>
-        /// The logger
-        /// </summary>
-        private Mock<IGraphLogger> _logger;
-        /// <summary>
-        /// The media session
-        /// </summary>
-        private Mock<ILocalMediaSession> _mediaSession;
-        /// <summary>
-        /// The event publisher
-        /// </summary>
+
+        private ICall _call;
+        private IGraphLogger _logger;
+        private ILocalMediaSession _mediaSession;
+        
         private IEventPublisher _eventPublisher;
 
-        /// <summary>
-        /// Calls the handler test one time setup.
-        /// </summary>
         [OneTimeSetUp]
         public void CallHandlerTestOneTimeSetup()
         {
-            // Load() will automatically look for a .env file in the current directory
             _settings = new AzureSettings
             {
                 CaptureEvents = false,
@@ -83,19 +50,19 @@ namespace RecordingBot.Tests.BotTests
                 },
             };
 
-            _logger = new Mock<IGraphLogger>() { DefaultValue = DefaultValue.Mock };
-            _eventPublisher = new Mock<IEventPublisher>().Object;
+            _logger = Substitute.For<IGraphLogger>();
+            _eventPublisher = Substitute.For<IEventPublisher>();
 
-            _mediaSession = new Mock<ILocalMediaSession>();
-            _mediaSession.Setup(x => x.AudioSocket).Returns(new Mock<IAudioSocket>().Object);
+            _mediaSession = Substitute.For<ILocalMediaSession>();
+            _mediaSession.AudioSocket.Returns(Substitute.For<IAudioSocket>());
 
-            _call = new Mock<ICall>();
-            _call.Setup(x => x.Participants).Returns(new Mock<IParticipantCollection>().Object);
-            _call.Setup(x => x.Resource).Returns(new Mock<Call>().Object);
-            _call.Setup(x => x.GraphLogger).Returns(_logger.Object);
-            _call.Setup(x => x.MediaSession).Returns(_mediaSession.Object);
+            _call = Substitute.For<ICall>();
+            _call.Participants.Returns(Substitute.For<IParticipantCollection>());
+            _call.Resource.Returns(Substitute.For<Call>());
+            _call.GraphLogger.Returns(_logger);
+            _call.MediaSession.Returns(_mediaSession);
 
-            _call.Object.Resource.Source = new ParticipantInfo()
+            _call.Resource.Source = new ParticipantInfo()
             {
                 Identity = new IdentitySet()
                 {
@@ -107,16 +74,13 @@ namespace RecordingBot.Tests.BotTests
             };
         }
 
-        /// <summary>
-        /// Defines the test method TestOnParticipantUpdate.
-        /// </summary>
         [Test]
         public void TestOnParticipantUpdate()
         {
             var participantCount = 0;
-            var handler = new CallHandler(_call.Object, _settings, _eventPublisher);
+            var handler = new CallHandler(_call, _settings, _eventPublisher);
 
-            using (var fs = System.IO.File.OpenRead(Path.Combine("TestData", "participants.zip")))
+            using (var fs = File.OpenRead(Path.Combine("TestData", "participants.zip")))
             {
                 using (var zipInputStream = new ZipInputStream(fs))
                 {
@@ -133,76 +97,73 @@ namespace RecordingBot.Tests.BotTests
 
                         using (var bson = new BsonDataReader(ms))
                         {
-                            JsonSerializer serializer = new JsonSerializer();
+                            JsonSerializer serializer = new();
                             serializer.Converters.Add(new ParticipantConverter());
                             data = serializer.Deserialize<ParticipantData>(bson);
 
-                            data.AddedResources.Select(x =>
+                            Assert.That(data, Is.Not.Null);
+
+                            object tryParseAsIdentity(KeyValuePair<string, object> pair)
                             {
-                                if (x.Resource.Info.Identity.AdditionalData != null)
+                                try
                                 {
-                                    var d = x.Resource.Info.Identity.AdditionalData;
-                                    var ad = new Dictionary<string, object>();
-                                    d.ForEach(y =>
-                                    {
-                                        try
-                                        {
-                                            var i = (Identity)serializer.Deserialize(new JTokenReader(y.Value as JObject), typeof(Identity));
-                                            ad.Add(y.Key, i);
-                                        }
-                                        catch
-                                        {
-                                            ad.Add(y.Key, y.Value);
-                                        }
-                                    });
-                                    x.Resource.Info.Identity.AdditionalData = ad;
+                                    var identity = (Identity)serializer.Deserialize(new JTokenReader(pair.Value as JObject), typeof(Identity));
+                                    return identity;
                                 }
-                                return x;
-                            }).ToList();
+                                catch
+                                {
+                                    return pair.Value;
+                                }
+                            }
 
-                            Assert.IsNotNull(data);
+                            foreach (var resource in data.AddedResources)
+                            {
+                                if (resource.Resource.Info.Identity.AdditionalData != null)
+                                {
+                                    resource.Resource.Info.Identity.AdditionalData =
+                                        resource.Resource.Info.Identity.AdditionalData
+                                                                       .ToDictionary(additionalDataEntry => additionalDataEntry.Key,
+                                                                                     tryParseAsIdentity);
+                                }
+                            }
 
-                            var addKnownUser = data.AddedResources.Where(x => x.Resource.Info.Identity.User != null).ToList();
-                            var addAdditionalDataUser = data.AddedResources.Where(x => x.Resource.Info.Identity.User == null && x.Resource.Info.Identity.AdditionalData != null).ToList();
-                            var addGuestUser = addAdditionalDataUser.SelectMany(x => x.Resource.Info.Identity.AdditionalData).Where(x => x.Key != "applicationInstance" && x.Value is Identity).ToList();
-                            var addGuestNonUser = addAdditionalDataUser.SelectMany(x => x.Resource.Info.Identity.AdditionalData).Where(x => x.Key == "applicationInstance" || !(x.Value is Identity)).ToList();
-                            var addUnkownUser = data.AddedResources.Where(x => x.Resource.Info.Identity.User == null && x.Resource.Info.Identity.AdditionalData == null).ToList();
+                            var addedResourceWithUser = data.AddedResources.Where(x => x.Resource.Info.Identity.User != null).ToList();
+                            var addedResourceWithUserAndAdditionalData = data.AddedResources.Where(x => x.Resource.Info.Identity.User == null && x.Resource.Info.Identity.AdditionalData != null).ToList();
+                            var addedResourceWithGuestUser = addedResourceWithUserAndAdditionalData.SelectMany(x => x.Resource.Info.Identity.AdditionalData).Where(x => x.Key != "applicationInstance" && x.Value is Identity).ToList();
+                            var addedResourceWithNonGuestUser = addedResourceWithUserAndAdditionalData.SelectMany(x => x.Resource.Info.Identity.AdditionalData).Where(x => x.Key == "applicationInstance" || x.Value is not Identity).ToList();
+                            var addedResourceWithoutUserAndAdditionalData = data.AddedResources.Where(x => x.Resource.Info.Identity.User == null && x.Resource.Info.Identity.AdditionalData == null).ToList();
 
-                            var removeKnownUser = data.RemovedResources.Where(x => x.Resource.Info.Identity.User != null).ToList();
-                            var removeAdditionalDataUser = data.RemovedResources.Where(x => x.Resource.Info.Identity.User == null && x.Resource.Info.Identity.AdditionalData != null).ToList();
-                            var removeGuestUser = removeAdditionalDataUser.SelectMany(x => x.Resource.Info.Identity.AdditionalData).Where(x => x.Key != "applicationInstance" && x.Value is Identity).ToList();
-                            var removeGuestNonUser = removeAdditionalDataUser.SelectMany(x => x.Resource.Info.Identity.AdditionalData).Where(x => x.Key == "applicationInstance" || !(x.Value is Identity)).ToList();
-                            var removeUnkownUser = data.RemovedResources.Where(x => x.Resource.Info.Identity.User == null && x.Resource.Info.Identity.AdditionalData == null).ToList();
+                            var removedResourceWithUser = data.RemovedResources.Where(x => x.Resource.Info.Identity.User != null).ToList();
+                            var removedResourceWithUserAndAdditionalData = data.RemovedResources.Where(x => x.Resource.Info.Identity.User == null && x.Resource.Info.Identity.AdditionalData != null).ToList();
+                            var removedResourceWithGuestUser = removedResourceWithUserAndAdditionalData.SelectMany(x => x.Resource.Info.Identity.AdditionalData).Where(x => x.Key != "applicationInstance" && x.Value is Identity).ToList();
+                            var removedResourceWithNonGuestUser = removedResourceWithUserAndAdditionalData.SelectMany(x => x.Resource.Info.Identity.AdditionalData).Where(x => x.Key == "applicationInstance" || x.Value is not Identity).ToList();
+                            var removedResourceWithoutUserAndAdditionalData = data.RemovedResources.Where(x => x.Resource.Info.Identity.User == null && x.Resource.Info.Identity.AdditionalData == null).ToList();
 
                             var c = new CollectionEventArgs<IParticipant>("", addedResources: data.AddedResources, updatedResources: null, removedResources: data.RemovedResources);
                             handler.ParticipantsOnUpdated(null, c);
 
                             var participants = handler.BotMediaStream.GetParticipants();
 
-                            if (addKnownUser.Count != 0)
+                            if (addedResourceWithUser.Count != 0)
                             {
-                                var match = addKnownUser.Where(x => participants.Contains(x)).Count();
-                                Assert.AreEqual(addKnownUser.Count, match);
+                                var match = addedResourceWithUser.Count(participants.Contains);
+                                Assert.That(match, Is.EqualTo(addedResourceWithUser.Count));
                             }
 
-                            if (addGuestUser.Count != 0)
+                            if (addedResourceWithGuestUser.Count != 0)
                             {
                                 var match = participants
                                     .Where(x => x.Resource.Info.Identity.AdditionalData != null)
                                     .SelectMany(x => x.Resource.Info.Identity.AdditionalData)
-                                    .ToList()
-                                    .Where(x =>
-                                        addGuestUser
-                                        .Where(y => y.Value as Identity == x.Value as Identity).Count() > 0)
-                                    .Count();
+                                    .Count(participantData => addedResourceWithGuestUser.Any(guest => guest.Value as Identity == participantData.Value as Identity));
 
-                                Assert.AreEqual(addGuestUser.Count, match);
+                                Assert.That(match, Is.EqualTo(addedResourceWithGuestUser.Count));
                             }
 
-                            participantCount += addKnownUser.Count + addGuestUser.Count;
-                            participantCount -= removeKnownUser.Count + removeGuestUser.Count;
+                            participantCount += addedResourceWithUser.Count + addedResourceWithGuestUser.Count;
+                            participantCount -= removedResourceWithUser.Count + removedResourceWithGuestUser.Count;
 
-                            Assert.AreEqual(participantCount, participants.Count);
+                            Assert.That(participants.Count, Is.EqualTo(participantCount));
                         }
                     }
                 }
