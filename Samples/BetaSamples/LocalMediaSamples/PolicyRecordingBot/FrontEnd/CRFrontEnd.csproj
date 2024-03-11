@@ -58,7 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.WebApi.Owin" Version="5.2.7" />
-    <PackageReference Include="Microsoft.Graph.Communications.Calls.Media" Version="1.2.0-beta.9882" TargetFramework="net472"/>
+    <PackageReference Include="Microsoft.Graph.Communications.Calls.Media" Version="1.2.0-beta.9995" TargetFramework="net472" />
     <PackageReference Include="Microsoft.Owin.Hosting" Version="4.2.2" />
     <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.26.0.94-alpha" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2.0" />
