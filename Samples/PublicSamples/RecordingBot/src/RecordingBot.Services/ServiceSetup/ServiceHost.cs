@@ -18,10 +18,10 @@ namespace RecordingBot.Services.ServiceSetup
         public ServiceHost Configure(IServiceCollection services, IConfiguration configuration)
         {
             Services = services;      
-            Services.AddSingleton<IGraphLogger, GraphLogger>(_ =>
+            Services.AddSingleton<IGraphLogger, GraphLogger>(sp =>
             {
                 var logger = new GraphLogger("RecordingBot", redirectToTrace: false);
-                logger.BindToILoggerFactory(_.GetRequiredService<ILoggerFactory>());
+                logger.BindToILoggerFactory(sp.GetRequiredService<ILoggerFactory>());
                 return logger;
             });
             Services.AddSingleton<IAzureSettings>(_ => _.GetRequiredService<AzureSettings>());
