@@ -10,14 +10,16 @@ This can be an existing user or a new one can be created e.g. for testing.
 - PowerShell (5.1, comes with Windows) as Administrator
 - PowerShell execution policy of at least `RemoteSigned`
 - PowerShell Module
- - [SkypeForBusiness](https://learn.microsoft.com/en-us/powershell/module/skype/?view=skype-ps)
- - or [MicrosoftTeams](https://learn.microsoft.com/en-us/powershell/module/teams/?view=teams-ps)
+  - [SkypeForBusiness](https://learn.microsoft.com/en-us/powershell/module/skype/?view=skype-ps)
+  - or [MicrosoftTeams](https://learn.microsoft.com/en-us/powershell/module/teams/?view=teams-ps)
 - An Office 365 administrator
-- An Office 365 user account
 
 Throughout this Documentation we will use the `MicrosoftTeams` PowerShell Module.
 You can also use the SkypeForBusiness Module, either one works.
 The relevant Commands are available in both Modules.
+
+You will use the Office 365 administrator for all commands.
+How to assign policies to a user is outside the scope of this documentation.
 
 ### Run PowerShell (as admin)
 
