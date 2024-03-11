@@ -55,7 +55,7 @@ For further Information check [Install the Microsoft Teams PowerShell Module](ht
 >Note: All of the following commands are executed in the PowerShell Terminal that you have used to Activate the module.
 
 To create a policy in Teams, we need 3 objects.
-- An Application Instance (Micrisift Entra ID Resource)
+- An Application Instance (Microsoft Entra ID Resource)
 - A Recording policy (the actual compliance policy)
 - A Recording Policy Application (A link between the policy and the application)
 
