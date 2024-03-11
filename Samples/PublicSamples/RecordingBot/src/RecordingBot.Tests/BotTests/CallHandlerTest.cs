@@ -81,7 +81,7 @@ namespace RecordingBot.Tests.BotTests
             var participantCount = 0;
             var handler = new CallHandler(_call, _settings, _eventPublisher);
 
-            using (var fs = System.IO.File.OpenRead(Path.Combine("TestData", "participants.zip")))
+            using (var fs = File.OpenRead(Path.Combine("TestData", "participants.zip")))
             {
                 using (var zipInputStream = new ZipInputStream(fs))
                 {
@@ -102,70 +102,67 @@ namespace RecordingBot.Tests.BotTests
                             serializer.Converters.Add(new ParticipantConverter());
                             data = serializer.Deserialize<ParticipantData>(bson);
 
-                            _ = data.AddedResources.Select(x =>
-                            {
-                                if (x.Resource.Info.Identity.AdditionalData != null)
-                                {
-                                    var d = x.Resource.Info.Identity.AdditionalData;
-                                    var ad = new Dictionary<string, object>();
-                                    d.ForEach(y =>
-                                    {
-                                        try
-                                        {
-                                            var i = (Identity)serializer.Deserialize(new JTokenReader(y.Value as JObject), typeof(Identity));
-                                            ad.Add(y.Key, i);
-                                        }
-                                        catch
-                                        {
-                                            ad.Add(y.Key, y.Value);
-                                        }
-                                    });
-                                    x.Resource.Info.Identity.AdditionalData = ad;
-                                }
-                                return x;
-                            }).ToList();
-
                             Assert.That(data, Is.Not.Null);
 
-                            var addKnownUser = data.AddedResources.Where(x => x.Resource.Info.Identity.User != null).ToList();
-                            var addAdditionalDataUser = data.AddedResources.Where(x => x.Resource.Info.Identity.User == null && x.Resource.Info.Identity.AdditionalData != null).ToList();
-                            var addGuestUser = addAdditionalDataUser.SelectMany(x => x.Resource.Info.Identity.AdditionalData).Where(x => x.Key != "applicationInstance" && x.Value is Identity).ToList();
-                            var addGuestNonUser = addAdditionalDataUser.SelectMany(x => x.Resource.Info.Identity.AdditionalData).Where(x => x.Key == "applicationInstance" || x.Value is not Identity).ToList();
-                            var addUnkownUser = data.AddedResources.Where(x => x.Resource.Info.Identity.User == null && x.Resource.Info.Identity.AdditionalData == null).ToList();
+                            object tryParseAsIdentity(KeyValuePair<string, object> pair)
+                            {
+                                try
+                                {
+                                    var identity = (Identity)serializer.Deserialize(new JTokenReader(pair.Value as JObject), typeof(Identity));
+                                    return identity;
+                                }
+                                catch
+                                {
+                                    return pair.Value;
+                                }
+                            }
 
-                            var removeKnownUser = data.RemovedResources.Where(x => x.Resource.Info.Identity.User != null).ToList();
-                            var removeAdditionalDataUser = data.RemovedResources.Where(x => x.Resource.Info.Identity.User == null && x.Resource.Info.Identity.AdditionalData != null).ToList();
-                            var removeGuestUser = removeAdditionalDataUser.SelectMany(x => x.Resource.Info.Identity.AdditionalData).Where(x => x.Key != "applicationInstance" && x.Value is Identity).ToList();
-                            var removeGuestNonUser = removeAdditionalDataUser.SelectMany(x => x.Resource.Info.Identity.AdditionalData).Where(x => x.Key == "applicationInstance" || x.Value is not Identity).ToList();
-                            var removeUnkownUser = data.RemovedResources.Where(x => x.Resource.Info.Identity.User == null && x.Resource.Info.Identity.AdditionalData == null).ToList();
+                            foreach (var resource in data.AddedResources)
+                            {
+                                if (resource.Resource.Info.Identity.AdditionalData != null)
+                                {
+                                    resource.Resource.Info.Identity.AdditionalData =
+                                        resource.Resource.Info.Identity.AdditionalData
+                                                                       .ToDictionary(additionalDataEntry => additionalDataEntry.Key,
+                                                                                     tryParseAsIdentity);
+                                }
+                            }
+
+                            var addedResourceWithUser = data.AddedResources.Where(x => x.Resource.Info.Identity.User != null).ToList();
+                            var addedResourceWithUserAndAdditionalData = data.AddedResources.Where(x => x.Resource.Info.Identity.User == null && x.Resource.Info.Identity.AdditionalData != null).ToList();
+                            var addedResourceWithGuestUser = addedResourceWithUserAndAdditionalData.SelectMany(x => x.Resource.Info.Identity.AdditionalData).Where(x => x.Key != "applicationInstance" && x.Value is Identity).ToList();
+                            var addedResourceWithNonGuestUser = addedResourceWithUserAndAdditionalData.SelectMany(x => x.Resource.Info.Identity.AdditionalData).Where(x => x.Key == "applicationInstance" || x.Value is not Identity).ToList();
+                            var addedResourceWithoutUserAndAdditionalData = data.AddedResources.Where(x => x.Resource.Info.Identity.User == null && x.Resource.Info.Identity.AdditionalData == null).ToList();
+
+                            var removedResourceWithUser = data.RemovedResources.Where(x => x.Resource.Info.Identity.User != null).ToList();
+                            var removedResourceWithUserAndAdditionalData = data.RemovedResources.Where(x => x.Resource.Info.Identity.User == null && x.Resource.Info.Identity.AdditionalData != null).ToList();
+                            var removedResourceWithGuestUser = removedResourceWithUserAndAdditionalData.SelectMany(x => x.Resource.Info.Identity.AdditionalData).Where(x => x.Key != "applicationInstance" && x.Value is Identity).ToList();
+                            var removedResourceWithNonGuestUser = removedResourceWithUserAndAdditionalData.SelectMany(x => x.Resource.Info.Identity.AdditionalData).Where(x => x.Key == "applicationInstance" || x.Value is not Identity).ToList();
+                            var removedResourceWithoutUserAndAdditionalData = data.RemovedResources.Where(x => x.Resource.Info.Identity.User == null && x.Resource.Info.Identity.AdditionalData == null).ToList();
 
                             var c = new CollectionEventArgs<IParticipant>("", addedResources: data.AddedResources, updatedResources: null, removedResources: data.RemovedResources);
                             handler.ParticipantsOnUpdated(null, c);
 
                             var participants = handler.BotMediaStream.GetParticipants();
 
-                            if (addKnownUser.Count != 0)
+                            if (addedResourceWithUser.Count != 0)
                             {
-                                var match = addKnownUser.Where(x => participants.Contains(x)).Count();
-                                Assert.That(match, Is.EqualTo(addKnownUser.Count));
+                                var match = addedResourceWithUser.Count(participants.Contains);
+                                Assert.That(match, Is.EqualTo(addedResourceWithUser.Count));
                             }
 
-                            if (addGuestUser.Count != 0)
+                            if (addedResourceWithGuestUser.Count != 0)
                             {
                                 var match = participants
                                     .Where(x => x.Resource.Info.Identity.AdditionalData != null)
                                     .SelectMany(x => x.Resource.Info.Identity.AdditionalData)
-                                    .ToList()
-                                    .Where(x =>
-                                        addGuestUser
-                                        .Where(y => y.Value as Identity == x.Value as Identity).Any())
-                                    .Count();
+                                    .Count(participantData => addedResourceWithGuestUser.Any(guest => guest.Value as Identity == participantData.Value as Identity));
 
-                                Assert.That(match, Is.EqualTo(addGuestUser.Count));
+                                Assert.That(match, Is.EqualTo(addedResourceWithGuestUser.Count));
                             }
 
-                            participantCount += addKnownUser.Count + addGuestUser.Count;
-                            participantCount -= removeKnownUser.Count + removeGuestUser.Count;
+                            participantCount += addedResourceWithUser.Count + addedResourceWithGuestUser.Count;
+                            participantCount -= removedResourceWithUser.Count + removedResourceWithGuestUser.Count;
 
                             Assert.That(participants.Count, Is.EqualTo(participantCount));
                         }
