@@ -1,17 +1,4 @@
-﻿// ***********************************************************************
-// Assembly         : RecordingBot.Tests
-// Author           : JasonTheDeveloper
-// Created          : 09-07-2020
-//
-// Last Modified By : dannygar
-// Last Modified On : 09-03-2020
-// ***********************************************************************
-// <copyright file="CallHandlerTest.cs" company="Microsoft">
-//     Copyright © 2020
-// </copyright>
-// <summary></summary>
-// ***********************************************************************
-using ICSharpCode.SharpZipLib.Core;
+﻿using ICSharpCode.SharpZipLib.Core;
 using ICSharpCode.SharpZipLib.Zip;
 using Microsoft.Graph.Communications.Calls;
 using Microsoft.Graph.Communications.Calls.Media;
@@ -37,36 +24,17 @@ using System.Linq;
 
 namespace RecordingBot.Tests.BotTests
 {
-    /// <summary>
-    /// Defines test class CallHandlerTest.
-    /// </summary>
     [TestFixture]
     public class CallHandlerTest
     {
-        /// <summary>
-        /// The settings
-        /// </summary>
         private AzureSettings _settings;
-        /// <summary>
-        /// The call
-        /// </summary>
+
         private ICall _call;
-        /// <summary>
-        /// The logger
-        /// </summary>
         private IGraphLogger _logger;
-        /// <summary>
-        /// The media session
-        /// </summary>
         private ILocalMediaSession _mediaSession;
-        /// <summary>
-        /// The event publisher
-        /// </summary>
+        
         private IEventPublisher _eventPublisher;
 
-        /// <summary>
-        /// Calls the handler test one time setup.
-        /// </summary>
         [OneTimeSetUp]
         public void CallHandlerTestOneTimeSetup()
         {
@@ -107,9 +75,6 @@ namespace RecordingBot.Tests.BotTests
             };
         }
 
-        /// <summary>
-        /// Defines the test method TestOnParticipantUpdate.
-        /// </summary>
         [Test]
         public void TestOnParticipantUpdate()
         {
