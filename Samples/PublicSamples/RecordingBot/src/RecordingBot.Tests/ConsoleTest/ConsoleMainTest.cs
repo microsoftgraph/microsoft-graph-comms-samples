@@ -25,14 +25,13 @@ namespace RecordingBot.Tests.ConsoleTest
         [Test]
         public void TestVersion()
         {
-            using (StringWriter sw = new StringWriter())
+            using (StringWriter sw = new())
             {
                 System.Console.SetOut(sw);
 
-                Console.Program.Main(new string[] { "-v" });
+                Console.Program.Main(["-v"]);
 
-                Version version;
-                Version.TryParse(sw.ToString(), out version);
+                _ = Version.TryParse(sw.ToString(), out Version version);
 
                 Assert.That(version, Is.Not.Null);
             }

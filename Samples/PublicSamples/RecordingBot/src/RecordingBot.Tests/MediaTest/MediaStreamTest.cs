@@ -92,7 +92,7 @@ namespace RecordingBot.Tests.MediaTest
                         {
                             var e = new JsonSerializer().Deserialize<SerializableAudioMediaBuffer>(bson);
                             var d = new DeserializeAudioMediaBuffer(e);
-                            var p = new DeserializeParticipant().GetParticipant(e);
+                            var p = DeserializeParticipant.GetParticipant(e);
 
                             Assert.That(d.IsSilence, Is.EqualTo(e.IsSilence));
                             Assert.That(d.Length, Is.EqualTo(e.Length));
@@ -166,7 +166,7 @@ namespace RecordingBot.Tests.MediaTest
                 {
                     var e = new JsonSerializer().Deserialize<SerializableAudioMediaBuffer>(bson);
                     var d = new DeserializeAudioMediaBuffer(e);
-                    var p = new DeserializeParticipant().GetParticipant(e);
+                    var p = DeserializeParticipant.GetParticipant(e);
 
                     Assert.That((d.Data != IntPtr.Zero && e.Buffer != null) || (d.Data == IntPtr.Zero && e.Buffer == null));
 

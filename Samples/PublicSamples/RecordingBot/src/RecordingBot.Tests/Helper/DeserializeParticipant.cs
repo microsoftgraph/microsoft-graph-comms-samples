@@ -8,7 +8,7 @@ namespace RecordingBot.Tests.Helper
 {
     public class DeserializeParticipant
     {
-        public List<IParticipant> GetParticipant(SerializableAudioMediaBuffer serialized)
+        public static List<IParticipant> GetParticipant(SerializableAudioMediaBuffer serialized)
         {
             var list = new List<IParticipant>();
 
