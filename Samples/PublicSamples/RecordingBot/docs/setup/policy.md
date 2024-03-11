@@ -44,7 +44,7 @@ In an evelated (Run as Admin) PowerShell Terminal execute the following command
 `Import-Module MicrosoftTeams`
 and then
 `Connect-MicrosoftTeams`
-You will need to sign in with your Azure Credentials here
+You will need to sign in with your Azure Credentials (Office 365 Administrator) here
 
 For further Information check [Install the Microsoft Teams PowerShell Module](https://learn.microsoft.com/en-us/microsoftteams/teams-powershell-install#installing-using-the-powershellgallery) and [sign in with your Azure Credentials](https://learn.microsoft.com/en-us/microsoftteams/teams-powershell-install#sign-in)
 
