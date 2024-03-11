@@ -1,10 +1,10 @@
 {{- $maxCount := include "maxCount" . -}}
 {{- $namespace := include "ingress-nginx.namespace" . -}}
-{{- $fullName := include "fullName" . -}}
+{{- $fullName := include "ingress-nginx.fullname" . -}}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ $fullName }}-ingress-nginx-controller
+  name: {{ $fullName }}-external
   namespace: {{ $namespace }}
   labels:
     helmVersion: {{ .Chart.Version }}
@@ -15,14 +15,16 @@ spec:
   externalTrafficPolicy: Cluster
   loadBalancerIP: {{ include "publicIP" . }}
   ports:
+{{- if (index $.Values "ingress-nginx" "enabled") }}
   - name: http
-    port: 80
+    port: {{ $.Values.public.http }}
     targetPort: http
     protocol: TCP
   - name: https
-    port: 443
+    port: {{ $.Values.public.https }}
     targetPort: https
     protocol: TCP
+{{- end }}
 {{- range $i, $e := until (int $maxCount) }}
   - name: {{ $.Values.public.media | add $i }}-tcp
     port: {{ $.Values.public.media | add $i }}
@@ -31,5 +33,5 @@ spec:
 {{- end }}
   selector:
     app.kubernetes.io/component: controller
-    app.kubernetes.io/instance: {{ $fullName }}
-    app.kubernetes.io/name: ingress-nginx 
+    app.kubernetes.io/instance: {{ include "ingress-nginx.instance" . }}
+    app.kubernetes.io/name: {{ include "ingress-nginx.name" .}}

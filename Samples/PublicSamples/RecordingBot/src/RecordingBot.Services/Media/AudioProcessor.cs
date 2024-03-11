@@ -1,16 +1,3 @@
-﻿// ***********************************************************************
-// Assembly         : RecordingBot.Services
-// Author           : JasonTheDeveloper
-// Created          : 09-07-2020
-//
-// Last Modified By : dannygar
-// Last Modified On : 09-07-2020
-// ***********************************************************************
-// <copyright file="AudioProcessor.cs" company="Microsoft">
-//     Copyright ©  2020
-// </copyright>
-// <summary></summary>
-// ***********************************************************************
 using NAudio.Wave;
 using RecordingBot.Model.Constants;
 using RecordingBot.Services.Contract;
@@ -24,42 +11,18 @@ using System.Threading.Tasks;
 
 namespace RecordingBot.Services.Media
 {
-    /// <summary>
-    /// Class AudioProcessor.
-    /// Implements the <see cref="RecordingBot.Services.Util.BufferBase{RecordingBot.Services.Media.SerializableAudioMediaBuffer}" />
-    /// </summary>
-    /// <seealso cref="RecordingBot.Services.Util.BufferBase{RecordingBot.Services.Media.SerializableAudioMediaBuffer}" />
     public class AudioProcessor : BufferBase<SerializableAudioMediaBuffer>
     {
-        /// <summary>
-        /// The writers
-        /// </summary>
         readonly Dictionary<string, WaveFileWriter> _writers = new Dictionary<string, WaveFileWriter>();
-
-        /// <summary>
-        /// The processor identifier
-        /// </summary>
         private readonly string _processorId = null;
-
-        /// <summary>
-        /// The settings
-        /// </summary>
         private readonly AzureSettings _settings;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AudioProcessor" /> class.
-        /// </summary>
-        /// <param name="settings">The settings.</param>
         public AudioProcessor(IAzureSettings settings)
         {
             _processorId = Guid.NewGuid().ToString();
             _settings = (AzureSettings)settings;
         }
 
-        /// <summary>
-        /// Processes the specified data.
-        /// </summary>
-        /// <param name="data">The data.</param>
         protected override async Task Process(SerializableAudioMediaBuffer data)
         {
             if (data.Timestamp == 0)
@@ -102,12 +65,6 @@ namespace RecordingBot.Services.Media
             }
         }
 
-        /// <summary>
-        /// Initialises the wav file writer.
-        /// </summary>
-        /// <param name="rootFolder">The root folder.</param>
-        /// <param name="id">The identifier.</param>
-        /// <returns>WavFileWriter.</returns>
         private WaveFileWriter InitialiseWavFileWriter(string rootFolder, string id)
         {
             var path = AudioFileUtils.CreateFilePath(rootFolder, $"{id}.wav");
@@ -123,10 +80,6 @@ namespace RecordingBot.Services.Media
             return writer;
         }
 
-        /// <summary>
-        /// Finalises the wav writing and returns a list of all the files created
-        /// </summary>
-        /// <returns>System.String.</returns>
         public async Task<string> Finalise()
         {
             //drain the un-processed buffers on this object

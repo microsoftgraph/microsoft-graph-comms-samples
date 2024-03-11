@@ -1,16 +1,3 @@
-// ***********************************************************************
-// Assembly         : RecordingBot.Services
-// Author           : JasonTheDeveloper
-// Created          : 09-07-2020
-//
-// Last Modified By : dannygar
-// Last Modified On : 09-07-2020
-// ***********************************************************************
-// <copyright file="AppHost.cs" company="Microsoft">
-//     Copyright ©  2020
-// </copyright>
-// <summary></summary>
-// ***********************************************************************
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Routing;
@@ -31,39 +18,17 @@ using System.Text.Json.Serialization;
 
 namespace RecordingBot.Services.ServiceSetup
 {
-    /// <summary>
-    /// Class AppHost.
-    /// </summary>
     public class AppHost
     {
-        /// <summary>
-        /// Gets or sets the service provider.
-        /// </summary>
-        /// <value>The service provider.</value>
         private IServiceProvider ServiceProvider { get; set; }
-
-        /// <summary>
-        /// Gets the application host instance.
-        /// </summary>
-        /// <value>The application host instance.</value>
         public static AppHost AppHostInstance { get; private set; }
-
-        /// <summary>
-        /// The logger
-        /// </summary>
         private IGraphLogger _logger;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AppHost" /> class.
-        /// </summary>
         public AppHost()
         {
             AppHostInstance = this;
         }
 
-        /// <summary>
-        /// Boots this instance.
-        /// </summary>
         public void Boot(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
@@ -118,6 +83,8 @@ namespace RecordingBot.Services.ServiceSetup
 
             // Configure the HTTP request pipeline.
             app.UsePathBase(azureSettings.PodPathBase); 
+            app.UsePathBase(azureSettings.ServicePath);
+            
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
@@ -129,11 +96,6 @@ namespace RecordingBot.Services.ServiceSetup
             app.Run();
         }
 
-        /// <summary>
-        /// Resolves this instance.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns>T.</returns>
         public T Resolve<T>()
         {
             return ServiceProvider.GetService<T>();
