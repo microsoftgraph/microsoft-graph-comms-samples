@@ -38,7 +38,6 @@ namespace RecordingBot.Tests.BotTests
         [OneTimeSetUp]
         public void CallHandlerTestOneTimeSetup()
         {
-            // Load() will automatically look for a .env file in the current directory
             _settings = new AzureSettings
             {
                 CaptureEvents = false,
