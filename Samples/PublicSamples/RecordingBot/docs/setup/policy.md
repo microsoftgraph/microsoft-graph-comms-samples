@@ -5,109 +5,112 @@ The following steps should be done by an Office 365 administrator.
 The Office 365 Tenant will require at least one user allocated for the bot to be used.
 This can be an existing user or a new one can be created e.g. for testing.
 
-## Create an Application Instance
+## Prerequisites
 
-Open powershell (in admin mode) and run the following commands. When prompted for authentication, login with the tenant admin. [Skype for Business Online](https://www.microsoft.com/en-us/download/details.aspx?id=39366) is needed for the following steps:
+- PowerShell (5.1, comes with Windows) as Administrator
+- PowerShell execution policy of at least `RemoteSigned`
+- PowerShell Module
+  - [SkypeForBusiness](https://learn.microsoft.com/en-us/powershell/module/skype/?view=skype-ps)
+  - or [MicrosoftTeams](https://learn.microsoft.com/en-us/powershell/module/teams/?view=teams-ps)
+- An Office 365 administrator
 
-1. Logging into O365 in Powershell:
+Throughout this Documentation we will use the `MicrosoftTeams` PowerShell Module.  
+You can also use the SkypeForBusiness Module, either one works.
+The relevant Commands are available in both Modules.
 
->Note: at the time of this writing, only Windows PowerShell was supported, the core PowerShell 7.0.x was not supported.
+You will use the Office 365 administrator for all commands.  
+How to assign policies to a user is outside the scope of this documentation.
 
-    ```powershell
-    Set-ExecutionPolicy RemoteSigned
-    Import-Module SkypeOnlineConnector
-    $sfbSession = New-CsOnlineSession -Verbose
-    Import-PSSession $sfbSession
-    ```
-2. Create a new application instance for the bot channel registration:
+### Run PowerShell (as admin)
 
-    ```powershell
-    New-CsOnlineApplicationInstance `
-        -UserPrincipalName <upn@contoso.com> `
-        -DisplayName <displayName> `
-        -ApplicationId <BOT_ID>
-    ```
-    >Note: if when executing this command you've encountered the error stating that:
-    `The provided UserPrincipalName is already used by another application instance or user.`, it means you have already have another application instance associated with your email address. To update that instance with a new Bot Application Id and the new Display Name, issue the following commands:
+Just hit the Widnows Key on your Keyboard or click the Start menu button.  
+Now start typeing `PowerShell`.  
+Open the Context Menu (right click) of the `Windows PowerShell` entry and select `Run as Administrator`.
 
-    ```powershell
-    $identity = Get-CsOnlineApplicationInstance | Where-Object {$_.DisplayName -Match "<displayName>"} | Select ObjectId
-    Set-CsOnlineApplicationInstance `
-        -Identity $identity."ObjectId" `
-        -ApplicationId <BOT_ID> `
-        -DisplayName <displayName>
-    ```
+### Enable PowerShell Script execution
 
-3. Sync the newly created application instance:
+In an evelated (Run as Admin) PowerShell Terminal execute the following command  
+`Set-PsExecutionPolicy RemoteSigned`  
+For more information look [here](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-5.1)
 
-    ```powershell
-    $identity = Get-CsOnlineApplicationInstance | Where-Object {$_.DisplayName -Match "<displayName>"} | Select ObjectId
-    Sync-CsOnlineApplicationInstance `
-        -ObjectId $identity."ObjectId"
-    ```
+### Install the Module
 
-After initial set up you only need to run steps 1-3 in future sessions.
+In an evelated (Run as Admin) PowerShell Terminal execute the following command  
+`Install-Module MicrosoftTeams`  
+Or if it is already installed, update the module  
+`Update-Module MicrosoftTeams`
 
-## Create a Recording Policy
+### Activate the Module
 
-Requires the application instance Object ID created above. Continue your powershell session and run the following commands.
+In an evelated (Run as Admin) PowerShell Terminal execute the following command  
+`Import-Module MicrosoftTeams`  
+and then  
+`Connect-MicrosoftTeams`  
+You will need to sign in with your Azure Credentials (Office 365 Administrator) here
 
-1. Create a new Teams recording policy for governing automatic policy-based recording in your tenant:
+For further Information check [Install the Microsoft Teams PowerShell Module](https://learn.microsoft.com/en-us/microsoftteams/teams-powershell-install#installing-using-the-powershellgallery) and [sign in with your Azure Credentials](https://learn.microsoft.com/en-us/microsoftteams/teams-powershell-install#sign-in)
 
-    ```powershell
-    $policyName = '<policyIdentityName>'
-    New-CsTeamsComplianceRecordingPolicy `
-	    -Identity $policyName `
-	    -Enabled $true `
-	    -ComplianceRecordingApplications @(New-CsTeamsComplianceRecordingApplication -Parent $policyName -Id $identity."ObjectId")
-    ```
+## Setup a Compliance Policy for Teams
 
-    >Note: when you need to re-run this command for the same policy and/or the same identity, use `Set-` commands instead of `New-`, as in the following example:
+>Note: All of the following commands are executed in the PowerShell Terminal that you have used to Activate the module.
 
-    ```powershell
-    $tag = 'Tag:' + $policyName + '/' + $identity."ObjectId"
-    Set-CsTeamsComplianceRecordingPolicy `
-        -Identity $policyName `
-        -Enabled $true
-    ```
+To create a policy in Teams, we need 3 objects.
+- An Application Instance (Microsoft Entra ID Resource)
+- A Recording policy (the actual compliance policy)
+- A Recording Policy Application (A link between the policy and the application)
 
-    >Note: if you ever need to remove the existing Teams Compliance Recording policy, you can execute the following command:
+### Create the Application Instance
 
-    ```powershell
-    $tag = 'Tag:' + $policyName
-    Get-CsTeamsComplianceRecordingPolicy -Filter $tag | Remove-CsTeamsComplianceRecordingPolicy
-    ```
+[New-CsOnlineApplicationInstance](https://learn.microsoft.com/en-us/powershell/module/skype/new-csonlineapplicationinstance?view=skype-ps)
+```powershell
+New-CsOnlineApplicationInstance
+   -UserPrincipalName <the email of the generated micrsoft entra id resource> `
+   -DisplayName <a name for the generated microsoft entra id resource> `
+   -ApplicationId <the Application Id of the Bot Application Registration>
+```
+The Application Id might not be from your own Microsoft Entra ID,
+but from the Microsoft Entra ID that hosts this Bot.  
+So basically from the Service Provider.
 
-After 30-60 seconds, the policy should show up. To verify your policy was created correctly:
+You will now have to Synchronize this Application Instance into the Agent Provisioning Service
+```powershell
+Sync-CsOnlineApplicationInstance
+    -ObjectId <the object id of the Application Instance>
+    -ApplicationId <the application id of the remote application registration>
+```
+You can get the Object Id by executing the `Get-CsOnlineApplicationInstance -Displayname <the name you provided>` and checking the output.  
+The Object Id will also be displayed after the `New-CsOnlineApplicationInstance` command.  
+The Application Id is the same Application Id you used to create the Application Instance.
 
-* `Get-CsTeamsComplianceRecordingPolicy <policyIdentityName>`
+### Create the policy
 
-    ```powershell
-    Get-CsTeamsComplianceRecordingPolicy $policyName
-    ```
-If the policy has been successfully created, you should see the output looks like this:
-![Policy Output](../images/policy_output.png)
+[New-CsTeamsComplianceRecordingPolicy](https://learn.microsoft.com/en-us/powershell/module/skype/new-csteamscompliancerecordingpolicy?view=skype-ps)
+```powershell
+New-CsTeamsComplianceRecordingPolicy
+   -Identity <provide a name for your policy>
+   -Enabled $true
+```
+With this, you will just have a policy.  
+You can already assign this policy to users, but it will not do anything,
+because it does not have any Recording Applications assigned to it yet.
 
-## Assign the Recording Policy
+### Create the Recording Application
 
-Requries the policy identity created above. Contine your powershell session and run the following commands.
+[New-CsTeamsComplianceRecordingApplication](https://learn.microsoft.com/en-us/powershell/module/skype/new-csteamscompliancerecordingapplication?view=skype-ps)
+```powershell
+New-CsTeamsComplianceRecordingApplication
+   -Parent <Recording Policy Name>
+   -Id <Application Instance Object Id>
+```
+The Parent is the Parameter `Identity` from the `New-CsTeamsComlianceRecordingPolicy`.  
+So the Parent of a Recording Application is a Recording policy.  
+The Id is the Object ID of the Object created with `New-CsOnlineApplicationInstance`.  
+So basically you now have
+- assigned an Application in your own Entra (Application Instance)
+ - wich points to an application on an external Entra (Application Id that was assigned to Application Instance)
+- to a Teams Compliance Policy (by using its name)
 
-1. Grant-CsTeamsComplianceRecordingPolicy
+## Use the policy
 
-    ```powershell
-    Grant-CsTeamsComplianceRecordingPolicy `
-        -Identity <upn@contoso.com> `
-        -PolicyName $policyName
-    ```
-
-    After a couple of minutes, to verify your policy was assigned correctly:
-
-2. Get-CsOnlineUser
-
-    ```powershell
-    Get-CsOnlineUser <upn@contoso.com> | ft sipaddress, tenantid, TeamsComplianceRecordingPolicy
-    ```
-    If your policy has been assigned correctly, you should see a similar output:
-
-    ![Policy Result](../images/policy-result.png)
+To be able to use the Policy, you will need to assign Users or Groups to this policy.
 
