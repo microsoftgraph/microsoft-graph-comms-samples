@@ -37,7 +37,7 @@ namespace RecordingBot.Tests.MediaTest
     /// </summary>
     /// <seealso cref="RecordingBot.Tests.TestBase" />
     [TestFixture]
-    public class MediaStreamTest : TestBase
+    public class MediaStreamTest
     {
         /// <summary>
         /// The media stream
