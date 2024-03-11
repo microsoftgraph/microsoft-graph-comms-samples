@@ -102,9 +102,9 @@ New-CsTeamsComplianceRecordingApplication
    -Parent <Recording Policy Name>
    -Id <Application Instance Object Id>
 ```
-The <Recording Policy Name> is the Parameter `Identity` from the `New-CsTeamsComlianceRecordingPolicy`.  
+The Parent is the Parameter `Identity` from the `New-CsTeamsComlianceRecordingPolicy`.  
 So the Parent of a Recording Application is a Recording policy.  
-The <Application Instance Object Id> is the Object ID of the Object created with `New-CsOnlineApplicationInstance`.  
+The Id is the Object ID of the Object created with `New-CsOnlineApplicationInstance`.  
 So basically you now have
 - assigned an Application in your own Entra (Application Instance)
  - wich points to an application on an external Entra (Application Id that was assigned to Application Instance)
