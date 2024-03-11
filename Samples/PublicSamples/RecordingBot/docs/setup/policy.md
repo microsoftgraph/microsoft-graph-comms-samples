@@ -110,17 +110,6 @@ So basically you now have
  - wich points to an application on an external Entra (Application Id that was assigned to Application Instance)
 - to a Teams Compliance Policy (by using its name)
 
-### Activate the policy
-
-[Grant-CsTeamsComplianceRecordingPolicy](https://learn.microsoft.com/en-us/powershell/module/skype/grant-csteamscompliancerecordingpolicy?view=skype-ps)
-```powershell
-Grant-CsTeamsComplianceRecordingPolicy
-     -Identity <User Principal name of the Application Instance>
-     -PolicyName <Name of the Recording Policy>
-```
-The Identity is the same as passed into the `UserPrincipalName` parameter of the `New-CsOnlineApplicationInstance` command.  
-The PolicyName is the same as passed into the `Identity` parameter of the `New-CsTeamsComplianceRecordingPolicy` command.
-
 ## Use the policy
 
 To be able to use the Policy, you will need to assign Users or Groups to this policy.
