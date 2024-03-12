@@ -1,5 +1,6 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.Graph.Communications.Common.Telemetry;
 using RecordingBot.Services.Bot;
@@ -16,8 +17,13 @@ namespace RecordingBot.Services.ServiceSetup
 
         public ServiceHost Configure(IServiceCollection services, IConfiguration configuration)
         {
-            Services = services;
-            Services.AddSingleton<IGraphLogger, GraphLogger>(_ => new GraphLogger("RecordingBot", redirectToTrace: true));
+            Services = services;      
+            Services.AddSingleton<IGraphLogger, GraphLogger>(sp =>
+            {
+                var logger = new GraphLogger("RecordingBot", redirectToTrace: false);
+                logger.BindToILoggerFactory(sp.GetRequiredService<ILoggerFactory>());
+                return logger;
+            });
             Services.AddSingleton<IAzureSettings>(_ => _.GetRequiredService<AzureSettings>());
             Services.AddSingleton<IEventPublisher, EventGridPublisher>(_ => new EventGridPublisher(_.GetRequiredService<IOptions<AzureSettings>>().Value));
             Services.AddSingleton<IBotService, BotService>();
