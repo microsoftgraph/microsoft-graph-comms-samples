@@ -7,6 +7,7 @@ on:
       - master
     paths:
       - Samples/PublicSamples/RecordingBot/**
+      - .github/workflows/publicrecordingbot_release-docker-image.yml
 
 jobs:
   build-push-cr:
@@ -27,7 +28,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }}
+          username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and Tag docker image
