@@ -3,7 +3,6 @@ using Microsoft.Graph.Communications.Common;
 using Microsoft.Graph.Communications.Resources;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Bson;
-using RecordingBot.Model.Extension;
 using RecordingBot.Model.Models;
 using RecordingBot.Services.Media;
 using System;
