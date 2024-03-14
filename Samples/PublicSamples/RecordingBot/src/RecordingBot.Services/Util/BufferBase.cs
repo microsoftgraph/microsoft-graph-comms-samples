@@ -14,8 +14,7 @@ namespace RecordingBot.Services.Util
         private readonly SemaphoreSlim _syncLock = new(1);
 
         protected BufferBase()
-        {
-        }
+        { }
 
         protected BufferBase(CancellationTokenSource token)
         {
@@ -26,7 +25,7 @@ namespace RecordingBot.Services.Util
         {
             if (!IsRunning)
             {
-                await _start();
+                await Start();
             }
 
             try
@@ -41,36 +40,23 @@ namespace RecordingBot.Services.Util
             }
         }
 
-        private async Task _start()
+        private async Task Start()
         {
             await _syncLock.WaitAsync().ConfigureAwait(false);
+
             if (!IsRunning)
             {
                 TokenSource ??= new CancellationTokenSource();
 
                 Buffer = new BufferBlock<T>(new DataflowBlockOptions { CancellationToken = TokenSource.Token });
-                await Task.Factory.StartNew(_process).ConfigureAwait(false);
+                await Task.Factory.StartNew(Process).ConfigureAwait(false);
                 IsRunning = true;
             }
+
             _syncLock.Release();
         }
 
-        public virtual async Task End()
-        {  
-            if (IsRunning)
-            {
-                await _syncLock.WaitAsync().ConfigureAwait(false);
-                if (IsRunning)
-                {
-                    Buffer.Complete();
-                    TokenSource = null;
-                    IsRunning = false;
-                }
-                _syncLock.Release();
-            }
-        }
-
-        private async Task _process()
+        private async Task Process()
         {
             try
             {
@@ -97,7 +83,24 @@ namespace RecordingBot.Services.Util
                 Debug.Write(string.Format("Caught Exception: {0}", ex));
 
                 // Continue processing elements in the queue
-                await _process().ConfigureAwait(false);
+                await Process().ConfigureAwait(false);
+            }
+        }
+
+        public virtual async Task End()
+        {  
+            if (IsRunning)
+            {
+                await _syncLock.WaitAsync().ConfigureAwait(false);
+
+                if (IsRunning)
+                {
+                    Buffer.Complete();
+                    TokenSource = null;
+                    IsRunning = false;
+                }
+
+                _syncLock.Release();
             }
         }
 

@@ -1,4 +1,3 @@
-using Microsoft.Graph;
 using Microsoft.Graph.Communications.Calls;
 using Microsoft.Graph.Communications.Calls.Media;
 using Microsoft.Graph.Communications.Client;
@@ -24,7 +23,8 @@ namespace RecordingBot.Services.Bot
         private readonly IGraphLogger _logger;
         private readonly IEventPublisher _eventPublisher;
         private readonly AzureSettings _settings;
-        public ConcurrentDictionary<string, CallHandler> CallHandlers { get; } = new ConcurrentDictionary<string, CallHandler>();
+
+        public ConcurrentDictionary<string, CallHandler> CallHandlers { get; } = [];
         public ICommunicationsClient Client { get; private set; }
 
         /// <inheritdoc />
@@ -99,8 +99,10 @@ namespace RecordingBot.Services.Bot
                     DisplayName = joinCallBody.DisplayName,
                 };
             }
+
             var statefulCall = await Client.Calls().AddAsync(joinParams, scenarioId).ConfigureAwait(false);
             statefulCall.GraphLogger.Info($"Call creation complete: {statefulCall.Id}");
+
             return statefulCall;
         }
 

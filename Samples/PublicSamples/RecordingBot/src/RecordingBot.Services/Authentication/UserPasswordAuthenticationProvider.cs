@@ -13,21 +13,21 @@ namespace RecordingBot.Services.Authentication
 {
     public class UserPasswordAuthenticationProvider : ObjectRoot, IRequestAuthenticationProvider
     {
-        private readonly string appName;
-        private readonly string appId;
-        private readonly string appSecret;
-        private readonly string userName;
-        private readonly string password;
+        private readonly string _appName;
+        private readonly string _appId;
+        private readonly string _appSecret;
+        private readonly string _userName;
+        private readonly string _password;
 
         public UserPasswordAuthenticationProvider(string appName, string appId, string appSecret, string userName, string password, IGraphLogger logger)
             : base(logger.NotNull(nameof(logger)).CreateShim(nameof(UserPasswordAuthenticationProvider)))
         {
-            this.appName = appName.NotNullOrWhitespace(nameof(appName));
-            this.appId = appId.NotNullOrWhitespace(nameof(appId));
-            this.appSecret = appSecret.NotNullOrWhitespace(nameof(appSecret));
+            _appName = appName.NotNullOrWhitespace(nameof(appName));
+            _appId = appId.NotNullOrWhitespace(nameof(appId));
+            _appSecret = appSecret.NotNullOrWhitespace(nameof(appSecret));
 
-            this.userName = userName.NotNullOrWhitespace(nameof(userName));
-            this.password = password.NotNullOrWhitespace(nameof(password));
+            _userName = userName.NotNullOrWhitespace(nameof(userName));
+            _password = password.NotNullOrWhitespace(nameof(password));
         }
 
         /// <inheritdoc />
@@ -46,15 +46,15 @@ namespace RecordingBot.Services.Authentication
             try
             {
                 using var httpClient = new HttpClient();
-                var result = await httpClient.PostAsync(tokenLink, new FormUrlEncodedContent(new[]
-                {
+                var result = await httpClient.PostAsync(tokenLink, new FormUrlEncodedContent(
+                [
                     new KeyValuePair<string, string>("grant_type", "password"),
-                    new KeyValuePair<string, string>("username", userName),
-                    new KeyValuePair<string, string>("password", password),
+                    new KeyValuePair<string, string>("username", _userName),
+                    new KeyValuePair<string, string>("password", _password),
                     new KeyValuePair<string, string>("scope", Resource),
-                    new KeyValuePair<string, string>("client_id", appId),
-                    new KeyValuePair<string, string>("client_secret", appSecret),
-                })).ConfigureAwait(false);
+                    new KeyValuePair<string, string>("client_id", _appId),
+                    new KeyValuePair<string, string>("client_secret", _appSecret),
+                ])).ConfigureAwait(false);
 
                 if (!result.IsSuccessStatusCode)
                 {
@@ -68,7 +68,7 @@ namespace RecordingBot.Services.Authentication
             }
             catch (Exception ex)
             {
-                GraphLogger.Error(ex, $"Failed to generate user token for user: {userName}");
+                GraphLogger.Error(ex, $"Failed to generate user token for user: {_userName}");
                 throw;
             }
 

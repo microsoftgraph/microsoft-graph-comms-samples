@@ -8,31 +8,31 @@ namespace RecordingBot.Model.Constants
         /// <summary>
         /// Route prefix for all incoming requests.
         /// </summary>
-        public const string CallSignalingRoutePrefix = "api/calling";
+        public const string CALL_SIGNALING_ROUTE_PREFIX = "api/calling";
 
         /// <summary>
         /// Route for incoming call requests.
         /// </summary>
-        public const string OnIncomingRequestRoute = "";
+        public const string ON_INCOMING_REQUEST_ROUTE = "";
 
         /// <summary>
         /// Route for incoming notification requests.
         /// </summary>
-        public const string OnNotificationRequestRoute = "notification";
+        public const string ON_NOTIFICATION_REQUEST_ROUTE = "notification";
 
         /// <summary>
         /// The calls route for both GET and POST.
         /// </summary>
-        public const string Calls = "calls";
+        public const string CALLS = "calls";
 
         /// <summary>
         /// The route for join call.
         /// </summary>
-        public const string JoinCall = "joinCall";
+        public const string JOIN_CALLS = "joinCall";
 
         /// <summary>
         /// The route for getting the call.
         /// </summary>
-        public const string CallRoute = Calls + "/{callLegId}";
+        public const string CALL_ROUTE = CALLS + "/{callLegId}";
     }
 }

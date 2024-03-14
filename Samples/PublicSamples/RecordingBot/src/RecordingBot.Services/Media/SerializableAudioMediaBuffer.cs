@@ -10,21 +10,21 @@ namespace RecordingBot.Services.Media
 {
     public class SerializableAudioMediaBuffer : IDisposable
     {
+        private List<IParticipant> _participants;
+
         public uint[] ActiveSpeakers { get; set; }
         public long Length { get; set; }
         public bool IsSilence { get; set; }
         public long Timestamp { get; set; }
         public byte[] Buffer { get; set; }
         public SerializableUnmixedAudioBuffer[] SerializableUnmixedAudioBuffers { get; set; }
-        private List<IParticipant> participants;
 
         public SerializableAudioMediaBuffer()
-        {
-        }
+        { }
 
         public SerializableAudioMediaBuffer(AudioMediaBuffer buffer, List<IParticipant> participants)
         {
-            this.participants = participants;
+            _participants = participants;
 
             Length = buffer.Length;
             ActiveSpeakers = buffer.ActiveSpeakers;
@@ -54,7 +54,7 @@ namespace RecordingBot.Services.Media
 
         private IParticipant _getParticipantFromMSI(uint msi)
         {
-            return participants.SingleOrDefault(x => x.Resource.IsInLobby == false && x.Resource.MediaStreams.Any(y => y.SourceId == msi.ToString()));
+            return _participants.SingleOrDefault(x => x.Resource.IsInLobby == false && x.Resource.MediaStreams.Any(y => y.SourceId == msi.ToString()));
         }
 
         public void Dispose()
@@ -74,8 +74,7 @@ namespace RecordingBot.Services.Media
             public byte[] Buffer { get; set; }
 
             public SerializableUnmixedAudioBuffer()
-            {
-            }
+            { }
 
             public SerializableUnmixedAudioBuffer(UnmixedAudioBuffer buffer, IParticipant participant)
             {
@@ -113,6 +112,7 @@ namespace RecordingBot.Services.Media
                         }
                     }
                 }
+
                 return null;
             }
         }

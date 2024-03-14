@@ -55,7 +55,7 @@ namespace RecordingBot.Services.ServiceSetup
             }
 
             // Create structured config objects for service.
-            CallControlBaseUrl = new Uri($"https://{ServiceCname}{(CallSignalingPublicPort != 443 ? ":" + CallSignalingPublicPort : "")}{ServicePath}{podNumber}/{HttpRouteConstants.CallSignalingRoutePrefix}/{HttpRouteConstants.OnNotificationRequestRoute}");
+            CallControlBaseUrl = new Uri($"https://{ServiceCname}{(CallSignalingPublicPort != 443 ? ":" + CallSignalingPublicPort : "")}{ServicePath}{podNumber}/{HttpRouteConstants.CALL_SIGNALING_ROUTE_PREFIX}/{HttpRouteConstants.ON_NOTIFICATION_REQUEST_ROUTE}");
             PodPathBase = $"{ServicePath}{podNumber}";
 
             MediaPlatformSettings = new MediaPlatformSettings

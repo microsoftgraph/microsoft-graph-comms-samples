@@ -11,41 +11,50 @@ namespace RecordingBot.Services.Util
 {
     public class EventGridPublisher : IEventPublisher
     {
-        string topicName = "recordingbotevents";
-        string regionName = string.Empty;
-        string topicKey = string.Empty;
+        private string _topicName = "recordingbotevents";
+        private string _regionName = string.Empty;
+        private string _topicKey = string.Empty;
 
         public EventGridPublisher(AzureSettings settings)
         {
-            topicName = settings.TopicName;
-            topicKey = settings.TopicKey;
-            regionName = settings.RegionName;
+            _topicName = settings.TopicName;
+            _topicKey = settings.TopicKey;
+            _regionName = settings.RegionName;
         }
 
-        public void Publish(string Subject, string Message, string TopicName)
+        public void Publish(string subject, string message, string topicName)
         {
-            if (TopicName.Length == 0)
-                TopicName = topicName;
+            if (string.IsNullOrWhiteSpace(topicName))
+            {
+                topicName = _topicName;
+            }
 
-            var topicEndpoint = String.Format(BotConstants.topicEndpoint, TopicName, regionName); 
+            var topicEndpoint = string.Format(BotConstants.TOPIC_ENDPOINT, topicName, _regionName);
 
-            if (topicKey?.Length > 0)
-            { 
-                var client = new EventGridPublisherClient(new Uri(topicEndpoint), new AzureKeyCredential(topicKey));
+            if (_topicKey?.Length > 0)
+            {
+                var client = new EventGridPublisherClient(new Uri(topicEndpoint), new AzureKeyCredential(_topicKey));
 
                 // Add event to list
                 var eventsList = new List<EventGridEvent>();
-                ListAddEvent(eventsList, Subject, Message);
+                ListAddEvent(eventsList, subject, message);
 
                 // Publish
                 client.SendEventsAsync(eventsList).GetAwaiter().GetResult();
-                if (Subject.StartsWith("CallTerminated"))
-                    Console.WriteLine($"Publish to {TopicName} subject {Subject} message {Message}");
+
+                if (subject.StartsWith("CallTerminated"))
+                {
+                    Console.WriteLine($"Publish to {topicName} subject {subject} message {message}");
+                }
                 else
-                    Console.WriteLine($"Publish to {TopicName} subject {Subject}");
+                {
+                    Console.WriteLine($"Publish to {topicName} subject {subject}");
+                }
             }
             else
-                Console.WriteLine($"Skipped publishing {Subject} events to Event Grid topic {TopicName} - No topic key specified");
+            {
+                Console.WriteLine($"Skipped publishing {subject} events to Event Grid topic {topicName} - No topic key specified");
+            }
         }
 
         static void ListAddEvent(List<EventGridEvent> eventsList, string Subject, string Message, string DataVersion = "2.0")

@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace RecordingBot.Services.Http.Controllers
 {
     [ApiController]
-    [Route(HttpRouteConstants.CallSignalingRoutePrefix)]
+    [Route(HttpRouteConstants.CALL_SIGNALING_ROUTE_PREFIX)]
     public class PlatformCallController : ControllerBase
     {
         private readonly IGraphLogger _logger;
@@ -25,8 +25,8 @@ namespace RecordingBot.Services.Http.Controllers
         }
 
         [HttpPost]
-        [Route(HttpRouteConstants.OnNotificationRequestRoute)]
-        [Route(HttpRouteConstants.OnIncomingRequestRoute)]
+        [Route(HttpRouteConstants.ON_NOTIFICATION_REQUEST_ROUTE)]
+        [Route(HttpRouteConstants.ON_INCOMING_REQUEST_ROUTE)]
         public async Task<IActionResult> OnNotificationRequestAsync(
            [FromHeader(Name = "Client-Request-Id")] Guid? clientRequestId,
            [FromHeader(Name = "X-Microsoft-Skype-Message-ID")] Guid? skypeRequestId,
@@ -44,6 +44,7 @@ namespace RecordingBot.Services.Http.Controllers
             {
                 return Unauthorized();
             }
+
             var schemeAndParameter = Request.Headers.Authorization[0].Split(" ");
             if (schemeAndParameter.Length != 2)
             {

@@ -1,16 +1,15 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
 using Microsoft.Graph.Communications.Common.Telemetry;
-using RecordingBot.Model.Extension;
+using Microsoft.Graph.Communications.Core.Exceptions;
 using RecordingBot.Model.Constants;
+using RecordingBot.Model.Extension;
 using RecordingBot.Model.Models;
 using RecordingBot.Services.Contract;
 using RecordingBot.Services.ServiceSetup;
 using System;
 using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
-using Microsoft.Graph.Communications.Core.Exceptions;
 
 namespace RecordingBot.Services.Http.Controllers
 {
@@ -34,14 +33,15 @@ namespace RecordingBot.Services.Http.Controllers
         }
 
         [HttpPost]
-        [Route(HttpRouteConstants.JoinCall)]
+        [Route(HttpRouteConstants.JOIN_CALLS)]
         public async Task<IActionResult> JoinCallAsync([FromBody] JoinCallBody joinCallBody)
         {
             try
             {
                 var call = await _botService.JoinCallAsync(joinCallBody).ConfigureAwait(false);
-                var callPath = $"/{HttpRouteConstants.CallRoute.Replace("{callLegId}", call.Id)}";
+                var callPath = $"/{HttpRouteConstants.CALL_ROUTE.Replace("{callLegId}", call.Id)}";
                 var callUri = $"{_settings.ServiceCname}{callPath}";
+
                 _eventPublisher.Publish("JoinCall", $"Call.id = {call.Id}");
 
                 return Ok(new JoinURLResponse
@@ -66,6 +66,7 @@ namespace RecordingBot.Services.Http.Controllers
             catch (Exception e)
             {
                 _logger.Error(e, $"Received HTTP {Request.Method}, {Request.GetUrl()}");
+
                 return StatusCode(500, e.ToString());
             }
         }

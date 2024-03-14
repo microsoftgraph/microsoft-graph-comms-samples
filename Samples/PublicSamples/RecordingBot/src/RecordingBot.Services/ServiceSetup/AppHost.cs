@@ -18,9 +18,10 @@ namespace RecordingBot.Services.ServiceSetup
 {
     public class AppHost
     {
+        private IGraphLogger _logger;
+
         private IServiceProvider ServiceProvider { get; set; }
         public static AppHost AppHostInstance { get; private set; }
-        private IGraphLogger _logger;
 
         public AppHost()
         {

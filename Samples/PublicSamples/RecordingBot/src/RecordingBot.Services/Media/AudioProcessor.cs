@@ -13,7 +13,7 @@ namespace RecordingBot.Services.Media
 {
     public class AudioProcessor : BufferBase<SerializableAudioMediaBuffer>
     {
-        readonly Dictionary<string, WaveFileWriter> _writers = new Dictionary<string, WaveFileWriter>();
+        readonly Dictionary<string, WaveFileWriter> _writers = [];
         private readonly string _processorId = null;
         private readonly AzureSettings _settings;
 
@@ -30,7 +30,7 @@ namespace RecordingBot.Services.Media
                 return;
             }
 
-            var path = Path.Combine(Path.GetTempPath(), BotConstants.DefaultOutputFolder, _settings.MediaFolder, _processorId);
+            var path = Path.Combine(Path.GetTempPath(), BotConstants.DEFAULT_OUTPUT_FOLDER, _settings.MediaFolder, _processorId);
 
             // First, write all audio buffer, unless the data.IsSilence is checked for true, into the all speakers buffer
             var all = "all";
@@ -71,9 +71,9 @@ namespace RecordingBot.Services.Media
 
             // Initialize the Wave Format using the default PCM 16bit 16K supported by Teams audio settings
             var writer = new WaveFileWriter(path, new WaveFormat(
-                rate: AudioConstants.DefaultSampleRate,
-                bits: AudioConstants.DefaultBits,
-                channels: AudioConstants.DefaultChannels));
+                rate: AudioConstants.DEFAULT_SAMPLE_RATE,
+                bits: AudioConstants.DEFAULT_BITS,
+                channels: AudioConstants.DEFAULT_CHANNELS));
 
             _writers.Add(id, writer);
 
@@ -88,7 +88,7 @@ namespace RecordingBot.Services.Media
                 await Task.Delay(200);
             }
 
-            var archiveFile = Path.Combine(Path.GetTempPath(), BotConstants.DefaultOutputFolder, _settings.MediaFolder, _processorId, $"{Guid.NewGuid()}.zip");
+            var archiveFile = Path.Combine(Path.GetTempPath(), BotConstants.DEFAULT_OUTPUT_FOLDER, _settings.MediaFolder, _processorId, $"{Guid.NewGuid()}.zip");
 
             try
             {
@@ -100,8 +100,11 @@ namespace RecordingBot.Services.Media
                     var localFiles = new List<string>();
                     var localArchive = archive; //protect the closure below
                     var localFileName = writer.Filename;
+
                     localFiles.Add(writer.Filename);
+
                     await writer.FlushAsync();
+
                     writer.Dispose();
 
                     // Is Resampling and/or mono to stereo conversion required?

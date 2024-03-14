@@ -46,8 +46,8 @@ namespace RecordingBot.Services.Util
                 var outFormat = new WaveFormat((int)resamplerSettings.SampleRate, (convertToStereo)? 2 : 1);
 
                 using var resampler = new MediaFoundationResampler(reader, outFormat);
-                resampler.ResamplerQuality = resamplerSettings.Quality * AudioConstants.HighestSamplingQualityLevel / 100
-                                             ?? AudioConstants.HighestSamplingQualityLevel;
+                resampler.ResamplerQuality = resamplerSettings.Quality * AudioConstants.HIGHEST_SAMPLING_QUALITY_LEVEL / 100
+                                             ?? AudioConstants.HIGHEST_SAMPLING_QUALITY_LEVEL;
                 WaveFileWriter.CreateWaveFile(outFile, resampler);
             }
 

@@ -3,7 +3,6 @@ using Microsoft.Graph.Communications.Calls.Media;
 using Microsoft.Graph.Communications.Common;
 using Microsoft.Graph.Communications.Common.Telemetry;
 using Microsoft.Skype.Bots.Media;
-using Microsoft.Skype.Internal.Media.Services.Common;
 using RecordingBot.Services.Contract;
 using RecordingBot.Services.Media;
 using System;
@@ -31,11 +30,11 @@ namespace RecordingBot.Services.Bot
             IEventPublisher eventPublisher,
             IAzureSettings settings) : base(logger)
         {
-            ArgumentVerifier.ThrowOnNullArgument(mediaSession, nameof(mediaSession));
-            ArgumentVerifier.ThrowOnNullArgument(logger, nameof(logger));
-            ArgumentVerifier.ThrowOnNullArgument(settings, nameof(settings));
+            ArgumentNullException.ThrowIfNull(mediaSession, nameof(mediaSession));
+            ArgumentNullException.ThrowIfNull(logger, nameof(logger));
+            ArgumentNullException.ThrowIfNull(settings, nameof(settings));
 
-            participants = new List<IParticipant>();
+            participants = [];
 
             _eventPublisher = eventPublisher;
             _callId = callId;

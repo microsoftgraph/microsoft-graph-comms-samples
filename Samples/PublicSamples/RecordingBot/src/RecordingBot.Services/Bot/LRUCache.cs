@@ -10,21 +10,21 @@ namespace RecordingBot.Services.Bot
         /// <summary>
         /// Maximum size of the LRU cache.
         /// </summary>
-        public const uint Max = 10;
+        public const uint MAX = 10;
 
         /// <summary>
         /// LRU Cache.
         /// </summary>
-        private uint[] set;
+        private uint[] _cache;
 
         public LRUCache(uint size)
         {
-            if (size > Max)
+            if (size > MAX)
             {
-                throw new ArgumentException($"size value too large; max value is {Max}");
+                throw new ArgumentException($"size value too large; max value is {MAX}");
             }
 
-            set = new uint[size];
+            _cache = new uint[size];
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace RecordingBot.Services.Bot
         /// <inheritdoc/>
         public override string ToString()
         {
-            return "{" + string.Join(", ", set) + "}";
+            return "{" + string.Join(", ", _cache) + "}";
         }
 
         /// <summary>
@@ -50,23 +50,23 @@ namespace RecordingBot.Services.Bot
         {
             e = null;
 
-            lock (set)
+            lock (_cache)
             {
                 // empty set, first item goes at front
                 if (Count == 0)
                 {
                     Count = 1;
-                    set[0] = k;
+                    _cache[0] = k;
                 }
 
                 // no change if k is at front of set
-                else if (set[0] != k)
+                else if (_cache[0] != k)
                 {
                     // look for k in the set
                     uint ik = 0;  // index of k in set; 0 if k not found
                     for (uint i = 1; i < Count; i++)
                     {
-                        if (set[i] == k)
+                        if (_cache[i] == k)
                         {
                             ik = i;
                             break;
@@ -76,10 +76,10 @@ namespace RecordingBot.Services.Bot
                     // if k not found, make room for it
                     if (ik == 0)
                     {
-                        if (Count == set.Length)
+                        if (Count == _cache.Length)
                         {
                             // if set is full, record the item being evicted (and no change in # of items)
-                            e = set[Count - 1];
+                            e = _cache[Count - 1];
                             ik = Count - 1;
                         }
                         else
@@ -90,7 +90,7 @@ namespace RecordingBot.Services.Bot
                     }
 
                     ShiftRight(ik);
-                    set[0] = k;
+                    _cache[0] = k;
                 }
             }
         }
@@ -103,16 +103,16 @@ namespace RecordingBot.Services.Bot
         /// <returns>True if item was removed.</returns>
         public bool TryRemove(uint k)
         {
-            lock (set)
+            lock (_cache)
             {
                 for (uint i = 0; i < Count; i++)
                 {
                     // if found item k, remove it from the set
-                    if (set[i] == k)
+                    if (_cache[i] == k)
                     {
                         ShiftLeft(i);
                         Count--;
-                        set[Count] = 0;
+                        _cache[Count] = 0;
                         return true;
                     }
                 }
@@ -132,7 +132,7 @@ namespace RecordingBot.Services.Bot
         {
             while (x > 0)
             {
-                set[x] = set[x - 1];
+                _cache[x] = _cache[x - 1];
                 x--;
             }
         }
@@ -146,9 +146,9 @@ namespace RecordingBot.Services.Bot
         /// <param name="x">Index of items to shift left after this.</param>
         private void ShiftLeft(uint x)
         {
-            while (x < set.Length - 1)
+            while (x < _cache.Length - 1)
             {
-                set[x] = set[x + 1];
+                _cache[x] = _cache[x + 1];
                 x++;
             }
         }
