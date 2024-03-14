@@ -3,7 +3,6 @@ using Microsoft.Graph.Communications.Common;
 using Microsoft.Graph.Communications.Common.Telemetry;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -48,12 +47,12 @@ namespace RecordingBot.Services.Authentication
                 using var httpClient = new HttpClient();
                 var result = await httpClient.PostAsync(tokenLink, new FormUrlEncodedContent(
                 [
-                    new KeyValuePair<string, string>("grant_type", "password"),
-                    new KeyValuePair<string, string>("username", _userName),
-                    new KeyValuePair<string, string>("password", _password),
-                    new KeyValuePair<string, string>("scope", Resource),
-                    new KeyValuePair<string, string>("client_id", _appId),
-                    new KeyValuePair<string, string>("client_secret", _appSecret),
+                    new("grant_type", "password"),
+                    new("username", _userName),
+                    new("password", _password),
+                    new("scope", Resource),
+                    new("client_id", _appId),
+                    new("client_secret", _appSecret),
                 ])).ConfigureAwait(false);
 
                 if (!result.IsSuccessStatusCode)

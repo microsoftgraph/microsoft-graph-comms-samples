@@ -34,7 +34,7 @@ namespace RecordingBot.Services.Media
 
             // First, write all audio buffer, unless the data.IsSilence is checked for true, into the all speakers buffer
             var all = "all";
-            var all_writer = _writers.ContainsKey(all) ? _writers[all] : InitialiseWavFileWriter(path, all);
+            var all_writer = _writers.TryGetValue(all, out WaveFileWriter allWaveWriter) ? allWaveWriter : InitialiseWavFileWriter(path, all);
 
             if (data.Buffer != null)
             {
@@ -54,7 +54,7 @@ namespace RecordingBot.Services.Media
 
                     var id = s.AdId;
 
-                    var writer = _writers.ContainsKey(id) ? _writers[id] : InitialiseWavFileWriter(path, id);
+                    var writer = _writers.TryGetValue(id, out WaveFileWriter bufferWaveWriter) ? bufferWaveWriter : InitialiseWavFileWriter(path, id);
 
                     // Write audio buffer into the WAV file for individual speaker
                     await writer.WriteAsync(s.Buffer.AsMemory(0, s.Buffer.Length)).ConfigureAwait(false);
@@ -80,7 +80,7 @@ namespace RecordingBot.Services.Media
             return writer;
         }
 
-        public async Task<string> Finalise()
+        public async Task<string> Finalize()
         {
             //drain the un-processed buffers on this object
             while (Buffer.Count > 0)
@@ -97,7 +97,7 @@ namespace RecordingBot.Services.Media
                 // drain all the writers
                 foreach (var writer in _writers.Values)
                 {
-                    var localFiles = new List<string>();
+                    List<string> localFiles = [];
                     var localArchive = archive; //protect the closure below
                     var localFileName = writer.Filename;
 

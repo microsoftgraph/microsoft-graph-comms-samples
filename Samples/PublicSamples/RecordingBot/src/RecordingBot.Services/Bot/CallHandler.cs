@@ -10,6 +10,7 @@ using RecordingBot.Services.Util;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 
@@ -20,7 +21,7 @@ namespace RecordingBot.Services.Bot
         private int _recordingStatusIndex = -1;
         private readonly AzureSettings _settings;
         private readonly IEventPublisher _eventPublisher;
-        private CaptureEvents _capture;
+        private readonly CaptureEvents _capture;
         private bool _isDisposed = false;
 
         public ICall Call { get; }
@@ -138,21 +139,26 @@ namespace RecordingBot.Services.Bot
 
                 if (_settings.CaptureEvents)
                 {
-                    await _capture?.Finalise();
+                    await _capture?.Finalize();
                 }
             }
         }
 
         private static string CreateParticipantUpdateJson(string participantId, string participantDisplayName = "")
         {
-            if (participantDisplayName.Length == 0)
+            StringBuilder stringBuilder = new();
+
+            stringBuilder.Append('{');
+            stringBuilder.AppendFormat("\"Id\": \"{0}\"", participantId);
+
+            if (!string.IsNullOrWhiteSpace(participantDisplayName))
             {
-                return "{" + string.Format($"\"Id\": \"{participantId}\"") + "}";
+                stringBuilder.AppendFormat(", \"DisplayName\": \"{0}\"", participantDisplayName);
             }
-            else
-            {
-                return "{" + string.Format($"\"Id\": \"{participantId}\", \"DisplayName\": \"{participantDisplayName}\"") + "}";
-            }
+
+            stringBuilder.Append('}');
+
+            return stringBuilder.ToString();
         }
 
         private static string UpdateParticipant(List<IParticipant> participants, IParticipant participant, bool added, string participantDisplayName = "")

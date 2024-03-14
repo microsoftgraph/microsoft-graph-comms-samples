@@ -1,3 +1,4 @@
+using Microsoft.Identity.Client;
 using System;
 using System.Diagnostics;
 using System.Threading;
@@ -14,10 +15,14 @@ namespace RecordingBot.Services.Util
         private readonly SemaphoreSlim _syncLock = new(1);
 
         protected BufferBase()
-        { }
+        {
+            Buffer = new BufferBlock<T>();
+            TokenSource = new CancellationTokenSource();
+        }
 
         protected BufferBase(CancellationTokenSource token)
         {
+            Buffer = new BufferBlock<T>();
             TokenSource = token;
         }
 
@@ -71,16 +76,16 @@ namespace RecordingBot.Services.Util
             }
             catch (TaskCanceledException ex)
             {
-                Debug.Write(string.Format("The queue processing task has been cancelled. Exception: {0}", ex));
+                Debug.Write($"The queue processing task has been cancelled. Exception: {ex}");
             }
             catch (ObjectDisposedException ex)
             {
-                Debug.Write(string.Format("The queue processing task object has been disposed. Exception: {0}", ex));
+                Debug.Write($"The queue processing task object has been disposed. Exception: {ex}");
             }
             catch (Exception ex)
             {
                 // Catch all other exceptions and log
-                Debug.Write(string.Format("Caught Exception: {0}", ex));
+                Debug.Write($"Caught Exception: {ex}");
 
                 // Continue processing elements in the queue
                 await Process().ConfigureAwait(false);

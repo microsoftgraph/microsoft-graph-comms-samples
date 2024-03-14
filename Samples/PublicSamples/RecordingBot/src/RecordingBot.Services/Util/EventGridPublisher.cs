@@ -11,13 +11,13 @@ namespace RecordingBot.Services.Util
 {
     public class EventGridPublisher : IEventPublisher
     {
-        private string _topicName = "recordingbotevents";
-        private string _regionName = string.Empty;
-        private string _topicKey = string.Empty;
+        private readonly string _topicName;
+        private readonly string _regionName;
+        private readonly string _topicKey;
 
         public EventGridPublisher(AzureSettings settings)
         {
-            _topicName = settings.TopicName;
+            _topicName = settings.TopicName ?? "recordingbotevents";
             _topicKey = settings.TopicKey;
             _regionName = settings.RegionName;
         }
@@ -31,17 +31,14 @@ namespace RecordingBot.Services.Util
 
             var topicEndpoint = string.Format(BotConstants.TOPIC_ENDPOINT, topicName, _regionName);
 
-            if (_topicKey?.Length > 0)
+            if (string.IsNullOrWhiteSpace(_topicKey))
             {
                 var client = new EventGridPublisherClient(new Uri(topicEndpoint), new AzureKeyCredential(_topicKey));
-
-                // Add event to list
-                var eventsList = new List<EventGridEvent>();
-                ListAddEvent(eventsList, subject, message);
-
-                // Publish
-                client.SendEventsAsync(eventsList).GetAwaiter().GetResult();
-
+                var eventGrid = new EventGridEvent(subject, "RecordingBot.BotEventData", "2.0", new BotEventData { Message = message })
+                {
+                    EventTime = DateTime.Now
+                };
+                client.SendEvent(eventGrid);
                 if (subject.StartsWith("CallTerminated"))
                 {
                     Console.WriteLine($"Publish to {topicName} subject {subject} message {message}");
@@ -55,16 +52,6 @@ namespace RecordingBot.Services.Util
             {
                 Console.WriteLine($"Skipped publishing {subject} events to Event Grid topic {topicName} - No topic key specified");
             }
-        }
-
-        static void ListAddEvent(List<EventGridEvent> eventsList, string Subject, string Message, string DataVersion = "2.0")
-        {
-            var eventGrid = new EventGridEvent(Subject, "RecordingBot.BotEventData", DataVersion, new BotEventData() { Message = Message })
-            {
-                EventTime = DateTime.Now
-            };
-
-            eventsList.Add(eventGrid);
         }
     }
 }

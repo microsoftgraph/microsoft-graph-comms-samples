@@ -34,10 +34,7 @@ namespace RecordingBot.Model.Models
 
         public void Serialize(ISerializationWriter writer)
         {
-            if (writer == null)
-            {
-                throw new ArgumentNullException("writer");
-            }
+            ArgumentNullException.ThrowIfNull(writer);
 
             writer.WriteCollectionOfObjectValues("addedResources", AddedResources.Cast<SerilizableParticipant>());
             writer.WriteCollectionOfObjectValues("removedResources", RemovedResources.Cast<SerilizableParticipant>());
@@ -45,10 +42,7 @@ namespace RecordingBot.Model.Models
 
         public static SerializableParticipantEvent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            if (parseNode == null)
-            {
-                throw new ArgumentNullException("parseNode");
-            }
+            ArgumentNullException.ThrowIfNull(parseNode);
 
             return new SerializableParticipantEvent();
         }

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
 using Microsoft.Graph.Communications.Common.Telemetry;
 using Microsoft.Graph.Communications.Core.Exceptions;
+using Microsoft.Kiota.Abstractions.Extensions;
 using RecordingBot.Model.Constants;
 using RecordingBot.Model.Extension;
 using RecordingBot.Model.Models;
@@ -57,7 +58,7 @@ namespace RecordingBot.Services.Http.Controllers
                 {
                     foreach (var responseHeader in e.ResponseHeaders)
                     {
-                        Response.Headers.Add(responseHeader.Key, new StringValues(responseHeader.Value.ToArray()));
+                        Response.Headers.AddOrReplace(responseHeader.Key, new StringValues(responseHeader.Value.ToArray()));
                     }
                 }
 

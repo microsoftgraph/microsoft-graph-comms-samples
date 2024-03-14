@@ -36,7 +36,7 @@ namespace RecordingBot.Services.Http.Controllers
             _logger.Info("Getting calls");
             _eventPublisher.Publish("GetCalls", "Getting calls");
 
-            var calls = new List<Dictionary<string, string>>();
+            List<Dictionary<string, string>> calls = [];
             foreach (var callHandler in _botService.CallHandlers.Values)
             {
                 var call = callHandler.Call;

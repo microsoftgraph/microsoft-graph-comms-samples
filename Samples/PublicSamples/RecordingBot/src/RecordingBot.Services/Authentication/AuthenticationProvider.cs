@@ -21,7 +21,7 @@ namespace RecordingBot.Services.Authentication
     {
         private OpenIdConnectConfiguration _openIdConfiguration;
         private readonly ConfidentialClientApplicationOptions _clientOptions;
-        private static readonly IEnumerable<string> _defaultScopes = new List<string> { "https://graph.microsoft.com/.default" };
+        private static readonly IEnumerable<string> _defaultScopes = ["https://graph.microsoft.com/.default"];
 
         private readonly TimeSpan _openIdConfigRefreshInterval = TimeSpan.FromHours(2);
         private DateTime _prevOpenIdConfigUpdateTimestamp = DateTime.MinValue;
@@ -97,9 +97,8 @@ namespace RecordingBot.Services.Authentication
                 GraphLogger.Info("Updating OpenID configuration");
 
                 // Download the OIDC configuration which contains the JWKS
-                IConfigurationManager<OpenIdConnectConfiguration> configurationManager =
-                    new ConfigurationManager<OpenIdConnectConfiguration>(
-                        authDomain,
+                ConfigurationManager<OpenIdConnectConfiguration> configurationManager =
+                    new(authDomain,
                         new OpenIdConnectConfigurationRetriever());
                 _openIdConfiguration = await configurationManager.GetConfigurationAsync(CancellationToken.None).ConfigureAwait(false);
 

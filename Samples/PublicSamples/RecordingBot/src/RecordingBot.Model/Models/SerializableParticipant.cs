@@ -90,10 +90,7 @@ namespace RecordingBot.Model.Models
 
         public void Serialize(ISerializationWriter writer)
         {
-            if (writer == null)
-            {
-                throw new ArgumentNullException("writer");
-            }
+            ArgumentNullException.ThrowIfNull(writer);
 
             writer.WriteObjectValue("resource", Resource);
             writer.WriteDateTimeOffsetValue("modifiedDateTime", ModifiedDateTime);
@@ -103,10 +100,7 @@ namespace RecordingBot.Model.Models
 
         public static SerilizableParticipant CreateFromDiscriminatorValue(IParseNode parseNode)
         {
-            if (parseNode == null)
-            {
-                throw new ArgumentNullException("parseNode");
-            }
+            ArgumentNullException.ThrowIfNull(parseNode);
 
             return new SerilizableParticipant();
         }

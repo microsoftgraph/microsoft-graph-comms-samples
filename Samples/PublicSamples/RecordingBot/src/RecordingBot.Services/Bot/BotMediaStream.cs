@@ -18,7 +18,7 @@ namespace RecordingBot.Services.Bot
     {
         internal List<IParticipant> participants;
         private readonly IAudioSocket _audioSocket;
-        private readonly IMediaStream _mediaStream;
+        private readonly MediaStream _mediaStream;
         private readonly IEventPublisher _eventPublisher;
         private readonly string _callId;
         public SerializableAudioQualityOfExperienceData AudioQualityOfExperienceData { get; private set; }

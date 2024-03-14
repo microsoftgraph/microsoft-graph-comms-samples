@@ -14,10 +14,7 @@ namespace RecordingBot.Services.Util
     {
         public static (ChatInfo, MeetingInfo) ParseJoinURL(string joinURL)
         {
-            if (string.IsNullOrEmpty(joinURL))
-            {
-                throw new ArgumentException($"Join URL cannot be null or empty: {joinURL}", nameof(joinURL));
-            }
+            ArgumentException.ThrowIfNullOrWhiteSpace(joinURL, nameof(joinURL));
 
             var decodedURL = WebUtility.UrlDecode(joinURL);
 
@@ -30,10 +27,14 @@ namespace RecordingBot.Services.Util
                 throw new ArgumentException($"Join URL cannot be parsed: {joinURL}", nameof(joinURL));
             }
 
-            using var stream = new MemoryStream(Encoding.UTF8.GetBytes(match.Groups["context"].Value));
-            var ctxt = (Meeting)new DataContractJsonSerializer(typeof(Meeting)).ReadObject(stream);
+            Meeting meeting;
 
-            if (string.IsNullOrEmpty(ctxt.Tid))
+            using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(match.Groups["context"].Value)))
+            {
+                meeting = (Meeting)new DataContractJsonSerializer(typeof(Meeting)).ReadObject(stream);
+            }
+
+            if (string.IsNullOrEmpty(meeting.Tid))
             {
                 throw new ArgumentException("Join URL is invalid: missing Tid", nameof(joinURL));
             }
@@ -42,17 +43,17 @@ namespace RecordingBot.Services.Util
             {
                 ThreadId = match.Groups["thread"].Value,
                 MessageId = match.Groups["message"].Value,
-                ReplyChainMessageId = ctxt.MessageId,
+                ReplyChainMessageId = meeting.MessageId,
             };
 
             var meetingInfo = new OrganizerMeetingInfo
             {
                 Organizer = new IdentitySet
                 {
-                    User = new Identity { Id = ctxt.Oid },
+                    User = new Identity { Id = meeting.Oid },
                 },
             };
-            meetingInfo.Organizer.User.SetTenantId(ctxt.Tid);
+            meetingInfo.Organizer.User.SetTenantId(meeting.Tid);
 
             return (chatInfo, meetingInfo);
         }

@@ -5,6 +5,7 @@ using Newtonsoft.Json.Bson;
 using RecordingBot.Model.Models;
 using RecordingBot.Services.Media;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -29,14 +30,15 @@ namespace RecordingBot.Services.Util
 
             var fullName = Path.Combine(_path, fileName);
 
-            using var stream = File.Open(fullName, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None);
-            using var sw = new StreamWriter(stream);
-            using var jw = new JsonTextWriter(sw);
-            jw.Formatting = Formatting.Indented;
-
-            _serializer.Serialize(jw, data);
-
-            await jw.FlushAsync();
+            using (var stream = File.CreateText(fullName))
+            {
+                using (var writer = new JsonTextWriter(stream))
+                {
+                    writer.Formatting = Formatting.Indented;
+                    _serializer.Serialize(writer, data);
+                    await writer.FlushAsync();
+                }
+            }
         }
 
         private async Task SaveBsonFile(object data, string fileName)
@@ -45,12 +47,14 @@ namespace RecordingBot.Services.Util
 
             var fullName = Path.Combine(_path, fileName);
 
-            using var file = new FileStream(fullName, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None);
-            using var bson = new BsonDataWriter(file);
-
-            _serializer.Serialize(bson, data);
-
-            await bson.FlushAsync();
+            using (var file = File.Create(fullName))
+            {
+                using (var bson = new BsonDataWriter(file))
+                {
+                    _serializer.Serialize(bson, data);
+                    await bson.FlushAsync();
+                }
+            }
         }
 
         private async Task SaveQualityOfExperienceData(SerializableAudioQualityOfExperienceData data)
@@ -67,8 +71,8 @@ namespace RecordingBot.Services.Util
         {
             var participant = new SerializableParticipantEvent
             {
-                AddedResources = data.AddedResources.Select(addedResource => new SerilizableParticipant(addedResource)).Cast<IParticipant>().ToList(),
-                RemovedResources = data.RemovedResources.Select(removedResource => new SerilizableParticipant(removedResource)).Cast<IParticipant>().ToList()
+                AddedResources = new List<IParticipant>(data.AddedResources.Select(addedResource => new SerilizableParticipant(addedResource))),
+                RemovedResources = new List<IParticipant>(data.RemovedResources.Select(removedResource => new SerilizableParticipant(removedResource)))
             };
 
             await SaveJsonFile(participant, $"{DateTime.UtcNow.Ticks}-participant.json");
@@ -78,15 +82,8 @@ namespace RecordingBot.Services.Util
         {
             Directory.CreateDirectory(_path);
 
-            var name = DateTime.UtcNow.Ticks.ToString();
-            var fullName = Path.Combine(_path, name);
-
-            byte[] encodedText = Encoding.Unicode.GetBytes(data);
-
-            using (FileStream sourceStream = new($"{fullName}.json", FileMode.Append, FileAccess.Write, FileShare.None, bufferSize: 4096, useAsync: true))
-            {
-                await sourceStream.WriteAsync(encodedText, 0, encodedText.Length);
-            };
+            var fullName = Path.Combine(_path, $"{DateTime.UtcNow.Ticks}.json");
+            await File.AppendAllTextAsync(fullName, data, Encoding.Unicode);
         }
 
         protected override async Task Process(object data)
@@ -110,7 +107,7 @@ namespace RecordingBot.Services.Util
             }
         }
 
-        public async Task Finalise()
+        public async Task Finalize()
         {
             // drain the un-processed buffers on this object
             while (Buffer.Count > 0)
