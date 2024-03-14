@@ -6,10 +6,10 @@ using System.Linq;
 
 namespace RecordingBot.Model.Models
 {
-    public class ParticipantData : IParsable
+    public class SerializableParticipantEvent : IParsable
     {
-        public ICollection<IParticipant> AddedResources { get; set; }
-        public ICollection<IParticipant> RemovedResources { get; set; }
+        public List<IParticipant> AddedResources { get; set; }
+        public List<IParticipant> RemovedResources { get; set; }
 
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
@@ -19,14 +19,14 @@ namespace RecordingBot.Model.Models
                     "addedResources",
                     delegate(IParseNode n)
                     {
-                        AddedResources = (ICollection<IParticipant>)n.GetCollectionOfObjectValues(ParticipantExtension.CreateFromDiscriminatorValue).ToList();
+                        AddedResources = n.GetCollectionOfObjectValues(SerilizableParticipant.CreateFromDiscriminatorValue).Cast<IParticipant>().ToList();
                     }
                 },
                 {
                     "removedResources",
                     delegate(IParseNode n)
                     {
-                        RemovedResources = (ICollection<IParticipant>)n.GetCollectionOfObjectValues(ParticipantExtension.CreateFromDiscriminatorValue).ToList();
+                        RemovedResources = n.GetCollectionOfObjectValues(SerilizableParticipant.CreateFromDiscriminatorValue).Cast<IParticipant>().ToList();
                     }
                 }
             };
@@ -39,18 +39,18 @@ namespace RecordingBot.Model.Models
                 throw new ArgumentNullException("writer");
             }
 
-            writer.WriteCollectionOfObjectValues("addedResources", AddedResources.Cast<ParticipantExtension>());
-            writer.WriteCollectionOfObjectValues("removedResources", RemovedResources.Cast<ParticipantExtension>());
+            writer.WriteCollectionOfObjectValues("addedResources", AddedResources.Cast<SerilizableParticipant>());
+            writer.WriteCollectionOfObjectValues("removedResources", RemovedResources.Cast<SerilizableParticipant>());
         }
 
-        public static ParticipantData CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static SerializableParticipantEvent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if (parseNode == null)
             {
                 throw new ArgumentNullException("parseNode");
             }
 
-            return new ParticipantData();
+            return new SerializableParticipantEvent();
         }
     }
 }

@@ -87,8 +87,8 @@ namespace RecordingBot.Tests.BotTests
                 ReferenceHandler = ReferenceHandler.Preserve,
                 Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
             };
-            jsonSerializerOptions.Converters.Add(new ODataJsonConverterFactory(null, null, typeAssemblies: [..SerializerAssemblies.Assemblies, typeof(ParticipantData).Assembly]));
-            jsonSerializerOptions.Converters.Add(new TypeMappingConverter<IParticipant, ParticipantExtension>());
+            jsonSerializerOptions.Converters.Add(new ODataJsonConverterFactory(null, null, typeAssemblies: [..SerializerAssemblies.Assemblies, typeof(SerializableParticipantEvent).Assembly]));
+            jsonSerializerOptions.Converters.Add(new TypeMappingConverter<IParticipant, SerilizableParticipant>());
 
             var participantCount = 0;
             var handler = new CallHandler(_call, _settings, _eventPublisher);
@@ -100,7 +100,7 @@ namespace RecordingBot.Tests.BotTests
                     using (var fileStream = archive.GetInputStream(file))
                     {
                         var json = ((JObject)JToken.ReadFrom(new BsonDataReader(fileStream))).ToString();
-                        var deserialized = JsonSerializer.Deserialize<ParticipantData>(json, jsonSerializerOptions);
+                        var deserialized = JsonSerializer.Deserialize<SerializableParticipantEvent>(json, jsonSerializerOptions);
 
                         Assert.That(deserialized, Is.Not.Null);
 

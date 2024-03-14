@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace RecordingBot.Model.Models
 {
-    public class ParticipantExtension : IParticipant, IParsable
+    public class SerilizableParticipant : IParticipant, IParsable
     {
         public Participant Resource { get; set; }
 
@@ -32,7 +32,7 @@ namespace RecordingBot.Model.Models
         public IGraphLogger GraphLogger { get; set; }
 
         [JsonConstructor]
-        public ParticipantExtension(IParticipant participant)
+        public SerilizableParticipant(IParticipant participant)
         {
             if (participant != null)
             {
@@ -43,12 +43,12 @@ namespace RecordingBot.Model.Models
             }
         }
 
-        public ParticipantExtension(Participant participant)
+        public SerilizableParticipant(Participant participant)
         {
             Resource = participant;
         }
 
-        public ParticipantExtension()
+        public SerilizableParticipant()
         { }
 
         public event ResourceEventHandler<IParticipant, Participant> OnUpdated;
@@ -101,14 +101,14 @@ namespace RecordingBot.Model.Models
             writer.WriteStringValue("ResourcePath", ResourcePath);
         }
 
-        public static ParticipantExtension CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static SerilizableParticipant CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if (parseNode == null)
             {
                 throw new ArgumentNullException("parseNode");
             }
 
-            return new ParticipantExtension();
+            return new SerilizableParticipant();
         }
 
         public Task MuteAsync(CancellationToken cancellationToken = default)
