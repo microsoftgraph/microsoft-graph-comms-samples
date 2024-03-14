@@ -34,18 +34,18 @@ namespace RecordingBot.Services.Http.Controllers
            [FromHeader(Name = "X-Microsoft-Skype-Chain-ID")] Guid? skypeScenarioId,
            [FromBody] CommsNotifications notifications)
         {
-            _logger.Info($"Received HTTP {Request.Method}, {Request.GetUri()}");
+            _logger.Info($"Received HTTP {Request.Method}, {Request.GetUrl()}");
 
             Guid requestId = clientRequestId ?? skypeRequestId ?? default;
             Guid scenarioId = clientScenarioId ?? skypeScenarioId ?? default;
 
             // Convert Request Authorization Request Header
-            if(Request.Headers.Authorization.Count != 1)
+            if (Request.Headers.Authorization.Count != 1)
             {
                 return Unauthorized();
             }
             var schemeAndParameter = Request.Headers.Authorization[0].Split(" ");
-            if(schemeAndParameter.Length != 2)
+            if (schemeAndParameter.Length != 2)
             {
                 return Unauthorized();
             }

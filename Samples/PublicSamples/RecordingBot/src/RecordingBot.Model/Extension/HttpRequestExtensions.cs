@@ -1,39 +1,40 @@
 using Microsoft.AspNetCore.Http;
 using System;
+using System.Buffers;
 
 namespace RecordingBot.Model.Extension
 {
-    //
-    // Summary:
-    //     Set of extension methods for Microsoft.AspNetCore.Http.HttpRequest.
     public static class HttpRequestExtensions
     {
         private const string UnknownHostName = "UNKNOWN-HOST";
-
         private const string MultipleHostName = "MULTIPLE-HOST";
-
-        private const string Comma = ",";
+        private static readonly SearchValues<char> CommaSearch = SearchValues.Create([',']);
 
         public static Uri GetUri(this HttpRequest request)
         {
+            ArgumentNullException.ThrowIfNull(request, nameof(request));
+            ArgumentException.ThrowIfNullOrWhiteSpace(request.Scheme, nameof(request.Scheme));
+
+            return new Uri(GetUrl(request));
+        }
+
+        public static string GetUrl(this HttpRequest request)
+        {
             if (request == null)
             {
-                throw new ArgumentNullException("request");
+                return string.Empty;
             }
 
-            if (string.IsNullOrWhiteSpace(request.Scheme))
+            if (!request.Host.HasValue)
             {
-                throw new ArgumentException("Http request Scheme is not specified");
+                return $"{request.Scheme}://{UnknownHostName}{request.Path}{request.QueryString}";
+            }
+            if (request.Host.Value.AsSpan().ContainsAny(CommaSearch))
+            {
+                return $"{request.Scheme}://{MultipleHostName}{request.Path}{request.QueryString}";
             }
 
-            return new Uri(request.Scheme 
-                + "://" 
-                + ((!request.Host.HasValue) 
-                ? UnknownHostName 
-                : ((request.Host.Value.IndexOf(Comma, StringComparison.Ordinal) > 0) ? MultipleHostName : request.Host.Value)) 
-                + (request.PathBase.HasValue ? request.PathBase.Value : string.Empty) 
-                + (request.Path.HasValue ? request.Path.Value : string.Empty) 
-                + (request.QueryString.HasValue ? request.QueryString.Value : string.Empty));
+            return $"{request.Scheme}://{request.Host}{request.PathBase}{request.Path}{request.QueryString}";
         }
     }
 }
