@@ -34,7 +34,7 @@ namespace RecordingBot.Tests.BotTests
         private ICall _call;
         private IGraphLogger _logger;
         private ILocalMediaSession _mediaSession;
-        
+
         private IEventPublisher _eventPublisher;
 
         [OneTimeSetUp]
@@ -87,7 +87,7 @@ namespace RecordingBot.Tests.BotTests
                 ReferenceHandler = ReferenceHandler.Preserve,
                 Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
             };
-            jsonSerializerOptions.Converters.Add(new ODataJsonConverterFactory(null, null, typeAssemblies: [..SerializerAssemblies.Assemblies, typeof(SerializableParticipantEvent).Assembly]));
+            jsonSerializerOptions.Converters.Add(new ODataJsonConverterFactory(null, null, typeAssemblies: [.. SerializerAssemblies.Assemblies, typeof(SerializableParticipantEvent).Assembly]));
             jsonSerializerOptions.Converters.Add(new TypeMappingConverter<IParticipant, SerilizableParticipant>());
 
             var participantCount = 0;
