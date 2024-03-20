@@ -38,8 +38,9 @@ namespace RecordingBot.Services.Media
             _logger = logger;
             _mediaId = mediaId;
 
-            _buffer = new BufferBlock<SerializableAudioMediaBuffer>(new DataflowBlockOptions { CancellationToken = _tokenSource.Token });
             _tokenSource = new CancellationTokenSource();
+
+            _buffer = new BufferBlock<SerializableAudioMediaBuffer>(new DataflowBlockOptions { CancellationToken = _tokenSource.Token });
             _currentAudioProcessor = new AudioProcessor(_settings);
 
             if (_settings.CaptureEvents)
