@@ -13,7 +13,7 @@ namespace RecordingBot.Services.Media
 {
     public class AudioProcessor : BufferBase<SerializableAudioMediaBuffer>
     {
-        readonly Dictionary<string, WaveFileWriter> _writers = new Dictionary<string, WaveFileWriter>();
+        readonly Dictionary<string, WaveFileWriter> _writers = [];
         private readonly string _processorId = null;
         private readonly AzureSettings _settings;
 
@@ -30,11 +30,11 @@ namespace RecordingBot.Services.Media
                 return;
             }
 
-            var path = Path.Combine(Path.GetTempPath(), BotConstants.DefaultOutputFolder, _settings.MediaFolder, _processorId);
+            var path = Path.Combine(Path.GetTempPath(), BotConstants.DEFAULT_OUTPUT_FOLDER, _settings.MediaFolder, _processorId);
 
             // First, write all audio buffer, unless the data.IsSilence is checked for true, into the all speakers buffer
             var all = "all";
-            var all_writer = _writers.ContainsKey(all) ? _writers[all] : InitialiseWavFileWriter(path, all);
+            var all_writer = _writers.TryGetValue(all, out WaveFileWriter allWaveWriter) ? allWaveWriter : InitialiseWavFileWriter(path, all);
 
             if (data.Buffer != null)
             {
@@ -54,7 +54,7 @@ namespace RecordingBot.Services.Media
 
                     var id = s.AdId;
 
-                    var writer = _writers.ContainsKey(id) ? _writers[id] : InitialiseWavFileWriter(path, id);
+                    var writer = _writers.TryGetValue(id, out WaveFileWriter bufferWaveWriter) ? bufferWaveWriter : InitialiseWavFileWriter(path, id);
 
                     // Write audio buffer into the WAV file for individual speaker
                     await writer.WriteAsync(s.Buffer.AsMemory(0, s.Buffer.Length)).ConfigureAwait(false);
@@ -71,16 +71,16 @@ namespace RecordingBot.Services.Media
 
             // Initialize the Wave Format using the default PCM 16bit 16K supported by Teams audio settings
             var writer = new WaveFileWriter(path, new WaveFormat(
-                rate: AudioConstants.DefaultSampleRate,
-                bits: AudioConstants.DefaultBits,
-                channels: AudioConstants.DefaultChannels));
+                rate: AudioConstants.DEFAULT_SAMPLE_RATE,
+                bits: AudioConstants.DEFAULT_BITS,
+                channels: AudioConstants.DEFAULT_CHANNELS));
 
             _writers.Add(id, writer);
 
             return writer;
         }
 
-        public async Task<string> Finalise()
+        public async Task<string> Finalize()
         {
             //drain the un-processed buffers on this object
             while (Buffer.Count > 0)
@@ -88,7 +88,7 @@ namespace RecordingBot.Services.Media
                 await Task.Delay(200);
             }
 
-            var archiveFile = Path.Combine(Path.GetTempPath(), BotConstants.DefaultOutputFolder, _settings.MediaFolder, _processorId, $"{Guid.NewGuid()}.zip");
+            var archiveFile = Path.Combine(Path.GetTempPath(), BotConstants.DEFAULT_OUTPUT_FOLDER, _settings.MediaFolder, _processorId, $"{Guid.NewGuid()}.zip");
 
             try
             {
@@ -97,11 +97,14 @@ namespace RecordingBot.Services.Media
                 // drain all the writers
                 foreach (var writer in _writers.Values)
                 {
-                    var localFiles = new List<string>();
+                    List<string> localFiles = [];
                     var localArchive = archive; //protect the closure below
                     var localFileName = writer.Filename;
+
                     localFiles.Add(writer.Filename);
+
                     await writer.FlushAsync();
+
                     writer.Dispose();
 
                     // Is Resampling and/or mono to stereo conversion required?

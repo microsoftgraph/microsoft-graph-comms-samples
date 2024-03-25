@@ -17,94 +17,62 @@ namespace RecordingBot.Services.Http
     /// </summary>
     internal class LoggingMessageHandler : DelegatingHandler
     {
-        private readonly bool isIncomingMessageHandler;
-        private readonly string[] urlIgnorers;
-        private readonly IGraphLogger logger;
+        private readonly bool _isIncomingMessageHandler;
+        private readonly string[] _urlIgnorers;
+        private readonly IGraphLogger _logger;
 
         public LoggingMessageHandler(bool isIncomingMessageHandler, IGraphLogger logger, string[] urlIgnorers = null)
         {
-            this.isIncomingMessageHandler = isIncomingMessageHandler;
-            this.logger = logger;
-            this.urlIgnorers = urlIgnorers;
-        }
-
-        public static string GetHeadersText(HttpHeaders headers)
-        {
-            if (headers == null || !headers.Any())
-            {
-                return string.Empty;
-            }
-
-            return string.Join(Environment.NewLine, headers.Select(s => GetHeaderText(s)));
+            _isIncomingMessageHandler = isIncomingMessageHandler;
+            _logger = logger;
+            _urlIgnorers = urlIgnorers;
         }
 
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            string requestCid;
-            string responseCid;
-
-            requestCid = isIncomingMessageHandler
+            string requestCid = _isIncomingMessageHandler
                 ? AdoptScenarioId(request.Headers)
                 : SetScenarioId(request.Headers);
 
-            bool ignore = urlIgnorers != null && urlIgnorers.Any(ignorer => request.RequestUri.ToString().Contains(ignorer, StringComparison.OrdinalIgnoreCase));
-
-            if (ignore)
+            if (_urlIgnorers != null && _urlIgnorers.Any(ignorer => request.RequestUri.ToString().Contains(ignorer, StringComparison.OrdinalIgnoreCase)))
             {
                 return await SendAndLogAsync(request, cancellationToken).ConfigureAwait(false);
             }
 
-            var direction = isIncomingMessageHandler
+            var direction = _isIncomingMessageHandler
                 ? TransactionDirection.Incoming
                 : TransactionDirection.Outgoing;
 
-            var requestHeaders = new List<KeyValuePair<string, IEnumerable<string>>>(request.Headers);
-            if (request.Content?.Headers?.Any() == true)
-            {
-                requestHeaders.AddRange(request.Content.Headers);
-            }
-
-            logger.LogHttpMessage(
+            _logger.LogHttpMessage(
                 TraceLevel.Verbose,
                 direction,
                 HttpTraceType.HttpRequest,
                 request.RequestUri.ToString(),
                 request.Method.ToString(),
                 obfuscatedContent: null,
-                headers: requestHeaders);
+                headers: request.Content?.Headers);
 
             Stopwatch stopwatch = Stopwatch.StartNew();
             HttpResponseMessage response = await SendAndLogAsync(request, cancellationToken).ConfigureAwait(false);
 
-            responseCid = isIncomingMessageHandler
+            string responseCid = _isIncomingMessageHandler
                 ? SetScenarioId(response.Headers)
                 : AdoptScenarioId(response.Headers);
 
             WarnIfDifferent(requestCid, responseCid);
 
-            var responseHeaders = new List<KeyValuePair<string, IEnumerable<string>>>(response.Headers);
-            if (response.Content?.Headers?.Any() == true)
-            {
-                responseHeaders.AddRange(response.Content.Headers);
-            }
-
-            logger.LogHttpMessage(
+            _logger.LogHttpMessage(
                 TraceLevel.Verbose,
                 direction,
                 HttpTraceType.HttpResponse,
                 request.RequestUri.ToString(),
                 request.Method.ToString(),
                 obfuscatedContent: null,
-                headers: responseHeaders,
+                headers: response.Content?.Headers,
                 responseCode: (int)response.StatusCode,
                 responseTime: stopwatch.ElapsedMilliseconds);
 
             return response;
-        }
-
-        private static string GetHeaderText(KeyValuePair<string, IEnumerable<string>> header)
-        {
-            return $"{header.Key}: {string.Join(",", header.Value)}";
         }
 
         private string AdoptScenarioId(HttpHeaders headers)
@@ -113,12 +81,12 @@ namespace RecordingBot.Services.Http
             if (headers.TryGetValues(HttpConstants.HeaderNames.ScenarioId, out IEnumerable<string> values) && Guid.TryParse(values.FirstOrDefault(), out Guid scenarioGuid))
             {
                 scenarioId = scenarioGuid.ToString();
-                logger.CorrelationId = scenarioGuid;
+                _logger.CorrelationId = scenarioGuid;
             }
             else if (headers.TryGetValues(HttpConstants.HeaderNames.ChainId, out values) && Guid.TryParse(values.FirstOrDefault(), out scenarioGuid))
             {
                 scenarioId = scenarioGuid.ToString();
-                logger.CorrelationId = scenarioGuid;
+                _logger.CorrelationId = scenarioGuid;
             }
 
             return scenarioId;
@@ -126,7 +94,7 @@ namespace RecordingBot.Services.Http
 
         private string SetScenarioId(HttpHeaders headers)
         {
-            Guid scenarioId = logger.CorrelationId;
+            Guid scenarioId = _logger.CorrelationId;
             if (scenarioId != Guid.Empty)
             {
                 headers.Add(HttpConstants.HeaderNames.ScenarioId, scenarioId.ToString());
@@ -145,7 +113,7 @@ namespace RecordingBot.Services.Http
             }
             catch (Exception e)
             {
-                logger.Error(e, "Exception occurred when calling SendAsync");
+                _logger.Error(e, "Exception occurred when calling SendAsync");
                 throw;
             }
         }
@@ -159,7 +127,7 @@ namespace RecordingBot.Services.Http
 
             if (!string.Equals(requestCid, responseCid))
             {
-                logger.Warn($"The scenarioId of the {(isIncomingMessageHandler ? "incoming" : "outgoing")} request, {requestCid}, is different from the outgoing response, {responseCid}.");
+                _logger.Warn($"The scenarioId of the {(_isIncomingMessageHandler ? "incoming" : "outgoing")} request, {requestCid}, is different from the outgoing response, {responseCid}.");
             }
         }
     }

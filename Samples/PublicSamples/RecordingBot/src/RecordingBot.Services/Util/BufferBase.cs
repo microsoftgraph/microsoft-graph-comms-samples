@@ -1,3 +1,4 @@
+using Microsoft.Identity.Client;
 using System;
 using System.Diagnostics;
 using System.Threading;
@@ -15,10 +16,13 @@ namespace RecordingBot.Services.Util
 
         protected BufferBase()
         {
+            Buffer = new BufferBlock<T>();
+            TokenSource = new CancellationTokenSource();
         }
 
         protected BufferBase(CancellationTokenSource token)
         {
+            Buffer = new BufferBlock<T>();
             TokenSource = token;
         }
 
@@ -26,7 +30,7 @@ namespace RecordingBot.Services.Util
         {
             if (!IsRunning)
             {
-                await _start();
+                await Start();
             }
 
             try
@@ -41,36 +45,23 @@ namespace RecordingBot.Services.Util
             }
         }
 
-        private async Task _start()
+        private async Task Start()
         {
             await _syncLock.WaitAsync().ConfigureAwait(false);
+
             if (!IsRunning)
             {
                 TokenSource ??= new CancellationTokenSource();
 
                 Buffer = new BufferBlock<T>(new DataflowBlockOptions { CancellationToken = TokenSource.Token });
-                await Task.Factory.StartNew(_process).ConfigureAwait(false);
+                await Task.Factory.StartNew(Process).ConfigureAwait(false);
                 IsRunning = true;
             }
+
             _syncLock.Release();
         }
 
-        public virtual async Task End()
-        {  
-            if (IsRunning)
-            {
-                await _syncLock.WaitAsync().ConfigureAwait(false);
-                if (IsRunning)
-                {
-                    Buffer.Complete();
-                    TokenSource = null;
-                    IsRunning = false;
-                }
-                _syncLock.Release();
-            }
-        }
-
-        private async Task _process()
+        private async Task Process()
         {
             try
             {
@@ -85,19 +76,36 @@ namespace RecordingBot.Services.Util
             }
             catch (TaskCanceledException ex)
             {
-                Debug.Write(string.Format("The queue processing task has been cancelled. Exception: {0}", ex));
+                Debug.Write($"The queue processing task has been cancelled. Exception: {ex}");
             }
             catch (ObjectDisposedException ex)
             {
-                Debug.Write(string.Format("The queue processing task object has been disposed. Exception: {0}", ex));
+                Debug.Write($"The queue processing task object has been disposed. Exception: {ex}");
             }
             catch (Exception ex)
             {
                 // Catch all other exceptions and log
-                Debug.Write(string.Format("Caught Exception: {0}", ex));
+                Debug.Write($"Caught Exception: {ex}");
 
                 // Continue processing elements in the queue
-                await _process().ConfigureAwait(false);
+                await Process().ConfigureAwait(false);
+            }
+        }
+
+        public virtual async Task End()
+        {  
+            if (IsRunning)
+            {
+                await _syncLock.WaitAsync().ConfigureAwait(false);
+
+                if (IsRunning)
+                {
+                    Buffer.Complete();
+                    TokenSource = null;
+                    IsRunning = false;
+                }
+
+                _syncLock.Release();
             }
         }
 

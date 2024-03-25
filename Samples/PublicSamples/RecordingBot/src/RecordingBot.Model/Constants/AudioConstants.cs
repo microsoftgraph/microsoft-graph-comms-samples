@@ -2,9 +2,9 @@ namespace RecordingBot.Model.Constants
 {
     public static class AudioConstants
     {
-        public const int DefaultSampleRate = 16000;
-        public const int DefaultBits = 16;
-        public const int DefaultChannels = 1;
-        public const int HighestSamplingQualityLevel = 60;
+        public const int DEFAULT_SAMPLE_RATE = 16000;
+        public const int DEFAULT_BITS = 16;
+        public const int DEFAULT_CHANNELS = 1;
+        public const int HIGHEST_SAMPLING_QUALITY_LEVEL = 60;
     }
 }

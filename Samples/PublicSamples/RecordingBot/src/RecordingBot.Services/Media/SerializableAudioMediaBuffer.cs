@@ -1,4 +1,3 @@
-using Microsoft.Graph;
 using Microsoft.Graph.Communications.Calls;
 using Microsoft.Graph.Models;
 using Microsoft.Skype.Bots.Media;
@@ -11,21 +10,21 @@ namespace RecordingBot.Services.Media
 {
     public class SerializableAudioMediaBuffer : IDisposable
     {
+        private readonly List<IParticipant> _participants;
+
         public uint[] ActiveSpeakers { get; set; }
         public long Length { get; set; }
         public bool IsSilence { get; set; }
         public long Timestamp { get; set; }
         public byte[] Buffer { get; set; }
         public SerializableUnmixedAudioBuffer[] SerializableUnmixedAudioBuffers { get; set; }
-        private List<IParticipant> participants;
 
         public SerializableAudioMediaBuffer()
-        {
-        }
+        { }
 
         public SerializableAudioMediaBuffer(AudioMediaBuffer buffer, List<IParticipant> participants)
         {
-            this.participants = participants;
+            _participants = participants;
 
             Length = buffer.Length;
             ActiveSpeakers = buffer.ActiveSpeakers;
@@ -40,28 +39,27 @@ namespace RecordingBot.Services.Media
 
             if (buffer.UnmixedAudioBuffers != null)
             {
-                SerializableUnmixedAudioBuffers = new SerializableUnmixedAudioBuffer[buffer.UnmixedAudioBuffers.Length];
-                for (var i = 0; i < buffer.UnmixedAudioBuffers.Length; i++)
-                {
-                    if (buffer.UnmixedAudioBuffers[i].Length > 0)
-                    {
-                        var speakerId = buffer.UnmixedAudioBuffers[i].ActiveSpeakerId;
-                        var unmixedAudioBuffer = new SerializableUnmixedAudioBuffer(buffer.UnmixedAudioBuffers[i], _getParticipantFromMSI(speakerId));
-                        SerializableUnmixedAudioBuffers[i] = unmixedAudioBuffer;
-                    }
-                }
+                SerializableUnmixedAudioBuffers = buffer.UnmixedAudioBuffers
+                    .Where(unmixedBuffer => unmixedBuffer.Length > 0)
+                    .Select(unmixedBuffer => new SerializableUnmixedAudioBuffer(unmixedBuffer, GetParticipantFromMSI(unmixedBuffer.ActiveSpeakerId)))
+                    .ToArray();
             }
         }
 
-        private IParticipant _getParticipantFromMSI(uint msi)
+        private IParticipant GetParticipantFromMSI(uint msi)
         {
-            return participants.SingleOrDefault(x => x.Resource.IsInLobby == false && x.Resource.MediaStreams.Any(y => y.SourceId == msi.ToString()));
+            return _participants.SingleOrDefault(
+                participant => participant.Resource.IsInLobby == false
+                            && participant.Resource.MediaStreams
+                                .Any(mediaStreamy => mediaStreamy.SourceId == msi.ToString()));
         }
 
         public void Dispose()
         {
             SerializableUnmixedAudioBuffers = null;
             Buffer = null;
+
+            GC.SuppressFinalize(this);
         }
 
         public class SerializableUnmixedAudioBuffer
@@ -75,8 +73,7 @@ namespace RecordingBot.Services.Media
             public byte[] Buffer { get; set; }
 
             public SerializableUnmixedAudioBuffer()
-            {
-            }
+            { }
 
             public SerializableUnmixedAudioBuffer(UnmixedAudioBuffer buffer, IParticipant participant)
             {
@@ -84,36 +81,41 @@ namespace RecordingBot.Services.Media
                 Length = buffer.Length;
                 OriginalSenderTimestamp = buffer.OriginalSenderTimestamp;
 
-                var i = AddParticipant(participant);
+                var identity = AddParticipant(participant);
 
-                if (i != null)
+                if (identity != null)
                 {
-                    DisplayName = i.DisplayName;
-                    AdId = i.Id;
+                    DisplayName = identity.DisplayName;
+                    AdId = identity.Id;
                 }
                 else
                 {
-                    DisplayName = participant?.Resource?.Info?.Identity?.User?.DisplayName;
-                    AdId = participant?.Resource?.Info?.Identity?.User?.Id;
-                    AdditionalData = participant?.Resource?.Info?.Identity?.User?.AdditionalData;
+                    var user = participant?.Resource?.Info?.Identity?.User;
+                    if (user != null)
+                    {
+                        DisplayName = user.DisplayName;
+                        AdId = user.Id;
+                        AdditionalData = user.AdditionalData;
+                    }
                 }
 
                 Buffer = new byte[Length];
                 Marshal.Copy(buffer.Data, Buffer, 0, (int)Length);
             }
 
-            private Identity AddParticipant(IParticipant p)
+            private static Identity AddParticipant(IParticipant participant)
             {
-                if (p?.Resource?.Info?.Identity?.AdditionalData != null)
+                if (participant?.Resource?.Info?.Identity?.AdditionalData != null)
                 {
-                    foreach (var i in p.Resource.Info.Identity.AdditionalData)
+                    foreach (var identity in participant.Resource.Info.Identity.AdditionalData)
                     {
-                        if (i.Key != "applicationInstance" && i.Value is Identity)
+                        if (identity.Key != "applicationInstance" && identity.Value is Identity)
                         {
-                            return i.Value as Identity;
+                            return identity.Value as Identity;
                         }
                     }
                 }
+
                 return null;
             }
         }

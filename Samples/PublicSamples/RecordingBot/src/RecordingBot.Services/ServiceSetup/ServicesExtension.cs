@@ -12,10 +12,11 @@ namespace RecordingBot.Services.ServiceSetup
             return new ServiceHost().Configure(services, configuration);
         }
 
-        public static TConfig ConfigureConfigObject<TConfig>(this IServiceCollection services, IConfiguration configuration) where TConfig : class, new()
+        public static TConfig ConfigureConfigObject<TConfig>(this IServiceCollection services, IConfiguration configuration)
+            where TConfig : class, new()
         {
-            if (services == null) throw new ArgumentNullException(nameof(services));
-            if (configuration == null) throw new ArgumentNullException(nameof(configuration));
+            ArgumentNullException.ThrowIfNull(services, nameof(services));
+            ArgumentNullException.ThrowIfNull(configuration, nameof(configuration));
 
             var config = new TConfig();
             configuration.Bind(config);
@@ -29,9 +30,10 @@ namespace RecordingBot.Services.ServiceSetup
             return config;
         }
 
-        public static TConfig ConfigureConfigObject<TConfig>(this IServiceCollection services) where TConfig : class, new()
+        public static TConfig ConfigureConfigObject<TConfig>(this IServiceCollection services)
+            where TConfig : class, new()
         {
-            if (services == null) throw new ArgumentNullException(nameof(services));
+            ArgumentNullException.ThrowIfNull(services, nameof(services));
 
             var config = new TConfig();
 

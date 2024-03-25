@@ -1,4 +1,3 @@
-using Microsoft.Graph;
 using Microsoft.Graph.Communications.Calls;
 using Microsoft.Graph.Communications.Calls.Media;
 using Microsoft.Graph.Communications.Common.Telemetry;
@@ -11,6 +10,7 @@ using RecordingBot.Services.Util;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 
@@ -18,13 +18,14 @@ namespace RecordingBot.Services.Bot
 {
     public class CallHandler : HeartbeatHandler
     {
-        public ICall Call { get; }
-        public BotMediaStream BotMediaStream { get; private set; }
-        private int recordingStatusIndex = -1;
+        private int _recordingStatusIndex = -1;
         private readonly AzureSettings _settings;
         private readonly IEventPublisher _eventPublisher;
-        private CaptureEvents _capture;
+        private readonly CaptureEvents _capture;
         private bool _isDisposed = false;
+
+        public ICall Call { get; }
+        public BotMediaStream BotMediaStream { get; private set; }
 
         public CallHandler(ICall statefulCall, IAzureSettings settings, IEventPublisher eventPublisher) : base(TimeSpan.FromMinutes(10), statefulCall?.GraphLogger)
         {
@@ -39,7 +40,7 @@ namespace RecordingBot.Services.Bot
 
             if (_settings.CaptureEvents)
             {
-                var path = Path.Combine(Path.GetTempPath(), BotConstants.DefaultOutputFolder, _settings.EventsFolder, statefulCall.GetLocalMediaSession().MediaSessionId.ToString(), "participants");
+                var path = Path.Combine(Path.GetTempPath(), BotConstants.DEFAULT_OUTPUT_FOLDER, _settings.EventsFolder, statefulCall.GetLocalMediaSession().MediaSessionId.ToString(), "participants");
                 _capture = new CaptureEvents(path);
             }
         }
@@ -71,7 +72,7 @@ namespace RecordingBot.Services.Bot
                 // TODO: consider rewriting the recording status checking
                 var recordingStatus = new[] { RecordingStatus.Recording, RecordingStatus.NotRecording, RecordingStatus.Failed };
 
-                var recordingIndex = recordingStatusIndex + 1;
+                var recordingIndex = _recordingStatusIndex + 1;
                 if (recordingIndex >= recordingStatus.Length)
                 {
                     var recordedParticipantId = Call.Resource.IncomingContext.ObservedParticipantId;
@@ -95,7 +96,7 @@ namespace RecordingBot.Services.Bot
                         .UpdateRecordingStatusAsync(newStatus)
                         .ConfigureAwait(false);
 
-                    recordingStatusIndex = recordingIndex;
+                    _recordingStatusIndex = recordingIndex;
                 }
                 catch (Exception exc)
                 {
@@ -110,6 +111,7 @@ namespace RecordingBot.Services.Bot
         private async void CallOnUpdated(ICall sender, ResourceEventArgs<Call> e)
         {
             GraphLogger.Info($"Call status updated to {e.NewResource.State} - {e.NewResource.ResultInfo?.Message}");
+
             // Event - Recording update e.g established/updated/start/ended
             _eventPublisher.Publish($"Call{e.NewResource.State}", $"Call.ID {Call.Id} Sender.Id {sender.Id} status updated to {e.NewResource.State} - {e.NewResource.ResultInfo?.Message}");
 
@@ -136,28 +138,39 @@ namespace RecordingBot.Services.Bot
                 }
 
                 if (_settings.CaptureEvents)
-                    await _capture?.Finalise();
+                {
+                    await _capture?.Finalize();
+                }
             }
         }
 
-        private string createParticipantUpdateJson(string participantId, string participantDisplayName = "")
+        private static string CreateParticipantUpdateJson(string participantId, string participantDisplayName = "")
         {
-            if (participantDisplayName.Length == 0)
-                return "{" + string.Format($"\"Id\": \"{participantId}\"") + "}";
-            else
-                return "{" + string.Format($"\"Id\": \"{participantId}\", \"DisplayName\": \"{participantDisplayName}\"") + "}";
+            StringBuilder stringBuilder = new();
+
+            stringBuilder.Append('{');
+            stringBuilder.AppendFormat("\"Id\": \"{0}\"", participantId);
+
+            if (!string.IsNullOrWhiteSpace(participantDisplayName))
+            {
+                stringBuilder.AppendFormat(", \"DisplayName\": \"{0}\"", participantDisplayName);
+            }
+
+            stringBuilder.Append('}');
+
+            return stringBuilder.ToString();
         }
 
-        private string updateParticipant(List<IParticipant> participants, IParticipant participant, bool added, string participantDisplayName = "")
+        private static string UpdateParticipant(List<IParticipant> participants, IParticipant participant, bool added, string participantDisplayName = "")
         {
             if (added)
                 participants.Add(participant);
             else
                 participants.Remove(participant);
-            return createParticipantUpdateJson(participant.Id, participantDisplayName);
+            return CreateParticipantUpdateJson(participant.Id, participantDisplayName);
         }
 
-        private void updateParticipants(ICollection<IParticipant> eventArgs, bool added = true)
+        private void UpdateParticipants(ICollection<IParticipant> eventArgs, bool added = true)
         {
             foreach (var participant in eventArgs)
             {
@@ -169,21 +182,27 @@ namespace RecordingBot.Services.Bot
 
                 if (participantDetails != null)
                 {
-                    json = updateParticipant(this.BotMediaStream.participants, participant, added, participantDetails.DisplayName);
+                    json = UpdateParticipant(BotMediaStream.participants, participant, added, participantDetails.DisplayName);
                 }
                 else if (participant.Resource.Info.Identity.AdditionalData?.Count > 0)
                 {
                     if (CheckParticipantIsUsable(participant))
                     {
-                        json = updateParticipant(this.BotMediaStream.participants, participant, added);
+                        json = UpdateParticipant(BotMediaStream.participants, participant, added);
                     }
                 }
 
                 if (json.Length > 0)
+                {
                     if (added)
+                    {
                         _eventPublisher.Publish("CallParticipantAdded", json);
+                    }
                     else
+                    {
                         _eventPublisher.Publish("CallParticipantRemoved", json);
+                    }
+                }
             }
         }
 
@@ -193,15 +212,20 @@ namespace RecordingBot.Services.Bot
             {
                 _capture?.Append(args);
             }
-            updateParticipants(args.AddedResources);
-            updateParticipants(args.RemovedResources, false);
+
+            UpdateParticipants(args.AddedResources);
+            UpdateParticipants(args.RemovedResources, false);
         }
 
-        private bool CheckParticipantIsUsable(IParticipant p)
+        private static bool CheckParticipantIsUsable(IParticipant p)
         {
             foreach (var i in p.Resource.Info.Identity.AdditionalData)
+            {
                 if (i.Key != "applicationInstance" && i.Value is Identity)
+                {
                     return true;
+                }
+            }
 
             return false;
         }

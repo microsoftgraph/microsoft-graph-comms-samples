@@ -30,17 +30,17 @@ namespace RecordingBot.Services.Http.Controllers
         }
 
         [HttpGet]
-        [Route(HttpRouteConstants.Calls + "/")]
+        [Route(HttpRouteConstants.CALLS + "/")]
         public IActionResult OnGetCalls()
         {
             _logger.Info("Getting calls");
             _eventPublisher.Publish("GetCalls", "Getting calls");
 
-            var calls = new List<Dictionary<string, string>>();
+            List<Dictionary<string, string>> calls = [];
             foreach (var callHandler in _botService.CallHandlers.Values)
             {
                 var call = callHandler.Call;
-                var callPath = "/" + HttpRouteConstants.CallRoute.Replace("{callLegId}", call.Id);
+                var callPath = "/" + HttpRouteConstants.CALL_ROUTE.Replace("{callLegId}", call.Id);
                 var callUri = new Uri(_settings.CallControlBaseUrl, callPath).AbsoluteUri;
                 var values = new Dictionary<string, string>
                 {
@@ -56,7 +56,7 @@ namespace RecordingBot.Services.Http.Controllers
         }
 
         [HttpDelete]
-        [Route(HttpRouteConstants.CallRoute)]
+        [Route(HttpRouteConstants.CALL_ROUTE)]
         public async Task<IActionResult> OnEndCallAsync(string callLegId)
         {
             var message = $"Ending call {callLegId}";

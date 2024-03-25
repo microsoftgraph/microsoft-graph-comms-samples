@@ -1,4 +1,6 @@
 using NUnit.Framework;
+using RecordingBot.Services.Bot;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 
 namespace RecordingBot.Tests

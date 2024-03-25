@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace RecordingBot.Services.Http.Controllers
 {
     [ApiController]
-    [Route(HttpRouteConstants.CallSignalingRoutePrefix)]
+    [Route(HttpRouteConstants.CALL_SIGNALING_ROUTE_PREFIX)]
     public class PlatformCallController : ControllerBase
     {
         private readonly IGraphLogger _logger;
@@ -25,8 +25,8 @@ namespace RecordingBot.Services.Http.Controllers
         }
 
         [HttpPost]
-        [Route(HttpRouteConstants.OnNotificationRequestRoute)]
-        [Route(HttpRouteConstants.OnIncomingRequestRoute)]
+        [Route(HttpRouteConstants.ON_NOTIFICATION_REQUEST_ROUTE)]
+        [Route(HttpRouteConstants.ON_INCOMING_REQUEST_ROUTE)]
         public async Task<IActionResult> OnNotificationRequestAsync(
            [FromHeader(Name = "Client-Request-Id")] Guid? clientRequestId,
            [FromHeader(Name = "X-Microsoft-Skype-Message-ID")] Guid? skypeRequestId,
@@ -34,18 +34,19 @@ namespace RecordingBot.Services.Http.Controllers
            [FromHeader(Name = "X-Microsoft-Skype-Chain-ID")] Guid? skypeScenarioId,
            [FromBody] CommsNotifications notifications)
         {
-            _logger.Info($"Received HTTP {Request.Method}, {Request.GetUri()}");
+            _logger.Info($"Received HTTP {Request.Method}, {Request.GetUrl()}");
 
             Guid requestId = clientRequestId ?? skypeRequestId ?? default;
             Guid scenarioId = clientScenarioId ?? skypeScenarioId ?? default;
 
             // Convert Request Authorization Request Header
-            if(Request.Headers.Authorization.Count != 1)
+            if (Request.Headers.Authorization.Count != 1)
             {
                 return Unauthorized();
             }
+
             var schemeAndParameter = Request.Headers.Authorization[0].Split(" ");
-            if(schemeAndParameter.Length != 2)
+            if (schemeAndParameter.Length != 2)
             {
                 return Unauthorized();
             }

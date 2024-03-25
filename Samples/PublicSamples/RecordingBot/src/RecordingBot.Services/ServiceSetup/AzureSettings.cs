@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 
 namespace RecordingBot.Services.ServiceSetup
 {
-    public class AzureSettings : IAzureSettings
+    public partial class AzureSettings : IAzureSettings
     {
         public string ServiceDnsName { get; set; }
         public string ServicePath {get;set;} = "/";
@@ -51,11 +51,11 @@ namespace RecordingBot.Services.ServiceSetup
 
             if (!string.IsNullOrEmpty(PodName))
             {
-                _ = int.TryParse(Regex.Match(PodName, @"\d+$").Value, out podNumber);
+                _ = int.TryParse(PodNumberRegex().Match(PodName).Value, out podNumber);
             }
 
             // Create structured config objects for service.
-            CallControlBaseUrl = new Uri($"https://{ServiceCname}{(CallSignalingPublicPort != 443 ? ":" + CallSignalingPublicPort : "")}{ServicePath}{podNumber}/{HttpRouteConstants.CallSignalingRoutePrefix}/{HttpRouteConstants.OnNotificationRequestRoute}");
+            CallControlBaseUrl = new Uri($"https://{ServiceCname}{(CallSignalingPublicPort != 443 ? ":" + CallSignalingPublicPort : "")}{ServicePath}{podNumber}/{HttpRouteConstants.CALL_SIGNALING_ROUTE_PREFIX}/{HttpRouteConstants.ON_NOTIFICATION_REQUEST_ROUTE}");
             PodPathBase = $"{ServicePath}{podNumber}";
 
             MediaPlatformSettings = new MediaPlatformSettings
@@ -85,10 +85,9 @@ namespace RecordingBot.Services.ServiceSetup
         /// <exception cref="Exception">No certificate with thumbprint {CertificateThumbprint} was found in the machine store.</exception>
         private X509Certificate2 GetCertificateFromStore()
         {
-            X509Store store = new(StoreName.My, StoreLocation.LocalMachine);
-            store.Open(OpenFlags.ReadOnly);
-            try
+            using (X509Store store = new(StoreName.My, StoreLocation.LocalMachine))
             {
+                store.Open(OpenFlags.ReadOnly);
                 var certs = store.Certificates.Find(X509FindType.FindByThumbprint, CertificateThumbprint, validOnly: false);
 
                 if (certs.Count != 1)
@@ -98,10 +97,9 @@ namespace RecordingBot.Services.ServiceSetup
 
                 return certs[0];
             }
-            finally
-            {
-                store.Close();
-            }
         }
+
+        [GeneratedRegex(@"\d+$")]
+        private static partial Regex PodNumberRegex();
     }
 }

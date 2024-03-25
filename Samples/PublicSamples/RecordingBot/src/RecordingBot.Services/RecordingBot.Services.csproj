@@ -1,31 +1,32 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-	<PropertyGroup>
-		<OutputType>Library</OutputType>
-		<TargetFramework>net6.0</TargetFramework>
-		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-		<Platforms>x64</Platforms>
-		<LangVersion>latest</LangVersion>
-	</PropertyGroup>
-	
-	<PropertyGroup>
-		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-		<GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
-	</PropertyGroup>
-	<ItemGroup>
-		<FrameworkReference Include="Microsoft.AspNetCore.App" />
-	</ItemGroup>
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <Platforms>x64</Platforms>
+        <LangVersion>latest</LangVersion>
+        <Nullable>disable</Nullable>
+    </PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="Azure.Messaging.EventGrid" Version="4.21.0" />
-		<PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.27.0.2-alpha" />
-		<PackageReference Include="NAudio" Version="2.2.1" />
-		<PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.7.0" />
-		<PackageReference Include="SharpZipLib" Version="1.4.2" />
-		<PackageReference Include="DotNetEnv" Version="3.0.0" />
-		<PackageReference Include="Microsoft.Graph.Communications.Calls.Media" Version="1.2.0.10115" />
-	</ItemGroup>
+    <PropertyGroup>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+        <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    </PropertyGroup>
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\RecordingBot.Model\RecordingBot.Model.csproj" />
-	</ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Azure.Messaging.EventGrid" Version="4.21.0" />
+        <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.27.0.2-alpha" />
+        <PackageReference Include="NAudio" Version="2.2.1" />
+        <PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.7.0" />
+        <PackageReference Include="SharpZipLib" Version="1.4.2" />
+        <PackageReference Include="DotNetEnv" Version="3.0.0" />
+        <PackageReference Include="Microsoft.Graph.Communications.Calls.Media" Version="1.2.0.10115" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\RecordingBot.Model\RecordingBot.Model.csproj" />
+    </ItemGroup>
 </Project>

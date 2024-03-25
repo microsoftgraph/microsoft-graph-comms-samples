@@ -9,12 +9,12 @@ namespace RecordingBot.Model.Constants
 {
     public static class SerializerAssemblies
     {
-        private static IEnumerable<Assembly> _assemblies = new List<Assembly>
-            {
+        private static readonly IEnumerable<Assembly> _assemblies =
+            [
                 typeof(Entity).Assembly,
                 typeof(Error).Assembly,
                 typeof(CommunicationsClientBuilder).Assembly
-            };
+            ];
 
         private static Assembly[] _distinctAssemblies = null;
 

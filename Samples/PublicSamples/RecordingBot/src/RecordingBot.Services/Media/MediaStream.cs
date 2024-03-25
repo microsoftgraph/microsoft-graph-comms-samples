@@ -17,29 +17,43 @@ namespace RecordingBot.Services.Media
 {
     public class MediaStream : IMediaStream
     {
-        private BufferBlock<SerializableAudioMediaBuffer> _buffer;
-        private CancellationTokenSource _tokenSource;
-        private bool _isRunning = false;
-        protected bool _isDraining;
-        private readonly SemaphoreSlim _syncLock = new(1);
-        private readonly string _mediaId;
         private readonly AzureSettings _settings;
         private readonly IGraphLogger _logger;
-        private AudioProcessor _currentAudioProcessor;
+        private readonly string _mediaId;
+
+        private readonly BufferBlock<SerializableAudioMediaBuffer> _buffer;
+        private readonly CancellationTokenSource _tokenSource;
+
+        private readonly AudioProcessor _currentAudioProcessor;
         private CaptureEvents _capture;
+
+        private readonly SemaphoreSlim _syncLock = new(1);
+
+        private bool _isRunning = false;
+        protected bool _isDraining;
 
         public MediaStream(IAzureSettings settings, IGraphLogger logger, string mediaId)
         {
             _settings = (AzureSettings)settings;
             _logger = logger;
             _mediaId = mediaId;
+
+            _tokenSource = new CancellationTokenSource();
+
+            _buffer = new BufferBlock<SerializableAudioMediaBuffer>(new DataflowBlockOptions { CancellationToken = _tokenSource.Token });
+            _currentAudioProcessor = new AudioProcessor(_settings);
+
+            if (_settings.CaptureEvents)
+            {
+                _capture = new CaptureEvents(Path.Combine(Path.GetTempPath(), BotConstants.DEFAULT_OUTPUT_FOLDER, _settings.EventsFolder, _mediaId, "media"));
+            }
         }
 
         public async Task AppendAudioBuffer(AudioMediaBuffer buffer, List<IParticipant> participants)
         {
             if (!_isRunning)
             {
-                await _start();
+                await Start().ConfigureAwait(false);
             }
 
             try
@@ -53,56 +67,25 @@ namespace RecordingBot.Services.Media
             }
         }
 
-        public async Task End()
-        {
-            if (!_isRunning)
-            {
-                return;
-            }
-
-            await _syncLock.WaitAsync().ConfigureAwait(false);
-            if (_isRunning)
-            {
-                _isDraining = true;
-                while (_buffer.Count > 0)
-                {
-                    await Task.Delay(200).ConfigureAwait(false);
-                }
-
-                _buffer.Complete();
-                _buffer.TryDispose();
-                _buffer = null;
-                _tokenSource.Cancel();
-                _tokenSource.Dispose();
-                _isRunning = false;
-                while (_isDraining)
-                {
-                    await Task.Delay(200).ConfigureAwait(false);
-                }
-            }
-            _syncLock.Release();
-        }
-
-        private async Task _start()
+        private async Task Start()
         {
             await _syncLock.WaitAsync().ConfigureAwait(false);
+
             if (!_isRunning)
             {
-                _tokenSource = new CancellationTokenSource();
-                _buffer = new BufferBlock<SerializableAudioMediaBuffer>(new DataflowBlockOptions { CancellationToken = _tokenSource.Token });
-                await Task.Factory.StartNew(_process).ConfigureAwait(false);
+                await Task.Run(Process).ConfigureAwait(false);
+
                 _isRunning = true;
             }
+
             _syncLock.Release();
         }
 
-        private async Task _process()
+        private async Task Process()
         {
-            _currentAudioProcessor = new AudioProcessor(_settings);
-
             if (_settings.CaptureEvents && !_isDraining && _capture == null)
             {
-                _capture = new CaptureEvents(Path.Combine(Path.GetTempPath(), BotConstants.DefaultOutputFolder, _settings.EventsFolder, _mediaId, "media"));
+                _capture = new CaptureEvents(Path.Combine(Path.GetTempPath(), BotConstants.DEFAULT_OUTPUT_FOLDER, _settings.EventsFolder, _mediaId, "media"));
             }
 
             try
@@ -135,28 +118,60 @@ namespace RecordingBot.Services.Media
                 _logger.Error(ex, "Caught Exception");
 
                 // Continue processing elements in the queue
-                await _process().ConfigureAwait(false);
+                await Process().ConfigureAwait(false);
             }
 
             //send final segment as a last precation in case the loop did not process it
             if (_currentAudioProcessor != null)
             {
-                await _chunkProcess();
+                await ChunkProcess().ConfigureAwait(false);
             }
 
             if (_settings.CaptureEvents)
             {
-                await _capture?.Finalise();
+                await _capture.Finalize().ConfigureAwait(false);
             }
 
             _isDraining = false;
         }
 
-        async Task _chunkProcess()
+        public async Task End()
+        {
+            if (!_isRunning)
+            {
+                return;
+            }
+
+            await _syncLock.WaitAsync().ConfigureAwait(false);
+
+            if (_isRunning)
+            {
+                _isDraining = true;
+                while (_buffer.Count > 0)
+                {
+                    await Task.Delay(200).ConfigureAwait(false);
+                }
+
+                _buffer.Complete();
+                _buffer.TryDispose();
+                _tokenSource.Cancel();
+                _tokenSource.Dispose();
+                _isRunning = false;
+
+                while (_isDraining)
+                {
+                    await Task.Delay(200).ConfigureAwait(false);
+                }
+            }
+
+            _syncLock.Release();
+        }
+
+        async Task ChunkProcess()
         {
             try
             {
-                var finalData = await _currentAudioProcessor.Finalise();
+                var finalData = await _currentAudioProcessor.Finalize().ConfigureAwait(false);
                 _logger.Info($"Recording saved to: {finalData}");
             }
             catch (Exception ex)

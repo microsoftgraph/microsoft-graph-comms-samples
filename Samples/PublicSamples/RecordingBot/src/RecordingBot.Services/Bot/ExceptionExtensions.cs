@@ -59,12 +59,11 @@ namespace RecordingBot.Services.Bot
         /// <returns>The <see cref="HttpResponseMessage" />.</returns>
         public static HttpResponseMessage InspectExceptionAndReturnResponse(this Exception exception)
         {
-            HttpResponseMessage responseToReturn;
             if (exception is ServiceException e)
             {
-                responseToReturn = (int)e.StatusCode >= 200
-                    ? new HttpResponseMessage(e.StatusCode)
-                    : new HttpResponseMessage(HttpStatusCode.InternalServerError);
+                var statusCode = (int)e.StatusCode >= 200 ? e.StatusCode : HttpStatusCode.InternalServerError;
+                var responseToReturn = new HttpResponseMessage(statusCode);
+
                 if (e.ResponseHeaders != null)
                 {
                     foreach (var responseHeader in e.ResponseHeaders)
@@ -73,17 +72,15 @@ namespace RecordingBot.Services.Bot
                     }
                 }
 
-                responseToReturn.Content = new StringContent(e.ToString());
+                return responseToReturn;
             }
             else
             {
-                responseToReturn = new HttpResponseMessage(HttpStatusCode.InternalServerError)
+                return new HttpResponseMessage(HttpStatusCode.InternalServerError)
                 {
                     Content = new StringContent(exception.ToString()),
                 };
             }
-
-            return responseToReturn;
         }
     }
 }

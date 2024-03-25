@@ -8,19 +8,19 @@ namespace RecordingBot.Services.Bot
 {
     public abstract class HeartbeatHandler : ObjectRootDisposable
     {
-        private Timer heartbeatTimer;
+        private readonly Timer _heartbeatTimer;
 
         public HeartbeatHandler(TimeSpan frequency, IGraphLogger logger)
             : base(logger)
         {
             // initialize the timer
-            var timer = new Timer(frequency.TotalMilliseconds)
+            _heartbeatTimer = new Timer(frequency.TotalMilliseconds)
             {
                 Enabled = true,
-                AutoReset = true
+                AutoReset = true,
             };
-            timer.Elapsed += HeartbeatDetected;
-            heartbeatTimer = timer;
+
+            _heartbeatTimer.Elapsed += HeartbeatDetected;
         }
 
         protected abstract Task HeartbeatAsync(ElapsedEventArgs args);
@@ -29,15 +29,18 @@ namespace RecordingBot.Services.Bot
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);
-            heartbeatTimer.Elapsed -= HeartbeatDetected;
-            heartbeatTimer.Stop();
-            heartbeatTimer.Dispose();
+
+            _heartbeatTimer.Elapsed -= HeartbeatDetected;
+            _heartbeatTimer.Stop();
+            _heartbeatTimer.Dispose();
         }
 
         private void HeartbeatDetected(object sender, ElapsedEventArgs args)
         {
             var task = $"{GetType().FullName}.{nameof(HeartbeatAsync)}(args)";
+
             GraphLogger.Verbose($"Starting running task: " + task);
+
             _ = Task.Run(() => HeartbeatAsync(args)).ForgetAndLogExceptionAsync(GraphLogger, task);
         }
     }

@@ -19,11 +19,12 @@ namespace RecordingBot.Services.Authentication
 {
     public class AuthenticationProvider : ObjectRoot, IRequestAuthenticationProvider
     {
-        private readonly TimeSpan openIdConfigRefreshInterval = TimeSpan.FromHours(2);
-        private DateTime prevOpenIdConfigUpdateTimestamp = DateTime.MinValue;
-        private OpenIdConnectConfiguration openIdConfiguration;
+        private OpenIdConnectConfiguration _openIdConfiguration;
         private readonly ConfidentialClientApplicationOptions _clientOptions;
-        private static readonly IEnumerable<string> _defaultScopes = new List<string> { "https://graph.microsoft.com/.default" };
+        private static readonly IEnumerable<string> _defaultScopes = ["https://graph.microsoft.com/.default"];
+
+        private readonly TimeSpan _openIdConfigRefreshInterval = TimeSpan.FromHours(2);
+        private DateTime _prevOpenIdConfigUpdateTimestamp = DateTime.MinValue;
 
         public AuthenticationProvider(string appName, string appId, string appSecret, IGraphLogger logger)
             : base(logger.NotNull(nameof(logger)).CreateShim(nameof(AuthenticationProvider)))
@@ -54,18 +55,18 @@ namespace RecordingBot.Services.Authentication
             // https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols#endpoints
             tenant = string.IsNullOrWhiteSpace(tenant) ? "common" : tenant;
 
-            this.GraphLogger.Info("AuthenticationProvider: Generating OAuth token.");
+            GraphLogger.Info("AuthenticationProvider: Generating OAuth token.");
 
             var clientApp = ConfidentialClientApplicationBuilder.CreateWithApplicationOptions(_clientOptions).WithTenantId(tenant).Build();
 
             AuthenticationResult result;
             try
             {
-                result = await this.AcquireTokenWithRetryAsync(clientApp, attempts: 3);
+                result = await AcquireTokenWithRetryAsync(clientApp, attempts: 3);
             }
             catch (Exception ex)
             {
-                this.GraphLogger.Error(ex, $"Failed to generate token for client: {_clientOptions.ClientId}");
+                GraphLogger.Error(ex, $"Failed to generate token for client: {_clientOptions.ClientId}");
                 throw;
             }
 
@@ -90,19 +91,18 @@ namespace RecordingBot.Services.Authentication
             // Currently the service does not sign outbound request using AAD, instead it is signed
             // with a private certificate.  In order for us to be able to ensure the certificate is
             // valid we need to download the corresponding public keys from a trusted source.
-            const string authDomain = AzureConstants.AuthDomain;
-            if (openIdConfiguration == null || DateTime.Now > prevOpenIdConfigUpdateTimestamp.Add(openIdConfigRefreshInterval))
+            const string authDomain = AzureConstants.AUTH_DOMAIN;
+            if (_openIdConfiguration == null || DateTime.Now > _prevOpenIdConfigUpdateTimestamp.Add(_openIdConfigRefreshInterval))
             {
                 GraphLogger.Info("Updating OpenID configuration");
 
                 // Download the OIDC configuration which contains the JWKS
-                IConfigurationManager<OpenIdConnectConfiguration> configurationManager =
-                    new ConfigurationManager<OpenIdConnectConfiguration>(
-                        authDomain,
+                ConfigurationManager<OpenIdConnectConfiguration> configurationManager =
+                    new(authDomain,
                         new OpenIdConnectConfigurationRetriever());
-                openIdConfiguration = await configurationManager.GetConfigurationAsync(CancellationToken.None).ConfigureAwait(false);
+                _openIdConfiguration = await configurationManager.GetConfigurationAsync(CancellationToken.None).ConfigureAwait(false);
 
-                prevOpenIdConfigUpdateTimestamp = DateTime.Now;
+                _prevOpenIdConfigUpdateTimestamp = DateTime.Now;
             }
 
             // The incoming token should be issued by graph.
@@ -119,7 +119,7 @@ namespace RecordingBot.Services.Authentication
             {
                 ValidIssuers = authIssuers,
                 ValidAudience = _clientOptions.ClientId,
-                IssuerSigningKeys = this.openIdConfiguration.SigningKeys,
+                IssuerSigningKeys = _openIdConfiguration.SigningKeys,
             };
 
             ClaimsPrincipal claimsPrincipal;
@@ -139,7 +139,7 @@ namespace RecordingBot.Services.Authentication
             catch (Exception ex)
             {
                 // Some other error
-                this.GraphLogger.Error(ex, $"Failed to validate token for client: {_clientOptions.ClientId}.");
+                GraphLogger.Error(ex, $"Failed to validate token for client: {_clientOptions.ClientId}.");
                 return new RequestValidationResult() { IsValid = false };
             }
 
@@ -158,7 +158,7 @@ namespace RecordingBot.Services.Authentication
         /// <summary>
         /// Acquires the token and retries if failure occurs.
         /// </summary>
-        private async Task<AuthenticationResult> AcquireTokenWithRetryAsync(IConfidentialClientApplication context, int attempts)
+        private static async Task<AuthenticationResult> AcquireTokenWithRetryAsync(IConfidentialClientApplication context, int attempts)
         {
             while (true)
             {
