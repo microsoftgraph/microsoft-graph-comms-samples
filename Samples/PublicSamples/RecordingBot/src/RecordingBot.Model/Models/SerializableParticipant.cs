@@ -51,7 +51,9 @@ namespace RecordingBot.Model.Models
         public SerilizableParticipant()
         { }
 
+#pragma warning disable CS0067 // The event 'SerilizableParticipant.OnUpdated' is never used
         public event ResourceEventHandler<IParticipant, Participant> OnUpdated;
+#pragma warning restore CS0067 // The event 'SerilizableParticipant.OnUpdated' is never used
 
         public IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
@@ -125,7 +127,9 @@ namespace RecordingBot.Model.Models
             throw new NotImplementedException();
         }
 
+#pragma warning disable CA1816 // Dispose methods should call SuppressFinalize
         public void Dispose()
+#pragma warning restore CA1816 // Dispose methods should call SuppressFinalize
         {
             throw new NotImplementedException();
         }
