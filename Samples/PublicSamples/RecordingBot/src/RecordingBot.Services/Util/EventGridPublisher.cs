@@ -24,15 +24,15 @@ namespace RecordingBot.Services.Util
 
         public void Publish(string subject, string message, string topicName)
         {
-            if (string.IsNullOrWhiteSpace(topicName))
+            if (!string.IsNullOrWhiteSpace(_topicKey))
             {
-                topicName = _topicName;
-            }
+                if (string.IsNullOrWhiteSpace(topicName))
+                {
+                    topicName = _topicName;
+                }
 
-            var topicEndpoint = string.Format(BotConstants.TOPIC_ENDPOINT, topicName, _regionName);
+                var topicEndpoint = string.Format(BotConstants.TOPIC_ENDPOINT, topicName, _regionName);
 
-            if (string.IsNullOrWhiteSpace(_topicKey))
-            {
                 var client = new EventGridPublisherClient(new Uri(topicEndpoint), new AzureKeyCredential(_topicKey));
                 var eventGrid = new EventGridEvent(subject, "RecordingBot.BotEventData", "2.0", new BotEventData { Message = message })
                 {
