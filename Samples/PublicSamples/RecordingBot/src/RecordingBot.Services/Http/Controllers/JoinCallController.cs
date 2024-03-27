@@ -10,6 +10,9 @@ using RecordingBot.Services.Contract;
 using RecordingBot.Services.ServiceSetup;
 using System;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace RecordingBot.Services.Http.Controllers
@@ -55,13 +58,7 @@ namespace RecordingBot.Services.Http.Controllers
             catch (ServiceException e)
             {
                 var problemDetails = new ProblemDetails { Detail = e.ToString(), Status = (int)e.StatusCode };
-                if (e.ResponseHeaders != null)
-                {
-                    foreach (var responseHeader in e.ResponseHeaders)
-                    {
-                        problemDetails.Extensions.AddOrReplace(responseHeader.Key, new StringValues(responseHeader.Value.ToArray()));
-                    }
-                }
+                problemDetails.Extensions.AddOrReplace("responseHeaders", e.ResponseHeaders);
 
                 return StatusCode(500, problemDetails);
             }
