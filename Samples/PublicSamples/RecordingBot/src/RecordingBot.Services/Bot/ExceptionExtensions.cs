@@ -1,8 +1,5 @@
 using Microsoft.Graph.Communications.Common.Telemetry;
-using Microsoft.Graph.Communications.Core.Exceptions;
 using System;
-using System.Net;
-using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
@@ -50,37 +47,6 @@ namespace RecordingBot.Services.Bot
                     filePath: filePath,
                     lineNumber: lineNumber);
             }
-        }
-
-        /// <summary>
-        /// Inspect the exception type/error and return the correct response.
-        /// </summary>
-        /// <param name="exception">The caught exception.</param>
-        /// <returns>The <see cref="HttpResponseMessage" />.</returns>
-        public static HttpResponseMessage InspectExceptionAndReturnResponse(this Exception exception)
-        {
-            if (exception is ServiceException e)
-            {
-                var statusCode = (int)e.StatusCode >= 200 ? e.StatusCode : HttpStatusCode.InternalServerError;
-                var responseToReturn = new HttpResponseMessage(statusCode);
-
-                if (e.ResponseHeaders != null)
-                {
-                    foreach (var responseHeader in e.ResponseHeaders)
-                    {
-                        responseToReturn.Headers.TryAddWithoutValidation(responseHeader.Key, responseHeader.Value);
-                    }
-                }
-
-                return responseToReturn;
-            }
-            else
-            {
-                return new HttpResponseMessage(HttpStatusCode.InternalServerError)
-                {
-                    Content = new StringContent(exception.ToString()),
-                };
-            }
-        }
+        }        
     }
 }
