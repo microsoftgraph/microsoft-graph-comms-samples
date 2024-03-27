@@ -54,15 +54,16 @@ namespace RecordingBot.Services.Http.Controllers
             }
             catch (ServiceException e)
             {
+                var problemDetails = new ProblemDetails { Detail = e.ToString(), Status = (int)e.StatusCode };
                 if (e.ResponseHeaders != null)
                 {
                     foreach (var responseHeader in e.ResponseHeaders)
                     {
-                        Response.Headers.AddOrReplace(responseHeader.Key, new StringValues(responseHeader.Value.ToArray()));
+                        problemDetails.Extensions.AddOrReplace(responseHeader.Key, new StringValues(responseHeader.Value.ToArray()));
                     }
                 }
 
-                return StatusCode((int)e.StatusCode < 300 ? 500 : (int)e.StatusCode, e.ToString());
+                return StatusCode(500, problemDetails);
             }
             catch (Exception e)
             {
