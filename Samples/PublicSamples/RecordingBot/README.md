@@ -41,8 +41,9 @@ Outline the file contents of the repository. It helps users navigate the codebas
 
 ## Getting Started
 
-The easiest way to grasp the basics surrounding compliance bots is to read up on the following documentation topics:
-> 🚩 TODO: 1. Understanding App-Hosted Media Bot Networking  
+The easiest way to grasp the basics surrounding compliance bots is to read up the on the following documentation topics:
+
+- [High Level Overview over the Infrastructure for the Recording Bot](./docs/explanations/recording-bot-overview.md)
 
 > 🚩 TODO: 2. Understanding Entra and Graph Calling Permissions  
 
