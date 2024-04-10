@@ -1,4 +1,4 @@
-# Compliance Policy
+# Compliance Recording Policy
 
 The following steps should be done by an Office 365 administrator.
 
