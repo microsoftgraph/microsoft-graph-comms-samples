@@ -19,10 +19,10 @@ But not all of them are necessary for a compliance recording bots. For a complia
 
 permissions required.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > After configuring the application permissions it is required that an Entra Id adminstrator grants the permission, this also applys for any time the application permissions are changed, changes made to the application permissions of an app registration will not reflect until consent of an Entra Id administarator has been reapplied.
 
 It is possible for administrators to grant the application permissions in the [Azure portal](https://portal.azure.com), but often a better option is to provide a sign-up experience for administrators by using the Entra Id `/adminconsent` endpoint, to do that see also the [instructions on constructing an Admin Consent URL](https://learn.microsoft.com/en-us/entra/identity-platform/v2-admin-consent).
 
-> [!Note]
+> [!Note]  
 > Application permissions of a multi tenant app registration must be granted by an adminstrator of each targeted Entra Id tenant.

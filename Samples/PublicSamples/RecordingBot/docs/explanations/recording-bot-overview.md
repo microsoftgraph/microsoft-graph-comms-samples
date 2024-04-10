@@ -1,6 +1,6 @@
 # High Level Overview
 
-![Image 1,](../images/Overview.png)
+![Image 1,](../images/Overview.svg)
 
 As seen in the image Teams clients communicate with the Teams Server / Teams Communication Platform. When a user under compliance recording policy initiates a call (a call with another user or a call into a meeting) in its teams client, the Teams platform gets the HTTPS notification URL from a bot service that is linked to the Compliance Recording Policy. The Teams Platform uses the notification URL to do a authorized http call to the Recording Application, informing about the user initiating a call, authorization is done with a JWT token in the headers.
 
@@ -20,5 +20,5 @@ The overhead of the TCP endpoints is completly managed by the Microsft SDK for b
 
 So a lot of overhead and endpoint handling is taken care of by the Microsoft SDK for bots. But the SDK also has to be configured: with a valid certificate, the TCP endpoint configuration(DNS name and port) and an implentation of an authorization handler for outgoing API calls with AppId + Secrect of the bot service, that holds the notification URL for new calls, and for validating incoming requests within the initial handshake of the sdk via tcp port. The authorization handler can and should be used for authorizing incoming request on the signaling endpoints.
 
-> [!NOTE]
+> [!NOTE]  
 > The application requires some application permissions on an app registration that is bound to a bot service to be able to answer calls and access media from calls, see the [Application Permissions Page](./recording-bot-permission.md) for reference.
