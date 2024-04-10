@@ -44,8 +44,7 @@ The easiest way to grasp the basics surrounding compliance bots is to read up th
 
 - [High Level Overview over the Infrastructure for the Recording Bot](./docs/explanations/recording-bot-overview.md)
 - [Bot Service - Entra Id and Microsoft Graph API Calling Permissions](./docs/explanations/recording-bot-permission.md)
-
-> 🚩 TODO: 3. Understanding Compliance Recording Policies
+- [Compliance Recording Policies](./docs/explanations/recording-bot-policy.md)
 
 ### Deploy
 
