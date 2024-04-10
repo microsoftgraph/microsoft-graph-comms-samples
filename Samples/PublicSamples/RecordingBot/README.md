@@ -1,4 +1,4 @@
-> **Note**  
+> [!NOTE]
 > Public Samples are provided by developers from the Microsoft Graph community.  
 > Public Samples are not official Microsoft Communication samples, and not supported by the Microsoft Communication engineering team. It is recommended that you contact the sample owner before using code from Public Samples in production systems.
 
@@ -17,14 +17,13 @@ Lead maintainer: [@InDieTasten](https://github.com/InDieTasten)
 **Fork for issues and contributions:**  
 [LM-Development/aks-sample](https://github.com/LM-Development/aks-sample)
 
-
 # Introduction
 
 This sample allows you to build, deploy and test a compliance recording bot running on Azure Kubernetes Service and is currently the only sample demonstrating a basis for zero-downtime deployments and horizontal scaling ability.
 
 The unique purpose of this sample is to demonstrate how to run production grade bots. The bot implementation can easily be changed to fit other use cases other than compliance recording.
 
-### Contents
+## Contents
 
 Outline the file contents of the repository. It helps users navigate the codebase, build configuration and any related assets.
 
@@ -44,8 +43,7 @@ Outline the file contents of the repository. It helps users navigate the codebas
 The easiest way to grasp the basics surrounding compliance bots is to read up the on the following documentation topics:
 
 - [High Level Overview over the Infrastructure for the Recording Bot](./docs/explanations/recording-bot-overview.md)
-
-> 🚩 TODO: 2. Understanding Entra and Graph Calling Permissions  
+- [Bot Service - Entra Id and Microsoft Graph API Calling Permissions](./docs/explanations/recording-bot-permission.md)
 
 > 🚩 TODO: 3. Understanding Compliance Recording Policies
 
@@ -71,7 +69,6 @@ The easiest way to grasp the basics surrounding compliance bots is to read up th
 ## Questions and Support
 
 > For this sample related questions, please open an issue in the [issue tracker](https://github.com/LM-Development/aks-sample/issues) of the fork repository.
-
 
 ---
 
@@ -270,7 +267,7 @@ Provide users with more context on the tools and services used in the sample. Ex
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+the rights to use your contribution. For details, visit <https://cla.opensource.microsoft.com>.
 
 When you submit a pull request, a CLA bot will automatically determine whether you need to provide
 a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions

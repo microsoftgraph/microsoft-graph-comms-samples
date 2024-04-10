@@ -21,4 +21,4 @@ The overhead of the TCP endpoints is completly managed by the Microsft SDK for b
 So a lot of overhead and endpoint handling is taken care of by the Microsoft SDK for bots. But the SDK also has to be configured: with a valid certificate, the TCP endpoint configuration(DNS name and port) and an implentation of an authorization handler for outgoing API calls with AppId + Secrect of the bot service, that holds the notification URL for new calls, and for validating incoming requests within the initial handshake of the sdk via tcp port. The authorization handler can and should be used for authorizing incoming request on the signaling endpoints.
 
 > [!NOTE]
-> The application requires some application permissions on an app registration that is bound to a bot service to be able to answer calls and access media from calls, see the [Application Permissions Page](./application-permission) for reference.
+> The application requires some application permissions on an app registration that is bound to a bot service to be able to answer calls and access media from calls, see the [Application Permissions Page](./recording-bot-permission.md) for reference.
