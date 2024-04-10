@@ -11,11 +11,13 @@ Also the app registration must have some application permissions exposed by the 
 | Calls.JoinGroupCallasGuest.All | Allows the app to anonymously join group calls and scheduled meetings in your organization, without a signed-in user. The app will be joined as a guest to meetings in your tenant. |
 | Calls.AccessMedia.All | Allows the app to get direct access to participant media streams in a call, without a signed-in user. |
 
-But not all of them must be used, required are only:
+But not all of them are necessary for a compliance recording bots. For a compliance recording bot are only
 
 - Calls.AccessMedia.All
 - Calls.JoinGroupCall.All
 - Calls.JoinGroupCallAsGuest.All
+
+permissions required.
 
 > [!IMPORTANT]
 > After configuring the application permissions it is required that an Entra Id adminstrator grants the permission, this also applys for any time the application permissions are changed, changes made to the application permissions of an app registratoin will not reflect until consent of an Entra Id administarator has been reapplied.
