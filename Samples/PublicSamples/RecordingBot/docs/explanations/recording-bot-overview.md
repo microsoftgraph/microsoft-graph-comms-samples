@@ -2,17 +2,28 @@
 
 ![Image 1](../images/Overview.svg)
 
-As seen in the image Microsoft Teams clients communicate with the Micorsoft Teams platform. If a Microsoft Teams user initiates a call (a call with another user or a call into a meeting) in its Microsoft Teams client, the client connects to the Microsoft Teams platform. On the Microsoft Teams platform compliance recording policies are evaluated, if the user is under a policy the HTTPS notification URL from the corresponding bot service is loaded. The Microsoft Teams platform then creates a graph call entity that represent the bot recording applications call into the users call for recording. The call entity is sent to the notification URL, this is the entrypoint for the recording bot application to record the calls.
+As seen in the image Microsoft Teams clients communicate with the Micorsoft Teams platform. The Microsoft Teams Platform communicates with the bot recording application via different channels. It gets a notification URL of the bot recording application from a bot service.
+
+The flow if a Microsoft Teams user initiates a call (a call with another user or a call into a meeting) in the Microsoft Teams client looks approxamatly like this:
+
+1. The users Microsoft Teams client connects to the Microsoft Teams platform.
+2. The Microsoft Teams platform evaluates the compliance recording policies.
+
+    - If the user is under a policy:
+
+3. The Microft Teams platform loads the HTTPS notification URL from the corresponding bot service.
+4. The Microsoft Teams platform creates a call(an entity) on the Graph Communications API for the bot recording application, with destination to the users call and metadata of the users call.
+5. The call is sent to the notification URL of the bot recording application.
 
 > [!IMPORTANT]  
 > The notification URL must be HTTPS and the certificate used must be signed by a valid authority.
 
-After the bot recording application receives a call from the Microsoft Teams platform, the bot recording application should send an answer to the Microsoft Teams platform via the Graph Communications API. The answer of the recording application must contains some configuration settings e.g. the TCP endpoint of the media processor of the bot. The answer can also contain a new notification URL for further notifications regarding the call. With a new notification URL further notifications, of the call that is being answered, are sent to the new URL. The recording bot application receives a notification for every time a user joins, leaves, mutes, starts a screen sharing and more actions users can do in a meeting.
+When the bot recording application receives the notification with the new call from the Microsoft Teams platform, the bot recording application should answer the call via the Graph Communications API. The answer must contain some configuration e.g. the TCP endpoint of the media processor of the bot or a new notification URL for further notifications regarding the call. With a new notification URL further notifications, of the call that is being answered, are sent to the new URL. The recording bot application receives notifications for users joining, leaving, muting, starting screen shares and more.
+
+After the bot recording application answered and accepted a call, the Microsoft Teams platform opens a connection on the provided TCP endpoint. After an initial handshake for authorization and encryption, metadata and media events are transferred via the TCP connection.
 
 > [!IMPORTANT]  
 > The TCP endpoint also requires a certificate signed by a valid authority. The Certificate for the HTTPS endpoint and the TCP endpoint **can** be the same.
-
-After the bot recording application answered and accepted a call, the Microsoft Teams platform opens a connection on the provided TCP endpoint. After an initial handshake for authorization and encryption, metadata and media events are transferred via the TCP connection.
 
 ## Graph Communications SDK
 
