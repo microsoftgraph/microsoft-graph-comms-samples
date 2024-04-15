@@ -1,8 +1,8 @@
 # Compliance Recording Policy
 
-The following steps should be done by an Office 365 administrator.
+The following steps should be done by an Microsoft Entra Id administrator.
 
-The Office 365 Tenant will require at least one user allocated for the bot to be used.
+The Microsoft Entra Id tenant will require at least one user allocated for the bot to be used.
 This can be an existing user or a new one can be created e.g. for testing.
 
 ## Prerequisites
@@ -12,13 +12,13 @@ This can be an existing user or a new one can be created e.g. for testing.
 - PowerShell Module
   - [SkypeForBusiness](https://learn.microsoft.com/en-us/powershell/module/skype/?view=skype-ps)
   - or [MicrosoftTeams](https://learn.microsoft.com/en-us/powershell/module/teams/?view=teams-ps)
-- An Office 365 administrator
+- A Microsoft Entra Id administrator
 
 Throughout this Documentation we will use the `MicrosoftTeams` PowerShell Module.  
 You can also use the SkypeForBusiness Module, either one works.
 The relevant Commands are available in both Modules.
 
-You will use the Office 365 administrator for all commands.  
+You will use the Microsoft Entra Id administrator for all commands.  
 How to assign policies to a user is outside the scope of this documentation.
 
 ### Run PowerShell (as admin)
@@ -46,7 +46,7 @@ In an evelated (Run as Admin) PowerShell Terminal execute the following command
 `Import-Module MicrosoftTeams`  
 and then  
 `Connect-MicrosoftTeams`  
-You will need to sign in with your Azure Credentials (Office 365 Administrator) here
+You will need to sign in with your Azure Credentials (Microsoft Entra Id administrator) here
 
 For further Information check [Install the Microsoft Teams PowerShell Module](https://learn.microsoft.com/en-us/microsoftteams/teams-powershell-install#installing-using-the-powershellgallery) and [sign in with your Azure Credentials](https://learn.microsoft.com/en-us/microsoftteams/teams-powershell-install#sign-in)
 

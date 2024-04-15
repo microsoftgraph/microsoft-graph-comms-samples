@@ -46,10 +46,7 @@ The easiest way to grasp the basics surrounding compliance bots is to read up th
 
 ### Deploy
 
-> 🚩 TODO: Prerequisites
-
-> 🚩 TODO: AKS, bot registration, permissions, docker, helm, compliance policies
-
+[Deploy the recording bot sample to AKS with the tutorial](./docs/tutorials/deploy-tutorial.md), to get you're own recording bot up and running.
 
 ### Local Run
 
