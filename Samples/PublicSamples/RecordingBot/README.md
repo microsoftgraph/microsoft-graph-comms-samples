@@ -25,8 +25,6 @@ The unique purpose of this sample is to demonstrate how to run production grade 
 
 ## Contents
 
-Outline the file contents of the repository. It helps users navigate the codebase, build configuration and any related assets.
-
 | File/folder       | Description                                |
 |-------------------|--------------------------------------------|
 | `build`           | Contains `Dockerfile` to containerise app. |
