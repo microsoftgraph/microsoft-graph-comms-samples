@@ -43,8 +43,8 @@ More variable names that are used representative in this tutorial are:
 | What? | Value |
 | ----- | ----- |
 | AKS DNS entry | `recordingbottutorial`_.cloudapp.westeurope.azure.com_ |
-| Bot Service App Registration Id | `00000000-0000-0000-0000-000000000000` |  
-| Bot Service App Registration Secret | `abcdefghijklmnopqrstuvwxyz` |
+| App Registration Id | `00000000-0000-0000-0000-000000000000` |  
+| App Registration Secret | `abcdefghijklmnopqrstuvwxyz` |
 | Recording Policy Name | `TutorialPolicy` |
 | Recording Policy Application Instance UPN | `tutorialbot@lm-ag.de` |
 | Recording Policy Application Instance Display Name | `Tutorial Bot` |
