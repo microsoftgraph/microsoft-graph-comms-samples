@@ -3,6 +3,7 @@
 An Azure bot service can be created with an existing app registration in the Microsoft Entra Id or can create a new app registration in the Microsoft Entra Id on creation. The app registration can be a single tenant app registration or a multi tenant app registration, also see ["Tenancy in Microsoft Entra ID" documentaion](https://learn.microsoft.com/en-us/entra/identity-platform/single-and-multi-tenant-apps). Either way it is required that the Microsoft Entra Id app registration and the bot service are linked.
 
 Also the app registration must have some application permissions exposed by the Microsoft Graph API that allow the recording application to join calls and access the media streams. The following Microsoft Graph API application permissions are relevant for the recording bot:
+
 | permission | description |
 |------------|-------------|
 | [Calls.Initiate.All](https://learn.microsoft.com/en-us/graph/permissions-reference#callsinitiateall) | Allows the app to place outbound calls to a single user and transfer calls to users in your organization's directory, without a signed-in user. |
