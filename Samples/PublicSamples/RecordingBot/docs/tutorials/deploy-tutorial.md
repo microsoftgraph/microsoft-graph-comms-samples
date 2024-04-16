@@ -12,6 +12,8 @@ In this tutorial we learn how to deploy the recording bot sample to a new AKS Cl
 - [kubectl command line tool](https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/)
   - This tutorial also shows how to install kubectl with the azure command line tool
 - [Microsoft Entra Id Tenant](https://learn.microsoft.com/en-us/entra/fundamentals/create-new-tenant) [with Microsoft Teams users](https://learn.microsoft.com/en-us/entra/fundamentals/license-users-groups)
+- [Microsoft Azure Subscription](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/create-subscription)
+  - The subscription in this tutorial is called `recordingbotsubscription`, also see [variables](#variables).
 - Microsoft Entra Id adminstrator
 
 The Microsoft Entra Id adminstrator is required to create recording policies and to approve application permission of the app registration. Within this tutorial it is assumed we are a Microsoft Entra Id administrator and always log in as such unless the tutorial requires otherwise.
@@ -26,7 +28,7 @@ The Microsoft Entra Id adminstrator is required to create recording policies and
 6. [Create and assign a Recording Policy](./deploy/policy.md)
 7. [Verify functionality](./deploy/test.md)
 
-## Defining Variables
+## Variables
 
 Througout this tutorial we will create some azure resources. The names we choose in this tutorial are:
 
@@ -37,6 +39,7 @@ Througout this tutorial we will create some azure resources. The names we choose
 | Azure Container Registry | `recordingbotregistry` |
 | App Registration | `recordingbotregistration` |
 | Bot Service | `recordingbotservice` |
+| Azure Subscription | `recordingbotsubscription` |
 
 More variable names that are used representative in this tutorial are:
 
@@ -53,6 +56,9 @@ More variable names that are used representative in this tutorial are:
 | Kubernetes Deployment Name | `recordingbottutorial` |
 | Bot Name within the application | `Tutorial Bot` |
 | Let's Encrypt Email address | `tls-security@lm-ag.de` |
+| Windows Nodepool | `win22` |
+| Azure Subscription Id | `yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyyy` |
+| Azure Region | `westeurope` |
 
 > [!TIP]  
 > Consider to define own variable values before we start. Keep in mind the Azure resources have limitations for naming, read [this](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules) for reference. The app registration values, the object id of the application instance and the Microsoft Entra Id Tenant Id are automatically generated, don't forget to replace the placeholders with the actual values.
