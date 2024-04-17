@@ -6,7 +6,7 @@ We'll start with deploying an AKS cluster, on the AKS cluster we later deploy th
 az login --tenant 99999999-9999-9999-9999-999999999999
 ```
 
-After running the command, it should show the following message:
+After running the command, we see the following message:
 
 ```text
 The default web browser has been opened at https://login.microsoftonline.com/99999999-9999-9999-9999-999999999999/oauth2/v2.0/authorize. Please continue the login in the web browser. If no web browser is available or if the web browser fails to open, use device code flow with `az login --use-device-code`.
@@ -644,7 +644,7 @@ If the command ran successful the result will look like:
 }
 ```
 
-As we can see a field added to the resource called `dnsSettings`. Within the DNS settings we can see the custom part of our DNS record and the fully qualified domain name (fqdn), that we came up with.
+As we can see a field was added to the resource called `dnsSettings`. Within the DNS settings we can see the custom part of our DNS record, that we came up with, and the fully qualified domain name (fqdn) with the postfix provided by Azure.
 
 If the fqdn already exists we would get the follwing error message.
 
@@ -660,7 +660,7 @@ then we have to come up with a new prefix for the DNS record.
 
 If we have the tool already installed we can skip this part and [get the credentials for our aks cluster](#get-aks-credentials).
 
-We can install the command line tool with the Azure command line tool:
+We can install kubectl with the Azure command line tool:
 
 ```powershell
 az aks install-cli
