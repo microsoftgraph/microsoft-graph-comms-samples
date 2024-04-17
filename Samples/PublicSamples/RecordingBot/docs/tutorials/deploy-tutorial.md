@@ -45,7 +45,7 @@ More variable names that are used representative in this tutorial are:
 
 | What? | Value |
 | ----- | ----- |
-| AKS DNS entry | `recordingbottutorial`_.cloudapp.westeurope.azure.com_ |
+| AKS DNS record | `recordingbottutorial`_.westeurope.cloudapp.azure.com_ |
 | App Registration Id | `00000000-0000-0000-0000-000000000000` |  
 | App Registration Secret | `abcdefghijklmnopqrstuvwxyz` |
 | Recording Policy Name | `TutorialPolicy` |
@@ -53,7 +53,10 @@ More variable names that are used representative in this tutorial are:
 | Recording Policy Application Instance Display Name | `Tutorial Bot` |
 | Recording Policy Application Instance Object Id | `11111111-1111-1111-1111-111111111111` |
 | Microsoft Entra Id Tenant Id | `99999999-9999-9999-9999-999999999999` |
-| Kubernetes Deployment Name | `recordingbottutorial` |
+| Kubernetes Recording Bot Deployment Name | `recordingbottutorial` |
+| Kubernetes Recording Bot Namespace | `recordingbottutorial` |
+| Kubernetes Cert-Manager Deployment Name | `cert-manager` |
+| Kubernetes Cert-Manager Namespace | `cert-manager` |
 | Bot Name within the application | `Tutorial Bot` |
 | Let's Encrypt Email address | `tls-security@lm-ag.de` |
 | Windows Nodepool | `win22` |
