@@ -373,12 +373,347 @@ This command also needs some time to complete, our result output should look sim
 }
 ```
 
-Very nice so far so now our AKS cluster has 1 linux system node and 2 windows nodes for our recording application.
+Now our AKS cluster has 1 linux system node and 2 windows nodes for our recording application.
 
 ## Untaint system nodepool
 
+Later we need to run some applications on our system nodes. But sometimes the system nodes have _taints_ that don't allow scheduling new pods, that means we can't run our applications on the nodes.
+
+### Check if system nodepool is tainted
+
+So let's first check if our system nodepool has taints that would cause problems when scheduling.
+
+```powershell
+az aks nodepool list 
+    --cluster-name recordingbotcluster
+    --resource-group recordingbottutorial
+    --subscription  "recordingbotsubscription" | Select-String 
+            -Pattern 'name','nodeTaints','{','}','[',']','mode','NoSchedule' 
+            -SimpleMatch 
+            -NoEmphasis
+```
+
+The result of this should look like
+
+```json
+[
+  {
+    "mode": "System",
+    "name": "nodepool1",
+    "nodeTaints": [
+      "CriticalAddonsOnly=true:NoSchedule"
+    ],
+    "powerState": {
+    },
+    "scaleDownMode": null,
+    "upgradeSettings": {
+    },
+  },
+  {
+    "mode": "User",
+    "name": "win22",
+    "nodeTaints": null,
+    "powerState": {
+    },
+    "scaleDownMode": "Delete",
+    "upgradeSettings": {
+    },
+  }
+]
+```
+
+As we can see the result is a JSON array of objects, each of the object is a nodepool of our aks cluster. To identify which nodepool we are looking at, search for the _name_ field in the object. We have our windows nodepool, that we called `win22`, the other object must be the system nodepool, in our case it is called `nodepool1`.
+
+> [!Note]  
+> The _mode_ field of `nodepool1` shows `System` while the _mode_ field of the `win22` nodepool shows `User`.
+
+To check now if our system nodepool `nodepool1` is tainted check the _nodeTaints_ field of the nodepool. If the field has the value of `null` we can continue with [setting the DNS name](#set-dns-name). If it's not the case, like in our case, we have to untaint the nodepool. If your system nodepool has a different name replace `nodepool1` with the name you see in your previous result.
+
+```powershell
+az aks nodepool update 
+    --cluster-name recordingbotcluster
+    --name nodepool1
+    --resource-group recordingbottutorial
+    --subscription "recordingbotsubscription"
+    --%
+    --node-taints ""
+```
+
+The result of the command should look similar to:
+
+```json
+{
+  "availabilityZones": null,
+  "capacityReservationGroupId": null,
+  "count": 1,
+  "creationData": null,
+  "currentOrchestratorVersion": "1.28.5",
+  "enableAutoScaling": false,
+  "enableEncryptionAtHost": false,
+  "enableFips": false,
+  "enableNodePublicIp": false,
+  "enableUltraSsd": false,
+  "gpuInstanceProfile": null,
+  "hostGroupId": null,
+  "id": "/subscriptions/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyyy/resourcegroups/recordingbottutorial/providers/Microsoft.ContainerService/managedClusters/recordingbotcluster/agentPools/nodepool1",
+  "kubeletConfig": null,
+  "kubeletDiskType": "OS",
+  "linuxOsConfig": null,
+  "maxCount": null,
+  "maxPods": 30,
+  "minCount": null,
+  "mode": "System",
+  "name": "nodepool1",
+  "networkProfile": null,
+  "nodeImageVersion": "AKSUbuntu-2204gen2containerd-202403.25.0",
+  "nodeLabels": null,
+  "nodePublicIpPrefixId": null,
+  "nodeTaints": null,
+  "orchestratorVersion": "1.28.5",
+  "osDiskSizeGb": 128,
+  "osDiskType": "Managed",
+  "osSku": "Ubuntu",
+  "osType": "Linux",
+  "podSubnetId": null,
+  "powerState": {
+    "code": "Running"
+  },
+  "provisioningState": "Succeeded",
+  "proximityPlacementGroupId": null,
+  "resourceGroup": "recordingbottutorial",
+  "scaleDownMode": null,
+  "scaleSetEvictionPolicy": null,
+  "scaleSetPriority": null,
+  "spotMaxPrice": null,
+  "tags": null,
+  "type": "Microsoft.ContainerService/managedClusters/agentPools",
+  "typePropertiesType": "VirtualMachineScaleSets",
+  "upgradeSettings": {
+    "drainTimeoutInMinutes": null,
+    "maxSurge": "10%",
+    "nodeSoakDurationInMinutes": null
+  },
+  "vmSize": "standard_d2s_v3",
+  "vnetSubnetId": null,
+  "workloadRuntime": null
+}
+```
+
+As you can see the _nodeTaints_ field now updated to `null`.
+
 ## Set DNS name
 
-## Install kubectl tools
+When we created our AKS cluster, we automatically created a public IP too. Now we need to create a DNS name for the public IP. The resouce of the IP is not in our default resource group `recordingbottutorial`, because the creation of our AKS cluster created a Resource group with the managed resources. If you already know the resource group name of the managed resources, you can coninue with [getting the public IP resource name](#get-the-public-ip-resource-name).
 
-## Get AKS Credentials
+### Get the managed resources resource group name
+
+We can find the managed resource group in the description of the AKS cluster:
+
+```powershell
+az aks show
+    --resource-group recordingbottutorial
+    --name recordingbotcluster
+    --subscription "recordingbotsubscription" | Select-String 
+            -Pattern 'nodeResourceGroup' 
+            -SimpleMatch
+            -NoEmphasis
+```
+
+This will give us the response
+
+```json
+  "nodeResourceGroup": "MC_recordingbottutorial_recordingbotcluster_westeurope",
+```
+
+as the node resource group is the resource group where our cluster manges the resources, in our case the resource group is called `MC_recordingbottutorial_recordingbotcluster_westeurope`.
+
+### Get the public IP resource name
+
+Next we need the resource name of the public IP. To get the name we list the public IP resources in the managed resource group.
+
+```powershell
+az network public-ip list 
+    --resource-group MC_recordingbottutorial_recordingbotcluster_westeurope
+    --subscription "recordingbotsubscription"
+```
+
+The resulting list
+
+```json
+[
+  {
+    "ddosSettings": {
+      "protectionMode": "VirtualNetworkInherited"
+    },
+    "etag": "W/\"f5508f05-0e65-479a-9399-d436f02e0a66\"",
+    "id": "/subscriptions/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyyy/resourceGroups/MC_recordingbottutorial_recordingbotcluster_westeurope/providers/Microsoft.Network/publicIPAddresses/cab190bb-ec74-478e-b7f1-b36c83bfa94e",
+    "idleTimeoutInMinutes": 4,
+    "ipAddress": "108.141.184.42",
+    "ipConfiguration": {
+      "id": "/subscriptions/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyyy/resourceGroups/MC_recordingbottutorial_recordingbotcluster_westeurope/providers/Microsoft.Network/loadBalancers/kubernetes/frontendIPConfigurations/cab190bb-ec74-478e-b7f1-b36c83bfa94e",
+      "resourceGroup": "MC_recordingbottutorial_recordingbotcluster_westeurope"
+    },
+    "ipTags": [],
+    "location": "westeurope",
+    "name": "cab190bb-ec74-478e-b7f1-b36c83bfa94e",
+    "provisioningState": "Succeeded",
+    "publicIPAddressVersion": "IPv4",
+    "publicIPAllocationMethod": "Static",
+    "resourceGroup": "MC_recordingbottutorial_recordingbotcluster_westeurope",
+    "resourceGuid": "539f439e-5c50-4bc6-a4a9-fb2d102e88f3",
+    "sku": {
+      "name": "Standard",
+      "tier": "Regional"
+    },
+    "tags": {
+      "aks-managed-cluster-name": "recordingbotcluster",
+      "aks-managed-cluster-rg": "recordingbottutorial",
+      "aks-managed-type": "aks-slb-managed-outbound-ip"
+    },
+    "type": "Microsoft.Network/publicIPAddresses",
+    "zones": [
+      "3",
+      "1",
+      "2"
+    ]
+  }
+]
+```
+
+The list only has one element as our AKS cluster only created one public IP, in our case the name of the public IP is `cab190bb-ec74-478e-b7f1-b36c83bfa94e`.
+
+### Set DNS name for public IP resource
+
+With the managed resource group name and the public IP resource name, we can now set a DNS name for the public IP resource with the command:
+
+```powershell
+az network public-ip update 
+    --resource-group MC_recordingbottutorial_recordingbotcluster_westeurope 
+    --name cab190bb-ec74-478e-b7f1-b36c83bfa94e
+    --dns-name recordingbottutorial
+    --subscription "recordingbotsubscription"
+```
+
+Don't forget to replace the DNS name with your own AKS DNS record, only the variable part, for example we chose `recordingbottutorial`_.westeurope.cloudapp.azure.com_ so for the `--dns-name` parameter we enter `recordingbottutorial`.
+
+> [!WARNING]  
+> The DNS record that is created from our custom part and the postfix must be globally unique.
+
+If the command ran successful the result will look like:
+
+```json
+{
+  "ddosSettings": {
+    "protectionMode": "VirtualNetworkInherited"
+  },
+  "dnsSettings": {
+    "domainNameLabel": "recordingbottutorial",
+    "fqdn": "recordingbottutorial.westeurope.cloudapp.azure.com"
+  },
+  "etag": "W/\"dc9d1467-e11a-46fa-bf7d-ad60a7713c7f\"",
+  "id": "/subscriptions/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyyy/resourceGroups/MC_recordingbottutorial_recordingbotcluster_westeurope/providers/Microsoft.Network/publicIPAddresses/cab190bb-ec74-478e-b7f1-b36c83bfa94e",
+  "idleTimeoutInMinutes": 4,
+  "ipAddress": "108.141.184.42",
+  "ipConfiguration": {
+    "id": "/subscriptions/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyyy/resourceGroups/MC_recordingbottutorial_recordingbotcluster_westeurope/providers/Microsoft.Network/loadBalancers/kubernetes/frontendIPConfigurations/cab190bb-ec74-478e-b7f1-b36c83bfa94e",
+    "resourceGroup": "MC_recordingbottutorial_recordingbotcluster_westeurope"
+  },
+  "ipTags": [],
+  "location": "westeurope",
+  "name": "cab190bb-ec74-478e-b7f1-b36c83bfa94e",
+  "provisioningState": "Succeeded",
+  "publicIPAddressVersion": "IPv4",
+  "publicIPAllocationMethod": "Static",
+  "resourceGroup": "MC_recordingbottutorial_recordingbotcluster_westeurope",
+  "resourceGuid": "539f439e-5c50-4bc6-a4a9-fb2d102e88f3",
+  "sku": {
+    "name": "Standard",
+    "tier": "Regional"
+  },
+  "tags": {
+    "aks-managed-cluster-name": "recordingbotcluster",
+    "aks-managed-cluster-rg": "recordingbottutorial",
+    "aks-managed-type": "aks-slb-managed-outbound-ip"
+  },
+  "type": "Microsoft.Network/publicIPAddresses",
+  "zones": [
+    "3",
+    "1",
+    "2"
+  ]
+}
+```
+
+As we can see a field added to the resource called `dnsSettings`. Within the DNS settings we can see the custom part of our DNS record and the fully qualified domain name (fqdn), that we came up with.
+
+If the fqdn already exists we would get the follwing error message.
+
+```text
+(DnsRecordInUse) DNS record recordingbottutorial.westeurope.cloudapp.azure.com is already used by another public IP.
+Code: DnsRecordInUse
+Message: DNS record recordingbottutorial.westeurope.cloudapp.azure.com is already used by another public IP.
+```
+
+then we have to come up with a new prefix for the DNS record.
+
+## Install kubectl tool
+
+If we have the tool already installed we can skip this part and [get the credentials for our aks cluster](#get-aks-credentials).
+
+We can install the command line tool with the Azure command line tool:
+
+```powershell
+az aks install-cli
+```
+
+The resulting output should look similar to
+
+```text
+The detected architecture of current device is "amd64", and the binary for "amd64" will be downloaded. If the detection is wrong, please download and install the binary corresponding to the appropriate architecture.
+No version specified, will get the latest version of kubectl from "https://storage.googleapis.com/kubernetes-release/release/stable.txt"
+Downloading client to "C:\Users\User\.azure-kubectl\kubectl.exe" from "https://storage.googleapis.com/kubernetes-release/release/v1.29.4/bin/windows/amd64/kubectl.exe"
+No version specified, will get the latest version of kubelogin from "https://api.github.com/repos/Azure/kubelogin/releases/latest"
+Downloading client to "C:\Users\User\AppData\Local\Temp\tmp56tfm9jk\kubelogin.zip" from "https://github.com/Azure/kubelogin/releases/download/v0.1.1/kubelogin.zip"
+Moving binary to "C:\Users\User\.azure-kubelogin\kubelogin.exe" from "C:\Users\User\AppData\Local\Temp\tmp56tfm9jk\bin\windows_amd64\kubelogin.exe"
+```
+
+Now we installed the command line tools for our kubernetes cluster, we might need to restart our powershell.
+
+## Get AKS credentials
+
+To deploy resources to our AKS cluster and do the operations with the kubernetes command line tool (kubectl), we need access to our cluster. We can get the credentials for kubectl with the azure command line tool:
+
+```powershell
+az aks get-credentials 
+    --name recordingbotcluster
+    --resource-group recordingbottutorial
+    --subscription "recordingbotsubscription"
+```
+
+A successful result will look like:
+
+```text
+Merged "recordingbotcluster" as current context in C:\Users\User\.kube\config
+```
+
+To test if it really was successful we will try to list the nodes in our kubernetes cluster with kubectl
+
+```powershell
+kubectl get nodes
+```
+
+If the run was successful the result will look like:
+
+```text
+NAME                                STATUS   ROLES   AGE     VERSION
+aks-nodepool1-18840134-vmss000001   Ready    agent   4h31m   v1.28.5
+akswin22000002                      Ready    agent   4h29m   v1.28.5
+akswin22000003                      Ready    agent   4h29m   v1.28.5
+```
+
+> [!TIP]  
+> If you experience problems with kubectl and did not install kubectl with the azure command line tool, try to [install kubectl with azure command line tool](#install-kubectl-tool).
+
+As a small summary we now created an AKS cluster, added a windows nodepool, made sure we can use the system nodes, set up a DNS record into the cluster and got the credentials to do deployments to our AKS cluster from our machine.
+
+Next we can [deploy an Azure container registry](./acr.md).
