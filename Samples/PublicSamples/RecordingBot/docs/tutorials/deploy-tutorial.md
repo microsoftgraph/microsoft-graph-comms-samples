@@ -22,7 +22,7 @@ The Microsoft Entra Id administrator is required to create recording policies an
 
 1. [Deploy an AKS Cluster](./deploy/aks.md)
 2. [Deploy an Azure Container Registry](./deploy/acr.md)
-3. [Clone Code and build Docker Image](./deploy/build.md)
+3. [Clone and build recording bot application](./deploy/build.md)
 4. [Deploy and configure Bot Service](./deploy/bot-service.md)
 5. [Deploy Recording Sample to AKS Cluster](./deploy/helm-deploy.md)
 6. [Create and assign a Recording Policy](./deploy/policy.md)
@@ -32,14 +32,14 @@ The Microsoft Entra Id administrator is required to create recording policies an
 
 Throughout this tutorial we will create azure resources. The names we choose in this tutorial are:
 
-| Ressource | Name |
-| --------- | ---- |
-| Ressource Group | `recordingbottutorial` |
-| AKS Cluster | `recordingbotcluster` |
-| Azure Container Registry | `recordingbotregistry` |
-| App Registration | `recordingbotregistration` |
-| Bot Service | `recordingbotservice` |
-| Azure Subscription | `recordingbotsubscription` |
+|         Resource         |            Name            |
+| ------------------------ | -------------------------- |
+| Resource Group           | `recordingbottutorial`     |
+| AKS Cluster              | `recordingbotcluster`      |
+| Azure Container Registry | `recordingbotregistry`     |
+| App Registration         | `recordingbotregistration` |
+| Bot Service              | `recordingbotservice`      |
+| Azure Subscription       | `recordingbotsubscription` |
 
 Variables that are used in this tutorial are:
 
@@ -62,6 +62,8 @@ Variables that are used in this tutorial are:
 | Windows Nodepool | `win22` |
 | Azure Subscription Id | `yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyyy` |
 | Azure Region | `westeurope` |
+| Directory for source code | `C:\Users\User\recordingbottutorial\` |
+| Recording Application Docker Container Tag | `recordingbottutorial/application:latest` |
 
 > [!TIP]  
 > Consider to define own variable values before we start. Keep in mind the Azure resources have limitations for naming, read [this](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules) for reference. The app registration values, the object id of the application instance and the Microsoft Entra Id Tenant Id are automatically generated. Do not forget to replace the placeholders with the actual values.
