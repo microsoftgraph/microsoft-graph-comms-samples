@@ -16,7 +16,7 @@ In this tutorial we learn how to deploy the recording bot sample to a new AKS Cl
   - The subscription in this tutorial is called `recordingbotsubscription`, also see [variables](#variables).
 - Microsoft Entra Id adminstrator
 
-The Microsoft Entra Id adminstrator is required to create recording policies and to approve application permission of the app registration. Within this tutorial it is assumed we are a Microsoft Entra Id administrator and always log in as such unless the tutorial requires otherwise.
+The Microsoft Entra Id administrator is required to create recording policies and to approve application permissions of the app registration. This tutorial assumes we are a Microsoft Entra Id administrator and always log in as such unless the tutorial requires otherwise.
 
 ## Contents
 
@@ -30,7 +30,7 @@ The Microsoft Entra Id adminstrator is required to create recording policies and
 
 ## Variables
 
-Througout this tutorial we will create some azure resources. The names we choose in this tutorial are:
+Throughout this tutorial we will create azure resources. The names we choose in this tutorial are:
 
 | Ressource | Name |
 | --------- | ---- |
@@ -41,7 +41,7 @@ Througout this tutorial we will create some azure resources. The names we choose
 | Bot Service | `recordingbotservice` |
 | Azure Subscription | `recordingbotsubscription` |
 
-More variable names that are used representative in this tutorial are:
+Variables that are used in this tutorial are:
 
 | What? | Value |
 | ----- | ----- |
@@ -64,6 +64,6 @@ More variable names that are used representative in this tutorial are:
 | Azure Region | `westeurope` |
 
 > [!TIP]  
-> Consider to define own variable values before we start. Keep in mind the Azure resources have limitations for naming, read [this](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules) for reference. The app registration values, the object id of the application instance and the Microsoft Entra Id Tenant Id are automatically generated, don't forget to replace the placeholders with the actual values.
+> Consider to define own variable values before we start. Keep in mind the Azure resources have limitations for naming, read [this](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules) for reference. The app registration values, the object id of the application instance and the Microsoft Entra Id Tenant Id are automatically generated. Do not forget to replace the placeholders with the actual values.
 
-Now let's start [deploy an aks cluster](./deploy/aks.md)
+Now let us start [deploy an aks cluster](./deploy/aks.md)
