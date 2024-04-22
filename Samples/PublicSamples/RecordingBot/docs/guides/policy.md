@@ -149,7 +149,9 @@ Grant-CsTeamsComplianceRecordingPolicy
     -PolicyName <Recording Policy Name>
 ```
 
-This assigns the policy to the user specified by its user principal name(upn), the user principal name is often also the email of the user, but it doesn't have to, the upn of a user can be found in the user overview of the [Microsoft Entra Admin Center](https://entra.microsoft.com).
+This assigns the policy to the user specified by its user principal name(UPN).
+The UPN is often also the email address of the user, but it does not have to be.
+The upn of a user can be found in the user overview of the [Microsoft Entra Admin Center](https://entra.microsoft.com).
 
 To verify if the policy was successfully assigned, you can run:
 
@@ -175,8 +177,11 @@ Grant-CsTeamsComplianceRecordingPolicy
       -PolicyName <Recording Policy Name>
 ```
 
-This assigns the policy to all users of the group specified by the object id of the group. Groups can be security groups and Microsoft 365 groups, the object id of a group can be found in the group overview of the [Microsft Entra Admin Center](https://entra.microsoft.com)
+This assigns the policy to all users of the group specified by the object id of the group.
+Groups can be security groups and Microsoft 365 groups,
+the object id of a group can be found in the group overview of the [Microsft Entra Admin Center](https://entra.microsoft.com).
 
 ## Remove Recording Policy Assignment
 
-Removing a Recording Policy Assignment is very similar to assigning a recording Policy instead of specifying the Policy Name `$null` should be used for the Policy Name parameter.
+Removing a recording policy Assignment is very similar to assigning a recording policy.
+Passing `$null` as the `PolicyName` parameter will remove a recording policy.
