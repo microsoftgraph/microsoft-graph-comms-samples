@@ -38,7 +38,7 @@ The unique purpose of this sample is to demonstrate how to run production grade 
 
 ## Getting Started
 
-The easiest way to grasp the basics surrounding compliance bots is to read up the on the following documentation topics:
+The easiest way to grasp the basics surrounding compliance bots is to read up on the following documentation topics:
 
 - [High Level Overview over the Infrastructure for the Recording Bot](./docs/explanations/recording-bot-overview.md)
 - [Bot Service - Entra Id and Microsoft Graph API Calling Permissions](./docs/explanations/recording-bot-permission.md)
