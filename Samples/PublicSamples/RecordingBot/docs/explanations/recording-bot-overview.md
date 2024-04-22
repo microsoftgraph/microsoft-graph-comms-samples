@@ -4,7 +4,7 @@
 
 As seen in the image, Microsoft Teams clients communicate with the Micorsoft Teams platform, which communicates with the bot recording application via different channels. It gets a notification URL of the bot recording application from a bot service.
 
-The following list represents the default flow of a onoe to one call or meeting, initiated by a Microsoft Teams user.
+The following list represents the default flow of a one to one call or meeting, initiated by a Microsoft Teams user.
 
 1. The users Microsoft Teams client connects to the Microsoft Teams platform.
 2. The Microsoft Teams platform evaluates the compliance recording policies.

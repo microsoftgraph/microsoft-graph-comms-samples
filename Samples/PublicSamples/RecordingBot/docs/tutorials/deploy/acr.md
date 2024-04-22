@@ -89,7 +89,7 @@ Registration succeeded.
 
 ## Attach Container Registry to AKS cluster
 
-Next we'll attach the container registry to our AKS cluster, then our AKS cluster can pull docker images from the container registry.
+Next we will attach the container registry to our AKS cluster, then our AKS cluster can pull docker images from the container registry.
 
 ```powershell
 az aks update 
