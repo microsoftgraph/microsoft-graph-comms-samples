@@ -1,6 +1,6 @@
 # Deploy Tutorial
 
-In this tutorial we learn how to deploy the recording bot sample to a new AKS Cluster and set up a Recording Policy for all users within our Tenant.
+In this tutorial we learn how to deploy the recording bot sample to a new AKS Cluster. We will also set up a Recording Policy for all users within our Tenant and see the compliance redording banner in our teams client.
 
 ## Prerequisites
 
