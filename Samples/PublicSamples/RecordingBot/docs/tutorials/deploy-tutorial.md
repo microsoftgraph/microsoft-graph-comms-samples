@@ -47,12 +47,12 @@ Variables that are used in this tutorial are:
 |                        What?                        |                          Value                          |
 | --------------------------------------------------- | ------------------------------------------------------- |
 | AKS DNS record                                      | `recordingbottutorial`_.westeurope.cloudapp.azure.com_  |
-| App Registration Id                                 | _96df737b-1b07-42ec-95e4-786d4190e4d4_                  |  
+| App Registration Id                                 | _cccccccc-cccc-cccc-cccc-cccccccccccc_                  |  
 | App Registration Secret                             | _abcdefghijklmnopqrstuvwxyz_                            |
 | Recording Policy Name                               | `TutorialPolicy`                                        |
 | Recording Policy Application Instance UPN           | `tutorialbot@lm-ag.de`                                  |
 | Recording Policy Application Instance Display Name  | `Tutorial Bot`                                          |
-| Recording Policy Application Instance Object Id     | `11111111-1111-1111-1111-111111111111`                  |
+| Recording Policy Application Instance Object Id     | _11111111-1111-1111-1111-111111111111_                  |
 | Microsoft Entra Id Tenant Id                        | _99999999-9999-9999-9999-999999999999_                  |
 | Kubernetes Recording Bot Deployment Name            | `recordingbottutorial`                                  |
 | Kubernetes Recording Bot Namespace                  | `recordingbottutorial`                                  |
@@ -67,6 +67,6 @@ Variables that are used in this tutorial are:
 | Recording Application Docker Container Tag          | `recordingbottutorial/application:latest`               |
 
 > [!TIP]  
-> Consider to define own variable values before we start. Keep in mind the Azure resources have limitations for naming, read [this](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules) for reference. The app registration values, the object id of the application instance and the Microsoft Entra Id Tenant Id are automatically generated. Do not forget to replace the placeholders with the actual values.
+> Consider to define own variable values before we start. Keep in mind the Azure resources have limitations for naming, read [this](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules) for reference. Some Values are automatically generated and can't be changed, but needs to be replaced with you're custom values.
 
 Now let us start [create an aks cluster](./deploy/1-aks.md)

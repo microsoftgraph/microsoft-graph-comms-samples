@@ -29,7 +29,7 @@ The output should look similar to:
     "preAuthorizedApplications": [],
     "requestedAccessTokenVersion": null
   },
-  "appId": "96df737b-1b07-42ec-95e4-786d4190e4d4",
+  "appId": "cccccccc-cccc-cccc-cccc-cccccccccccc",
   "appRoles": [],
   "applicationTemplateId": null,
   "certification": null,
@@ -93,7 +93,7 @@ The output should look similar to:
 }
 ```
 
-Now it is very important that you write down the value of your _appId_-field as this is the App Registration Id, in the example output this value is: `96df737b-1b07-42ec-95e4-786d4190e4d4`
+Now it is very important that you write down the value of your _appId_-field as this is the App Registration Id, in the example output this value is: `cccccccc-cccc-cccc-cccc-cccccccccccc`
 
 ### Add Graph API application permission
 
@@ -107,7 +107,7 @@ The three permissions we add for our recording bot are:
 
 ```powershell
 az ad app permission add
-    --id 96df737b-1b07-42ec-95e4-786d4190e4d4
+    --id cccccccc-cccc-cccc-cccc-cccccccccccc
     --api 00000003-0000-0000-c000-000000000000
     --api-permissions a7a681dc-756e-4909-b988-f160edc6655f=Role f6b49018-60ab-4f81-83bd-22caeabfed2d=Role fd7ccf6b-3d28-418b-9701-cd10f5cd2fd4=Role
 ```
@@ -115,7 +115,7 @@ az ad app permission add
 The output the command should look similar to:
 
 ```text
-Invoking `az ad app permission grant --id 96df737b-1b07-42ec-95e4-786d4190e4d4 --api 00000003-0000-0000-c000-000000000000` is needed to make the change effective
+Invoking `az ad app permission grant --id cccccccc-cccc-cccc-cccc-cccccccccccc --api 00000003-0000-0000-c000-000000000000` is needed to make the change effective
 ```
 
 ### Grant application permssion to tenant
@@ -124,7 +124,7 @@ As we use application permissions we have to grant the application permissions t
 
 ```powershell
 az ad app permission admin-consent
-    --id 96df737b-1b07-42ec-95e4-786d4190e4d4
+    --id cccccccc-cccc-cccc-cccc-cccccccccccc
 ```
 
 If the command ran command run successful we shouldn't see any output text in our console.
@@ -135,7 +135,7 @@ Next we create an App Secret for our App Registration, that our recording bot ap
 
 ```powershell
 az ad app credential reset 
-    --id 96df737b-1b07-42ec-95e4-786d4190e4d4
+    --id cccccccc-cccc-cccc-cccc-cccccccccccc
     --years 1
     --query "password"
 ```
@@ -160,7 +160,7 @@ Since we have created and configured the App Registration we can continue with c
 az bot create
     --name recordingbotservice
     --resource-group recordingbottutorial
-    --appid 96df737b-1b07-42ec-95e4-786d4190e4d4
+    --appid cccccccc-cccc-cccc-cccc-cccccccccccc
     --app-type MultiTenant
     --location global
     --subscription "recordingbotsubscription"
@@ -206,7 +206,7 @@ Registration succeeded.
     "luisKey": null,
     "manifestUrl": null,
     "migrationToken": null,
-    "msaAppId": "96df737b-1b07-42ec-95e4-786d4190e4d4",
+    "msaAppId": "cccccccc-cccc-cccc-cccc-cccccccccccc",
     "msaAppMsiResourceId": null,
     "msaAppTenantId": null,
     "msaAppType": "MultiTenant",
