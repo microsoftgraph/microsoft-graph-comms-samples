@@ -1,7 +1,9 @@
 # Create an Azure Container Registry
 
-After we successfully [created an AKS cluster](./1-aks.md), we also need a container registry. In the container registry we will later build and store the docker images of the recording bot application.  
-The AKS cluster will pull the docker images from the registry, distributes and starts them on the nodes of the AKS cluster.
+After we successfully [created an AKS cluster](./1-aks.md), we also need a container registry. In the
+container registry we will later build and store the docker images of the recording bot
+application. The AKS cluster will pull the docker images from the registry, distributes and starts
+them on the nodes of the AKS cluster.
 
 ## Create Azure Container Registry
 
@@ -89,7 +91,8 @@ Registration succeeded.
 
 ## Attach Container Registry to AKS cluster
 
-Next we will attach the container registry to our AKS cluster, then our AKS cluster can pull docker images from the container registry.
+Next we will attach the container registry to our AKS cluster,
+then our AKS cluster can pull docker images from the container registry.
 
 ```powershell
 az aks update 
@@ -99,7 +102,8 @@ az aks update
     --subscription "recordingbotsubscription"
 ```
 
-The execution of the command should first show us that some `AAD role propagation` is in process. After that the execution of the command takes some time and results in an output similar to:
+The execution of the command should first show us that some `AAD role propagation` is in process.
+After that the execution of the command takes some time and results in an output similar to:
 
 ```json
 {
@@ -350,6 +354,7 @@ The execution of the command should first show us that some `AAD role propagatio
 }
 ```
 
-We successfully attached our Azure container registry to our AKS cluster and it can pull docker images from our Azure container registry.
+We successfully attached our Azure container registry to our AKS cluster
+and it can pull docker images from our Azure container registry.
 
 In the next step we [clone the code and build our docker image in the container registry](./3-build.md)

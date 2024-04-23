@@ -1,6 +1,8 @@
 # Create an AKS cluster
 
-Let us start with creating an AKS cluster, on which we will later deploy the containers for the sample recording bot. Before we can start to run commands in the Azure command line tool, we need to log in:
+Let us start with creating an AKS cluster, on which we will later deploy the containers for the
+sample recording bot. Before we can start to run commands in the Azure command line tool, we need
+to log in:
 
 ```powershell
 az login --tenant 99999999-9999-9999-9999-999999999999
@@ -69,7 +71,11 @@ The result in the command line should look something like:
 
 ## Create Azure Kubernetes Cluster
 
-With our Resource Group set up, we create an AKS cluster. For the purpose of this tutorial we'll use the Free Tier. To further reduce costs, we also set the node count of the system nodepool to 1. Regarding the vm size of the system nodes in the system nodepool we choose the `standard_d2s_v3`-series, as this series is available at the most regions and some nodes in this series are available without requesting more quotas.
+With our Resource Group set up, we create an AKS cluster. For the purpose of this tutorial we'll
+use the Free Tier. To further reduce costs, we also set the node count of the system nodepool to 1.
+Regarding the vm size of the system nodes in the system nodepool we choose the
+`standard_d2s_v3`-series, as this series is available at the most regions and some nodes in this
+series are available without requesting more quotas.
 
 > [!WARNING]  
 > Make sure to check the [pricing tiers](https://learn.microsoft.com/en-us/azure/aks/free-standard-pricing-tiers) and [pricing for VMs](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/) as costs may incur (even with the Free Tier).
@@ -294,7 +300,12 @@ Registration succeeded.
 ```
 
 > [!NOTE]  
-> We notice that the output of the command contains some extra resource we have not requested directly. These include a virtual machine scale set, a public IP and more. The extra resources have been placed in a newly created resource group. We will need the name of this resource group later, so let us search the output and note down its name. We can find it under the property `nodeResourceGroup`, among other places. In the provided example output, the resource group is called `MC_recordingbottutorial_recordingbotcluster_westeurope`.
+> We notice that the output of the command contains some extra resource we have not requested
+> directly. These include a virtual machine scale set, a public IP and more. The extra resources
+> have been placed in a newly created resource group. We will need the name of this resource group
+> later, so let us search the output and note down its name. We can find it under the property
+> `nodeResourceGroup`, among other places. In the provided example output, the resource group is
+> called `MC_recordingbottutorial_recordingbotcluster_westeurope`.
 
 If the command fails with the message:
 
@@ -306,7 +317,9 @@ the az Azure command line tool is out of date.
 
 ## Add Windows Node Pool
 
-In the previous section, we created an AKS cluster with a linux node. However, for our recording bot application, we actually need a windows node instead. Let us create two new windows nodes of the `standard_d2s_v3`-series:
+In the previous section, we created an AKS cluster with a linux node. However, for our recording
+bot application, we actually need a windows node instead. Let us create two new windows nodes of
+the `standard_d2s_v3`-series:
 
 ```powershell
 az aks nodepool add
@@ -384,7 +397,9 @@ Now our AKS cluster has 1 linux system node and 2 windows nodes for our recordin
 
 ## Untaint system nodepool
 
-Later we need to run some applications on our system nodes. But sometimes the system nodes have _taints_ ([What are taints?](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)) that don't allow scheduling new pods, that means we can't run our applications on the nodes.
+Later we need to run some applications on our system nodes. But sometimes the system nodes have
+_taints_ ([What are taints?](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/)) that don't allow scheduling new pods, that means we can't run our
+applications on the nodes.
 
 ### Check if system nodepool is tainted
 
@@ -429,12 +444,18 @@ The result of this should look like
 ]
 ```
 
-The result will contain a list of nodepools of our aks cluster. To identify which nodepool we are looking at, search for the _name_ field in the entry. In the example, we have a windows nodepool, called `win22` and a system nodepool, called `nodepool1`.
+The result will contain a list of nodepools of our aks cluster. To identify which nodepool we are
+looking at, search for the _name_ field in the entry. In the example, we have a windows nodepool,
+called `win22` and a system nodepool, called `nodepool1`.
 
 > [!Note]  
-> The _mode_ field of `nodepool1` shows `System` while the _mode_ field of the `win22` nodepool shows `User`.
+> The _mode_ field of `nodepool1` shows `System` while the _mode_ field of the `win22` nodepool
+> shows `User`.
 
-To check if our system nodepool `nodepool1` is tainted check the _nodeTaints_ field. If the field has a value of `null` we can continue with [setting the DNS name](#set-dns-name). If it's not the case, like in our case, we have to untaint the nodepool. If your system nodepool has a different name replace `nodepool1` with the name you see in your previous result.
+To check if our system nodepool `nodepool1` is tainted check the _nodeTaints_ field. If the field
+has a value of `null` we can continue with [setting the DNS name](#set-dns-name). If it's not the
+case, like in our case, we have to untaint the nodepool. If your system nodepool has a different
+name replace `nodepool1` with the name you see in your previous result.
 
 ```powershell
 az aks nodepool update 
@@ -510,7 +531,12 @@ As you can see the _nodeTaints_ field now updated to `null`.
 
 ## Set DNS name
 
-When we created our AKS cluster, a public IP was automatically created for us. To use this IP address, we want to create a DNS entry so we can reference it by name. Since the IP address was automatically created for us, it resides in the automatically created resource group of managed resources. If we didn't note down the name of this resource group in the [Create Azure Kubernetes Cluster](#create-azure-kubernetes-cluster) step, follow the next step to find out the name. Otherwise we can skip ahead to [getting the public IP resource name](#get-the-public-ip-resource-name).
+When we created our AKS cluster, a public IP was automatically created for us. To use this IP
+address, we want to create a DNS entry so we can reference it by name. Since the IP address was
+automatically created for us, it resides in the automatically created resource group of managed
+resources. If we didn't note down the name of this resource group in the
+[Create Azure Kubernetes Cluster](#create-azure-kubernetes-cluster) step, follow the next step to find out the name. Otherwise we
+can skip ahead to [getting the public IP resource name](#get-the-public-ip-resource-name).
 
 ### Get the managed resources resource group name
 
@@ -532,11 +558,15 @@ This will give us the response
   "nodeResourceGroup": "MC_recordingbottutorial_recordingbotcluster_westeurope",
 ```
 
-The IP address resource was created in the Azure managed resource group which is used by Azure to manage the AKS cluster. You can find the managed resource group name in the _nodeResourceGroup_ field of the output. In the example output the resource group is called `MC_recordingbottutorial_recordingbotcluster_westeurope`.
+The IP address resource was created in the Azure managed resource group which is used by Azure to
+manage the AKS cluster. You can find the managed resource group name in the _nodeResourceGroup_
+field of the output. In the example output the resource group is called
+`MC_recordingbottutorial_recordingbotcluster_westeurope`.
 
 ### Get the public IP resource name
 
-Since the public IP address is an Azure resource, it can be referenced by name. To find out, what name was assigned to it, we execute the following command:
+Since the public IP address is an Azure resource, it can be referenced by name. To find out, what
+name was assigned to it, we execute the following command:
 
 ```powershell
 az network public-ip list 
@@ -587,11 +617,13 @@ We consider our example output:
 ]
 ```
 
-The name of the public IP Address resource can be found in the _name_ field of the output. In our example output the name of the public IP address resource is `pppppppp-pppp-pppp-pppp-pppppppppppp`.
+The name of the public IP Address resource can be found in the _name_ field of the output. In our
+ example output the name of the public IP address resource is `pppppppp-pppp-pppp-pppp-pppppppppppp`.
 
 ### Set DNS name for public IP resource
 
-With the managed resource group name and the public IP resource name, we can now set a DNS name for the public IP resource with the command:
+With the managed resource group name and the public IP resource name, we can now set a DNS name for
+the public IP resource with the command:
 
 ```powershell
 az network public-ip update 
@@ -601,7 +633,10 @@ az network public-ip update
     --subscription "recordingbotsubscription"
 ```
 
-Do not forget to replace the DNS name with your own AKS DNS record. We do not use the fully qualified name. So in our example, for the DNS entry `recordingbottutorial`_.westeurope.cloudapp.azure.com_ we supply the parameter `--dns-name` only with `recordingbottutorial`.
+Do not forget to replace the DNS name with your own AKS DNS record. We do not use the fully
+qualified name. So in our example, for the DNS entry
+`recordingbottutorial`_.westeurope.cloudapp.azure.com_ we supply the parameter `--dns-name`
+only with `recordingbottutorial`.
 
 > [!WARNING]  
 > The DNS record that is created from our custom part and the postfix must be globally unique.
@@ -651,12 +686,14 @@ If the command completed successful the result will look similar to this:
 }
 ```
 
-As we can see, the field _dnsSettings_ was added to the resource. Within the DNS settings object (the field _dnsSettings_) we can see the custom part of our DNS record (field _domainNameLabel_) and the fully qualified domain name (field _fqdn_) with the postfix provided by Azure.
+As we can see, the field _dnsSettings_ was added to the resource. Within the DNS settings object
+(the field _dnsSettings_) we can see the custom part of our DNS record (field _domainNameLabel_)
+and the fully qualified domain name (field _fqdn_) with the postfix provided by Azure.
 
 If the fqdn already exists we would get the follwing error message.
 
 ```text
-(DnsRecordInUse) DNS record recordingbottutorial.westeurope.cloudapp.azure.com is already used by another public IP.
+(DnsRecordInUse) DNS record recordingbottutorial.westeurope.cloudapp.azure.com is already used byanother public IP.
 Code: DnsRecordInUse
 Message: DNS record recordingbottutorial.westeurope.cloudapp.azure.com is already used by another public IP.
 ```
@@ -685,11 +722,14 @@ Moving binary to "C:\Users\User\.azure-kubelogin\kubelogin.exe" from "C:\Users\U
 ```
 
 > [!NOTE]  
-> After installing kubectl on our kubernetes cluster, we might need to open a new powershell session and may need to log in again as described in [Create an AKS cluster](#create-an-aks-cluster).
+> After installing kubectl on our kubernetes cluster, we might need to open a new powershell
+> session and may need to log in again as described in [Create an AKS cluster](#create-an-aks-cluster).
 
 ## Get AKS credentials
 
-To deploy resources to our AKS cluster and do the operations with the kubernetes command line tool (kubectl), we need access to our cluster. We can get the credentials for kubectl with the azure command line tool:
+To deploy resources to our AKS cluster and do the operations with the kubernetes command line
+tool (kubectl), we need access to our cluster. We can get the credentials for kubectl with the
+azure command line tool:
 
 ```powershell
 az aks get-credentials 
@@ -720,7 +760,8 @@ akswin22000003                      Ready    agent   4h29m   v1.28.5
 ```
 
 > [!TIP]  
-> If you experience problems with kubectl and did not install kubectl with the azure command line tool, try to [install kubectl with azure command line tool](#install-kubectl-tool).
+> If you experience problems with kubectl and did not install kubectl with the azure command line
+> tool, try to [install kubectl with azure command line tool](#install-kubectl-tool).
 
 As a small summary we now:
 

@@ -1,6 +1,7 @@
 # Clone and build recording bot application
 
-Next let us clone the source code for the recording bot application, from the source code we will build the application in a Docker container.
+Next let us clone the source code for the recording bot application,
+from the source code we will build the application in a Docker container.
 
 ## Clone the application
 
@@ -19,7 +20,8 @@ Next we use git to clone the source code from github:
 git clone https://github.com/LM-Development/aks-sample.git
 ```
 
-The execution takes some time to download, the repository with all samples is downloaded, and the output should look similar to:
+The execution takes some time to download, the repository with all samples is downloaded,
+and the output should look similar to:
 
 ```text
 Cloning into 'aks-sample'...
@@ -40,7 +42,10 @@ cd .\aks-sample\Samples\PublicSamples\RecordingBot\
 
 ## Build the application
 
-To build the application we will push the dockerfile and the source code of the aks sample to our Azure container registry. The registry will build the application into a container and stores the container in the registry. To do so we also have to provide the build job with the tag we want to have for our container (`-t`-parameter):
+To build the application we will push the dockerfile and the source code of the aks sample to our
+Azure container registry. The registry will build the application into a container and stores the
+container in the registry. To do so we also have to provide the build job with the tag we want to
+have for our container (`-t`-parameter):
 
 ```powershell
 az acr build 
@@ -53,7 +58,8 @@ az acr build
     .
 ```
 
-The build of the Docker container takes very long as the source code is first uploaded and then the build of a quite big windows container starts. However the complete output should look similar to:
+The build of the Docker container takes very long as the source code is first uploaded and then the
+build of a quite big windows container starts. However the complete output should look similar to:
 
 ```text
 Packing source code into tar to upload...

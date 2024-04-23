@@ -1,6 +1,8 @@
 # Create and configure Bot Service
 
-Let us now create an App Registration with the application permission to access the calls and the media streams of the calls. After that we can create a Bot Service link our App Registration, and configure the notification URL.
+Let us now create an App Registration with the application permission to access the calls and the
+media streams of the calls. After that we can create a Bot Service link our App Registration,
+and configure the notification URL.
 
 ## Create Azure App Registration
 
@@ -93,11 +95,16 @@ The output should look similar to:
 }
 ```
 
-Now it is very important that you write down the value of your _appId_-field as this is the App Registration Id, in the example output this value is: `cccccccc-cccc-cccc-cccc-cccccccccccc`
+Now it is very important that you write down the value of your _appId_-field as this is the
+App Registration Id, in the example output this value is: `cccccccc-cccc-cccc-cccc-cccccccccccc`
 
 ### Add Graph API application permission
 
-Next we need to add the application permission that are required for the recording bot application to our App Registration. The Permissions and the API of the App Registration are referenced by IDs as we use Micrsoft Graph API the API Id is `00000003-0000-0000-c000-000000000000`(as this is the App Registration Id of the Microsoft Graph API), for the permission ids we use the [docs by microsoft](https://learn.microsoft.com/en-us/graph/permissions-reference) for reference.
+Next we need to add the application permission that are required for the recording bot application
+to our App Registration. The Permissions and the API of the App Registration are referenced by IDs
+as we use Micrsoft Graph API the API Id is `00000003-0000-0000-c000-000000000000`(as this is the
+App Registration Id of the Microsoft Graph API), for the permission ids we use the
+[docs by microsoft](https://learn.microsoft.com/en-us/graph/permissions-reference) for reference.
 
 The three permissions we add for our recording bot are:
 
@@ -131,7 +138,8 @@ If the command ran command run successful we shouldn't see any output text in ou
 
 ### Create App Secret
 
-Next we create an App Secret for our App Registration, that our recording bot application will use as a password. The secret we generate will be valid for 1 year then a new password needs to be created.
+Next we create an App Secret for our App Registration, that our recording bot application will use
+as a password. The secret we generate will be valid for 1 year then a new password needs to be created.
 
 ```powershell
 az ad app credential reset 
@@ -147,14 +155,16 @@ The output includes credentials that you must protect. Be sure that you do not i
 "abcdefghijklmnopqrstuvwxyz"
 ```
 
-The text in the quotation marks is the App Secret, we will store the secret later in a special store in the AKS cluster. Handle this App Secret carefully, like it's you're own password.
+The text in the quotation marks is the App Secret, we will store the secret later in a special
+store in the AKS cluster. Handle this App Secret carefully, like it's you're own password.
 
 ## Create Azure Bot Service
 
 Since we have created and configured the App Registration we can continue with creating the Bot Service.
 
 > [!NOTE]  
-> As we created a multi tenant App Registration earlier we will also create the Bot Service as multi tenant, also see [this](https://learn.microsoft.com/en-us/cli/azure/bot?view=azure-cli-latest#az-bot-create-required-parameters) for reference.
+> As we created a multi tenant App Registration earlier we will also create the Bot Service as
+> multi tenant, also see [this](https://learn.microsoft.com/en-us/cli/azure/bot?view=azure-cli-latest#az-bot-create-required-parameters) for reference.
 
 ```powershell
 az bot create
@@ -233,10 +243,12 @@ Registration succeeded.
 
 ### Add notification URL to Bot Service
 
-Next let us configure the notification URL of the recording bot. Even though we have not deployed our recording bot yet we already know the dns name and the path and port we want to have the notifications on.
+Next let us configure the notification URL of the recording bot. Even though we have not deployed
+our recording bot yet we already know the dns name and the path and port we want to have the notifications on.
 
 > [!NOTE]  
-> As you might aready have noticed we now need the fully quialified domain name that we created earlier for our AKS cluster.
+> As you might aready have noticed, we now need the
+> fully quialified domain name that we created earlier for our AKS cluster.
 
 ```powershell
 az bot msteams create 
