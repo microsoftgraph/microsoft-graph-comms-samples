@@ -20,52 +20,53 @@ The Microsoft Entra Id administrator is required to create recording policies an
 
 ## Contents
 
-1. [Deploy an AKS Cluster](./deploy/aks.md)
-2. [Deploy an Azure Container Registry](./deploy/acr.md)
-3. [Clone and build recording bot application](./deploy/build.md)
-4. [Deploy and configure Bot Service](./deploy/bot-service.md)
-5. [Deploy Recording Sample to AKS Cluster](./deploy/helm-deploy.md)
-6. [Create and assign a Recording Policy](./deploy/policy.md)
-7. [Verify functionality](./deploy/test.md)
+1. [Create an AKS Cluster](./deploy/1-aks.md)
+2. [Create an Azure Container Registry](./deploy/2-acr.md)
+3. [Clone and build recording bot application](./deploy/3-build.md)
+4. [Create and configure Bot Service](./deploy/4-bot-service.md)
+5. [Deploy Recording Sample to AKS Cluster](./deploy/5-helm-deploy.md)
+6. [Create and assign a Recording Policy](./deploy/6-policy.md)
+7. [Verify functionality](./deploy/7-test.md)
 
 ## Variables
 
 Throughout this tutorial we will create azure resources. The names we choose in this tutorial are:
 
-|         Resource         |            Name            |
-| ------------------------ | -------------------------- |
-| Resource Group           | `recordingbottutorial`     |
-| AKS Cluster              | `recordingbotcluster`      |
-| Azure Container Registry | `recordingbotregistry`     |
-| App Registration         | `recordingbotregistration` |
-| Bot Service              | `recordingbotservice`      |
-| Azure Subscription       | `recordingbotsubscription` |
+|         Resource         |                  Name                  |
+| ------------------------ | -------------------------------------- |
+| Resource Group           | `recordingbottutorial`                 |
+| AKS Cluster              | `recordingbotcluster`                  |
+| Azure Container Registry | `recordingbotregistry`                 |
+| App Registration         | `recordingbotregistration`             |
+| Bot Service              | `recordingbotservice`                  |
+| Azure Subscription       | `recordingbotsubscription`             |
+| Public IP Address        | _cab190bb-ec74-478e-b7f1-b36c83bfa94e_ |
 
 Variables that are used in this tutorial are:
 
-| What? | Value |
-| ----- | ----- |
-| AKS DNS record | `recordingbottutorial`_.westeurope.cloudapp.azure.com_ |
-| App Registration Id | `00000000-0000-0000-0000-000000000000` |  
-| App Registration Secret | `abcdefghijklmnopqrstuvwxyz` |
-| Recording Policy Name | `TutorialPolicy` |
-| Recording Policy Application Instance UPN | `tutorialbot@lm-ag.de` |
-| Recording Policy Application Instance Display Name | `Tutorial Bot` |
-| Recording Policy Application Instance Object Id | `11111111-1111-1111-1111-111111111111` |
-| Microsoft Entra Id Tenant Id | `99999999-9999-9999-9999-999999999999` |
-| Kubernetes Recording Bot Deployment Name | `recordingbottutorial` |
-| Kubernetes Recording Bot Namespace | `recordingbottutorial` |
-| Kubernetes Cert-Manager Deployment Name | `cert-manager` |
-| Kubernetes Cert-Manager Namespace | `cert-manager` |
-| Bot Name within the application | `Tutorial Bot` |
-| Let's Encrypt Email address | `tls-security@lm-ag.de` |
-| Windows Nodepool | `win22` |
-| Azure Subscription Id | `yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyyy` |
-| Azure Region | `westeurope` |
-| Directory for source code | `C:\Users\User\recordingbottutorial\` |
-| Recording Application Docker Container Tag | `recordingbottutorial/application:latest` |
+|                        What?                        |                          Value                          |
+| --------------------------------------------------- | ------------------------------------------------------- |
+| AKS DNS record                                      | `recordingbottutorial`_.westeurope.cloudapp.azure.com_  |
+| App Registration Id                                 | _96df737b-1b07-42ec-95e4-786d4190e4d4_                  |  
+| App Registration Secret                             | _abcdefghijklmnopqrstuvwxyz_                            |
+| Recording Policy Name                               | `TutorialPolicy`                                        |
+| Recording Policy Application Instance UPN           | `tutorialbot@lm-ag.de`                                  |
+| Recording Policy Application Instance Display Name  | `Tutorial Bot`                                          |
+| Recording Policy Application Instance Object Id     | `11111111-1111-1111-1111-111111111111`                  |
+| Microsoft Entra Id Tenant Id                        | _99999999-9999-9999-9999-999999999999_                  |
+| Kubernetes Recording Bot Deployment Name            | `recordingbottutorial`                                  |
+| Kubernetes Recording Bot Namespace                  | `recordingbottutorial`                                  |
+| Kubernetes Cert-Manager Deployment Name             | `cert-manager`                                          |
+| Kubernetes Cert-Manager Namespace                   | `cert-manager`                                          |
+| Bot Name within the application                     | `Tutorial Bot`                                          |
+| Let's Encrypt Email address                         | `tls-security@lm-ag.de`                                 |
+| Windows Nodepool                                    | `win22`                                                 |
+| Azure Subscription Id                               | _yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyyy_                 |
+| Azure Region                                        | `westeurope`                                            |
+| Directory for source code                           | `C:\Users\User\recordingbottutorial\`                   |
+| Recording Application Docker Container Tag          | `recordingbottutorial/application:latest`               |
 
 > [!TIP]  
 > Consider to define own variable values before we start. Keep in mind the Azure resources have limitations for naming, read [this](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules) for reference. The app registration values, the object id of the application instance and the Microsoft Entra Id Tenant Id are automatically generated. Do not forget to replace the placeholders with the actual values.
 
-Now let us start [deploy an aks cluster](./deploy/aks.md)
+Now let us start [create an aks cluster](./deploy/1-aks.md)

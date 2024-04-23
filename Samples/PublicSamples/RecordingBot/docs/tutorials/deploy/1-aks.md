@@ -1,6 +1,6 @@
-# Deploy an AKS cluster
+# Create an AKS cluster
 
-Let us start with deploying an AKS cluster, on which we will later deploy the containers for the sample recording bot. Before we can start to run commands in the Azure command line tool, we need to log in:
+Let us start with creating an AKS cluster, on which we will later deploy the containers for the sample recording bot. Before we can start to run commands in the Azure command line tool, we need to log in:
 
 ```powershell
 az login --tenant 99999999-9999-9999-9999-999999999999
@@ -97,7 +97,7 @@ After waiting for the command to complete the output in our powershell should lo
 
 ```json
 Resource provider 'Microsoft.ContainerService' used by this operation is not registered. We are registering for you.
-
+Registration succeeded.
 {
   "aadProfile": null,
   "addonProfiles": null,
@@ -685,7 +685,7 @@ Moving binary to "C:\Users\User\.azure-kubelogin\kubelogin.exe" from "C:\Users\U
 ```
 
 > [!NOTE]  
-> After installing kubectl on our kubernetes cluster, we might need to open a new powershell session and may need to log in again as described in [Deploy an AKS cluster](#deploy-an-aks-cluster).
+> After installing kubectl on our kubernetes cluster, we might need to open a new powershell session and may need to log in again as described in [Create an AKS cluster](#create-an-aks-cluster).
 
 ## Get AKS credentials
 
@@ -730,4 +730,4 @@ As a small summary we now:
 - set up a DNS record into the cluster
 - retreived the credentials fpr deployments to our AKS cluster
 
-Next we can [deploy an Azure container registry](./acr.md).
+Next we can [create an Azure container registry](./2-acr.md).

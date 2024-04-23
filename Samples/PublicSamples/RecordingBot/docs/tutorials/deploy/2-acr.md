@@ -1,11 +1,11 @@
-# Deploy an Azure Container Registry
+# Create an Azure Container Registry
 
-After we successfully [deployed an AKS cluster](./aks.md), we also need a container registry. In the container registry we will later build and store the docker images of the recording bot application.  
+After we successfully [created an AKS cluster](./1-aks.md), we also need a container registry. In the container registry we will later build and store the docker images of the recording bot application.  
 The AKS cluster will pull the docker images from the registry, distributes and starts them on the nodes of the AKS cluster.
 
 ## Create Azure Container Registry
 
-Let us deploy the Azure container registry, we will use the Basic SKU of the Azure container registry.
+Let us create the Azure container registry, we will use the Basic SKU of the Azure container registry.
 
 ```powershell
 az acr create
@@ -352,4 +352,4 @@ The execution of the command should first show us that some `AAD role propagatio
 
 We successfully attached our Azure container registry to our AKS cluster and it can pull docker images from our Azure container registry.
 
-In the next step we [clone the code and build our docker image in the container registry](./build.md)
+In the next step we [clone the code and build our docker image in the container registry](./3-build.md)

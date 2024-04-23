@@ -452,4 +452,4 @@ latest: digest: sha256:425bde01b22d5b1829f9f79117e51ee9ca3ca822f7477a09a788f390a
 Run ID: cb1 was successful after 24m5s
 ```
 
-We now have a docker container in our registry and can continue with [creating and configuring a Bot Service](./bot-service.md).
+We now have a docker container in our registry and can continue with [creating and configuring a Bot Service](./4-bot-service.md).
