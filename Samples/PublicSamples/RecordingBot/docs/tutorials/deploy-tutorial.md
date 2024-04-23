@@ -40,7 +40,7 @@ Throughout this tutorial we will create azure resources. The names we choose in 
 | App Registration         | `recordingbotregistration`             |
 | Bot Service              | `recordingbotservice`                  |
 | Azure Subscription       | `recordingbotsubscription`             |
-| Public IP Address        | _cab190bb-ec74-478e-b7f1-b36c83bfa94e_ |
+| Public IP Address        | _pppppppp-pppp-pppp-pppp-pppppppppppp_ |
 
 Variables that are used in this tutorial are:
 

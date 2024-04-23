@@ -204,7 +204,7 @@ Registration succeeded.
       "backendPoolType": "nodeIPConfiguration",
       "effectiveOutboundIPs": [
         {
-          "id": "/subscriptions/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyyy/resourceGroups/MC_recordingbottutorial_recordingbotcluster_westeurope/providers/Microsoft.Network/publicIPAddresses/cab190bb-ec74-478e-b7f1-b36c83bfa94e",
+          "id": "/subscriptions/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyyy/resourceGroups/MC_recordingbottutorial_recordingbotcluster_westeurope/providers/Microsoft.Network/publicIPAddresses/pppppppp-pppp-pppp-pppp-pppppppppppp",
           "resourceGroup": "MC_recordingbottutorial_recordingbotcluster_westeurope"
         }
       ],
@@ -553,16 +553,16 @@ We consider our example output:
       "protectionMode": "VirtualNetworkInherited"
     },
     "etag": "W/\"f5508f05-0e65-479a-9399-d436f02e0a66\"",
-    "id": "/subscriptions/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyyy/resourceGroups/MC_recordingbottutorial_recordingbotcluster_westeurope/providers/Microsoft.Network/publicIPAddresses/cab190bb-ec74-478e-b7f1-b36c83bfa94e",
+    "id": "/subscriptions/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyyy/resourceGroups/MC_recordingbottutorial_recordingbotcluster_westeurope/providers/Microsoft.Network/publicIPAddresses/pppppppp-pppp-pppp-pppp-pppppppppppp",
     "idleTimeoutInMinutes": 4,
     "ipAddress": "108.141.184.42",
     "ipConfiguration": {
-      "id": "/subscriptions/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyyy/resourceGroups/MC_recordingbottutorial_recordingbotcluster_westeurope/providers/Microsoft.Network/loadBalancers/kubernetes/frontendIPConfigurations/cab190bb-ec74-478e-b7f1-b36c83bfa94e",
+      "id": "/subscriptions/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyyy/resourceGroups/MC_recordingbottutorial_recordingbotcluster_westeurope/providers/Microsoft.Network/loadBalancers/kubernetes/frontendIPConfigurations/pppppppp-pppp-pppp-pppp-pppppppppppp",
       "resourceGroup": "MC_recordingbottutorial_recordingbotcluster_westeurope"
     },
     "ipTags": [],
     "location": "westeurope",
-    "name": "cab190bb-ec74-478e-b7f1-b36c83bfa94e",
+    "name": "pppppppp-pppp-pppp-pppp-pppppppppppp",
     "provisioningState": "Succeeded",
     "publicIPAddressVersion": "IPv4",
     "publicIPAllocationMethod": "Static",
@@ -587,7 +587,7 @@ We consider our example output:
 ]
 ```
 
-The name of the public IP Address resource can be found in the _name_ field of the output. In our example output the name of the public IP address resource is `cab190bb-ec74-478e-b7f1-b36c83bfa94e`.
+The name of the public IP Address resource can be found in the _name_ field of the output. In our example output the name of the public IP address resource is `pppppppp-pppp-pppp-pppp-pppppppppppp`.
 
 ### Set DNS name for public IP resource
 
@@ -596,7 +596,7 @@ With the managed resource group name and the public IP resource name, we can now
 ```powershell
 az network public-ip update 
     --resource-group MC_recordingbottutorial_recordingbotcluster_westeurope 
-    --name cab190bb-ec74-478e-b7f1-b36c83bfa94e
+    --name pppppppp-pppp-pppp-pppp-pppppppppppp
     --dns-name recordingbottutorial
     --subscription "recordingbotsubscription"
 ```
@@ -618,16 +618,16 @@ If the command completed successful the result will look similar to this:
     "fqdn": "recordingbottutorial.westeurope.cloudapp.azure.com"
   },
   "etag": "W/\"dc9d1467-e11a-46fa-bf7d-ad60a7713c7f\"",
-  "id": "/subscriptions/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyyy/resourceGroups/MC_recordingbottutorial_recordingbotcluster_westeurope/providers/Microsoft.Network/publicIPAddresses/cab190bb-ec74-478e-b7f1-b36c83bfa94e",
+  "id": "/subscriptions/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyyy/resourceGroups/MC_recordingbottutorial_recordingbotcluster_westeurope/providers/Microsoft.Network/publicIPAddresses/pppppppp-pppp-pppp-pppp-pppppppppppp",
   "idleTimeoutInMinutes": 4,
   "ipAddress": "108.141.184.42",
   "ipConfiguration": {
-    "id": "/subscriptions/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyyy/resourceGroups/MC_recordingbottutorial_recordingbotcluster_westeurope/providers/Microsoft.Network/loadBalancers/kubernetes/frontendIPConfigurations/cab190bb-ec74-478e-b7f1-b36c83bfa94e",
+    "id": "/subscriptions/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyyy/resourceGroups/MC_recordingbottutorial_recordingbotcluster_westeurope/providers/Microsoft.Network/loadBalancers/kubernetes/frontendIPConfigurations/pppppppp-pppp-pppp-pppp-pppppppppppp",
     "resourceGroup": "MC_recordingbottutorial_recordingbotcluster_westeurope"
   },
   "ipTags": [],
   "location": "westeurope",
-  "name": "cab190bb-ec74-478e-b7f1-b36c83bfa94e",
+  "name": "pppppppp-pppp-pppp-pppp-pppppppppppp",
   "provisioningState": "Succeeded",
   "publicIPAddressVersion": "IPv4",
   "publicIPAllocationMethod": "Static",
