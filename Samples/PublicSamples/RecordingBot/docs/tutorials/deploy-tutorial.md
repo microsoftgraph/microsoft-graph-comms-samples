@@ -24,11 +24,11 @@ administrator and always log in as such unless the tutorial requires otherwise.
 
 ## Contents
 
-1. [Create an AKS Cluster](./deploy/1-aks.md)
+1. [Create an AKS cluster](./deploy/1-aks.md)
 2. [Create an Azure Container Registry](./deploy/2-acr.md)
-3. [Clone and build recording bot application](./deploy/3-build.md)
+3. [Clone and build recording bot sample](./deploy/3-build.md)
 4. [Create and configure Bot Service](./deploy/4-bot-service.md)
-5. [Deploy Recording Sample to AKS Cluster](./deploy/5-helm.md)
+5. [Deploy recording sample to AKS cluster](./deploy/5-helm.md)
 6. [Create and assign a Recording Policy](./deploy/6-policy.md)
 7. [Verify functionality](./deploy/7-test.md)
 

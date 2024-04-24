@@ -16,7 +16,7 @@ The default web browser has been opened at https://login.microsoftonline.com/999
 
 A browser window with the Microsoft login page should open, otherwise follow the advice of the output.
 
-![Login Page](../../images/loginscreenshot.png)
+![Login Page](../../images/screenshot-login.png)
 
 In the browser, we need to log in with our Microsoft Entra Id administrator account and accept the requested scopes.
 

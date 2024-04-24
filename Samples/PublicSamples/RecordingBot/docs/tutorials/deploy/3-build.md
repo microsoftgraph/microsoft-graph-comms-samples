@@ -1,11 +1,11 @@
-# Clone and build recording bot application
+# Clone and build recording bot sample
 
-Next let us clone the source code for the recording bot application,
-from the source code we will build the application in a Docker container.
+Next let us clone the source code for the recording bot sample, from
+the source code we will build the application in a Docker container.
 
-## Clone the application
+## Clone the sample
 
-To clone the applciation we first navigate to the directory we want to clone the code to:
+To clone the sample we first navigate to the directory we want to clone the code to:
 
 ```powershell
 cd C:\Users\User\recordingbottutorial
@@ -42,7 +42,7 @@ cd .\aks-sample\Samples\PublicSamples\RecordingBot\
 
 ## Build the application
 
-To build the application we will push the dockerfile and the source code of the aks sample to our
+To build the application we will push the dockerfile and the source code of the AKS sample to our
 Azure container registry. The registry will build the application into a container and stores the
 container in the registry. To do so we also have to provide the build job with the tag we want to
 have for our container (`-t`-parameter):

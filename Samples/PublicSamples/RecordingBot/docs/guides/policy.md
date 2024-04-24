@@ -10,8 +10,8 @@ This can be an existing user or a new one can be created e.g. for testing.
 - PowerShell (5.1, comes with Windows) as Administrator
 - PowerShell execution policy of at least `RemoteSigned`
 - PowerShell Module
-  - [SkypeForBusiness](https://learn.microsoft.com/en-us/powershell/module/skype/?view=skype-ps)
-  - or [MicrosoftTeams](https://learn.microsoft.com/en-us/powershell/module/teams/?view=teams-ps)
+  - [SkypeForBusiness](https://learn.microsoft.com/powershell/module/skype/)
+  - or [MicrosoftTeams](https://learn.microsoft.com/powershell/module/teams/)
 - A Microsoft Entra Id administrator
 
 Throughout this Documentation we will use the `MicrosoftTeams` PowerShell Module.  
@@ -31,7 +31,7 @@ Open the Context Menu (right click) of the `Windows PowerShell` entry and select
 
 In an evelated (Run as Admin) PowerShell Terminal execute the following command  
 `Set-PsExecutionPolicy RemoteSigned`  
-For more information look [here](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-5.1)
+For more information look [here](https://learn.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 ### Install the Module
 
@@ -48,7 +48,7 @@ and then
 `Connect-MicrosoftTeams`  
 You will need to sign in with your Azure Credentials (Microsoft Entra Id administrator) here
 
-For further Information check [Install the Microsoft Teams PowerShell Module](https://learn.microsoft.com/en-us/microsoftteams/teams-powershell-install#installing-using-the-powershellgallery) and [sign in with your Azure Credentials](https://learn.microsoft.com/en-us/microsoftteams/teams-powershell-install#sign-in)
+For further Information check [Install the Microsoft Teams PowerShell Module](https://learn.microsoft.com/microsoftteams/teams-powershell-install#installing-using-the-powershellgallery) and [sign in with your Azure Credentials](https://learn.microsoft.com/microsoftteams/teams-powershell-install#sign-in)
 
 ## Setup a Compliance Policy for Teams
 
@@ -62,7 +62,7 @@ To create a policy in Teams, we need 3 objects.
 
 ### Create the Application Instance
 
-[New-CsOnlineApplicationInstance](https://learn.microsoft.com/en-us/powershell/module/skype/new-csonlineapplicationinstance?view=skype-ps)
+[New-CsOnlineApplicationInstance](https://learn.microsoft.com/powershell/module/skype/new-csonlineapplicationinstance)
 
 ```powershell
 New-CsOnlineApplicationInstance
@@ -89,7 +89,7 @@ The Application Id is the same Application Id you used to create the Application
 
 ### Create the policy
 
-[New-CsTeamsComplianceRecordingPolicy](https://learn.microsoft.com/en-us/powershell/module/skype/new-csteamscompliancerecordingpolicy?view=skype-ps)
+[New-CsTeamsComplianceRecordingPolicy](https://learn.microsoft.com/powershell/module/skype/new-csteamscompliancerecordingpolicy)
 
 ```powershell
 New-CsTeamsComplianceRecordingPolicy
@@ -103,7 +103,7 @@ because it does not have any Recording Applications assigned to it yet.
 
 ### Create the Recording Application
 
-[New-CsTeamsComplianceRecordingApplication](https://learn.microsoft.com/en-us/powershell/module/skype/new-csteamscompliancerecordingapplication?view=skype-ps)
+[New-CsTeamsComplianceRecordingApplication](https://learn.microsoft.com/powershell/module/skype/new-csteamscompliancerecordingapplication)
 
 ```powershell
 New-CsTeamsComplianceRecordingApplication
@@ -129,7 +129,7 @@ To be able to use the Policy, you will need to assign the policy to Users or Gro
 
 ### Assign the Policy to a tenant
 
-[Grant-CsTeamsComplianceRecordingPolicy](https://learn.microsoft.com/en-us/powershell/module/teams/grant-csteamscompliancerecordingpolicy?view=teams-ps)
+[Grant-CsTeamsComplianceRecordingPolicy](https://learn.microsoft.com/powershell/module/teams/grant-csteamscompliancerecordingpolicy)
 
 ``` powershell
 Grant-CsTeamsComplianceRecordingPolicy 
@@ -141,7 +141,7 @@ This assigns the policy to all users of your tenant.
 
 ### Assign the Policy to a user
 
-[Grant-CsTeamsComplianceRecordingPolicy](https://learn.microsoft.com/en-us/powershell/module/teams/grant-csteamscompliancerecordingpolicy?view=teams-ps)
+[Grant-CsTeamsComplianceRecordingPolicy](https://learn.microsoft.com/powershell/module/teams/grant-csteamscompliancerecordingpolicy)
 
 ``` powershell
 Grant-CsTeamsComplianceRecordingPolicy 
@@ -169,7 +169,7 @@ sip:                          00000000-                     <Recording Policy Na
 
 ### Assign the Policy to a group
 
-[Grant-CsTeamsComplianceRecordingPolicy](https://learn.microsoft.com/en-us/powershell/module/teams/grant-csteamscompliancerecordingpolicy?view=teams-ps)
+[Grant-CsTeamsComplianceRecordingPolicy](https://learn.microsoft.com/powershell/module/teams/grant-csteamscompliancerecordingpolicy)
 
 ``` powershell
 Grant-CsTeamsComplianceRecordingPolicy
