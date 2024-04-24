@@ -75,4 +75,7 @@ Variables that are used in this tutorial are:
 > limitations for naming, read [this](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules) for reference. Some Values are automatically generated and
 > can't be changed, but needs to be replaced with you're custom values.
 
+If you encounter any problems during the tutorial, please feel free to create an [issue](https://github.com/lm-development/aks-sample/issues).
+This means that the tutorial can be continuously expanded to include error handling.
+
 Now let us start [create an aks cluster](./deploy/1-aks.md)

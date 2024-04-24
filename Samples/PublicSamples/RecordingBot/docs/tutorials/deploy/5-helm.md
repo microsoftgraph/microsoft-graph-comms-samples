@@ -1,6 +1,6 @@
 # Deploy recording bot sample to AKS cluster
 
-To start our deployment we first make sure that we are still in the correct folder, if we didn't
+To start our deployment we first make sure that we are still in the correct folder, if we did not
 change the directory since building the Docker container we can continue with [deploying cert manager](#deploy-cert-manager)
 
 ```powershell
@@ -179,11 +179,11 @@ we for the containers to be started on the windows nodes, we can see an empty JS
 ![Working result page](../../images/screenshot-no-calls-web-page.png)
 
 > ![NOTE]  
-> If the certificate just don't get ready it is possible that Let's Encrypt reached an API limit
-> for `westeurope.cloudapp.azure.com`, if that's the case you can either wait and retry at the
+> If the certificate do not get ready it is possible that Let's Encrypt reached an API limit
+> for `westeurope.cloudapp.azure.com`, if that is the case you can either wait and retry at the
 > start of next week, you can shutdown the cluster meanwhile but you do not have to. Or you can
 > create a CNAME record on a custom domain that points to your `westeurope.cloudapp.azure.com`
-> -domain. If you create a custom domain, don't forget to update the bot service channel with the
+> -domain. If you create a custom domain, do not forget to update the bot service channel with the
 > custom domain and redo the `helm upgrade` command with your custom domain as host. To check if
 > the rate limit is reached, run `kubectl describe certificate ingress-tls-recordingbottutorial --namespace recordingbottutorial`
 > and check the output for a rate limit error
