@@ -78,4 +78,4 @@ Variables that are used in this tutorial are:
 If you encounter any problems during the tutorial, please feel free to create an [issue](https://github.com/lm-development/aks-sample/issues).
 This means that the tutorial can be continuously expanded to include error handling.
 
-Now let us start [create an aks cluster](./deploy/1-aks.md)
+Now let us start [create an AKS cluster](./deploy/1-aks.md)
