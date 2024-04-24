@@ -178,7 +178,7 @@ we for the containers to be started on the windows nodes, we can see an empty JS
 
 ![Working result page](../../images/screenshot-no-calls-web-page.png)
 
-> ![NOTE]  
+> [!NOTE]  
 > If the certificate do not get ready it is possible that Let's Encrypt reached an API limit
 > for `westeurope.cloudapp.azure.com`, if that is the case you can either wait and retry at the
 > start of next week, you can shutdown the cluster meanwhile but you do not have to. Or you can
