@@ -28,7 +28,7 @@ administrator and always log in as such unless the tutorial requires otherwise.
 2. [Create an Azure Container Registry](./deploy/2-acr.md)
 3. [Clone and build recording bot application](./deploy/3-build.md)
 4. [Create and configure Bot Service](./deploy/4-bot-service.md)
-5. [Deploy Recording Sample to AKS Cluster](./deploy/5-helm-deploy.md)
+5. [Deploy Recording Sample to AKS Cluster](./deploy/5-helm.md)
 6. [Create and assign a Recording Policy](./deploy/6-policy.md)
 7. [Verify functionality](./deploy/7-test.md)
 
@@ -51,6 +51,7 @@ Variables that are used in this tutorial are:
 
 |                        What?                        |                          Value                          |
 | --------------------------------------------------- | ------------------------------------------------------- |
+| Recording Bot Name                                  | `Tutorial Bot`                                          |
 | AKS DNS record                                      | `recordingbottutorial`_.westeurope.cloudapp.azure.com_  |
 | App Registration Id                                 | _cccccccc-cccc-cccc-cccc-cccccccccccc_                  |  
 | App Registration Secret                             | _abcdefghijklmnopqrstuvwxyz_                            |
@@ -61,15 +62,13 @@ Variables that are used in this tutorial are:
 | Microsoft Entra Id Tenant Id                        | _99999999-9999-9999-9999-999999999999_                  |
 | Kubernetes Recording Bot Deployment Name            | `recordingbottutorial`                                  |
 | Kubernetes Recording Bot Namespace                  | `recordingbottutorial`                                  |
-| Kubernetes Cert-Manager Deployment Name             | `cert-manager`                                          |
-| Kubernetes Cert-Manager Namespace                   | `cert-manager`                                          |
-| Bot Name within the application                     | `Tutorial Bot`                                          |
 | Let's Encrypt Email address                         | `tls-security@lm-ag.de`                                 |
 | Windows Nodepool                                    | `win22`                                                 |
 | Azure Subscription Id                               | _yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyyy_                 |
 | Azure Region                                        | `westeurope`                                            |
 | Directory for source code                           | `C:\Users\User\recordingbottutorial\`                   |
 | Recording Application Docker Container Tag          | `recordingbottutorial/application:latest`               |
+| Public IP of the Public IP Address Resource         | _255.255.255.255_                                       |
 
 > [!TIP]  
 > Consider to define own variable values before we start. Keep in mind the Azure resources have

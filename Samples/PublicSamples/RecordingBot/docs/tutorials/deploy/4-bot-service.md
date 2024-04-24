@@ -292,4 +292,4 @@ Command group 'bot msteams' is in preview and under development. Reference and s
 }
 ```
 
-In the next step we will [deploy the sample recording bot application to our AKS cluster](5-deploy.md).
+In the next step we will [deploy the sample recording bot application to our AKS cluster](5-helm.md).

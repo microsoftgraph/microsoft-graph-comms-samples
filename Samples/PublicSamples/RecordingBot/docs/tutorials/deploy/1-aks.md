@@ -536,7 +536,7 @@ address, we want to create a DNS entry so we can reference it by name. Since the
 automatically created for us, it resides in the automatically created resource group of managed
 resources. If we didn't note down the name of this resource group in the
 [Create Azure Kubernetes Cluster](#create-azure-kubernetes-cluster) step, follow the next step to find out the name. Otherwise we
-can skip ahead to [getting the public IP resource name](#get-the-public-ip-resource-name).
+can skip ahead to [getting the public IP resource name](#get-the-public-ip-resource).
 
 ### Get the managed resources resource group name
 
@@ -563,7 +563,7 @@ manage the AKS cluster. You can find the managed resource group name in the _nod
 field of the output. In the example output the resource group is called
 `MC_recordingbottutorial_recordingbotcluster_westeurope`.
 
-### Get the public IP resource name
+### Get the public IP resource
 
 Since the public IP address is an Azure resource, it can be referenced by name. To find out, what
 name was assigned to it, we execute the following command:
@@ -585,7 +585,7 @@ We consider our example output:
     "etag": "W/\"f5508f05-0e65-479a-9399-d436f02e0a66\"",
     "id": "/subscriptions/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyyy/resourceGroups/MC_recordingbottutorial_recordingbotcluster_westeurope/providers/Microsoft.Network/publicIPAddresses/pppppppp-pppp-pppp-pppp-pppppppppppp",
     "idleTimeoutInMinutes": 4,
-    "ipAddress": "108.141.184.42",
+    "ipAddress": "255.255.255.255",
     "ipConfiguration": {
       "id": "/subscriptions/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyyy/resourceGroups/MC_recordingbottutorial_recordingbotcluster_westeurope/providers/Microsoft.Network/loadBalancers/kubernetes/frontendIPConfigurations/pppppppp-pppp-pppp-pppp-pppppppppppp",
       "resourceGroup": "MC_recordingbottutorial_recordingbotcluster_westeurope"
@@ -618,7 +618,9 @@ We consider our example output:
 ```
 
 The name of the public IP Address resource can be found in the _name_ field of the output. In our
- example output the name of the public IP address resource is `pppppppp-pppp-pppp-pppp-pppppppppppp`.
+example output the name of the public IP address resource is `pppppppp-pppp-pppp-pppp-pppppppppppp`.
+Also write down the value of the _ipAddress_ field as we need the the address when we deploy the sample
+to our aks cluster, in our example output the ipAddress is `255.255.255.255`.
 
 ### Set DNS name for public IP resource
 
