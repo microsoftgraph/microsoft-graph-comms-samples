@@ -185,7 +185,7 @@ we for the containers to be started on the windows nodes, we can see an empty JS
 > create a CNAME record on a custom domain that points to your `westeurope.cloudapp.azure.com`
 > -domain. If you create a custom domain, don't forget to update the bot service channel with the
 > custom domain and redo the `helm upgrade` command with your custom domain as host. To check if
-> it is the rate limit is reached try to run `kubectl describe certificate ingress-tls-recordingbottutorial --namespace recordingbottutorial`
-> and check the output if there is an error because of a rate limit
+> the rate limit is reached, run `kubectl describe certificate ingress-tls-recordingbottutorial --namespace recordingbottutorial`
+> and check the output for a rate limit error
 
 In the next step we will [set up a recording policy for all users in our Microsoft Entra ID tenant](./6-policy.md).
