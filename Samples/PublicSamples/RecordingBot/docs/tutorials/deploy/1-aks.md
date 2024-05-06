@@ -78,10 +78,11 @@ Regarding the vm size of the system nodes in the system nodepool we choose the
 series are available without requesting more quotas.
 
 > [!WARNING]  
-> Make sure to check the [pricing tiers](https://learn.microsoft.com/en-us/azure/aks/free-standard-pricing-tiers) and [pricing for VMs](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/) as costs may incur (even with the Free Tier).
-
-> [!WARNING]  
-> Check your quotas [per vm quotas](https://learn.microsoft.com/en-us/azure/quotas/per-vm-quota-requests) as in Azure quotas for vCPU cores might first be increased.
+> Make sure to check the [pricing tiers](https://learn.microsoft.com/en-us/azure/aks/free-standard-pricing-tiers)
+> and [pricing for VMs](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/)
+> as costs may incur (even with the Free Tier). If you already have VMs running in your Azure
+> subscribtion, also check your [per vm quotas](https://learn.microsoft.com/en-us/azure/quotas/per-vm-quota-requests)
+> to avoid exceeding your quotas.
 
 Here is the command we run to create our AKS cluster resource:
 
