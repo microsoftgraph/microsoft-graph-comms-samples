@@ -58,8 +58,9 @@ az acr build
     .
 ```
 
-The build of the Docker container takes very long as the source code is first uploaded and then the
-build of a quite big windows container starts. However the complete output should look similar to:
+The build of the Docker container takes a very long time. The source code is first uploaded and then
+a quite large windows container starts building before the app is built.
+However the complete output should look similar to:
 
 ```text
 Packing source code into tar to upload...
