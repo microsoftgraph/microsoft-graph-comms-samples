@@ -19,7 +19,6 @@ You can also use the SkypeForBusiness Module, either one works.
 The relevant Commands are available in both Modules.
 
 You will use the Microsoft Entra Id administrator for all commands.  
-How to assign policies to a user is outside the scope of this documentation.
 
 ### Run PowerShell (as admin)
 
@@ -56,9 +55,9 @@ For further Information check [Install the Microsoft Teams PowerShell Module](ht
 
 To create a policy in Teams, we need 3 objects.
 
-- An Application Instance (Microsoft Entra ID Resource)
-- A Recording policy (the actual compliance policy)
-- A Recording Policy Application (A link between the policy and the application)
+- An [Application Instance](../explanations/recording-bot-policy.md#application-instances) (Microsoft Entra ID Resource)
+- A [Recording Policy](../explanations/recording-bot-policy.md#recording-policies) (the actual compliance policy)
+- A [Recording Application](../explanations/recording-bot-policy.md#recording-applications) (A link between the policy and the application)
 
 ### Create the Application Instance
 
