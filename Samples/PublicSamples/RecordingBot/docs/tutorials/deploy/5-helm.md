@@ -15,7 +15,7 @@ cd .\aks-sample\Samples\PublicSamples\RecordingBot\
 
 ## Deploy Cert Manager
 
-As all local media bots the sample needs a properly signed certificate, with a trust chain up to
+Like any local media bots, the sample needs a properly signed certificate, with a trust chain up to
 generally trusted root authority. To create the certificate for the sample in our AKS cluster
 we use cert manager with [Let's Encrypt](https://letsencrypt.org/).
 
@@ -95,7 +95,7 @@ kubectl create secret generic bot-application-secrets
 > The name `bot-application-secrets` could be changed, but the new name must then also be provided
 > to the chart of the sample, how to do this, is out of scope of this tutorial.
 
-The output we see should look similar to:
+The output should look similar to:
 
 ```text
 secret/bot-application-secrets created
@@ -105,7 +105,7 @@ secret/bot-application-secrets created
 
 Now we can deploy the recording bot sample.
 
-First we have to load the dependencies of the chart that deploys the sample:
+First we have to load the dependencies of the [Helm Chart](https://helm.sh/docs/topics/charts/) that deploys the sample:
 
 ```powershell
 helm dependency update .\deploy\teams-recording-bot\
@@ -144,7 +144,7 @@ Deleting outdated charts
 ```
 
 Now we can deploy the chart of the recording bot sample to our aks cluster. Do not forget to change
-the example values with the values, you have written down during the previous steps.
+the example values with the values you have written down during the previous steps.
 
 ```powershell
 helm upgrade recordingbottutorial .\deploy\teams-recording-bot\ 
@@ -173,15 +173,15 @@ TEST SUITE: None
 Now we need to open our browser at `https://recordingbottutorial.westeurope.cloudapp.azure.com/calls`
 (your fully qualified domain name + _/calls_) when first loading we should see a certificate error.
 As only now the cert manager starts to create the certificate. After waiting some time ~2mins we can
-reload the page and should see a service unavailable screen. After waiting some more time ~15mins,
-we for the containers to be started on the windows nodes, we can see an empty JSON result (see image below).
+reload the page and should see a service unavailable screen. After waiting some more time ~15mins
+for the containers to be started on the windows nodes, we can see an empty JSON result (see image below).
 
 ![Working result page](../../images/screenshot-no-calls-web-page.png)
 
 > [!NOTE]  
 > If the certificate do not get ready it is possible that Let's Encrypt reached an API limit
 > for `westeurope.cloudapp.azure.com`, if that is the case you can either wait and retry at the
-> start of next week, you can shutdown the cluster meanwhile but you do not have to. Or you can
+> start of next week. You can shutdown the cluster in the meantime but you do not have to. Or you can
 > create a CNAME record on a custom domain that points to your `westeurope.cloudapp.azure.com`
 > -domain. If you create a custom domain, do not forget to update the bot service channel with the
 > custom domain and redo the `helm upgrade` command with your custom domain as host. To check if
