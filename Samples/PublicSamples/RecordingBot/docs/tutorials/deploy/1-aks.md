@@ -20,7 +20,7 @@ A browser window with the Microsoft login page should open, otherwise follow the
 
 In the browser, we need to log in with our Microsoft Entra Id administrator account and accept the requested scopes.
 
-After successful log in, the output looks like this:
+After successful login, the output looks similar to this:
 
 ```json
 [
@@ -44,7 +44,7 @@ After successful log in, the output looks like this:
 ## Create Azure Resource Group
 
 Now we can start to create resources in our azure subscription.  
-Let us start with creating a resource group in our Azure Subscription.
+Let us start with creating a resource group.
 
 ```powershell
 az group create 
@@ -71,7 +71,7 @@ The result in the command line should look something like:
 
 ## Create Azure Kubernetes Cluster
 
-With our Resource Group set up, we create an AKS cluster. For the purpose of this tutorial we'll
+With our Resource Group set up, we create an AKS cluster. For the purpose of this tutorial we will
 use the Free Tier. To further reduce costs, we also set the node count of the system nodepool to 1.
 Regarding the vm size of the system nodes in the system nodepool we choose the
 `standard_d2s_v3`-series, as this series is available at the most regions and some nodes in this
@@ -746,7 +746,7 @@ A successful result will look like:
 Merged "recordingbotcluster" as current context in C:\Users\User\.kube\config
 ```
 
-To test if it really was successful we will try to list the nodes in our kubernetes cluster with kubectl
+To test if it really was successful, we will try to list the nodes in our kubernetes cluster with kubectl
 
 ```powershell
 kubectl get nodes
@@ -771,6 +771,6 @@ As a small summary we now:
 - added a windows nodepool with 2 nodes
 - made sure we can use the system nodes
 - set up a DNS record into the cluster
-- retreived the credentials fpr deployments to our AKS cluster
+- retrieved the credentials for deployments to our AKS cluster
 
 Next we can [create an Azure container registry](./2-acr.md).
