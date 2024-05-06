@@ -42,8 +42,8 @@ and encryption, metadata and media events are transferred via the TCP connection
 The overhead of the TCP endpoints is completly managed by the Graph Communications SDK, but the
 HTTPS endpoints for notifications must be custom implemented by the bot recording application.
 ASP.NET Core can be used. After a HTTP request is authorized and notifications are parsed from the
-request, the notifications should be forwarded to the SDK. The SDK will process notification and
-fire eventss based on these notifications. The event handlers can implement business logic. An
+request, the notifications should be forwarded to the SDK. The SDK will process notifications and
+fire events based on these notifications. The event handlers can implement business logic. An
 event handler that, for example, triggers when a new call notification was received, should be used
 for answering calls. Before answering, business logic can decide whether the call should be
 accepted. Such an event handler should use the `answer` method of the SDK with the desired
