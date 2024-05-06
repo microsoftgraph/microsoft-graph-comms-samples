@@ -7,7 +7,7 @@ be a single tenant app registration or a multi tenant app registration, also see
  Id app registration and the bot service are linked.
 
 Also the app registration must have some application permissions exposed by the Microsoft Graph API
-that allow the recording application to join calls and access the media streams. The following
+that allows the recording application to join calls and access the media streams. The following
 Microsoft Graph API application permissions are relevant for the recording bot:
 
 |  permission  |  description  |

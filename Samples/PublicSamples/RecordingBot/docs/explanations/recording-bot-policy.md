@@ -28,7 +28,7 @@ the notification URL in the bot service.
 ## Recording Policies
 
 Recording policies are managable instances that can be assigend to users, groups of users or to a
-whole tenant(all users of a tenant). Policies contain a recording application.
+whole tenant (all users of a tenant). Policies contain a recording application.
 
 ## Recording Applications
 
@@ -42,11 +42,11 @@ invited. This can, for example, be used as backup to raise resilience.
 ## Application Instances
 
 An application instance is the connection between the recording application for the policy and the
-app registration of the bot implentation. The application instance creates a Microsoft Entra Id
+app registration of the bot implementation. The application instance creates a Microsoft Entra Id
 resource that is linked to the app registration, also in Entra Id. The app registration and the
-application instance don't have to be in the same Entra Id tenant. This is especially interesting
+application instance do not have to be in the same Entra Id tenant. This is especially interesting
 for multi tenant recording bot implementations as it allows the hosting tenant to configure things
-like permissions and the notification URL and the customer tenants to define the behaviour of the
+like permissions and the notification URL and the consumer tenants to define the behaviour of the
 recording policy.
 
 An application instance is a Microsoft Entra Id resource similar to a user. Application instances
