@@ -1,4 +1,4 @@
-> **Note**  
+> [!NOTE]  
 > Public Samples are provided by developers from the Microsoft Graph community.  
 > Public Samples are not official Microsoft Communication samples, and not supported by the Microsoft Communication engineering team. It is recommended that you contact the sample owner before using code from Public Samples in production systems.
 
@@ -17,16 +17,13 @@ Lead maintainer: [@InDieTasten](https://github.com/InDieTasten)
 **Fork for issues and contributions:**  
 [LM-Development/aks-sample](https://github.com/LM-Development/aks-sample)
 
-
 # Introduction
 
 This sample allows you to build, deploy and test a compliance recording bot running on Azure Kubernetes Service and is currently the only sample demonstrating a basis for zero-downtime deployments and horizontal scaling ability.
 
 The unique purpose of this sample is to demonstrate how to run production grade bots. The bot implementation can easily be changed to fit other use cases other than compliance recording.
 
-### Contents
-
-Outline the file contents of the repository. It helps users navigate the codebase, build configuration and any related assets.
+## Contents
 
 | File/folder       | Description                                |
 |-------------------|--------------------------------------------|
@@ -42,18 +39,14 @@ Outline the file contents of the repository. It helps users navigate the codebas
 ## Getting Started
 
 The easiest way to grasp the basics surrounding compliance bots is to read up on the following documentation topics:
-> 🚩 TODO: 1. Understanding App-Hosted Media Bot Networking  
 
-> 🚩 TODO: 2. Understanding Entra and Graph Calling Permissions  
-
-> 🚩 TODO: 3. Understanding Compliance Recording Policies
+- [High Level Overview over the Infrastructure for the Recording Bot](./docs/explanations/recording-bot-overview.md)
+- [Bot Service - Entra Id and Microsoft Graph API Calling Permissions](./docs/explanations/recording-bot-permission.md)
+- [Compliance Recording Policies](./docs/explanations/recording-bot-policy.md)
 
 ### Deploy
 
-> 🚩 TODO: Prerequisites
-
-> 🚩 TODO: AKS, bot registration, permissions, docker, helm, compliance policies
-
+[Deploy the recording bot sample to AKS with the tutorial](./docs/tutorials/deploy-tutorial.md), to get your own recording bot up and running.
 
 ### Local Run
 
@@ -70,7 +63,6 @@ The easiest way to grasp the basics surrounding compliance bots is to read up on
 ## Questions and Support
 
 > For this sample related questions, please open an issue in the [issue tracker](https://github.com/LM-Development/aks-sample/issues) of the fork repository.
-
 
 ---
 
@@ -122,7 +114,7 @@ The easiest way to grasp the basics surrounding compliance bots is to read up on
     AzureSettings__WAVQuality=100 ## from 0 to 100%, when omitted, by default is 100%
     ```
 
->Note: You don't need to create another `.env` file for your Testing project. It's there for the CI/CD build pipeline.
+>Note: You do not need to create another `.env` file for your Testing project. It is there for the CI/CD build pipeline.
 
 6. Optional - Including publishing of Bot Events with Azure Event Grid
    * Create an [Event Grid custom topic in Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/scripts/event-grid-cli-create-custom-topic) in the CLI or Azure portal (to receive events) with the default `TOPIC_NAME` of `recordingbotevents`.
@@ -150,7 +142,7 @@ If you are running the project locally, you will need Ngrok running to forward t
 
 1. Create a new file called `ngrok.yaml` in the [scripts](scripts) folder.
 2. Copy the contents of [ngrok.yaml-template](scripts/ngrok.yaml-template) over to `ngrok.yaml`.
-3. Update `ngrok.yaml` with 
+3. Update `ngrok.yaml` with
     ```
     <AUTH_TOKEN>: Your Ngrok authentication token.
 
@@ -164,7 +156,7 @@ If you are running the project locally, you will need Ngrok running to forward t
     For example 8445
     ```
 
-Once you've done that, run [runngrok.bat](scripts/runngrok.bat) in command prompt and leave it running.
+Once you have done that, run [runngrok.bat](scripts/runngrok.bat) in command prompt and leave it running.
 
 ### Visual Studio
 
@@ -211,7 +203,7 @@ To build the image, make sure Docker is running and is set to `Windows Container
 
 To do this, right click on Docker in your system tray and click `Switch to Windows containers...`. Wait for Docker to restart before continuing.
 
-1. To build the container, open a new powershell terminal and make sure you've changed directories to the root of this repository. If you are, run the following command:
+1. To build the container, open a new powershell terminal and make sure you have changed directories to the root of this repository. If you are, run the following command:
 
     ```powershell
     docker build `
@@ -222,7 +214,7 @@ To do this, right click on Docker in your system tray and click `Switch to Windo
         -t [TAG]
     ```
 
-2. Before we can run the project, you need to extract your `certificate.pfx` you generated in [Setting up URL ACL and Certificate Bindings](docs/setup/certificate.md) into individual `.key` and `.cert` files. You'll need to make sure you have [OpenSSL](https://chocolatey.org/packages/OpenSSL.Light) installed. Currently [entrypount.cmd](scripts/entrypoint.cmd) does not check if a `certificate.pfx` exists and expects it has to generate it and add it to the container's certificate store.
+2. Before we can run the project, you need to extract your `certificate.pfx` you generated in [Setting up URL ACL and Certificate Bindings](docs/setup/certificate.md) into individual `.key` and `.cert` files. You will need to make sure you have [OpenSSL](https://chocolatey.org/packages/OpenSSL.Light) installed. Currently [entrypount.cmd](scripts/entrypoint.cmd) does not check if a `certificate.pfx` exists and expects it has to generate it and add it to the container's certificate store.
 
     To extract your `certificate.pfx`, run the following command in powershell:
 
@@ -251,7 +243,7 @@ To do this, right click on Docker in your system tray and click `Switch to Windo
     - Make sure you replace `CERTIFICATE_PATH` with the folder location of your `tls.cert` and `tls.key`.
     - The bot needs at least 2 CPU cores for it to run. We specify this with `--cpus 2.5`.
 
-**Note**: You can also join the docker later if you'd like to retrieve the wav files in the docker container itself by running this command:
+**Note**: You can also join the docker later if you would like to retrieve the wav files in the docker container itself by running this command:
 
 ```powershell
 docker exec -it <container_id> powershell
@@ -259,7 +251,7 @@ docker exec -it <container_id> powershell
 
 **IMPORTANT**:
 
-5. If you're attaching to the existing docker instance, make sure to run `.\entrypoint.cmd`. You'll see a bunch of activity in your console but once you see `RecordingBot: running`, you're good to go. Make sure you have Ngrok running before trying to interact with the bot through teams.
+5. If you are attaching to the existing docker instance, make sure to run `.\entrypoint.cmd`. You will see a bunch of activity in your console but once you see `RecordingBot: running`, you are good to go. Make sure you have Ngrok running before trying to interact with the bot through teams.
 
 ## Key concepts
 
@@ -269,7 +261,7 @@ Provide users with more context on the tools and services used in the sample. Ex
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+the rights to use your contribution. For details, visit <https://cla.opensource.microsoft.com>.
 
 When you submit a pull request, a CLA bot will automatically determine whether you need to provide
 a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
