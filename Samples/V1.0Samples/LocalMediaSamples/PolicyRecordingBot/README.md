@@ -57,12 +57,20 @@ To verify your policy was assigned correctly:
 
 ### Deploy
 
-1. Create a cloud service (classic) in Azure. Get your "Site URL" from Azure portal, this will be your DNS name and CN name for later configuration, for example: `bot.contoso.com`.
+1. Prerequisites for deploying Azure Cloud Service (extended support)(https://learn.microsoft.com/en-us/azure/cloud-services-extended-support/deploy-prerequisite#required-service-configuration-cscfg-file-updates)
+   * Lock Down Your Certificates with Azure Key Vault
+      Create an Azure Key Vault to securely store and manage certificates for your cloud service. Follow these steps to create Azure Key Vault: https://learn.microsoft.com/en-us/azure/key-vault/general/quick-create-portal
+   
+   * Set up SSL certificate and upload to the Azure Key Vault
+        1. Get a Wildcard Certificate: Create a wildcard certificate for your service (e.g., *.contoso.com if your bot is hosted at bot.contoso.com). Make sure it's not self-signed!
+        2. Upload to Azure Key Vault: Upload the certificate to your Azure Key Vault.(stpes  on how to upload certificate in azure portal https://learn.microsoft.com/en-us/azure/key-vault/certificates/tutorial-import-certificate?tabs=azure-portal)
+        3. Grab the Thumbprint: Copy the thumbprint and add it to your .cscfg files.
 
-2. Set up SSL certificate and upload to the cloud service
-    1. Create a wildcard certificate for your service. This certificate should not be a self-signed certificate. For instance, if your bot is hosted at `bot.contoso.com`, create the certificate for `*.contoso.com`.
-    2. Upload the certificate to the cloud service.
-    3. Copy the thumbprint for later.
+   * Set Up Your Virtual Network
+      Create a virtual network and subnets in the Azure portal. Add the virtual network details to your .cscfg file. Follow these steps to  create  virtual network: https://learn.microsoft.com/en-us/azure/virtual-network/quick-create-portal
+
+2. Create Your Cloud Service (extended support)
+    Create a cloud service (extended support) in Azure (https://learn.microsoft.com/en-us/azure/cloud-services-extended-support/deploy-portal). Get your "Site URL" from the Azure portal, which will be your DNS name and CN name for later configuration (e.g., bot.contoso.com).
 
 3. Set up cloud service configuration
     1. Open powershell, go to the folder that contains file `configure_cloud.ps1`. The file is in the `Samples` directory.
@@ -75,7 +83,7 @@ To verify your policy was assigned correctly:
          `.\configure_cloud.ps1 -p .\V1.0Samples\LocalMediaSamples\PolicyRecordingBot\ -dns bot.contoso.com -cn bot.contoso.com -thumb ABC0000000000000000000000000000000000CBA -bid bot -aid 3853f935-2c6f-43d7-859d-6e8f83b519ae -as 123456!@#$%^`
 
 4. Publish the bot from VS:
-    1. Right click PolicyRecordingBot, then click `Publish...`. Publish it to the cloud service you created earlier.
+    1. Right click PolicyRecordingBot, then click `Publish...`. Publish it to the cloud service(extended support) you created earlier.      
 
 ### Test
 

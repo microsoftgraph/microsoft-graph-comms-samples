@@ -3,7 +3,6 @@
   <Role name="CRWorkerRole">
     <Instances count="4" />
     <ConfigurationSettings> 
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=$storage$;AccountKey=$storageKey$" />
       <Setting name="ServiceDnsName" value="%ServiceDns%" /> 
       <!-- xyz.cloudapp.net--> 
       <Setting name="ServiceCNAME" value="%CName%" /> 
@@ -16,8 +15,14 @@
     </Certificates> 
   </Role>
   <NetworkConfiguration>
+	  <!-- Name of VirtualNetworSite.-->
+	<VirtualNetworkSite name="PolicyRecordingBot" />
     <AddressAssignments>
       <InstanceAddress roleName="CRWorkerRole">
+		  <!-- Name of Subnets.-->
+		  <Subnets>
+			  <Subnet name="default"/>
+		  </Subnets>
         <PublicIPs>
           <PublicIP name="instancePublicIP" domainNameLabel="pip" />
         </PublicIPs>
