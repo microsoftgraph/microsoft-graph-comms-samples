@@ -121,15 +121,7 @@ Function global:AzDeploy
         throw 'Please run the deploy.ps1 or Create-StorageAccount.ps1'
     }
 
-    $SASParams = @{
-        Container  = $StorageContainerName
-        Context    = $StorageAccount.Context
-        Permission = 'r'
-        ExpiryTime = (Get-Date).AddHours(40)
-    }
-    $queryString = (New-AzStorageContainerSASToken @SASParams).Substring(1)
     $Global['_artifactsLocation'] = $TemplateURIBase
-    $Global['_artifactsLocationSasToken'] = "?${queryString}"
     $Global['OrgName'] = $OrgName
     $Global['AppName'] = $App
     $Global['SAName'] = $StorageAccountName
