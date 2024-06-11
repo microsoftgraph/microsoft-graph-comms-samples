@@ -121,11 +121,19 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         private const string InstanceIdToken = "in_";
 
         /// <summary>
-        /// localPort specified in <InputEndpoint name="DefaultCallControlEndpoint" protocol="tcp" port="443" localPort="9441" />
-        /// in .csdef. This is needed for running in emulator. Currently only messaging can be debugged in the emulator.
-        /// Media debugging in emulator will be supported in future releases.
+        /// The public call signaling port number.
         /// </summary>
-        private const int DefaultPort = 9441;
+        private const string SignalingPortKey = "SignalingPort";
+
+        /// <summary>
+        /// The Media streaming port number.
+        /// </summary>
+        private const string MediaPortKey = "MediaPort";
+
+        /// <summary>
+        /// The TCP Forwarding port number.
+        /// </summary>
+        private const string TcpForwardingPortKey = "TcpForwardingPort";
 
         /// <summary>
         /// Graph logger.
@@ -169,7 +177,7 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         public string ServiceCname { get; private set; }
 
         /// <inheritdoc/>
-        public IEnumerable<Uri> CallControlListeningUrls { get; private set; }
+        public IEnumerable<string> CallControlListeningUrls { get; private set; }
 
         /// <inheritdoc/>
         public Uri CallControlBaseUrl { get; private set; }
@@ -214,6 +222,15 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
 
         /// <inheritdoc/>
         public int AudioVideoFileLengthInSec { get; private set; }
+
+        /// <inheritdoc/>
+        public int SignalingPort { get; private set; }
+
+        /// <inheritdoc/>
+        public int MediaPort { get; private set; }
+
+        /// <inheritdoc/>
+        public int TcpForwardingPort { get; private set; }
 
         /// <summary>
         /// Initialize from serviceConfig.
@@ -318,20 +335,25 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
                 this.PlaceCallEndpointUrl = new Uri(placeCallEndpointUrlStr);
             }
 
+            // Get all media ports
+            this.SignalingPort = this.GetNumber(SignalingPortKey);
+            this.MediaPort = this.GetNumber(MediaPortKey);
+            this.TcpForwardingPort = this.GetNumber(TcpForwardingPortKey);
+
             X509Certificate2 defaultCertificate = this.GetCertificateFromStore(DefaultCertificateKey);
 
             RoleInstanceEndpoint instanceCallControlEndpoint = RoleEnvironment.IsEmulated ? null : this.GetEndpoint(InstanceCallControlEndpointKey);
             RoleInstanceEndpoint defaultEndpoint = this.GetEndpoint(DefaultEndpointKey);
             RoleInstanceEndpoint mediaControlEndpoint = RoleEnvironment.IsEmulated ? null : this.GetEndpoint(InstanceMediaControlEndpointKey);
 
-            int instanceCallControlInternalPort = RoleEnvironment.IsEmulated ? DefaultPort : instanceCallControlEndpoint.IPEndpoint.Port;
+            int instanceCallControlInternalPort = RoleEnvironment.IsEmulated ? this.SignalingPort : instanceCallControlEndpoint.IPEndpoint.Port;
             string instanceCallControlInternalIpAddress = RoleEnvironment.IsEmulated
                 ? IPAddress.Loopback.ToString()
                 : instanceCallControlEndpoint.IPEndpoint.Address.ToString();
 
-            int instanceCallControlPublicPort = RoleEnvironment.IsEmulated ? DefaultPort : instanceCallControlEndpoint.PublicIPEndpoint.Port;
-            int mediaInstanceInternalPort = RoleEnvironment.IsEmulated ? 8445 : mediaControlEndpoint.IPEndpoint.Port;
-            int mediaInstancePublicPort = RoleEnvironment.IsEmulated ? 13016 : mediaControlEndpoint.PublicIPEndpoint.Port;
+            int instanceCallControlPublicPort = RoleEnvironment.IsEmulated ? this.SignalingPort : instanceCallControlEndpoint.PublicIPEndpoint.Port;
+            int mediaInstanceInternalPort = RoleEnvironment.IsEmulated ? this.MediaPort : mediaControlEndpoint.IPEndpoint.Port;
+            int mediaInstancePublicPort = RoleEnvironment.IsEmulated ? this.TcpForwardingPort : mediaControlEndpoint.PublicIPEndpoint.Port;
 
             string instanceCallControlIpEndpoint = string.Format("{0}:{1}", instanceCallControlInternalIpAddress, instanceCallControlInternalPort);
 
@@ -378,17 +400,14 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
 
             this.AudioVideoFileLengthInSec = avFileLengthInSec;
 
-            List<Uri> controlListenUris = new List<Uri>();
+            var controlListenUris = new List<string>();
             if (RoleEnvironment.IsEmulated)
             {
                 // Create structured config objects for service.
-                this.CallControlBaseUrl = new Uri(string.Format(
-                    "https://{0}/{1}",
-                    this.ServiceCname,
-                    HttpRouteConstants.CallSignalingRoutePrefix));
+                this.CallControlBaseUrl = new Uri($"https://{this.ServiceCname}/{HttpRouteConstants.CallSignalingRoutePrefix}");
 
-                controlListenUris.Add(new Uri("https://" + defaultEndpoint.IPEndpoint.Address + ":" + DefaultPort + "/"));
-                controlListenUris.Add(new Uri("http://" + defaultEndpoint.IPEndpoint.Address + ":" + (DefaultPort + 1) + "/"));
+                controlListenUris.Add("https://+:" + this.SignalingPort + "/");
+                controlListenUris.Add("http://+:" + (this.SignalingPort + 1) + "/");
             }
             else
             {
@@ -399,33 +418,35 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
                     instanceCallControlPublicPort,
                     HttpRouteConstants.CallSignalingRoutePrefix));
 
-                controlListenUris.Add(new Uri("https://" + instanceCallControlIpEndpoint + "/"));
-                controlListenUris.Add(new Uri("https://" + defaultEndpoint.IPEndpoint + "/"));
+                controlListenUris.Add("https://" + instanceCallControlIpEndpoint + "/");
+                controlListenUris.Add("https://" + defaultEndpoint.IPEndpoint + "/");
             }
 
             this.TraceConfigValue("CallControlCallbackUri", this.CallControlBaseUrl);
             this.CallControlListeningUrls = controlListenUris;
 
-            foreach (Uri uri in this.CallControlListeningUrls)
+            foreach (var uri in this.CallControlListeningUrls)
             {
                 this.TraceConfigValue("Call control listening Uri", uri);
             }
 
+            var tcpAddress = $"{this.ServiceDnsName.Substring(0, this.ServiceDnsName.IndexOf("."))}.tcp.ngrok.io:{this.TcpForwardingPort}";
+            var publicMediaUrl = new Uri(tcpAddress);
             IPAddress publicInstanceIpAddress = RoleEnvironment.IsEmulated
-                ? IPAddress.Any
+                ? Dns.GetHostEntry(publicMediaUrl.Host).AddressList[0]
                 : this.GetInstancePublicIpAddress(this.ServiceDnsName);
 
-            string serviceFqdn = RoleEnvironment.IsEmulated ? "0.ngrok.skype-graph-test.net" : this.ServiceCname;
+            string serviceFqdn = RoleEnvironment.IsEmulated ? this.ServiceDnsName : this.ServiceCname;
 
             this.MediaPlatformSettings = new MediaPlatformSettings()
             {
                 MediaPlatformInstanceSettings = new MediaPlatformInstanceSettings()
                 {
-                    CertificateThumbprint = defaultCertificate.Thumbprint,
-                    InstanceInternalPort = mediaInstanceInternalPort,
-                    InstancePublicIPAddress = publicInstanceIpAddress,
-                    InstancePublicPort = mediaInstancePublicPort,
-                    ServiceFqdn = serviceFqdn,
+                    CertificateThumbprint = defaultCertificate.Thumbprint, // <Your SSL Cert thumbprint>
+                    InstanceInternalPort = mediaInstanceInternalPort, // <Localhost media port>
+                    InstancePublicPort = mediaInstancePublicPort, // <Ngrok exposed remote media port>
+                    InstancePublicIPAddress = publicInstanceIpAddress, // new IPAddress(0x0)
+                    ServiceFqdn = serviceFqdn, // <Media url for bot (eg: 1.bot.contoso.com)>
                 },
 
                 ApplicationId = this.AadAppId,
@@ -512,6 +533,26 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         private List<string> GetStringList(string key)
         {
             return this.GetString(key).Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+        }
+
+        /// <summary>
+        /// Lookup configuration value.
+        /// </summary>
+        /// <param name="key">Configuration key.</param>
+        /// <param name="allowEmpty">If empty configurations are allowed.</param>
+        /// <returns>Configuration value, if found.</returns>
+        private int GetNumber(string key, bool allowEmpty = false)
+        {
+            string s = CloudConfigurationManager.GetSetting(key);
+
+            this.TraceConfigValue(key, s);
+
+            if (!allowEmpty && string.IsNullOrWhiteSpace(s))
+            {
+                throw new ConfigurationException(key, "The Configuration value is null or empty.");
+            }
+
+            return int.Parse(s);
         }
 
         /// <summary>
