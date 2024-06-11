@@ -12,6 +12,8 @@
 // <summary></summary>
 // ***********************************************************************
 using Microsoft.Graph;
+using Microsoft.Graph.Contracts;
+using Microsoft.Graph.Models;
 using System.Net;
 using System.Runtime.Serialization.Json;
 using System.Text;

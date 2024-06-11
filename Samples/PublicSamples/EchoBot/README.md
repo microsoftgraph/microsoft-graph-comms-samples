@@ -84,7 +84,7 @@ openssl pkcs12 -export -out C:\Certbot\live\example.com\star_example_com.pfx -in
 
 ## Bot Registration
 
-1. Follow the instructions [Register a Calling Bot](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/register-calling-bot.html). Take a note of the registered config values (Bot Id, MicrosoftAppId and MicrosoftAppPassword). You will need these values in the code sample config.
+1. Follow the instructions [Register a Calling Bot](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/register-calling-bot.html). Take a note of the registered config values (Bot Id, MicrosoftAppId and MicrosoftAppPassword). You will need these values in the code sample config. NOTE: This step is creating an Azure Bot. If the bot is not created and configured correctly, the bot will not be able to join the meeting.
 
 1. Add the following Application Permissions to the bot:
 
