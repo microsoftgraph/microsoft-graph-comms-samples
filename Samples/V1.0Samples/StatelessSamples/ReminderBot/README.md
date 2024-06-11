@@ -7,7 +7,7 @@
 # Installation process 
     1. Enable an Azure subscription to host web sites and bot services. 
     2. Install Visual Studio 2017
-    3. Launch ReminderBot.sln in <Repository>\Samples\V1.0Samples\StatelessSamples\ with Visual Studio 2017 (VS2017)
+    3. Launch ReminderBot.sln in <Repository>\Samples\V1.0Samples\StatelessSamples with Visual Studio 2017 (VS2017)
     4. Click menu Build/"Build Solution" to build the whole solution
     5. Create an BotService in an Azure subscription with Azure Portal (https://portal.azure.com), then enable both Teams & Skype channels on the Azure portal, and configure the calling Uri of the bot. 
         * Go to "Bot Services" resource type page, click "Add", select "Bot Channels Registration", click "Create", then follow the instructions. 
@@ -53,7 +53,7 @@
 # Getting Started (Local Run Version)
     1. Installation process
         * Install Visual Studio 2017
-        * Launch CommsSamples.sln in <Repository>\Samples with Visual Studio 2017 (VS2017)
+        * Launch ReminderBot.sln in <Repository>\Samples\V1.0Samples\StatelessSamples with Visual Studio 2017 (VS2017)
         * Click menu Build/"Build Solution" to build the whole solution
         * Setup ngrok.
             - Sign up for a free ngrok account. Once signed up, go to the ngrok [dashboard](https://dashboard.ngrok.com/) and get your auth token.

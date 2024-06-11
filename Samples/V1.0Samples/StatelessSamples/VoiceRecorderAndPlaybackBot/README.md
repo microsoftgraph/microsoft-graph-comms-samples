@@ -49,7 +49,7 @@
 # Getting Started (Local Run Version)
     1. Installation process
         * Install Visual Studio 2017
-        * Launch CommsSamples.sln in <Repository>\Samples with Visual Studio 2017 (VS2017)
+        * Launch VoiceRecorderAndPlaybackBot.sln in <Repository>\Samples\V1.0Samples\StatelessSamples with Visual Studio 2017 (VS2017)
         * Click menu Build/"Build Solution" to build the whole solution
         * Setup ngrok.
             - Sign up for a free ngrok account. Once signed up, go to the ngrok [dashboard](https://dashboard.ngrok.com/) and get your auth token.

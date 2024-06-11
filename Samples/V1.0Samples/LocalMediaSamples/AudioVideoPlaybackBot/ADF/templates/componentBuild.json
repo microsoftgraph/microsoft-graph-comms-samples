@@ -1,0 +1,21 @@
+{
+    "ComponentName": {
+        "AVB": {
+            "D1": {
+                "DefaultBuild": "0.1.0"
+            },
+            "Q": {
+                "DefaultBuild": "1"
+            },
+            "T": {
+                "DefaultBuild": "1"
+            },
+            "U": {
+                "DefaultBuild": "1"
+            },
+            "P": {
+                "DefaultBuild": "1"
+            }
+        }
+    }
+}

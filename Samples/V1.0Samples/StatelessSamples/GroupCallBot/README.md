@@ -6,6 +6,10 @@ The sample demostrates calling a group of users.
     2. An incident occurs and the Group Call Bot creates a group call to all the members of the team.
     3. The Group Call Bot uses the participants update notification to keep track of the participants of the call.
     4. The incident is handled and the call ends.
+    
+# Note
+    For a call created by the Group Call Bot, some regular Team's features are not enabled for the users, such as call ended and started notifications on a shared group chat, call history (may not be updated correctly), Companion Mode, transferring between a user's devices, recording, transcription and dialout to PSTN numbers from the group call.
+
 
 # Installation process
     1. Enable an Azure subscription to host web sites and bot services. 
@@ -56,7 +60,7 @@ The sample demostrates calling a group of users.
 # Getting Started (Local Run Version)
     1. Installation process
         * Install Visual Studio 2017
-        * Launch CommsSamples.sln in <Repository>\Samples with Visual Studio 2017 (VS2017)
+        * Launch GroupCallBot.sln in <Repository>\Samples\V1.0Samples\StatelessSamples with Visual Studio 2017 (VS2017)
         * Click menu Build/"Build Solution" to build the whole solution
         * Setup ngrok.
             - Sign up for a free ngrok account. Once signed up, go to the ngrok [dashboard](https://dashboard.ngrok.com/) and get your auth token.

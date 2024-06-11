@@ -1,6 +1,11 @@
 # Changelog for Microsoft Graph Communications SDK and Samples
 
 This changelog covers what's changed in Microsoft Graph Communications SDK and its associated samples.
+## Oct 2020
+- Updated all samples to latest media binaries: Microsoft.Skype.Bots.Media 1.19.0.25-alpha
+  - Fixed a known memory leak bug in Media library.
+- Add AKS Sample: teams-recording-bot.
+
 ## Mar 2020
 
 - Updated to latest /beta and /v1 contracts

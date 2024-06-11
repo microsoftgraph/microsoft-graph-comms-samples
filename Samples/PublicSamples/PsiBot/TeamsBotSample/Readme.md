@@ -1,0 +1,3 @@
+﻿# TeamsBot Sample
+
+This sample contains two implementations of the [ITeamsBot interface](../TeamsBot/ITeamsBot.cs) found in the [`TeamsBot`](../TeamsBot/) project. Both implementations consume participant audio and video and visualize engagement by producing a screen-share video stream; one with a ball gravitating toward the most active speakers and the other by scaling participant video frames. The [sample `PsiBot` Teams bot](../PsiBot/PsiBot.Service/) can be configured to use either of these two implementations when deployed for live meetings. Alternatively, the [`TeamsBotTester` project](../TeamsBotTester/) can also be configured to use either of these two implementations when running from persisted data for local testing and development.

@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecordingBot.Services", "RecordingBot.Services\RecordingBot.Services.csproj", "{55C6D645-F418-4262-BEB2-9BAE523DEC60}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecordingBot.Tests", "RecordingBot.Tests\RecordingBot.Tests.csproj", "{734DB860-1A58-40E2-8026-D953C29CB081}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecordingBot.Model", "RecordingBot.Model\RecordingBot.Model.csproj", "{78FD9AD4-6DA2-4610-9C3C-20CE1B2396E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AEB94C04-C6B2-4F11-AB53-9218ABCF2E1F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecordingBot.Console", "RecordingBot.Console\RecordingBot.Console.csproj", "{AEEB866D-E17B-406F-9385-32273D2F8691}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{55C6D645-F418-4262-BEB2-9BAE523DEC60}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{55C6D645-F418-4262-BEB2-9BAE523DEC60}.Debug|Any CPU.Build.0 = Debug|x64
+		{55C6D645-F418-4262-BEB2-9BAE523DEC60}.Debug|x64.ActiveCfg = Debug|x64
+		{55C6D645-F418-4262-BEB2-9BAE523DEC60}.Debug|x64.Build.0 = Debug|x64
+		{55C6D645-F418-4262-BEB2-9BAE523DEC60}.Release|Any CPU.ActiveCfg = Release|x64
+		{55C6D645-F418-4262-BEB2-9BAE523DEC60}.Release|Any CPU.Build.0 = Release|x64
+		{55C6D645-F418-4262-BEB2-9BAE523DEC60}.Release|x64.ActiveCfg = Release|x64
+		{55C6D645-F418-4262-BEB2-9BAE523DEC60}.Release|x64.Build.0 = Release|x64
+		{734DB860-1A58-40E2-8026-D953C29CB081}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{734DB860-1A58-40E2-8026-D953C29CB081}.Debug|Any CPU.Build.0 = Debug|x64
+		{734DB860-1A58-40E2-8026-D953C29CB081}.Debug|x64.ActiveCfg = Debug|x64
+		{734DB860-1A58-40E2-8026-D953C29CB081}.Debug|x64.Build.0 = Debug|x64
+		{734DB860-1A58-40E2-8026-D953C29CB081}.Release|Any CPU.ActiveCfg = Release|x64
+		{734DB860-1A58-40E2-8026-D953C29CB081}.Release|Any CPU.Build.0 = Release|x64
+		{734DB860-1A58-40E2-8026-D953C29CB081}.Release|x64.ActiveCfg = Release|x64
+		{734DB860-1A58-40E2-8026-D953C29CB081}.Release|x64.Build.0 = Release|x64
+		{78FD9AD4-6DA2-4610-9C3C-20CE1B2396E6}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{78FD9AD4-6DA2-4610-9C3C-20CE1B2396E6}.Debug|Any CPU.Build.0 = Debug|x64
+		{78FD9AD4-6DA2-4610-9C3C-20CE1B2396E6}.Debug|x64.ActiveCfg = Debug|x64
+		{78FD9AD4-6DA2-4610-9C3C-20CE1B2396E6}.Debug|x64.Build.0 = Debug|x64
+		{78FD9AD4-6DA2-4610-9C3C-20CE1B2396E6}.Release|Any CPU.ActiveCfg = Release|x64
+		{78FD9AD4-6DA2-4610-9C3C-20CE1B2396E6}.Release|Any CPU.Build.0 = Release|x64
+		{78FD9AD4-6DA2-4610-9C3C-20CE1B2396E6}.Release|x64.ActiveCfg = Release|x64
+		{78FD9AD4-6DA2-4610-9C3C-20CE1B2396E6}.Release|x64.Build.0 = Release|x64
+		{AEEB866D-E17B-406F-9385-32273D2F8691}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{AEEB866D-E17B-406F-9385-32273D2F8691}.Debug|Any CPU.Build.0 = Debug|x64
+		{AEEB866D-E17B-406F-9385-32273D2F8691}.Debug|x64.ActiveCfg = Debug|x64
+		{AEEB866D-E17B-406F-9385-32273D2F8691}.Debug|x64.Build.0 = Debug|x64
+		{AEEB866D-E17B-406F-9385-32273D2F8691}.Release|Any CPU.ActiveCfg = Release|x64
+		{AEEB866D-E17B-406F-9385-32273D2F8691}.Release|Any CPU.Build.0 = Release|x64
+		{AEEB866D-E17B-406F-9385-32273D2F8691}.Release|x64.ActiveCfg = Release|x64
+		{AEEB866D-E17B-406F-9385-32273D2F8691}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8A4D05AB-AC38-4988-8C91-BE087F1C5328}
+	EndGlobalSection
+EndGlobal

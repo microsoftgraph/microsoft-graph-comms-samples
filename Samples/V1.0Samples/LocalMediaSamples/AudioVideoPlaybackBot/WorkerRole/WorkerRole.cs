@@ -76,8 +76,11 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
                 // Set the maximum number of concurrent connections
                 ServicePointManager.DefaultConnectionLimit = 12;
 
+                // ECS backend service enforced TLS 1.2 access.
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
                 // Create and start the environment-independent service.
-                Service.Instance.Initialize(new AzureConfiguration(this.logger), this.logger);
+                Service.Instance.Initialize(new AzureConfiguration(this.logger));
                 Service.Instance.Start();
 
                 var result = base.OnStart();

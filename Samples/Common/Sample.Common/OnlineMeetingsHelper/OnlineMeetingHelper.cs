@@ -34,10 +34,10 @@ namespace Sample.Common.OnlineMeetings
         /// Gets the online meeting.
         /// </summary>
         /// <param name="tenantId">The tenant identifier.</param>
-        /// <param name="meetingId">The meeting identifier.</param>
+        /// <param name="videoTeleconferenceId">The cloud-video-interop meeting identifier.</param>
         /// <param name="scenarioId">The scenario identifier.</param>
         /// <returns>The online meeting. </returns>
-        public async Task<OnlineMeeting> GetOnlineMeetingAsync(string tenantId, string meetingId, Guid scenarioId)
+        public async Task<OnlineMeeting> GetOnlineMeetingAsync(string tenantId, string videoTeleconferenceId, Guid scenarioId)
         {
             IAuthenticationProvider GetAuthenticationProvider()
             {
@@ -53,7 +53,7 @@ namespace Sample.Common.OnlineMeetings
             }
 
             var statelessClient = new GraphServiceClient(this.graphEndpointUri.AbsoluteUri, GetAuthenticationProvider());
-            var meetingRequest = statelessClient.Communications.OnlineMeetings[meetingId].Request();
+            var meetingRequest = statelessClient.Communications.OnlineMeetings[videoTeleconferenceId].Request();
 
             var meeting = await meetingRequest.GetAsync().ConfigureAwait(false);
 

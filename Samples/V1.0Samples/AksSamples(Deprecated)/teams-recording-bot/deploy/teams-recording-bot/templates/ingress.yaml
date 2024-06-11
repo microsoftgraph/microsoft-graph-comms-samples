@@ -1,0 +1,32 @@
+{{- $fullName := include "fullName" . -}}
+{{- $namespace := include "namespace" . -}}
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: {{ $fullName }}
+  namespace: {{ $namespace }}
+  labels:
+    helmVersion: {{ .Chart.Version }}
+    helmAppVersion: {{ .Chart.AppVersion }}
+    helmName: {{ .Chart.Name }}
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    nginx.ingress.kubernetes.io/server-snippet: |
+      location ~* ^/(?<instance>[0-9]*)/api/calling/notification {
+        proxy_pass https://{{ $fullName }}-$instance.{{ $fullName }}.{{ $namespace }}.svc.cluster.local:{{ .Values.internal.port }};
+      }
+spec:
+  tls:
+  - hosts:
+    - {{ include "hostName" . }}
+    secretName: {{ .Values.ingress.tls.secretName }}
+  rules:
+  - host: {{ include "hostName" . }}
+    http:
+      paths:
+      - backend:
+          serviceName: {{ $fullName }}-routing
+          servicePort: 443
+        path: /

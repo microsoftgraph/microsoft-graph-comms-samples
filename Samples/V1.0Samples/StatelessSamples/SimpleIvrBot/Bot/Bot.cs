@@ -269,7 +269,7 @@ namespace Sample.SimpleIvrBot.Bot
                 TransactionDirection.Incoming,
                 HttpTraceType.HttpRequest,
                 args.CallbackUri.ToString(),
-                HttpMethods.Post,
+                Microsoft.AspNetCore.Http.HttpMethods.Post,
                 obfuscatedContent,
                 headers,
                 correlationId: args.ScenarioId,

@@ -1,0 +1,24 @@
+{{- $fullName := include "fullName" . -}}
+{{- $namespace := include "namespace" . -}}
+{{- $maxCount := include "maxCount" . -}}
+{{- range $i, $e := until (int $maxCount) }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $fullName }}-{{ $i }}
+  namespace: {{ $namespace }}
+  labels:
+    helmVersion: {{ $.Chart.Version }}
+    helmAppVersion: {{ $.Chart.AppVersion }}
+    helmName: {{ $.Chart.Name }}
+spec:
+  type: ClusterIP
+  publishNotReadyAddresses: true
+  ports:
+  - name: media
+    port: {{ $.Values.internal.media }}
+    targetPort: {{ $.Values.internal.media }}
+  selector:
+    statefulset.kubernetes.io/pod-name: {{ $fullName }}-{{ $i }}
+---
+{{- end }}

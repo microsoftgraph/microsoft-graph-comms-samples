@@ -13,6 +13,7 @@
 namespace Sample.AudioVideoPlaybackBot.FrontEnd
 {
     using System;
+    using System.Diagnostics;
     using Microsoft.Graph.Communications.Common.Telemetry;
     using Microsoft.Owin.Hosting;
     using Sample.AudioVideoPlaybackBot.FrontEnd.Http;
@@ -58,11 +59,11 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
         /// Instantiate a custom server (e.g. for testing).
         /// </summary>
         /// <param name="config">The configuration to initialize.</param>
-        /// <param name="logger">Logger instance.</param>
-        public void Initialize(IConfiguration config, IGraphLogger logger)
+        public void Initialize(IConfiguration config)
         {
             this.Configuration = config;
-            this.logger = logger;
+            this.logger = new GraphLogger();
+            EventLog.WriteEntry("AudioVideoPlaybackService", "Initialize Service", EventLogEntryType.Warning);
         }
 
         /// <summary>
@@ -74,6 +75,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
             {
                 if (this.started)
                 {
+                    EventLog.WriteEntry("AudioVideoPlaybackService", "The service is already started", EventLogEntryType.Error);
                     throw new InvalidOperationException("The service is already started.");
                 }
 
@@ -83,6 +85,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
                 var callStartOptions = new StartOptions();
                 foreach (var url in this.Configuration.CallControlListeningUrls)
                 {
+                    EventLog.WriteEntry("AudioVideoPlaybackService", $"Adding the url at {url.ToString()}", EventLogEntryType.Warning);
                     callStartOptions.Urls.Add(url.ToString());
                 }
 
@@ -93,7 +96,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
                         var startup = new HttpConfigurationInitializer();
                         startup.ConfigureSettings(appBuilder, this.logger);
                     });
-
+                EventLog.WriteEntry("AudioVideoPlaybackService", $"Service.cs service started", EventLogEntryType.Warning);
                 this.started = true;
             }
         }

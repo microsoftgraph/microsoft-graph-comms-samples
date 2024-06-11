@@ -45,7 +45,8 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         /// Initializes a new instance of the <see cref="CallHandler"/> class.
         /// </summary>
         /// <param name="statefulCall">The stateful call.</param>
-        public CallHandler(ICall statefulCall)
+        /// <param name="botMediaStream">The bot MediaStream object responsible for sending/receiving media.</param>
+        public CallHandler(ICall statefulCall, BotMediaStream botMediaStream)
             : base(TimeSpan.FromMinutes(10), statefulCall?.GraphLogger)
         {
             this.Call = statefulCall;
@@ -66,7 +67,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             }
 
             // attach the botMediaStream
-            this.BotMediaStream = new BotMediaStream(this.Call.GetLocalMediaSession(), this.GraphLogger);
+            this.BotMediaStream = botMediaStream;
         }
 
         /// <summary>
@@ -88,6 +89,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         /// <inheritdoc/>
         protected override void Dispose(bool disposing)
         {
+            this.BotMediaStream?.ShutdownAsync().ForgetAndLogExceptionAsync(this.GraphLogger);
             base.Dispose(disposing);
 
             this.Call.GetLocalMediaSession().AudioSocket.DominantSpeakerChanged -= this.OnDominantSpeakerChanged;
@@ -100,8 +102,6 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             {
                 participant.OnUpdated -= this.OnParticipantUpdated;
             }
-
-            this.BotMediaStream?.ShutdownAsync().ForgetAndLogExceptionAsync(this.GraphLogger);
         }
 
         /// <summary>

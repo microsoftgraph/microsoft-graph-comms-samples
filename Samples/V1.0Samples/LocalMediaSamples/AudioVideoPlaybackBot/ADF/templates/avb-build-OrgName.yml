@@ -1,0 +1,109 @@
+name: .NET BOT D1 BUILD {OrgName}
+
+on:
+  workflow_dispatch:
+    
+  push:
+    branches: [ {BranchName} ]
+    paths:
+      - ./Samples/V1.0Samples/LocalMediaSamples/AudioVideoPlaybackBot/**
+      - .github/workflows/avb-build-{OrgName}.yml
+  pull_request:
+    branches: [ {BranchName} ]
+    paths:
+      - ./Samples/V1.0Samples/LocalMediaSamples/AudioVideoPlaybackBot/**
+      - .github/workflows/avb-build-{OrgName}.yml
+
+env:
+  # /home/runner/work/publish
+  Base:        publish
+  Component:   AVB
+  BuildName:   0.1.${{ github.run_number }}
+  Environment: D1
+  OrgName:     {OrgName}
+  Location:    {Location}
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - name: Support Git Longpaths
+      run: git config --system core.longpaths true
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    # Add wait on concurrent workflows executing via https://github.com/marketplace/actions/action-turnstyle
+    - name: Turnstyle
+      uses: softprops/turnstyle@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1
+    
+    - name: Navigate to Workspace
+      run: cd $GITHUB_WORKSPACE
+
+    - name: Run pwsh
+      shell: pwsh
+      run: | 
+        echo "${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/"
+    - uses: nuget/setup-nuget@v1
+    - run: nuget restore Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln
+    
+    - name: Create Build Directory
+      run: mkdir ${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
+    
+    - name: Build Solution
+      run: |
+        msbuild.exe Samples\V1.0Samples\LocalMediaSamples\AudioVideoPlaybackBot.sln /nologo /p:Configuration=Release /p:platform="x64" /p:OutDir=${{ github.workspace }}/${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
+        
+    - name: Run pwsh
+      shell: pwsh
+      run: | 
+        Get-ChildItem -Path ${{ github.workspace }}\${{ env.Base }}\${{ env.Component }}\${{ env.BuildName }}\
+        echo ${{ github.workspace }}
+    
+    - name: Login via Az module
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS_{OrgName}_BOT }}
+        enable-AzPSSession: true
+
+    - name: G1_RG_UploadArtifacts_to_Blob
+      uses: Azure/powershell@v1
+      with:
+        inlineScript: |
+          Get-ChildItem -Path  ./${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/ # -Recurse
+
+          $Params = @{
+            App           = 'AVB'
+            BuildName     = $env:BuildName
+            ComponentName = $env:Component
+            BasePath      = $env:Base
+            OrgName       = $env:OrgName
+            Location      = $env:location
+          }
+          & ./Samples/V1.0Samples/LocalMediaSamples/AudioVideoPlaybackBot/ADF/release-az/Sync-AzBuildComponent.ps1 @Params
+        azPSVersion: latest
+
+    - name: G1_RG_UpdateBuildMeta_to_Blob
+      uses: Azure/powershell@v1
+      with:
+        inlineScript: |
+          echo $home
+          ls $home
+
+          $Params = @{
+            App           = 'AVB'
+            BuildName     = $env:BuildName
+            ComponentName = $env:Component
+            BasePath      = $env:Base
+            OrgName       = $env:OrgName
+            Location      = $env:location
+            Environment   = $env:Environment
+          }
+          & ./Samples/V1.0Samples/LocalMediaSamples/AudioVideoPlaybackBot/ADF/release-az/Update-AzBuildMetaData.ps1 @Params
+        azPSVersion: latest

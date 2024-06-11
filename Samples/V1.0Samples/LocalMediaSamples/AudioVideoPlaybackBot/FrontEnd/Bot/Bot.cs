@@ -9,6 +9,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
     using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Data;
+    using System.Diagnostics;
     using System.Threading.Tasks;
     using Microsoft.Graph;
     using Microsoft.Graph.Communications.Calls;
@@ -71,16 +72,18 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         /// <returns>The <see cref="ICall"/> that was requested to join.</returns>
         public async Task<ICall> JoinCallAsync(JoinCallController.JoinCallBody joinCallBody)
         {
+            EventLog.WriteEntry("AudioVideoPlaybackService", "Bot.cs JoinCallAsync called", EventLogEntryType.Warning);
+
             // A tracking id for logging purposes.  Helps identify this call in logs.
             var scenarioId = Guid.NewGuid();
 
             MeetingInfo meetingInfo;
             ChatInfo chatInfo;
-            if (!string.IsNullOrWhiteSpace(joinCallBody.MeetingId))
+            if (!string.IsNullOrWhiteSpace(joinCallBody.VideoTeleconferenceId))
             {
-                // Meeting id is a cloud-video-interop numeric meeting id.
+                // Video Tele-Conference id is a cloud-video-interop numeric meeting id.
                 var onlineMeeting = await this.OnlineMeetings
-                    .GetOnlineMeetingAsync(joinCallBody.TenantId, joinCallBody.MeetingId, scenarioId)
+                    .GetOnlineMeetingAsync(joinCallBody.TenantId, joinCallBody.VideoTeleconferenceId, scenarioId)
                     .ConfigureAwait(false);
 
                 meetingInfo = new OrganizerMeetingInfo { Organizer = onlineMeeting.Participants.Organizer.Identity, };
@@ -114,8 +117,26 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                 };
             }
 
-            var statefulCall = await this.Client.Calls().AddAsync(joinParams, scenarioId).ConfigureAwait(false);
-            statefulCall.GraphLogger.Info($"Call creation complete: {statefulCall.Id}");
+            ICall statefulCall = null;
+            CallHandler callHandler = null;
+            try
+            {
+                // Create the BotMediaStream before the call is added to make sure that all media events are subscribed to.
+                // Before adding a new call, which is equivalent to negotiating it. We need to make sure that all media events are subscribed to.
+                // It is possible that media will start to flow, while the call is being processed.
+                var botMediaStream = new BotMediaStream(mediaSession, this.Logger.CreateShim("BotMediaStream", scenarioId));
+                statefulCall = await this.Client.Calls().AddAsync(joinParams, scenarioId).ConfigureAwait(false);
+                callHandler = new CallHandler(statefulCall, botMediaStream);
+                this.CallHandlers.TryAdd(statefulCall.Id, callHandler);
+                statefulCall.GraphLogger.Info($"Call creation complete: {statefulCall.Id}");
+            }
+            catch (Exception)
+            {
+                // clean up
+                callHandler?.Dispose();
+                throw;
+            }
+
             return statefulCall;
         }
 
@@ -164,6 +185,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
 
             this.Logger = logger;
             this.Observer = new SampleObserver(logger);
+            EventLog.WriteEntry("AudioVideoPlaybackService", "Initialize Bot.cs", EventLogEntryType.Warning);
 
             var name = this.GetType().Assembly.GetName().Name;
             var builder = new CommunicationsClientBuilder(
@@ -187,6 +209,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
             this.Client.Calls().OnUpdated += this.CallsOnUpdated;
 
             this.OnlineMeetings = new OnlineMeetingHelper(authProvider, service.Configuration.PlaceCallEndpointUrl);
+            EventLog.WriteEntry("AudioVideoPlaybackService", "Initialize complete Bot.cs", EventLogEntryType.Warning);
         }
 
         /// <summary>
@@ -306,8 +329,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
         {
             foreach (var call in args.AddedResources)
             {
-                var callHandler = new CallHandler(call);
-                this.CallHandlers[call.Id] = callHandler;
+                call.GraphLogger.Info($"Call with id: {call.Id} and {call.ScenarioId} was added");
             }
 
             foreach (var call in args.RemovedResources)

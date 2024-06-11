@@ -18,7 +18,7 @@ namespace Sample.Common.Authentication
     using Microsoft.Graph.Communications.Client.Authentication;
     using Microsoft.Graph.Communications.Common;
     using Microsoft.Graph.Communications.Common.Telemetry;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Microsoft.Identity.Client;
     using Microsoft.IdentityModel.Protocols;
     using Microsoft.IdentityModel.Protocols.OpenIdConnect;
     using Microsoft.IdentityModel.Tokens;
@@ -80,6 +80,8 @@ namespace Sample.Common.Authentication
         /// In this case we are using the Microsoft.IdentityModel.Clients.ActiveDirectory library
         /// to stamp the outbound http request with the OAuth 2.0 token using an AAD application id
         /// and application secret.  Alternatively, this method can support certificate validation.
+        /// Note that this is only for demonstration purpose. Since acquiring token can be a costly operation,
+        /// it is recomended to acquire token before hand and cache the token, instead of acquiring it for every incoming request.
         /// </summary>
         /// <param name="request">The request.</param>
         /// <param name="tenant">The tenant.</param>
@@ -97,15 +99,18 @@ namespace Sample.Common.Authentication
             // https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols#endpoints
             tenant = string.IsNullOrWhiteSpace(tenant) ? "common" : tenant;
             var tokenLink = oauthV2TokenLink.Replace(replaceString, tenant);
+            var scopes = new string[] { $"{resource}/.default" };
 
             this.GraphLogger.Info("AuthenticationProvider: Generating OAuth token.");
-            var context = new AuthenticationContext(tokenLink);
-            var creds = new ClientCredential(this.appId, this.appSecret);
+            var app = ConfidentialClientApplicationBuilder.Create(this.appId)
+                .WithAuthority(tokenLink)
+                .WithClientSecret(this.appSecret)
+                .Build();
 
             AuthenticationResult result;
             try
             {
-                result = await this.AcquireTokenWithRetryAsync(context, resource, creds, attempts: 3).ConfigureAwait(false);
+                result = await this.AcquireTokenWithRetryAsync(app, scopes, 3).ConfigureAwait(false);
             }
             catch (Exception ex)
             {
@@ -207,14 +212,13 @@ namespace Sample.Common.Authentication
         /// <summary>
         /// Acquires the token and retries if failure occurs.
         /// </summary>
-        /// <param name="context">The application context.</param>
-        /// <param name="resource">The resource.</param>
-        /// <param name="creds">The application credentials.</param>
+        /// <param name="app">The application.</param>
+        /// <param name="scopes">The resources.</param>
         /// <param name="attempts">The attempts.</param>
         /// <returns>
         /// The <see cref="AuthenticationResult" />.
         /// </returns>
-        private async Task<AuthenticationResult> AcquireTokenWithRetryAsync(AuthenticationContext context, string resource, ClientCredential creds, int attempts)
+        private async Task<AuthenticationResult> AcquireTokenWithRetryAsync(IConfidentialClientApplication app, string[] scopes, int attempts)
         {
             while (true)
             {
@@ -222,7 +226,9 @@ namespace Sample.Common.Authentication
 
                 try
                 {
-                    return await context.AcquireTokenAsync(resource, creds).ConfigureAwait(false);
+                    return await app.AcquireTokenForClient(scopes)
+                        .ExecuteAsync()
+                        .ConfigureAwait(false);
                 }
                 catch (Exception)
                 {

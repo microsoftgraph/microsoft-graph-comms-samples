@@ -1,0 +1,1458 @@
+{
+  "DataDiskInfo": {
+    "0GB": {},
+    "32GB": {
+      "DATA": {
+        "DriveLetter": "F",
+        "caching": "ReadOnly",
+        "LUNS": [
+          [
+            0,
+            32
+          ]
+        ],
+        "saType": "StandardSSD_LRS"
+      }
+    },
+    "64GB": {
+      "DATA": {
+        "DriveLetter": "F",
+        "caching": "ReadOnly",
+        "LUNS": [
+          [
+            0,
+            64
+          ]
+        ],
+        "saType": "StandardSSD_LRS"
+      }
+    },
+    "64GBSS": {
+      "DATASS": {
+        "DriveLetter": "F",
+        "caching": "ReadOnly",
+        "LUNS": [
+          [
+            0,
+            64
+          ]
+        ],
+        "saType": "StandardSSD_LRS"
+      }
+    },
+    "64GB-2": {
+      "DATA": {
+        "DriveLetter": "F",
+        "caching": "ReadOnly",
+        "LUNS": [
+          [
+            0,
+            64
+          ],
+          [
+            1,
+            64
+          ]
+        ],
+        "saType": "StandardSSD_LRS"
+      }
+    },
+    "128GB": {
+      "DATA": {
+        "DriveLetter": "F",
+        "caching": "ReadOnly",
+        "LUNS": [
+          [
+            0,
+            128
+          ]
+        ],
+        "saType": "StandardSSD_LRS"
+      }
+    },
+    "FIL64GB": {
+      "DATA": {
+        "DriveLetter": "F",
+        "caching": "ReadOnly",
+        "LUNS": [
+          [
+            0,
+            64
+          ]
+        ],
+        "saType": "StandardSSD_LRS"
+      },
+      "SOFS": {
+        "caching": "ReadOnly",
+        "LUNS": [
+          [
+            1,
+            32
+          ],
+          [
+            2,
+            32
+          ],
+          [
+            3,
+            32
+          ]
+        ],
+        "FileSystem": "ReFS",
+        "saType": "StandardSSD_LRS"
+      }
+    },
+    "SQL64GB": {
+      "DATA": {
+        "DriveLetter": "F",
+        "caching": "ReadOnly",
+        "LUNS": [
+          [
+            0,
+            64
+          ]
+        ],
+        "saType": "StandardSSD_LRS"
+      },
+      "LOGS": {
+        "DriveLetter": "G",
+        "caching": "None",
+        "LUNS": [
+          [
+            8,
+            64
+          ]
+        ],
+        "saType": "StandardSSD_LRS"
+      },
+      "TEMPDB": {
+        "DriveLetter": "H",
+        "caching": "ReadOnly",
+        "LUNS": [
+          [
+            12,
+            64
+          ]
+        ],
+        "saType": "StandardSSD_LRS"
+      },
+      "BACKUP": {
+        "DriveLetter": "I",
+        "caching": "None",
+        "LUNS": [
+          [
+            15,
+            64
+          ]
+        ],
+        "saType": "StandardSSD_LRS"
+      }
+    }
+  },
+  "computeSizeLookupOptions": {
+    "API-P": "Standard_D4s_v3",
+    "API-D": "Standard_D4s_v3",
+    "API-S": "Standard_D2s_v3",
+    "BOT-P": "Standard_D4s_v3",
+    "BOT-D": "Standard_D4s_v3",
+    "BOT-S": "Standard_D2s_v3",
+    "SF-P": "Standard_D4s_v3",
+    "SF-D": "Standard_D4s_v3",
+    "SF-S": "Standard_D2s_v3",
+    "CTNR-P": "Standard_D4s_v3",
+    "CTNR-D": "Standard_D2s_v3",
+    "ADp-P": "Standard_D2s_v3",
+    "ADp-D": "Standard_A2m_v2",
+    "ADs-P": "Standard_D2s_v3",
+    "ADs-D": "Standard_A2m_v2",
+    "AAP-P": "Standard_D2s_v3",
+    "AAP-D": "Standard_D2s_v3",
+    "DNS-P": "Standard_D2s_v3",
+    "DNS-D": "Standard_D2s_v3",
+    "BUS-P": "Standard_DS2_v2",
+    "BUS-D": "Standard_DS2_v2",
+    "LIN-P": "Standard_DS2_v2",
+    "LIN-D": "Standard_DS2_v2",
+    "FIL-P": "Standard_D4s_v3",
+    "FIL-D": "Standard_D4s_v3",
+    "DFS-P": "Standard_D4s_v3",
+    "DFS-D": "Standard_D4s_v3",
+    "JMP-P": "Standard_D4s_v3",
+    "JMP-D": "Standard_D4s_v3",
+    "CLT-P": "Standard_D4s_v3",
+    "CLT-D": "Standard_D4s_v3",
+    "PXY-P": "Standard_D4s_v3",
+    "PXY-D": "Standard_D2s_v3",
+    "CLS01-D": "Standard_D4s_v3",
+    "CLS02-D": "Standard_D4s_v3",
+    "CLS01-P": "Standard_D4s_v3",
+    "CLS02-P": "Standard_D4s_v3",
+    "FW-P": "Standard_F4",
+    "FW-D": "Standard_F2"
+  },
+  "OSType": {
+    "Server2019SSIMG": {
+      "imageReference": {
+        "id": "/subscriptions/b8f402aa-20f7-4888-b45c-3cf086dad9c3/resourceGroups/ACU1-BRW-AOA-RG-G1/providers/Microsoft.Compute/galleries/acu1brwaoag1gallery01/images/vmss2019webnetcore27"
+      },
+      "licenseType": "Windows_Server",
+      "OS": "Windows",
+      "OSDiskGB": 127,
+      "RoleExtensions": {
+        "Scripts": 0,
+        "chefClient": 0
+      }
+    },
+    "cbld10": {
+      "imageReference": {
+        "id": "/subscriptions/27b750cd-ed43-42fd-9044-8d75e124ae55/resourceGroups/SBID-Build-Test/providers/Microsoft.Compute/galleries/cbldtest/images/cbld10-ext"
+      },
+      "OS": "Linux",
+      "OSDiskGB": 32,
+      "RoleExtensions": {
+        "MonitoringAgent": 1,
+        "IaaSDiagnostics": 1,
+        "Antimalware": 0,
+        "DependencyAgent": 1,
+        "DSC": 0,
+        "Scripts": 0,
+        "MSI": 0,
+        "CertMgmt": 0,
+        "DomainJoin": 0,
+        "chefClient": 0,
+        "GuestHealthAgent": 0,
+        "AdminCenter": 0,
+        "WindowsOpenSSH": 0
+      }
+    },
+    "Win10O365": {
+      "imageReference": {
+        "publisher": "MicrosoftWindowsDesktop",
+        "offer": "office-365",
+        "sku": "rs5-evd-o365pp",
+        "version": "latest"
+      },
+      "licenseType": "Windows_Client",
+      "OS": "Windows",
+      "OSDiskGB": 127,
+      "RoleExtensions": {
+        "chefClient": 0
+      }
+    },
+    "Win10": {
+      "imageReference": {
+        "publisher": "MicrosoftWindowsDesktop",
+        "offer": "Windows-10",
+        "sku": "21h1-pro-g2",
+        "version": "latest"
+      },
+      "licenseType": "Windows_Client",
+      "OS": "Windows",
+      "OSDiskGB": 127,
+      "RoleExtensions": {
+        "chefClient": 0
+      }
+    },
+    "SQLServer2016": {
+      "imageReference": {
+        "publisher": "MicrosoftSQLServer",
+        "Offer": "SQL2016SP2-WS2016",
+        "sku": "Enterprise",
+        "version": "latest"
+      },
+      // "licenseType": "Windows_Server",
+      "OS": "Windows",
+      "OSDiskGB": 127,
+      "RoleExtensions": {
+        "Scripts": 0,
+        "chefClient": 0
+      }
+    },
+    "Server2016": {
+      "imageReference": {
+        "publisher": "MicrosoftWindowsServer",
+        "Offer": "WindowsServer",
+        "sku": "2016-Datacenter",
+        "version": "latest"
+      },
+      "licenseType": "Windows_Server",
+      "patchMode": "AutomaticByPlatform",
+      "OS": "Windows",
+      "OSDiskGB": 127,
+      "RoleExtensions": {
+        "Scripts": 0,
+        "chefClient": 0
+      }
+    },
+    "Server2016Core": {
+      "imageReference": {
+        "publisher": "MicrosoftWindowsServer",
+        "Offer": "WindowsServer",
+        "sku": "2016-Datacenter-Server-Core",
+        "version": "latest"
+      },
+      "licenseType": "Windows_Server",
+      "patchMode": "AutomaticByPlatform",
+      "OS": "Windows",
+      "OSDiskGB": 64,
+      "RoleExtensions": {
+        "Scripts": 0,
+        "chefClient": 0
+      }
+    },
+    "Server2016small": {
+      "imageReference": {
+        "publisher": "MicrosoftWindowsServer",
+        "Offer": "WindowsServer",
+        "sku": "2016-Datacenter-smalldisk",
+        "version": "latest"
+      },
+      "licenseType": "Windows_Server",
+      "OS": "Windows",
+      "OSDiskGB": 64,
+      "RoleExtensions": {
+        "Scripts": 0,
+        "chefClient": 0
+      }
+    },
+    "Server2016Coresmall": {
+      "imageReference": {
+        "publisher": "MicrosoftWindowsServer",
+        "Offer": "WindowsServer",
+        "sku": "2016-Datacenter-Server-Core-smalldisk",
+        "version": "latest"
+      },
+      "licenseType": "Windows_Server",
+      "OS": "Windows",
+      "OSDiskGB": 64,
+      "RoleExtensions": {
+        "Scripts": 0,
+        "chefClient": 0
+      }
+    },
+    "Server2019-gen2": {
+      "imageReference": {
+        "publisher": "MicrosoftWindowsServer",
+        "Offer": "windowsserver-gen2preview",
+        "sku": "2019-Datacenter-gen2",
+        "version": "latest"
+      },
+      "licenseType": "Windows_Server",
+      "patchMode": "AutomaticByPlatform",
+      "OS": "Windows",
+      "OSDiskGB": 127,
+      "RoleExtensions": {
+        "Scripts": 0,
+        "chefClient": 0
+      }
+    },
+    "Server2019": {
+      "imageReference": {
+        "publisher": "MicrosoftWindowsServer",
+        "Offer": "WindowsServer",
+        "sku": "2019-Datacenter",
+        "version": "latest"
+      },
+      "licenseType": "Windows_Server",
+      "patchMode": "AutomaticByPlatform",
+      "OS": "Windows",
+      "OSDiskGB": 127,
+      "RoleExtensions": {
+        "Scripts": 0,
+        "chefClient": 0
+      }
+    },
+    "Server2022": {
+      "imageReference": {
+        "publisher": "MicrosoftWindowsServer",
+        "Offer": "WindowsServer",
+        "sku": "2022-Datacenter-g2",
+        "version": "latest"
+      },
+      "licenseType": "Windows_Server",
+      "OS": "Windows",
+      "OSDiskGB": 127,
+      "_plan": {
+        "name": "windows-server-2022",
+        "publisher": "microsoftwindowsserver",
+        "product": "microsoftserveroperatingsystems-previews"
+      },
+      "RoleExtensions": {
+        "Scripts": 0,
+        "chefClient": 0
+      }
+    },
+    "Server2019Core": {
+      "imageReference": {
+        "publisher": "MicrosoftWindowsServer",
+        "Offer": "WindowsServer",
+        "sku": "2019-Datacenter-Core",
+        "version": "latest"
+      },
+      "licenseType": "Windows_Server",
+      "patchMode": "AutomaticByPlatform",
+      "OS": "Windows",
+      "OSDiskGB": 64,
+      "RoleExtensions": {
+        "Scripts": 0,
+        "chefClient": 0
+      }
+    },
+    "Server2019small": {
+      "imageReference": {
+        "publisher": "MicrosoftWindowsServer",
+        "Offer": "WindowsServer",
+        "sku": "2019-datacenter-smalldisk",
+        "version": "latest"
+      },
+      "licenseType": "Windows_Server",
+      "OS": "Windows",
+      "OSDiskGB": 64,
+      "RoleExtensions": {
+        "Scripts": 0,
+        "chefClient": 0
+      }
+    },
+    "Server2019Coresmall": {
+      "imageReference": {
+        "publisher": "MicrosoftWindowsServer",
+        "Offer": "WindowsServer",
+        "sku": "2019-Datacenter-Server-Core-smalldisk",
+        "version": "latest"
+      },
+      "licenseType": "Windows_Server",
+      "OS": "Windows",
+      "OSDiskGB": 64,
+      "RoleExtensions": {
+        "Scripts": 0,
+        "chefClient": 0
+      }
+    },
+    "Server2019Containerssmall": {
+      "imageReference": {
+        "publisher": "MicrosoftWindowsServer",
+        "Offer": "WindowsServer",
+        "sku": "2019-Datacenter-with-Containers-smalldisk",
+        "version": "latest"
+      },
+      "licenseType": "Windows_Server",
+      "OS": "Windows",
+      "OSDiskGB": 64,
+      "RoleExtensions": {
+        "Scripts": 0,
+        "chefClient": 0
+      }
+    },
+    "Server2019CoreContainerssmall": {
+      "imageReference": {
+        "publisher": "MicrosoftWindowsServer",
+        "Offer": "WindowsServer",
+        "sku": "2019-datacenter-core-with-containers-smalldisk-g2",
+        "version": "latest"
+      },
+      "licenseType": "Windows_Server",
+      "OS": "Windows",
+      "OSDiskGB": 64,
+      "RoleExtensions": {
+        "Scripts": 0,
+        "chefClient": 0
+      }
+    },
+    "Server2016SS": {
+      "imageReference": {
+        "publisher": "MicrosoftWindowsServer",
+        "offer": "WindowsServer",
+        "sku": "2016-Datacenter-with-Containers",
+        "version": "latest"
+      },
+      "licenseType": "Windows_Server",
+      "OS": "Windows",
+      "RoleExtensions": {
+        "Scripts": 0,
+        "chefClient": 0
+      }
+    },
+    "Server2019SS": {
+      "imageReference": {
+        "publisher": "MicrosoftWindowsServer",
+        "offer": "WindowsServer",
+        "sku": "2019-Datacenter-with-Containers",
+        "version": "latest"
+      },
+      "licenseType": "Windows_Server",
+      "OS": "Windows",
+      "RoleExtensions": {
+        "Scripts": 0,
+        "chefClient": 0
+      }
+    },
+    "NetScaler": {
+      "imageReference": {
+        "publisher": "citrix",
+        "Offer": "netscalervpx-120",
+        "Sku": "netscalerbyol",
+        "version": "latest"
+      },
+      "OS": "Linux",
+      "OSDiskGB": 32,
+      "plan": {
+        "name": "netscalerbyol",
+        "publisher": "citrix",
+        "product": "netscalervpx-120"
+      },
+      "RoleExtensions": {
+        "MonitoringAgent": 0,
+        "IaaSDiagnostics": 0,
+        "DependencyAgent": 0,
+        "DSC": 0,
+        "Scripts": 0,
+        "MSI": 0,
+        "CertMgmt": 0,
+        "DomainJoin": 0,
+        "chefClient": 0,
+        "GuestHealthAgent": 0,
+        "AdminCenter": 0,
+        "WindowsOpenSSH": 0
+      }
+    },
+    "MaxLoadBalancer": {
+      "imageReference": {
+        "publisher": "loadbalancer",
+        "offer": "loadbalancer-org-load-balancer-for-azure",
+        "sku": "max_load_balancer",
+        "version": "latest"
+      },
+      "OS": "Linux",
+      "OSDiskGB": 32,
+      "plan": {
+        "name": "max_load_balancer",
+        "publisher": "loadbalancer",
+        "product": "loadbalancer-org-load-balancer-for-azure"
+      },
+      "RoleExtensions": {
+        "MonitoringAgent": 0,
+        "IaaSDiagnostics": 0,
+        "DependencyAgent": 0,
+        "DSC": 0,
+        "Scripts": 0,
+        "MSI": 0,
+        "CertMgmt": 0,
+        "DomainJoin": 0,
+        "chefClient": 0,
+        "GuestHealthAgent": 0,
+        "AdminCenter": 0,
+        "WindowsOpenSSH": 0
+      }
+    },
+    "Fortigate": {
+      "imageReference": {
+        "publisher": "fortinet",
+        "offer": "fortinet_fortigate-vm_v5",
+        "sku": "fortinet_fg-vm",
+        "version": "latest"
+      },
+      "OS": "Linux",
+      "OSDiskGB": 32,
+      "plan": {
+        "name": "fortinet_fg-vm",
+        "publisher": "fortinet",
+        "product": "fortinet_fortigate-vm_v5"
+      },
+      "RoleExtensions": {
+        "MonitoringAgent": 0,
+        "IaaSDiagnostics": 0,
+        "DependencyAgent": 0,
+        "DSC": 0,
+        "Scripts": 0,
+        "MSI": 0,
+        "CertMgmt": 0,
+        "DomainJoin": 0,
+        "chefClient": 0,
+        "GuestHealthAgent": 0,
+        "AdminCenter": 0,
+        "WindowsOpenSSH": 0
+      }
+    },
+    "Fortigatepayg": {
+      "imageReference": {
+        "publisher": "fortinet",
+        "offer": "fortinet_fortigate-vm_v5",
+        "sku": "fortinet_fg-vm_payg",
+        "version": "latest"
+      },
+      "OS": "Linux",
+      "OSDiskGB": 32,
+      "plan": {
+        "name": "fortinet_fg-vm_payg",
+        "publisher": "fortinet",
+        "product": "fortinet_fortigate-vm_v5"
+      },
+      "RoleExtensions": {
+        "MonitoringAgent": 0,
+        "IaaSDiagnostics": 0,
+        "DependencyAgent": 0,
+        "DSC": 0,
+        "Scripts": 0,
+        "MSI": 0,
+        "CertMgmt": 0,
+        "DomainJoin": 0,
+        "chefClient": 0,
+        "GuestHealthAgent": 0,
+        "AdminCenter": 0,
+        "WindowsOpenSSH": 0
+      }
+    },
+    "Fortimngr": {
+      "imageReference": {
+        "publisher": "fortinet",
+        "offer": "fortinet-fortimanager",
+        "sku": "fortinet-fortimanager",
+        "version": "latest"
+      },
+      "OS": "Linux",
+      "OSDiskGB": 3,
+      "plan": {
+        "name": "fortinet-fortimanager",
+        "publisher": "fortinet",
+        "product": "fortinet-fortimanager"
+      },
+      "RoleExtensions": {
+        "MonitoringAgent": 0,
+        "IaaSDiagnostics": 0,
+        "DependencyAgent": 0,
+        "DSC": 0,
+        "Scripts": 0,
+        "MSI": 0,
+        "CertMgmt": 0,
+        "DomainJoin": 0,
+        "chefClient": 0,
+        "GuestHealthAgent": 0,
+        "AdminCenter": 0,
+        "WindowsOpenSSH": 0
+      }
+    },
+    "UbuntuServer1904": {
+      "imageReference": {
+        "publisher": "canonical",
+        "offer": "UbuntuServer",
+        "sku": "19.04",
+        "version": "latest"
+      },
+      "OS": "Linux",
+      "OSDiskGB": 32,
+      "RoleExtensions": {
+        "MonitoringAgent": 0,
+        "IaaSDiagnostics": 0,
+        "Antimalware": 0,
+        "DependencyAgent": 0,
+        "DSC": 0,
+        "Scripts": 1,
+        "MSI": 0,
+        "CertMgmt": 0,
+        "DomainJoin": 0
+      }
+    },
+    "Bus-debian": {
+      "imageReference": {
+        "publisher": "credativ",
+        "offer": "Debian",
+        "sku": "8",
+        "version": "latest"
+      },
+      "OS": "Linux",
+      "OSDiskGB": 32,
+      "RoleExtensions": {
+        "MonitoringAgent": 0,
+        "IaaSDiagnostics": 0,
+        "DependencyAgent": 0,
+        "DSC": 0,
+        "Scripts": 1,
+        "MSI": 0,
+        "CertMgmt": 0,
+        "DomainJoin": 0,
+        "chefClient": 0,
+        "GuestHealthAgent": 0,
+        "AdminCenter": 0,
+        "WindowsOpenSSH": 0
+      }
+    },
+    "PROXY-UBUNTU": {
+      "imageReference": {
+        "publisher": "Canonical",
+        "offer": "UbuntuServer",
+        "sku": "16.04-LTS",
+        "version": "latest"
+      },
+      "OS": "Linux",
+      "OSDiskGB": 32,
+      "fileUris": "[concat(parameters('global')._artifactsLocation, '/scripts/pxy.zip",
+      "commandToExecute": "[concat('sudo apt-get update && sudo apt-get install unzip && unzip Proxy.zip && sudo bash -x haproxyvm-configure.sh ', ' -a ', 'ilbIPAddress', ' -r ', 'ilbRabbitMqPort', ' -m ', 'ilbRabbitMqMgmtPort', ' -b ', 'dnsName', '.', 'location', '.cloudapp.azure.com -p ', 'vmNamePrefix', '0 -s ', 'vmNamePrefix', '1')]",
+      "RoleExtensions": {
+        "MonitoringAgent": 0,
+        "IaaSDiagnostics": 0,
+        "DependencyAgent": 0,
+        "DSC": 0,
+        "Scripts": 0,
+        "MSI": 0,
+        "CertMgmt": 0,
+        "DomainJoin": 0,
+        "chefClient": 0,
+        "GuestHealthAgent": 0,
+        "AdminCenter": 0,
+        "WindowsOpenSSH": 0
+      }
+    },
+    "CentOS75": {
+      "imageReference": {
+        "publisher": "OpenLogic",
+        "Offer": "CentOS",
+        "sku": "7.5",
+        "version": "latest"
+      },
+      "OS": "Linux",
+      "OSDiskGB": 64,
+      "RoleExtensions": {
+        "MonitoringAgent": 0,
+        "IaaSDiagnostics": 0,
+        "DependencyAgent": 0,
+        "DSC": 0,
+        "Scripts": 0,
+        "MSI": 0,
+        "CertMgmt": 0,
+        "DomainJoin": 0,
+        "Antimalware": 0,
+        "chefClient": 0,
+        "GuestHealthAgent": 0,
+        "AdminCenter": 0,
+        "WindowsOpenSSH": 0
+      }
+    }
+  },
+  "ladCfg": {
+    "diagnosticMonitorConfiguration": {
+      "eventVolume": "Medium",
+      "metrics": {
+        "metricAggregation": [
+          {
+            "scheduledTransferPeriod": "PT1H"
+          },
+          {
+            "scheduledTransferPeriod": "PT1M"
+          }
+        ],
+        "resourceId": "__VM_RESOURCE_ID__"
+      },
+      "performanceCounters": {
+        "performanceCounterConfiguration": [
+          {
+            "annotation": [
+              {
+                "displayName": "Disk read guest OS",
+                "locale": "en-us"
+              }
+            ],
+            "class": "disk",
+            "condition": "IsAggregate=TRUE",
+            "counter": "readbytespersecond",
+            "counterSpecifier": "/builtin/disk/readbytespersecond",
+            "type": "builtin",
+            "unit": "BytesPerSecond"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Disk writes",
+                "locale": "en-us"
+              }
+            ],
+            "class": "disk",
+            "condition": "IsAggregate=TRUE",
+            "counter": "writespersecond",
+            "counterSpecifier": "/builtin/disk/writespersecond",
+            "type": "builtin",
+            "unit": "CountPerSecond"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Disk transfer time",
+                "locale": "en-us"
+              }
+            ],
+            "class": "disk",
+            "condition": "IsAggregate=TRUE",
+            "counter": "averagetransfertime",
+            "counterSpecifier": "/builtin/disk/averagetransfertime",
+            "type": "builtin",
+            "unit": "Seconds"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Disk transfers",
+                "locale": "en-us"
+              }
+            ],
+            "class": "disk",
+            "condition": "IsAggregate=TRUE",
+            "counter": "transferspersecond",
+            "counterSpecifier": "/builtin/disk/transferspersecond",
+            "type": "builtin",
+            "unit": "CountPerSecond"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Disk write guest OS",
+                "locale": "en-us"
+              }
+            ],
+            "class": "disk",
+            "condition": "IsAggregate=TRUE",
+            "counter": "writebytespersecond",
+            "counterSpecifier": "/builtin/disk/writebytespersecond",
+            "type": "builtin",
+            "unit": "BytesPerSecond"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Disk read time",
+                "locale": "en-us"
+              }
+            ],
+            "class": "disk",
+            "condition": "IsAggregate=TRUE",
+            "counter": "averagereadtime",
+            "counterSpecifier": "/builtin/disk/averagereadtime",
+            "type": "builtin",
+            "unit": "Seconds"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Disk write time",
+                "locale": "en-us"
+              }
+            ],
+            "class": "disk",
+            "condition": "IsAggregate=TRUE",
+            "counter": "averagewritetime",
+            "counterSpecifier": "/builtin/disk/averagewritetime",
+            "type": "builtin",
+            "unit": "Seconds"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Disk total bytes",
+                "locale": "en-us"
+              }
+            ],
+            "class": "disk",
+            "condition": "IsAggregate=TRUE",
+            "counter": "bytespersecond",
+            "counterSpecifier": "/builtin/disk/bytespersecond",
+            "type": "builtin",
+            "unit": "BytesPerSecond"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Disk reads",
+                "locale": "en-us"
+              }
+            ],
+            "class": "disk",
+            "condition": "IsAggregate=TRUE",
+            "counter": "readspersecond",
+            "counterSpecifier": "/builtin/disk/readspersecond",
+            "type": "builtin",
+            "unit": "CountPerSecond"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Disk queue length",
+                "locale": "en-us"
+              }
+            ],
+            "class": "disk",
+            "condition": "IsAggregate=TRUE",
+            "counter": "averagediskqueuelength",
+            "counterSpecifier": "/builtin/disk/averagediskqueuelength",
+            "type": "builtin",
+            "unit": "Count"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Network in guest OS",
+                "locale": "en-us"
+              }
+            ],
+            "class": "network",
+            "counter": "bytesreceived",
+            "counterSpecifier": "/builtin/network/bytesreceived",
+            "type": "builtin",
+            "unit": "Bytes"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Network total bytes",
+                "locale": "en-us"
+              }
+            ],
+            "class": "network",
+            "counter": "bytestotal",
+            "counterSpecifier": "/builtin/network/bytestotal",
+            "type": "builtin",
+            "unit": "Bytes"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Network out guest OS",
+                "locale": "en-us"
+              }
+            ],
+            "class": "network",
+            "counter": "bytestransmitted",
+            "counterSpecifier": "/builtin/network/bytestransmitted",
+            "type": "builtin",
+            "unit": "Bytes"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Network collisions",
+                "locale": "en-us"
+              }
+            ],
+            "class": "network",
+            "counter": "totalcollisions",
+            "counterSpecifier": "/builtin/network/totalcollisions",
+            "type": "builtin",
+            "unit": "Count"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Packets received errors",
+                "locale": "en-us"
+              }
+            ],
+            "class": "network",
+            "counter": "totalrxerrors",
+            "counterSpecifier": "/builtin/network/totalrxerrors",
+            "type": "builtin",
+            "unit": "Count"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Packets sent",
+                "locale": "en-us"
+              }
+            ],
+            "class": "network",
+            "counter": "packetstransmitted",
+            "counterSpecifier": "/builtin/network/packetstransmitted",
+            "type": "builtin",
+            "unit": "Count"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Packets received",
+                "locale": "en-us"
+              }
+            ],
+            "class": "network",
+            "counter": "packetsreceived",
+            "counterSpecifier": "/builtin/network/packetsreceived",
+            "type": "builtin",
+            "unit": "Count"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Packets sent errors",
+                "locale": "en-us"
+              }
+            ],
+            "class": "network",
+            "counter": "totaltxerrors",
+            "counterSpecifier": "/builtin/network/totaltxerrors",
+            "type": "builtin",
+            "unit": "Count"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Filesystem transfers/sec",
+                "locale": "en-us"
+              }
+            ],
+            "class": "filesystem",
+            "condition": "IsAggregate=TRUE",
+            "counter": "transferspersecond",
+            "counterSpecifier": "/builtin/filesystem/transferspersecond",
+            "type": "builtin",
+            "unit": "CountPerSecond"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Filesystem % free space",
+                "locale": "en-us"
+              }
+            ],
+            "class": "filesystem",
+            "condition": "IsAggregate=TRUE",
+            "counter": "percentfreespace",
+            "counterSpecifier": "/builtin/filesystem/percentfreespace",
+            "type": "builtin",
+            "unit": "Percent"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Filesystem % used space",
+                "locale": "en-us"
+              }
+            ],
+            "class": "filesystem",
+            "condition": "IsAggregate=TRUE",
+            "counter": "percentusedspace",
+            "counterSpecifier": "/builtin/filesystem/percentusedspace",
+            "type": "builtin",
+            "unit": "Percent"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Filesystem used space",
+                "locale": "en-us"
+              }
+            ],
+            "class": "filesystem",
+            "condition": "IsAggregate=TRUE",
+            "counter": "usedspace",
+            "counterSpecifier": "/builtin/filesystem/usedspace",
+            "type": "builtin",
+            "unit": "Bytes"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Filesystem read bytes/sec",
+                "locale": "en-us"
+              }
+            ],
+            "class": "filesystem",
+            "condition": "IsAggregate=TRUE",
+            "counter": "bytesreadpersecond",
+            "counterSpecifier": "/builtin/filesystem/bytesreadpersecond",
+            "type": "builtin",
+            "unit": "CountPerSecond"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Filesystem free space",
+                "locale": "en-us"
+              }
+            ],
+            "class": "filesystem",
+            "condition": "IsAggregate=TRUE",
+            "counter": "freespace",
+            "counterSpecifier": "/builtin/filesystem/freespace",
+            "type": "builtin",
+            "unit": "Bytes"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Filesystem % free inodes",
+                "locale": "en-us"
+              }
+            ],
+            "class": "filesystem",
+            "condition": "IsAggregate=TRUE",
+            "counter": "percentfreeinodes",
+            "counterSpecifier": "/builtin/filesystem/percentfreeinodes",
+            "type": "builtin",
+            "unit": "Percent"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Filesystem bytes/sec",
+                "locale": "en-us"
+              }
+            ],
+            "class": "filesystem",
+            "condition": "IsAggregate=TRUE",
+            "counter": "bytespersecond",
+            "counterSpecifier": "/builtin/filesystem/bytespersecond",
+            "type": "builtin",
+            "unit": "BytesPerSecond"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Filesystem reads/sec",
+                "locale": "en-us"
+              }
+            ],
+            "class": "filesystem",
+            "condition": "IsAggregate=TRUE",
+            "counter": "readspersecond",
+            "counterSpecifier": "/builtin/filesystem/readspersecond",
+            "type": "builtin",
+            "unit": "CountPerSecond"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Filesystem write bytes/sec",
+                "locale": "en-us"
+              }
+            ],
+            "class": "filesystem",
+            "condition": "IsAggregate=TRUE",
+            "counter": "byteswrittenpersecond",
+            "counterSpecifier": "/builtin/filesystem/byteswrittenpersecond",
+            "type": "builtin",
+            "unit": "CountPerSecond"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Filesystem writes/sec",
+                "locale": "en-us"
+              }
+            ],
+            "class": "filesystem",
+            "condition": "IsAggregate=TRUE",
+            "counter": "writespersecond",
+            "counterSpecifier": "/builtin/filesystem/writespersecond",
+            "type": "builtin",
+            "unit": "CountPerSecond"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Filesystem % used inodes",
+                "locale": "en-us"
+              }
+            ],
+            "class": "filesystem",
+            "condition": "IsAggregate=TRUE",
+            "counter": "percentusedinodes",
+            "counterSpecifier": "/builtin/filesystem/percentusedinodes",
+            "type": "builtin",
+            "unit": "Percent"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "CPU IO wait time",
+                "locale": "en-us"
+              }
+            ],
+            "class": "processor",
+            "condition": "IsAggregate=TRUE",
+            "counter": "percentiowaittime",
+            "counterSpecifier": "/builtin/processor/percentiowaittime",
+            "type": "builtin",
+            "unit": "Percent"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "CPU user time",
+                "locale": "en-us"
+              }
+            ],
+            "class": "processor",
+            "condition": "IsAggregate=TRUE",
+            "counter": "percentusertime",
+            "counterSpecifier": "/builtin/processor/percentusertime",
+            "type": "builtin",
+            "unit": "Percent"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "CPU nice time",
+                "locale": "en-us"
+              }
+            ],
+            "class": "processor",
+            "condition": "IsAggregate=TRUE",
+            "counter": "percentnicetime",
+            "counterSpecifier": "/builtin/processor/percentnicetime",
+            "type": "builtin",
+            "unit": "Percent"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "CPU percentage guest OS",
+                "locale": "en-us"
+              }
+            ],
+            "class": "processor",
+            "condition": "IsAggregate=TRUE",
+            "counter": "percentprocessortime",
+            "counterSpecifier": "/builtin/processor/percentprocessortime",
+            "type": "builtin",
+            "unit": "Percent"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "CPU interrupt time",
+                "locale": "en-us"
+              }
+            ],
+            "class": "processor",
+            "condition": "IsAggregate=TRUE",
+            "counter": "percentinterrupttime",
+            "counterSpecifier": "/builtin/processor/percentinterrupttime",
+            "type": "builtin",
+            "unit": "Percent"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "CPU idle time",
+                "locale": "en-us"
+              }
+            ],
+            "class": "processor",
+            "condition": "IsAggregate=TRUE",
+            "counter": "percentidletime",
+            "counterSpecifier": "/builtin/processor/percentidletime",
+            "type": "builtin",
+            "unit": "Percent"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "CPU privileged time",
+                "locale": "en-us"
+              }
+            ],
+            "class": "processor",
+            "condition": "IsAggregate=TRUE",
+            "counter": "percentprivilegedtime",
+            "counterSpecifier": "/builtin/processor/percentprivilegedtime",
+            "type": "builtin",
+            "unit": "Percent"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Memory available",
+                "locale": "en-us"
+              }
+            ],
+            "class": "memory",
+            "counter": "availablememory",
+            "counterSpecifier": "/builtin/memory/availablememory",
+            "type": "builtin",
+            "unit": "Bytes"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Swap percent used",
+                "locale": "en-us"
+              }
+            ],
+            "class": "memory",
+            "counter": "percentusedswap",
+            "counterSpecifier": "/builtin/memory/percentusedswap",
+            "type": "builtin",
+            "unit": "Percent"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Memory used",
+                "locale": "en-us"
+              }
+            ],
+            "class": "memory",
+            "counter": "usedmemory",
+            "counterSpecifier": "/builtin/memory/usedmemory",
+            "type": "builtin",
+            "unit": "Bytes"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Page reads",
+                "locale": "en-us"
+              }
+            ],
+            "class": "memory",
+            "counter": "pagesreadpersec",
+            "counterSpecifier": "/builtin/memory/pagesreadpersec",
+            "type": "builtin",
+            "unit": "CountPerSecond"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Swap available",
+                "locale": "en-us"
+              }
+            ],
+            "class": "memory",
+            "counter": "availableswap",
+            "counterSpecifier": "/builtin/memory/availableswap",
+            "type": "builtin",
+            "unit": "Bytes"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Swap percent available",
+                "locale": "en-us"
+              }
+            ],
+            "class": "memory",
+            "counter": "percentavailableswap",
+            "counterSpecifier": "/builtin/memory/percentavailableswap",
+            "type": "builtin",
+            "unit": "Percent"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Mem. percent available",
+                "locale": "en-us"
+              }
+            ],
+            "class": "memory",
+            "counter": "percentavailablememory",
+            "counterSpecifier": "/builtin/memory/percentavailablememory",
+            "type": "builtin",
+            "unit": "Percent"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Pages",
+                "locale": "en-us"
+              }
+            ],
+            "class": "memory",
+            "counter": "pagespersec",
+            "counterSpecifier": "/builtin/memory/pagespersec",
+            "type": "builtin",
+            "unit": "CountPerSecond"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Swap used",
+                "locale": "en-us"
+              }
+            ],
+            "class": "memory",
+            "counter": "usedswap",
+            "counterSpecifier": "/builtin/memory/usedswap",
+            "type": "builtin",
+            "unit": "Bytes"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Memory percentage",
+                "locale": "en-us"
+              }
+            ],
+            "class": "memory",
+            "counter": "percentusedmemory",
+            "counterSpecifier": "/builtin/memory/percentusedmemory",
+            "type": "builtin",
+            "unit": "Percent"
+          },
+          {
+            "annotation": [
+              {
+                "displayName": "Page writes",
+                "locale": "en-us"
+              }
+            ],
+            "class": "memory",
+            "counter": "pageswrittenpersec",
+            "counterSpecifier": "/builtin/memory/pageswrittenpersec",
+            "type": "builtin",
+            "unit": "CountPerSecond"
+          }
+        ]
+      },
+      "syslogEvents": {
+        "syslogEventConfiguration": {
+          "LOG_AUTH": "LOG_DEBUG",
+          "LOG_AUTHPRIV": "LOG_DEBUG",
+          "LOG_CRON": "LOG_DEBUG",
+          "LOG_DAEMON": "LOG_DEBUG",
+          "LOG_FTP": "LOG_DEBUG",
+          "LOG_KERN": "LOG_DEBUG",
+          "LOG_LOCAL0": "LOG_DEBUG",
+          "LOG_LOCAL1": "LOG_DEBUG",
+          "LOG_LOCAL2": "LOG_DEBUG",
+          "LOG_LOCAL3": "LOG_DEBUG",
+          "LOG_LOCAL4": "LOG_DEBUG",
+          "LOG_LOCAL5": "LOG_DEBUG",
+          "LOG_LOCAL6": "LOG_DEBUG",
+          "LOG_LOCAL7": "LOG_DEBUG",
+          "LOG_LPR": "LOG_DEBUG",
+          "LOG_MAIL": "LOG_DEBUG",
+          "LOG_NEWS": "LOG_DEBUG",
+          "LOG_SYSLOG": "LOG_DEBUG",
+          "LOG_USER": "LOG_DEBUG",
+          "LOG_UUCP": "LOG_DEBUG"
+        }
+      }
+    },
+    "sampleRateInSeconds": 15
+  },
+  "WadCfg": {
+    "DiagnosticMonitorConfiguration": {
+      "overallQuotaInMB": 10000,
+      "DiagnosticInfrastructureLogs": {
+        "scheduledTransferLogLevelFilter": "Error"
+      },
+      "PerformanceCounters": {
+        "scheduledTransferPeriod": "PT1M",
+        "PerformanceCounterConfiguration": []
+      },
+      "WindowsEventLog": {
+        "scheduledTransferPeriod": "PT5M",
+        "DataSource": [
+          {
+            "name": "Application!*[System[(Level = 1 or Level = 2)]]"
+          },
+          {
+            "name": "Security!*[System[(Level = 1 or Level = 2)]"
+          },
+          {
+            "name": "System!*[System[(Level = 1 or Level = 2)]]"
+          },
+          {
+            "name": "Microsoft-Windows-DSC/Operational!*[System[(EventID=4249 or EventID=4097)]]"
+          }
+        ]
+      }
+    }
+  }
+}

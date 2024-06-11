@@ -19,6 +19,7 @@ namespace Sample.IncidentBot.Bot
     using Sample.Common.Authentication;
     using Sample.Common.Meetings;
     using Sample.Common.OnlineMeetings;
+    using Sample.Common.Utils;
     using Sample.IncidentBot.Data;
     using Sample.IncidentBot.IncidentStatus;
 
@@ -211,6 +212,9 @@ namespace Sample.IncidentBot.Bot
             var incident = this.IncidentStatusManager.AddIncident(incidentId, incidentStatusData);
 
             var botMeetingCall = await this.JoinCallAsync(incidentRequestData, incidentId).ConfigureAwait(false);
+
+            // Rehydrates and validates the group call.
+            botMeetingCall = await this.RehydrateAndValidateGroupCallAsync(this.Client, botMeetingCall).ConfigureAwait(false);
 
             foreach (var objectId in incidentRequestData.ObjectIds)
             {
@@ -528,6 +532,54 @@ namespace Sample.IncidentBot.Bot
             }
 
             return handler;
+        }
+
+        /// <summary>
+        /// Rehydrates and validates the group call.
+        /// </summary>
+        /// <param name="client">The communications client.</param>
+        /// <param name="call">The call to validate.</param>
+        /// <returns>The rehydrated call.</returns>
+        private async Task<ICall> RehydrateAndValidateGroupCallAsync(ICommunicationsClient client, ICall call)
+        {
+            // Wait for roster so we ensure that events were already raised.
+            await call.Participants.WaitForParticipantAsync(call.Resource.MyParticipantId).ConfigureAwait(false);
+
+            // Remove call from memory.
+            this.Client.Calls().TryForceRemove(call.Id, out ICall removedCall);
+            this.graphLogger.Info($"Check whether the removed call is desired: {call == removedCall}");
+            this.graphLogger.Info($"Check whether the call get removed: {this.Client.Calls()[removedCall.Id] == null}");
+
+            // Rehydrate here... after this point all the data should be rebuilt
+            // This calls:
+            // GET /communications/calls/{id}
+            // GET /communications/calls/{id}/participants
+            // GET /communications/calls/{id}/audioRoutingGroups
+            var tenantId = call.TenantId;
+            var scenarioId = call.ScenarioId;
+            await client.RehydrateAsync(removedCall.ResourcePath, tenantId, scenarioId).ConfigureAwait(false);
+
+            var rehydratedCall = client.Calls()[removedCall.Id];
+            this.graphLogger.Info($"Check whether the call get rehydrated: {rehydratedCall != null}");
+            this.graphLogger.Info($"Check whether the rehydrated call is a new object: {removedCall == rehydratedCall}");
+
+            // deployments and Graph is stripping out some parameters.
+            // E2EAssert.IsContentEqual(removedCall.Resource, rehydratedCall.Resource);
+            var myParticipant = rehydratedCall.Participants[removedCall.Resource.MyParticipantId];
+            this.graphLogger.Info($"Check whether myParticipant get rehydrated: {myParticipant != null}");
+
+            // Remove participant from memory.
+            rehydratedCall.Participants.TryForceRemove(call.Resource.MyParticipantId, out IParticipant removedParticipant);
+            this.graphLogger.Info($"Check whether participant get removed from memory: {rehydratedCall.Participants[call.Resource.MyParticipantId] == null}");
+
+            // Rehydrate here... after this point the participant should be rebuilt.
+            // This calls:
+            // GET /communications/calls/{id}/participants/{id}
+            var rehydratedParticipant = await rehydratedCall.Participants.GetAsync(call.Resource.MyParticipantId).ConfigureAwait(false);
+            this.graphLogger.Info($"Check whether participant get rehydrated: {rehydratedParticipant != null}");
+            this.graphLogger.Info($"Check whether the rehydrated participant is a new object: {removedParticipant != rehydratedParticipant}");
+
+            return rehydratedCall;
         }
     }
 }
