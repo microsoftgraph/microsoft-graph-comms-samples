@@ -270,4 +270,8 @@ appsettings.development.json
 *.development.pubxml
 *.original
 
+# MAC temp file
 .DS_Store
+
+# Cache file that gets created when running audio bot
+*.dat
