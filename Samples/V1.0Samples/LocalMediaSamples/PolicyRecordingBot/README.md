@@ -38,9 +38,12 @@ Open powershell (in admin mode) and run the following commands. When prompted fo
 Requires the application instance ID created above. Continue your powershell session and run the following commands.
   * `New-CsTeamsComplianceRecordingPolicy -Enabled $true -Description "Test policy created by <yourName>" <policyIdentity>`
   * ```Set-CsTeamsComplianceRecordingPolicy -Identity <policyIdentity> -ComplianceRecordingApplications ` @(New-CsTeamsComplianceRecordingApplication -Parent <policyIdentity> -Id <objectId>)```
-
+New-CsTeamsComplianceRecordingApplication will create a application with Identiy name in format of Tag:<policyIdentity>/<objectId>.
+  * `Get-CsTeamsComplianceRecordingApplication -Identity Tag:<policyIdentity>/<objectId>` to verify the TeamsComplianceRecordingApplication created.
+  * `Set-CsTeamsComplianceRecordingApplication -Identity Tag:<policyIdentity>/<objectId> -RequiredBeforeMeetingJoin $false -RequiredDuringMeeting $false -RequiredBeforeCallEstablishment $false -RequiredDuringCall $false`
 After 30-60 seconds, the policy should show up. To verify your policy was created correctly:
-  * `Get-CsTeamsComplianceRecordingPolicy <policyIdentity>`
+  * `Get-CsTeamsComplianceRecordingPolicy <policyIdentity>` the result would be something as below:
+![Teams ComplianceRecording Policy](Images/Get-CsTeamsComplianceRecordingPolicy.png)
 
 ### Assign the Recording Policy
 Requries the policy identity created above. Contine your powershell session and run the following commands.
