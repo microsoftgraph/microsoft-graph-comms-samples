@@ -32,15 +32,17 @@ Open powershell (in admin mode) and run the following commands. When prompted fo
   * `Import-Module MicrosoftTeams`
   * `Connect-MicrosoftTeams` 
   * `New-CsOnlineApplicationInstance -UserPrincipalName <upn@contoso.com> -DisplayName <displayName> -ApplicationId <your_botappId>`
-  * `Sync-CsOnlineApplicationInstance -ObjectId <objectId>`
+  * `Sync-CsOnlineApplicationInstance -ObjectId <objectId> -ApplicationId <your_botappId>`
 
 ### Create a Recording Policy
 Requires the application instance ID created above. Continue your powershell session and run the following commands.
   * `New-CsTeamsComplianceRecordingPolicy -Enabled $true -Description "Test policy created by <yourName>" <policyIdentity>`
   * ```Set-CsTeamsComplianceRecordingPolicy -Identity <policyIdentity> -ComplianceRecordingApplications ` @(New-CsTeamsComplianceRecordingApplication -Parent <policyIdentity> -Id <objectId>)```
+Please note the backtick character ` in the command to run, see [more](https://learn.microsoft.com/en-us/powershell/module/teams/set-csteamscompliancerecordingpolicy?view=teams-ps) about the command.
 
 After 30-60 seconds, the policy should show up. To verify your policy was created correctly:
-  * `Get-CsTeamsComplianceRecordingPolicy <policyIdentity>`
+  * `Get-CsTeamsComplianceRecordingPolicy <policyIdentity>` the result would be something as below:
+![Teams ComplianceRecording Policy](Images/Get-CsTeamsComplianceRecordingPolicy.png)
 
 ### Assign the Recording Policy
 Requries the policy identity created above. Contine your powershell session and run the following commands.
