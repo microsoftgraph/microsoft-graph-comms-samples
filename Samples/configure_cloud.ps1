@@ -18,9 +18,6 @@ Enter your Service DNS name (ex: contoso.cloudapp.net).
 .PARAMETER CName
 Enter your Service CName (ex: contoso.net).
 
-.PARAMETER CertThumbprint
-Provide your certificate thumbprint.
-
 .PARAMETER BotId
 Enter your Bot Display Name as in the registration page.
 
@@ -47,7 +44,6 @@ param(
     [parameter(Mandatory=$true,HelpMessage="The root path to the project you wish to configure.")][alias("p")] $Path,
     [parameter(Mandatory=$false,HelpMessage="Enter your Service DNS name (ex: contoso.cloudapp.net).")][alias("dns")] $ServiceDns,
     [parameter(Mandatory=$false,HelpMessage="Enter your Service CName (ex: contoso.net).")][alias("cn")] $CName,
-    [parameter(Mandatory=$false,HelpMessage="Provide your certificate thumbprint.")][alias("thumb")] $CertThumbprint,
     [parameter(Mandatory=$false,HelpMessage="Enter your Bot Display Name from your bot registration portal.")][alias("bid")] $BotName,
     [parameter(Mandatory=$false,HelpMessage="Enter your Bot's Microsoft application id from your bot registration portal.")][alias("aid")] $AppId,
     [parameter(Mandatory=$false,HelpMessage="Enter your Bot's Microsoft application secret from your bot registration portal.")][alias("as")] $AppSecret,
@@ -100,10 +96,6 @@ if (-not $CName) {
     $CName = (Read-Host 'Enter your Service CName (ex: contoso.net).').Trim()
 }
 
-if (-not $CertThumbprint) {
-    $CertThumbprint = (Read-Host 'Provide your certificate thumbprint.').Trim()
-}
-
 if (-not $BotName) {
     $BotName = (Read-Host 'Enter your Bot Display Name from your bot registration portal.').Trim()
 }
@@ -142,7 +134,6 @@ foreach($file in $FilesToReplace)
     Copy-Item $backupFile -Destination $file.FullName
     ReplaceInFile $file "%ServiceDns%" $ServiceDns
     ReplaceInFile $file "%CName%" $CName
-    ReplaceInFile $file "ABC0000000000000000000000000000000000CBA" $CertThumbprint
     ReplaceInFile $file "%BotName%" $BotName
     ReplaceInFile $file "%BotNameLower%" $BotName.ToLower()
     ReplaceInFile $file "%AppId%" $AppId

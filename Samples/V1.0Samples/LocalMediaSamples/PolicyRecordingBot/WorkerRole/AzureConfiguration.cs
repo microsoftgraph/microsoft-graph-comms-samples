@@ -33,7 +33,7 @@ namespace Sample.PolicyRecordingBot.WorkerRole
         /// DomainNameLabel in NetworkConfiguration in .cscfg  <PublicIP name="instancePublicIP" domainNameLabel="pip"/>
         /// If the below changes, please change in the cscfg as well.
         /// </summary>
-        public const string DomainNameLabel = "pip";
+        public const string DomainNameLabel = "policyrecordingbot";
 
         /// <summary>
         /// The default endpoint key.
