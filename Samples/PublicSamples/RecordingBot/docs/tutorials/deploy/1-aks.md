@@ -320,14 +320,15 @@ the az Azure command line tool is out of date.
 
 In the previous section, we created an AKS cluster with a linux node. However, for our recording
 bot application, we actually need a windows node instead. Let us create two new windows nodes of
-the `standard_d2s_v3`-series:
+the `standard_d4_v3`-series, this series is also available in most Microsoft Azure regions
+and meets the requirement of two physical cpu cores specified by the media SDK:
 
 ```powershell
 az aks nodepool add
     --cluster-name recordingbotcluster
     --name win22
     --resource-group recordingbottutorial
-    --node-vm-size standard_d2s_v3
+    --node-vm-size standard_d4_v3
     --node-count 2
     --os-type Windows
     --os-sku Windows2022 
@@ -388,7 +389,7 @@ This command also needs some time to complete, our result output should look sim
     "maxSurge": null,
     "nodeSoakDurationInMinutes": null
   },
-  "vmSize": "standard_d2s_v3",
+  "vmSize": "standard_d4_v3",
   "vnetSubnetId": null,
   "workloadRuntime": null
 }

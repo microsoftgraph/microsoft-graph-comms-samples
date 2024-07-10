@@ -210,7 +210,7 @@ After that the execution of the command takes some time and results in an output
         "maxSurge": null,
         "nodeSoakDurationInMinutes": null
       },
-      "vmSize": "standard_d2s_v3",
+      "vmSize": "standard_d4_v3",
       "vnetSubnetId": null,
       "windowsProfile": {},
       "workloadRuntime": null
