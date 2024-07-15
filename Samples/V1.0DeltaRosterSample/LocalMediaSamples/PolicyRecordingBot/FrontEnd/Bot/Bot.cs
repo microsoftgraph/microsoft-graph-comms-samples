@@ -15,11 +15,13 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Bot
     using Microsoft.Graph.Communications.Client;
     using Microsoft.Graph.Communications.Common;
     using Microsoft.Graph.Communications.Common.Telemetry;
+    using Microsoft.Graph.Communications.Core.Notifications;
     using Microsoft.Graph.Communications.Resources;
     using Microsoft.Graph.Models;
     using Microsoft.Skype.Bots.Media;
     using Sample.Common;
     using Sample.Common.Authentication;
+    using Sample.Common.Beta.Logging;
     using Sample.Common.Logging;
     using Sample.PolicyRecordingBot.FrontEnd;
 
@@ -28,6 +30,8 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Bot
     /// </summary>
     internal class Bot : IDisposable
     {
+        private Service service;
+
         /// <summary>
         /// Gets the instance of the bot.
         /// </summary>
@@ -68,11 +72,18 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Bot
         /// </summary>
         /// <param name="service">Service instance.</param>
         /// <param name="logger">Graph logger.</param>
-        internal void Initialize(Service service, IGraphLogger logger)
+        /// <param name="config">Configuration.</param>
+        internal void Initialize(Service service, IGraphLogger logger, IConfiguration config)
         {
             Validator.IsNull(this.Logger, "Multiple initializations are not allowed.");
 
+            this.service = service;
             this.Logger = logger;
+            if (config.DisableAppInsightLogging)
+            {
+                this.Logger.DiagnosticLevel = System.Diagnostics.TraceLevel.Off;
+            }
+
             this.Observer = new SampleObserver(logger);
 
             var name = this.GetType().Assembly.GetName().Name;
@@ -93,6 +104,8 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Bot
             builder.SetServiceBaseUrl(service.Configuration.PlaceCallEndpointUrl);
 
             this.Client = builder.Build();
+            this.Client.OnNotificationQueued += this.OnNotificationQueued;  // doesn't work actually
+            this.Client.OnNotificationProcessed += this.OnNotificationProcessed;
             this.Client.Calls().OnIncoming += this.CallsOnIncoming;
             this.Client.Calls().OnUpdated += this.CallsOnUpdated;
         }
@@ -118,6 +131,24 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Bot
                 // This will trigger the ICallCollection.OnUpdated event with the removed resource.
                 this.Client.Calls().TryForceRemove(callLegId, out ICall call);
             }
+        }
+
+        /// <summary>
+        /// Event handler for On notification queued.
+        /// </summary>
+        /// <param name="args">arguments.</param>
+        private void OnNotificationProcessed(NotificationEventArgs args)
+        {
+            RequestTelemetryHelper.OnNotificationProcessed(args.RequestId.ToString(), args.Notification.ResourceUrl);
+        }
+
+        /// <summary>
+        /// Event handler for On notification queued.
+        /// </summary>
+        /// <param name="args">arguments.</param>
+        private void OnNotificationQueued(NotificationEventArgs args)
+        {
+            RequestTelemetryHelper.OnNotificationQueued(args.RequestId.ToString());
         }
 
         /// <summary>
@@ -213,7 +244,7 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Bot
                     : this.CreateLocalMediaSession();
 
                 // Answer call
-                call?.AnswerAsync(mediaSession: mediaSession, participantCapacity: (int)SampleConstants.GroupSize, isDeltaRosterPublishEnabled: true).ForgetAndLogExceptionAsync(
+                call?.AnswerAsync(mediaSession: mediaSession, participantCapacity: (int)this.service.Configuration.GroupSize, isDeltaRosterPublishEnabled: true).ForgetAndLogExceptionAsync(
                     call.GraphLogger,
                     $"Answering call {call.Id} with scenario {call.ScenarioId}.");
             });
@@ -226,9 +257,13 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Bot
         /// <param name="args">The <see cref="CollectionEventArgs{ICall}"/> instance containing the event data.</param>
         private void CallsOnUpdated(ICallCollection sender, CollectionEventArgs<ICall> args)
         {
+            RequestTelemetryHelper.OnNotificationReceived(args.AdditionalData);
+            this.Client.GraphLogger.Warn($"CallsOnUpdated: added count = {args.AddedResources.Count}, removed count = {args.RemovedResources.Count}");
+
             foreach (var call in args.AddedResources)
             {
-                var callHandler = new CallHandler(call);
+                var callHandler = new CallHandler(call, this.service.Configuration);
+                callHandler.Initialize();
                 this.CallHandlers[call.Id] = callHandler;
             }
 

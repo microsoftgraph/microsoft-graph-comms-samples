@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <AzureRMSwappableCloudServiceV2Name />
+    <AzureRMSwappableCloudServiceV2ResourceGroupName />
+    <AzureRMSwappableCloudServiceV2Location />
+    <AzureCredentials>{"ServiceManagementEndpoint":"https:\/\/management.core.windows.net\/","ResourceManagementEndpoint":"https:\/\/management.azure.com\/","SubscriptionId":"e97d9cee-94ac-40b9-ae5b-a13558db9844"}</AzureCredentials>
+    <AzureDeploymentLabel>policyrecordingbotvsdeploy</AzureDeploymentLabel>
+    <AzureEnableRemoteDesktop>False</AzureEnableRemoteDesktop>
+    <AzureServiceConfiguration>Cloud</AzureServiceConfiguration>
+    <AzureSolutionConfiguration>Release</AzureSolutionConfiguration>
+    <AzureAppendTimestampToDeploymentLabel>True</AzureAppendTimestampToDeploymentLabel>
+    <EnableApplicationInsights>True</EnableApplicationInsights>
+    <AzureSlot>Production</AzureSlot>
+    <AzureRMCloudServiceV2Name>+samplebot</AzureRMCloudServiceV2Name>
+    <AzureRMCloudServiceV2ResourceGroupName>+DS-Media</AzureRMCloudServiceV2ResourceGroupName>
+    <AzureRMCloudServiceV2Location>{"Name":"eastus","DisplayName":"East US"}</AzureRMCloudServiceV2Location>
+    <AzureRMCloudServiceV2DNSName>
+    </AzureRMCloudServiceV2DNSName>
+    <AzureRMKeyVaultName>+samplebotkv</AzureRMKeyVaultName>
+    <AzureRMKeyVaultResourceGroupName>+DS-Media</AzureRMKeyVaultResourceGroupName>
+    <AzureRMKeyVaultLocation>{"Name":"eastus","DisplayName":"East US"}</AzureRMKeyVaultLocation>
+    <AzureRMStorageAccountName>+samplebotstg</AzureRMStorageAccountName>
+    <AzureRMStorageAccountResourceGroupName>+DS-Media</AzureRMStorageAccountResourceGroupName>
+    <AzureRMStorageAccountLocation>{"Name":"eastus","DisplayName":"East US"}</AzureRMStorageAccountLocation>
+  </PropertyGroup>
+</Project>

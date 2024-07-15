@@ -68,5 +68,25 @@ namespace Sample.PolicyRecordingBot.FrontEnd
         /// Gets the Settings for the bot media platform.
         /// </summary>
         MediaPlatformSettings MediaPlatformSettings { get; }
+
+        /// <summary>
+        /// Gets bot Grouping capacity.
+        /// </summary>
+        uint GroupSize { get; }
+
+        /// <summary>
+        /// Gets a value indicating whether to write single stream for group.
+        /// </summary>
+        bool SingleAudioStream { get; }
+
+        /// <summary>
+        /// Gets a value indicating whether to disable app insight logging.
+        /// </summary>
+        bool DisableAppInsightLogging { get; }
+
+        /// <summary>
+        /// Gets a value indicating whether to disable i/o stream writing.
+        /// </summary>
+        bool DisableAudioStreamIo { get; }
     }
 }
