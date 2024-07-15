@@ -15,9 +15,6 @@ param devOpsPat string
 @secure()
 param sshPublic string
 
-param month string = utcNow('MM')
-param year string = utcNow('yyyy')
-
 var Deployment = '${Prefix}-${Global.OrgName}-${Global.Appname}-${Environment}${DeploymentID}'
 var DeploymentURI = toLower('${Prefix}${Global.OrgName}${Global.Appname}${Environment}${DeploymentID}')
 
@@ -56,20 +53,6 @@ resource ai 'Microsoft.Insights/components@2020-02-02' existing = {
 resource saaccountidglobalsource 'Microsoft.Storage/storageAccounts@2021-04-01' existing = {
   name: Global.SAName
 }
-
-// Use same PAT token for 3 month blocks, min PAT age is 6 months, max is 9 months
-var SASEnd = dateTimeAdd('${year}-${padLeft((int(month) - (int(month) -1) % 3),2,'0')}-01', 'P9M')
-
-// Roll the SAS token one per 3 months, min length of 6 months.
-var DSCSAS = saaccountidglobalsource.listServiceSAS('2021-09-01', {
-  canonicalizedResource: '/blob/${saaccountidglobalsource.name}/${last(split(Global._artifactsLocation, '/'))}'
-  signedResource: 'c'
-  signedProtocol: 'https'
-  signedPermission: 'r'
-  signedServices: 'b'
-  signedExpiry: SASEnd
-  keyToSign: 'key1'
-}).serviceSasToken
 
 var DSCConfigLookup = {
   AppServers: 'AppServers'
@@ -407,8 +390,8 @@ resource VMSS 'Microsoft.Compute/virtualMachineScaleSets@2021-07-01' = {
                     Password: vmAdminPassword
                   }
                 }
-                configurationUrlSasToken: '?${DSCSAS}'
-                configurationDataUrlSasToken: '?${DSCSAS}'
+                configurationUrlSasToken: Global._artifactsLocationSasToken
+                configurationDataUrlSasToken: Global._artifactsLocationSasToken
               }
             }
           }

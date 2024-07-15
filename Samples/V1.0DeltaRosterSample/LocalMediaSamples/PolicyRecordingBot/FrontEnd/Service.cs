@@ -77,7 +77,7 @@ namespace Sample.PolicyRecordingBot.FrontEnd
                     throw new InvalidOperationException("The service is already started.");
                 }
 
-                Bot.Bot.Instance.Initialize(this, this.logger);
+                Bot.Bot.Instance.Initialize(this, this.logger, this.Configuration);
 
                 // Start HTTP server for calls
                 var callStartOptions = new StartOptions();

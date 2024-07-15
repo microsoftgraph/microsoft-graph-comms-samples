@@ -26,8 +26,6 @@ using Microsoft.Skype.Bots.Media;
 using System.Collections.Concurrent;
 using System.Net;
 using EchoBot.Util;
-using Microsoft.Graph.Models;
-using Microsoft.Graph.Contracts;
 
 namespace EchoBot.Bot
 {

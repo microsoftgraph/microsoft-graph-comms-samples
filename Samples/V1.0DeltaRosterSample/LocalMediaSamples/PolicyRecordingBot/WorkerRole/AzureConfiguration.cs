@@ -80,6 +80,8 @@ namespace Sample.PolicyRecordingBot.WorkerRole
         /// </summary>
         private const string AadAppSecretKey = "AadAppSecret";
 
+        private const string GroupSizeKey = "GroupSize";
+
         /// <summary>
         /// The default Microsoft app id value.
         /// </summary>
@@ -89,6 +91,21 @@ namespace Sample.PolicyRecordingBot.WorkerRole
         /// The default Microsoft app password value.
         /// </summary>
         private const string DefaultAadAppSecretValue = "$AadAppSecret$";
+
+        /// <summary>
+        /// flag to i/o behaviour.
+        /// </summary>
+        private const string SingleAudioStreamKey = "SingleAudioStream";
+
+        /// <summary>
+        /// Flag to disable app insight logging.
+        /// </summary>
+        private const string DisableAppInsightLoggingKey = "DisableAppInsightLogging";
+
+        /// <summary>
+        /// Flag to disable app insight logging.
+        /// </summary>
+        private const string DisableAudioStreamIoKey = "DisableAudioStreamIo";
 
         /// <summary>
         /// The instance id token.
@@ -144,6 +161,18 @@ namespace Sample.PolicyRecordingBot.WorkerRole
         /// <inheritdoc/>
         public string AadAppSecret { get; private set; }
 
+         /// <inheritdoc />
+        public uint GroupSize { get; private set; }
+
+        /// <inheritdoc />
+        public bool SingleAudioStream { get; private set; }
+
+        /// <inheritdoc />
+        public bool DisableAppInsightLogging { get; private set; }
+
+        /// <inheritdoc />
+        public bool DisableAudioStreamIo { get; private set; }
+
         /// <summary>
         /// Initialize from serviceConfig.
         /// </summary>
@@ -151,6 +180,7 @@ namespace Sample.PolicyRecordingBot.WorkerRole
         {
             // Collect config values from Azure config.
             this.TraceEndpointInfo();
+            this.GroupSize = uint.TryParse(this.GetString(GroupSizeKey), out var v) ? v : SampleConstants.GroupSize;
             this.ServiceDnsName = this.GetString(ServiceDnsNameKey);
             this.ServiceCname = this.GetString(ServiceCNameKey, true);
             if (string.IsNullOrEmpty(this.ServiceCname))
@@ -181,17 +211,21 @@ namespace Sample.PolicyRecordingBot.WorkerRole
 
             string instanceCallControlIpEndpoint = string.Format("{0}:{1}", instanceCallControlInternalIpAddress, instanceCallControlInternalPort);
 
-            this.AadAppId = ConfigurationManager.AppSettings[AadAppIdKey];
+            this.AadAppId = this.GetString(AadAppIdKey); // ConfigurationManager.AppSettings[AadAppIdKey];
             if (string.IsNullOrEmpty(this.AadAppId) || string.Equals(this.AadAppId, DefaultAadAppIdValue))
             {
                 throw new ConfigurationException("AadAppId", "Update app.config in WorkerRole with AppId from the bot registration portal");
             }
 
-            this.AadAppSecret = ConfigurationManager.AppSettings[AadAppSecretKey];
+            this.AadAppSecret = this.GetString(AadAppSecretKey); // ConfigurationManager.AppSettings[AadAppSecretKey];
             if (string.IsNullOrEmpty(this.AadAppSecret) || string.Equals(this.AadAppSecret, DefaultAadAppSecretValue))
             {
                 throw new ConfigurationException("AadAppSecret", "Update app.config in WorkerRole with BotSecret from the bot registration portal");
             }
+
+            this.SingleAudioStream = bool.Parse(this.GetString(SingleAudioStreamKey));
+            this.DisableAppInsightLogging = bool.Parse(this.GetString(DisableAppInsightLoggingKey));
+            this.DisableAudioStreamIo = bool.Parse(this.GetString(DisableAudioStreamIoKey));
 
             List<Uri> controlListenUris = new List<Uri>();
             if (RoleEnvironment.IsEmulated)

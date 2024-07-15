@@ -3,6 +3,9 @@
 // Licensed under the MIT license.
 // </copyright>
 
+using Microsoft.ApplicationInsights;
+using Sample.Common.Beta.Logging;
+
 namespace Sample.Common.Logging
 {
     using System;
@@ -11,6 +14,7 @@ namespace Sample.Common.Logging
     using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.Graph.Communications.Common.Telemetry;
+    using Microsoft.IdentityModel.Abstractions;
 
     /// <summary>
     /// Memory logger for quick diagnostics.
@@ -18,6 +22,8 @@ namespace Sample.Common.Logging
     /// </summary>
     public class SampleObserver : IObserver<LogEvent>, IDisposable
     {
+        private readonly TelemetryClient _aiClient = new TelemetryClient();
+
         private static readonly int MaxLogCount = 5000;
 
         /// <summary>
@@ -121,11 +127,23 @@ namespace Sample.Common.Logging
                     this.logs.RemoveLast();
                 }
             }
+            var properties = new Dictionary<string, string>
+            {
+                {"TimeStamp", logEvent.Timestamp.ToString("o")},
+                {"CallerInfoString", logEvent.CallerInfoString},
+                {"CorrelationId", logEvent.CorrelationId.ToString()},
+                {"PropertiesString", logEvent.PropertiesString},
+                {"Component", logEvent.Component}
+            };
+
+            if (logEvent.Level != TraceLevel.Off)
+                _aiClient.TrackTrace(logEvent.Message, logEvent.Level.ToSeverityLevel(), properties);
         }
 
         /// <inheritdoc />
         public void OnError(Exception error)
         {
+            _aiClient.TrackException(error);
         }
 
         /// <inheritdoc />

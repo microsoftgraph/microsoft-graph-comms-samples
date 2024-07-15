@@ -12,6 +12,7 @@
     <AssemblyName>PolicyRecordingBot</AssemblyName>
     <StartDevelopmentStorage>True</StartDevelopmentStorage>
     <Name>PolicyRecordingBot</Name>
+    <PackageEnableRemoteDebugger>False</PackageEnableRemoteDebugger>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,6 +50,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <PublishProfile Include="Profiles\samplebot.azureRMPubxml" />
     <PublishProfile Include="Profiles\SampleGraphBotProduction1.azurePubxml" />
   </ItemGroup>
   <!-- Import the target files for this project template -->

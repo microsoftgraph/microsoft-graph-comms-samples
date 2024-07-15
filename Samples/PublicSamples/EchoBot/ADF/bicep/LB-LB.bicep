@@ -143,7 +143,11 @@ resource LBalancerDiag 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview
     workspaceId: OMSworkspaceID
     logs: [
       {
-        category: 'LoadBalancerHealthEvent'
+        category: 'LoadBalancerAlertEvent'
+        enabled: true
+      }
+      {
+        category: 'LoadBalancerProbeHealthStatus'
         enabled: true
       }
     ]

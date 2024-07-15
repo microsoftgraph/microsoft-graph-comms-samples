@@ -27,6 +27,12 @@
       <!-- CNAME pointing to the .cloudapp.net if available-->
       <Setting name="DefaultCertificate" />
       <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" />
+      <Setting name="GroupSize" />
+      <Setting name="AadAppId" />
+      <Setting name="AadAppSecret" />
+      <Setting name="SingleAudioStream" />
+      <Setting name="DisableAppInsightLogging" />
+      <Setting name="DisableAudioStreamIo" />
     </ConfigurationSettings>
     <Endpoints>
       <InputEndpoint name="DefaultEndpoint" protocol="tcp" port="443" localPort="9441" />

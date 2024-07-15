@@ -3,12 +3,16 @@
 // Licensed under the MIT license.
 // </copyright>
 
+// ReSharper disable All
+#pragma warning disable SA1600
 namespace Sample.PolicyRecordingBot.FrontEnd.Bot
 {
     using System;
     using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Text;
+    using System.Text.Json;
     using System.Threading.Tasks;
     using System.Timers;
     using Microsoft.Graph.Communications.Calls;
@@ -17,8 +21,11 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Bot
     using Microsoft.Graph.Communications.Common.Telemetry;
     using Microsoft.Graph.Communications.Resources;
     using Microsoft.Graph.Models;
+    using Microsoft.Kiota.Abstractions.Extensions;
     using Microsoft.Skype.Bots.Media;
     using Sample.Common;
+    using Sample.Common.Beta.Logging;
+    using Sample.PolicyRecordingBot.FrontEnd.Bot.Grouping;
     using RejectReason = Microsoft.Graph.Communications.Common.RejectReason;
 
     /// <summary>
@@ -30,6 +37,8 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Bot
         /// MSI when there is no dominant speaker.
         /// </summary>
         public const uint DominantSpeakerNone = DominantSpeakerChangedEventArgs.None;
+
+        private readonly IConfiguration configuration;
 
         // hashSet of the available sockets
         private readonly HashSet<uint> availableSocketIds = new HashSet<uint>();
@@ -43,19 +52,19 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Bot
         // This dictionnary helps maintaining a mapping of the sockets subscriptions
         private readonly ConcurrentDictionary<uint, uint> msiToSocketIdMapping = new ConcurrentDictionary<uint, uint>();
 
-        private readonly Timer recordingStatusFlipTimer;
-
-        private int recordingStatusIndex = -1;
-
+        private readonly ConcurrentDictionary<string, ChildCallHandler> childCallsHandlers = new ConcurrentDictionary<string, ChildCallHandler>();
+        private readonly AudioBufferAsyncWriter audioBufferAsyncWriter;
         private int participantsCount = 0;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CallHandler"/> class.
         /// </summary>
         /// <param name="statefulCall">The stateful call.</param>
-        public CallHandler(ICall statefulCall)
+        /// <param name="configuration">The configuration.</param>
+        public CallHandler(ICall statefulCall, IConfiguration configuration)
             : base(TimeSpan.FromMinutes(10), statefulCall?.GraphLogger)
         {
+            this.configuration = configuration;
             this.Call = statefulCall;
             this.Call.OnUpdated += this.CallOnUpdated;
 
@@ -67,15 +76,10 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Bot
             this.Call.Participants.OnUpdated += this.ParticipantsOnUpdated;
             this.Call.ParticipantLeftHandler += this.ParticipantLeft;
             this.Call.ParticipantJoiningHandler += this.ParticipantJoining;
+            this.audioBufferAsyncWriter = new AudioBufferAsyncWriter(this.Call, this.configuration.DisableAudioStreamIo);
 
             // attach the botMediaStream
-            this.BotMediaStream = new BotMediaStream(this.Call.GetLocalMediaSession(), this.GraphLogger);
-
-            // initialize the timer
-            var timer = new Timer(1000 * 60 * 5); // every 5 minutes
-            timer.AutoReset = true;
-            timer.Elapsed += this.OnRecordingStatusFlip;
-            this.recordingStatusFlipTimer = timer;
+            this.BotMediaStream = new BotMediaStream(this.Call.GetLocalMediaSession(), this.audioBufferAsyncWriter, this.GraphLogger, this.configuration.DisableAudioStreamIo);
 
             // Count the first answer
             this.participantsCount = 1;
@@ -91,10 +95,31 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Bot
         /// </summary>
         public BotMediaStream BotMediaStream { get; private set; }
 
+        public void Initialize()
+        {
+            // BackingStore: Participation method [this has been called more places in our code]
+            var applicationMetadata = (JsonElement)this.Call.Resource.AdditionalData["applicationMetadata"];
+
+            // Ref - To fetch Meeting subject we need meeting Url
+            var meetingUrl = this.Call.Resource.AdditionalData.ContainsKey("MeetingUrl")
+                ? this.Call.Resource.AdditionalData["MeetingUrl"]?.ToString()
+                : string.Empty;
+        }
+
         /// <inheritdoc/>
         protected override Task HeartbeatAsync(ElapsedEventArgs args)
         {
-            return this.Call.KeepAliveAsync();
+            try
+            {
+                return this.Call.KeepAliveAsync();
+            }
+            catch (Exception)
+            {
+                // Console.WriteLine(e);
+                // throw;
+            }
+
+            return Task.CompletedTask;
         }
 
         /// <inheritdoc />
@@ -113,48 +138,30 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Bot
                 participant.OnUpdated -= this.OnParticipantUpdated;
             }
 
-            this.recordingStatusFlipTimer.Enabled = false;
-            this.recordingStatusFlipTimer.Elapsed -= this.OnRecordingStatusFlip;
-            this.BotMediaStream.Dispose();
+            if (this.childCallsHandlers.IsEmpty)
+            {
+                this.BotMediaStream.Dispose();
+            }
         }
 
         /// <summary>
         /// Called when recording status flip timer fires.
         /// </summary>
-        /// <param name="source">The source.</param>
-        /// <param name="e">The <see cref="ElapsedEventArgs" /> instance containing the event data.</param>
-        private void OnRecordingStatusFlip(object source, ElapsedEventArgs e)
+        /// <param name="recordingStatus">The status to update with.</param>
+        private void OnRecordingStatusFlip(RecordingStatus recordingStatus)
         {
             _ = Task.Run(async () =>
             {
-                var recordingStatus = new[] { RecordingStatus.Recording, RecordingStatus.NotRecording, RecordingStatus.Failed };
-                var recordingIndex = this.recordingStatusIndex + 1;
-                if (recordingIndex >= recordingStatus.Length)
-                {
-                    var recordedParticipantId = this.Call.Resource.IncomingContext.ObservedParticipantId;
-
-                    this.GraphLogger.Warn($"We've rolled through all the status'... removing participant {recordedParticipantId}");
-                    var recordedParticipant = this.Call.Participants[recordedParticipantId];
-                    await recordedParticipant.DeleteAsync().ConfigureAwait(false);
-                    return;
-                }
-
-                var newStatus = recordingStatus[recordingIndex];
-
-                this.GraphLogger.Info($"Flipping recording status to {newStatus}");
-
                 try
                 {
                     // NOTE: if your implementation supports stopping the recording during the call, you can call the same method above with RecordingStatus.NotRecording
                     await this.Call
-                        .UpdateRecordingStatusAsync(newStatus)
+                        .UpdateRecordingStatusAsync(recordingStatus)
                         .ConfigureAwait(false);
-
-                    this.recordingStatusIndex = recordingIndex;
                 }
                 catch (Exception exc)
                 {
-                    this.GraphLogger.Error(exc, $"Failed to flip the recording status to {newStatus}");
+                    this.GraphLogger.Error(exc, $"Failed to flip the recording status to {recordingStatus}");
                 }
             }).ForgetAndLogExceptionAsync(this.GraphLogger);
         }
@@ -166,13 +173,11 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Bot
         /// <param name="e">The event args containing call changes.</param>
         private void CallOnUpdated(ICall sender, ResourceEventArgs<Call> e)
         {
+            RequestTelemetryHelper.OnNotificationReceived(e.AdditionalData);
             if (e.OldResource.State != e.NewResource.State && e.NewResource.State == CallState.Established)
             {
                 // Call is established. We should start receiving Audio, we can inform clients that we have started recording.
-                this.OnRecordingStatusFlip(sender, null);
-
-                // for testing purposes, flip the recording status automatically at intervals
-                this.recordingStatusFlipTimer.Enabled = true;
+                this.OnRecordingStatusFlip(RecordingStatus.Recording);
             }
         }
 
@@ -183,32 +188,77 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Bot
         /// <param name="args">Event args containing added and removed participants.</param>
         private void ParticipantsOnUpdated(IParticipantCollection sender, CollectionEventArgs<IParticipant> args)
         {
+            RequestTelemetryHelper.OnNotificationReceived(args.AdditionalData);
+            this.GraphLogger.Warn($"$[{this.Call.Id}] ---NICE--- {nameof(this.ParticipantsOnUpdated)} Entry");
+            StringBuilder participants = new StringBuilder();
+            participants.Append("Participant Added [");
+
             foreach (var participant in args.AddedResources)
             {
                 // todo remove the cast with the new graph implementation,
                 // for now we want the bot to only subscribe to "real" participants
                 var participantDetails = participant.Resource.Info.Identity.User;
+
+                // BackingStore: property access
+                this.GetParticipantHolder(participant);
+
                 if (participantDetails != null)
                 {
+                    participants.Append($"{participantDetails.Id}, ");
+
                     // subscribe to the participant updates, this will indicate if the user started to share,
                     // or added another modality
                     participant.OnUpdated += this.OnParticipantUpdated;
+                    foreach (var childCallHandler in this.childCallsHandlers.Values)
+                    {
+                        childCallHandler.SubscribeForParticipantUpdate(participant);
+                    }
 
                     // the behavior here is to avoid subscribing to a new participant video if the VideoSubscription cache is full
                     this.SubscribeToParticipantVideo(participant, forceSubscribe: false);
                 }
             }
 
+            participants.Append("]");
+            participants.Append("Participant Removed [");
             foreach (var participant in args.RemovedResources)
             {
                 var participantDetails = participant.Resource.Info.Identity.User;
+
+                // BackingStore: property access
+                this.GetParticipantHolder(participant);
                 if (participantDetails != null)
                 {
+                    participants.Append($"{participantDetails.Id}, ");
+
                     // unsubscribe to the participant updates
                     participant.OnUpdated -= this.OnParticipantUpdated;
+                    if (this.childCallsHandlers.TryGetValue(participant.Id, out var childCallHandler))
+                    {
+                        childCallHandler.UnSubscribeForParticipantUpdate(participant);
+                    }
+
                     this.UnsubscribeFromParticipantVideo(participant);
                 }
             }
+
+            participants.Append("]");
+            this.GraphLogger.Warn($"{participants}");
+        }
+
+        private void GetParticipantHolder(IParticipant participant)
+        {
+            this.GraphLogger.Warn($"[{this.Call.Id}]: Participant Holder -> getting participant info");
+            var participantInfo = participant.Resource.Info;
+            var identitySet = participantInfo.Identity;
+            var identityWithType = identitySet.GetPrimaryIdentityWithType_NICE(); // to decide is participant is a bot
+            var endpointType = participant.Resource.Info.EndpointType;
+            List<uint> streamIds = new List<uint>();
+            streamIds = streamIds.Union(participant.Resource.MediaStreams
+                    .Where(_ => _.MediaType != Modality.Data &&
+                                _.SourceId != null) // to handle removed participants in delta roster
+                    .Select(_ => uint.Parse(_.SourceId)))
+                .ToList();
         }
 
         /// <summary>
@@ -219,7 +269,12 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Bot
         private void ParticipantLeft(Call call, string participantId)
         {
             this.participantsCount--;
-            this.GraphLogger.Info($"[{this.Call.Id}:The participant {participantId} has left with code {call?.ResultInfo?.Code} and subcode {call?.ResultInfo?.Subcode})");
+            if (this.childCallsHandlers.TryRemove(participantId, out var callHandler))
+            {
+                callHandler.UnSubscribeForParticipantsCollectionUpdate();
+                callHandler.Dispose();
+                this.GraphLogger.Warn($"[{this.Call.Id}:The participant {participantId} has left with code {call?.ResultInfo?.Code} and subcode {call?.ResultInfo?.Subcode})");
+            }
         }
 
         /// <summary>
@@ -229,9 +284,16 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Bot
         /// <returns>The response to participant joining notification.</returns>
         private ParticipantJoiningResponse ParticipantJoining(Call call)
         {
-            if (this.participantsCount < SampleConstants.GroupSize)
+            if (this.participantsCount < this.configuration.GroupSize)
             {
+                // BackingStore property access
+                this.GraphLogger.Warn($"ParticipantJoining called for user {call.Source?.Identity?.User?.Id}");
                 this.participantsCount++;
+                var childCall = new ChildCallHandler(this.Call, call, this.configuration);
+                childCall.Register();
+                call.Source.AdditionalData.TryGetValue("id", out var participantId);
+                this.childCallsHandlers.TryAdd(participantId.ToString(), childCall);
+                childCall.SubscribeForParticipantsCollectionUpdate();
                 return new AcceptJoinResponse();
             }
             else

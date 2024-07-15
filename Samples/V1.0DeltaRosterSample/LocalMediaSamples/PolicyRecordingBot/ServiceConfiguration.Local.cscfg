@@ -10,6 +10,12 @@
       <!-- CNAME pointing to the .cloudapp.net if available.-->
       <Setting name="DefaultCertificate" value="ABC0000000000000000000000000000000000CBA" />
       <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" value="" />
+      <Setting name="GroupSize" value="%GroupSize%" />
+      <Setting name="AadAppId" value="%AppId%" />
+      <Setting name="AadAppSecret" value="%AppSecret%" />
+      <Setting name="SingleAudioStream" value="false" />
+      <Setting name="DisableAppInsightLogging" value="false" />
+      <Setting name="DisableAudioStreamIo" value="false" />
     </ConfigurationSettings>
     <Certificates>
       <Certificate name="Default" thumbprint="ABC0000000000000000000000000000000000CBA" thumbprintAlgorithm="sha1" />

@@ -28,20 +28,30 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Bot
         private readonly IVideoSocket vbssSocket;
         private readonly List<IVideoSocket> videoSockets;
         private readonly ILocalMediaSession mediaSession;
+        private readonly AudioBufferAsyncWriter audioBufferAsyncWriter;
+        private readonly bool disableAudioStreamIo;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BotMediaStream"/> class.
         /// </summary>
         /// <param name="mediaSession">The media session.</param>
+        /// <param name="audioBufferAsyncWriter">audio BufferAsync Writer.</param>
         /// <param name="logger">Graph logger.</param>
+        /// <param name="disableAudioStreamIo">disableAudioStreamIo.</param>
         /// <exception cref="InvalidOperationException">Throws when no audio socket is passed in.</exception>
-        public BotMediaStream(ILocalMediaSession mediaSession, IGraphLogger logger)
+        public BotMediaStream(ILocalMediaSession mediaSession, AudioBufferAsyncWriter audioBufferAsyncWriter, IGraphLogger logger, bool disableAudioStreamIo)
             : base(logger)
         {
             ArgumentVerifier.ThrowOnNullArgument(mediaSession, nameof(mediaSession));
             ArgumentVerifier.ThrowOnNullArgument(logger, nameof(logger));
 
             this.mediaSession = mediaSession;
+            this.disableAudioStreamIo = disableAudioStreamIo;
+            this.audioBufferAsyncWriter = audioBufferAsyncWriter;
+            if (!disableAudioStreamIo)
+            {
+                audioBufferAsyncWriter.Start();
+            }
 
             // Subscribe to the audio media.
             this.audioSocket = mediaSession.AudioSocket;
@@ -181,9 +191,17 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Bot
         private void OnAudioMediaReceived(object sender, AudioMediaReceivedEventArgs e)
         {
             this.GraphLogger.Info($"Received Audio: [VideoMediaReceivedEventArgs(Data=<{e.Buffer.Data.ToString()}>, Length={e.Buffer.Length}, Timestamp={e.Buffer.Timestamp})]");
+            if (this.disableAudioStreamIo)
+            {
+                e.Buffer.Dispose();
+            }
+            else
+            {
+                this.audioBufferAsyncWriter.EnqueueBuffer(e.Buffer);
+            }
 
             // TBD: Policy Recording bots can record the Audio here
-            e.Buffer.Dispose();
+            // e.Buffer.Dispose();
         }
 
         /// <summary>

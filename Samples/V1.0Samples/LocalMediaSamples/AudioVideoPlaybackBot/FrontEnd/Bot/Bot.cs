@@ -153,13 +153,8 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Bot
                 throw new ArgumentNullException(nameof(callLegId));
             }
 
-            var call = this.Client.Calls()[callLegId];
-            if (call == null)
-            {
-                throw new ArgumentNullException($"No calls found for {callLegId}");
-            }
-
-            await call.ChangeScreenSharingRoleAsync(role)
+            await this.Client.Calls()[callLegId]
+                .ChangeScreenSharingRoleAsync(role)
                 .ConfigureAwait(false);
         }
 

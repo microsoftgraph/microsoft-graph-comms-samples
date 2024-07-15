@@ -12,6 +12,7 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
     using System.Net.Http;
     using System.Threading.Tasks;
     using System.Web.Http;
+    using Microsoft.ApplicationInsights.DataContracts;
     using Microsoft.Graph;
     using Microsoft.Graph.Communications.Client;
     using Microsoft.Graph.Communications.Client.Authentication;
@@ -21,6 +22,7 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
     using Microsoft.Graph.Communications.Core.Exceptions;
     using Microsoft.Graph.Communications.Core.Notifications;
     using Microsoft.Graph.Models;
+    using Sample.Common.Beta.Logging;
     using Sample.PolicyRecordingBot.FrontEnd.Bot;
     using ClientException = Microsoft.Graph.Communications.Core.Exceptions.ClientException;
     using ErrorConstants = Microsoft.Graph.Communications.Core.Exceptions.ErrorConstants;
@@ -41,6 +43,11 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
         /// Gets a reference to singleton sample bot/client instance.
         /// </summary>
         private ICommunicationsClient Client => Bot.Instance.Client;
+
+        ///// <summary>
+        ///// Gets the configuration
+        ///// </summary>
+        // private IConfiguration Configuration => Bot.Instance.Configuration;
 
         /// <summary>
         /// Handle a callback for an incoming call.
@@ -74,15 +81,44 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
         [Route(HttpRouteConstants.OnNotificationRequestRoute)]
         public async Task<HttpResponseMessage> OnNotificationRequestAsync()
         {
-            this.Logger.Info($"Received HTTP {this.Request.Method}, {this.Request.RequestUri}");
+            var requestTimer = Stopwatch.StartNew();
+            var requestStartTime = DateTimeOffset.UtcNow;
+            RequestTelemetry requestTelemetry = null;
+            var success = false;
+            try
+            {
+                var callControlPort = "10100";
+                var requestPort = this.Request.RequestUri.GetComponents(UriComponents.Port, UriFormat.UriEscaped);
+                var messageId = this.ExtractMessageId();
+                if (messageId != null)
+                {
+                    requestTelemetry = RequestTelemetryHelper.StartNewRequest("ProcessMessageWorkflow", requestStartTime, requestTimer, requestPort == callControlPort, messageId);
+                    RequestTelemetryHelper.OnNotificationQueued(messageId);
+                }
+                else
+                {
+                    Trace.TraceError(
+                        $"Couldn't find {RequestTelemetryHelper.MessageIdHeaderName} header in the request.");
+                }
 
-            // Pass the incoming notification to the sdk. The sdk takes care of what to do with it.
-            var response = await this.Client.ProcessNotificationAsync(this.Request).ConfigureAwait(false);
+                this.Logger.Info($"Received HTTP {this.Request.Method}, {this.Request.RequestUri}");
 
-            // Enforce the connection close to ensure that requests are evenly load balanced so
-            // calls do no stick to one instance of the worker role.
-            response.Headers.ConnectionClose = true;
-            return response;
+                // Pass the incoming notification to the sdk. The sdk takes care of what to do with it.
+                var response = await this.Client.ProcessNotificationAsync(this.Request).ConfigureAwait(false);
+
+                // Enforce the connection close to ensure that requests are evenly load balanced so
+                // calls do no stick to one instance of the worker role.
+                response.Headers.ConnectionClose = true;
+                success = true;
+                return response;
+            }
+            finally
+            {
+                if (requestTelemetry != null)
+                {
+                    RequestTelemetryHelper.DispatchRequest(requestTelemetry, success);
+                }
+            }
         }
 
         /// <summary>
@@ -257,6 +293,21 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
         {
             // TODO: add redirect logic.
             return Task.FromResult<Uri>(null);
+        }
+
+        /// <summary>
+        /// Extracts message id.
+        /// </summary>
+        /// <returns>Returns message id.</returns>
+        private string ExtractMessageId()
+        {
+            if (!this.Request.Headers.TryGetValues(RequestTelemetryHelper.MessageIdHeaderName, out var headerValues))
+            {
+                return null;
+            }
+
+            var messageId = headerValues.FirstOrDefault();
+            return messageId;
         }
     }
 }

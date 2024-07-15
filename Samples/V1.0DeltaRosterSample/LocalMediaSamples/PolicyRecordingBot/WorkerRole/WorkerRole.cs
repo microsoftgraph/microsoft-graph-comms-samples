@@ -10,13 +10,13 @@
 
 namespace Sample.PolicyRecordingBot.WorkerRole
 {
+    using Microsoft.Graph.Communications.Common.Telemetry;
+    using Microsoft.WindowsAzure.ServiceRuntime;
+    using Sample.PolicyRecordingBot.FrontEnd;
     using System;
     using System.Net;
     using System.Threading;
     using System.Threading.Tasks;
-    using Microsoft.Graph.Communications.Common.Telemetry;
-    using Microsoft.WindowsAzure.ServiceRuntime;
-    using Sample.PolicyRecordingBot.FrontEnd;
 
     /// <summary>
     /// The worker role.
@@ -38,12 +38,16 @@ namespace Sample.PolicyRecordingBot.WorkerRole
         /// </summary>
         private readonly IGraphLogger logger;
 
+        private string InstrumentationKey;
+        private bool SingleAudioStream;
         /// <summary>
         /// Initializes a new instance of the <see cref="WorkerRole"/> class.
         /// </summary>
         public WorkerRole()
         {
             this.logger = new GraphLogger(typeof(WorkerRole).Assembly.GetName().Name, redirectToTrace: true);
+            InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("APPINSIGHTS_INSTRUMENTATIONKEY");
+            SingleAudioStream = bool.Parse(RoleEnvironment.GetConfigurationSettingValue("SingleAudioStream"));
         }
 
         /// <summary>
@@ -82,6 +86,11 @@ namespace Sample.PolicyRecordingBot.WorkerRole
                 // Create and start the environment-independent service.
                 Service.Instance.Initialize(new AzureConfiguration(this.logger), this.logger);
                 Service.Instance.Start();
+                if (!string.IsNullOrEmpty(InstrumentationKey))
+                {
+                    Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration.Active.InstrumentationKey =
+                        InstrumentationKey;
+                }
 
                 var result = base.OnStart();
 
