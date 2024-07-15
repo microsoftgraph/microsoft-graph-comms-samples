@@ -34,20 +34,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      # Add wait on concurrent workflows executing via https://github.com/marketplace/actions/action-turnstyle
-      - name: Turnstyle
-        uses: softprops/turnstyle@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Login via Az module
-        uses: azure/login@v1
+        uses: azure/login@v2
         with:
           creds: ${{secrets.AZURE_CREDENTIALS_{OrgName}_BOT}}
           enable-AzPSSession: true
 
       - name: Deploy_All_Subscription
-        uses: Azure/powershell@v1
+        uses: Azure/powershell@v2
         with:
           azPSVersion: latest
           inlineScript: |
@@ -58,5 +52,3 @@ jobs:
             }
             ./Samples/PublicSamples/EchoBot/ADF/main.ps1 @Params
             if ($e){throw $e}
-        env:
-          VMSS_CREDENTIALS: ${{ secrets.VMSS_CREDENTIALS_{OrgName}_BOT }}
