@@ -269,5 +269,3 @@ _site/
 appsettings.development.json
 *.development.pubxml
 *.original
-Samples/PublicSamples/RecordingBot/deploy/teams-recording-bot/charts/*
-/Samples/PublicSamples/RecordingBot/src/RecordingBot.Console/cache/*
