@@ -1,3 +1,7 @@
+
+> **⚠️ Deprecation Warning**  
+> This sample has been deprecated. For an up-to-date sample running on Azure Kubernetes Services, a community provided sample can be found [here](../../../PublicSamples/RecordingBot).
+
 # Introduction
 
 The teams-recording-bot sample guides you through building, deploying and testing a Teams recording bot running within a container, deployed into Azure Kubernetes Services.
