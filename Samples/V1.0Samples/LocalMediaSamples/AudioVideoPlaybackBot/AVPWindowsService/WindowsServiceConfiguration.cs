@@ -45,7 +45,7 @@ namespace AVPWindowsService
         /// Gets or sets the call control listening urls.
         /// </summary>
         /// <value>The call control listening urls.</value>
-        public IEnumerable<Uri> CallControlListeningUrls { get; set; }
+        public IEnumerable<string> CallControlListeningUrls { get; set; }
 
         /// <inheritdoc/>
         public Uri PlaceCallEndpointUrl { get; private set; }
@@ -153,6 +153,15 @@ namespace AVPWindowsService
 
         public string MediaDnsName { get; set; }
 
+        /// <inheritdoc/>
+        public int SignalingPort { get; private set; }
+
+        /// <inheritdoc/>
+        public int MediaPort { get; private set; }
+
+        /// <inheritdoc/>
+        public int TcpForwardingPort { get; private set; }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="AzureConfiguration"/> class.
         /// </summary>
@@ -230,21 +239,21 @@ namespace AVPWindowsService
 
             // http for local development or where certificate is not installed
             // https for running on VM
-            var controlListenUris = new HashSet<Uri>();
+            var controlListenUris = new HashSet<string>();
             if (UseLocalDevSettings)
             {
                 //Force internal to http
-                controlListenUris.Add(new Uri($"http://{baseDomain}:{BotCallingInternalPort}/"));
+                controlListenUris.Add($"http://{baseDomain}:{BotCallingInternalPort}/");
                 EventLog.WriteEntry(SampleConstants.EventLogSource, $"WindowsServiceConfiguration controlListenUrl 1 {$"http://{baseDomain}:{BotCallingInternalPort}/"}", EventLogEntryType.Warning);
-                controlListenUris.Add(new Uri($"http://{baseDomain}:{BotInternalPort}/"));
+                controlListenUris.Add($"http://{baseDomain}:{BotInternalPort}/");
                 EventLog.WriteEntry(SampleConstants.EventLogSource, $"WindowsServiceConfiguration controlListenUrl 2 {$"http://{baseDomain}:{BotInternalPort}/"}", EventLogEntryType.Warning);
             }
             else
             {
                  //Add DSN CName for external listening
-                controlListenUris.Add(new Uri($"{BotInternalHostingProtocol}://{this.ServiceCname}:{BotCallingInternalPort}/"));
+                controlListenUris.Add($"{BotInternalHostingProtocol}://{this.ServiceCname}:{BotCallingInternalPort}/");
                 EventLog.WriteEntry(SampleConstants.EventLogSource, $"WindowsServiceConfiguration controlListenUrl 1 {$"{BotInternalHostingProtocol}://{this.ServiceCname}:{BotCallingInternalPort}/"}", EventLogEntryType.Warning);
-                controlListenUris.Add(new Uri($"{BotInternalHostingProtocol}://{this.ServiceCname}:{BotInternalPort}/"));
+                controlListenUris.Add($"{BotInternalHostingProtocol}://{this.ServiceCname}:{BotInternalPort}/");
                 EventLog.WriteEntry(SampleConstants.EventLogSource, $"WindowsServiceConfiguration controlListenUrl 2 {$"{BotInternalHostingProtocol}://{this.ServiceCname}:{BotInternalPort}/"}", EventLogEntryType.Warning);
             }
             this.CallControlListeningUrls = controlListenUris;

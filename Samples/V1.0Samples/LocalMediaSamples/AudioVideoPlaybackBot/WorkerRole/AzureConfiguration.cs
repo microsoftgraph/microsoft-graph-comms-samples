@@ -136,6 +136,13 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         private const string TcpForwardingPortKey = "TcpForwardingPort";
 
         /// <summary>
+        /// localPort specified in <InputEndpoint name="DefaultCallControlEndpoint" protocol="tcp" port="443" localPort="9441" />
+        /// in .csdef. This is needed for running in emulator. Currently only messaging can be debugged in the emulator.
+        /// Media debugging in emulator will be supported in future releases.
+        /// </summary>
+        private const int DefaultPort = 9441;
+
+        /// <summary>
         /// Graph logger.
         /// </summary>
         private IGraphLogger graphLogger;
