@@ -178,7 +178,7 @@ Step 3: Define Your Virtual Network
     * This method allows you to deploy directly from the Azure Storage Account during service creation.
 
    Option 2: Use Local Files:
-    * Alternatively, you can deploy directly from local files during the service creation process.
+    * Deploy directly from local files during the service creation process.
     * Ensure all required files, including .cscfg and .csdef, are accessible and correctly referenced during deployment.
 
 ### Firewall setup
