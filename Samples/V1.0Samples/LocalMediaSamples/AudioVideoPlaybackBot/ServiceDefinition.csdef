@@ -21,6 +21,7 @@
 			</Task>
 		</Startup>
 		<ConfigurationSettings>
+			<Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
 			<Setting name="ServiceDnsName" />
 			<Setting name="ServiceCNAME" />
 			<!-- CNAME pointing to the .cloudapp.net if available-->
@@ -44,7 +45,7 @@
 			<LocalStorage name="NETFXInstall" sizeInMB="1024" cleanOnRoleRecycle="false" />
 		</LocalResources>
 		<Certificates>
-			<Certificate name="test" storeLocation="LocalMachine" storeName="My" />
+			<Certificate name="Default" storeLocation="LocalMachine" storeName="My" />
 		</Certificates>
 	</WorkerRole>
 </ServiceDefinition>
