@@ -109,8 +109,8 @@
     <Reference Include="Microsoft.Graph, Version=5.56.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Microsoft.Graph.5.56.0\lib\netstandard2.0\Microsoft.Graph.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Graph.Communications.Client, Version=1.2.0.10574, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\Microsoft.Graph.Communications.Client.1.2.0.10563\lib\net472\Microsoft.Graph.Communications.Client.dll</HintPath>
+    <Reference Include="Microsoft.Graph.Communications.Client, Version=1.2.0.5304, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Microsoft.Graph.Communications.Client.1.2.0.5304\lib\net472\Microsoft.Graph.Communications.Client.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Graph.Communications.Common, Version=1.2.0.10574, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Microsoft.Graph.Communications.Common.1.2.0.10563\lib\netstandard2.0\Microsoft.Graph.Communications.Common.dll</HintPath>
@@ -242,6 +242,7 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security.Claims" />
     <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
