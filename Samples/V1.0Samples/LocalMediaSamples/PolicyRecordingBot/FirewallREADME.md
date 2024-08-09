@@ -9,36 +9,36 @@
 
 ## Step 2: Configure Firewall Settings
 
-1. # Name : Choose a name for the firewall (e.g., "MyFirewall").
-2. Create a new firewall policy. ![ Create policy](Images/CreatePolicy.png)
+1. Choose a name for the firewall (e.g., "MyFirewall").
+2. Create a new firewall policy. ![Create policy](Images/CreatePolicy.png)
 3. Select the existing Virtual Network.
-4. # Public IP: Create a new public IP address (e.g., "MyFWPublicIP").
-5. Review and create the firewall. 
+4. Create a new public IP address (e.g., "MyFWPublicIP").
+5. Review and create the firewall.
 
 ## Step 3: Configure Firewall Policy
 
 1. Open the firewall policy created in Step 2.
-2. Navigate to  Settings.
+2. Navigate to Settings.
 
-#### Configure Application Rules (Ingress)
+### Configure Application Rules (Ingress)
 
 1. Add an application rule:
-	* # Name: Give a descriptive name.
-	* # Rule type: Application rule collection.
-	* # Priority: Assign the lowest number.
-	* # Rule name: Specify a name.
-	* # Source addresses: Define the source (e.g., your VM subnet) or use `*` to allow all IP addresses.
-	* # Destination FQDNs: Allow specific domains (e.g., `www.google.com`).
-	* Save the rule.
+    * Give a descriptive name.
+    * Select "Application rule collection" as the rule type.
+    * Assign the lowest number as the priority.
+    * Specify a name for the rule.
+    * Define the source (e.g., your VM subnet) or use `*` to allow all IP addresses.
+    * Allow specific domains (e.g., `www.google.com`).
+    * Save the rule.
 
-#### Configure Network Rules (Egress)
+### Configure Network Rules (Egress)
 
 1. Add a network rule:
-	* # Name: Give a descriptive name.
-	* # Rule type: Network rule collection.
-	* # Priority: Assign the lowest number.
-	* # Rule name: Specify a name.
-	* # Source addresses: Define the source (e.g., your VM subnet) or use `*` to allow all IP addresses.
-	* # Destination addresses: Specify external IPs or ranges (e.g., `0.0.0.0/0` for all).
-	* # Protocols and ports: Specify allowed protocols and ports.
-	* Save the rule.
+    * Give a descriptive name.
+    * Select "Network rule collection" as the rule type.
+    * Assign the lowest number as the priority.
+    * Specify a name for the rule.
+    * Define the source (e.g., your VM subnet) or use `*` to allow all IP addresses.
+    * Specify external IPs or ranges (e.g., `0.0.0.0/0` for all).
+    * Specify allowed protocols and ports.
+    * Save the rule.
