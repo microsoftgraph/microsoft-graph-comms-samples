@@ -43,6 +43,12 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
         IEnumerable<string> CallControlListeningUrls { get; }
 
         /// <summary>
+        /// Gets the List of HTTP URLs the app should listen on for incoming call
+        /// signaling requests from Skype Platform.
+        /// </summary>
+        IEnumerable<Uri> CallControlListeningUris { get; }
+
+        /// <summary>
         /// Gets the base callback URL for this instance.  To ensure that all requests
         /// for a given call go to the same instance, this Url is unique to each
         /// instance by way of its instance input endpoint port.

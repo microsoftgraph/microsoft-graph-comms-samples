@@ -101,6 +101,13 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         private const string H264640X36030FpsKey = "H264_640x360_30Fps";
 
         /// <summary>
+        /// localPort specified in <InputEndpoint name="DefaultCallControlEndpoint" protocol="tcp" port="443" localPort="9441" />
+        /// in .csdef. This is needed for running in emulator. Currently only messaging can be debugged in the emulator.
+        /// Media debugging in emulator will be supported in future releases.
+        /// </summary>
+        private const int DefaultPort = 9441;
+
+        /// <summary>
         /// videoFile location for the specified resolution.
         /// </summary>
         private const string H264320X18015FpsKey = "H264_320x180_15Fps";
@@ -178,6 +185,9 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
 
         /// <inheritdoc/>
         public IEnumerable<string> CallControlListeningUrls { get; private set; }
+
+        /// <inheritdoc/>
+        public IEnumerable<Uri> CallControlListeningUris { get; private set; }
 
         /// <inheritdoc/>
         public Uri CallControlBaseUrl { get; private set; }
