@@ -27,7 +27,6 @@ jobs:
       - name: Cache SonarCloud scanner
         id: cache-sonar-scanner
         uses: actions/cache@v3
-        working-directory: ./Samples/PublicSamples/RecordingBot/src
         with:
           path: .\.sonar\scanner
           key: ${{ runner.os }}-sonar-scanner
