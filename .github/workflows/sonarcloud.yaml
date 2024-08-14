@@ -11,20 +11,24 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Set up JDK 17
+        working-directory: ./Samples/PublicSamples/RecordingBot/src
         uses: actions/setup-java@v3
         with:
           java-version: 17
           distribution: 'zulu' # Alternative distribution options are available.
       - uses: actions/checkout@v3
+        working-directory: ./Samples/PublicSamples/RecordingBot/src
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
       - name: Cache SonarCloud packages
+        working-directory: ./Samples/PublicSamples/RecordingBot/src
         uses: actions/cache@v3
         with:
           path: ~\sonar\cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
       - name: Cache SonarCloud scanner
+        working-directory: ./Samples/PublicSamples/RecordingBot/src
         id: cache-sonar-scanner
         uses: actions/cache@v3
         with:
@@ -33,6 +37,7 @@ jobs:
           restore-keys: ${{ runner.os }}-sonar-scanner
       - name: Install SonarCloud scanner
         if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
+        working-directory: ./Samples/PublicSamples/RecordingBot/src
         shell: powershell
         run: |
           New-Item -Path .\.sonar\scanner -ItemType Directory
