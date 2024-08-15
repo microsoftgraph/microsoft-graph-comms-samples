@@ -18,9 +18,6 @@ Enter your Service DNS name (ex: contoso.cloudapp.net).
 .PARAMETER CName
 Enter your Service CName (ex: contoso.net).
 
-.PARAMETER CertThumbprint
-Provide your certificate thumbprint.
-
 .PARAMETER BotId
 Enter your Bot Display Name as in the registration page.
 
@@ -29,6 +26,15 @@ Enter your Bot's Microsoft AppId as in the registation page.
 
 .PARAMETER AppSecret
 Enter your Bot's Microsoft AppPassword as in the registration page.
+
+.PARAMETER SignalingPort
+Enter your ngrok Signaling Port number.
+
+.PARAMETER MediaPort
+Enter your ngrok Media Port number.
+
+.PARAMETER TcpForwardingPort
+Enter your ngrok Tcp Forwarding Port number.
 
 .PARAMETER Reset
 If set to true, restores the configurations files with the backups.  If no backups exist, nothing will be done.
@@ -47,10 +53,12 @@ param(
     [parameter(Mandatory=$true,HelpMessage="The root path to the project you wish to configure.")][alias("p")] $Path,
     [parameter(Mandatory=$false,HelpMessage="Enter your Service DNS name (ex: contoso.cloudapp.net).")][alias("dns")] $ServiceDns,
     [parameter(Mandatory=$false,HelpMessage="Enter your Service CName (ex: contoso.net).")][alias("cn")] $CName,
-    [parameter(Mandatory=$false,HelpMessage="Provide your certificate thumbprint.")][alias("thumb")] $CertThumbprint,
     [parameter(Mandatory=$false,HelpMessage="Enter your Bot Display Name from your bot registration portal.")][alias("bid")] $BotName,
     [parameter(Mandatory=$false,HelpMessage="Enter your Bot's Microsoft application id from your bot registration portal.")][alias("aid")] $AppId,
     [parameter(Mandatory=$false,HelpMessage="Enter your Bot's Microsoft application secret from your bot registration portal.")][alias("as")] $AppSecret,
+    [parameter(Mandatory=$false,HelpMessage="Enter your ngrok Signaling Port number.")][alias("sp")] $SignalPort,
+    [parameter(Mandatory=$false,HelpMessage="Enter your ngrok Media Port number.")][alias("mp")] $MediaPort,
+    [parameter(Mandatory=$false,HelpMessage="Enter your ngrok Tcp Forwarding Port number.")][alias("tcp")] $TcpForwardingPort,
     [switch] $Reset
 )
 
@@ -100,10 +108,6 @@ if (-not $CName) {
     $CName = (Read-Host 'Enter your Service CName (ex: contoso.net).').Trim()
 }
 
-if (-not $CertThumbprint) {
-    $CertThumbprint = (Read-Host 'Provide your certificate thumbprint.').Trim()
-}
-
 if (-not $BotName) {
     $BotName = (Read-Host 'Enter your Bot Display Name from your bot registration portal.').Trim()
 }
@@ -114,6 +118,18 @@ if (-not $AppId) {
 
 if (-not $AppSecret) {
     $AppSecret = (Read-Host "Enter your Bot's Microsoft application secret from your bot registration portal.").Trim()
+}
+
+if (-not $SignalPort) {
+    $SignalPort = (Read-Host "Enter your ngrok Signaling Port number.").Trim()
+}
+
+if (-not $MediaPort) {
+    $MediaPort = (Read-Host "Enter your ngrok Media Port number.").Trim()
+}
+
+if (-not $TcpForwardingPort) {
+    $TcpForwardingPort = (Read-Host "Enter your ngrok Tcp Forwarding Port number.").Trim()
 }
 
 function ReplaceInFile ($file, [string]$pattern, [string]$replaceWith) {
@@ -142,11 +158,13 @@ foreach($file in $FilesToReplace)
     Copy-Item $backupFile -Destination $file.FullName
     ReplaceInFile $file "%ServiceDns%" $ServiceDns
     ReplaceInFile $file "%CName%" $CName
-    ReplaceInFile $file "ABC0000000000000000000000000000000000CBA" $CertThumbprint
     ReplaceInFile $file "%BotName%" $BotName
     ReplaceInFile $file "%BotNameLower%" $BotName.ToLower()
     ReplaceInFile $file "%AppId%" $AppId
     ReplaceInFile $file "%AppSecret%" $AppSecret
+    ReplaceInFile $file "%SignalingPort%" $SignalPort
+    ReplaceInFile $file "%MediaPort%" $MediaPort
+    ReplaceInFile $file "%TcpForwardingPort%" $TcpForwardingPort
 }
 
 Write-Output "Update Complete."

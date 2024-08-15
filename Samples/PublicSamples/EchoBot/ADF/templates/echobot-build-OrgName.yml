@@ -34,12 +34,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    # Add wait on concurrent workflows executing via https://github.com/marketplace/actions/action-turnstyle
-    - name: Turnstyle
-      uses: softprops/turnstyle@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1
     
@@ -67,13 +61,13 @@ jobs:
         echo ${{ github.workspace }}
     
     - name: Login via Az module
-      uses: azure/login@v1
+      uses: azure/login@v2
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS_{OrgName}_BOT }}
         enable-AzPSSession: true
 
     - name: G1_RG_UploadArtifacts_to_Blob
-      uses: Azure/powershell@v1
+      uses: Azure/powershell@v2
       with:
         inlineScript: |
           Get-ChildItem -Path  ./${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/ # -Recurse
@@ -90,7 +84,7 @@ jobs:
         azPSVersion: latest
 
     - name: G1_RG_UpdateBuildMeta_to_Blob
-      uses: Azure/powershell@v1
+      uses: Azure/powershell@v2
       with:
         inlineScript: |
           echo $home

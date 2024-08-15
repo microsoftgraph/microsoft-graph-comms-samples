@@ -17,8 +17,9 @@
     <PackageReference Include="Microsoft.Graph.Communications.Common" Version="1.2.0-beta.9995" TargetFramework="net472"/>
     <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="7.0.3" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2.0" />
-    <PackageReference Include="Microsoft.Extensions.Primitives" Version="2.2.0.0" />   
-    <PackageReference Include="System.Text.Json" Version="7.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Primitives" Version="2.2.0.0" />
+    <PackageReference Include="System.Text.Encodings.Web" Version="8.0.0" />   
+    <PackageReference Include="System.Text.Json" Version="8.0.4" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.2.0.0" />
     <PackageReference Include="Microsoft.IdentityModel.Abstractions" Version="7.0.3" />
   </ItemGroup>
