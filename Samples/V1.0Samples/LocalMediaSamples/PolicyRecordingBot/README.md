@@ -183,7 +183,7 @@ Step 3: Define Your Virtual Network
 
 ### Firewall setup
 
-   * Please follow bellow steps to configure firewall.
+   * Please follow below steps to configure firewall.
      - [document](FirewallREADME.md)
 
 ### Test
