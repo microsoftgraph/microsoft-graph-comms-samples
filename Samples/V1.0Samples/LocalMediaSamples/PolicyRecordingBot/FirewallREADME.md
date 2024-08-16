@@ -28,7 +28,7 @@
     * Assign the lowest number as the priority.
     * Specify a name for the rule.
     * Define the source (e.g., your VM subnet) or use `*` to allow all IP addresses.
-    * Allow specific domains (e.g., `www.google.com`).
+    * Allow specific domains (e.g., `policyrecordingbot.eastus.cloudapp.azure.com`).
     * Save the rule.
 
 ### Configure Network Rules (Egress)
@@ -40,5 +40,5 @@
     * Specify a name for the rule.
     * Define the source (e.g., your VM subnet) or use `*` to allow all IP addresses.
     * Specify external IPs or ranges (e.g., `0.0.0.0/0` for all).
-    * Specify allowed protocols and ports.
+    * Specify allowed protocols and ports.(TCP: 5060, 5061 ,UDP: 10000-20000)
     * Save the rule.
