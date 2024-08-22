@@ -29,5 +29,4 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
   </ItemGroup>
-	
 </Project>

@@ -82,7 +82,7 @@
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-	
+
   <Target
     Name="BuiltProjectOutputGroupDependencies"
     DependsOnTargets="$(BuiltProjectOutputGroupDependenciesDependsOn)"
