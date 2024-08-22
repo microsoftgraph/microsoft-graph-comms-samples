@@ -22,12 +22,12 @@
     <AdditionalFiles Include="stylecop.json" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8">
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.12">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Psi.Audio" Version="0.15.49.1-beta" />
-    <PackageReference Include="Microsoft.Psi.Imaging" Version="0.15.49.1-beta" />
+    <PackageReference Include="Microsoft.Psi.Audio" Version="0.19.100.1-beta" />
+    <PackageReference Include="Microsoft.Psi.Imaging" Version="0.18.72.1-beta" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
