@@ -75,9 +75,16 @@
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="BuiltProjectOutputGroupDependencies" DependsOnTargets="$(BuiltProjectOutputGroupDependenciesDependsOn)" Returns="@(BuiltProjectOutputGroupDependency)">
-    <ItemGroup>
-      <BuiltProjectOutputGroupDependency Include="@(ReferenceCopyLocalPaths->'%(FullPath)');&#xD;&#xA;                                              @(ReferenceDependencyPaths->'%(FullPath)');&#xD;&#xA;                                              @(NativeReferenceFile->'%(FullPath)');&#xD;&#xA;                                              @(_DeploymentLooseManifestFile->'%(FullPath)');&#xD;&#xA;                                              @(ResolvedIsolatedComModules->'%(FullPath)')" />
-    </ItemGroup>
+  <Target
+	  Name="BuiltProjectOutputGroupDependencies"
+	  DependsOnTargets="$(BuiltProjectOutputGroupDependenciesDependsOn)"
+	  Returns="@(BuiltProjectOutputGroupDependency)">
+	  <ItemGroup>
+	    <BuiltProjectOutputGroupDependency Include="@(ReferenceCopyLocalPaths->'%(FullPath)');
+                                              @(ReferenceDependencyPaths->'%(FullPath)');
+                                              @(NativeReferenceFile->'%(FullPath)');
+                                              @(_DeploymentLooseManifestFile->'%(FullPath)');
+                                              @(ResolvedIsolatedComModules->'%(FullPath)')"/>
+	  </ItemGroup>
   </Target>
 </Project>
