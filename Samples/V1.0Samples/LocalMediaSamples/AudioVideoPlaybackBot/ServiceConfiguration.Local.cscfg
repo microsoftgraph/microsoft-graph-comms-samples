@@ -3,7 +3,6 @@
   <Role name="AVPWorkerRole">
     <Instances count="1" />
     <ConfigurationSettings>
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=$storage$;AccountKey=$storageKey$" />
       <Setting name="ServiceDnsName" value="%ServiceDns%" />
       <!-- xyz.cloudapp.net-->
       <Setting name="ServiceCNAME" value="%CName%" />
@@ -16,8 +15,12 @@
     </Certificates>
   </Role>
   <NetworkConfiguration>
+    <VirtualNetworkSite name="AudioVideoPlaybackBot" />
     <AddressAssignments>
       <InstanceAddress roleName="AVPWorkerRole">
+        <Subnets>
+          <Subnet name="default" />
+        </Subnets>
         <PublicIPs>
           <PublicIP name="instancePublicIP" domainNameLabel="pip" />
         </PublicIPs>
