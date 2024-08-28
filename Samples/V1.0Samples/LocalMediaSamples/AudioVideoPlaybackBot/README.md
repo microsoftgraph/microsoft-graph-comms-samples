@@ -77,7 +77,7 @@ Step 3: Define Your Virtual Network
         <NetworkConfiguration>
           <VirtualNetworkSite name="YourExistingVNetName" />
           <AddressAssignments>
-            <InstanceAddress roleName="CRWorkerRole">
+            <InstanceAddress roleName="AVPWorkerRole">
               <Subnets>
                 <Subnet name="YourExistingSubnetName" />
               </Subnets>
@@ -93,7 +93,7 @@ Step 3: Define Your Virtual Network
         <NetworkConfiguration>
           <VirtualNetworkSite name="NewVNetName" />
           <AddressAssignments>
-            <InstanceAddress roleName="CRWorkerRole">
+            <InstanceAddress roleName="AVPWorkerRole">
               <Subnets>
                 <Subnet name="NewSubnetName" />
               </Subnets>
@@ -105,8 +105,8 @@ Step 3: Define Your Virtual Network
  ### Note on Domain Name and Public IP:
 
     <PublicIPs>
-        <PublicIP name="MyPublicIP" domainNameLabel="myservice" />
-      </PublicIPs>
+      <PublicIP name="MyPublicIP" domainNameLabel="myservice" />
+    </PublicIPs>
    * PublicIP name: "MyPublicIP" – Provide a unique name for the public IP.
    * domainNameLabel: "myservice" – Set this to your service's domain label.
    
@@ -142,7 +142,7 @@ Step 3: Define Your Virtual Network
        * To store configuration files for your Azure extended service, you'll need to set up a storage account. Follow these steps to configure the storage account:(https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal).
      2. Package Your Cloud Service for Deployment
        * Before you can create your Azure extended service, you need to package your cloud service application to include configuration files and dependencies.
-       * Right click PolicyRecordingBot, then click `Package...`.
+       * Right click AudioVideoPlaybackBot, then click `Package...`.
      
    Option 1: Upload to Azure Storage Account:
     * Upload your packaged application (cspkg file) along with the .cscfg and .csdef files to an Azure Storage Account container.
