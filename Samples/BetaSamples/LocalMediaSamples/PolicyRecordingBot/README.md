@@ -58,25 +58,131 @@ To verify your policy was assigned correctly:
 
 ### Deploy
 
-1. Create a cloud service (classic) in Azure. Get your "Site URL" from Azure portal, this will be your DNS name and CN name for later configuration, for example: `bot.contoso.com`.
+* Prerequisites for deploying Azure Cloud Services (extended support)(https://learn.microsoft.com/en-us/azure/cloud-services-extended-support/deploy-prerequisite)
 
-2. Set up SSL certificate and upload to the cloud service
-    1. Create a wildcard certificate for your service. This certificate should not be a self-signed certificate. For instance, if your bot is hosted at `bot.contoso.com`, create the certificate for `*.contoso.com`.
-    2. Upload the certificate to the cloud service.
-    3. Copy the thumbprint for later.
+Step 1: Securely Store Certificates with Azure Key Vault
+    * Certificates are crucial for securing communication between your services. Azure Key Vault is used to store and manage these certificates securely.
 
-3. Set up cloud service configuration
-    1. Open powershell, go to the folder that contains file `configure_cloud.ps1`. The file is in the `Samples` directory.
+   Create an Azure Key Vault:
+    * Follow these instructions to create your Azure Key Vault: https://learn.microsoft.com/en-us/azure/key-vault/general/quick-create-portal.
 
-    2. Run the powershell script with parameters:
-        ` .\configure_cloud.ps1 -p {path to project} -dns {your DNS name} -cn {your CN name, should be the same as your DNS name} -thumb {your certificate thumbprint} -bid {your bot name} -aid {your bot app id} -as {your bot secret}`
+Step 2: Obtain and Configure Your SSL Certificate
+    * To secure your service, you need a valid SSL certificate. Here’s how to obtain and configure it:
+
+   Get a Wildcard Certificate:
+     * Obtain a wildcard SSL certificate for your domain. For example, if your service is hosted at bot.contoso.com,get a certificate for *.contoso.com. 
+     * Ensure that the certificate is issued by a trusted Certificate Authority (CA) and not self-signed.
+
+   Upload to Azure Key Vault:
+     * Upload your SSL certificate to the Azure Key Vault. Follow these steps: https://learn.microsoft.com/en-us/azure/key-vault/certificates/tutorial-import-certificate?tabs=azure-portal.
+
+   Get the Thumbprint:
+     * Copy the certificate thumbprint from Azure Key Vault. You will need to add this thumbprint to your .cscfg (cloud service configuration) and .csdef (cloud service definition) files.
+      1. Update the Certificate section in your .cscfg file with the thumbprint.    
+         <Certificates>
+         <!-- Certificate Configuration:
+           This is where you specify the thumbprint for your SSL certificate.
+           Replace 'YOUR_THUMBPRINT' with the actual thumbprint of your certificate. -->
+         <Certificate name="MySSLCertificate" thumbprint="YOUR_THUMBPRINT" thumbprintAlgorithm="sha1" />
+         </Certificates>
+     2. Update the Certificate element in your .csdef file.
+         <Certificates>
+          <Certificate name="YourCertificateName" storeLocation="LocalMachine" storeName="My" />
+         </Certificates>
+       * Replace YourCertificateName with the actual name of your certificate as it appears in your Azure Key Vault or wherever it is stored. Here are the key attributes:
+         name: This should match the certificate's name as referenced in your Azure Key Vault or local certificate store.
+         storeLocation: Specifies where the certificate is stored. LocalMachine is a common location for certificates installed on the local machine.
+         storeName: Specifies the store name where the certificate is located. My is a common store name used for personal certificates.
+
+Step 3: Define Your Virtual Network
+     * For Azure Extended Services, you can define the virtual network and subnet configurations in your .cscfg file. Azure can create the virtual network during the service setup if it doesn't already exist.
+     * When deploying your cloud service (extended) in Azure, virtual network and subnet configurations are managed automatically based on your .cscfg file. Follow these guidelines to ensure proper configuration:
+
+#### Using Existing Virtual Network:
+
+   * If you have an existing Virtual Network (VNet) that you want to use:
+        <NetworkConfiguration>
+          <VirtualNetworkSite name="YourExistingVNetName" />
+          <AddressAssignments>
+            <InstanceAddress roleName="CRWorkerRole">
+              <Subnets>
+                <Subnet name="YourExistingSubnetName" />
+              </Subnets>
+            </InstanceAddress>
+          </AddressAssignments>
+        </NetworkConfiguration>
+
+  * Replace "YourExistingVNetName" with the name of your existing Virtual Network and "YourExistingSubnetName" with the name of your existing subnet within that Virtual Network.
+
+### Automatic Creation of Virtual Network:
+
+   * If the Virtual Network doesn't exist, Azure will create it based on the configuration provided:
+        <NetworkConfiguration>
+          <VirtualNetworkSite name="NewVNetName" />
+          <AddressAssignments>
+            <InstanceAddress roleName="CRWorkerRole">
+              <Subnets>
+                <Subnet name="NewSubnetName" />
+              </Subnets>
+            </InstanceAddress>
+          </AddressAssignments>
+        </NetworkConfiguration>
+   * Replace "NewVNetName" with the name of the Virtual Network you want Azure to create, and "NewSubnetName" with the name of the subnet within that Virtual Network.
+   
+ ### Note on Domain Name and Public IP:
+
+    <PublicIPs>
+        <PublicIP name="MyPublicIP" domainNameLabel="myservice" />
+      </PublicIPs>
+   * PublicIP name: "MyPublicIP" – Provide a unique name for the public IP.
+   * domainNameLabel: "myservice" – Set this to your service's domain label.
+   
+   Azure Extended Services:
+   * Public IP: You must provide a Public IP name in your configuration when creating the service.
+   * Domain Name: The domain name (domainNameLabel) is optional during initial creation and can be specified or updated later.
+   
+   Match Public IP Name:
+   * Ensure that the name attribute under <PublicIP> (MyPublicIP in this example) matches the name used in your application code to fetch the public IP address dynamically.
+   * To ensure that the domainNameLabel matches between your configuration (.cscfg file) and the Azure portal settings.
+   
+ Step 4: Deploy
+
+   1. Create Your Cloud Service (Extended Support)
+      1. Use the Azure portal to create a Cloud Service (Extended Support). 
+        Follow this guide: Create a Cloud Service (Extended Support).(https://learn.microsoft.com/en-us/azure/cloud-services-extended-support/deploy-portal)
+      2. Obtain Your Public IP DNS name:
+        After the service is created, obtain the "Public IP DNS name" from the Azure portal. This URL will serve as your DNS name and Common Name (CN) for further configurations (e.g. bot.contoso.com).
+        ![Public IP DNS name](Images/PublicIPDNSName.png).  
+
+   2. Update the app configs with values
+      1. Set up cloud service configuration
+        1. Open powershell, go to the folder that contains file `configure_cloud.ps1`. The file is in the `Samples` directory.
+        2. Run the powershell script with parameters:
+          ` .\configure_cloud.ps1 -p {path to project} -dns {your DNS name} -cn {your CN name, should be the same as your DNS name} -bid {your bot name} -aid {your bot app id} -as {your bot secret}`
         
-        For example:
+         For example:
         
-         `.\configure_cloud.ps1 -p .\V1.0Samples\LocalMediaSamples\PolicyRecordingBot\ -dns bot.contoso.com -cn bot.contoso.com -thumb ABC0000000000000000000000000000000000CBA -bid bot -aid 3853f935-2c6f-43d7-859d-6e8f83b519ae -as 123456!@#$%^`
+         `.\configure_cloud.ps1 -p .\V1.0Samples\LocalMediaSamples\PolicyRecordingBot\ -dns bot.contoso.com -cn bot.contoso.com -bid bot -aid 3853f935-2c6f-43d7-859d-6e8f83b519ae -as 123456!@#$%^`
 
-4. Publish the bot from VS:
-    1. Right click PolicyRecordingBot, then click `Publish...`. Publish it to the cloud service you created earlier.
+   3. Deploy to Cloud Service (Extended Support)
+     1. Configure Storage Account for Configuration Files.
+       * To store configuration files for your Azure extended service, you'll need to set up a storage account. Follow these steps to configure the storage account:(https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal).
+     2. Package Your Cloud Service for Deployment
+       * Before you can create your Azure extended service, you need to package your cloud service application to include configuration files and dependencies.
+       * Right click PolicyRecordingBot, then click `Package...`.
+     
+   Option 1: Upload to Azure Storage Account:
+    * Upload your packaged application (cspkg file) along with the .cscfg and .csdef files to an Azure Storage Account container.
+    * This method allows you to deploy directly from the Azure Storage Account during service creation.
+
+   Option 2: Use Local Files:
+    * Deploy directly from local files during the service creation process.
+    * Ensure all required files, including .cscfg and .csdef, are accessible and correctly referenced during deployment.
+
+### Firewall setup
+
+   * Please follow below steps to configure firewall.
+     - [document](FirewallREADME.md)
 
 ### Test
 
