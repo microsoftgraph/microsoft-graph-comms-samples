@@ -5,8 +5,16 @@
     <ConfigurationSettings>
       <Setting name="ServiceDnsName" value="%ServiceDns%" />
       <!-- xyz.cloudapp.net-->
+      <!-- Service DNS Name: 
+         This setting defines the DNS name for the service. 
+         It should be the fully qualified domain name (FQDN) used to access the service, like 'myservice.cloudapp.net'. 
+         Replace %ServiceDns% with your service's DNS name. -->
       <Setting name="ServiceCNAME" value="%CName%" />
       <!-- CNAME pointing to the .cloudapp.net if available.-->
+      <!-- Service CName: 
+         This setting is commonly used for creating a CNAME record that points to the service's DNS name.
+         It allows you to map a custom domain name to the service’s DNS name. 
+         Replace %ServiceCName% with the desired CNAME, such as 'custom.mydomain.com'. -->
       <Setting name="DefaultCertificate" value="ABC0000000000000000000000000000000000CBA" />
       <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" value="" />
     </ConfigurationSettings>
