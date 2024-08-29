@@ -37,7 +37,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Data.Services.Client" Version="5.8.4" />
     <PackageReference Include="Microsoft.Owin">
-      <Version>4.1.0</Version>
+      <Version>4.2.2</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Owin.Host.HttpListener" Version="4.1.0" />
     <PackageReference Include="Microsoft.Skype.Bots.Media">
