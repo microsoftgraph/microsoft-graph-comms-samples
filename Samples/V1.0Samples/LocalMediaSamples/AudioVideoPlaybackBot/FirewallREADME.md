@@ -39,6 +39,143 @@
     * Assign the lowest number as the priority.
     * Specify a name for the rule.
     * Define the source (e.g., your VM subnet) or use `*` to allow all IP addresses.
-    * Specify external IPs or ranges (e.g., `0.0.0.0/0` for all).
-    * Specify allowed protocols and ports.(TCP: 5060, 5061 ,UDP: 10000-20000)
+    * Specific external IPs or ranges (e.g., 192.168.1.0/24 for a subnet) instead of using 0.0.0.0/0 for all. This ensures that only trusted sources can access your service. If you want to allow access from all IPs, you can configure it as 0.0.0.0/0.
+    * Specify only particular protocols and ports you want to allow. For example, you may configure TCP ports like 9444, 8445, 9442, 443, and port ranges like 10100-10199 and 20100-20199. If you want to restrict access   to everything else, you should mention specific configurations like below:
+     Allowed TCP ports: 9444, 8445, 9442, 443, 9441, 10100-10199, 20100-20199.
+     All other ports and protocols will be restricted.
     * Save the rule.
+
+### Firewall Configuration Summary
+
+ * Specify External IPs or Ranges
+    Allow only specific external IPs or ranges (e.g., 192.168.1.0/24 for a subnet) instead of using 0.0.0.0/0 for all. This ensures that only trusted sources can access your service. If you want to allow access from all IPs, you can configure it as 0.0.0.0/0.
+
+   Example:
+    To allow access from a specific subnet:
+     Allow: 192.168.1.0/24
+
+    To allow access from all IPs:
+     Allow: 0.0.0.0/0
+
+ * Specify Allowed Protocols and Ports
+    You can specify only particular protocols and ports you want to allow. For example, configure the following:
+    Allowed TCP Ports:
+    9444 (SignalingPort)
+    8445 (MediaPort)
+    9442 (TcpForwardingPort)
+    443 (DefaultEndpoint)
+    9441 (localPort)
+    10100-10199 (InstanceCallControlEndpoint)
+    20100-20199 (InstanceMediaControlEndpoint)
+
+    No UDP ports are allowed or needed.
+
+    All other ports and protocols will be restricted.
+
+   Example of Ingress Allow Rules:
+
+    Allow TCP Port 9444:
+    Rule Name: Allow SignalingPort
+    Action: Allow
+    Protocol: TCP
+    Port: 9444
+
+    Allow TCP Port 8445:
+    Rule Name: Allow MediaPort
+    Action: Allow
+    Protocol: TCP
+    Port: 8445
+
+    Allow TCP Port 9442:
+    Rule Name: Allow TcpForwardingPort
+    Action: Allow
+    Protocol: TCP
+    Port: 9442
+
+    Allow TCP Port 443:
+    Rule Name: Allow DefaultEndpoint
+    Action: Allow
+    Protocol: TCP
+    Port: 443
+
+    Allow TCP Port 9441:
+    Rule Name: Allow LocalPort
+    Action: Allow
+    Protocol: TCP
+    Port: 9441
+
+    Allow TCP Port Range 10100-10199:
+    Rule Name: Allow InstanceCallControlEndpoint
+    Action: Allow
+    Protocol: TCP
+    Port Range: 10100-10199
+
+    Allow TCP Port Range 20100-20199:
+    Rule Name: Allow InstanceMediaControlEndpoint
+    Action: Allow
+    Protocol: TCP
+    Port Range: 20100-20199
+
+ * Restrict All Other Ingress Ports and Protocols:
+    After creating the allow rules, add a rule to deny all other traffic. This ensures that any port or protocol not explicitly allowed is blocked.
+
+   Example of Deny Rule:
+    Deny All Other Ingress Traffic:
+    Rule Name: Deny All Other Ingress Traffic
+    Action: Deny
+    Protocol: Any
+    Port: Any
+
+   Example of Egress Allow Rules
+    Allow TCP Port 9444:
+    Rule Name: Allow Egress SignalingPort
+    Action: Allow
+    Protocol: TCP
+    Port: 9444
+
+    Allow TCP Port 8445:
+    Rule Name: Allow Egress MediaPort
+    Action: Allow
+    Protocol: TCP
+    Port: 8445
+
+    Allow TCP Port 9442:
+    Rule Name: Allow Egress TcpForwardingPort
+    Action: Allow
+    Protocol: TCP
+    Port: 9442
+
+    Allow TCP Port 443:
+    Rule Name: Allow Egress DefaultEndpoint
+    Action: Allow
+    Protocol: TCP
+    Port: 443
+
+    Allow TCP Port 9441:
+    Rule Name: Allow Egress LocalPort
+    Action: Allow
+    Protocol: TCP
+    Port: 9441
+
+    Allow TCP Port Range 10100-10199:
+    Rule Name: Allow Egress InstanceCallControlEndpoint
+    Action: Allow
+    Protocol: TCP
+    Port Range: 10100-10199
+
+    Allow TCP Port Range 20100-20199:
+    Rule Name: Allow Egress InstanceMediaControlEndpoint
+    Action: Allow
+    Protocol: TCP
+    Port Range: 20100-20199
+
+* Restrict All Other Egress Ports and Protocols
+    Similarly, add a rule to deny all other egress traffic.
+    
+   Example of Deny Rule: 
+    Deny All Other Egress Traffic:
+    Rule Name: Deny All Other Egress Traffic
+    Action: Deny
+    Protocol: Any
+    Port: Any
+    
