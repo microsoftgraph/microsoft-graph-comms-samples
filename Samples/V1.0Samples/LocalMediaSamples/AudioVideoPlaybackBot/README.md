@@ -34,13 +34,13 @@ This section walks you through the process of deploying and testing the sample b
 * Prerequisites for deploying Azure Cloud Services (extended support)(https://learn.microsoft.com/en-us/azure/cloud-services-extended-support/deploy-prerequisite)
 
 Step 1: Securely Store Certificates with Azure Key Vault
-    * Certificates are crucial for securing communication between your services. Azure Key Vault is used to store and manage these certificates securely.
+  * Certificates are crucial for securing communication between your services. Azure Key Vault is used to store and manage these certificates securely.
 
    Create an Azure Key Vault:
     * Follow these instructions to create your Azure Key Vault: https://learn.microsoft.com/en-us/azure/key-vault/general/quick-create-portal.
 
 Step 2: Obtain and Configure Your SSL Certificate
-    * To secure your service, you need a valid SSL certificate. Here’s how to obtain and configure it:
+  * To secure your service, you need a valid SSL certificate. Here’s how to obtain and configure it:
 
    Get a Wildcard Certificate:
      * Obtain a wildcard SSL certificate for your domain. For example, if your service is hosted at bot.contoso.com,get a certificate for *.contoso.com. 
@@ -51,55 +51,61 @@ Step 2: Obtain and Configure Your SSL Certificate
 
    Get the Thumbprint:
      * Copy the certificate thumbprint from Azure Key Vault. You will need to add this thumbprint to your .cscfg (cloud service configuration) and .csdef (cloud service definition) files.
-      1. Update the Certificate section in your .cscfg file with the thumbprint.    
+      1. Update the Certificate section in your .cscfg file with the thumbprint.
+
          <Certificates>
          <!-- Certificate Configuration:
            This is where you specify the thumbprint for your SSL certificate.
            Replace 'YOUR_THUMBPRINT' with the actual thumbprint of your certificate. -->
          <Certificate name="MySSLCertificate" thumbprint="YOUR_THUMBPRINT" thumbprintAlgorithm="sha1" />
          </Certificates>
+
      2. Update the Certificate element in your .csdef file.
-         <Certificates>
+
+        <Certificates>
           <Certificate name="YourCertificateName" storeLocation="LocalMachine" storeName="My" />
-         </Certificates>
+        </Certificates>
+
        * Replace YourCertificateName with the actual name of your certificate as it appears in your Azure Key Vault or wherever it is stored. Here are the key attributes:
          name: This should match the certificate's name as referenced in your Azure Key Vault or local certificate store.
          storeLocation: Specifies where the certificate is stored. LocalMachine is a common location for certificates installed on the local machine.
          storeName: Specifies the store name where the certificate is located. My is a common store name used for personal certificates.
 
 Step 3: Define Your Virtual Network
-     * For Azure Extended Services, you can define the virtual network and subnet configurations in your .cscfg file. Azure can create the virtual network during the service setup if it doesn't already exist.
-     * When deploying your cloud service (extended) in Azure, virtual network and subnet configurations are managed automatically based on your .cscfg file. Follow these guidelines to ensure proper configuration:
+  * For Azure Extended Services, you can define the virtual network and subnet configurations in your .cscfg file. Azure can create the virtual network during the service setup if it doesn't already exist.
+  * When deploying your cloud service (extended) in Azure, virtual network and subnet configurations are managed automatically based on your .cscfg file. Follow these guidelines to ensure proper configuration:
 
 #### Using Existing Virtual Network:
 
    * If you have an existing Virtual Network (VNet) that you want to use:
-        <NetworkConfiguration>
-          <VirtualNetworkSite name="YourExistingVNetName" />
-          <AddressAssignments>
-            <InstanceAddress roleName="AVPWorkerRole">
-              <Subnets>
-                <Subnet name="YourExistingSubnetName" />
-              </Subnets>
-            </InstanceAddress>
-          </AddressAssignments>
-        </NetworkConfiguration>
+
+     <NetworkConfiguration>
+      <VirtualNetworkSite name="YourExistingVNetName" />
+      <AddressAssignments>
+      <InstanceAddress roleName="AVPWorkerRole">
+      <Subnets>
+       <Subnet name="YourExistingSubnetName" />
+      </Subnets>
+      </InstanceAddress>
+      </AddressAssignments>
+    </NetworkConfiguration>
 
   * Replace "YourExistingVNetName" with the name of your existing Virtual Network and "YourExistingSubnetName" with the name of your existing subnet within that Virtual Network.
 
 ### Automatic Creation of Virtual Network:
 
    * If the Virtual Network doesn't exist, Azure will create it based on the configuration provided:
-        <NetworkConfiguration>
-          <VirtualNetworkSite name="NewVNetName" />
-          <AddressAssignments>
-            <InstanceAddress roleName="AVPWorkerRole">
-              <Subnets>
-                <Subnet name="NewSubnetName" />
-              </Subnets>
-            </InstanceAddress>
-          </AddressAssignments>
-        </NetworkConfiguration>
+
+     <NetworkConfiguration>
+      <VirtualNetworkSite name="NewVNetName" />
+      <AddressAssignments>
+      <InstanceAddress roleName="AVPWorkerRole">
+      <Subnets>
+       <Subnet name="NewSubnetName" />
+      </Subnets>
+      </InstanceAddress>
+      </AddressAssignments>
+    </NetworkConfiguration>
    * Replace "NewVNetName" with the name of the Virtual Network you want Azure to create, and "NewSubnetName" with the name of the subnet within that Virtual Network.
    
  ### Note on Domain Name and Public IP:
