@@ -43,16 +43,15 @@ Step 2: Obtain and Configure Your SSL Certificate
   * To secure your service, you need a valid SSL certificate. Here’s how to obtain and configure it:
 
    Get a Wildcard Certificate:
-     * Obtain a wildcard SSL certificate for your domain. For example, if your service is hosted at bot.contoso.com,get a certificate for *.contoso.com. 
-     * Ensure that the certificate is issued by a trusted Certificate Authority (CA) and not self-signed.
+    * Obtain a wildcard SSL certificate for your domain. For example, if your service is hosted at bot.contoso.com,get a certificate for *.contoso.com. 
+    * Ensure that the certificate is issued by a trusted Certificate Authority (CA) and not self-signed.
 
    Upload to Azure Key Vault:
-     * Upload your SSL certificate to the Azure Key Vault. Follow these steps: https://learn.microsoft.com/en-us/azure/key-vault/certificates/tutorial-import-certificate?tabs=azure-portal.
+    * Upload your SSL certificate to the Azure Key Vault. Follow these steps: https://learn.microsoft.com/en-us/azure/key-vault/certificates/tutorial-import-certificate?tabs=azure-portal.
 
    Get the Thumbprint:
-     * Copy the certificate thumbprint from Azure Key Vault. You will need to add this thumbprint to your .cscfg (cloud service configuration) and .csdef (cloud service definition) files.
-      1. Update the Certificate section in your .cscfg file with the thumbprint.
-
+    * Copy the certificate thumbprint from Azure Key Vault. You will need to add this thumbprint to your .cscfg (cloud service configuration) and .csdef (cloud service definition) files.
+    1. Update the Certificate section in your .cscfg file with the thumbprint.
          <Certificates>
          <!-- Certificate Configuration:
            This is where you specify the thumbprint for your SSL certificate.
@@ -60,13 +59,12 @@ Step 2: Obtain and Configure Your SSL Certificate
          <Certificate name="MySSLCertificate" thumbprint="YOUR_THUMBPRINT" thumbprintAlgorithm="sha1" />
          </Certificates>
 
-     2. Update the Certificate element in your .csdef file.
-
+    2. Update the Certificate element in your .csdef file.
         <Certificates>
           <Certificate name="YourCertificateName" storeLocation="LocalMachine" storeName="My" />
         </Certificates>
 
-       * Replace YourCertificateName with the actual name of your certificate as it appears in your Azure Key Vault or wherever it is stored. Here are the key attributes:
+    * Replace YourCertificateName with the actual name of your certificate as it appears in your Azure Key Vault or wherever it is stored. Here are the key attributes:
          name: This should match the certificate's name as referenced in your Azure Key Vault or local certificate store.
          storeLocation: Specifies where the certificate is stored. LocalMachine is a common location for certificates installed on the local machine.
          storeName: Specifies the store name where the certificate is located. My is a common store name used for personal certificates.
@@ -78,7 +76,6 @@ Step 3: Define Your Virtual Network
 #### Using Existing Virtual Network:
 
    * If you have an existing Virtual Network (VNet) that you want to use:
-
      <NetworkConfiguration>
       <VirtualNetworkSite name="YourExistingVNetName" />
       <AddressAssignments>
@@ -95,7 +92,6 @@ Step 3: Define Your Virtual Network
 ### Automatic Creation of Virtual Network:
 
    * If the Virtual Network doesn't exist, Azure will create it based on the configuration provided:
-
      <NetworkConfiguration>
       <VirtualNetworkSite name="NewVNetName" />
       <AddressAssignments>
