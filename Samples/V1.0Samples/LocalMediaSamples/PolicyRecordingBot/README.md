@@ -81,7 +81,7 @@ To secure your service, you need a valid SSL certificate. Here’s how to obtain
    * Upload your SSL certificate to the Azure Key Vault. Follow these steps: [Import Certificate](https://learn.microsoft.com/en-us/azure/key-vault/certificates/tutorial-import-certificate?tabs=azure-portal).
 
 3. **Get the Thumbprint**:
-  - Copy the certificate thumbprint from Azure Key Vault. You will need to add this thumbprint to your `.cscfg` (cloud service configuration) and `.csdef` (cloud service definition) files.
+    * Copy the certificate thumbprint from Azure Key Vault. You will need to add this thumbprint to your `.cscfg` (cloud service configuration) and `.csdef` (cloud service definition) files.
 
 1. Update the Certificate section in your `.cscfg` file with the thumbprint.
 ```xml
