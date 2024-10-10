@@ -101,10 +101,10 @@ To secure your service, you need a valid SSL certificate. Here’s how to obtain
 </Certificates>
 ```
 - Replace YourCertificateName with the actual name of your certificate as it appears in your Azure Key Vault or wherever it is stored. Here are the key attributes:
-
-         **name**: This should match the certificate's name as referenced in your Azure Key Vault or local certificate store.
-         **storeLocation**: Specifies where the certificate is stored. LocalMachine is a common location for certificates installed on the local machine.
-         **storeName**: Specifies the store name where the certificate is located. My is a common store name used for personal certificates.
+   
+ **name**: This should match the certificate's name as referenced in your Azure Key Vault or local certificate store.
+ **storeLocation**: Specifies where the certificate is stored. LocalMachine is a common location for certificates installed on the local machine.
+ **storeName**: Specifies the store name where the certificate is located. My is a common store name used for personal certificates.
 
 
 #### Step 3: Define Your Virtual Network
