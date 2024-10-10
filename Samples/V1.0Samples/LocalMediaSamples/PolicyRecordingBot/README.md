@@ -81,10 +81,9 @@ To secure your service, you need a valid SSL certificate. Here’s how to obtain
    - Upload your SSL certificate to the Azure Key Vault. Follow these steps: [Import Certificate](https://learn.microsoft.com/en-us/azure/key-vault/certificates/tutorial-import-certificate?tabs=azure-portal).
 
 3. **Get the Thumbprint**:
-   - Copy the certificate thumbprint from Azure Key Vault. You will need to add this thumbprint to your `.cscfg` (cloud service configuration) and `.csdef` (cloud service definition) files.
-   
-    1. Update the Certificate section in your `.cscfg` file with the thumbprint.
+  - Copy the certificate thumbprint from Azure Key Vault. You will need to add this thumbprint to your `.cscfg` (cloud service configuration) and `.csdef` (cloud service definition) files.
 
+1. Update the Certificate section in your `.cscfg` file with the thumbprint.
 ```xml
          <Certificates>
          <!-- Certificate Configuration:
@@ -92,10 +91,9 @@ To secure your service, you need a valid SSL certificate. Here’s how to obtain
            Replace 'YOUR_THUMBPRINT' with the actual thumbprint of your certificate. -->
          <Certificate name="MySSLCertificate" thumbprint="YOUR_THUMBPRINT" thumbprintAlgorithm="sha1" />
          </Certificates>
-```
+ ```
 
-   2. Update the Certificate element in your `.csdef` file.
-
+2. Update the Certificate element in your `.csdef` file.
 ```xml
 <Certificates>
   <Certificate name="YourCertificateName" storeLocation="LocalMachine" storeName="My" />
@@ -171,28 +169,25 @@ Match Public IP Name:
    
 #### Step 4: Deploy
 
-1. **Create Your Cloud Service (Extended Support)**:
+1. Create Your Cloud Service (Extended Support):
    - Use the Azure portal to create a Cloud Service (Extended Support). Follow this guide: [Create Cloud Service](https://learn.microsoft.com/en-us/azure/cloud-services-extended-support/deploy-portal).
    -  Obtain Your Public IP DNS name:
         After the service is created, obtain the "Public IP DNS name" from the Azure portal. This URL will serve as your DNS name and Common Name (CN) for further configurations (e.g. bot.contoso.com).
         ![Public IP DNS name](Images/PublicIPDNSName.png).
 
-2. **Update the App Configurations**:
+2. Update the App Configurations:
    - Set up cloud service configuration with PowerShell:
+     1. Open PowerShell, go to the folder that contains the file `configure_cloud.ps1`. The file is in the `Samples` directory.
+     2. Run the PowerShell script with parameters:
+       ```powershell
+       .\configure_cloud.ps1 -p {path to project} -dns {your DNS name} -cn {your CN name, should be the same as your DNS name} -bid {your bot name} -aid {your bot app id} -as {your bot secret}
+       ```
+     For example:
+     ```powershell
+     .\configure_cloud.ps1 -p .\V1.0Samples\LocalMediaSamples\PolicyRecordingBot\ -dns bot.contoso.com -cn bot.contoso.com -bid bot -aid 3853f935-2c6f-43d7-859d-6e8f83b519ae -as 123456!@#$%^
+     ```
 
- 1. Open PowerShell, go to the folder that contains the file `configure_cloud.ps1`. The file is in the `Samples` directory.
- 2. Run the PowerShell script with parameters:
-   ```powershell
-   .\configure_cloud.ps1 -p {path to project} -dns {your DNS name} -cn {your CN name, should be the same as your DNS name} -bid {your bot name} -aid {your bot app id} -as {your bot secret}
-   ```
- 
-  For example:
- 
-   ```powershell
-   .\configure_cloud.ps1 -p .\V1.0Samples\LocalMediaSamples\PolicyRecordingBot\ -dns bot.contoso.com -cn bot.contoso.com -bid bot -aid 3853f935-2c6f-43d7-859d-6e8f83b519ae -as 123456!@#$%^
-   ```
-
-3. **Deploy to Cloud Service (Extended Support)**:
+3. Deploy to Cloud Service (Extended Support):
    1. Configure Storage Account for Configuration Files.
    - To store configuration files for your Azure extended service, you'll need to set up a storage account. Follow these steps to configure the storage account:(https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal).
    2.  Package Your Cloud Service for Deployment
