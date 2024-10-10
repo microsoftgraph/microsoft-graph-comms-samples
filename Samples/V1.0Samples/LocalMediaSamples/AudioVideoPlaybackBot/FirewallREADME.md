@@ -28,7 +28,7 @@
     * Assign the lowest number as the priority.
     * Specify a name for the rule.
     * Define the source (e.g., your VM subnet) or use `*` to allow all IP addresses.
-    * Allow specific domains (e.g., `policyrecordingbot.eastus.cloudapp.azure.com`).
+    * Allow specific domains (e.g., `audiovideoplaybackbot.eastus.cloudapp.azure.com`).
     * Save the rule.
 
 ### Configure Network Rules (Egress)
