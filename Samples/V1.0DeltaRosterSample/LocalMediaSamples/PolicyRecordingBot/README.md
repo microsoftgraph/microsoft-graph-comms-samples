@@ -5,7 +5,6 @@
 
 The system will load the bot and join it to appropriate calls and meetings in order for the bot to enforce compliance with the administrative set policy.
 This sample is only designed for compliance recording scenario. Do not use it for any other scenarios.
-This sample should be used only for Org Regulated recording instead of other recording purpose. Otherwise, it might block the user calling experience. [Learn more](https://learn.microsoft.com/en-us/MicrosoftTeams/teams-recording-policy).
 
 ## About
 
@@ -30,8 +29,9 @@ This section walks you through the process of deploying and testing the sample b
 ### Create an Application Instance
 
 Open powershell (in admin mode) and run the following commands. When prompted for authentication, login with the tenant admin.
-  * `Import-Module MicrosoftTeams`
-  * `Connect-MicrosoftTeams` 
+  * `Import-Module SkypeOnlineConnector`
+  * `$Session=New-CsOnlineSession`
+  * `Import-PSSession $Session`
   * `New-CsOnlineApplicationInstance -UserPrincipalName <upn@contoso.com> -DisplayName <displayName> -ApplicationId <your_botappId>`
   * `Sync-CsOnlineApplicationInstance -ObjectId <objectId>`
 
