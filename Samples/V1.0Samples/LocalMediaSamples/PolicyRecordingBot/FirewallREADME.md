@@ -48,7 +48,7 @@
 ### 3.5: Firewall Configuration Summary
 
     1. Specify External IPs or Ranges
-     Allow only specific external IPs or ranges (e.g., 192.168.1.0/24 for a subnet) instead of using 0.0.0.0/0 for all. This ensures that only trusted sources can access your service. If you want to allow access from all IPs, you can configure it as 0.0.0.0/0.
+    Allow only specific external IPs or ranges (e.g., 192.168.1.0/24 for a subnet) instead of using 0.0.0.0/0 for all. This ensures that only trusted sources can access your service. If you want to allow access from all IPs, you can configure it as 0.0.0.0/0.
 
     Example:
     To allow access from a specific subnet:
@@ -58,7 +58,7 @@
      Allow: 0.0.0.0/0
 
     2. Specify Allowed Protocols and Ports
-      You can specify only particular protocols and ports you want to allow. For example, configure the following:
+    You can specify only particular protocols and ports you want to allow. For example, configure the following:
       Allowed TCP Ports: 9444 (SignalingPort)
       8445 (MediaPort)
       9442 (TcpForwardingPort)
@@ -114,7 +114,7 @@
       Port Range: 20100-20199
 
     3. Restrict All Other Ingress Ports and Protocols:
-       After creating the allow rules, add a rule to deny all other traffic. This ensures that any port or protocol not explicitly allowed is blocked.
+    After creating the allow rules, add a rule to deny all other traffic. This ensures that any port or protocol not explicitly allowed is blocked.
 
     Example of Deny Rule:
 
@@ -170,9 +170,9 @@
     4. Restrict All Other Egress Ports and Protocols
      * Similarly, add a rule to deny all other egress traffic.
     
-   Example of Deny Rule: 
-    Deny All Other Egress Traffic:
-     Rule Name: Deny All Other Egress Traffic
-     Action: Deny
-     Protocol: Any
-     Port: Any
+    Example of Deny Rule: 
+     Deny All Other Egress Traffic:
+      Rule Name: Deny All Other Egress Traffic
+      Action: Deny
+      Protocol: Any
+      Port: Any
