@@ -17,7 +17,7 @@
 
 ## Step 3: Configure Firewall Policy
 
-3.1. Open the firewall policy created in Step 2.
+3.1. Open the firewall policy created in Step 2.  
 3.2. Navigate to Settings.
 
 ### Configure Application Rules (Ingress)
