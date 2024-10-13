@@ -281,7 +281,7 @@
             ],
             "AutoScalecapacity": {
               "minimum": "2",
-              "maximum": "9",
+              "maximum": "3",
               "default": "3"
             },
             "Health": {
