@@ -245,7 +245,7 @@
           {
             "Name": "BOT01",
             "vmSize": "Standard_B1ms",
-            "AutoScale": true,
+            "AutoScale": false,
             "PredictiveScale": "Enabled",
             "saname": "data",
             "Role": "BOT",
@@ -258,9 +258,7 @@
               "MediaControlPlane"
             ],
             "zones": [
-              "1",
-              "2",
-              "3"
+              "1"
             ],
             "LBBE": [
               "BotVmss01"
