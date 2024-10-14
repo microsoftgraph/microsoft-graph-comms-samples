@@ -244,7 +244,7 @@
         "VMSSInfo": [
           {
             "Name": "BOT01",
-            "vmSize": "Standard_B2ms",
+            "vmSize": "Standard_B1ms",
             "AutoScale": true,
             "PredictiveScale": "Enabled",
             "saname": "data",
@@ -275,7 +275,7 @@
             ],
             "AutoScalecapacity": {
               "minimum": "1",
-              "maximum": "2",
+              "maximum": "1",
               "default": "1"
             },
             "Health": {
