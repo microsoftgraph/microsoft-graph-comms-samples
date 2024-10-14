@@ -141,13 +141,6 @@
               }
             ]
           }
-          // {
-          //   "name": "AzureBastionSubnet",
-          //   "prefix": "96/27",
-          //   "NSG": 1,
-          //   "FlowLogEnabled": true,
-          //   "FlowAnalyticsEnabled": true
-          // }
         ],
         "BastionInfo": {
           "name": "HST01",
@@ -280,15 +273,16 @@
               }
             ],
             "AutoScalecapacity": {
-              "minimum": "2",
-              "maximum": "3",
-              "default": "3"
+              "minimum": "1",
+              "maximum": "2",
+              "default": "1"
             },
             "Health": {
               "protocol": "https",
               "port": "9442",
               "requestPath": "/health"
-            }
+            },
+            "priority": "Standard"
           }
         ]
       }
