@@ -244,6 +244,7 @@
         "VMSSInfo": [
           {
             "Name": "BOT01",
+            "vmSize": "Standard_B2ms",
             "AutoScale": true,
             "PredictiveScale": "Enabled",
             "saname": "data",
