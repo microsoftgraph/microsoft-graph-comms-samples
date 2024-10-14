@@ -283,7 +283,7 @@
               "port": "9442",
               "requestPath": "/health"
             },
-            "priority": "Standard"
+            "priority": "Regular"
           }
         ]
       }
