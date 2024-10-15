@@ -8,7 +8,7 @@ on:
     branches:
       - 'master'
     paths:
-      - './Samples/PublicSamples/EchoBot/ADF/**'
+      - './Samples/PublicSamples/EchoBot/**'
       - .github/workflows/echobot-infra-AAILAB.yml
 
   pull_request:
