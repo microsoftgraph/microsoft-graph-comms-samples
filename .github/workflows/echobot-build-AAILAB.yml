@@ -5,7 +5,7 @@ on:
     branches:
       - 'master'
     paths:
-      - './Samples/PublicSamples/EchoBot/src/**'
+      - './Samples/PublicSamples/EchoBot/**'
       - .github/workflows/echobot-build-AAILAB.yml
 
   pull_request:
@@ -36,30 +36,30 @@ jobs:
 
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1
-    
+
     - name: Navigate to Workspace
       run: cd $GITHUB_WORKSPACE
 
     - name: Run pwsh
       shell: pwsh
-      run: | 
+      run: |
         echo "${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/"
     - uses: nuget/setup-nuget@v1
     - run: nuget restore Samples\PublicSamples\EchoBot\src\EchoBot.sln
-    
+
     - name: Create Build Directory
       run: mkdir ${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
-    
+
     - name: Build Solution
       run: |
         msbuild.exe Samples\PublicSamples\EchoBot\src\EchoBot.sln /nologo /p:platform="x64" /p:OutDir=${{ github.workspace }}/${{ env.Base }}/${{ env.Component }}/${{ env.BuildName }}/
-        
+
     - name: Run pwsh
       shell: pwsh
-      run: | 
+      run: |
         Get-ChildItem -Path ${{ github.workspace }}\${{ env.Base }}\${{ env.Component }}\${{ env.BuildName }}\
         echo ${{ github.workspace }}
-    
+
     - name: Login via Az module
       uses: azure/login@v2
       with:
