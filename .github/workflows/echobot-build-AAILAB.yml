@@ -5,7 +5,7 @@ on:
     branches:
       - 'master'
     paths:
-      - './Samples/PublicSamples/EchoBot/**'
+      - './Samples/PublicSamples/EchoBot/src/**'
       - .github/workflows/echobot-build-AAILAB.yml
 
   pull_request:
