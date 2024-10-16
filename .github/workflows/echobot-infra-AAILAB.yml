@@ -52,4 +52,3 @@ jobs:
             }
             ./Samples/PublicSamples/EchoBot/ADF/main.ps1 @Params
             if ($e){throw $e}
-
