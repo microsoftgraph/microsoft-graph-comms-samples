@@ -20,7 +20,7 @@
     1. Open the firewall policy created in Step 2.
     2. Navigate to Settings.
 
-### 3.3: Configure Application Rules (Ingress)
+## Step 4: Configure Application Rules (Ingress)
 
     Add an application rule:
     a. Give a descriptive name.
@@ -31,7 +31,7 @@
     f. Allow specific domains (e.g., `policyrecordingbot.eastus.cloudapp.azure.com`).
     g. Save the rule.
 
-### 3.4: Configure Network Rules (Egress)
+## Step 5: Configure Network Rules (Egress)
 
     Add a network rule:
     a. Give a descriptive name.
@@ -45,7 +45,7 @@
      All other ports and protocols will be restricted.
     h. Save the rule.
 
-### 3.5: Firewall Configuration Summary
+## Step 6: Firewall Configuration Summary
 
     1. Specify External IPs or Ranges
     Allow only specific external IPs or ranges (e.g., 192.168.1.0/24 for a subnet) instead of using 0.0.0.0/0 for all. This ensures that only trusted sources can access your service. If you want to allow access from all IPs, you can configure it as 0.0.0.0/0.
@@ -70,7 +70,6 @@
      * All other ports and protocols will be restricted.
 
      Example of Ingress Allow Rules:
-
      a. Allow TCP Port 9444:
       Rule Name: Allow SignalingPort
       Action: Allow
@@ -117,7 +116,6 @@
     After creating the allow rules, add a rule to deny all other traffic. This ensures that any port or protocol not explicitly allowed is blocked.
 
     Example of Deny Rule:
-
      Deny All Other Ingress Traffic:
       Rule Name: Deny All Other Ingress Traffic
       Action: Deny
