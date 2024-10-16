@@ -106,8 +106,8 @@ namespace EchoBot.Media
 
                 var translationConfig = SpeechTranslationConfig.FromSubscription(_speechConfig.SubscriptionKey, _speechConfig.Region);
                 translationConfig.SpeechRecognitionLanguage = _speechConfig.SpeechRecognitionLanguage;
-                translationConfig.AddTargetLanguage("en"); // translate to English
-                translationConfig.VoiceName = "en-US-JennyNeural"; // set voice name
+                translationConfig.AddTargetLanguage("vi");
+                translationConfig.VoiceName = "vi-VN-HoaiMyNeural";
 
                 using (var audioInput = AudioConfig.FromStreamInput(_audioInputStream))
                 {
