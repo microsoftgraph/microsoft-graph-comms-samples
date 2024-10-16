@@ -101,4 +101,3 @@ jobs:
           }
           & ./Samples/PublicSamples/EchoBot/ADF/release-az/Update-AzBuildMetaData.ps1 @Params
         azPSVersion: latest
-
