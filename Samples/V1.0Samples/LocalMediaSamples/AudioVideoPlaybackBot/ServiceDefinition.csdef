@@ -21,7 +21,6 @@
       </Task>
     </Startup>
     <ConfigurationSettings>
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
       <Setting name="ServiceDnsName" />
       <Setting name="ServiceCNAME" />
       <!-- CNAME pointing to the .cloudapp.net if available-->
