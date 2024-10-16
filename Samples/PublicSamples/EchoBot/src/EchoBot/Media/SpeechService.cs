@@ -1,36 +1,24 @@
 ﻿using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
+using Microsoft.CognitiveServices.Speech.Translation;
 using Microsoft.Skype.Bots.Media;
 using System.Runtime.InteropServices;
 
 namespace EchoBot.Media
 {
-    /// <summary>
-    /// Class SpeechService.
-    /// </summary>
     public class SpeechService
     {
-        /// <summary>
-        /// The is the indicator if the media stream is running
-        /// </summary>
         private bool _isRunning = false;
-        /// <summary>
-        /// The is draining indicator
-        /// </summary>
         protected bool _isDraining;
-
-        /// <summary>
-        /// The logger
-        /// </summary>
         private readonly ILogger _logger;
         private readonly PushAudioInputStream _audioInputStream = AudioInputStream.CreatePushStream(AudioStreamFormat.GetWaveFormatPCM(16000, 16, 1));
         private readonly AudioOutputStream _audioOutputStream = AudioOutputStream.CreatePullStream();
-
         private readonly SpeechConfig _speechConfig;
-        private SpeechRecognizer _recognizer;
         private readonly SpeechSynthesizer _synthesizer;
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SpeechService" /> class.
+        private TranslationRecognizer _translationRecognizer;
+
+        // public event EventHandler<MediaStreamEventArgs> OnSendMediaBufferEventArgs;
+
         public SpeechService(AppSettings settings, ILogger logger)
         {
             _logger = logger;
@@ -41,13 +29,8 @@ namespace EchoBot.Media
 
             var audioConfig = AudioConfig.FromStreamOutput(_audioOutputStream);
             _synthesizer = new SpeechSynthesizer(_speechConfig, audioConfig);
-
         }
 
-        /// <summary>
-        /// Appends the audio buffer.
-        /// </summary>
-        /// <param name="audioBuffer"></param>
         public async Task AppendAudioBuffer(AudioMediaBuffer audioBuffer)
         {
             if (!_isRunning)
@@ -58,19 +41,17 @@ namespace EchoBot.Media
 
             try
             {
-                // audio for a 1:1 call
                 var bufferLength = audioBuffer.Length;
                 if (bufferLength > 0)
                 {
                     var buffer = new byte[bufferLength];
                     Marshal.Copy(audioBuffer.Data, buffer, 0, (int)bufferLength);
-
                     _audioInputStream.Write(buffer);
                 }
             }
             catch (Exception e)
             {
-                _logger.LogError(e, "Exception happend writing to input stream");
+                _logger.LogError(e, "Exception happened writing to input stream");
             }
         }
 
@@ -109,9 +90,6 @@ namespace EchoBot.Media
             }
         }
 
-        /// <summary>
-        /// Starts this instance.
-        /// </summary>
         private void Start()
         {
             if (!_isRunning)
@@ -120,104 +98,80 @@ namespace EchoBot.Media
             }
         }
 
-        /// <summary>
-        /// Processes this instance.
-        /// </summary>
         private async Task ProcessSpeech()
         {
             try
             {
                 var stopRecognition = new TaskCompletionSource<int>();
 
+                var translationConfig = SpeechTranslationConfig.FromSubscription(_speechConfig.SubscriptionKey, _speechConfig.Region);
+                translationConfig.SpeechRecognitionLanguage = _speechConfig.SpeechRecognitionLanguage;
+                translationConfig.AddTargetLanguage("en"); // translate to English
+                translationConfig.VoiceName = "en-US-JennyNeural"; // set voice name
+
                 using (var audioInput = AudioConfig.FromStreamInput(_audioInputStream))
                 {
-                    if (_recognizer == null)
-                    {
-                        _logger.LogInformation("init recognizer");
-                        _recognizer = new SpeechRecognizer(_speechConfig, audioInput);
-                    }
+                    _translationRecognizer = new TranslationRecognizer(translationConfig, audioInput);
                 }
 
-                _recognizer.Recognizing += (s, e) =>
+                _translationRecognizer.Recognizing += (s, e) =>
                 {
-                    _logger.LogInformation($"RECOGNIZING: Text={e.Result.Text}");
-                };
-
-                _recognizer.Recognized += async (s, e) =>
-                {
-                    if (e.Result.Reason == ResultReason.RecognizedSpeech)
+                    _logger.LogInformation($"RECOGNIZING: {e.Result.Text}");
+                    foreach (var element in e.Result.Translations)
                     {
-                        if (string.IsNullOrEmpty(e.Result.Text))
-                            return;
-
-                        _logger.LogInformation($"RECOGNIZED: Text={e.Result.Text}");
-                        // We recognized the speech
-                        // Now do Speech to Text
-                        await TextToSpeech(e.Result.Text);
-                    }
-                    else if (e.Result.Reason == ResultReason.NoMatch)
-                    {
-                        _logger.LogInformation($"NOMATCH: Speech could not be recognized.");
+                        _logger.LogInformation($"TRANSLATING into '{element.Key}': {element.Value}");
                     }
                 };
 
-                _recognizer.Canceled += (s, e) =>
+                _translationRecognizer.Recognized += async (s, e) =>
+                {
+                    if (e.Result.Reason == ResultReason.TranslatedSpeech)
+                    {
+                        _logger.LogInformation($"RECOGNIZED: {e.Result.Text}");
+                        foreach (var element in e.Result.Translations)
+                        {
+                            _logger.LogInformation($"TRANSLATING into '{element.Key}': {element.Value}");
+                            await TextToSpeech(element.Value);
+                        }
+                    }
+                };
+
+                _translationRecognizer.Canceled += (s, e) =>
                 {
                     _logger.LogInformation($"CANCELED: Reason={e.Reason}");
-
                     if (e.Reason == CancellationReason.Error)
                     {
-                        _logger.LogInformation($"CANCELED: ErrorCode={e.ErrorCode}");
-                        _logger.LogInformation($"CANCELED: ErrorDetails={e.ErrorDetails}");
-                        _logger.LogInformation($"CANCELED: Did you update the subscription info?");
+                        _logger.LogInformation($"ErrorDetails={e.ErrorDetails}");
                     }
-
                     stopRecognition.TrySetResult(0);
                 };
 
-                _recognizer.SessionStarted += async (s, e) =>
+                _translationRecognizer.SessionStarted += (s, e) =>
                 {
-                    _logger.LogInformation("\nSession started event.");
-                    await TextToSpeech("Hello");
+                    _logger.LogInformation("Session started.");
                 };
 
-                _recognizer.SessionStopped += (s, e) =>
+                _translationRecognizer.SessionStopped += (s, e) =>
                 {
-                    _logger.LogInformation("\nSession stopped event.");
-                    _logger.LogInformation("\nStop recognition.");
+                    _logger.LogInformation("Session stopped.");
                     stopRecognition.TrySetResult(0);
                 };
 
-                // Starts continuous recognition. Uses StopContinuousRecognitionAsync() to stop recognition.
-                await _recognizer.StartContinuousRecognitionAsync().ConfigureAwait(false);
-
-                // Waits for completion.
-                // Use Task.WaitAny to keep the task rooted.
+                await _translationRecognizer.StartContinuousRecognitionAsync().ConfigureAwait(false);
                 Task.WaitAny(new[] { stopRecognition.Task });
-
-                // Stops recognition.
-                await _recognizer.StopContinuousRecognitionAsync().ConfigureAwait(false);
-            }
-            catch (ObjectDisposedException ex)
-            {
-                _logger.LogError(ex, "The queue processing task object has been disposed.");
+                await _translationRecognizer.StopContinuousRecognitionAsync().ConfigureAwait(false);
             }
             catch (Exception ex)
             {
-                // Catch all other exceptions and log
                 _logger.LogError(ex, "Caught Exception");
             }
-
+            
             _isDraining = false;
         }
 
         private async Task TextToSpeech(string text)
         {
-            // convert the text to speech
             SpeechSynthesisResult result = await _synthesizer.SpeakTextAsync(text);
-            // take the stream of the result
-            // create 20ms media buffers of the stream
-            // and send to the AudioSocket in the BotMediaStream
             using (var stream = AudioDataStream.FromResult(result))
             {
                 var currentTick = DateTime.Now.Ticks;
