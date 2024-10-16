@@ -83,21 +83,21 @@ To secure your service, you need a valid SSL certificate. Here’s how to obtain
 3. **Get the Thumbprint**:
     * Copy the certificate thumbprint from Azure Key Vault. You will need to add this thumbprint to your `.cscfg` (cloud service configuration) and `.csdef` (cloud service definition) files.
 
-1. Update the Certificate section in your `.cscfg` file with the thumbprint.
+  1. Update the Certificate section in your `.cscfg` file with the thumbprint.
 ```xml
-<Certificates>
- <!-- Certificate Configuration:
-  This is where you specify the thumbprint for your SSL certificate.
-  Replace 'YOUR_THUMBPRINT' with the actual thumbprint of your certificate. -->
-  <Certificate name="MySSLCertificate" thumbprint="YOUR_THUMBPRINT" thumbprintAlgorithm="sha1" />
-</Certificates>
+   <Certificates>
+    <!-- Certificate Configuration:
+    This is where you specify the thumbprint for your SSL certificate.
+    Replace 'YOUR_THUMBPRINT' with the actual thumbprint of your certificate. -->
+    <Certificate name="MySSLCertificate" thumbprint="YOUR_THUMBPRINT" thumbprintAlgorithm="sha1" />
+   </Certificates>
  ```
 
-2. Update the Certificate element in your `.csdef` file.
+  2. Update the Certificate element in your `.csdef` file.
 ```xml
-<Certificates>
-  <Certificate name="YourCertificateName" storeLocation="LocalMachine" storeName="My" />
-</Certificates>
+  <Certificates>
+   <Certificate name="YourCertificateName" storeLocation="LocalMachine" storeName="My" />
+  </Certificates>
 ```
 * Replace YourCertificateName with the actual name of your certificate as it appears in your Azure Key Vault or wherever it is stored. Here are the key attributes:
    
