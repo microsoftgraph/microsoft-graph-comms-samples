@@ -184,10 +184,7 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         public string ServiceCname { get; private set; }
 
         /// <inheritdoc/>
-        public IEnumerable<string> CallControlListeningUrls { get; private set; }
-
-        /// <inheritdoc/>
-        public IEnumerable<Uri> CallControlListeningUris { get; private set; }
+        public IEnumerable<Uri> CallControlListeningUrls { get; private set; }
 
         /// <inheritdoc/>
         public Uri CallControlBaseUrl { get; private set; }
@@ -410,14 +407,14 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
 
             this.AudioVideoFileLengthInSec = avFileLengthInSec;
 
-            var controlListenUris = new List<string>();
+            var controlListenUris = new List<Uri>();
             if (RoleEnvironment.IsEmulated)
             {
                 // Create structured config objects for service.
                 this.CallControlBaseUrl = new Uri($"https://{this.ServiceCname}/{HttpRouteConstants.CallSignalingRoutePrefix}");
 
-                controlListenUris.Add("https://+:" + this.SignalingPort + "/");
-                controlListenUris.Add("http://+:" + (this.SignalingPort + 1) + "/");
+                controlListenUris.Add(new Uri("https://+:" + this.SignalingPort + "/"));
+                controlListenUris.Add(new Uri("http://+:" + (this.SignalingPort + 1) + "/"));
             }
             else
             {
@@ -428,8 +425,8 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
                     instanceCallControlPublicPort,
                     HttpRouteConstants.CallSignalingRoutePrefix));
 
-                controlListenUris.Add("https://" + instanceCallControlIpEndpoint + "/");
-                controlListenUris.Add("https://" + defaultEndpoint.IPEndpoint + "/");
+                controlListenUris.Add(new Uri("https://" + instanceCallControlIpEndpoint + "/"));
+                controlListenUris.Add(new Uri("https://" + defaultEndpoint.IPEndpoint + "/"));
             }
 
             this.TraceConfigValue("CallControlCallbackUri", this.CallControlBaseUrl);

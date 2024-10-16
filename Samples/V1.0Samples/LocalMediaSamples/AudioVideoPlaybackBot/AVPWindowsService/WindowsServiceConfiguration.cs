@@ -45,10 +45,7 @@ namespace AVPWindowsService
         /// Gets or sets the call control listening urls.
         /// </summary>
         /// <value>The call control listening urls.</value>
-        public IEnumerable<Uri> CallControlListeningUris { get; set; }
-
-        /// <inheritdoc/>
-        public IEnumerable<string> CallControlListeningUrls { get; set; }
+        public IEnumerable<Uri> CallControlListeningUrls { get; set; }
 
         /// <inheritdoc/>
         public Uri PlaceCallEndpointUrl { get; private set; }
@@ -259,7 +256,7 @@ namespace AVPWindowsService
                 controlListenUris.Add(new Uri($"{BotInternalHostingProtocol}://{this.ServiceCname}:{BotInternalPort}/"));
                 EventLog.WriteEntry(SampleConstants.EventLogSource, $"WindowsServiceConfiguration controlListenUrl 2 {$"{BotInternalHostingProtocol}://{this.ServiceCname}:{BotInternalPort}/"}", EventLogEntryType.Warning);
             }
-            this.CallControlListeningUris = controlListenUris;
+            this.CallControlListeningUrls = controlListenUris;
 
             this.MediaPlatformSettings = new MediaPlatformSettings()
             {
