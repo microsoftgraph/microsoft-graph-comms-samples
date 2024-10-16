@@ -78,8 +78,8 @@ namespace EchoBot.Media
 
             if (_isRunning)
             {
-                await _recognizer.StopContinuousRecognitionAsync();
-                _recognizer.Dispose();
+                await _translationRecognizer.StopContinuousRecognitionAsync();
+                _translationRecognizer.Dispose();
                 _audioInputStream.Close();
 
                 _audioInputStream.Dispose();
