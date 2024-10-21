@@ -58,14 +58,14 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.WebApi.Owin" Version="5.3.0" />
-    <PackageReference Include="Microsoft.Graph.Communications.Calls.Media" Version="1.2.0.10115" TargetFramework="net472" />
+    <PackageReference Include="Microsoft.Graph.Communications.Calls.Media" Version="1.2.0.10563" TargetFramework="net472" />
     <PackageReference Include="Microsoft.Owin.Hosting" Version="4.2.2" />
     <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.26.0.94-alpha" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="System.Text.Encodings.Web">
       <Version>8.0.0</Version>
     </PackageReference>
-    <PackageReference Include="System.Text.Json" Version="8.0.4" />
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
     <Reference Include="System.Data.Entity" />
   </ItemGroup>
   <ItemGroup>
