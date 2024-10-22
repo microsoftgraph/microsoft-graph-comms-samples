@@ -11,17 +11,17 @@
 
   <ItemGroup>
     <PackageReference Include="MSTest.TestFramework" Version="3.5.2" />
-    <PackageReference Include="Microsoft.Graph.Communications.Calls" Version="1.2.0.10115" TargetFramework="net472" />
-    <PackageReference Include="Microsoft.Graph.Communications.Client" Version="1.2.0.10115" TargetFramework="net472" />
-    <PackageReference Include="Microsoft.Graph.Communications.Core" Version="1.2.0.10115" TargetFramework="net472" />
-    <PackageReference Include="Microsoft.Graph.Communications.Common" Version="1.2.0.10115" TargetFramework="net472" />
-    <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Graph.Communications.Calls" Version="1.2.0.10563" TargetFramework="net472" />
+    <PackageReference Include="Microsoft.Graph.Communications.Client" Version="1.2.0.10563" TargetFramework="net472" />
+    <PackageReference Include="Microsoft.Graph.Communications.Core" Version="1.2.0.10563" TargetFramework="net472" />
+    <PackageReference Include="Microsoft.Graph.Communications.Common" Version="1.2.0.10563" TargetFramework="net472" />
+    <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="7.0.3" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Microsoft.Extensions.Primitives" Version="8.0.0" />
     <PackageReference Include="System.Text.Encodings.Web" Version="8.0.0" />   
-    <PackageReference Include="System.Text.Json" Version="8.0.4" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.1" />
-    <PackageReference Include="Microsoft.IdentityModel.Abstractions" Version="8.0.1" />
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.2.0.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Abstractions" Version="7.0.3" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net472' ">
