@@ -8,9 +8,9 @@ namespace Sample.Common.Utils
     using System;
     using System.Linq;
     using System.Threading.Tasks;
-    using Microsoft.Graph.Beta.Models;
     using Microsoft.Graph.Communications.Calls;
     using Microsoft.Graph.Communications.Common;
+    using Microsoft.Graph.Models;
 
     /// <summary>
     /// The call extensions.

@@ -11,7 +11,7 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Bot
     using System.Linq;
     using System.Threading.Tasks;
     using System.Timers;
-    using Microsoft.Graph.Beta.Models;
+    using Microsoft.Graph.Models;
     using Microsoft.Graph.Communications.Calls;
     using Microsoft.Graph.Communications.Calls.Media;
     using Microsoft.Graph.Communications.Common;

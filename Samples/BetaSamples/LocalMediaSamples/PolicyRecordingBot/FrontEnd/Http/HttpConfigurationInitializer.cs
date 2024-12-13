@@ -10,10 +10,12 @@
 
 namespace Sample.PolicyRecordingBot.FrontEnd.Http
 {
-    using System.Web.Http;
-    using System.Web.Http.ExceptionHandling;
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Logging;
     using Microsoft.Graph.Communications.Common.Telemetry;
-    using Owin;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// Initialize the HttpConfiguration for OWIN.
@@ -25,20 +27,40 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
         /// </summary>
         /// <param name="app">Builder to configure.</param>
         /// <param name="logger">Graph logger.</param>
-        public void ConfigureSettings(IAppBuilder app, IGraphLogger logger)
+        public void ConfigureSettings(IApplicationBuilder app, IGraphLogger logger)
         {
-            HttpConfiguration httpConfig = new HttpConfiguration();
-            httpConfig.MapHttpAttributeRoutes();
-            httpConfig.MessageHandlers.Add(new LoggingMessageHandler(isIncomingMessageHandler: true, logger: logger, urlIgnorers: new[] { "/logs" }));
+            var loggerFactory = app.ApplicationServices.GetRequiredService<ILoggerFactory>();
+            //var exceptionLogger = new ExceptionLoggerMiddleware(logger);
 
-            httpConfig.Services.Add(typeof(IExceptionLogger), new ExceptionLogger(logger));
+            app.UseRouting();
 
-            // TODO: Provide serializer settings hooks
-            // httpConfig.Formatters.JsonFormatter.SerializerSettings = RealTimeMediaSerializer.GetSerializerSettings();
-            httpConfig.EnsureInitialized();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
 
-            // Use the HTTP configuration initialized above
-            app.UseWebApi(httpConfig);
+            // Add custom middleware for logging
+            app.UseMiddleware<LoggingMiddleware>(logger, new[] { "/logs" });
+        }
+    }
+
+    public class LoggingMiddleware
+    {
+        private readonly RequestDelegate _next;
+        private readonly IGraphLogger _logger;
+        private readonly string[] _urlIgnorers;
+
+        public LoggingMiddleware(RequestDelegate next, IGraphLogger logger, string[] urlIgnorers)
+        {
+            _next = next;
+            _logger = logger;
+            _urlIgnorers = urlIgnorers;
+        }
+
+        public async Task InvokeAsync(HttpContext context)
+        {
+            // Implement your logging logic here
+            await _next(context);
         }
     }
 }

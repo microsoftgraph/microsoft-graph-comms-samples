@@ -12,7 +12,7 @@ namespace Sample.Common.Meetings
     using System.Runtime.Serialization.Json;
     using System.Text;
     using System.Text.RegularExpressions;
-    using Microsoft.Graph.Beta.Models;
+    using Microsoft.Graph.Models;
 
     /// <summary>
     /// Gets the join information.

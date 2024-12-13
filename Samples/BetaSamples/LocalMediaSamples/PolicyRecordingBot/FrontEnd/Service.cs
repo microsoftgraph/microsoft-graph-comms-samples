@@ -13,9 +13,11 @@
 namespace Sample.PolicyRecordingBot.FrontEnd
 {
     using System;
+    using System.Net;
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Graph.Communications.Common.Telemetry;
-    using Microsoft.Owin.Hosting;
-    using Sample.PolicyRecordingBot.FrontEnd.Http;
 
     /// <summary>
     /// Service is the main entry point independent of Azure.  Anyone instantiating Service needs to first
@@ -79,21 +81,34 @@ namespace Sample.PolicyRecordingBot.FrontEnd
 
                 Bot.Bot.Instance.Initialize(this, this.logger);
 
-                // Start HTTP server for calls
-                var callStartOptions = new StartOptions();
-                foreach (var url in this.Configuration.CallControlListeningUrls)
+                // Configure and start the HTTP server for calls using .NET 6.0 minimal hosting model
+                var builder = WebApplication.CreateBuilder();
+
+                // Configure Kestrel server options
+                builder.WebHost.ConfigureKestrel(serverOptions =>
                 {
-                    callStartOptions.Urls.Add(url.ToString());
-                }
-
-                this.callHttpServer = WebApp.Start(
-                    callStartOptions,
-                    (appBuilder) =>
+                    foreach (var uri in this.Configuration.CallControlListeningUrls)
                     {
-                        var startup = new HttpConfigurationInitializer();
-                        startup.ConfigureSettings(appBuilder, this.logger);
-                    });
+                        serverOptions.ListenAnyIP(uri.Port); // Listen on the configured port
+                    }
+                });
 
+                // Add services to the DI container.
+                builder.Services.AddControllers();
+                var app = builder.Build();
+                app.UseDeveloperExceptionPage();
+
+                app.UseRouting();
+
+                app.UseEndpoints(endpoints =>
+                {
+                    endpoints.MapControllers();
+                });
+
+                // Start the web application
+                app.Run();
+
+                this.callHttpServer = app;
                 this.started = true;
             }
         }

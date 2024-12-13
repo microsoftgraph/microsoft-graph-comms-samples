@@ -39,7 +39,7 @@
     <AdditionalFiles Include="$(RootDir)stylecop.json" Link="stylecop.json" Visible="false" />
 
     <!--Include packages in all projects-->
-    <PackageReference Include="StyleCop.Analyzers" Version="1.1.0-beta009">
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.556">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
     <PackageReference Include="AsyncUsageAnalyzers" Version="1.0.0-alpha003">

@@ -10,32 +10,47 @@
 
 namespace Sample.PolicyRecordingBot.FrontEnd.Http
 {
-    using System.Threading;
+    using System;
     using System.Threading.Tasks;
-    using System.Web.Http.ExceptionHandling;
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.Extensions.Logging;
     using Microsoft.Graph.Communications.Common.Telemetry;
 
     /// <summary>
-    /// The exception logger.
+    /// The exception logger middleware.
     /// </summary>
-    public class ExceptionLogger : IExceptionLogger
+    public class ExceptionLoggerMiddleware
     {
-        private IGraphLogger logger;
+        private readonly RequestDelegate _next;
+        private readonly IGraphLogger _logger;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ExceptionLogger"/> class.
+        /// Initializes a new instance of the <see cref="ExceptionLoggerMiddleware"/> class.
         /// </summary>
+        /// <param name="next">The next middleware in the pipeline.</param>
         /// <param name="logger">Graph logger.</param>
-        public ExceptionLogger(IGraphLogger logger)
+        public ExceptionLoggerMiddleware(RequestDelegate next, IGraphLogger logger)
         {
-            this.logger = logger;
+            _next = next;
+            _logger = logger;
         }
 
-        /// <inheritdoc />
-        public Task LogAsync(ExceptionLoggerContext context, CancellationToken cancellationToken)
+        /// <summary>
+        /// Invokes the middleware.
+        /// </summary>
+        /// <param name="context">The HTTP context.</param>
+        /// <returns>A task that represents the completion of request processing.</returns>
+        public async Task InvokeAsync(HttpContext context)
         {
-            this.logger.Error(context.Exception, "Exception processing HTTP request.");
-            return Task.CompletedTask;
+            try
+            {
+                await _next(context);
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Exception processing HTTP request.");
+                throw; // Re-throw the exception after logging it
+            }
         }
     }
 }

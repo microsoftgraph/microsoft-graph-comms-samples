@@ -8,8 +8,8 @@ namespace Sample.Common.Utils
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Microsoft.Graph.Beta.Models;
     using Microsoft.Graph.Communications.Resources;
+    using Microsoft.Graph.Models;
 
     /// <summary>
     /// Resource extensions for testing.

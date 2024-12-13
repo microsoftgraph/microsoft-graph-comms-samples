@@ -7,13 +7,18 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
 {
     using System;
     using System.Diagnostics;
+    using System.IO;
     using System.Linq;
     using System.Net;
     using System.Net.Http;
     using System.Threading.Tasks;
     using System.Web.Http;
+    using Azure.Core;
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Http.Extensions;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Mvc.WebApiCompatShim;
     using Microsoft.Graph;
-    using Microsoft.Graph.Beta.Models;
     using Microsoft.Graph.Communications.Client;
     using Microsoft.Graph.Communications.Client.Authentication;
     using Microsoft.Graph.Communications.Common;
@@ -21,6 +26,7 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
     using Microsoft.Graph.Communications.Common.Transport;
     using Microsoft.Graph.Communications.Core.Exceptions;
     using Microsoft.Graph.Communications.Core.Notifications;
+    using Microsoft.Graph.Models;
     using Sample.PolicyRecordingBot.FrontEnd.Bot;
     using ClientException = Microsoft.Graph.Communications.Core.Exceptions.ClientException;
     using ErrorConstants = Microsoft.Graph.Communications.Core.Exceptions.ErrorConstants;
@@ -29,8 +35,9 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
     /// <summary>
     /// Entry point for handling call-related web hook requests from Skype Platform.
     /// </summary>
-    [RoutePrefix(HttpRouteConstants.CallSignalingRoutePrefix)]
-    public class PlatformCallController : ApiController
+    [Route(HttpRouteConstants.CallSignalingRoutePrefix)]
+    [ApiController]
+    public class PlatformCallController : ControllerBase
     {
         /// <summary>
         /// Gets the logger instance.
@@ -46,13 +53,13 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
         /// Handle a callback for an incoming call.
         /// </summary>
         /// <returns>
-        /// The <see cref="HttpResponseMessage"/>.
+        /// The <see cref="IActionResult"/>.
         /// </returns>
         [HttpPost]
         [Route(HttpRouteConstants.OnIncomingRequestRoute)]
-        public async Task<HttpResponseMessage> OnIncomingRequestAsync()
+        public async Task<IActionResult> OnIncomingRequestAsync()
         {
-            this.Logger.Info($"Received HTTP {this.Request.Method}, {this.Request.RequestUri}");
+            this.Logger.Info($"Received HTTP {this.Request.Method}, {this.Request.GetDisplayUrl()}");
 
             // Instead of passing incoming notification to SDK, let's process it ourselves
             // so we can handle any policy evaluations.
@@ -60,7 +67,7 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
 
             // Enforce the connection close to ensure that requests are evenly load balanced so
             // calls do no stick to one instance of the worker role.
-            response.Headers.ConnectionClose = true;
+            Response.Headers.Add("Connection", "close");
             return response;
         }
 
@@ -68,21 +75,21 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
         /// Handle a callback for an existing call.
         /// </summary>
         /// <returns>
-        /// The <see cref="HttpResponseMessage"/>.
+        /// The <see cref="IActionResult"/>.
         /// </returns>
         [HttpPost]
         [Route(HttpRouteConstants.OnNotificationRequestRoute)]
-        public async Task<HttpResponseMessage> OnNotificationRequestAsync()
+        public async Task<IActionResult> OnNotificationRequestAsync()
         {
-            this.Logger.Info($"Received HTTP {this.Request.Method}, {this.Request.RequestUri}");
+            this.Logger.Info($"Received HTTP {this.Request.Method}, {this.Request.GetDisplayUrl()}");
 
             // Pass the incoming notification to the sdk. The sdk takes care of what to do with it.
-            var response = await this.Client.ProcessNotificationAsync(this.Request).ConfigureAwait(false);
+            var response = await this.Client.ProcessNotificationAsync(getRequestMessage(this.Request)).ConfigureAwait(false);
 
             // Enforce the connection close to ensure that requests are evenly load balanced so
             // calls do no stick to one instance of the worker role.
-            response.Headers.ConnectionClose = true;
-            return response;
+            Response.Headers.Add("Connection", "close");
+            return new ResponseMessageResult(response);
         }
 
         /// <summary>
@@ -93,25 +100,28 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
         /// <param name="client">The stateful client.</param>
         /// <param name="request">The http request that is incoming from service.</param>
         /// <returns>
-        /// Http Response Message after processed by the SDK. This has to
+        /// IActionResult after processed by the SDK. This has to
         /// be returned to the server.
         /// </returns>
-        private static async Task<HttpResponseMessage> ProcessNotificationAsync(ICommunicationsClient client, HttpRequestMessage request)
+        private static async Task<IActionResult> ProcessNotificationAsync(ICommunicationsClient client, HttpRequest request)
         {
             client.NotNull(nameof(client));
             request.NotNull(nameof(request));
             var stopwatch = Stopwatch.StartNew();
 
-            var scenarioId = client.GraphLogger.ParseScenarioId(request);
-            var requestId = client.GraphLogger.ParseRequestId(request);
+            HttpRequestMessageFeature httpRequestMessageFeature = new HttpRequestMessageFeature(request.HttpContext);
+            HttpRequestMessage httpRequestMessage = httpRequestMessageFeature.HttpRequestMessage;
 
-            client.GraphLogger.Log(TraceLevel.Info, $"Processing incoming call notification manually ({requestId}): {request.RequestUri}");
+            var scenarioId = client.GraphLogger.ParseScenarioId(httpRequestMessage);
+            var requestId = client.GraphLogger.ParseRequestId(httpRequestMessage);
+
+            client.GraphLogger.Log(TraceLevel.Info, $"Processing incoming call notification manually ({requestId}): {request.GetDisplayUrl()}");
 
             CommsNotifications notifications = null;
             try
             {
                 // Parse out the notification content.
-                var content = await request.Content.ReadAsStringAsync().ConfigureAwait(false);
+                var content = await new StreamReader(request.Body).ReadToEndAsync().ConfigureAwait(false);
                 var serializer = client.Serializer;
                 notifications = NotificationProcessor.ExtractNotifications(content, serializer);
             }
@@ -120,28 +130,28 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
                 var statusCode = (int)ex.StatusCode >= 200
                     ? ex.StatusCode
                     : HttpStatusCode.BadRequest;
-                return client.LogAndCreateResponse(request, requestId, scenarioId, notifications, statusCode, stopwatch, ex);
+                return new ResponseMessageResult(client.LogAndCreateResponse(getRequestMessage(request), requestId, scenarioId, notifications, statusCode, stopwatch, ex));
             }
             catch (Exception ex)
             {
                 var statusCode = HttpStatusCode.BadRequest;
-                return client.LogAndCreateResponse(request, requestId, scenarioId, notifications, statusCode, stopwatch, ex);
+                return new ResponseMessageResult(client.LogAndCreateResponse(getRequestMessage(request), requestId, scenarioId, notifications, statusCode, stopwatch, ex));
             }
 
             // Parse out the tenant from the auth token.
-            client.GraphLogger.Log(TraceLevel.Info, $"Authenticating inbound request ({requestId}): {request.RequestUri}");
+            client.GraphLogger.Log(TraceLevel.Info, $"Authenticating inbound request ({requestId}): {request.GetDisplayUrl()}");
 
             RequestValidationResult result;
             try
             {
                 // Autenticate the incoming request.
                 result = await client.AuthenticationProvider
-                    .ValidateInboundRequestAsync(request)
+                    .ValidateInboundRequestAsync(getRequestMessage(request))
                     .ConfigureAwait(false);
             }
             catch (Exception ex)
             {
-                client.GraphLogger.Error(ex, $"Failed authenticating inbound request ({requestId}): {request.RequestUri}");
+                client.GraphLogger.Error(ex, $"Failed authenticating inbound request ({requestId}): {request.GetDisplayUrl()}");
 
                 var clientEx = new ClientException(
                     new Error
@@ -151,7 +161,7 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
                     },
                     ex);
 
-                client.GraphLogger.LogHttpRequest(request, HttpStatusCode.InternalServerError, notifications, clientEx);
+                client.GraphLogger.LogHttpRequest(getRequestMessage(request), HttpStatusCode.InternalServerError, notifications, clientEx);
                 throw clientEx;
             }
 
@@ -161,7 +171,7 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
                 client.GraphLogger.Log(TraceLevel.Warning, "Client returned failed token validation");
 
                 var statusCode = HttpStatusCode.Unauthorized;
-                return client.LogAndCreateResponse(request, requestId, scenarioId, notifications, statusCode, stopwatch);
+                return new ResponseMessageResult(client.LogAndCreateResponse(getRequestMessage(request), requestId, scenarioId, notifications, statusCode, stopwatch));
             }
 
             // The request is valid. Let's evaluate any policies on the
@@ -170,41 +180,40 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
             var response = await EvaluateAndHandleIncomingCallPoliciesAsync(call).ConfigureAwait(false);
             if (response != null)
             {
-                var level = client.GraphLogger.LogHttpRequest(request, response.StatusCode, notifications);
-                client.GraphLogger.LogHttpResponse(level, request, response, stopwatch.ElapsedMilliseconds);
+                var level = client.GraphLogger.LogHttpRequest(getRequestMessage(request), (HttpStatusCode)response.StatusCode, notifications);
+                client.GraphLogger.LogHttpResponse(level, getRequestMessage(request), response, stopwatch.ElapsedMilliseconds);
                 stopwatch.Stop();
-                return response;
+                return new ResponseMessageResult(response);
             }
 
             try
             {
-                var additionalData = request.GetHttpAndContentHeaders().ToDictionary(
+                var additionalData = request.Headers.ToDictionary(
                     pair => pair.Key,
                     pair => (object)string.Join(",", pair.Value),
                     StringComparer.OrdinalIgnoreCase);
-                client.ProcessNotifications(request.RequestUri, notifications, result.TenantId, requestId, scenarioId, additionalData);
+                client.ProcessNotifications(new System.Uri(request.GetDisplayUrl()), notifications, result.TenantId, requestId, scenarioId, additionalData);
             }
             catch (ServiceException ex)
             {
                 var statusCode = (int)ex.StatusCode >= 200
                     ? ex.StatusCode
                     : HttpStatusCode.InternalServerError;
-                return client.LogAndCreateResponse(request, requestId, scenarioId, notifications, statusCode, stopwatch, ex);
+                return new ResponseMessageResult(client.LogAndCreateResponse(getRequestMessage(request), requestId, scenarioId, notifications, statusCode, stopwatch, ex));
             }
             catch (Exception ex)
             {
                 var statusCode = HttpStatusCode.InternalServerError;
-                return client.LogAndCreateResponse(request, requestId, scenarioId, notifications, statusCode, stopwatch, ex);
+                return new ResponseMessageResult(client.LogAndCreateResponse(getRequestMessage(request), requestId, scenarioId, notifications, statusCode, stopwatch, ex));
             }
-
-            return client.LogAndCreateResponse(request, requestId, scenarioId, notifications, HttpStatusCode.Accepted, stopwatch);
+            return new ResponseMessageResult(client.LogAndCreateResponse(getRequestMessage(request), requestId, scenarioId, notifications, HttpStatusCode.Accepted, stopwatch));
         }
 
         /// <summary>
         /// Evaluate and perform any policies for the incoming call.
         /// </summary>
         /// <param name="call">The incoming call.</param>
-        /// <returns>The <see cref="HttpResponseMessage"/> depending on the policy.</returns>
+        /// <returns>The <see cref="IActionResult"/> depending on the policy.</returns>
         private static async Task<HttpResponseMessage> EvaluateAndHandleIncomingCallPoliciesAsync(Call call)
         {
             if (string.IsNullOrWhiteSpace(call?.IncomingContext?.ObservedParticipantId))
@@ -257,6 +266,12 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
         {
             // TODO: add redirect logic.
             return Task.FromResult<Uri>(null);
+        }
+
+        private static HttpRequestMessage getRequestMessage(HttpRequest request)
+        {
+            HttpRequestMessageFeature httpRequestMessageFeature = new HttpRequestMessageFeature(request.HttpContext);
+            return httpRequestMessageFeature.HttpRequestMessage;
         }
     }
 }

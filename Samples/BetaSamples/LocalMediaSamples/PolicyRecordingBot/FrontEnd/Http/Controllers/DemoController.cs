@@ -17,6 +17,7 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
     using System.Text;
     using System.Threading.Tasks;
     using System.Web.Http;
+    using Microsoft.AspNetCore.Mvc;
     using Microsoft.Graph.Communications.Common.Telemetry;
     using Microsoft.Graph.Communications.Core.Serialization;
     using Sample.Common.Logging;
@@ -26,7 +27,7 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
     /// DemoController serves as the gateway to explore the bot.
     /// From here you can get a list of calls, and functions for each call.
     /// </summary>
-    public class DemoController : ApiController
+    public class DemoController : ControllerBase
     {
         /// <summary>
         /// Gets the logger instance.
@@ -48,15 +49,13 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
         /// </returns>
         [HttpGet]
         [Route(HttpRouteConstants.Logs + "/")]
-        public HttpResponseMessage OnGetLogs(
+        public IActionResult OnGetLogs(
             int skip = 0,
             int take = 1000)
         {
             var logs = this.Observer.GetLogs(skip, take);
 
-            var response = this.Request.CreateResponse(HttpStatusCode.OK);
-            response.Content = new StringContent(logs, Encoding.UTF8, "text/plain");
-            return response;
+            return Content(logs, "text/plain", Encoding.UTF8);
         }
 
         /// <summary>
@@ -70,16 +69,14 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
         /// </returns>
         [HttpGet]
         [Route(HttpRouteConstants.Logs + "/{filter}")]
-        public HttpResponseMessage OnGetLogs(
+        public IActionResult OnGetLogs(
             string filter,
             int skip = 0,
             int take = 1000)
         {
             var logs = this.Observer.GetLogs(filter, skip, take);
 
-            var response = this.Request.CreateResponse(HttpStatusCode.OK);
-            response.Content = new StringContent(logs, Encoding.UTF8, "text/plain");
-            return response;
+            return Content(logs, "text/plain", Encoding.UTF8);
         }
 
         /// <summary>
@@ -90,13 +87,13 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
         /// </returns>
         [HttpGet]
         [Route(HttpRouteConstants.Calls + "/")]
-        public HttpResponseMessage OnGetCalls()
+        public IActionResult OnGetCalls()
         {
             this.Logger.Info("Getting calls");
 
             if (Bot.Instance.CallHandlers.IsEmpty)
             {
-                return this.Request.CreateResponse(HttpStatusCode.NoContent);
+                return NoContent();
             }
 
             var calls = new List<Dictionary<string, string>>();
@@ -117,9 +114,8 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
 
             var serializer = new CommsSerializer(pretty: true);
             var json = serializer.SerializeObject(calls);
-            var response = this.Request.CreateResponse(HttpStatusCode.OK);
-            response.Content = new StringContent(json, Encoding.UTF8, "application/json");
-            return response;
+            return Content(json, "application/json", Encoding.UTF8);
+
         }
 
         /// <summary>
@@ -133,7 +129,7 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
         /// </returns>
         [HttpDelete]
         [Route(HttpRouteConstants.CallRoute)]
-        public async Task<HttpResponseMessage> OnEndCallAsync(string callLegId)
+        public async Task<IActionResult> OnEndCallAsync(string callLegId)
         {
             this.Logger.Info($"Ending call {callLegId}");
 
@@ -141,13 +137,11 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
             {
                 await Bot.Instance.EndCallByCallLegIdAsync(callLegId).ConfigureAwait(false);
 
-                return this.Request.CreateResponse(HttpStatusCode.OK);
+                return Ok();
             }
             catch (Exception e)
             {
-                var response = this.Request.CreateResponse(HttpStatusCode.InternalServerError);
-                response.Content = new StringContent(e.ToString());
-                return response;
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.ToString());
             }
         }
     }

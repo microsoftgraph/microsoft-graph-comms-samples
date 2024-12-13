@@ -11,6 +11,7 @@
     <RootNamespace>PolicyRecordingBot</RootNamespace>
     <AssemblyName>PolicyRecordingBot</AssemblyName>
     <StartDevelopmentStorage>True</StartDevelopmentStorage>
+	  <TargetFramework>net6.0</TargetFramework>
     <Name>PolicyRecordingBot</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

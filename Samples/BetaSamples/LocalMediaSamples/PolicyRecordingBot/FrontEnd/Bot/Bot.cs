@@ -3,26 +3,26 @@
 // Licensed under the MIT license.
 // </copyright>
 
+using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Data;
+using System.Threading.Tasks;
+using Microsoft.Graph.Communications.Calls;
+using Microsoft.Graph.Communications.Calls.Media;
+using Microsoft.Graph.Communications.Client;
+using Microsoft.Graph.Communications.Common;
+using Microsoft.Graph.Communications.Common.Telemetry;
+using Microsoft.Graph.Communications.Resources;
+using Microsoft.Graph.Models;
+using Microsoft.Skype.Bots.Media;
+using Sample.Common;
+using Sample.Common.Authentication;
+using Sample.Common.Logging;
+using Sample.PolicyRecordingBot.FrontEnd;
+
 namespace Sample.PolicyRecordingBot.FrontEnd.Bot
 {
-    using System;
-    using System.Collections.Concurrent;
-    using System.Collections.Generic;
-    using System.Data;
-    using System.Threading.Tasks;
-    using Microsoft.Graph.Beta.Models;
-    using Microsoft.Graph.Communications.Calls;
-    using Microsoft.Graph.Communications.Calls.Media;
-    using Microsoft.Graph.Communications.Client;
-    using Microsoft.Graph.Communications.Common;
-    using Microsoft.Graph.Communications.Common.Telemetry;
-    using Microsoft.Graph.Communications.Resources;
-    using Microsoft.Skype.Bots.Media;
-    using Sample.Common;
-    using Sample.Common.Authentication;
-    using Sample.Common.Logging;
-    using Sample.PolicyRecordingBot.FrontEnd;
-
     /// <summary>
     /// The core bot logic.
     /// </summary>
@@ -257,7 +257,7 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Bot
         {
             if (!this.CallHandlers.TryGetValue(callLegId, out CallHandler handler))
             {
-                throw new ObjectNotFoundException($"call ({callLegId}) not found");
+                throw new Exception($"call ({callLegId}) not found");
             }
 
             return handler;
