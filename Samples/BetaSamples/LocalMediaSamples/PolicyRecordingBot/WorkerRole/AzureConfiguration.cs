@@ -20,7 +20,6 @@ namespace Sample.PolicyRecordingBot.WorkerRole
     using Microsoft.Azure;
     using Microsoft.Graph.Communications.Common.Telemetry;
     using Microsoft.Skype.Bots.Media;
-    using Microsoft.WindowsAzure.ServiceRuntime;
     using Sample.PolicyRecordingBot.FrontEnd;
     using Sample.PolicyRecordingBot.FrontEnd.Http;
 

@@ -41,13 +41,11 @@
   
   <ItemGroup>
     <PackageReference Include="Microsoft.Data.Services.Client" Version="5.8.5" />
-    <PackageReference Include="Microsoft.Owin.Host.HttpListener" Version="4.2.2" />
     <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.26.0.94-alpha" />
     <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.ServiceBus" Version="5.16.1" />
-    <PackageReference Include="Microsoft.WindowsAzure.SDK" Version="2.9.0" />
     <PackageReference Include="System.Text.Json" Version="8.0.5" />
-    <PackageReference Include="WindowsAzure.Storage" Version="9.3.3"/>
-    <PackageReference Include="System.Collections.Immutable" Version="8.0.0"/>
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
+    <PackageReference Include="System.Collections.Immutable" Version="8.0.0" />
     <Reference Include="MonAgentListener, Version=33.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Configuration" />
   </ItemGroup>
@@ -79,16 +77,9 @@
     </Content>
   </ItemGroup>
   
-  <Target
-    Name="BuiltProjectOutputGroupDependencies"
-    DependsOnTargets="$(BuiltProjectOutputGroupDependenciesDependsOn)"
-    Returns="@(BuiltProjectOutputGroupDependency)">
+  <Target Name="BuiltProjectOutputGroupDependencies" DependsOnTargets="$(BuiltProjectOutputGroupDependenciesDependsOn)" Returns="@(BuiltProjectOutputGroupDependency)">
     <ItemGroup>
-      <BuiltProjectOutputGroupDependency Include="@(ReferenceCopyLocalPaths->'%(FullPath)');
-                                              @(ReferenceDependencyPaths->'%(FullPath)');
-                                              @(NativeReferenceFile->'%(FullPath)');
-                                              @(_DeploymentLooseManifestFile->'%(FullPath)');
-                                              @(ResolvedIsolatedComModules->'%(FullPath)')"/>
+      <BuiltProjectOutputGroupDependency Include="@(ReferenceCopyLocalPaths->'%(FullPath)');&#xD;&#xA;                                              @(ReferenceDependencyPaths->'%(FullPath)');&#xD;&#xA;                                              @(NativeReferenceFile->'%(FullPath)');&#xD;&#xA;                                              @(_DeploymentLooseManifestFile->'%(FullPath)');&#xD;&#xA;                                              @(ResolvedIsolatedComModules->'%(FullPath)')" />
     </ItemGroup>
   </Target>
 </Project>

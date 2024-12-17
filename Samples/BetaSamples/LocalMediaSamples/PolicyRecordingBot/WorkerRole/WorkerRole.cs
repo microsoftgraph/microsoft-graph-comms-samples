@@ -16,7 +16,6 @@ namespace Sample.PolicyRecordingBot.WorkerRole
     using System.Threading.Tasks;
     using Microsoft.Graph.Communications.Common.Telemetry;
     using Microsoft.Graph.Communications.Common.Telemetry.Obfuscation;
-    using Microsoft.WindowsAzure.ServiceRuntime;
     using Sample.PolicyRecordingBot.FrontEnd;
 
     /// <summary>
