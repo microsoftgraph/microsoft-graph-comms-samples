@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "clusterLocation": {
-      "value": "westus2"
+      "value": "WestUS2"
     },
     "clusterName": {
       "value": "%BotNameLower%"
@@ -21,7 +21,7 @@
       "value": "WindowsServer"
     },
     "vmImageSku": {
-      "value": "2016-Datacenter-with-Containers"
+      "value": "2022-datacenter-core"
     },
     "vmImageVersion": {
       "value": "latest"

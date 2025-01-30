@@ -49,7 +49,7 @@
     },
     "vmImageSku": {
       "type": "string",
-      "defaultValue": "2016-Datacenter-with-Containers",
+      "defaultValue": "2022-datacenter-core",
       "metadata": {
         "description": "VM image SKU"
       }
