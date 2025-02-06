@@ -1,0 +1,83 @@
+global:
+  override:
+    name: "" 
+    namespace: ""
+
+scale:
+  maxReplicaCount: 3
+  replicaCount: 3
+
+host: null
+
+image:
+  registry: null
+  name: null
+  tag: null
+  pullPolicy: IfNotPresent
+
+ingress:
+  path: /
+  tls:
+    email: YOUR_EMAIL
+
+secrets:
+  resourceName: bot-application-secrets
+
+autoscaling:
+  enabled: false
+
+internal:
+  port: 9441
+  media: 8445
+
+public:
+  media: 28550
+  https: 443
+  http: 80
+  ip: null
+
+node:
+  targetOS: windows
+  targetArch: amd64
+  targetSku: Windows2022
+
+terminationGracePeriod: 54000
+
+container:
+  env:
+    azureSetting:
+      captureEvents: false
+      eventsFolder: events
+      mediaFolder: archive
+      eventhubKey: ""
+      eventhubName: recordingbotevents
+      eventhubRegion: ""
+      isStereo: false
+      wavSampleRate: 0 # when it is 0, the default sample rate will be set per the stereo flag setting above
+      wavQuality: 100
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+ingress-nginx:
+  enabled: true
+  controller:
+    ingressClassRessource:
+      enabled: false
+    allowSnippetAnnotations: true
+    replicaCount: 1
+    nodeSelector:
+      "kubernetes.io/os": linux
+    service:
+      enabled: false
+    admissionWebhooks:
+      enabled: false
