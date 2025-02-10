@@ -40,7 +40,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
         /// Gets the List of HTTP URLs the app should listen on for incoming call
         /// signaling requests from Skype Platform.
         /// </summary>
-        IEnumerable<string> CallControlListeningUrls { get; }
+        IEnumerable<Uri> CallControlListeningUrls { get; }
 
         /// <summary>
         /// Gets the base callback URL for this instance.  To ensure that all requests
