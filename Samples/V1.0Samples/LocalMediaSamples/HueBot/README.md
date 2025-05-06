@@ -85,7 +85,6 @@ For running locally, we need to use a tunneling mechanism to route traffic to yo
     .\configure_cloud.ps1 -p .\V1.0Samples\LocalMediaSamples\HueBot `
         -dns {full cluster name: huebotxxxxx.xxxx.cloudapp.azure.com} `
         -cn {full cluster name: huebotxxxxx.xxxx.cloudapp.azure.com} `
-        -thumb ABC0000000000000000000000000000000000CBA `
         -bid {bot/cluster name: HueBotxxxxx} `
         -aid {application id created during registration} `
         -as {application secret created during registration}
