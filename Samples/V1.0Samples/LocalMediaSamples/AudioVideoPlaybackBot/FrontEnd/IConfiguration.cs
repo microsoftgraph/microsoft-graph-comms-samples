@@ -1,4 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------
 // <copyright file="IConfiguration.cs" company="Microsoft Corporation">
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT license.
@@ -65,6 +65,11 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
         string AadAppSecret { get; }
 
         /// <summary>
+        /// Gets the BotName generated at the time of registration of the bot.
+        /// </summary>
+        string BotName { get; }
+
+        /// <summary>
         /// Gets the Settings for the bot media platform.
         /// </summary>
         MediaPlatformSettings MediaPlatformSettings { get; }
@@ -98,5 +103,10 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
         /// Gets the ngrok TCP forwarding port.
         /// </summary>
         int TcpForwardingPort { get; }
+
+        /// <summary>
+        /// Gets the tenant ID.
+        /// </summary>
+        string TenantId { get; }
     }
 }

@@ -14,6 +14,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
 {
     using System;
     using System.Diagnostics;
+    using System.Linq;
     using Microsoft.Graph.Communications.Common.Telemetry;
     using Microsoft.Owin.Hosting;
     using Sample.AudioVideoPlaybackBot.FrontEnd.Http;
@@ -62,7 +63,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
         public void Initialize(IConfiguration config)
         {
             this.Configuration = config;
-            this.logger = new GraphLogger();
+            this.logger = new SimpleGraphLogger("AudioVideoPlaybackService");
             EventLog.WriteEntry("AudioVideoPlaybackService", "Initialize Service", EventLogEntryType.Warning);
         }
 
@@ -75,29 +76,46 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
             {
                 if (this.started)
                 {
-                    EventLog.WriteEntry("AudioVideoPlaybackService", "The service is already started", EventLogEntryType.Error);
-                    throw new InvalidOperationException("The service is already started.");
+                    return;
                 }
 
-                Bot.Bot.Instance.Initialize(this, this.logger);
-
-                // Start HTTP server for calls
-                var callStartOptions = new StartOptions();
-                foreach (var url in this.Configuration.CallControlListeningUrls)
+                try
                 {
-                    EventLog.WriteEntry("AudioVideoPlaybackService", $"Adding the url at {url.ToString()}", EventLogEntryType.Warning);
-                    callStartOptions.Urls.Add(url.ToString());
-                }
+                    // Log service startup
+                    var configMessage = $"Starting service with configuration: CallControlBaseUrl={this.Configuration.CallControlBaseUrl}";
+                    EventLog.WriteEntry(SampleConstants.EventLogSource, configMessage, EventLogEntryType.Information);
 
-                this.callHttpServer = WebApp.Start(
-                    callStartOptions,
-                    (appBuilder) =>
+                    // Start the HTTP server
+                    var options = new StartOptions();
+                    foreach (var url in this.Configuration.CallControlListeningUrls)
                     {
-                        var startup = new HttpConfigurationInitializer();
-                        startup.ConfigureSettings(appBuilder, this.logger);
-                    });
-                EventLog.WriteEntry("AudioVideoPlaybackService", $"Service.cs service started", EventLogEntryType.Warning);
-                this.started = true;
+                        options.Urls.Add(url);
+                    }
+
+                    this.callHttpServer = WebApp.Start(
+                        options,
+                        appBuilder =>
+                        {
+                            new HttpConfigurationInitializer().ConfigureSettings(appBuilder, Sample.AudioVideoPlaybackBot.FrontEnd.Bot.Bot.Instance.Logger);
+                        });
+
+                    this.started = true;
+
+                    // Log successful startup
+                    EventLog.WriteEntry(
+                        SampleConstants.EventLogSource,
+                        "Service started successfully",
+                        EventLogEntryType.Information);
+                }
+                catch (Exception ex)
+                {
+                    // Log startup failure
+                    EventLog.WriteEntry(
+                        SampleConstants.EventLogSource,
+                        $"Service failed to start: {ex.ToString()}",
+                        EventLogEntryType.Error);
+                    throw;
+                }
             }
         }
 
@@ -116,7 +134,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd
                 this.started = false;
 
                 this.callHttpServer.Dispose();
-                Bot.Bot.Instance.Dispose();
+                Sample.AudioVideoPlaybackBot.FrontEnd.Bot.Bot.Instance.Dispose();
             }
         }
     }

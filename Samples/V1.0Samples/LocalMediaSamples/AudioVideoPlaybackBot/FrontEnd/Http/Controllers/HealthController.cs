@@ -37,11 +37,12 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http.Controllers
         /// </summary>
         /// <returns>The <see cref="HttpResponseMessage" />.</returns>
         [HttpGet]
-        [Route(HttpRouteConstants.HealthRoute)]
+        [Route("health")]
         public HttpResponseMessage Health()
         {
-            EventLog.WriteEntry(SampleConstants.EventLogSource, $"Serving {HttpRouteConstants.HealthRoute}", EventLogEntryType.Information);
+            EventLog.WriteEntry(SampleConstants.EventLogSource, "Health endpoint called", EventLogEntryType.Information);
             var response = this.Request.CreateResponse(HttpStatusCode.OK);
+            response.Content = new StringContent("Service is healthy", Encoding.UTF8, "text/plain");
             return response;
         }
     }

@@ -59,7 +59,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
         public LoggingMessageHandler(bool isIncomingMessageHandler, IGraphLogger logger, string[] urlIgnorers = null)
         {
             this.isIncomingMessageHandler = isIncomingMessageHandler;
-            this.logger = logger;
+            this.logger = logger ?? new SimpleGraphLogger("DefaultLogger");
             this.urlIgnorers = urlIgnorers;
         }
 
@@ -105,6 +105,22 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
             HttpRequestMessage request,
             CancellationToken cancellationToken)
         {
+            // Create a local logger variable that we can use if the class logger is null
+            IGraphLogger loggerToUse = this.logger;
+
+            // Check if logger is null before using it
+            if (loggerToUse == null)
+            {
+                // Log warning using EventLog
+                EventLog.WriteEntry(
+                    SampleConstants.EventLogSource,
+                    "Logger is null in LoggingMessageHandler. Using temporary logger.",
+                    EventLogEntryType.Warning);
+
+                // Create a temporary logger for this request only
+                loggerToUse = new SimpleGraphLogger("TempLogger");
+            }
+
             string requestCid;
             string responseCid;
 
@@ -135,7 +151,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
                 requestHeaders.AddRange(request.Content.Headers);
             }
 
-            this.logger.LogHttpMessage(
+            loggerToUse.LogHttpMessage(
                 TraceLevel.Info,
                 direction,
                 HttpTraceType.HttpRequest,
@@ -164,7 +180,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
                 responseHeaders.AddRange(response.Content.Headers);
             }
 
-            this.logger.LogHttpMessage(
+            loggerToUse.LogHttpMessage(
                 TraceLevel.Info,
                 direction,
                 HttpTraceType.HttpResponse,

@@ -21,6 +21,7 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
     using Microsoft.Graph;
     using Microsoft.Graph.Communications.Core.Serialization;
     using Sample.AudioVideoPlaybackBot.FrontEnd.Bot;
+    using Sample.AudioVideoPlaybackBot.FrontEnd.UrlUtilities;
 
     /// <summary>
     /// JoinCallController is a third-party controller (non-Bot Framework) that can be called in CVI scenario to trigger the bot to join a call.
@@ -42,7 +43,13 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
         [Route(HttpRouteConstants.JoinCall)]
         public async Task<HttpResponseMessage> JoinCallAsync([FromBody] JoinCallBody joinCallBody)
         {
-            EventLog.WriteEntry(SampleConstants.EventLogSource, $"Serving {HttpRouteConstants.JoinCall}", EventLogEntryType.Information);
+            // Normalize the join URL
+            joinCallBody.JoinURL = FrontEnd.UrlUtilities.UrlNormalizer.NormalizeTeamsMeetingUrl(joinCallBody.JoinURL);
+
+            // Log the normalized URL
+            EventLog.WriteEntry(SampleConstants.EventLogSource, $"Normalized join URL: {joinCallBody.JoinURL}", EventLogEntryType.Information);
+
+            EventLog.WriteEntry(SampleConstants.EventLogSource, $"Received request to join call with URL: {joinCallBody?.JoinURL}", EventLogEntryType.Information);
             try
             {
                 var call = await Bot.Instance.JoinCallAsync(joinCallBody).ConfigureAwait(false);
@@ -86,6 +93,18 @@ namespace Sample.AudioVideoPlaybackBot.FrontEnd.Http
                 response.Content = new StringContent(e.ToString());
                 return response;
             }
+        }
+
+        /// <summary>
+        /// Simple GET endpoint for testing the controller is accessible.
+        /// </summary>
+        /// <returns>The <see cref="HttpResponseMessage"/>.</returns>
+        [HttpGet]
+        [Route(HttpRouteConstants.JoinCall)]
+        public HttpResponseMessage TestJoinCallEndpoint()
+        {
+            EventLog.WriteEntry(SampleConstants.EventLogSource, "Test endpoint for JoinCallController accessed", EventLogEntryType.Information);
+            return this.Request.CreateResponse(HttpStatusCode.OK, "JoinCallController is working");
         }
 
         /// <summary>

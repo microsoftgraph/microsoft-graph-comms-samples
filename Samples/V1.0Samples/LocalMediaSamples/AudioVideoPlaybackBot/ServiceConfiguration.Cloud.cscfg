@@ -4,9 +4,9 @@
     <Instances count="2" />
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=$storage$;AccountKey=$storageKey$" />
-      <Setting name="ServiceDnsName" value="%ServiceDns%"/>
+      <Setting name="ServiceDnsName" value="6b26-66-33-109-81.ngrok-free.app"/>
       <!-- xyz.cloudapp.net-->
-      <Setting name="ServiceCNAME" value="%CName%" />
+      <Setting name="ServiceCNAME" value="6b26-66-33-109-81.ngrok-free.app" />
       <!-- CNAME pointing to the .cloudapp.net if available.-->
       <Setting name="DefaultCertificate" value="ABC0000000000000000000000000000000000CBA" />
       <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" value="" />

@@ -43,7 +43,7 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         /// </summary>
         public WorkerRole()
         {
-            this.logger = new GraphLogger(typeof(WorkerRole).Assembly.GetName().Name, redirectToTrace: true);
+            this.logger = new SimpleGraphLogger(typeof(WorkerRole).Assembly.GetName().Name, redirectToTrace: true);
         }
 
         /// <summary>
@@ -79,8 +79,10 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
                 // ECS backend service enforced TLS 1.2 access.
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
+                var logger = new SimpleGraphLogger("WorkerRole", true);
+
                 // Create and start the environment-independent service.
-                Service.Instance.Initialize(new AzureConfiguration(this.logger));
+                Service.Instance.Initialize(new AzureConfiguration(logger));
                 Service.Instance.Start();
 
                 var result = base.OnStart();
@@ -126,7 +128,9 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
             // TODO: Replace the following with your own logic.
             while (!cancellationToken.IsCancellationRequested)
             {
-                this.logger.Info("Working");
+
+                // Yu Feng
+                //this.logger.Info("Working");
                 await Task.Delay(1000).ConfigureAwait(false);
             }
         }

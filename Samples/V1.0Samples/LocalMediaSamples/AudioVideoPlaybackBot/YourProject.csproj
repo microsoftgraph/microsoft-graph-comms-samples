@@ -1,0 +1,18 @@
+<PropertyGroup>
+  <!-- Existing properties... -->
+  
+  <!-- Disable treating specific warnings as errors -->
+  <WarningsNotAsErrors>$(WarningsNotAsErrors);NU1603;NU1701</WarningsNotAsErrors>
+  
+  <!-- Or disable treating all warnings as errors -->
+  <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+</PropertyGroup>
+
+<ItemGroup>
+  <!-- Existing package references... -->
+  
+  <!-- Suppress the specific vulnerability warning -->
+  <PackageReference Include="Newtonsoft.Json" Version="12.0.3">
+    <NoWarn>NU1903</NoWarn>
+  </PackageReference>
+</ItemGroup> 

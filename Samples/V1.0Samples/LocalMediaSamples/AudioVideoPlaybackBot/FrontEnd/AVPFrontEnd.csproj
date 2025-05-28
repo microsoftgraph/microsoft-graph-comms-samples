@@ -36,6 +36,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Authentication\CustomAuthenticationProvider.cs" />
     <Compile Include="Bot\Bot.cs" />
     <Compile Include="Bot\BotMediaStream.cs" />
     <Compile Include="Bot\CallHandler.cs" />
@@ -54,7 +55,9 @@
     <Compile Include="LRUCache.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service.cs" />
+    <Compile Include="SimpleGraphLogger.cs" />
     <Compile Include="Utilities.cs" />
+    <Compile Include="Utilities\UrlNormalizer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Skype.Internal.Media.H264, Version=0.0.0.0, Culture=neutral, processorArchitecture=AMD64">
@@ -77,6 +80,9 @@
       <Project>{3268e59c-90dc-4d7b-97ea-a1dbb2716df3}</Project>
       <Name>Sample.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

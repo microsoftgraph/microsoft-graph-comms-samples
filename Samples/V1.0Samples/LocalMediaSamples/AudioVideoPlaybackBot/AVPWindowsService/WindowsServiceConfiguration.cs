@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
+using System.Linq;
+using System.Configuration;
 
 namespace AVPWindowsService
 {
@@ -45,7 +47,11 @@ namespace AVPWindowsService
         /// Gets or sets the call control listening urls.
         /// </summary>
         /// <value>The call control listening urls.</value>
-        public IEnumerable<Uri> CallControlListeningUrls { get; set; }
+        private IEnumerable<Uri> CallControlListeningUris { get; set; }
+
+        /// <inheritdoc/>
+        public IEnumerable<string> CallControlListeningUrls => 
+            CallControlListeningUris?.Select(uri => uri.ToString());
 
         /// <inheritdoc/>
         public Uri PlaceCallEndpointUrl { get; private set; }
@@ -247,7 +253,7 @@ namespace AVPWindowsService
                 controlListenUris.Add(new Uri($"{BotInternalHostingProtocol}://{this.ServiceCname}:{BotInternalPort}/"));
                 EventLog.WriteEntry(SampleConstants.EventLogSource, $"WindowsServiceConfiguration controlListenUrl 2 {$"{BotInternalHostingProtocol}://{this.ServiceCname}:{BotInternalPort}/"}", EventLogEntryType.Warning);
             }
-            this.CallControlListeningUrls = controlListenUris;
+            this.CallControlListeningUris = controlListenUris;
 
             this.MediaPlatformSettings = new MediaPlatformSettings()
             {
@@ -371,6 +377,20 @@ namespace AVPWindowsService
             this.MediaInternalPort = envs.MediaInternalPort;
             this.MediaInstanceExternalPort = envs.MediaInstanceExternalPort;
         }
+
+        /// <inheritdoc/>
+        public int MediaPort => MediaPlatformSettings.MediaPlatformInstanceSettings.InstanceInternalPort;
+
+        /// <inheritdoc/>
+        public int SignalingPort => BotCallingInternalPort;
+
+        /// <inheritdoc/>
+        public int TcpForwardingPort => MediaPlatformSettings.MediaPlatformInstanceSettings.InstancePublicPort;
+
+        /// <summary>
+        /// Gets the Azure Active Directory tenant ID.
+        /// </summary>
+        public string TenantId => ConfigurationManager.AppSettings["AadTenantId"];
     }
 
 }
