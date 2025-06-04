@@ -168,8 +168,8 @@ namespace Sample.PolicyRecordingBot.FrontEnd.Http
             // incoming call before sending it off to the SDK for processing.
             var call = notifications?.Value?.FirstOrDefault()?.GetResourceData() as Call;
 
-            // Set the call options to enable delta roster notifications.
-            call.CallOptions = new IncomingCallOptions { IsDeltaRosterEnabled = true };
+            // Set the call options to enable delta roster notifications and interactive partial roster.
+            call.CallOptions = new IncomingCallOptions { IsDeltaRosterEnabled = true, IsInteractiveRosterEnabled = true };
             var response = await EvaluateAndHandleIncomingCallPoliciesAsync(call).ConfigureAwait(false);
             if (response != null)
             {
