@@ -101,6 +101,13 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         private const string H264640X36030FpsKey = "H264_640x360_30Fps";
 
         /// <summary>
+        /// localPort specified in <InputEndpoint name="DefaultCallControlEndpoint" protocol="tcp" port="443" localPort="9441" />
+        /// in .csdef. This is needed for running in emulator. Currently only messaging can be debugged in the emulator.
+        /// Media debugging in emulator will be supported in future releases.
+        /// </summary>
+        private const int DefaultPort = 9441;
+
+        /// <summary>
         /// videoFile location for the specified resolution.
         /// </summary>
         private const string H264320X18015FpsKey = "H264_320x180_15Fps";
@@ -177,7 +184,7 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
         public string ServiceCname { get; private set; }
 
         /// <inheritdoc/>
-        public IEnumerable<string> CallControlListeningUrls { get; private set; }
+        public IEnumerable<Uri> CallControlListeningUrls { get; private set; }
 
         /// <inheritdoc/>
         public Uri CallControlBaseUrl { get; private set; }
@@ -400,14 +407,14 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
 
             this.AudioVideoFileLengthInSec = avFileLengthInSec;
 
-            var controlListenUris = new List<string>();
+            var controlListenUris = new List<Uri>();
             if (RoleEnvironment.IsEmulated)
             {
                 // Create structured config objects for service.
                 this.CallControlBaseUrl = new Uri($"https://{this.ServiceCname}/{HttpRouteConstants.CallSignalingRoutePrefix}");
 
-                controlListenUris.Add("https://+:" + this.SignalingPort + "/");
-                controlListenUris.Add("http://+:" + (this.SignalingPort + 1) + "/");
+                controlListenUris.Add(new Uri("https://+:" + this.SignalingPort + "/"));
+                controlListenUris.Add(new Uri("http://+:" + (this.SignalingPort + 1) + "/"));
             }
             else
             {
@@ -418,8 +425,8 @@ namespace Sample.AudioVideoPlaybackBot.WorkerRole
                     instanceCallControlPublicPort,
                     HttpRouteConstants.CallSignalingRoutePrefix));
 
-                controlListenUris.Add("https://" + instanceCallControlIpEndpoint + "/");
-                controlListenUris.Add("https://" + defaultEndpoint.IPEndpoint + "/");
+                controlListenUris.Add(new Uri("https://" + instanceCallControlIpEndpoint + "/"));
+                controlListenUris.Add(new Uri("https://" + defaultEndpoint.IPEndpoint + "/"));
             }
 
             this.TraceConfigValue("CallControlCallbackUri", this.CallControlBaseUrl);

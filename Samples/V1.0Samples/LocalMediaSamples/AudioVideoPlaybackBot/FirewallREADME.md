@@ -3,7 +3,7 @@
 
 ## Step 1: Create a Virtual Network and Subnet for Azure Firewall
 
-    1. Go to Virtual Network or create a new one if it doesn't exist.
+    1.  Go to Virtual Network or create a new one if it doesn't exist.
     2. Create a subnet for the firewall with the purpose set to "Azure Firewall". ![Create subnet](Images/CreateSubnet.png)
     3. Go to the firewall section and click on "Add firewall". ![Create firewall](Images/CreateFirewall.png)
 
@@ -17,7 +17,7 @@
 
 ## Step 3: Configure Firewall Policy
 
-    1. Open the firewall policy created in Step 2.
+    1. Open the firewall policy created in Step 2.  
     2. Navigate to Settings.
 
 ## Step 4: Configure Application Rules (Ingress)
@@ -28,7 +28,7 @@
     c. Assign the lowest number as the priority.
     d. Specify a name for the rule.
     e. Define the source (e.g., your VM subnet) or use `*` to allow all IP addresses.
-    f. Allow specific domains (e.g., `policyrecordingbot.eastus.cloudapp.azure.com`).
+    f. Allow specific domains (e.g., `audiovideoplaybackbot.eastus.cloudapp.azure.com`).
     g. Save the rule.
 
 ## Step 5: Configure Network Rules (Egress)
