@@ -1,0 +1,11 @@
+tunnels:
+  http:
+    addr: "http://host.docker.internal:80"
+    proto: http
+    subdomain: SUBDOMAIN
+    host_header: "host.docker.internal:80"
+  https: 
+    addr: "https://host.docker.internal:443"
+    proto: http
+    subdomain: SUBDOMAIN
+    host_header: "host.docker.internal:443"
