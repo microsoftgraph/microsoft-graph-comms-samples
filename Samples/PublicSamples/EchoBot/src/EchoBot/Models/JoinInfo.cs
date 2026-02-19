@@ -42,9 +42,9 @@ namespace EchoBot.Models
         /// <exception cref="ArgumentException">Join URL is invalid: missing Tid - joinURL</exception>
         public static (ChatInfo, MeetingInfo) ParseJoinURL(string joinURL)
         {
-            if (string.IsNullOrEmpty(joinURL))
+            if (string.IsNullOrWhiteSpace(joinURL))
             {
-                throw new ArgumentException($"Join URL cannot be null or empty: {joinURL}", nameof(joinURL));
+                throw new ArgumentException($"Join URL cannot be null, empty, or whitespace: {joinURL}", nameof(joinURL));
             }
 
             var decodedURL = WebUtility.UrlDecode(joinURL);
@@ -59,7 +59,7 @@ namespace EchoBot.Models
             if (!match.Success)
             {
                 // Check if this is a new shorter URL format
-                if (decodedURL.Contains("teams.microsoft.com") && !decodedURL.Contains("?context="))
+                if (decodedURL.Contains("teams.microsoft.com") && decodedURL.Contains("/meetup-join/") && !decodedURL.Contains("?context="))
                 {
                     throw new NotSupportedException(
                         $"This appears to be a new shorter Teams meeting URL format which is not supported by this parser. " +
