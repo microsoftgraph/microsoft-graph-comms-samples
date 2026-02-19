@@ -25,7 +25,7 @@ namespace Samples.Common.Tests
         /// <summary>
         /// Gets or sets the test context.
         /// </summary>
-        public TestContext TestContext
+        public TestContext? TestContext
         {
             get; set;
         }
@@ -73,7 +73,7 @@ namespace Samples.Common.Tests
                 onNext: @event =>
                 {
                     Interlocked.Increment(ref loggerCount);
-                    this.TestContext.WriteLine(formatter.Format(@event));
+                    this.TestContext!.WriteLine(formatter.Format(@event));
                 },
                 onError: @exception =>
                 {
@@ -107,7 +107,7 @@ namespace Samples.Common.Tests
                 onNext: @event =>
                 {
                     Interlocked.Increment(ref errorCount);
-                    this.TestContext.WriteLine(formatter.Format(@event));
+                    this.TestContext!.WriteLine(formatter.Format(@event));
                 },
                 onError: @exception =>
                 {

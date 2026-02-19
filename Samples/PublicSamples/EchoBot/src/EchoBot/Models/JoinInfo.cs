@@ -28,11 +28,17 @@ namespace EchoBot.Models
     {
         /// <summary>
         /// Parse Join URL into its components.
+        /// NOTE: This method only works with the OLD Teams meeting URL format that includes a context parameter.
+        /// For NEW shorter Teams meeting URLs (introduced with MCnumber rollout), you should:
+        /// 1. Use the Graph API to query the OnlineMeeting by JoinWebUrl to get meeting details
+        /// 2. Use JoinMeetingIdMeetingInfo with the meeting ID and passcode from the API response
+        /// Example: var meeting = await graphClient.Communications.OnlineMeetings.Request().Filter($"JoinWebUrl eq '{encodedUrl}'").GetAsync();
         /// </summary>
         /// <param name="joinURL">Join URL from Team's meeting body.</param>
         /// <returns>Parsed data.</returns>
         /// <exception cref="ArgumentException">Join URL cannot be null or empty: {joinURL} - joinURL</exception>
         /// <exception cref="ArgumentException">Join URL cannot be parsed: {joinURL} - joinURL</exception>
+        /// <exception cref="NotSupportedException">Join URL is in new shorter format - use Graph API</exception>
         /// <exception cref="ArgumentException">Join URL is invalid: missing Tid - joinURL</exception>
         public static (ChatInfo, MeetingInfo) ParseJoinURL(string joinURL)
         {
@@ -43,10 +49,25 @@ namespace EchoBot.Models
 
             var decodedURL = WebUtility.UrlDecode(joinURL);
 
+            //// Old URL format with context parameter:
+            //// https://teams.microsoft.com/l/meetup-join/19:cd9ce3da56624fe69c9d7cd026f9126d@thread.skype/1509579179399?context={"Tid":"72f988bf-86f1-41af-91ab-2d7cd011db47","Oid":"550fae72-d251-43ec-868c-373732c2704f","MessageId":"1536978844957"}
+            //// New shorter URL format (not supported by this parser):
+            //// https://teams.microsoft.com/l/meetup-join/...
+
             var regex = new Regex("https://teams\\.microsoft\\.com.*/(?<thread>[^/]+)/(?<message>[^/]+)\\?context=(?<context>{.*})");
             var match = regex.Match(decodedURL);
             if (!match.Success)
             {
+                // Check if this is a new shorter URL format
+                if (decodedURL.Contains("teams.microsoft.com") && !decodedURL.Contains("?context="))
+                {
+                    throw new NotSupportedException(
+                        $"This appears to be a new shorter Teams meeting URL format which is not supported by this parser. " +
+                        $"To join meetings with this URL format, please use the Graph API to resolve the meeting details:\n" +
+                        $"1. Query: GET /communications/onlineMeetings?$filter=JoinWebUrl eq '{Uri.EscapeDataString(joinURL)}'\n" +
+                        $"2. Use JoinMeetingIdMeetingInfo with the meeting.JoinMeetingIdSettings from the response.\n" +
+                        $"See: https://learn.microsoft.com/graph/api/resources/joinmeetingidmeetinginfo");
+                }
                 throw new ArgumentException($"Join URL cannot be parsed: {joinURL}", nameof(joinURL));
             }
 
