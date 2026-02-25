@@ -141,7 +141,7 @@ namespace PsiBot.Services.Bot
 
             var (chatInfo, meetingInfo) = ParseJoinURL(joinCallBody.JoinURL);
 
-            var tenantId = (meetingInfo as OrganizerMeetingInfo).Organizer.GetPrimaryIdentity().GetTenantId();
+            var tenantId = (meetingInfo as OrganizerMeetingInfo)?.Organizer.GetPrimaryIdentity()?.GetTenantId();
             var mediaSession = this.CreateLocalMediaSession();
 
             var joinParams = new JoinMeetingParameters(chatInfo, meetingInfo, mediaSession)
@@ -337,6 +337,23 @@ namespace PsiBot.Services.Bot
             }
 
             var decodedURL = WebUtility.UrlDecode(joinURL);
+
+            //// Shorter URL format: https://teams.microsoft.com/meet/<meetingId>?p=<passcode>
+            var shortUrlRegex = new Regex("https://teams\\.microsoft\\.com/meet/(?<meetingId>[^?]+)(?:\\?p=(?<passcode>[^&]+))?");
+            var shortUrlMatch = shortUrlRegex.Match(decodedURL);
+            if (shortUrlMatch.Success)
+            {
+                var meetingId = shortUrlMatch.Groups["meetingId"].Value;
+                var passcode = shortUrlMatch.Groups["passcode"].Success ? shortUrlMatch.Groups["passcode"].Value : null;
+
+                var meetingInfo = new JoinMeetingIdMeetingInfo
+                {
+                    JoinMeetingId = meetingId,
+                    Passcode = passcode,
+                };
+
+                return (null, meetingInfo);
+            }
 
             //// URL being needs to be in this format.
             //// https://teams.microsoft.com/l/meetup-join/19:cd9ce3da56624fe69c9d7cd026f9126d@thread.skype/1509579179399?context={"Tid":"72f988bf-86f1-41af-91ab-2d7cd011db47","Oid":"550fae72-d251-43ec-868c-373732c2704f","MessageId":"1536978844957"}
