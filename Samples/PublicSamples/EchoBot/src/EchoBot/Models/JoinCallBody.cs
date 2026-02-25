@@ -25,6 +25,14 @@ namespace EchoBot.Models
         public string JoinUrl { get; set; }
 
         /// <summary>
+        /// Gets or sets the tenant id.
+        /// Required when using short meeting URLs (e.g. https://teams.microsoft.com/meet/...).
+        /// The tenant id cannot be inferred from short URLs and must be provided separately.
+        /// </summary>
+        /// <value>The tenant id.</value>
+        public string? TenantId { get; set; }
+
+        /// <summary>
         /// Gets or sets the display name.
         /// Teams client does not allow changing of ones own display name.
         /// If display name is specified, we join as anonymous (guest) user

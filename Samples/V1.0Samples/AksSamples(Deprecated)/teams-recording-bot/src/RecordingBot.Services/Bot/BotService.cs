@@ -151,7 +151,9 @@ namespace RecordingBot.Services.Bot
 
             var (chatInfo, meetingInfo) = JoinInfo.ParseJoinURL(joinCallBody.JoinURL);
 
-            var tenantId = (meetingInfo as OrganizerMeetingInfo).Organizer.GetPrimaryIdentity().GetTenantId();
+            var tenantId =
+                joinCallBody.TenantId ??
+                (meetingInfo as OrganizerMeetingInfo)?.Organizer.GetPrimaryIdentity()?.GetTenantId();
             var mediaSession = this.CreateLocalMediaSession();
 
             var joinParams = new JoinMeetingParameters(chatInfo, meetingInfo, mediaSession)

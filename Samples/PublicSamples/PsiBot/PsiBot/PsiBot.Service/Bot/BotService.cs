@@ -141,7 +141,9 @@ namespace PsiBot.Services.Bot
 
             var (chatInfo, meetingInfo) = ParseJoinURL(joinCallBody.JoinURL);
 
-            var tenantId = (meetingInfo as OrganizerMeetingInfo).Organizer.GetPrimaryIdentity().GetTenantId();
+            var tenantId =
+                joinCallBody.TenantId ??
+                (meetingInfo as OrganizerMeetingInfo)?.Organizer.GetPrimaryIdentity()?.GetTenantId();
             var mediaSession = this.CreateLocalMediaSession();
 
             var joinParams = new JoinMeetingParameters(chatInfo, meetingInfo, mediaSession)
@@ -338,43 +340,57 @@ namespace PsiBot.Services.Bot
 
             var decodedURL = WebUtility.UrlDecode(joinURL);
 
-            //// URL being needs to be in this format.
+            //// Long URL format:
             //// https://teams.microsoft.com/l/meetup-join/19:cd9ce3da56624fe69c9d7cd026f9126d@thread.skype/1509579179399?context={"Tid":"72f988bf-86f1-41af-91ab-2d7cd011db47","Oid":"550fae72-d251-43ec-868c-373732c2704f","MessageId":"1536978844957"}
 
             var regex = new Regex("https://teams\\.microsoft\\.com.*/(?<thread>[^/]+)/(?<message>[^/]+)\\?context=(?<context>{.*})");
             var match = regex.Match(decodedURL);
-            if (!match.Success)
+            if (match.Success)
             {
-                throw new ArgumentException($"Join URL cannot be parsed: {joinURL}", nameof(joinURL));
-            }
-
-            using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(match.Groups["context"].Value)))
-            {
-                var ctxt = (Meeting)new DataContractJsonSerializer(typeof(Meeting)).ReadObject(stream);
-
-                if (string.IsNullOrEmpty(ctxt.Tid))
+                using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(match.Groups["context"].Value)))
                 {
-                    throw new ArgumentException("Join URL is invalid: missing Tid", nameof(joinURL));
-                }
+                    var ctxt = (Meeting)new DataContractJsonSerializer(typeof(Meeting)).ReadObject(stream);
 
-                var chatInfo = new ChatInfo
-                {
-                    ThreadId = match.Groups["thread"].Value,
-                    MessageId = match.Groups["message"].Value,
-                    ReplyChainMessageId = ctxt.MessageId,
-                };
-
-                var meetingInfo = new OrganizerMeetingInfo
-                {
-                    Organizer = new IdentitySet
+                    if (string.IsNullOrEmpty(ctxt.Tid))
                     {
-                        User = new Identity { Id = ctxt.Oid },
-                    },
-                };
-                meetingInfo.Organizer.User.SetTenantId(ctxt.Tid);
+                        throw new ArgumentException("Join URL is invalid: missing Tid", nameof(joinURL));
+                    }
 
-                return (chatInfo, meetingInfo);
+                    var chatInfo = new ChatInfo
+                    {
+                        ThreadId = match.Groups["thread"].Value,
+                        MessageId = match.Groups["message"].Value,
+                        ReplyChainMessageId = ctxt.MessageId,
+                    };
+
+                    var meetingInfo = new OrganizerMeetingInfo
+                    {
+                        Organizer = new IdentitySet
+                        {
+                            User = new Identity { Id = ctxt.Oid },
+                        },
+                    };
+                    meetingInfo.Organizer.User.SetTenantId(ctxt.Tid);
+
+                    return (chatInfo, meetingInfo);
+                }
             }
+
+            //// Short URL format: https://teams.microsoft.com/meet/<meetingId>?p=<passcode>
+            var shortUrlRegex = new Regex("https://teams\\.microsoft\\.com/meet/(?<meetingId>[^?]+)\\?p=(?<passcode>.+)");
+            var shortUrlMatch = shortUrlRegex.Match(decodedURL);
+            if (shortUrlMatch.Success)
+            {
+                var meetingInfo = new JoinMeetingIdMeetingInfo
+                {
+                    JoinMeetingId = shortUrlMatch.Groups["meetingId"].Value,
+                    Passcode = shortUrlMatch.Groups["passcode"].Value,
+                };
+
+                return (new ChatInfo(), meetingInfo);
+            }
+
+            throw new ArgumentException($"Join URL cannot be parsed: {joinURL}", nameof(joinURL));
         }
     }
 }
