@@ -144,6 +144,13 @@ namespace PsiBot.Services.Bot
             var tenantId =
                 joinCallBody.TenantId ??
                 (meetingInfo as OrganizerMeetingInfo)?.Organizer.GetPrimaryIdentity()?.GetTenantId();
+
+            if (string.IsNullOrWhiteSpace(tenantId))
+            {
+                throw new InvalidOperationException(
+                    "TenantId is required to join the meeting. " +
+                    "Ensure JoinCallBody.TenantId is provided or the meeting URL includes organizer tenant information.");
+            }
             var mediaSession = this.CreateLocalMediaSession();
 
             var joinParams = new JoinMeetingParameters(chatInfo, meetingInfo, mediaSession)
