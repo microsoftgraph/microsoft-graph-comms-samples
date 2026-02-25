@@ -225,15 +225,18 @@ namespace EchoBot.Bot
                 };
             }
 
-            if (!this.CallHandlers.TryGetValue(joinParams.ChatInfo.ThreadId, out CallHandler? call))
+            // For short meeting URL joins, ChatInfo.ThreadId is not known until after the call
+            // is established, so skip duplicate detection when ThreadId is null or empty.
+            var threadId = joinParams.ChatInfo.ThreadId;
+            if (!string.IsNullOrEmpty(threadId) && this.CallHandlers.TryGetValue(threadId, out CallHandler? _))
             {
-                var statefulCall = await this.Client.Calls().AddAsync(joinParams, scenarioId).ConfigureAwait(false);
-                statefulCall.GraphLogger.Info($"Call creation complete: {statefulCall.Id}");
-                _logger.LogInformation($"Call creation complete: {statefulCall.Id}");
-                return statefulCall;
+                throw new Exception("Call has already been added");
             }
 
-            throw new Exception("Call has already been added");
+            var statefulCall = await this.Client.Calls().AddAsync(joinParams, scenarioId).ConfigureAwait(false);
+            statefulCall.GraphLogger.Info($"Call creation complete: {statefulCall.Id}");
+            _logger.LogInformation($"Call creation complete: {statefulCall.Id}");
+            return statefulCall;
         }
 
         /// <summary>
@@ -329,13 +332,13 @@ namespace EchoBot.Bot
             foreach (var call in args.AddedResources)
             {
                 var callHandler = new CallHandler(call, _settings, _logger);
-                var threadId = call.Resource.ChatInfo.ThreadId;
+                var threadId = call.Resource.ChatInfo?.ThreadId ?? call.Id;
                 this.CallHandlers[threadId] = callHandler;
             }
 
             foreach (var call in args.RemovedResources)
             {
-                var threadId = call.Resource.ChatInfo.ThreadId;
+                var threadId = call.Resource.ChatInfo?.ThreadId ?? call.Id;
                 if (this.CallHandlers.TryRemove(threadId, out CallHandler? handler))
                 {
                     Task.Run(async () => {
