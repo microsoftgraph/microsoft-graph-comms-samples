@@ -196,7 +196,15 @@ namespace EchoBot.Bot
 
             var tenantId =
                 joinCallBody.TenantId ??
-                (meetingInfo as OrganizerMeetingInfo)?.Organizer.GetPrimaryIdentity()?.GetTenantId();
+                (meetingInfo as OrganizerMeetingInfo)?.Organizer?.GetPrimaryIdentity()?.GetTenantId();
+
+            if (string.IsNullOrWhiteSpace(tenantId))
+            {
+                throw new HttpRequestException(
+                    "TenantId could not be resolved from the join URL or request body.",
+                    null,
+                    HttpStatusCode.BadRequest);
+            }
             var mediaSession = this.CreateLocalMediaSession();
 
             var joinParams = new JoinMeetingParameters(chatInfo, meetingInfo, mediaSession)
