@@ -99,6 +99,15 @@ namespace AVPWindowsService
         /// <inheritdoc/>
         public int AudioVideoFileLengthInSec { get; private set; }
 
+        /// <inheritdoc/>
+        public int SignalingPort { get; private set; }
+
+        /// <inheritdoc/>
+        public int MediaPort { get; private set; }
+
+        /// <inheritdoc/>
+        public int TcpForwardingPort { get; private set; }
+
         /// <summary>
         /// Gets the h264 1920 x 1080 vbss file location.
         /// </summary>
