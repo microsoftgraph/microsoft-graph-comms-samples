@@ -34,7 +34,7 @@ namespace EchoBot.Models
         /// <exception cref="ArgumentException">Join URL cannot be null or empty: {joinURL} - joinURL</exception>
         /// <exception cref="ArgumentException">Join URL cannot be parsed: {joinURL} - joinURL</exception>
         /// <exception cref="ArgumentException">Join URL is invalid: missing Tid - joinURL</exception>
-        public static (ChatInfo, MeetingInfo) ParseJoinURL(string joinURL)
+        public static (ChatInfo?, MeetingInfo) ParseJoinURL(string joinURL)
         {
             if (string.IsNullOrEmpty(joinURL))
             {
@@ -42,6 +42,23 @@ namespace EchoBot.Models
             }
 
             var decodedURL = WebUtility.UrlDecode(joinURL);
+
+            //// Shorter URL format: https://teams.microsoft.com/meet/<meetingId>?p=<passcode>
+            var shortUrlRegex = new Regex("https://teams\\.microsoft\\.com/meet/(?<meetingId>[^?]+)(?:\\?p=(?<passcode>[^&]+))?");
+            var shortUrlMatch = shortUrlRegex.Match(decodedURL);
+            if (shortUrlMatch.Success)
+            {
+                var meetingId = shortUrlMatch.Groups["meetingId"].Value;
+                var passcode = shortUrlMatch.Groups["passcode"].Success ? shortUrlMatch.Groups["passcode"].Value : null;
+
+                var meetingInfo = new JoinMeetingIdMeetingInfo
+                {
+                    JoinMeetingId = meetingId,
+                    Passcode = passcode,
+                };
+
+                return (null, meetingInfo);
+            }
 
             var regex = new Regex("https://teams\\.microsoft\\.com.*/(?<thread>[^/]+)/(?<message>[^/]+)\\?context=(?<context>{.*})");
             var match = regex.Match(decodedURL);
