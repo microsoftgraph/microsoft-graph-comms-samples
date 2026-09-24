@@ -28,37 +28,52 @@ namespace Sample.Common.Meetings
         {
             var decodedURL = WebUtility.UrlDecode(joinURL);
 
-            //// URL being needs to be in this format.
+            //// Long URL format:
             //// https://teams.microsoft.com/l/meetup-join/19:cd9ce3da56624fe69c9d7cd026f9126d@thread.skype/1509579179399?context={"Tid":"72f988bf-86f1-41af-91ab-2d7cd011db47","Oid":"550fae72-d251-43ec-868c-373732c2704f","MessageId":"1536978844957"}
 
             var regex = new Regex("https://teams\\.microsoft\\.com.*/(?<thread>[^/]+)/(?<message>[^/]+)\\?context=(?<context>{.*})");
             var match = regex.Match(decodedURL);
-            if (!match.Success)
+            if (match.Success)
             {
-                throw new ArgumentException($"Join URL cannot be parsed: {joinURL}.", nameof(joinURL));
-            }
-
-            using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(match.Groups["context"].Value)))
-            {
-                var ctxt = (Context)new DataContractJsonSerializer(typeof(Context)).ReadObject(stream);
-                var chatInfo = new ChatInfo
+                using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(match.Groups["context"].Value)))
                 {
-                    ThreadId = match.Groups["thread"].Value,
-                    MessageId = match.Groups["message"].Value,
-                    ReplyChainMessageId = ctxt.MessageId,
-                };
-
-                var meetingInfo = new OrganizerMeetingInfo
-                {
-                    Organizer = new IdentitySet
+                    var ctxt = (Context)new DataContractJsonSerializer(typeof(Context)).ReadObject(stream);
+                    var chatInfo = new ChatInfo
                     {
-                        User = new Identity { Id = ctxt.Oid },
-                    },
+                        ThreadId = match.Groups["thread"].Value,
+                        MessageId = match.Groups["message"].Value,
+                        ReplyChainMessageId = ctxt.MessageId,
+                    };
+
+                    var meetingInfo = new OrganizerMeetingInfo
+                    {
+                        Organizer = new IdentitySet
+                        {
+                            User = new Identity { Id = ctxt.Oid },
+                        },
+                    };
+
+                    // meetingInfo.Organizer.User.SetTenantId(ctxt.Tid);
+                    return (chatInfo, meetingInfo);
+                }
+            }
+
+            //// Short URL format:
+            //// https://teams.microsoft.com/meet/2414128301281?p=NzhDLMLT8b07DrkwkE
+            var shortUrlRegex = new Regex("https://teams\\.microsoft\\.com/meet/(?<meetingId>[^?]+)\\?p=(?<passcode>.+)");
+            var shortUrlMatch = shortUrlRegex.Match(decodedURL);
+            if (shortUrlMatch.Success)
+            {
+                var meetingInfo = new JoinMeetingIdMeetingInfo
+                {
+                    JoinMeetingId = shortUrlMatch.Groups["meetingId"].Value,
+                    Passcode = shortUrlMatch.Groups["passcode"].Value,
                 };
 
-                // meetingInfo.Organizer.User.SetTenantId(ctxt.Tid);
-                return (chatInfo, meetingInfo);
+                return (new ChatInfo(), meetingInfo);
             }
+
+            throw new ArgumentException($"Join URL cannot be parsed: {joinURL}.", nameof(joinURL));
         }
 
         /// <summary>

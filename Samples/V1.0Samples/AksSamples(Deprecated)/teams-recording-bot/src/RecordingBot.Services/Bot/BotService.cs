@@ -151,7 +151,16 @@ namespace RecordingBot.Services.Bot
 
             var (chatInfo, meetingInfo) = JoinInfo.ParseJoinURL(joinCallBody.JoinURL);
 
-            var tenantId = (meetingInfo as OrganizerMeetingInfo).Organizer.GetPrimaryIdentity().GetTenantId();
+            var tenantId =
+                joinCallBody.TenantId ??
+                (meetingInfo as OrganizerMeetingInfo)?.Organizer.GetPrimaryIdentity()?.GetTenantId();
+
+            if (string.IsNullOrWhiteSpace(tenantId))
+            {
+                throw new InvalidOperationException(
+                    "TenantId is required to join the call. " +
+                    "Ensure that JoinCallBody.TenantId is set or the meeting URL contains organizer tenant information.");
+            }
             var mediaSession = this.CreateLocalMediaSession();
 
             var joinParams = new JoinMeetingParameters(chatInfo, meetingInfo, mediaSession)
