@@ -44,8 +44,9 @@ if (! (Get-AzKeyVault -Name $KVName -EA SilentlyContinue))
     try
     {
         New-AzKeyVault -Name $KVName -ResourceGroupName $RGName -Location $Location `
-            -EnabledForDeployment -EnabledForTemplateDeployment -EnablePurgeProtection:$EnablePurgeProtection `
-            -EnableRbacAuthorization -Sku Standard -ErrorAction Stop
+            -EnabledForDeployment -EnabledForTemplateDeployment -EnablePurgeProtection:$EnablePurgeProtection 
+             -Sku Standard `
+             -ErrorAction Stop
     }
     catch
     {
