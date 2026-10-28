@@ -75,7 +75,8 @@ namespace EchoBot.Bot
         /// <summary>
         /// Maps each joined meeting to the id of its call, so the same meeting is not joined twice.
         /// A long join URL is keyed by its chat thread; a short join URL, which carries no thread,
-        /// is keyed by tenant and join meeting id.
+        /// is keyed by tenant and join meeting id, and its call also claims the thread key once the
+        /// call exposes the thread.
         /// </summary>
         private readonly ConcurrentDictionary<string, string> _meetingCallIds = new ConcurrentDictionary<string, string>();
 
@@ -222,8 +223,10 @@ namespace EchoBot.Bot
             var meetingKey = GetMeetingKey(chatInfo, meetingInfo, tenantId);
 
             // Reserve the meeting before creating the call, so a repeated or concurrent request for
-            // the same meeting cannot create a second call.
-            if (!this.TryReserveMeeting(meetingKey, chatInfo?.ThreadId))
+            // the same meeting cannot create a second call. A short URL carries no thread, so a request
+            // for a meeting already joined through its other URL form can only be detected once the
+            // new call exposes its thread; ReserveMeetingThread then ends the duplicate call.
+            if (!this.TryReserveMeeting(meetingKey))
             {
                 throw new Exception("Call has already been added");
             }
@@ -251,7 +254,9 @@ namespace EchoBot.Bot
                 }
 
                 var statefulCall = await this.Client.Calls().AddAsync(joinParams, scenarioId).ConfigureAwait(false);
-                _meetingCallIds[meetingKey] = statefulCall.Id;
+
+                // The call may already have claimed this reservation when it was added to the collection.
+                _meetingCallIds.TryUpdate(meetingKey, statefulCall.Id, PendingCallId);
                 statefulCall.GraphLogger.Info($"Call creation complete: {statefulCall.Id}");
                 _logger.LogInformation($"Call creation complete: {statefulCall.Id}");
                 return statefulCall;
@@ -284,18 +289,9 @@ namespace EchoBot.Bot
         /// Reserves a meeting for a new call, unless a call to it already exists or is being created.
         /// </summary>
         /// <param name="meetingKey">The meeting key.</param>
-        /// <param name="threadId">The meeting's chat thread id, when known.</param>
         /// <returns>True when the meeting was reserved.</returns>
-        private bool TryReserveMeeting(string meetingKey, string? threadId)
+        private bool TryReserveMeeting(string meetingKey)
         {
-            // A meeting first joined from its short URL is keyed by join meeting id, but its call
-            // learns the real thread once established, so also match live calls by thread.
-            if (threadId != null &&
-                this.CallHandlers.Values.Any(handler => handler.Call.Resource.ChatInfo?.ThreadId == threadId))
-            {
-                return false;
-            }
-
             while (!_meetingCallIds.TryAdd(meetingKey, PendingCallId))
             {
                 if (!_meetingCallIds.TryGetValue(meetingKey, out var existingCallId))
@@ -316,6 +312,56 @@ namespace EchoBot.Bot
             }
 
             return true;
+        }
+
+        /// <summary>
+        /// Records the meeting's chat thread as the reservation for a call, once the call exposes it.
+        /// The thread is the identity shared by the long and short forms of a meeting URL, but a call
+        /// joined from the short URL only learns it after joining. If another live call already holds
+        /// the thread, the same meeting was joined through the other URL form, so this call is ended.
+        /// </summary>
+        /// <param name="call">The call.</param>
+        private void ReserveMeetingThread(ICall call)
+        {
+            var threadId = call.Resource?.ChatInfo?.ThreadId;
+            if (string.IsNullOrEmpty(threadId))
+            {
+                return;
+            }
+
+            var threadKey = $"thread:{threadId}";
+            while (true)
+            {
+                var existingCallId = _meetingCallIds.GetOrAdd(threadKey, call.Id);
+                if (existingCallId == call.Id)
+                {
+                    return;
+                }
+
+                if (existingCallId != PendingCallId && this.Client.Calls()[existingCallId] != null)
+                {
+                    _logger.LogWarning($"Call {call.Id} is in meeting thread {threadId}, which call {existingCallId} has already joined. Ending the duplicate call.");
+                    _ = call.DeleteAsync().ForgetAndLogExceptionAsync(call.GraphLogger, $"Ending duplicate call {call.Id}.");
+                    return;
+                }
+
+                // Either the join that reserved this thread is still completing, possibly this call's
+                // own join, or the recorded call has ended. Either way, the thread now belongs to this call.
+                if (_meetingCallIds.TryUpdate(threadKey, call.Id, existingCallId))
+                {
+                    return;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Handles updates to a call, to reserve its meeting thread once the call exposes it.
+        /// </summary>
+        /// <param name="sender">The call.</param>
+        /// <param name="args">The event args containing the call changes.</param>
+        private void CallOnUpdated(ICall sender, ResourceEventArgs<Call> args)
+        {
+            this.ReserveMeetingThread(sender);
         }
 
         /// <summary>
@@ -412,10 +458,14 @@ namespace EchoBot.Bot
             {
                 var callHandler = new CallHandler(call, _settings, _logger);
                 this.CallHandlers[call.Id] = callHandler;
+                call.OnUpdated += this.CallOnUpdated;
+                this.ReserveMeetingThread(call);
             }
 
             foreach (var call in args.RemovedResources)
             {
+                call.OnUpdated -= this.CallOnUpdated;
+
                 foreach (var meetingCall in _meetingCallIds.Where(entry => entry.Value == call.Id).ToList())
                 {
                     _meetingCallIds.TryRemove(meetingCall);
