@@ -21,7 +21,7 @@ namespace Sample.IncidentBot.Data
         public string VideoTeleconferenceId { get; set; }
 
         /// <summary>
-        /// Gets or sets the tenant id.
+        /// Gets or sets the tenant id. Required when joining with a short meeting URL, which does not carry organizer information.
         /// </summary>
         public string TenantId { get; set; }
 

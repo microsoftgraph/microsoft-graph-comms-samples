@@ -24,7 +24,7 @@ namespace EchoBot.Bot
     public interface IBotService
     {
         /// <summary>
-        /// Gets the collection of call handlers.
+        /// Gets the collection of call handlers, keyed by call id.
         /// </summary>
         /// <value>The call handlers.</value>
         ConcurrentDictionary<string, CallHandler> CallHandlers { get; }
@@ -38,7 +38,7 @@ namespace EchoBot.Bot
         /// <summary>
         /// End a particular call.
         /// </summary>
-        /// <param name="threadId">The thread id.</param>
+        /// <param name="threadId">The thread id, or the call id returned when the call was joined.</param>
         /// <returns>The <see cref="Task" />.</returns>
         Task EndCallByThreadIdAsync(string threadId);
 

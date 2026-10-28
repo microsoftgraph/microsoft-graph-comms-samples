@@ -130,9 +130,16 @@ namespace Sample.HueBot.Bot
                 (chatInfo, meetingInfo) = JoinInfo.ParseJoinURL(joinCallBody.JoinURL);
             }
 
-            var tenantId =
-                joinCallBody.TenantId ??
-                (meetingInfo as OrganizerMeetingInfo)?.Organizer.GetPrimaryIdentity()?.GetTenantId();
+            var tenantId = string.IsNullOrWhiteSpace(joinCallBody.TenantId)
+                ? (meetingInfo as OrganizerMeetingInfo)?.Organizer.GetPrimaryIdentity()?.GetTenantId()
+                : joinCallBody.TenantId;
+            if (meetingInfo is JoinMeetingIdMeetingInfo && string.IsNullOrWhiteSpace(tenantId))
+            {
+                throw new ArgumentException(
+                    "TenantId is required when joining with a short meeting URL, because the URL does not carry the organizer.",
+                    nameof(joinCallBody));
+            }
+
             ILocalMediaSession mediaSession = this.CreateLocalMediaSession();
 
             var joinParams = new JoinMeetingParameters(chatInfo, meetingInfo, mediaSession)

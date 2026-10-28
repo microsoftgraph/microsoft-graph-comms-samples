@@ -250,12 +250,15 @@ Once your Bot is successfully deployed and running, you will need to send a POST
 ```json
 {
     "joinURL": "https://teams.microsoft.com/l/meetup-join/...",
+    "tenantId": "<meeting-tenant-id>"
 }
 ```
 
+For short meeting URLs, include `tenantId`; long meeting URLs include organizer information and can provide the tenant automatically.
+
 * Here is a sample curl request to join the bot to the meeting.
 ```c
-curl --location --request POST 'https://bot.example.com/joinCall' --header 'Content-Type: application/json' --data-raw '{ "joinURL": "https://teams.microsoft.com/l/meetup-join/..." }'
+curl --location --request POST 'https://bot.example.com/joinCall' --header 'Content-Type: application/json' --data-raw '{ "joinURL": "https://teams.microsoft.com/l/meetup-join/...", "tenantId": "<meeting-tenant-id>" }'
 ```
 
 Your request should receive a 200 OK response.  
@@ -295,7 +298,7 @@ tunnels:
 
 #### curl request
 ```c
-curl --location --request POST 'https://bot.contoso.com/joinCall' --header 'Content-Type: application/json' --data-raw '{ "joinURL": "https://teams.microsoft.com/l/meetup-join/..." }'
+curl --location --request POST 'https://bot.contoso.com/joinCall' --header 'Content-Type: application/json' --data-raw '{ "joinURL": "https://teams.microsoft.com/l/meetup-join/...", "tenantId": "<meeting-tenant-id>" }'
 ```
 
 ### Example: Using an ngrok subdomain with multi-level subdomain certificate
@@ -327,5 +330,5 @@ tunnels:
 
 #### curl request
 ```c
-curl --location --request POST 'https://signal.ngrok.io/joinCall' --header 'Content-Type: application/json' --data-raw '{ "joinURL": "https://teams.microsoft.com/l/meetup-join/..." }'
+curl --location --request POST 'https://signal.ngrok.io/joinCall' --header 'Content-Type: application/json' --data-raw '{ "joinURL": "https://teams.microsoft.com/l/meetup-join/...", "tenantId": "<meeting-tenant-id>" }'
 ```

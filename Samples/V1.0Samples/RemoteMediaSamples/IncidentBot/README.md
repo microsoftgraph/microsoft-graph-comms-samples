@@ -182,7 +182,7 @@ Once the infrastructure is deployed, DSC will pull the code from the storage acc
 3. Install Teams client.
 
 4. Login Teams with user1. Create a teams channel and add a meeting there. 
-  * Meeting uri should be in format https://teams.microsoft.com/l/meetup-join/... 
+  * The meeting URI can be a long or short Teams meeting URL. For a short URL, the request's `tenantId` (also used for the responder calls) is used as the meeting's tenant, so the meeting must belong to that tenant.
 
 5. If the meeting created is a VTC meeting and **{videoTeleconferenceId}** is provided in request body, then **{videoTeleconferenceId}** will be used as a replacement of **{joinURL}**.
   ![Test Meeting1](Images/TestMeeting1.png)

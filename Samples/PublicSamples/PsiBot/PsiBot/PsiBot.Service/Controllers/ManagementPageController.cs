@@ -63,8 +63,8 @@ namespace PsiBot.Services.Controllers
                                       xhr.send();
                                   }
                               }
-                              function join(meetingUrl) {
-                                  api('POST', 'joinCall', { JoinURL: meetingUrl }, _ => { updateCalls(); });
+                              function join(meetingUrl, tenantId) {
+                                  api('POST', 'joinCall', { JoinURL: meetingUrl, TenantId: tenantId }, _ => { updateCalls(); });
                               }
                               function leave(legId) {
                                   api('DELETE', 'calls/' + legId, null, _ => { window.setTimeout(updateCalls, 2000); });
@@ -93,8 +93,11 @@ namespace PsiBot.Services.Controllers
                       </head>
                       <body onload='updateCalls()'>
                           <h1>Teams Bot</h1>
+                          <label for='joinUrl'>Meeting URL</label>
                           <input name='JoinURL' type='text' id='joinUrl' />
-                          <button onclick='join(document.getElementById(""joinUrl"").value)'>Join Meeting</button>
+                          <label for='tenantId'>Tenant ID (required for short meeting links)</label>
+                          <input name='TenantId' type='text' id='tenantId' />
+                          <button onclick='join(document.getElementById(""joinUrl"").value, document.getElementById(""tenantId"").value)'>Join Meeting</button>
                           <hr />
                           <h1>List Calls</h1>
                           <button onclick='updateCalls()'>Update</button>

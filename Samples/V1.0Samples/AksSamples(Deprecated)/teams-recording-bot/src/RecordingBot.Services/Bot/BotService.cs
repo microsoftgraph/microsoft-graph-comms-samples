@@ -151,7 +151,18 @@ namespace RecordingBot.Services.Bot
 
             var (chatInfo, meetingInfo) = JoinInfo.ParseJoinURL(joinCallBody.JoinURL);
 
-            var tenantId = (meetingInfo as OrganizerMeetingInfo).Organizer.GetPrimaryIdentity().GetTenantId();
+            // A short join URL resolves to JoinMeetingIdMeetingInfo, which carries no organizer, so
+            // the tenant cannot be derived from the URL. Fall back to the tenant on the request body.
+            var tenantId = (meetingInfo as OrganizerMeetingInfo)?.Organizer?.GetPrimaryIdentity()?.GetTenantId()
+                ?? joinCallBody.TenantId;
+
+            if (string.IsNullOrWhiteSpace(tenantId))
+            {
+                throw new ArgumentException(
+                    "TenantId is required when joining with a short meeting URL, because the URL does not carry the organizer.",
+                    nameof(joinCallBody));
+            }
+
             var mediaSession = this.CreateLocalMediaSession();
 
             var joinParams = new JoinMeetingParameters(chatInfo, meetingInfo, mediaSession)

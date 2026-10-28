@@ -407,8 +407,11 @@ Once the infrastructure is deployed, DSC will pull the code from the storage acc
         Content-Type: application/json
         {
             "JoinURL": "https://teams.microsoft.com/l/meetup-join/...",
+            "TenantId": "<meeting-tenant-id>"
         }
         ```
+
+For short meeting URLs, `TenantId` must be the tenant that owns the meeting.
 
 ##### Response
 

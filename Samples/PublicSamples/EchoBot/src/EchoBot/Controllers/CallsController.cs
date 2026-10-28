@@ -54,7 +54,9 @@ namespace EchoBot.Controllers
                 {
                     CallId = call.Id,
                     ScenarioId = call.ScenarioId,
-                    ThreadId = call.Resource.ChatInfo.ThreadId,
+                    // A call joined from a short meeting URL may not know its chat thread yet;
+                    // CallId can be used to end the call in that case.
+                    ThreadId = call.Resource.ChatInfo?.ThreadId,
                     Port = _settings.BotInstanceExternalPort.ToString()
                 };
 
@@ -70,7 +72,7 @@ namespace EchoBot.Controllers
         /// <summary>
         /// End the call.
         /// </summary>
-        /// <param name="threadId">Thread Id of the call to end.</param>
+        /// <param name="threadId">Thread Id of the call to end, or the CallId returned when it was joined.</param>
         /// <returns>The <see cref="HttpResponseMessage" />.</returns>
         [HttpDelete]
         public async Task<IActionResult> OnEndCallAsync(string threadId)

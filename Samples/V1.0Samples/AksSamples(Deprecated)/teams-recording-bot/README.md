@@ -130,6 +130,7 @@ POST https://bot.ngrok.io/joinCall
 Content-Type: application/json
 {
     "JoinURL": "JOIN_URL",
+    "TenantId": "MEETING_TENANT_ID",
     "DisplayName": "Bot"
 }
 ```

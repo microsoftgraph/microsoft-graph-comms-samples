@@ -155,9 +155,12 @@ Click `Start` on the top toolbar to deploy the sample to the local cluster.
             Content-Type: application/json
 
             {
-              "JoinURL": "{URL to join the meeting, copied from step 2}"
+              "JoinURL": "{URL to join the meeting, copied from step 2}",
+              "TenantId": "{Tenant ID of the meeting}"
             }
         ```
+
+        For short meeting URLs, `TenantId` must be the tenant that owns the meeting.
 
         ##### Response
         The guid 321a0b00-84de-415b-a31b-bdd1b0abe663 in callURL in the response will be your call id. Use your call id for the next request.

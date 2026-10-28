@@ -63,7 +63,7 @@ namespace Sample.HueBot.Controllers
         /// <summary>
         /// The join call body.
         /// Provide either:
-        ///     1) JoinURL or
+        ///     1) JoinURL (TenantId is also required for short meeting URLs) or
         ///     2) VideoTeleconferenceId and TenantId
         /// The second method is reserved for cloud-video-interop partners.
         /// The VideoTeleconferenceId is the short key generated for the room system devices.
@@ -84,8 +84,7 @@ namespace Sample.HueBot.Controllers
             public string VideoTeleconferenceId { get; set; }
 
             /// <summary>
-            /// Gets or sets the tenant id.
-            /// The tenant id is needed to acquire authentication to get meeting info.
+            /// Gets or sets the tenant id. Required for short meeting URLs and for retrieving VTC meeting information.
             /// </summary>
             public string TenantId { get; set; }
 
